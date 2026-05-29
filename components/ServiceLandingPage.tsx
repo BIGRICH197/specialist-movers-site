@@ -3,7 +3,6 @@ import { Check } from "lucide-react";
 import { NumberedInfoGrid } from "@/components/NumberedInfoGrid";
 import { HeroVisual } from "@/components/HeroVisual";
 import { MovingBanners } from "@/components/MovingBanners";
-import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
 import { PianoPartnerMarquee } from "@/components/PianoPartnerMarquee";
 import { ProcessStepsGrid } from "@/components/ProcessStepsGrid";
 import { ReviewSidebarColumn } from "@/components/ReviewSidebarColumn";
@@ -25,7 +24,7 @@ type Props = {
 
 /**
  * Lead-focused landing layout (booking page flow), hero + quote form, trust bar,
- * about, photo moment, why us, process, related links, FAQ, final CTA.
+ * about, why us, process, related links, FAQ, final CTA.
  */
 export function ServiceLandingPage({ config }: Props) {
   const landingFaqs =
@@ -138,11 +137,6 @@ export function ServiceLandingPage({ config }: Props) {
           </ul>
         </div>
       </SectionReveal>
-
-      <PagePhotoMomentStrip
-        momentKey={config.pageMomentKey}
-        useQuoteAnchor={false}
-      />
 
       {/* Why choose */}
       <SectionReveal className="border-t border-brand-purple/10 bg-brand-purple/[0.03] py-12 sm:py-14">

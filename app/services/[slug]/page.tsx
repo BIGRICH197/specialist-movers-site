@@ -51,7 +51,6 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
       ]}
       heroPhoto={getServicePhoto(service.slug)}
       heroPhotoAlt={`${service.title} , Specialist Movers Auckland`}
-      pageMomentKey={`services/${service.slug}`}
     />
   );
 }

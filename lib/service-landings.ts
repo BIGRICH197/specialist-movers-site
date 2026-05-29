@@ -39,7 +39,6 @@ export type ServiceLandingConfig = {
   heroGagAlt: string;
   heroOverlayCaption?: string;
   heroVariant: "moving" | "piano";
-  pageMomentKey: string;
   aboutTitle: string;
   aboutBody: string;
   trustHighlights: ServiceLandingHighlight[];
@@ -88,7 +87,6 @@ const landingOverrides: Record<
     aboutSidePhotoAlt:
       "Specialist Piano Movers crew with a wrapped upright piano beside the company truck",
     heroVariant: "piano",
-    pageMomentKey: "piano-movers",
     aboutTitle: "About our piano moving team",
     aboutBody:
       "Specialist Piano Movers is part of Specialist Movers. We are trusted by Steinway and major Auckland music stores for careful collection, secure transport, and setup on arrival. Whether it is a short hop across town or Hamilton to Auckland, we plan access, stairs, and timing before we arrive.",
@@ -146,7 +144,6 @@ const landingOverrides: Record<
       "Specialist Movers carrying a sofa while the client relaxes and reads a magazine",
     heroOverlayCaption: hero.photoTagline,
     heroVariant: "moving",
-    pageMomentKey: "services/house-moving",
     aboutTitle: "About our house moving service",
     aboutBody:
       "At Specialist Movers, we go beyond shifting boxes. We plan access, protect furniture, and communicate clearly from quote to handover. Apartments, townhouses, and full homes. Local moves and longer relocations when you need them.",
@@ -186,7 +183,6 @@ const landingOverrides: Record<
     heroGagAlt: "Specialist Movers crew carrying office boxes while a client relaxes inside",
     heroOverlayCaption: "You run the office. We move it.",
     heroVariant: "moving",
-    pageMomentKey: "services/office-moving",
     aboutTitle: "About our office moving service",
     aboutBody:
       "We relocate offices and workplaces across Auckland and the Waikato, from single-floor moves to multi-site projects. Building access, parking, and lift bookings are sorted before move day. Packing and IT-sensitive items can be included.",
@@ -227,7 +223,6 @@ const landingOverrides: Record<
       "Specialist Movers team in uniform with company trucks ready for commercial work",
     heroOverlayCaption: "You run the business. We move the gear.",
     heroVariant: "moving",
-    pageMomentKey: "services/commercial-moving",
     aboutSidePhoto: sitePhotos.commercialFitOut,
     aboutSidePhotoAlt:
       "Specialist Movers crew on a commercial kitchen and fit out job",

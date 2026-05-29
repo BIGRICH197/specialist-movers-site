@@ -43,7 +43,6 @@ export default function StorageDetailPage({
       hubLabel="Storage"
       hubHref={storageHub.path}
       photoSlug={photoSlug}
-      pageMomentKey={`services/storage/${item.slug}`}
     />
   );
 }

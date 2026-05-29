@@ -43,7 +43,6 @@ export default function MovingDistancePage({
       hubLabel="Moving by distance"
       hubHref={movingDistanceHub.path}
       photoSlug="house-moving"
-      pageMomentKey={`services/moving/${item.slug}`}
     />
   );
 }

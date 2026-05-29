@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Check } from "lucide-react";
 import { HeroVisual } from "@/components/HeroVisual";
-import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Breadcrumbs, type Crumb } from "@/components/Breadcrumbs";
 import type { ServiceClusterItem } from "@/lib/service-clusters";
@@ -14,7 +13,6 @@ type Props = {
   hubLabel: string;
   hubHref: string;
   photoSlug?: string;
-  pageMomentKey?: string;
 };
 
 export function ServiceClusterDetail({
@@ -22,7 +20,6 @@ export function ServiceClusterDetail({
   hubLabel,
   hubHref,
   photoSlug = "house-moving",
-  pageMomentKey,
 }: Props) {
   const breadcrumbs: Crumb[] = [
     { label: "Home", href: "/" },
@@ -65,8 +62,6 @@ export function ServiceClusterDetail({
           ) : null}
         </div>
       </section>
-
-      {pageMomentKey ? <PagePhotoMomentStrip momentKey={pageMomentKey} /> : null}
 
       <section className="mx-auto grid max-w-7xl gap-10 py-12 container-px lg:grid-cols-[minmax(0,1fr)_minmax(300px,400px)] lg:items-start">
         <article className="space-y-10">

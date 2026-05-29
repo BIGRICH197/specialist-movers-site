@@ -28,7 +28,6 @@ export default function PianoDetail({ params }: { params: { slug: string } }) {
       ]}
       heroPhoto={getPianoPhoto(service.slug)}
       heroPhotoAlt={`${service.title} , Specialist Movers`}
-      pageMomentKey={`piano-movers/${service.slug}`}
     />
   );
 }

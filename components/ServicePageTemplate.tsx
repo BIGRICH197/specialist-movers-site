@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Check } from "lucide-react";
 import { HeroVisual } from "@/components/HeroVisual";
-import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Breadcrumbs, type Crumb } from "@/components/Breadcrumbs";
 import { resolveServiceLink } from "@/lib/service-links";
@@ -17,8 +16,6 @@ type ServicePageTemplateProps = {
   breadcrumbs: Crumb[];
   heroPhoto?: string;
   heroPhotoAlt?: string;
-  /** e.g. services/house-moving , half-width caption strip below hero */
-  pageMomentKey?: string;
 };
 
 export function ServicePageTemplate({
@@ -31,7 +28,6 @@ export function ServicePageTemplate({
   breadcrumbs,
   heroPhoto,
   heroPhotoAlt,
-  pageMomentKey,
 }: ServicePageTemplateProps) {
   return (
     <div className="bg-brand-white">
@@ -60,7 +56,6 @@ export function ServicePageTemplate({
           )}
         </div>
       </section>
-      {pageMomentKey ? <PagePhotoMomentStrip momentKey={pageMomentKey} /> : null}
       <section className="mx-auto grid max-w-7xl gap-10 py-12 container-px lg:grid-cols-[minmax(0,1fr)_minmax(300px,400px)] lg:items-start">
         <article className="space-y-10">
           <div className="rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm sm:p-8">
@@ -109,10 +104,7 @@ export function ServicePageTemplate({
             </div>
           </div>
         </article>
-        <div
-          id={pageMomentKey ? undefined : "quote"}
-          className="scroll-mt-28 lg:sticky lg:top-28"
-        >
+        <div id="quote" className="scroll-mt-28 lg:sticky lg:top-28">
           <p className="mb-3 text-sm font-semibold text-brand-purple">
             Fast quote , select all services you need + both addresses
           </p>
