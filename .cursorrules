@@ -1,0 +1,10 @@
+Always use Tailwind CSS for styling, never inline styles
+All components go in /components folder
+All pages use the App Router in /app folder
+Use TypeScript throughout
+Use only brand colours from the asset SVGs: brand-purple (#9739b0), brand-yellow (#f3d02a), brand-white (#FFFFFF); optional brand-purple-light (#be76ef) from Primary Logo Light Purple.svg for accents
+Use brand fonts loaded from the user's Specialist Movers email signature folder (Inter + Termina) via next/font/local
+Mobile first — always style mobile then desktop
+Keep components small and reusable
+Never use stock photos — use clearly labelled placeholder divs styled with purple/yellow/white only
+Quote form component lives at components/QuoteForm.tsx and is reused across all pages

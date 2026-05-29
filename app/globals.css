@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+@layer base {
+  * {
+    @apply border-brand-purple/15;
+  }
+
+  html {
+    @apply scroll-smooth;
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply overflow-x-hidden bg-brand-canvas font-sans text-brand-purple antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading;
+  }
+}
+
+/* Google Places dropdown above quote form / header */
+.pac-container {
+  z-index: 10050;
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+@layer utilities {
+  .container-px {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Hero wash — sits on brand-canvas; less stark than pure white */
+  .bg-hero-modern {
+    background-color: #faf7fc;
+    background-image:
+      radial-gradient(ellipse 120% 80% at 100% 0%, rgba(151, 57, 176, 0.1) 0%, transparent 55%),
+      radial-gradient(ellipse 100% 70% at 0% 100%, rgba(243, 208, 42, 0.26) 0%, transparent 52%);
+  }
+
+  /* CTA strip / section highlight */
+  .bg-lead-accent {
+    @apply bg-gradient-to-r from-brand-yellow/25 via-brand-yellow/15 to-transparent;
+  }
+
+  /* Interactive cards — lift on hover (service grid, FAQs, stats) */
+  .card-interactive {
+    @apply transition-[transform,box-shadow,border-color] duration-200 ease-out;
+  }
+
+  .card-interactive:hover {
+    @apply -translate-y-1 border-brand-purple/25 shadow-md;
+  }
+
+  /* Trustindex injects at the script tag — keep widget in page flow, not under footer */
+  .trustindex-host .ti-widget {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .trustindex-host[data-layout="carousel"] .ti-widget,
+  .trustindex-host[data-layout="carousel"] .ti-widget-container {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Floating layouts append a second copy to <body> — hide it (host copy stays visible) */
+  body > .ti-widget,
+  body > div:has(.ti-widget) {
+    display: none !important;
+    overflow: hidden !important;
+    max-height: 0 !important;
+    pointer-events: none !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card-interactive:hover {
+      transform: none;
+    }
+  }
+
+  /* Hero — purple only (no yellow wash in top-left) */
+  .hero-ambient {
+    position: relative;
+    /* No overflow clip here — it breaks `position: sticky` on the quote form */
+    background-color: #9739b0;
+    background-image:
+      radial-gradient(ellipse 80% 55% at 0% 0%, rgba(190, 118, 239, 0.22) 0%, transparent 58%),
+      radial-gradient(ellipse 65% 50% at 100% 100%, rgba(151, 57, 176, 0.35) 0%, transparent 52%);
+  }
+
+  /* Photo zoom — clip inside frame so scale never causes page scroll */
+  .hero-photo-ambient {
+    overflow: hidden;
+    border-radius: 1rem;
+  }
+
+  .hero-photo-ambient > * {
+    animation: hero-photo-drift 24s ease-in-out infinite alternate;
+    transform-origin: center center;
+  }
+
+  @keyframes hero-photo-drift {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.02);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-photo-ambient > * {
+      animation: none;
+    }
+  }
+
+  /* Raster cartoons from WP — tint to brand (process step images) */
+  .illustration-tint-purple {
+    filter: brightness(0) saturate(100%) invert(28%) sepia(79%) saturate(2476%)
+      hue-rotate(262deg) brightness(92%) contrast(91%);
+  }
+
+  .illustration-tint-yellow {
+    filter: brightness(0) saturate(100%) invert(88%) sepia(98%) saturate(1352%)
+      hue-rotate(358deg) brightness(104%) contrast(96%);
+  }
+}
+
+/* Team photo band — background stays fixed while page scrolls (live site parallax) */
+.parallax-section-bg {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Fixed attachment is disabled on small screens (iOS) and reduced-motion */
+@media (max-width: 768px) {
+  .parallax-section-bg {
+    background-attachment: scroll;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-section-bg {
+    background-attachment: scroll;
+  }
+}
+
+/*
+ * Photo purple wash — outside @layer so it always wins over Tailwind resets.
+ * Uses ::after so Next/Image stacking cannot hide the overlay.
+ */
+.photo-frame {
+  position: relative;
+  isolation: isolate;
+}
+
+.photo-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  border-radius: inherit;
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(151, 57, 176, 0.52) 0%,
+      rgba(151, 57, 176, 0.22) 38%,
+      rgba(190, 118, 239, 0.08) 55%,
+      transparent 72%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(190, 118, 239, 0.28) 0%,
+      rgba(151, 57, 176, 0.1) 45%,
+      transparent 70%
+    );
+}
+
+.photo-frame--caption::after {
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(151, 57, 176, 0.97) 0%,
+      rgba(151, 57, 176, 0.72) 18%,
+      rgba(151, 57, 176, 0.35) 42%,
+      rgba(190, 118, 239, 0.12) 58%,
+      transparent 72%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(190, 118, 239, 0.22) 0%,
+      transparent 55%
+    );
+}
+
+.photo-frame--round::after {
+  border-radius: 9999px;
+}

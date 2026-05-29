@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_3" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250.48 50.64">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 32.67px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #f3d02a;
+        font-family: Termina-Bold, Termina;
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        font-size: 14.63px;
+      }
+
+      .cls-3 {
+        letter-spacing: .25em;
+      }
+
+      .cls-4 {
+        letter-spacing: .25em;
+      }
+
+      .cls-5 {
+        letter-spacing: .21em;
+      }
+
+      .cls-6 {
+        letter-spacing: .25em;
+      }
+
+      .cls-7 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-8 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-9 {
+        letter-spacing: -.03em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1" data-name="Layer 1">
+    <g>
+      <text class="cls-1" transform="translate(0 27.77)"><tspan x="0" y="0">SP</tspan><tspan class="cls-8" x="58.71" y="0">E</tspan><tspan x="86.61" y="0">CIALI</tspan><tspan class="cls-7" x="195.99" y="0">S</tspan><tspan class="cls-9" x="224.34" y="0">T</tspan></text>
+      <text class="cls-2" transform="translate(0 44.5)"><tspan class="cls-6" x="0" y="0">M</tspan><tspan class="cls-5" x="20.21" y="0">O</tspan><tspan class="cls-4" x="37.91" y="0">VE</tspan><tspan class="cls-3" x="70.97" y="0">R</tspan><tspan class="cls-4" x="88.32" y="0">S</tspan></text>
+    </g>
+  </g>
+</svg>
