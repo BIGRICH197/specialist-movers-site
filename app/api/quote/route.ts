@@ -103,6 +103,10 @@ export async function POST(request: Request) {
 
     const result = calculateHouseMove(input);
 
+    const extraNotes = body.message?.trim()
+      ? `\n\nCustomer notes:\n${body.message.trim()}`
+      : "";
+
     createHubSpotDeal({
       name: body.name,
       phone: body.phone,
@@ -113,8 +117,8 @@ export async function POST(request: Request) {
       preferredDate: body.preferredDate,
       estimatedValue: result.outOfAuckland ? undefined : result.totalIncGst,
       notes: result.outOfAuckland
-        ? `Website quote: Out of Auckland - custom quote needed\n${body.bedrooms}BR, ${body.pickupAddress} → ${body.dropoffAddress}`
-        : `Website quote: $${result.totalIncGst} incl GST\n${result.breakdown}`,
+        ? `Website quote: Out of Auckland - custom quote needed\n${body.bedrooms}BR, ${body.pickupAddress} → ${body.dropoffAddress}${extraNotes}`
+        : `Website quote: $${result.totalIncGst} incl GST\n${result.breakdown}${extraNotes}`,
     }).catch(console.error);
 
     return NextResponse.json({ ok: true, mode: "house", pricing: result });
@@ -131,6 +135,10 @@ export async function POST(request: Request) {
 
     const result = calculatePianoMove(input);
 
+    const extraNotes = body.message?.trim()
+      ? `\n\nCustomer notes:\n${body.message.trim()}`
+      : "";
+
     createHubSpotDeal({
       name: body.name,
       phone: body.phone,
@@ -140,8 +148,8 @@ export async function POST(request: Request) {
       dropoffAddress: body.dropoffAddress,
       estimatedValue: result.outOfAuckland ? undefined : result.totalIncGst,
       notes: result.outOfAuckland
-        ? `Website quote: Out of Auckland - custom quote needed\n${body.pianoType} piano, ${body.pickupAddress} → ${body.dropoffAddress}`
-        : `Website quote: $${result.totalIncGst} incl GST\n${result.breakdown}`,
+        ? `Website quote: Out of Auckland - custom quote needed\n${body.pianoType} piano, ${body.pickupAddress} → ${body.dropoffAddress}${extraNotes}`
+        : `Website quote: $${result.totalIncGst} incl GST\n${result.breakdown}${extraNotes}`,
     }).catch(console.error);
 
     return NextResponse.json({ ok: true, mode: "piano", pricing: result });

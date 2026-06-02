@@ -866,6 +866,17 @@ export function QuoteForm({
             />
           </div>
 
+          <div className="space-y-1.5">
+            <label className={label}>Message (optional)</label>
+            <textarea
+              rows={3}
+              placeholder="Any notes that help us quote accurately (oversized items, stairs, tight access, timing, etc.)"
+              value={f.message}
+              onChange={(e) => set("message", e.target.value)}
+              className={`${field} h-auto py-3`}
+            />
+          </div>
+
           {f.mode === "house" && (
             <div className="space-y-3 rounded-xl border-2 border-brand-purple/10 bg-brand-yellow/[0.06] p-4">
               <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple">
