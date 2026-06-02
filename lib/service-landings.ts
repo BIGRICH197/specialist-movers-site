@@ -78,14 +78,14 @@ const landingOverrides: Record<
     lead:
       "Moving a piano takes skill, not just strength. We move upright, baby grand, and grand pianos with the right gear, shrink wrap, and crews who do this every day. Auckland and Hamilton bases. Callback within 15 minutes.",
     subline: "Piano moves from $300. Free quote. We call back within 15 minutes.",
-    heroGagPhoto: sitePhotos.pianoMove,
-    heroGagAlt: "Specialist Movers crew moving a grand piano",
+    heroGagPhoto: sitePhotos.pianoAbout,
+    heroGagAlt: "Specialist Piano Movers team with a wrapped piano beside the company truck",
     heroOverlayCaption: "You play. We move.",
     wrapHeroPhoto: false,
     showAboutSideImage: true,
-    aboutSidePhoto: sitePhotos.pianoAbout,
+    aboutSidePhoto: sitePhotos.pianoMove,
     aboutSidePhotoAlt:
-      "Specialist Piano Movers crew with a wrapped upright piano beside the company truck",
+      "Specialist Movers crew moving a piano carefully",
     heroVariant: "piano",
     aboutTitle: "About our piano moving team",
     aboutBody:
