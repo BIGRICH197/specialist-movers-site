@@ -94,6 +94,16 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/piano-tuning",
+        destination: "/piano-movers/piano-tuning",
+        permanent: true,
+      },
+      {
+        source: "/piano-tuning/",
+        destination: "/piano-movers/piano-tuning",
+        permanent: true,
+      },
+      {
         source: "/services/moving/international-moving",
         destination: "/services/international-moving",
         permanent: true,

@@ -95,6 +95,7 @@ export const pianoMomentPhotoBySlug: Record<string, string> = {
   "upright-piano": sitePhotos.pianoMove,
   "international-piano": sitePhotos.homeRainMoment,
   "piano-storage": sitePhotos.pianoMove,
+  "piano-tuning": sitePhotos.pianoCare,
 };
 
 export const pianoPhotoBySlug: Record<string, string> = {
@@ -102,6 +103,7 @@ export const pianoPhotoBySlug: Record<string, string> = {
   "upright-piano": `${p125}/P1250437.jpg`,
   "international-piano": `${p125}/P1250386.jpg`,
   "piano-storage": sitePhotos.pianoCare,
+  "piano-tuning": "/photos/piano-gallery/piano-tuning.jpg",
 };
 
 export function getServicePhoto(slug: string): string | undefined {

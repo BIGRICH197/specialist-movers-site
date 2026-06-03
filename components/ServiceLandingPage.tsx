@@ -199,8 +199,8 @@ export function ServiceLandingPage({ config }: Props) {
             Piano services
           </h2>
           <p className="mt-3 max-w-2xl text-brand-purple/80">
-            Upright, grand, international shipping, or storage. Pick the option that fits your
-            piano.
+            Upright, grand, tuning, international shipping, or storage. Pick the option that fits
+            your piano.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {pianoServices.map((p) => (

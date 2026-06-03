@@ -5,7 +5,9 @@ import { getPianoPhoto } from "@/lib/site-photos";
 import { pianoServices } from "@/lib/site-data";
 
 export function generateStaticParams() {
-  return pianoServices.map((s) => ({ slug: s.slug }));
+  return pianoServices
+    .filter((s) => s.slug !== "piano-tuning")
+    .map((s) => ({ slug: s.slug }));
 }
 
 export function generateMetadata({

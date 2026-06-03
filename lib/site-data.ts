@@ -223,7 +223,21 @@ export const pianoServices = [
     ],
     whyChooseCopy:
       "When timing changes, storage can save your move. We help you store your piano safely with expert handling before the next step.",
-    relatedSlugs: ["grand-piano", "upright-piano", "piano-movers"],
+    relatedSlugs: ["grand-piano", "upright-piano", "piano-tuning", "piano-movers"],
+  },
+  {
+    slug: "piano-tuning",
+    title: "Piano Tuning",
+    defaultJobType: "Piano Move" as const,
+    includedBullets: [
+      "Standard tuning for upright and grand pianos",
+      "Pitch correction when the piano has slipped between services",
+      "Advice on humidity, heating, and how often to book",
+      "Coordination with piano moves when you need both services",
+    ],
+    whyChooseCopy:
+      "Regular tuning keeps your piano sounding its best and helps catch small problems before they become expensive repairs.",
+    relatedSlugs: ["piano-movers", "grand-piano", "upright-piano", "piano-storage"],
   },
 ] as const;
 
