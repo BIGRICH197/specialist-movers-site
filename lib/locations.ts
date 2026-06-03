@@ -484,19 +484,14 @@ export function getLocationSlugs(): string[] {
   return allLocations.map((l) => l.slug);
 }
 
-/** Header dropdown, regions + main Waikato towns (not every suburb) */
+/** Header dropdown — Hamilton first; Auckland suburbs via hub (no region pages). */
 export const locationNavItems: readonly { label: string; href: string; group: LocationGroup }[] = [
-  { label: "All areas we serve", href: "/locations", group: "auckland" },
-  { label: "North Shore", href: "/locations/north-shore", group: "auckland" },
-  { label: "Central Auckland", href: "/locations/central-auckland", group: "auckland" },
-  { label: "West Auckland", href: "/locations/west-auckland", group: "auckland" },
-  { label: "South Auckland", href: "/locations/south-auckland", group: "auckland" },
-  { label: "East Auckland", href: "/locations/east-auckland", group: "auckland" },
   { label: "Hamilton", href: "/locations/hamilton", group: "waikato" },
   { label: "Cambridge", href: "/locations/cambridge", group: "waikato" },
   { label: "Te Awamutu", href: "/locations/te-awamutu", group: "waikato" },
   { label: "Morrinsville", href: "/locations/morrinsville", group: "waikato" },
   { label: "Matamata", href: "/locations/matamata", group: "waikato" },
+  { label: "All Auckland suburbs", href: "/locations", group: "auckland" },
 ];
 
 export function getChildLocations(parentSlug: string): Location[] {
@@ -513,7 +508,6 @@ export type LocationHubGroup = {
 
 /** Hub page columns */
 export function getLocationHubGroups(): LocationHubGroup[] {
-  const aucklandRegions = regions;
   const aucklandSuburbs = allLocations.filter(
     (l) => l.kind === "suburb" && l.group === "auckland",
   );
@@ -523,18 +517,18 @@ export function getLocationHubGroups(): LocationHubGroup[] {
 
   return [
     {
-      id: "auckland",
-      title: "Auckland",
-      regions: aucklandRegions,
-      suburbs: aucklandSuburbs,
-      towns: [],
-    },
-    {
       id: "waikato",
       title: "Waikato",
       regions: [],
       suburbs: [],
       towns: waikatoTowns,
+    },
+    {
+      id: "auckland",
+      title: "Auckland suburbs",
+      regions: [],
+      suburbs: aucklandSuburbs,
+      towns: [],
     },
   ];
 }

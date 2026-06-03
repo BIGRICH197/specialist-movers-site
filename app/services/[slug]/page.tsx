@@ -1,16 +1,27 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { HamiltonServicePage } from "@/components/HamiltonServicePage";
 import { ServiceLandingPage } from "@/components/ServiceLandingPage";
 import { ServicePageTemplate } from "@/components/ServicePageTemplate";
+import { getHamiltonPageConfig, getHamiltonStaticParams } from "@/lib/hamilton-pages";
 import { getServicePhoto } from "@/lib/site-photos";
 import { getServiceLandingConfig, isServiceLandingSlug } from "@/lib/service-landings";
 import { services } from "@/lib/site-data";
 
 export function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
+  return [...services.map((s) => ({ slug: s.slug })), ...getHamiltonStaticParams()];
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const hamilton = getHamiltonPageConfig(params.slug);
+  if (hamilton) {
+    return {
+      title: hamilton.metaTitle,
+      description: hamilton.metaDescription,
+      alternates: { canonical: hamilton.path },
+    };
+  }
+
   const service = services.find((s) => s.slug === params.slug);
   if (!service) return {};
   const landing = getServiceLandingConfig(params.slug);
@@ -21,12 +32,17 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     };
   }
   return {
-    title: `${service.title} Auckland & Waikato`,
-    description: `${service.description} Trusted ${service.title.toLowerCase()} specialists with Auckland and Hamilton bases , servicing Auckland and the Waikato.`,
+    title: `${service.title} Auckland`,
+    description: `${service.description} Trusted ${service.title.toLowerCase()} specialists. Auckland base. Free quote. Callback in 15 minutes.`,
   };
 }
 
 export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
+  const hamilton = getHamiltonPageConfig(params.slug);
+  if (hamilton) {
+    return <HamiltonServicePage config={hamilton} />;
+  }
+
   const service = services.find((s) => s.slug === params.slug);
   if (!service) notFound();
 
@@ -51,6 +67,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
       ]}
       heroPhoto={getServicePhoto(service.slug)}
       heroPhotoAlt={`${service.title} , Specialist Movers Auckland`}
+      hamiltonBaseSlug={service.slug}
     />
   );
 }

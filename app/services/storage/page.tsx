@@ -24,6 +24,7 @@ export default function StorageHubPage() {
         icons={[...icons]}
         allServicesHref="/services/moving"
         allServicesLabel="Moving by distance"
+        hamiltonBaseSlug="storage"
       />
       <PagePhotoMomentStrip momentKey="services" />
     </>

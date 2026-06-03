@@ -8,6 +8,7 @@ import {
   storageServices,
   whatsIncludedPage,
 } from "@/lib/service-clusters";
+import { listHamiltonPaths } from "@/lib/hamilton-pages";
 import { blogPosts, pianoServices, services } from "@/lib/site-data";
 import { siteUrl } from "@/lib/site-config";
 
@@ -90,6 +91,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.65,
+    });
+  }
+
+  for (const path of listHamiltonPaths()) {
+    entries.push({
+      url: `${siteUrl}${path}`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
     });
   }
 

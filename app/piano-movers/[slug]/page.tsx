@@ -4,15 +4,27 @@ import { ServicePageTemplate } from "@/components/ServicePageTemplate";
 import { getPianoPhoto } from "@/lib/site-photos";
 import { pianoServices } from "@/lib/site-data";
 
-export function generateStaticParams() { return pianoServices.map((s) => ({ slug: s.slug })); }
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+export function generateStaticParams() {
+  return pianoServices.map((s) => ({ slug: s.slug }));
+}
+
+export function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Metadata {
   const service = pianoServices.find((s) => s.slug === params.slug);
   if (!service) return {};
-  return { title: service.title, description: `${service.title} by Auckland's dedicated specialist piano moving team.` };
+  return {
+    title: service.title,
+    description: `${service.title} by Auckland's dedicated specialist piano moving team.`,
+  };
 }
-export default function PianoDetail({ params }: { params: { slug: string } }) {
+
+export default function PianoSlugPage({ params }: { params: { slug: string } }) {
   const service = pianoServices.find((s) => s.slug === params.slug);
   if (!service) notFound();
+
   return (
     <ServicePageTemplate
       title={service.title}
@@ -28,7 +40,7 @@ export default function PianoDetail({ params }: { params: { slug: string } }) {
       ]}
       heroPhoto={getPianoPhoto(service.slug)}
       heroPhotoAlt={`${service.title} , Specialist Movers`}
+      hamiltonBaseSlug="piano-movers"
     />
   );
 }
-

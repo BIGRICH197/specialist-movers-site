@@ -7,6 +7,7 @@ import {
   clusterItemPath,
   type ServiceClusterItem,
 } from "@/lib/service-clusters";
+import { HamiltonPageLink } from "@/components/HamiltonPageLink";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
 type Props = {
@@ -18,6 +19,8 @@ type Props = {
   icons: readonly LucideIcon[];
   allServicesHref?: string;
   allServicesLabel?: string;
+  /** e.g. "storage" or "moving" for Hamilton page link */
+  hamiltonBaseSlug?: string;
 };
 
 export function ServiceClusterHub({
@@ -29,6 +32,7 @@ export function ServiceClusterHub({
   icons,
   allServicesHref = "/services",
   allServicesLabel = "All moving services",
+  hamiltonBaseSlug,
 }: Props) {
   return (
     <div className="bg-brand-white">
@@ -39,6 +43,9 @@ export function ServiceClusterHub({
         >
           {phoneDisplay}
         </a>
+        {hamiltonBaseSlug ? (
+          <HamiltonPageLink serviceSlug={hamiltonBaseSlug} variant="inline" />
+        ) : null}
       </PageHero>
 
       <SectionReveal className="mx-auto max-w-7xl py-12 container-px">

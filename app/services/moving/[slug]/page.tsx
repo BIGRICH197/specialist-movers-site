@@ -6,6 +6,7 @@ import {
   movingDistanceHub,
   movingDistanceServices,
 } from "@/lib/service-clusters";
+import { isServiceCitySlug } from "@/lib/service-cities";
 import { regions } from "@/lib/regions";
 
 export function generateStaticParams() {
@@ -30,6 +31,12 @@ export default function MovingDistancePage({
 }: {
   params: { slug: string };
 }) {
+  if (isServiceCitySlug(params.slug)) {
+    if (params.slug === "auckland") redirect("/services/moving");
+    if (params.slug === "hamilton") redirect("/services/moving-hamilton");
+    notFound();
+  }
+
   const item = getMovingDistanceService(params.slug);
   if (!item) notFound();
 

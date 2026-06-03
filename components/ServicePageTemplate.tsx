@@ -3,6 +3,7 @@ import { Check } from "lucide-react";
 import { HeroVisual } from "@/components/HeroVisual";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Breadcrumbs, type Crumb } from "@/components/Breadcrumbs";
+import { HamiltonPageLink } from "@/components/HamiltonPageLink";
 import { resolveServiceLink } from "@/lib/service-links";
 import { phoneDisplay, phoneNumber, services } from "@/lib/site-data";
 
@@ -16,6 +17,8 @@ type ServicePageTemplateProps = {
   breadcrumbs: Crumb[];
   heroPhoto?: string;
   heroPhotoAlt?: string;
+  /** Base slug for Hamilton page link (e.g. house-moving) */
+  hamiltonBaseSlug?: string;
 };
 
 export function ServicePageTemplate({
@@ -28,6 +31,7 @@ export function ServicePageTemplate({
   breadcrumbs,
   heroPhoto,
   heroPhotoAlt,
+  hamiltonBaseSlug,
 }: ServicePageTemplateProps) {
   return (
     <div className="bg-brand-white">
@@ -41,6 +45,9 @@ export function ServicePageTemplate({
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/88 sm:text-lg">
               {description}
             </p>
+            {hamiltonBaseSlug ? (
+              <HamiltonPageLink serviceSlug={hamiltonBaseSlug} variant="hero" />
+            ) : null}
             <a
               href={`tel:${phoneNumber}`}
               className="mt-6 inline-flex font-heading text-xl font-bold text-brand-yellow transition-colors duration-200 hover:text-white sm:text-2xl"

@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { ServiceClusterDetail } from "@/components/ServiceClusterDetail";
 import { getStorageService, storageHub, storageServices } from "@/lib/service-clusters";
+import { isServiceCitySlug } from "@/lib/service-cities";
 import { regions } from "@/lib/regions";
 
 export function generateStaticParams() {
-  return storageServices
-    .filter((s) => !s.href)
-    .map((s) => ({ slug: s.slug }));
+  return storageServices.filter((s) => !s.href).map((s) => ({ slug: s.slug }));
 }
 
 export function generateMetadata({
@@ -28,6 +27,12 @@ export default function StorageDetailPage({
 }: {
   params: { slug: string };
 }) {
+  if (isServiceCitySlug(params.slug)) {
+    if (params.slug === "auckland") redirect("/services/storage");
+    if (params.slug === "hamilton") redirect("/services/storage-hamilton");
+    notFound();
+  }
+
   const item = getStorageService(params.slug);
   if (!item) notFound();
 

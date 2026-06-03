@@ -11,9 +11,12 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { SectionReveal } from "@/components/SectionReveal";
 import { faqs, googleReviewsUrl, statsStrip } from "@/lib/homepage-copy";
 import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
+import { PianoExpertiseSection } from "@/components/PianoExpertiseSection";
+import { PianoGallerySection } from "@/components/PianoGallerySection";
 import { pianoFaqs } from "@/lib/piano-faqs";
 import { regions } from "@/lib/regions";
 import { resolveServiceLink } from "@/lib/service-links";
+import { HamiltonPageLink } from "@/components/HamiltonPageLink";
 import type { ServiceLandingConfig } from "@/lib/service-landings";
 import { halfPhotoWrap } from "@/lib/photo-layout";
 import { phoneDisplay, phoneNumber, pianoServices } from "@/lib/site-data";
@@ -56,6 +59,7 @@ export function ServiceLandingPage({ config }: Props) {
             >
               {phoneDisplay}
             </a>
+            <HamiltonPageLink serviceSlug={config.slug} variant="hero" />
             <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold text-white/95">
               <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5">
                 Licensed & insured
@@ -137,6 +141,13 @@ export function ServiceLandingPage({ config }: Props) {
           </ul>
         </div>
       </SectionReveal>
+
+      {config.slug === "piano-movers" ? (
+        <>
+          <PianoExpertiseSection />
+          <PianoGallerySection />
+        </>
+      ) : null}
 
       {/* Why choose */}
       <SectionReveal className="border-t border-brand-purple/10 bg-brand-purple/[0.03] py-12 sm:py-14">

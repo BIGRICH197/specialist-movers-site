@@ -1,6 +1,5 @@
 import { hero } from "@/lib/homepage-copy";
 import { houseMovingProcess, workplaceMovingProcess } from "@/lib/moving-process";
-import { regions } from "@/lib/regions";
 import { getServicePhoto, sitePhotos } from "@/lib/site-photos";
 import type { JobType } from "@/lib/site-data";
 import { services } from "@/lib/site-data";
@@ -74,10 +73,10 @@ const landingOverrides: Record<
     slug: "piano-movers",
     path: "/piano-movers",
     eyebrow: "Trusted by Auckland music retailers. Piano specialists.",
-    h1: "Piano movers Auckland and the Waikato",
+    h1: "Piano movers Auckland",
     lead:
-      "Moving a piano takes skill, not just strength. We move upright, baby grand, and grand pianos with the right gear, shrink wrap, and crews who do this every day. Auckland and Hamilton bases. Callback within 15 minutes.",
-    subline: "Piano moves from $300. Free quote. We call back within 15 minutes.",
+      "Looking for reliable piano movers in Auckland? Specialist Piano Movers handles local moves, runs to Hamilton and the Waikato, and coordinates international shipping when you need it. Upright, baby grand, and grand pianos with shrink wrap, piano boards, and crews who do this every day.",
+    subline: "Piano moves from $300 excl. GST. Free quote. Callback within 15 minutes.",
     heroGagPhoto: sitePhotos.pianoAbout,
     heroGagAlt: "Specialist Piano Movers team with a wrapped piano beside the company truck",
     heroOverlayCaption: "You play. We move.",
@@ -89,7 +88,7 @@ const landingOverrides: Record<
     heroVariant: "piano",
     aboutTitle: "About our piano moving team",
     aboutBody:
-      "Specialist Piano Movers is part of Specialist Movers. We are trusted by Steinway and major Auckland music stores for careful collection, secure transport, and setup on arrival. Whether it is a short hop across town or Hamilton to Auckland, we plan access, stairs, and timing before we arrive.",
+      "At Specialist Piano Movers we focus on safe, efficient transport for pianos of all types and sizes. We are trusted by Steinway and major Auckland music stores including Lewis Eady, Rockshop, and Piano Traders. From our Wairau Valley base we cover the North Shore, central suburbs, west, south, and east Auckland every week. Your piano is an instrument and often a family heirloom. We plan collection, secure transport, and placement on arrival.",
     trustHighlights: [
       {
         title: "Retailer trusted",
@@ -106,7 +105,7 @@ const landingOverrides: Record<
     ],
     whyTitle: "Why choose us for your piano",
     whyBody:
-      "We use custom dollies, padding, and secure straps. Grand pianos are prepared properly before transport. You stay informed from pickup to placement. Not just movers, piano specialists.",
+      "Pianos look solid but they are delicate inside. Regular furniture crews are not enough. We use custom dollies, padding tape, and secure straps. Grand pianos are stripped and padded properly before transport. Transparent pricing, specialist insurance options, and updates from pickup to placement.",
     showPianoPartners: true,
     showMovingBanner: false,
     showPianoSubServices: true,
@@ -134,10 +133,10 @@ const landingOverrides: Record<
   "house-moving": {
     slug: "house-moving",
     path: "/services/house-moving",
-    eyebrow: `${regions.basesShort} , house moving specialists`,
-    h1: "House movers Auckland and the Waikato",
+    eyebrow: "Auckland house moving specialists",
+    h1: "House movers Auckland",
     lead:
-      "Relocating your home should feel manageable, not overwhelming. Our crews handle packing, heavy furniture, stairs, and timing so you can focus on settling in. Full-service house moves across Auckland and the Waikato.",
+      "Relocating your Auckland home should feel manageable, not overwhelming. Our Wairau Valley crews handle apartments, townhouses, and family homes across the city with clear communication, careful handling, and free in-home viewings when you need a fixed price.",
     subline: "Moves starting from $350. Free quote. We call back within 15 minutes.",
     heroGagPhoto: sitePhotos.homeHero,
     heroGagAlt:
@@ -174,10 +173,10 @@ const landingOverrides: Record<
   "office-moving": {
     slug: "office-moving",
     path: "/services/office-moving",
-    eyebrow: `${regions.basesShort} , office relocation specialists`,
-    h1: "Office movers Auckland and the Waikato",
+    eyebrow: "Auckland office relocation specialists",
+    h1: "Office movers Auckland",
     lead:
-      "Moving workplaces needs planning: desks, IT, files, and meeting rooms with minimal downtime. We coordinate lifts, loading zones, and after-hours slots so your team can get back to work.",
+      "Office and workplace moves across Auckland CBD fringe, inner suburbs, and business parks. We plan lifts, loading zones, and after-hours access so desks, IT, and files move with minimal downtime.",
     subline: "Office move quotes tailored to your space. Callback within 15 minutes.",
     heroGagPhoto: sitePhotos.officeMove,
     heroGagAlt: "Specialist Movers crew carrying office boxes while a client relaxes inside",
@@ -213,10 +212,10 @@ const landingOverrides: Record<
   "commercial-moving": {
     slug: "commercial-moving",
     path: "/services/commercial-moving",
-    eyebrow: `${regions.basesShort}. Commercial and fit out specialists.`,
-    h1: "Commercial movers Auckland and the Waikato",
+    eyebrow: "Auckland commercial moving specialists",
+    h1: "Commercial movers Auckland",
     lead:
-      "Kitchen installs, shop fit outs, staging, printer runs, vending machines, and heavy equipment. We move commercial work with clear timelines and the right gear. Auckland and Hamilton bases.",
+      "Kitchen installs, shop fit outs, staging, printer runs, vending machines, and heavy equipment across Auckland. We move commercial work with clear timelines, SiteWise Gold systems, and the right gear.",
     subline: "Commercial quotes tailored to your job. Callback within 15 minutes.",
     heroGagPhoto: sitePhotos.commercialTeam,
     heroGagAlt:

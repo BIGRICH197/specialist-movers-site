@@ -25,6 +25,7 @@ export default function MovingDistanceHubPage() {
         basePath={movingDistanceHub.path}
         items={movingDistanceServices}
         icons={[...icons]}
+        hamiltonBaseSlug="moving"
       />
       <PagePhotoMomentStrip momentKey="services" />
     </>

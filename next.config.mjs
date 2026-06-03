@@ -1,4 +1,36 @@
 /** @type {import('next').NextConfig} */
+
+const serviceSlugs = [
+  "house-moving",
+  "office-moving",
+  "commercial-moving",
+  "packing-services",
+  "hard-to-shift",
+  "cleaning-services",
+  "international-moving",
+  "loading-unloading",
+  "winz-quotes",
+  "storage",
+  "moving",
+];
+
+function cityRedirects() {
+  const rules = [];
+  for (const slug of serviceSlugs) {
+    rules.push({
+      source: `/services/${slug}/auckland`,
+      destination: `/services/${slug}`,
+      permanent: true,
+    });
+    rules.push({
+      source: `/services/${slug}/hamilton`,
+      destination: `/services/${slug}-hamilton`,
+      permanent: true,
+    });
+  }
+  return rules;
+}
+
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -32,10 +64,41 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/services/piano-movers/auckland",
+        destination: "/piano-movers",
+        permanent: true,
+      },
+      {
+        source: "/services/piano-movers/hamilton",
+        destination: "/piano-movers-hamilton",
+        permanent: true,
+      },
+      {
+        source: "/piano-movers-auckland",
+        destination: "/piano-movers",
+        permanent: true,
+      },
+      {
+        source: "/piano-movers-auckland/",
+        destination: "/piano-movers",
+        permanent: true,
+      },
+      {
+        source: "/piano-movers/auckland",
+        destination: "/piano-movers",
+        permanent: true,
+      },
+      {
+        source: "/piano-movers/hamilton",
+        destination: "/piano-movers-hamilton",
+        permanent: true,
+      },
+      {
         source: "/services/moving/international-moving",
         destination: "/services/international-moving",
         permanent: true,
       },
+      ...cityRedirects(),
     ];
   },
 };
