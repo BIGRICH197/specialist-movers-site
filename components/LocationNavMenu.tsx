@@ -7,7 +7,6 @@ import {
   type LocationNavLink,
 } from "@/lib/location-nav";
 import { serviceNavCompanyLinks } from "@/lib/service-nav";
-import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
 type Props = {
   onNavigate?: () => void;
