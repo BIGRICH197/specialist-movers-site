@@ -64,32 +64,32 @@ const nextConfig = {
       },
       {
         source: "/services/piano-movers/auckland",
-        destination: "/piano-movers",
+        destination: "/piano-movers/auckland",
         permanent: true,
       },
       {
         source: "/services/piano-movers/hamilton",
-        destination: "/piano-movers-hamilton",
+        destination: "/piano-movers/hamilton",
         permanent: true,
       },
       {
         source: "/piano-movers-auckland",
-        destination: "/piano-movers",
+        destination: "/piano-movers/auckland",
         permanent: true,
       },
       {
         source: "/piano-movers-auckland/",
-        destination: "/piano-movers",
+        destination: "/piano-movers/auckland",
         permanent: true,
       },
       {
-        source: "/piano-movers/auckland",
-        destination: "/piano-movers",
+        source: "/piano-movers-hamilton",
+        destination: "/piano-movers/hamilton",
         permanent: true,
       },
       {
-        source: "/piano-movers/hamilton",
-        destination: "/piano-movers-hamilton",
+        source: "/piano-movers-hamilton/",
+        destination: "/piano-movers/hamilton",
         permanent: true,
       },
       {

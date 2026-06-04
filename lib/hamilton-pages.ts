@@ -1,6 +1,6 @@
 /**
  * Hamilton service pages — separate URLs with unique copy (SEO).
- * Pattern: /services/{service}-hamilton, /piano-movers-hamilton
+ * Pattern: /services/{service}-hamilton, /piano-movers/hamilton
  */
 import type { JobType } from "@/lib/site-data";
 import { sitePhotos } from "@/lib/site-photos";
@@ -59,7 +59,7 @@ export function getHamiltonBaseSlug(slug: string): HamiltonBaseSlug | null {
 }
 
 export function hamiltonPath(base: HamiltonBaseSlug): string {
-  if (base === "piano-movers") return "/piano-movers-hamilton";
+  if (base === "piano-movers") return "/piano-movers/hamilton";
   return `/services/${base}${HAMILTON_SUFFIX}`;
 }
 
@@ -70,7 +70,7 @@ export function listHamiltonPaths(): string[] {
 const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug" | "path">> = {
   "piano-movers": {
     parentHref: "/piano-movers",
-    parentLabel: "Piano moving Auckland",
+    parentLabel: "Piano moving",
     metaTitle: "Piano moving Hamilton | Specialist Piano Movers",
     metaDescription:
       "Hamilton piano moving for upright and grand pianos. Waikato base, Auckland routes, storage and international crating. Free quote within 15 minutes.",

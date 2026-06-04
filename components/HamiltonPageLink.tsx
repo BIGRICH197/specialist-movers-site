@@ -21,7 +21,7 @@ export function HamiltonPageLink({ serviceSlug, variant = "inline" }: Props) {
   return (
     <div className={variant === "hero" ? "mt-5 flex flex-wrap gap-2" : "mt-4 flex flex-wrap gap-2"}>
       <Link href={href} className={linkClass}>
-        Hamilton service page →
+        {serviceSlug === "piano-movers" ? "Hamilton piano page →" : "Hamilton service page →"}
       </Link>
     </div>
   );

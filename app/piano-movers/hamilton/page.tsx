@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Piano moving Hamilton | Specialist Piano Movers",
   description:
     "Hamilton piano moving for upright and grand pianos. Waikato base, Auckland routes, storage and international crating. Free quote within 15 minutes.",
-  alternates: { canonical: "/piano-movers-hamilton" },
+  alternates: { canonical: "/piano-movers/hamilton" },
 };
 
 export default function PianoMoversHamiltonPage() {

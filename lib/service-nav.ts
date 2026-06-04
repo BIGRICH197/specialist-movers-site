@@ -1,6 +1,6 @@
-import { hamiltonPath, type HamiltonBaseSlug } from "@/lib/hamilton-pages";
+import type { HamiltonBaseSlug } from "@/lib/hamilton-pages";
 import { movingDistanceHub, storageHub } from "@/lib/service-clusters";
-import { serviceHref } from "@/lib/service-links";
+import { serviceAucklandHref, serviceHamiltonHref } from "@/lib/service-links";
 import { services } from "@/lib/site-data";
 
 export type ServiceNavLink = {
@@ -41,11 +41,11 @@ function buildServiceNavRow(base: HamiltonBaseSlug): ServiceNavRow {
     label: aucklandLabel(base),
     auckland: {
       label: "Auckland",
-      href: serviceHref(base),
+      href: serviceAucklandHref(base),
     },
     hamilton: {
       label: "Hamilton",
-      href: hamiltonPath(base),
+      href: serviceHamiltonHref(base),
     },
   };
 }

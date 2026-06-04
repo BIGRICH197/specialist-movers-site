@@ -4,6 +4,8 @@ import { ServicePageTemplate } from "@/components/ServicePageTemplate";
 import { getPianoPhoto } from "@/lib/site-photos";
 import { pianoServices } from "@/lib/site-data";
 
+const RESERVED_PIANO_SLUGS = new Set(["auckland", "hamilton"]);
+
 export function generateStaticParams() {
   return pianoServices
     .filter((s) => s.slug !== "piano-tuning")
@@ -15,6 +17,7 @@ export function generateMetadata({
 }: {
   params: { slug: string };
 }): Metadata {
+  if (RESERVED_PIANO_SLUGS.has(params.slug)) return {};
   const service = pianoServices.find((s) => s.slug === params.slug);
   if (!service) return {};
   return {
@@ -24,6 +27,7 @@ export function generateMetadata({
 }
 
 export default function PianoSlugPage({ params }: { params: { slug: string } }) {
+  if (RESERVED_PIANO_SLUGS.has(params.slug)) notFound();
   const service = pianoServices.find((s) => s.slug === params.slug);
   if (!service) notFound();
 

@@ -71,7 +71,7 @@ const landingOverrides: Record<
 > = {
   "piano-movers": {
     slug: "piano-movers",
-    path: "/piano-movers",
+    path: "/piano-movers/auckland",
     eyebrow: "Trusted by Auckland music retailers. Piano specialists.",
     h1: "Piano movers Auckland",
     lead:

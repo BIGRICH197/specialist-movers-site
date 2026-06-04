@@ -7,6 +7,7 @@ import { HeroVisual } from "@/components/HeroVisual";
 import { QuoteForm } from "@/components/QuoteForm";
 import { regions } from "@/lib/regions";
 import { motionDuration, motionStagger, motionTransition } from "@/lib/motion";
+import type { JobType } from "@/lib/site-data";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
 type HeroCopy = {
@@ -23,6 +24,10 @@ type Props = {
   photoAlt: string;
   photoHoverSrc?: string;
   photoHoverAlt?: string;
+  defaultJobType?: JobType;
+  heroVariant?: "moving" | "piano";
+  mobileTitle?: string;
+  mobileBadge?: string;
 };
 
 const container = {
@@ -54,13 +59,17 @@ export function HomeHero({
   photoAlt,
   photoHoverSrc,
   photoHoverAlt,
+  defaultJobType,
+  heroVariant = "moving",
+  mobileTitle,
+  mobileBadge,
 }: Props) {
   const reduced = useReducedMotion() ?? false;
   const t = motionTransition(motionDuration.normal, reduced);
 
   const heroVisual = (
     <HeroVisual
-      variant="moving"
+      variant={heroVariant}
       photoSrc={photoSrc}
       photoAlt={photoAlt}
       photoHoverSrc={photoHoverSrc}
@@ -82,7 +91,7 @@ export function HomeHero({
       </div>
 
       <div className="relative z-[1] mx-auto max-w-7xl container-px">
-        <GoogleRatingBadge className="pointer-events-auto absolute left-1/2 top-[42%] z-20 hidden -translate-x-1/2 -translate-y-1/2 xl:flex" />
+        <GoogleRatingBadge className="pointer-events-auto absolute left-1/2 top-[calc(54%-4cm)] z-20 hidden -translate-x-1/2 -translate-y-1/2 xl:flex" />
 
         <div className="flex flex-col gap-5 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] xl:gap-12">
           {/* Mobile: badge → title → photo → Google bar */}
@@ -97,14 +106,14 @@ export function HomeHero({
               transition={t}
               className="inline-flex max-w-full rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-yellow"
             >
-              {MOBILE_HERO_BADGE}
+              {mobileBadge ?? MOBILE_HERO_BADGE}
             </motion.p>
             <motion.h1
               variants={reduced ? undefined : item}
               transition={t}
               className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl"
             >
-              {MOBILE_HERO_TITLE}
+              {mobileTitle ?? MOBILE_HERO_TITLE}
             </motion.h1>
             <motion.div variants={reduced ? undefined : item} transition={t}>
               {heroVisual}
@@ -121,7 +130,7 @@ export function HomeHero({
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...t, delay: reduced ? 0 : 0.35 }}
           >
-            <QuoteForm />
+            <QuoteForm defaultJobType={defaultJobType} />
           </motion.div>
 
           {/* Mobile: phone + trust pills below form */}

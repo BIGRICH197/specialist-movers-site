@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import { Check } from "lucide-react";
 import { NumberedInfoGrid } from "@/components/NumberedInfoGrid";
 import { HeroVisual } from "@/components/HeroVisual";
@@ -41,6 +42,19 @@ export function ServiceLandingPage({ config }: Props) {
       <section className="overflow-visible border-b border-white/10 bg-brand-purple py-12 pb-16 text-white sm:py-16 sm:pb-20 lg:py-20 lg:pb-24">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] lg:items-start lg:gap-12 container-px">
           <div className="min-w-0">
+            {config.slug === "piano-movers" ? (
+              <nav className="mb-4 flex flex-wrap items-center gap-2 text-xs font-semibold text-white/75">
+                <Link href="/" className="hover:text-brand-yellow">
+                  Home
+                </Link>
+                <ChevronRight className="h-3.5 w-3.5 opacity-60" aria-hidden />
+                <Link href="/piano-movers" className="hover:text-brand-yellow">
+                  Piano moving
+                </Link>
+                <ChevronRight className="h-3.5 w-3.5 opacity-60" aria-hidden />
+                <span className="text-brand-yellow">Auckland</span>
+              </nav>
+            ) : null}
             <p className="mb-3 inline-flex max-w-full rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-yellow">
               {config.eyebrow}
             </p>

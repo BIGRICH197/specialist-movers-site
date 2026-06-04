@@ -94,6 +94,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  entries.push({
+    url: `${siteUrl}/piano-movers/auckland`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.88,
+  });
+  entries.push({
+    url: `${siteUrl}/piano-movers/hamilton`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.88,
+  });
+
   for (const path of listHamiltonPaths()) {
     entries.push({
       url: `${siteUrl}${path}`,

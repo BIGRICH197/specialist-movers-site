@@ -5,6 +5,7 @@ import {
   movingDistanceHub,
   storageHub,
 } from "@/lib/service-clusters";
+import { hamiltonPath, type HamiltonBaseSlug } from "@/lib/hamilton-pages";
 import { pianoServices, services } from "@/lib/site-data";
 
 export function resolveServiceLink(
@@ -19,7 +20,7 @@ export function resolveServiceLink(
   const p = pianoServices.find((x) => x.slug === slug);
   if (p) return { href: `/piano-movers/${p.slug}`, label: p.title };
   if (slug === "piano-movers-hamilton") {
-    return { href: "/piano-movers-hamilton", label: "Piano moving Hamilton" };
+    return { href: "/piano-movers/hamilton", label: "Piano moving Hamilton" };
   }
   const moving = getMovingDistanceService(slug);
   if (moving) {
@@ -41,4 +42,15 @@ export function resolveServiceLink(
 /** Canonical href for a main service slug (header, footer, cards). */
 export function serviceHref(slug: string): string {
   return resolveServiceLink(slug)?.href ?? `/services/${slug}`;
+}
+
+/** Auckland city page for paired services (piano hub vs direct service URL). */
+export function serviceAucklandHref(slug: string): string {
+  if (slug === "piano-movers") return "/piano-movers/auckland";
+  return serviceHref(slug);
+}
+
+/** Hamilton city page for paired services. */
+export function serviceHamiltonHref(slug: HamiltonBaseSlug): string {
+  return hamiltonPath(slug);
 }
