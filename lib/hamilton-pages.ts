@@ -28,6 +28,8 @@ export type HamiltonPageConfig = {
   showPianoGallery?: boolean;
   locationHref: string;
   locationLabel: string;
+  /** Optional links below FAQs (e.g. Moving to Australia under international). */
+  extraLinks?: readonly { label: string; href: string }[];
 };
 
 export const hamiltonBaseSlugs = [
@@ -469,6 +471,12 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     heroPhotoAlt: "International move planning Specialist Movers",
     locationHref: "/locations/hamilton",
     locationLabel: "Hamilton base",
+    extraLinks: [
+      {
+        label: "Moving to Australia",
+        href: "/international-moving/moving-to-australia",
+      },
+    ],
   },
 
   "loading-unloading": {

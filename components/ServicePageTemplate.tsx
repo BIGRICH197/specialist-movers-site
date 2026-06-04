@@ -22,6 +22,7 @@ type ServicePageTemplateProps = {
   hamiltonBaseSlug?: string;
   /** Exit cleaning uses fixed-price room selector instead of house quote form */
   useCleaningQuoteForm?: boolean;
+  extraRelatedLinks?: readonly { label: string; href: string }[];
 };
 
 export function ServicePageTemplate({
@@ -36,6 +37,7 @@ export function ServicePageTemplate({
   heroPhotoAlt,
   hamiltonBaseSlug,
   useCleaningQuoteForm = false,
+  extraRelatedLinks = [],
 }: ServicePageTemplateProps) {
   return (
     <div className="bg-brand-white">
@@ -99,6 +101,15 @@ export function ServicePageTemplate({
               Related services
             </h2>
             <div className="mt-4 flex flex-wrap gap-2">
+              {extraRelatedLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-full border border-brand-purple/20 bg-white px-4 py-2 text-sm font-semibold text-brand-purple shadow-sm transition hover:border-brand-purple/40 hover:bg-brand-purple/[0.04]"
+                >
+                  {link.label}
+                </Link>
+              ))}
               {relatedSlugs.map((slug) => {
                 const link = resolveServiceLink(slug);
                 if (!link) return null;

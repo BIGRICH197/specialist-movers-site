@@ -5,8 +5,8 @@ import { brandAssets } from "@/lib/brand-assets";
 import {
   getServiceNavMenuColumns,
   serviceNavCompanyLinks,
+  serviceNavInternationalExtras,
   serviceNavPianoExtras,
-  serviceNavSpecialtyLinks,
   type ServiceNavRow,
 } from "@/lib/service-nav";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
@@ -134,9 +134,8 @@ export function ServiceNavMenu({ onNavigate }: Props) {
               </li>
             ))}
           </ul>
-          <p className="font-heading text-sm font-bold text-brand-yellow">Specialist pages</p>
-          <ul className="space-y-2">
-            {serviceNavSpecialtyLinks.map((link) => (
+          <ul className="mt-4 space-y-2 border-t border-white/10 pt-4">
+            {serviceNavInternationalExtras.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}

@@ -181,6 +181,33 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
   serviceLabel: "Retirement Home Move",
 };
 
+export const retirementHomeMoversHamiltonPage: NicheServicePageConfig = {
+  ...retirementHomeMoversPage,
+  path: "/retirement-home-movers-hamilton",
+  metaTitle: "Retirement Home Movers Hamilton | Specialist Movers",
+  metaDescription:
+    "Compassionate retirement home movers in Hamilton and the Waikato. Full pack and move, in-home visits, and stress-free transitions. Free quote.",
+  eyebrow: "Hamilton and Waikato retirement village moves",
+  h1: "Retirement home movers Hamilton",
+  lead:
+    "Moving to a retirement home or village in Hamilton or the Waikato is a big change. Our Hamilton base team plans every step with patience and care, including full pack-and-move options and in-home visits.",
+  aboutBody:
+    "We work with clients, families, and facility coordinators across Hamilton, Cambridge, and nearby towns. Our relocation consultants reduce stress with clear timelines, careful packing, and respectful crews.",
+  trustHighlights: [
+    {
+      title: "Waikato based",
+      text: "Hamilton depot with crews who know local villages and rest homes.",
+    },
+    retirementHomeMoversPage.trustHighlights[1],
+    retirementHomeMoversPage.trustHighlights[2],
+  ],
+  breadcrumbs: [
+    { label: "Home", href: "/" },
+    { label: "Services", href: "/services" },
+    { label: "Retirement home movers Hamilton" },
+  ],
+};
+
 export const movingToAustraliaPage: NicheServicePageConfig = {
   path: "/international-moving/moving-to-australia",
   metaTitle: "Moving to Australia from NZ | Specialist Movers",
@@ -222,7 +249,7 @@ export const movingToAustraliaPage: NicheServicePageConfig = {
     "Customs and quarantine guidance",
   ],
   relatedLinks: [
-    { label: "International moving", href: "/services/international-moving" },
+    { label: "International moving Auckland", href: "/services/international-moving" },
     { label: "Packing services", href: "/services/packing-services" },
     { label: "Piano moving", href: "/piano-movers" },
     { label: "House moving Auckland", href: "/services/house-moving" },
@@ -258,5 +285,6 @@ export const movingToAustraliaPage: NicheServicePageConfig = {
 export const nicheServicePages = [
   apartmentMoversPage,
   retirementHomeMoversPage,
+  retirementHomeMoversHamiltonPage,
   movingToAustraliaPage,
 ] as const;

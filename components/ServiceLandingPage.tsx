@@ -235,6 +235,14 @@ export function ServiceLandingPage({ config }: Props) {
         <SectionReveal className="border-t border-brand-purple/10 py-12 container-px">
           <h2 className="font-heading text-xl text-brand-purple">Related services</h2>
           <div className="mt-4 flex flex-wrap gap-2">
+            {config.slug === "house-moving" ? (
+              <Link
+                href="/apartment-movers-auckland"
+                className="rounded-full border border-brand-purple/20 bg-white px-4 py-2 text-sm font-semibold text-brand-purple shadow-sm transition hover:border-brand-purple/40"
+              >
+                Apartment movers Auckland
+              </Link>
+            ) : null}
             {config.relatedSlugs.map((slug) => {
               const link = resolveServiceLink(slug);
               if (!link) return null;

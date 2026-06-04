@@ -69,6 +69,16 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
       heroPhotoAlt={`${service.title} , Specialist Movers Auckland`}
       hamiltonBaseSlug={service.slug}
       useCleaningQuoteForm={params.slug === "cleaning-services"}
+      extraRelatedLinks={
+        params.slug === "international-moving"
+          ? [
+              {
+                label: "Moving to Australia",
+                href: "/international-moving/moving-to-australia",
+              },
+            ]
+          : undefined
+      }
     />
   );
 }

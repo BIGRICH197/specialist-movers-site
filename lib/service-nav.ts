@@ -50,6 +50,20 @@ function buildServiceNavRow(base: HamiltonBaseSlug): ServiceNavRow {
   };
 }
 
+/** Retirement moves — Auckland + Hamilton city pages (not a paired HamiltonBaseSlug). */
+export const retirementHomeMoversNavRow: ServiceNavRow = {
+  key: "retirement-home-movers",
+  label: "Retirement home movers",
+  auckland: {
+    label: "Auckland",
+    href: "/retirement-home-movers-auckland",
+  },
+  hamilton: {
+    label: "Hamilton",
+    href: "/retirement-home-movers-hamilton",
+  },
+};
+
 /** Mega menu left column — house and packing first. */
 const serviceNavMenuLeftSlugs: readonly HamiltonBaseSlug[] = [
   "house-moving",
@@ -69,9 +83,23 @@ const serviceNavMenuRightSlugs: readonly HamiltonBaseSlug[] = [
   "storage",
 ];
 
+function buildLeftNavRows(): ServiceNavRow[] {
+  const rows: ServiceNavRow[] = [];
+  for (const slug of serviceNavMenuLeftSlugs) {
+    rows.push(buildServiceNavRow(slug));
+    if (slug === "house-moving") {
+      rows.push(retirementHomeMoversNavRow);
+    }
+  }
+  return rows;
+}
+
 /** Paired Auckland / Hamilton rows for footer navigation. */
 export function getServiceNavRows(): ServiceNavRow[] {
-  return [...serviceNavMenuLeftSlugs, ...serviceNavMenuRightSlugs].map(buildServiceNavRow);
+  return [
+    ...buildLeftNavRows(),
+    ...serviceNavMenuRightSlugs.map(buildServiceNavRow),
+  ];
 }
 
 /** Two-column layout for the header services mega menu. */
@@ -80,7 +108,7 @@ export function getServiceNavMenuColumns(): {
   right: ServiceNavRow[];
 } {
   return {
-    left: serviceNavMenuLeftSlugs.map(buildServiceNavRow),
+    left: buildLeftNavRows(),
     right: serviceNavMenuRightSlugs.map(buildServiceNavRow),
   };
 }
@@ -114,19 +142,16 @@ export const serviceNavHubLink = {
   href: "/services",
 };
 
-/** Specialist landing pages (mega menu + footer). */
-export const serviceNavSpecialtyLinks: readonly ServiceNavLink[] = [
-  { label: "Apartment movers Auckland", href: "/apartment-movers-auckland" },
-  { label: "Retirement home movers", href: "/retirement-home-movers-auckland" },
+/** Sub-page under international moving (mega menu sidebar, not top-level nav). */
+export const serviceNavInternationalExtras: readonly ServiceNavLink[] = [
   { label: "Moving to Australia", href: "/international-moving/moving-to-australia" },
 ] as const;
 
-/** Cluster / guide pages — not main bookable services (footer and secondary nav). */
+/** Cluster / guide pages — footer and secondary nav. */
 export const serviceNavClusterLinks: readonly ServiceNavLink[] = [
   { label: "What's included", href: "/services/whats-included" },
   { label: movingDistanceHub.title, href: movingDistanceHub.path },
   { label: "Storage options", href: storageHub.path },
-  ...serviceNavSpecialtyLinks,
 ] as const;
 
 /** Piano sub-pages in the mega menu sidebar (not main service grid). */

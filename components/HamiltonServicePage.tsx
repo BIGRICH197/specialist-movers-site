@@ -142,6 +142,15 @@ export function HamiltonServicePage({ config }: Props) {
         ) : null}
 
         <div className="mt-8 flex flex-wrap gap-3">
+          {config.extraLinks?.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-full border border-brand-purple/20 bg-white px-4 py-2 text-sm font-semibold text-brand-purple shadow-sm transition hover:border-brand-purple/40"
+            >
+              {link.label}
+            </Link>
+          ))}
           <Link
             href={config.parentHref}
             className="rounded-full border border-brand-purple/20 bg-white px-4 py-2 text-sm font-semibold text-brand-purple shadow-sm transition hover:border-brand-purple/40"
