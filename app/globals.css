@@ -16,6 +16,9 @@
     font-size: 100%;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: #9739b0 #e8e0ef;
   }
 
   body {
@@ -211,4 +214,79 @@
 
 .photo-frame--round::after {
   border-radius: 9999px;
+}
+
+/*
+ * Brand scrollbars — page scroll + overflow panels.
+ * Purple gradient thumb, yellow on hover; dark variant for purple backgrounds.
+ */
+html::-webkit-scrollbar,
+.scrollbar-brand::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html::-webkit-scrollbar-track,
+.scrollbar-brand::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, #f3eff7 0%, #e8e0ef 100%);
+  border-radius: 9999px;
+}
+
+html::-webkit-scrollbar-thumb,
+.scrollbar-brand::-webkit-scrollbar-thumb {
+  background: linear-gradient(165deg, #be76ef 0%, #9739b0 52%, #7a2d8f 100%);
+  border: 2px solid #f3eff7;
+  border-radius: 9999px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+html::-webkit-scrollbar-thumb:hover,
+.scrollbar-brand::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(165deg, #f3d02a 0%, #be76ef 38%, #9739b0 100%);
+  border-color: #ede8f2;
+}
+
+html::-webkit-scrollbar-corner,
+.scrollbar-brand::-webkit-scrollbar-corner {
+  background: #f3eff7;
+}
+
+.scrollbar-brand {
+  scrollbar-width: thin;
+  scrollbar-color: #9739b0 #e8e0ef;
+}
+
+.scrollbar-brand-dark {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(243, 208, 42, 0.92) rgba(255, 255, 255, 0.12);
+}
+
+.scrollbar-brand-dark::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-brand-dark::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  margin: 4px 0;
+}
+
+.scrollbar-brand-dark::-webkit-scrollbar-thumb {
+  background: linear-gradient(165deg, #f3d02a 0%, #e8c020 100%);
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.scrollbar-brand-dark::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(165deg, #fff4a8 0%, #f3d02a 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html::-webkit-scrollbar-thumb,
+  .scrollbar-brand::-webkit-scrollbar-thumb,
+  .scrollbar-brand-dark::-webkit-scrollbar-thumb {
+    transition: none;
+  }
 }

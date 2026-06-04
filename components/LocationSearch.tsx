@@ -38,7 +38,7 @@ export function LocationSearch() {
         />
       </div>
       {trimmed.length > 0 && (
-        <ul className="mt-4 max-h-80 space-y-1 overflow-y-auto" role="listbox">
+        <ul className="scrollbar-brand mt-4 max-h-80 space-y-1 overflow-y-auto" role="listbox">
           {trimmed.length < 2 ? (
             <li className="rounded-lg px-3 py-2 text-sm text-brand-purple/70">
               Type at least 2 letters, e.g. Hill, Shore, Hamilton.

@@ -56,7 +56,7 @@ export function ScatteredReviews({
       <ul
         className={cn(
           isRow
-            ? "mt-4 flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:thin]"
+            ? "scrollbar-brand mt-4 flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory scroll-smooth"
             : cn("space-y-3", !isPullquote && showHeading && "mt-3", !isPullquote && !showHeading && "mt-0"),
         )}
       >

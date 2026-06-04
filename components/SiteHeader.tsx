@@ -266,7 +266,7 @@ export function SiteHeader() {
               <X className="h-6 w-6" />
             </button>
           </div>
-          <nav className="flex flex-1 flex-col gap-1 overflow-y-auto font-heading text-xl" aria-label="Mobile primary">
+          <nav className="scrollbar-brand-dark flex flex-1 flex-col gap-1 overflow-y-auto font-heading text-xl" aria-label="Mobile primary">
             <Link href="/services" onClick={() => setOpen(false)} className="block rounded-xl px-2 py-2 hover:bg-white/10">
               Services
             </Link>

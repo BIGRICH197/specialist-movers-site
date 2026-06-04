@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function PortalPage() {
   return (
-    <div className="fixed inset-0 z-[200] flex flex-col overflow-y-auto bg-brand-purple">
+    <div className="scrollbar-brand-dark fixed inset-0 z-[200] flex flex-col overflow-y-auto bg-brand-purple">
       <header className="flex shrink-0 items-center justify-between gap-4 border-b border-white/10 px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
           <Image

@@ -90,7 +90,7 @@ export function ArohaChat() {
           </div>
 
           <div
-            className="flex-1 space-y-3 overflow-y-auto p-4"
+            className="scrollbar-brand flex-1 space-y-3 overflow-y-auto p-4"
             style={{ maxHeight: "400px", minHeight: "200px" }}
           >
             {messages.map((msg, i) => (
