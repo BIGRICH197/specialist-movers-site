@@ -68,6 +68,12 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
       heroPhoto={getServicePhoto(service.slug)}
       heroPhotoAlt={`${service.title} , Specialist Movers Auckland`}
       hamiltonBaseSlug={service.slug}
+      bookingHref={
+        params.slug === "cleaning-services" ? "/cleaning-bookings" : undefined
+      }
+      bookingLabel={
+        params.slug === "cleaning-services" ? "Book fixed-price cleaning" : undefined
+      }
     />
   );
 }

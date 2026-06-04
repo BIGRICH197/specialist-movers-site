@@ -45,7 +45,15 @@ export function ArohaChat() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: updatedMessages }),
       });
-      const data = (await res.json()) as { content?: string };
+      const data = (await res.json()) as { content?: string; error?: string };
+      if (!res.ok) {
+        const fallback =
+          data.error === "API key not configured"
+            ? "Chat is not set up on this server yet. Call (021) 228 2728 and we will help you straight away."
+            : "Sorry, something went wrong. Give us a call on (021) 228 2728!";
+        setMessages((prev) => [...prev, { role: "assistant", content: fallback }]);
+        return;
+      }
       setMessages((prev) => [
         ...prev,
         {

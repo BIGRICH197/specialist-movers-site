@@ -118,6 +118,7 @@ export const services = [
     defaultJobType: "Cleaning" as const,
     includedBullets: [
       "Tenancy, settlement, and post-construction cleans across Auckland, Hamilton, and the Waikato",
+      "Fixed prices by bedrooms and bathrooms (see cleaning bookings page)",
       "Property spotless and fully ready for inspection",
       "Smooth and hassle-free handover process",
       "Scheduling aligned with your move-out date",

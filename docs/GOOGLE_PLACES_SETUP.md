@@ -11,7 +11,9 @@ When customers type pickup/drop-off addresses, the site uses **Google Places Aut
 3. Create an **API key** → Application restrictions → **HTTP referrers**:
    - `https://specialistmovers.co.nz/*`
    - `https://www.specialistmovers.co.nz/*`
-   - `http://localhost:3010/*` (dev)
+   - `https://specialist-movers-site.vercel.app/*` (Vercel preview/production)
+   - `https://*.vercel.app/*` (optional, other preview URLs)
+   - `http://localhost:3020/*` (dev — match your `npm run dev` port)
 4. API restrictions → restrict to Maps JavaScript API + Places API only.
 
 ## Local / production env

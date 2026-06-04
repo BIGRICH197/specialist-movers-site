@@ -24,6 +24,10 @@ const staticRoutes = [
   "/contact",
   "/policies",
   "/locations",
+  "/apartment-movers-auckland",
+  "/retirement-home-movers-auckland",
+  "/cleaning-bookings",
+  "/international-moving/moving-to-australia",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

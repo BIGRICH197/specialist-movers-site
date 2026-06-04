@@ -5,6 +5,7 @@ import { sitePhotos } from "@/lib/site-photos";
 import { PageHero } from "@/components/PageHero";
 import { AboutTeamSection } from "@/components/AboutTeamSection";
 import { SectionReveal } from "@/components/SectionReveal";
+import { CoverageMap } from "@/components/CoverageMap";
 import { ExperienceMilestonesBand } from "@/components/ExperienceMilestonesBand";
 import { aboutPage } from "@/lib/homepage-copy";
 import { experienceMilestones } from "@/lib/homepage-sections";
@@ -66,13 +67,7 @@ export default function AboutPage() {
           {regions.widerNorthIsland.toLowerCase()} when you need it. International and
           specialist freight moves are quoted on a case-by-case basis.
         </p>
-        <div className="mt-8 h-56 rounded-2xl border border-brand-purple/15 bg-gradient-to-br from-brand-purple/[0.06] to-brand-yellow/15 p-6 text-sm text-brand-purple/70">
-          <p className="font-heading text-lg text-brand-purple/80">Map visual</p>
-          <p className="mt-2 max-w-md">
-            Drop in a static map or illustration here when ready , Taupo through Auckland to
-            Cape Reinga.
-          </p>
-        </div>
+        <CoverageMap />
       </SectionReveal>
     </div>
   );

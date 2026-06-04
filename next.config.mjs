@@ -127,6 +127,16 @@ const nextConfig = {
         destination: "/services/moving",
         permanent: true,
       },
+      {
+        source: "/specialties",
+        destination: "/services",
+        permanent: true,
+      },
+      {
+        source: "/specialties/:path*",
+        destination: "/services",
+        permanent: true,
+      },
       ...cityRedirects(),
     ];
   },

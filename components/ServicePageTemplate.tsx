@@ -19,6 +19,8 @@ type ServicePageTemplateProps = {
   heroPhotoAlt?: string;
   /** Base slug for Hamilton page link (e.g. house-moving) */
   hamiltonBaseSlug?: string;
+  bookingHref?: string;
+  bookingLabel?: string;
 };
 
 export function ServicePageTemplate({
@@ -32,6 +34,8 @@ export function ServicePageTemplate({
   heroPhoto,
   heroPhotoAlt,
   hamiltonBaseSlug,
+  bookingHref,
+  bookingLabel,
 }: ServicePageTemplateProps) {
   return (
     <div className="bg-brand-white">
@@ -47,6 +51,14 @@ export function ServicePageTemplate({
             </p>
             {hamiltonBaseSlug ? (
               <HamiltonPageLink serviceSlug={hamiltonBaseSlug} variant="hero" />
+            ) : null}
+            {bookingHref && bookingLabel ? (
+              <Link
+                href={bookingHref}
+                className="mt-4 inline-flex rounded-full bg-brand-yellow px-5 py-2.5 font-heading text-sm font-bold text-brand-purple transition hover:bg-white"
+              >
+                {bookingLabel}
+              </Link>
             ) : null}
             <a
               href={`tel:${phoneNumber}`}
