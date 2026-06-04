@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { HamiltonServicePage } from "@/components/HamiltonServicePage";
 import { getHamiltonPageConfig } from "@/lib/hamilton-pages";
 
@@ -11,6 +12,6 @@ export const metadata: Metadata = {
 
 export default function PianoMoversHamiltonPage() {
   const config = getHamiltonPageConfig("piano-movers-hamilton");
-  if (!config) throw new Error("Hamilton piano config missing");
+  if (!config) notFound();
   return <HamiltonServicePage config={config} />;
 }

@@ -129,15 +129,6 @@ export function LocationNavMenu({ onNavigate }: Props) {
               </li>
             ))}
           </ul>
-          <div className="border-t border-white/10 pt-3">
-            <a
-              href={`tel:${phoneNumber}`}
-              className="font-semibold text-brand-yellow transition-colors hover:underline"
-            >
-              {phoneDisplay}
-            </a>
-            <p className="mt-1 text-white/85">Mon–Sun, 9am–7pm</p>
-          </div>
         </div>
       </div>
     </div>
