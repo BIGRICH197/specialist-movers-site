@@ -91,9 +91,7 @@ export function HomeHero({
       </div>
 
       <div className="relative z-[1] mx-auto max-w-7xl container-px">
-        <GoogleRatingBadge className="pointer-events-auto absolute left-1/2 top-[calc(54%-4cm)] z-20 hidden -translate-x-1/2 -translate-y-1/2 xl:flex" />
-
-        <div className="flex flex-col gap-5 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] xl:gap-12">
+        <div className="flex flex-col gap-5 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,1fr)_auto_minmax(320px,440px)] xl:gap-8">
           {/* Mobile: badge → title → photo → Google bar */}
           <motion.div
             className="flex flex-col gap-5 lg:col-start-1 lg:row-start-1 lg:hidden"
@@ -123,9 +121,14 @@ export function HomeHero({
             </motion.div>
           </motion.div>
 
+          {/* Desktop Google badge — own grid column so it never covers hero copy */}
+          <div className="hidden self-center justify-center px-2 xl:col-start-2 xl:row-start-1 xl:flex">
+            <GoogleRatingBadge className="pointer-events-auto" />
+          </div>
+
           {/* Quote form (mobile + desktop) */}
           <motion.div
-            className="-mt-1 min-w-0 self-start lg:col-start-2 lg:row-start-1 lg:sticky lg:top-28"
+            className="-mt-1 min-w-0 self-start lg:col-start-2 lg:row-start-1 lg:sticky lg:top-28 xl:col-start-3"
             initial={reduced ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...t, delay: reduced ? 0 : 0.35 }}
