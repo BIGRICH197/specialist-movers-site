@@ -1,6 +1,6 @@
 # Flag for later (low priority)
 
-- **About page map** , replace placeholder box with map or illustration (Taupo note was dev-only).
+- ~~**About page map**~~ — `CoverageMap` SVG on `/about` (depot coords in `lib/depots.ts`).
 - **Blog index meta** , tighten "Auckland and New Zealand" if needed.
 - **Open Graph images** , optional social preview images per page.
 - **Blog stub** , expand `stress-free-moving-in-auckland-expert-tips-from-specialist-movers` body in `blog-articles.ts`.

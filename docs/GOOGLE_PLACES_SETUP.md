@@ -6,7 +6,7 @@ When customers type pickup/drop-off addresses, the site uses **Google Places Aut
 
 1. **Google Cloud project** (can be the same project as mini PC Maps if you prefer).
 2. Enable APIs:
-   - **Maps JavaScript API**
+   - **Maps JavaScript API** (quote form autocomplete)
    - **Places API** (legacy Places works with Autocomplete widget)
 3. Create an **API key** → Application restrictions → **HTTP referrers**:
    - `https://specialistmovers.co.nz/*`

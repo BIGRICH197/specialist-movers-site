@@ -23,20 +23,3 @@ export const depots: readonly Depot[] = [
     lng: 175.279,
   },
 ] as const;
-
-/** North Island bounds for the decorative map projection. */
-export const coverageMapBounds = {
-  minLat: -41.6,
-  maxLat: -34.2,
-  minLng: 172.4,
-  maxLng: 178.6,
-  width: 360,
-  height: 520,
-} as const;
-
-export function projectCoveragePoint(lat: number, lng: number): { x: number; y: number } {
-  const { minLat, maxLat, minLng, maxLng, width, height } = coverageMapBounds;
-  const x = ((lng - minLng) / (maxLng - minLng)) * width;
-  const y = ((lat - minLat) / (maxLat - minLat)) * height;
-  return { x, y };
-}
