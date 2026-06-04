@@ -5,7 +5,6 @@ import { NumberedInfoGrid } from "@/components/NumberedInfoGrid";
 import { PianoGallerySection } from "@/components/PianoGallerySection";
 import { PianoPartnerMarquee } from "@/components/PianoPartnerMarquee";
 import { CleaningBookingForm } from "@/components/CleaningBookingForm";
-import { CleaningPricingTable } from "@/components/CleaningPricingTable";
 import { QuoteForm } from "@/components/QuoteForm";
 import { SectionReveal } from "@/components/SectionReveal";
 import type { HamiltonPageConfig } from "@/lib/hamilton-pages";
@@ -101,12 +100,6 @@ export function HamiltonServicePage({ config }: Props) {
             body: item.body,
           }))}
         />
-
-        {config.baseSlug === "cleaning-services" ? (
-          <div className="mt-10">
-            <CleaningPricingTable />
-          </div>
-        ) : null}
 
         <div className="mt-10 rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm sm:p-8">
           <h2 className="font-heading text-xl text-brand-purple">What we handle</h2>

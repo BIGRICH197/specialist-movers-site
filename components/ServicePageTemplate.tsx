@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Check } from "lucide-react";
 import { HeroVisual } from "@/components/HeroVisual";
 import { CleaningBookingForm } from "@/components/CleaningBookingForm";
-import { CleaningPricingTable } from "@/components/CleaningPricingTable";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Breadcrumbs, type Crumb } from "@/components/Breadcrumbs";
 import { HamiltonPageLink } from "@/components/HamiltonPageLink";
@@ -70,7 +69,6 @@ export function ServicePageTemplate({
       </section>
       <section className="mx-auto grid max-w-7xl gap-10 py-12 container-px lg:grid-cols-[minmax(0,1fr)_minmax(300px,400px)] lg:items-start">
         <article className="space-y-10">
-          {useCleaningQuoteForm ? <CleaningPricingTable /> : null}
           <div className="rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm sm:p-8">
             <h2 className="font-heading text-2xl text-brand-purple">
               What&apos;s included
@@ -120,7 +118,7 @@ export function ServicePageTemplate({
         <div id="quote" className="scroll-mt-28 lg:sticky lg:top-28">
           <p className="mb-3 text-sm font-semibold text-brand-purple">
             {useCleaningQuoteForm
-              ? "Select rooms, see your fixed price, then send your details"
+              ? "Select rooms and property details, then get your fixed price"
               : "Fast quote , select all services you need + both addresses"}
           </p>
           {useCleaningQuoteForm ? (

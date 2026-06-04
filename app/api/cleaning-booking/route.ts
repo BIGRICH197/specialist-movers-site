@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
+import {
+  calculateCleaningQuote,
+  type CleaningPropertySize,
+} from "@/lib/cleaning-pricing";
 import { createHubSpotDeal } from "@/lib/hubspot";
-import type { CleaningPackage, CleaningPropertySize } from "@/lib/cleaning-pricing";
-import { getCleaningPropertyOption } from "@/lib/cleaning-pricing";
 
 type CleaningBookingBody = {
   name: string;
@@ -10,12 +12,8 @@ type CleaningBookingBody = {
   propertyAddress: string;
   preferredDate?: string;
   propertySize: CleaningPropertySize;
-  propertyLabel?: string;
-  cleaningPackage: CleaningPackage;
   extraLivingRooms: number;
   cleaningType: string;
-  priceExclGst: number;
-  priceIncGst?: number;
   message?: string;
 };
 
@@ -29,23 +27,33 @@ export async function POST(request: Request) {
     );
   }
 
-  if (typeof body.priceExclGst !== "number" || body.priceExclGst <= 0) {
-    return NextResponse.json({ ok: false, error: "Invalid price" }, { status: 400 });
+  const quote = calculateCleaningQuote({
+    propertySize: body.propertySize,
+    extraLivingRooms: body.extraLivingRooms ?? 0,
+  });
+
+  if (!quote) {
+    return NextResponse.json(
+      { ok: false, error: "Invalid property size" },
+      { status: 400 },
+    );
   }
 
-  const property =
-    body.propertyLabel ?? getCleaningPropertyOption(body.propertySize)?.label ?? body.propertySize;
-  const packageLabel = body.cleaningPackage === "option1" ? "Option 1" : "Option 2";
-  const extraRooms = Math.max(0, Math.floor(body.extraLivingRooms ?? 0));
+  const cleanTypeLabels: Record<string, string> = {
+    "exit-tenancy": "Exit and tenancy clean",
+    settlement: "Settlement day clean",
+    moving: "House moving clean",
+    construction: "Construction clean",
+    other: "Other",
+  };
+  const cleanLabel = cleanTypeLabels[body.cleaningType] ?? body.cleaningType;
 
   const notes = [
-    "Website cleaning booking",
-    `Property: ${property}`,
-    `Package: ${packageLabel}`,
-    extraRooms > 0 ? `Extra living rooms: ${extraRooms}` : null,
-    `Clean type: ${body.cleaningType}`,
-    `Fixed price: $${body.priceExclGst} excl. GST`,
-    body.priceIncGst ? `($${body.priceIncGst} incl. GST)` : null,
+    "Website cleaning quote",
+    `Property: ${quote.propertyLabel}`,
+    quote.extraLivingRooms > 0 ? `Extra living rooms: ${quote.extraLivingRooms}` : null,
+    `Clean type: ${cleanLabel}`,
+    `Fixed price: $${quote.priceExclGst} excl. GST ($${quote.priceIncGst} incl. GST)`,
     body.preferredDate ? `Preferred date: ${body.preferredDate}` : null,
     body.message?.trim() ? `\nNotes:\n${body.message.trim()}` : null,
   ]
@@ -60,9 +68,17 @@ export async function POST(request: Request) {
     pickupAddress: body.propertyAddress.trim(),
     dropoffAddress: "",
     preferredDate: body.preferredDate,
-    estimatedValue: body.priceIncGst ?? Math.round(body.priceExclGst * 1.15),
+    estimatedValue: quote.priceIncGst,
     notes,
   }).catch(console.error);
 
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({
+    ok: true,
+    pricing: {
+      totalIncGst: quote.priceIncGst,
+      priceExclGst: quote.priceExclGst,
+      propertyLabel: quote.propertyLabel,
+      extraLivingRooms: quote.extraLivingRooms,
+    },
+  });
 }
