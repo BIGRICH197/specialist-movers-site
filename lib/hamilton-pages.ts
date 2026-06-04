@@ -42,7 +42,6 @@ export const hamiltonBaseSlugs = [
   "loading-unloading",
   "winz-quotes",
   "storage",
-  "moving",
 ] as const;
 
 export type HamiltonBaseSlug = (typeof hamiltonBaseSlugs)[number];
@@ -71,11 +70,11 @@ export function listHamiltonPaths(): string[] {
 const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug" | "path">> = {
   "piano-movers": {
     parentHref: "/piano-movers",
-    parentLabel: "Piano movers Auckland",
-    metaTitle: "Piano Movers Hamilton | Specialist Piano Movers",
+    parentLabel: "Piano moving Auckland",
+    metaTitle: "Piano moving Hamilton | Specialist Piano Movers",
     metaDescription:
-      "Hamilton piano movers for upright and grand pianos. Waikato base, Auckland routes, storage and international crating. Free quote within 15 minutes.",
-    h1: "Piano movers Hamilton",
+      "Hamilton piano moving for upright and grand pianos. Waikato base, Auckland routes, storage and international crating. Free quote within 15 minutes.",
+    h1: "Piano moving Hamilton",
     lead:
       "Hamilton is our second base for piano work. We move uprights and grands across the city, Cambridge, and wider Waikato, and we run regular Hamilton to Auckland routes for families and music stores.",
     paragraphs: [
@@ -610,54 +609,6 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     defaultJobType: "House Move",
     heroPhoto: sitePhotos.specialistItem,
     heroPhotoAlt: "Wrapped furniture storage Specialist Movers",
-    locationHref: "/locations/hamilton",
-    locationLabel: "Hamilton and Waikato",
-  },
-
-  moving: {
-    parentHref: "/services/moving",
-    parentLabel: "Local moving Auckland",
-    metaTitle: "Movers Hamilton & Waikato | Specialist Movers",
-    metaDescription:
-      "Local Hamilton moves and regional runs to Auckland and beyond. One company, no handoffs. Day rates explained up front. Free quote.",
-    h1: "Movers Hamilton and the Waikato",
-    lead:
-      "Local Hamilton moves plus regional corridors to Auckland, Bay of Plenty, and wider North Island routes. Your goods stay on our trucks with one company from pickup to delivery.",
-    paragraphs: [
-      "Apartments, townhouses, and lifestyle blocks around Hamilton are quoted after we understand access and volume. Day rates and call-out are explained before you book.",
-      "Regional moves suit families relocating between Hamilton and Auckland without broker handoffs mid-route.",
-      "Add packing, piano transport, storage, or exit cleaning to the same quote when you need a full plan.",
-    ],
-    highlightCards: [
-      {
-        title: "Local Hamilton",
-        body: "Same-day and planned moves across the city and nearby towns.",
-      },
-      {
-        title: "Regional corridors",
-        body: "Hamilton to Auckland and upper North Island when quoted.",
-      },
-      {
-        title: "One company",
-        body: "No third-party handoffs on mid-distance work.",
-      },
-      {
-        title: "Full service",
-        body: "Packing, piano, storage, and cleaning on one timeline.",
-      },
-    ],
-    includedBullets: [
-      "Local Hamilton and Waikato metro moves",
-      "Regional North Island routes when quoted",
-      "Careful furniture handling and floor protection",
-      "Transparent day-rate pricing with call-out explained",
-      "Optional pack, piano, storage, and clean",
-    ],
-    whyChooseCopy:
-      "Regional moves fail when communication breaks between teams. We run Hamilton jobs end to end with clear ETAs and one point of contact.",
-    defaultJobType: "House Move",
-    heroPhoto: sitePhotos.homeRainMoment,
-    heroPhotoAlt: "Regional move Specialist Movers Waikato",
     locationHref: "/locations/hamilton",
     locationLabel: "Hamilton and Waikato",
   },

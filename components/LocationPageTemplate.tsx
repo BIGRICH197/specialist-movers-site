@@ -103,7 +103,7 @@ export function LocationPageTemplate({ location }: Props) {
               </Link>
               {" · "}
               <Link href="/piano-movers" className="font-semibold text-brand-purple underline">
-                Piano movers
+                Piano moving
               </Link>
             </p>
           </div>

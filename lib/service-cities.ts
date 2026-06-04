@@ -7,7 +7,7 @@
  * - Storage hub: /services/storage/{city}
  * - Moving hub: /services/moving/{city}
  */
-import { movingDistanceHub, storageHub } from "@/lib/service-clusters";
+import { storageHub } from "@/lib/service-clusters";
 import { getLocation } from "@/lib/locations";
 import { getPianoCityExtra } from "@/lib/piano-city-content";
 import { serviceBlurbs } from "@/lib/legacy-site-content";
@@ -19,7 +19,7 @@ export const serviceCitySlugs = ["auckland", "hamilton"] as const;
 export type ServiceCitySlug = (typeof serviceCitySlugs)[number];
 
 /** Cluster hubs that also get Auckland + Hamilton pages. */
-export const clusterServiceCitySlugs = ["storage", "moving"] as const;
+export const clusterServiceCitySlugs = ["storage"] as const;
 
 export function isServiceCitySlug(slug: string): slug is ServiceCitySlug {
   return (serviceCitySlugs as readonly string[]).includes(slug);
@@ -79,25 +79,6 @@ function getCityServiceSource(slug: string): CityServiceSource | null {
     };
   }
 
-  if (slug === "moving") {
-    return {
-      slug: "moving",
-      parentHref: movingDistanceHub.path,
-      parentLabel: movingDistanceHub.title,
-      title: movingDistanceHub.title,
-      description: movingDistanceHub.description,
-      defaultJobType: "House Move",
-      includedBullets: [
-        "Local moves across Auckland suburbs and Hamilton",
-        "Regional moves between Auckland, Waikato, and beyond",
-        "International and inter-island coordination",
-        "Packing, piano, and storage on the same quote",
-      ],
-      whyChooseCopy:
-        "One company from pickup to delivery. No broker handoffs mid-route, whether your move is across town or across the North Island.",
-    };
-  }
-
   return null;
 }
 
@@ -152,8 +133,8 @@ type ServiceSeo = {
 
 const serviceSeo: Record<string, ServiceSeo> = {
   "piano-movers": {
-    keyword: "piano movers",
-    shortTitle: "Piano movers",
+    keyword: "piano moving",
+    shortTitle: "piano moving",
     jobFocus: "piano transport",
   },
   "house-moving": {
@@ -368,21 +349,6 @@ function buildParagraphs(
       "Hamilton and Waikato storage from our local base. Bridge gaps between homes, renovations, or regional move legs.",
       "Delivery back to your new address when you are ready, with the same crew standards as our house moves.",
       "Ask about storage in transit for Auckland to Hamilton routes.",
-    ];
-  }
-
-  if (serviceSlug === "moving") {
-    if (city === "auckland") {
-      return [
-        "Local Auckland moves plus regional runs to Hamilton, Bay of Plenty, and Northland. One company, no handoffs mid-route.",
-        "Apartments, townhouses, and full homes with day rates and clear call-out explained up front.",
-        "Add packing, piano transport, storage, or exit cleaning to the same quote.",
-      ];
-    }
-    return [
-      "Hamilton local moves and regional corridors to Auckland and wider Waikato towns. End-to-end communication from one team.",
-      "Lifestyle blocks and town homes quoted after a viewing when you need a fixed price.",
-      "International and inter-island moves coordinated from our Hamilton base.",
     ];
   }
 

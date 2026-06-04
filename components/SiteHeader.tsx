@@ -4,9 +4,9 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { Menu, Phone, X, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
-import { getLocationNavSections } from "@/lib/locations";
+import { LocationNavMenu } from "@/components/LocationNavMenu";
 import { ServiceNavMenu } from "@/components/ServiceNavMenu";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
@@ -34,8 +34,28 @@ function NavDropdown({
   children: ReactNode;
   widthClass?: string;
 }) {
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    function handlePointerDown(event: MouseEvent) {
+      if (rootRef.current?.contains(event.target as Node)) return;
+      onClose();
+    }
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") onClose();
+    }
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [open, onClose]);
+
   return (
     <div
+      ref={rootRef}
       className="relative shrink-0"
       onMouseEnter={onOpen}
       onMouseLeave={onClose}
@@ -44,6 +64,8 @@ function NavDropdown({
         type="button"
         className={`${navLink} inline-flex items-center gap-1`}
         aria-expanded={open}
+        aria-haspopup="true"
+        onClick={() => (open ? onClose() : onOpen())}
       >
         {label}
         <ChevronDown
@@ -52,13 +74,13 @@ function NavDropdown({
           }`}
         />
       </button>
-      {open && (
-        <div className={`absolute left-0 top-full z-[100] ${widthClass} pt-2`}>
+      {open ? (
+        <div className={`absolute left-0 top-full z-[100] ${widthClass} pt-1`}>
           <div className="overflow-hidden rounded-2xl border border-white/10 bg-brand-purple p-1.5 shadow-lg ring-1 ring-black/[0.12]">
             {children}
           </div>
         </div>
-      )}
+      ) : null}
     </div>
   );
 }
@@ -67,18 +89,62 @@ export function SiteHeader() {
   const pathname = usePathname();
   const quoteHref = pathname === "/" ? "#quote" : "/#quote";
   const [open, setOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [locationsOpen, setLocationsOpen] = useState(false);
+  const [megaMenu, setMegaMenu] = useState<"services" | "locations" | null>(null);
   const [moreOpen, setMoreOpen] = useState(false);
+  const servicesTriggerRef = useRef<HTMLButtonElement>(null);
+  const locationsTriggerRef = useRef<HTMLButtonElement>(null);
+  const megaPanelRef = useRef<HTMLDivElement>(null);
+  const megaCloseTimerRef = useRef<number | null>(null);
 
-  const closeAll = () => {
-    setServicesOpen(false);
-    setLocationsOpen(false);
-    setMoreOpen(false);
+  const cancelMegaClose = () => {
+    if (megaCloseTimerRef.current) {
+      window.clearTimeout(megaCloseTimerRef.current);
+      megaCloseTimerRef.current = null;
+    }
   };
 
+  const scheduleMegaClose = () => {
+    cancelMegaClose();
+    megaCloseTimerRef.current = window.setTimeout(() => {
+      setMegaMenu(null);
+      megaCloseTimerRef.current = null;
+    }, 150);
+  };
+
+  const openMega = (menu: "services" | "locations") => {
+    cancelMegaClose();
+    setMoreOpen(false);
+    setMegaMenu(menu);
+  };
+
+  const toggleMega = (menu: "services" | "locations") => {
+    cancelMegaClose();
+    setMoreOpen(false);
+    setMegaMenu((current) => (current === menu ? null : menu));
+  };
+
+  useEffect(() => {
+    if (!megaMenu) return;
+    function handlePointerDown(event: MouseEvent) {
+      const target = event.target as Node;
+      if (servicesTriggerRef.current?.contains(target)) return;
+      if (locationsTriggerRef.current?.contains(target)) return;
+      if (megaPanelRef.current?.contains(target)) return;
+      setMegaMenu(null);
+    }
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") setMegaMenu(null);
+    }
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [megaMenu]);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-brand-purple text-brand-yellow">
+    <header className="relative sticky top-0 z-50 border-b border-white/10 bg-brand-purple text-brand-yellow">
       <div className="mx-auto flex h-14 max-w-7xl items-center gap-2 sm:h-16 sm:gap-3 container-px">
         <BrandLogo variant="header" />
 
@@ -86,56 +152,43 @@ export function SiteHeader() {
           className="hidden min-w-0 flex-1 flex-nowrap items-center justify-center gap-0 lg:flex"
           aria-label="Primary"
         >
-          <NavDropdown
-            label="Services"
-            open={servicesOpen}
-            onOpen={() => {
-              closeAll();
-              setServicesOpen(true);
-            }}
-            onClose={() => setServicesOpen(false)}
-            widthClass="w-[min(100vw-2rem,36rem)]"
-          >
-            <ServiceNavMenu />
-          </NavDropdown>
+          <div className="relative shrink-0">
+            <button
+              ref={servicesTriggerRef}
+              type="button"
+              className={`${navLink} inline-flex items-center gap-1`}
+              aria-expanded={megaMenu === "services"}
+              aria-haspopup="true"
+              onMouseEnter={() => openMega("services")}
+              onClick={() => toggleMega("services")}
+            >
+              Services
+              <ChevronDown
+                className={`h-3.5 w-3.5 shrink-0 opacity-70 transition-transform duration-200 ${
+                  megaMenu === "services" ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          </div>
 
-          <NavDropdown
-            label="Locations"
-            open={locationsOpen}
-            onOpen={() => {
-              closeAll();
-              setLocationsOpen(true);
-            }}
-            onClose={() => setLocationsOpen(false)}
-            widthClass="w-[min(100vw-2rem,26rem)]"
-          >
-            <div className="max-h-[min(70vh,28rem)] overflow-y-auto overscroll-contain">
-              {getLocationNavSections().map((section) => (
-                <div key={section.id} className="border-t border-white/10 first:border-t-0">
-                  <p className="sticky top-0 z-10 bg-brand-purple px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-brand-yellow/55">
-                    {section.title}
-                  </p>
-                  <div
-                    className={
-                      section.id === "auckland"
-                        ? "grid grid-cols-2 gap-x-0.5 px-1 pb-1"
-                        : "px-1 pb-1"
-                    }
-                  >
-                    {section.items.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="block rounded-xl px-3 py-2 text-sm font-medium text-brand-yellow/90 transition-colors hover:bg-white/10 hover:text-brand-yellow"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </NavDropdown>
+          <div className="relative shrink-0">
+            <button
+              ref={locationsTriggerRef}
+              type="button"
+              className={`${navLink} inline-flex items-center gap-1`}
+              aria-expanded={megaMenu === "locations"}
+              aria-haspopup="true"
+              onMouseEnter={() => openMega("locations")}
+              onClick={() => toggleMega("locations")}
+            >
+              Locations
+              <ChevronDown
+                className={`h-3.5 w-3.5 shrink-0 opacity-70 transition-transform duration-200 ${
+                  megaMenu === "locations" ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          </div>
 
           <Link href="/piano-movers" className={navLink}>
             Piano
@@ -154,7 +207,7 @@ export function SiteHeader() {
             label="More"
             open={moreOpen}
             onOpen={() => {
-              closeAll();
+              setMegaMenu(null);
               setMoreOpen(true);
             }}
             onClose={() => setMoreOpen(false)}
@@ -164,6 +217,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={() => setMoreOpen(false)}
                 className="block rounded-xl px-3 py-2.5 text-sm font-medium text-brand-yellow/90 transition-colors hover:bg-white/10 hover:text-brand-yellow"
               >
                 {item.label}
@@ -220,7 +274,7 @@ export function SiteHeader() {
               Locations
             </Link>
             <Link href="/piano-movers" onClick={() => setOpen(false)} className="block rounded-xl px-2 py-2 hover:bg-white/10">
-              Piano Movers
+              Piano
             </Link>
             <Link href="/reviews" onClick={() => setOpen(false)} className="block rounded-xl px-2 py-2 hover:bg-white/10">
               Reviews
@@ -260,6 +314,23 @@ export function SiteHeader() {
           </nav>
         </div>
       )}
+
+      {megaMenu ? (
+        <div
+          ref={megaPanelRef}
+          className="absolute inset-x-0 top-full z-[100] hidden border-t border-white/10 bg-brand-purple pt-1 shadow-xl lg:block"
+          onMouseEnter={cancelMegaClose}
+          onMouseLeave={scheduleMegaClose}
+        >
+          <div className="mx-auto max-w-7xl container-px">
+            {megaMenu === "services" ? (
+              <ServiceNavMenu onNavigate={() => setMegaMenu(null)} />
+            ) : (
+              <LocationNavMenu onNavigate={() => setMegaMenu(null)} />
+            )}
+          </div>
+        </div>
+      ) : null}
     </header>
   );
 }

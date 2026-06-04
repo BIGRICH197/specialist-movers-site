@@ -60,7 +60,7 @@ export const serviceBlurbs: Record<
       "Office and workplace relocations across Auckland and the Waikato , desks, IT, meeting rooms, and files moved with minimal downtime. We plan access, lifts, and timing so your team can get back to work.",
   },
   "piano-movers": {
-    title: "Piano Movers Auckland and Hamilton",
+    title: "Piano moving Auckland and Hamilton",
     excerpt:
       "We specialise in transporting pianos of all kinds – from upright, electric, to grand – safely and on time. Our piano transportation package includes careful collection, shrink wrapping, secure delivery, and full setup upon arrival.",
   },

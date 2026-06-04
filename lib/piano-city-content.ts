@@ -16,11 +16,11 @@ export type PianoCityExtra = {
 };
 
 export const pianoAucklandCity: PianoCityExtra = {
-  metaTitle: "Piano Movers Auckland | Specialist Piano Movers",
+  metaTitle: "Piano moving Auckland | Specialist Piano Movers",
   metaDescription:
-    "Trusted piano movers in Auckland for upright, grand, and digital pianos. Local, cross-island, and international moves. Skids, dollies, storage, and insured specialist crews. Free quote.",
+    "Trusted piano moving in Auckland for upright, grand, and digital pianos. Local, cross-island, and international moves. Skids, dollies, storage, and insured specialist crews. Free quote.",
   lead:
-    "Looking for reliable piano movers in Auckland? Specialist Piano Movers handles local moves, runs between Auckland and Hamilton, and coordinates international piano shipping when you need it.",
+    "Looking for reliable piano moving in Auckland? Specialist Piano Movers handles local moves, runs between Auckland and Hamilton, and coordinates international piano shipping when you need it.",
   paragraphs: [
     "At Specialist Piano Movers we focus on safe, efficient transport for pianos of all types and sizes. Our Auckland crew moves uprights, baby grands, grands, and digital pianos with equipment built for the job, not general furniture trucks.",
     "Your piano is often a family heirloom and the centrepiece of your home. We treat each move with meticulous care from collection through to placement at your new address.",

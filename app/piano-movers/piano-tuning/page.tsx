@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { PianoTuningPage } from "@/components/PianoTuningPage";
-import { pianoTuningMeta } from "@/lib/piano-tuning-content";
+import { pianoTuningContent } from "@/lib/piano-tuning-content";
 
 export const metadata: Metadata = {
-  title: pianoTuningMeta.title,
-  description: pianoTuningMeta.description,
+  title: pianoTuningContent.meta.title,
+  description: pianoTuningContent.meta.description,
 };
 
 export default function PianoTuningRoute() {
-  return <PianoTuningPage />;
+  return <PianoTuningPage content={pianoTuningContent} />;
 }

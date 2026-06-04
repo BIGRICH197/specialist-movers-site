@@ -32,9 +32,7 @@ export default function MovingDistancePage({
   params: { slug: string };
 }) {
   if (isServiceCitySlug(params.slug)) {
-    if (params.slug === "auckland") redirect("/services/moving");
-    if (params.slug === "hamilton") redirect("/services/moving-hamilton");
-    notFound();
+    redirect("/services/moving");
   }
 
   const item = getMovingDistanceService(params.slug);

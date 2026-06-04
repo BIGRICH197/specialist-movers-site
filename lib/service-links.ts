@@ -18,6 +18,9 @@ export function resolveServiceLink(
   }
   const p = pianoServices.find((x) => x.slug === slug);
   if (p) return { href: `/piano-movers/${p.slug}`, label: p.title };
+  if (slug === "piano-movers-hamilton") {
+    return { href: "/piano-movers-hamilton", label: "Piano moving Hamilton" };
+  }
   const moving = getMovingDistanceService(slug);
   if (moving) {
     return {

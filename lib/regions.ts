@@ -8,7 +8,7 @@ export const regions = {
   serviceAreaBadge: "Auckland & Waikato",
   widerNorthIsland: "Wider North Island: Taupo to Cape Reinga",
   heroEyebrow:
-    "Trusted house and piano movers. Bases in Auckland and Hamilton.",
+    "Trusted house and piano moving. Bases in Auckland and Hamilton.",
   heroH1: "Specialist Movers. Auckland and Hamilton moving specialists.",
   heroLead:
     "Relocation does not need to be stressful. We run 7 days a week from our Auckland and Hamilton bases, with strong coverage across Auckland, Hamilton and inbetween. We also service the wider Waikato when you need us. Precision, care, and clear communication from quote to handover.",
@@ -23,7 +23,7 @@ export const regions = {
     "Auckland and Hamilton bases, servicing Auckland and the Waikato",
   movingBannerLine: "Auckland and Hamilton bases. Auckland and Waikato service.",
   jsonLdDescription:
-    "House and piano movers with Auckland and Hamilton bases, servicing Auckland and the Waikato.",
+    "house and piano moving with Auckland and Hamilton bases, servicing Auckland and the Waikato.",
   coverage:
     "Our team brings over 60 years of combined moving industry experience, including pianos, spa pools, and bathtubs. With bases in Auckland (Wairau Valley) and Hamilton, we service Auckland and the Waikato every day. We are trusted by major Auckland retailers for delicate, high value deliveries, with regular work from Silverdale and the North Shore through to central suburbs like Herne Bay, Ponsonby, and Remuera, plus Hamilton and wider Waikato towns when you need us.",
   whyChooseShort:

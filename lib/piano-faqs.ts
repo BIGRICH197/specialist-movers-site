@@ -31,7 +31,7 @@ export const pianoFaqs = [
     a: "The move itself does not usually knock a piano out of tune, but temperature and humidity changes can. We suggest booking a tuner 2 to 3 weeks after the move so the instrument can settle in its new room.",
   },
   {
-    q: "Do you need a piano mover to move a piano in Auckland?",
+    q: "Do you need specialist piano moving in Auckland?",
     a: "Yes. Pianos are heavy and easy to damage. A professional crew has the gear and technique to protect your piano and your home. DIY moves often cost more when something goes wrong.",
   },
   {

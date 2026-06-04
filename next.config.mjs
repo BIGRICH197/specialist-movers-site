@@ -11,7 +11,6 @@ const serviceSlugs = [
   "loading-unloading",
   "winz-quotes",
   "storage",
-  "moving",
 ];
 
 function cityRedirects() {
@@ -104,8 +103,28 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/piano-movers/piano-tuning-hamilton",
+        destination: "/piano-movers/piano-tuning",
+        permanent: true,
+      },
+      {
         source: "/services/moving/international-moving",
         destination: "/services/international-moving",
+        permanent: true,
+      },
+      {
+        source: "/services/moving-hamilton",
+        destination: "/services/moving",
+        permanent: true,
+      },
+      {
+        source: "/services/moving/auckland",
+        destination: "/services/moving",
+        permanent: true,
+      },
+      {
+        source: "/services/moving/hamilton",
+        destination: "/services/moving",
         permanent: true,
       },
       ...cityRedirects(),

@@ -6,9 +6,9 @@ import { getServiceLandingConfig } from "@/lib/service-landings";
 const SLUG = "piano-movers";
 
 export const metadata: Metadata = {
-  title: "Piano Movers Auckland | Specialist Piano Movers",
+  title: "Piano moving Auckland | Specialist Piano Movers",
   description:
-    "Piano movers Auckland for upright, grand, and digital pianos. Trusted by retailers. Local moves, Hamilton routes, international shipping. Free quote, callback in 15 minutes.",
+    "Piano moving Auckland for upright, grand, and digital pianos. Trusted by retailers. Local moves, Hamilton routes, international shipping. Free quote, callback in 15 minutes.",
 };
 
 export default function PianoHubPage() {

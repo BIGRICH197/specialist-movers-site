@@ -3,47 +3,45 @@ import { Check } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { HeroVisual } from "@/components/HeroVisual";
 import { QuoteForm } from "@/components/QuoteForm";
-import { HamiltonPageLink } from "@/components/HamiltonPageLink";
-import {
-  pianoTuningFaqs,
-  pianoTuningHero,
-  pianoTuningIncluded,
-  pianoTuningSections,
-  pianoTuningWhy,
-  pianoTuningRelatedSlugs,
-} from "@/lib/piano-tuning-content";
+import type { PianoTuningContent } from "@/lib/piano-tuning-types";
 import { resolveServiceLink } from "@/lib/service-links";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
 const heroPhoto = "/photos/piano-gallery/piano-tuning.jpg";
 
-export function PianoTuningPage() {
+type Props = {
+  content: PianoTuningContent;
+};
+
+export function PianoTuningPage({ content }: Props) {
   return (
     <div className="bg-brand-white">
       <section className="border-b border-white/10 bg-brand-purple py-12 text-white sm:py-16">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center container-px">
           <div>
-            <Breadcrumbs
-              items={[
-                { label: "Home", href: "/" },
-                { label: "Piano Movers", href: "/piano-movers" },
-                { label: "Piano Tuning" },
-              ]}
-              light
-            />
+            <Breadcrumbs items={[...content.breadcrumbs]} light />
             <p className="mt-3 inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-yellow">
-              {pianoTuningHero.eyebrow}
+              {content.hero.eyebrow}
             </p>
             <h1 className="mt-3 font-heading text-3xl leading-tight sm:text-4xl lg:text-5xl">
-              {pianoTuningHero.h1}
+              {content.hero.h1}
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/88 sm:text-lg">
-              {pianoTuningHero.lead}
+              {content.hero.lead}
             </p>
             <p className="mt-3 inline-block max-w-xl rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white/90">
-              {pianoTuningHero.subline}
+              {content.hero.subline}
             </p>
-            <HamiltonPageLink serviceSlug="piano-movers" variant="hero" />
+            {content.crossLink ? (
+              <div className="mt-5">
+                <Link
+                  href={content.crossLink.href}
+                  className="rounded-full border border-brand-yellow/40 bg-brand-yellow/10 px-3 py-1.5 text-xs font-semibold text-brand-yellow transition hover:bg-brand-yellow/20"
+                >
+                  {content.crossLink.label} →
+                </Link>
+              </div>
+            ) : null}
             <a
               href={`tel:${phoneNumber}`}
               className="mt-6 inline-flex font-heading text-xl font-bold text-brand-yellow transition-colors duration-200 hover:text-white sm:text-2xl"
@@ -63,7 +61,7 @@ export function PianoTuningPage() {
           <div className="rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm sm:p-8">
             <h2 className="font-heading text-2xl text-brand-purple">What we handle</h2>
             <ul className="mt-5 space-y-3">
-              {pianoTuningIncluded.map((b) => (
+              {content.included.map((b) => (
                 <li key={b} className="flex gap-3 text-brand-purple/85">
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-yellow/90 text-brand-purple">
                     <Check className="h-3 w-3" strokeWidth={3} />
@@ -74,7 +72,7 @@ export function PianoTuningPage() {
             </ul>
           </div>
 
-          {pianoTuningSections.map((section) => (
+          {content.sections.map((section) => (
             <div
               key={section.title}
               className="rounded-2xl border border-brand-purple/15 bg-brand-purple/[0.03] p-6 sm:p-8"
@@ -86,13 +84,13 @@ export function PianoTuningPage() {
 
           <div className="rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm sm:p-8">
             <h2 className="font-heading text-2xl text-brand-purple">Why book through us</h2>
-            <p className="mt-4 text-base leading-relaxed text-brand-purple/85">{pianoTuningWhy}</p>
+            <p className="mt-4 text-base leading-relaxed text-brand-purple/85">{content.whyChoose}</p>
           </div>
 
           <div>
             <h2 className="font-heading text-xl text-brand-purple">Related piano services</h2>
             <div className="mt-4 flex flex-wrap gap-2">
-              {pianoTuningRelatedSlugs.map((slug) => {
+              {content.relatedSlugs.map((slug) => {
                 const link = resolveServiceLink(slug);
                 if (!link) return null;
                 return (
@@ -123,7 +121,7 @@ export function PianoTuningPage() {
             Piano tuning questions
           </h2>
           <dl className="mt-8 grid gap-4 sm:grid-cols-2">
-            {pianoTuningFaqs.map((item) => (
+            {content.faqs.map((item) => (
               <div
                 key={item.q}
                 className="rounded-2xl border border-brand-purple/12 bg-white p-5 shadow-sm"
@@ -138,9 +136,7 @@ export function PianoTuningPage() {
 
       <section className="border-t border-brand-purple/10 py-12 container-px">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
-            Book your piano tuning
-          </h2>
+          <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">{content.ctaTitle}</h2>
           <p className="mt-4 text-brand-purple/85">
             Call{" "}
             <a href={`tel:${phoneNumber}`} className="font-semibold text-brand-purple underline">

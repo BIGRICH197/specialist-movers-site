@@ -43,7 +43,7 @@ export function createSuburb(
     parentSlug,
     searchTerms: [name, slug, ...searchTerms],
     metaTitle: `Movers ${name}`,
-    metaDescription: `${name} house and piano movers. Specialist Movers ${regionLabel}. Free quote.`,
+    metaDescription: `${name} house and piano moving. Specialist Movers ${regionLabel}. Free quote.`,
     intro: `We move homes and pianos in ${name} and nearby streets. Our Auckland crew plans access, parking, and timing before move day.`,
     paragraphs: [
       `${note} We quote after a free in-home viewing when you need an accurate fixed price for a house move.`,
@@ -63,8 +63,20 @@ export function createTown(
   name: string,
   introNote: string,
   searchTerms: string[] = [],
+  options?: {
+    /** Meta title area suffix, e.g. "Waikato", "Bay of Plenty". Omit for name-only title. */
+    areaLabel?: string;
+    /** Which depot schedules the work — affects intro copy. */
+    depot?: "Hamilton" | "Auckland";
+  },
 ): Location {
   const slug = slugifyLocationName(name);
+  const depot = options?.depot ?? "Hamilton";
+  const areaLabel = options?.areaLabel ?? "Waikato";
+  const metaTitle =
+    areaLabel === ""
+      ? `Movers ${name}`
+      : `Movers ${name} ${areaLabel}`;
 
   return {
     slug,
@@ -73,16 +85,16 @@ export function createTown(
     group: "waikato",
     parentSlug: null,
     searchTerms: [name, slug, ...searchTerms],
-    metaTitle: `Movers ${name} Waikato`,
-    metaDescription: `${name} house and piano movers. Specialist Movers Hamilton base. Free quote.`,
-    intro: `${introNote} We quote travel and access clearly from our Hamilton base.`,
+    metaTitle,
+    metaDescription: `${name} house and piano moving. Specialist Movers ${depot} base. Free quote.`,
+    intro: `${introNote} We quote travel and access clearly from our ${depot} base.`,
     paragraphs: [
       `We visit before larger house moves in ${name} so stairs, driveways, and volume are clear before we lock your price.`,
       `Piano transport to and from ${name} is available with specialist handling and shrink wrap.`,
       sharedServices,
     ],
     highlights: [
-      "Serviced from our Hamilton base",
+      `Serviced from our ${depot} base`,
       "In-home viewing for house moves",
       "Piano and house specialists",
       "Licensed and insured crews",

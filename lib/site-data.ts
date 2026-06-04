@@ -227,7 +227,7 @@ export const pianoServices = [
   },
   {
     slug: "piano-tuning",
-    title: "Piano Tuning",
+    title: "Piano tuning",
     defaultJobType: "Piano Move" as const,
     includedBullets: [
       "Standard tuning for upright and grand pianos",

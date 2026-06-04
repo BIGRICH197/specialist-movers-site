@@ -41,7 +41,7 @@ const regions: Location[] = [
     parentSlug: null,
     metaTitle: "Movers North Shore Auckland",
     metaDescription:
-      "House and piano movers on the North Shore. Specialist Movers, Silverdale to Devonport. Free quote. Auckland depot.",
+      "house and piano moving on the North Shore. Specialist Movers, Silverdale to Devonport. Free quote. Auckland depot.",
     intro:
       "Regular North Shore work from Takapuna and Milford through to Albany and Silverdale. We plan ferry access, apartments, and driveway limits before your move.",
     paragraphs: [
@@ -63,7 +63,7 @@ const regions: Location[] = [
     parentSlug: null,
     metaTitle: "Movers Central Auckland",
     metaDescription:
-      "Premium house and piano movers in central Auckland, Herne Bay, Ponsonby, Remuera, Parnell. Free quote. Specialist Movers.",
+      "Premium house and piano moving in central Auckland, Herne Bay, Ponsonby, Remuera, Parnell. Free quote. Specialist Movers.",
     intro:
       "Central suburbs mean character homes, apartments, and careful handling. We work in Herne Bay, Ponsonby, Remuera, and across the inner city.",
     paragraphs: [
@@ -85,7 +85,7 @@ const regions: Location[] = [
     parentSlug: null,
     metaTitle: "Movers West Auckland",
     metaDescription:
-      "House and piano movers West Auckland, Henderson, New Lynn, Titirangi. Specialist Movers. Free quote.",
+      "house and piano moving West Auckland, Henderson, New Lynn, Titirangi. Specialist Movers. Free quote.",
     intro:
       "West Auckland covers everything from Henderson and New Lynn out to Titirangi hillside homes. We quote properly for access and distance.",
     paragraphs: [
@@ -153,7 +153,7 @@ const suburbs: Location[] = [
     group: "auckland",
     parentSlug: "north-shore",
     metaTitle: "Movers Takapuna",
-    metaDescription: "House and piano movers in Takapuna. Specialist Movers North Shore. Free in-home viewing.",
+    metaDescription: "house and piano moving in Takapuna. Specialist Movers North Shore. Free in-home viewing.",
     ...suburbCopy(
       "Takapuna",
       "Beachside apartments and office-adjacent homes mean lifts, stairs, and parking matter.",
@@ -225,7 +225,7 @@ const suburbs: Location[] = [
     group: "auckland",
     parentSlug: "central-auckland",
     metaTitle: "Movers Herne Bay",
-    metaDescription: "Herne Bay house and piano movers. Premium careful moves. Specialist Movers.",
+    metaDescription: "Herne Bay house and piano moving. Premium careful moves. Specialist Movers.",
     ...suburbCopy("Herne Bay", "Premium villas and apartments, we protect floors and door frames as standard.", "central Auckland"),
   },
   {
@@ -374,7 +374,7 @@ const towns: Location[] = [
     parentSlug: null,
     metaTitle: "Movers Hamilton",
     metaDescription:
-      "Hamilton house and piano movers. Specialist Movers Hamilton base. Auckland and Waikato service.",
+      "Hamilton house and piano moving. Specialist Movers Hamilton base. Auckland and Waikato service.",
     intro:
       "Hamilton is our second base. We run daily work across Hamilton city and nearby towns, with Auckland crews when needed.",
     paragraphs: [
@@ -484,55 +484,21 @@ export function getLocationSlugs(): string[] {
   return allLocations.map((l) => l.slug);
 }
 
-/** Header dropdown — all Auckland suburbs first, then Waikato towns. */
+/** Header dropdown — All Auckland suburbs first, then Waikato towns. */
 export type LocationNavItem = {
   label: string;
   href: string;
   group: LocationGroup;
 };
 
-export type LocationNavSection = {
-  id: LocationGroup;
-  title: string;
-  items: LocationNavItem[];
-};
-
-export function getLocationNavSections(): LocationNavSection[] {
-  const aucklandSuburbs: LocationNavItem[] = allLocations
-    .filter((l) => l.kind === "suburb" && l.group === "auckland")
-    .sort((a, b) => a.name.localeCompare(b.name))
-    .map((l) => ({
-      label: l.name,
-      href: `/locations/${l.slug}`,
-      group: "auckland" as const,
-    }));
-
-  const waikatoTowns: LocationNavItem[] = allLocations
-    .filter((l) => l.kind === "town" && l.group === "waikato")
-    .sort((a, b) => {
-      if (a.slug === "hamilton") return -1;
-      if (b.slug === "hamilton") return 1;
-      return a.name.localeCompare(b.name);
-    })
-    .map((l) => ({
-      label: l.name,
-      href: `/locations/${l.slug}`,
-      group: "waikato" as const,
-    }));
-
-  return [
-    { id: "auckland", title: "Auckland suburbs", items: aucklandSuburbs },
-    { id: "waikato", title: "Waikato", items: waikatoTowns },
-  ];
-}
-
-/** Flat list (Auckland suburbs, then Waikato). */
-export function getLocationNavItems(): LocationNavItem[] {
-  return getLocationNavSections().flatMap((section) => section.items);
-}
-
-/** @deprecated Use getLocationNavSections() — kept for any flat consumers */
-export const locationNavItems = getLocationNavItems();
+export const locationNavItems: readonly LocationNavItem[] = [
+  { label: "All Auckland suburbs", href: "/locations", group: "auckland" },
+  { label: "Hamilton", href: "/locations/hamilton", group: "waikato" },
+  { label: "Cambridge", href: "/locations/cambridge", group: "waikato" },
+  { label: "Te Awamutu", href: "/locations/te-awamutu", group: "waikato" },
+  { label: "Morrinsville", href: "/locations/morrinsville", group: "waikato" },
+  { label: "Matamata", href: "/locations/matamata", group: "waikato" },
+];
 
 export function getChildLocations(parentSlug: string): Location[] {
   return allLocations.filter((l) => l.parentSlug === parentSlug);

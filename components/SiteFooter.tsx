@@ -49,38 +49,23 @@ export function SiteFooter() {
         </div>
         <div>
           <p className="font-heading text-brand-yellow">Services</p>
-          <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-3 text-sm text-white/85">
-            <div>
-              <p className="text-[10px] font-bold uppercase tracking-wider text-brand-yellow/55">
-                Auckland
-              </p>
-              <ul className="mt-2 space-y-2">
-                {serviceRows.map((row) => (
-                  <li key={`auckland-${row.key}`}>
-                    <Link href={row.auckland.href} className="hover:text-brand-yellow">
-                      {row.auckland.label}
+          <ul className="mt-3 space-y-3 text-sm text-white/85">
+            {serviceRows.map((row) => (
+              <li key={row.key}>
+                <p className="font-semibold text-white/95">{row.label}</p>
+                <p className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-xs">
+                  <Link href={row.auckland.href} className="hover:text-brand-yellow">
+                    {row.auckland.label}
+                  </Link>
+                  {row.hamilton ? (
+                    <Link href={row.hamilton.href} className="hover:text-brand-yellow">
+                      {row.hamilton.label}
                     </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="text-[10px] font-bold uppercase tracking-wider text-brand-yellow/55">
-                Hamilton
-              </p>
-              <ul className="mt-2 space-y-2">
-                {serviceRows.map((row) =>
-                  row.hamilton ? (
-                    <li key={`hamilton-${row.key}`}>
-                      <Link href={row.hamilton.href} className="hover:text-brand-yellow">
-                        {row.hamilton.label}
-                      </Link>
-                    </li>
-                  ) : null,
-                )}
-              </ul>
-            </div>
-          </div>
+                  ) : null}
+                </p>
+              </li>
+            ))}
+          </ul>
           <ul className="mt-4 space-y-2 border-t border-white/10 pt-4 text-sm text-white/85">
             {serviceNavClusterLinks.map((link) => (
               <li key={link.href}>
@@ -92,7 +77,7 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <p className="font-heading text-brand-yellow">Piano Movers</p>
+          <p className="font-heading text-brand-yellow">Piano moving</p>
           <ul className="mt-3 space-y-2 text-sm text-white/85">
             {pianoServices.map((piano) => (
               <li key={piano.slug}>

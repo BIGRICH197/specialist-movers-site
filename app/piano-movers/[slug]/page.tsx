@@ -37,7 +37,7 @@ export default function PianoSlugPage({ params }: { params: { slug: string } }) 
       defaultJobType={service.defaultJobType}
       breadcrumbs={[
         { label: "Home", href: "/" },
-        { label: "Piano Movers", href: "/piano-movers" },
+        { label: "Piano moving", href: "/piano-movers" },
         { label: service.title },
       ]}
       heroPhoto={getPianoPhoto(service.slug)}

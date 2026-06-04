@@ -9,7 +9,7 @@ import { regions } from "@/lib/regions";
 export const metadata: Metadata = {
   title: "Areas We Serve",
   description:
-    "House and piano movers across Auckland suburbs and the Waikato. Bases in Auckland (Wairau Valley) and Hamilton. Find your area and get a free quote.",
+    "house and piano moving across Auckland suburbs and the Waikato. Bases in Auckland (Wairau Valley) and Hamilton. Find your area and get a free quote.",
 };
 
 export default function LocationsPage() {
