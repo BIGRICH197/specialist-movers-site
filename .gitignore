@@ -28,6 +28,9 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# audit outputs (may contain URLs with API keys from local runs)
+docs/audit-lighthouse*.json
+
 # vercel
 .vercel
 

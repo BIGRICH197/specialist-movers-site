@@ -9,12 +9,12 @@ export function CoverageMap() {
       className="mt-8 overflow-hidden rounded-2xl border border-brand-purple/15 bg-brand-surface"
       aria-label="Road map showing Specialist Movers bases in Auckland and Hamilton"
     >
-      <div className="relative aspect-[5/2] w-full min-h-[240px] sm:min-h-[300px]">
+      <div className="relative aspect-[5/2] w-full min-h-[240px] overflow-hidden sm:min-h-[300px]">
         <Image
           src={coverageMapImage}
           alt="Road map of the North Island with Auckland and Hamilton depot locations marked"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           sizes="(max-width: 1280px) 100vw, 1280px"
         />
       </div>
