@@ -91,6 +91,8 @@ export function HomeHero({
       </div>
 
       <div className="relative z-[1] mx-auto max-w-7xl container-px">
+        <GoogleRatingBadge className="pointer-events-auto absolute left-1/2 top-[calc(54%-4cm)] z-20 hidden -translate-x-1/2 -translate-y-1/2 xl:flex" />
+
         <div className="flex flex-col gap-5 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] xl:gap-12">
           {/* Mobile: badge → title → photo → Google bar */}
           <motion.div
@@ -166,7 +168,7 @@ export function HomeHero({
 
           {/* Desktop left column */}
           <motion.div
-            className="hidden min-w-0 overflow-visible lg:col-start-1 lg:row-start-1 lg:block"
+            className="hidden min-w-0 lg:col-start-1 lg:row-start-1 lg:block"
             variants={reduced ? undefined : container}
             initial={reduced ? false : "hidden"}
             animate="show"
@@ -223,16 +225,8 @@ export function HomeHero({
                 </span>
               ))}
             </motion.div>
-            <motion.div
-              variants={reduced ? undefined : item}
-              transition={t}
-              className="relative mt-8 overflow-visible"
-            >
+            <motion.div variants={reduced ? undefined : item} transition={t} className="mt-8">
               {heroVisual}
-              {/* Desktop: badge in the gutter beside the photo (same as piano hub), not over the headline */}
-              <div className="pointer-events-auto absolute left-full top-1/2 z-20 hidden -translate-y-1/2 pl-4 xl:block">
-                <GoogleRatingBadge />
-              </div>
             </motion.div>
           </motion.div>
         </div>
