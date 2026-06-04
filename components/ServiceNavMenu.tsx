@@ -6,6 +6,7 @@ import {
   getServiceNavMenuColumns,
   serviceNavCompanyLinks,
   serviceNavPianoExtras,
+  serviceNavSpecialtyLinks,
   type ServiceNavRow,
 } from "@/lib/service-nav";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
@@ -122,6 +123,20 @@ export function ServiceNavMenu({ onNavigate }: Props) {
         <div className="space-y-5 text-sm text-white/85">
           <ul className="space-y-2">
             {serviceNavPianoExtras.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={onNavigate}
+                  className="transition-colors hover:text-brand-yellow"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="font-heading text-sm font-bold text-brand-yellow">Specialist pages</p>
+          <ul className="space-y-2">
+            {serviceNavSpecialtyLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}

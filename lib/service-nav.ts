@@ -114,15 +114,20 @@ export const serviceNavHubLink = {
   href: "/services",
 };
 
+/** Specialist landing pages (mega menu + footer). */
+export const serviceNavSpecialtyLinks: readonly ServiceNavLink[] = [
+  { label: "Apartment movers Auckland", href: "/apartment-movers-auckland" },
+  { label: "Retirement home movers", href: "/retirement-home-movers-auckland" },
+  { label: "Cleaning bookings", href: "/cleaning-bookings" },
+  { label: "Moving to Australia", href: "/international-moving/moving-to-australia" },
+] as const;
+
 /** Cluster / guide pages — not main bookable services (footer and secondary nav). */
 export const serviceNavClusterLinks: readonly ServiceNavLink[] = [
   { label: "What's included", href: "/services/whats-included" },
   { label: movingDistanceHub.title, href: movingDistanceHub.path },
   { label: "Storage options", href: storageHub.path },
-  { label: "Cleaning bookings", href: "/cleaning-bookings" },
-  { label: "Apartment movers Auckland", href: "/apartment-movers-auckland" },
-  { label: "Retirement home movers", href: "/retirement-home-movers-auckland" },
-  { label: "Moving to Australia", href: "/international-moving/moving-to-australia" },
+  ...serviceNavSpecialtyLinks,
 ] as const;
 
 /** Piano sub-pages in the mega menu sidebar (not main service grid). */
