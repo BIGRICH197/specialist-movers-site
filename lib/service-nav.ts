@@ -71,12 +71,12 @@ const serviceNavMenuLeftSlugs: readonly HamiltonBaseSlug[] = [
   "office-moving",
   "commercial-moving",
   "hard-to-shift",
-  "cleaning-services",
 ];
 
 /** Mega menu right column — piano moving first. */
 const serviceNavMenuRightSlugs: readonly HamiltonBaseSlug[] = [
   "piano-movers",
+  "cleaning-services",
   "international-moving",
   "loading-unloading",
   "winz-quotes",

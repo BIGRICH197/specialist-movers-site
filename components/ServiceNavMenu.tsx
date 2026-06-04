@@ -9,7 +9,6 @@ import {
   serviceNavPianoExtras,
   type ServiceNavRow,
 } from "@/lib/service-nav";
-import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
 type Props = {
   onNavigate?: () => void;
@@ -160,15 +159,6 @@ export function ServiceNavMenu({ onNavigate }: Props) {
               </li>
             ))}
           </ul>
-          <div className="border-t border-white/10 pt-4">
-            <a
-              href={`tel:${phoneNumber}`}
-              className="font-semibold text-brand-yellow transition-colors hover:underline"
-            >
-              {phoneDisplay}
-            </a>
-            <p className="mt-1 text-white/85">Mon–Sun, 9am–7pm</p>
-          </div>
         </div>
       </div>
     </div>
