@@ -6,9 +6,9 @@ import { Menu, Phone, X, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
-import { locationNavItems } from "@/lib/locations";
-import { serviceHref } from "@/lib/service-links";
-import { phoneDisplay, phoneNumber, services } from "@/lib/site-data";
+import { getLocationNavSections } from "@/lib/locations";
+import { ServiceNavMenu } from "@/components/ServiceNavMenu";
+import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
 const navLink =
   "shrink-0 whitespace-nowrap rounded-lg px-2.5 py-2 text-xs font-medium text-brand-yellow/90 transition-colors hover:bg-white/10 hover:text-brand-yellow xl:px-3 xl:text-sm";
@@ -94,16 +94,9 @@ export function SiteHeader() {
               setServicesOpen(true);
             }}
             onClose={() => setServicesOpen(false)}
+            widthClass="w-[min(100vw-2rem,36rem)]"
           >
-            {services.map((service) => (
-              <Link
-                key={service.slug}
-                className="block rounded-xl px-3 py-2.5 text-sm font-medium text-brand-yellow/90 transition-colors hover:bg-white/10 hover:text-brand-yellow"
-                href={serviceHref(service.slug)}
-              >
-                {service.title}
-              </Link>
-            ))}
+            <ServiceNavMenu />
           </NavDropdown>
 
           <NavDropdown
@@ -114,17 +107,34 @@ export function SiteHeader() {
               setLocationsOpen(true);
             }}
             onClose={() => setLocationsOpen(false)}
-            widthClass="w-[min(100vw-2rem,15rem)]"
+            widthClass="w-[min(100vw-2rem,26rem)]"
           >
-            {locationNavItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="block rounded-xl px-3 py-2.5 text-sm font-medium text-brand-yellow/90 transition-colors hover:bg-white/10 hover:text-brand-yellow"
-              >
-                {item.label}
-              </Link>
-            ))}
+            <div className="max-h-[min(70vh,28rem)] overflow-y-auto overscroll-contain">
+              {getLocationNavSections().map((section) => (
+                <div key={section.id} className="border-t border-white/10 first:border-t-0">
+                  <p className="sticky top-0 z-10 bg-brand-purple px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-brand-yellow/55">
+                    {section.title}
+                  </p>
+                  <div
+                    className={
+                      section.id === "auckland"
+                        ? "grid grid-cols-2 gap-x-0.5 px-1 pb-1"
+                        : "px-1 pb-1"
+                    }
+                  >
+                    {section.items.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="block rounded-xl px-3 py-2 text-sm font-medium text-brand-yellow/90 transition-colors hover:bg-white/10 hover:text-brand-yellow"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </NavDropdown>
 
           <Link href="/piano-movers" className={navLink}>

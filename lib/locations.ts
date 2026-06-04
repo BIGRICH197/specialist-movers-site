@@ -484,15 +484,55 @@ export function getLocationSlugs(): string[] {
   return allLocations.map((l) => l.slug);
 }
 
-/** Header dropdown — Hamilton first; Auckland suburbs via hub (no region pages). */
-export const locationNavItems: readonly { label: string; href: string; group: LocationGroup }[] = [
-  { label: "Hamilton", href: "/locations/hamilton", group: "waikato" },
-  { label: "Cambridge", href: "/locations/cambridge", group: "waikato" },
-  { label: "Te Awamutu", href: "/locations/te-awamutu", group: "waikato" },
-  { label: "Morrinsville", href: "/locations/morrinsville", group: "waikato" },
-  { label: "Matamata", href: "/locations/matamata", group: "waikato" },
-  { label: "All Auckland suburbs", href: "/locations", group: "auckland" },
-];
+/** Header dropdown — all Auckland suburbs first, then Waikato towns. */
+export type LocationNavItem = {
+  label: string;
+  href: string;
+  group: LocationGroup;
+};
+
+export type LocationNavSection = {
+  id: LocationGroup;
+  title: string;
+  items: LocationNavItem[];
+};
+
+export function getLocationNavSections(): LocationNavSection[] {
+  const aucklandSuburbs: LocationNavItem[] = allLocations
+    .filter((l) => l.kind === "suburb" && l.group === "auckland")
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((l) => ({
+      label: l.name,
+      href: `/locations/${l.slug}`,
+      group: "auckland" as const,
+    }));
+
+  const waikatoTowns: LocationNavItem[] = allLocations
+    .filter((l) => l.kind === "town" && l.group === "waikato")
+    .sort((a, b) => {
+      if (a.slug === "hamilton") return -1;
+      if (b.slug === "hamilton") return 1;
+      return a.name.localeCompare(b.name);
+    })
+    .map((l) => ({
+      label: l.name,
+      href: `/locations/${l.slug}`,
+      group: "waikato" as const,
+    }));
+
+  return [
+    { id: "auckland", title: "Auckland suburbs", items: aucklandSuburbs },
+    { id: "waikato", title: "Waikato", items: waikatoTowns },
+  ];
+}
+
+/** Flat list (Auckland suburbs, then Waikato). */
+export function getLocationNavItems(): LocationNavItem[] {
+  return getLocationNavSections().flatMap((section) => section.items);
+}
+
+/** @deprecated Use getLocationNavSections() — kept for any flat consumers */
+export const locationNavItems = getLocationNavItems();
 
 export function getChildLocations(parentSlug: string): Location[] {
   return allLocations.filter((l) => l.parentSlug === parentSlug);

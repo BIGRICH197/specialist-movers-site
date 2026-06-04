@@ -3,22 +3,12 @@ import Link from "next/link";
 import { BrandLogomarkWatermark } from "@/components/BrandLogomarkWatermark";
 import { BrandLogo } from "@/components/BrandLogo";
 import { brandAssets } from "@/lib/brand-assets";
-import {
-  movingDistanceHub,
-  storageHub,
-  whatsIncludedPage,
-} from "@/lib/service-clusters";
-import { serviceHref } from "@/lib/service-links";
-import { pianoServices, services } from "@/lib/site-data";
+import { getServiceNavRows, serviceNavClusterLinks } from "@/lib/service-nav";
+import { pianoServices } from "@/lib/site-data";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
-const clusterLinks = [
-  { href: movingDistanceHub.path, label: "Moving by distance" },
-  { href: storageHub.path, label: "Storage options" },
-  { href: whatsIncludedPage.path, label: "What's included" },
-] as const;
-
 export function SiteFooter() {
+  const serviceRows = getServiceNavRows();
   return (
     <footer className="relative overflow-hidden border-t-4 border-brand-yellow bg-brand-purple py-12 text-white">
       <BrandLogomarkWatermark mark="yellow" position="center-right" size={320} opacity={0.06} />
@@ -59,15 +49,40 @@ export function SiteFooter() {
         </div>
         <div>
           <p className="font-heading text-brand-yellow">Services</p>
-          <ul className="mt-3 space-y-2 text-sm text-white/85">
-            {services.map((service) => (
-              <li key={service.slug}>
-                <Link href={serviceHref(service.slug)} className="hover:text-brand-yellow">
-                  {service.title}
-                </Link>
-              </li>
-            ))}
-            {clusterLinks.map((link) => (
+          <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-3 text-sm text-white/85">
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-brand-yellow/55">
+                Auckland
+              </p>
+              <ul className="mt-2 space-y-2">
+                {serviceRows.map((row) => (
+                  <li key={`auckland-${row.key}`}>
+                    <Link href={row.auckland.href} className="hover:text-brand-yellow">
+                      {row.auckland.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-brand-yellow/55">
+                Hamilton
+              </p>
+              <ul className="mt-2 space-y-2">
+                {serviceRows.map((row) =>
+                  row.hamilton ? (
+                    <li key={`hamilton-${row.key}`}>
+                      <Link href={row.hamilton.href} className="hover:text-brand-yellow">
+                        {row.hamilton.label}
+                      </Link>
+                    </li>
+                  ) : null,
+                )}
+              </ul>
+            </div>
+          </div>
+          <ul className="mt-4 space-y-2 border-t border-white/10 pt-4 text-sm text-white/85">
+            {serviceNavClusterLinks.map((link) => (
               <li key={link.href}>
                 <Link href={link.href} className="hover:text-brand-yellow">
                   {link.label}
