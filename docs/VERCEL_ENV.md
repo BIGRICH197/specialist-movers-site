@@ -52,7 +52,7 @@ curl -s -X POST https://specialist-movers-site.vercel.app/api/chat \
   -H "Content-Type: application/json" \
   -d '{"messages":[{"role":"user","content":"hi"}]}'
 
-# Cleaning booking (needs latest deploy with cleaning-bookings work)
+# Cleaning quote (form on /services/cleaning-services)
 curl -s -X POST https://specialist-movers-site.vercel.app/api/cleaning-booking \
   -H "Content-Type: application/json" \
   -d '{"name":"Test","phone":"0210000000","propertyAddress":"1 Queen St Auckland","propertySize":"2-2","cleaningPackage":"option1","extraLivingRooms":0,"cleaningType":"exit-tenancy","priceExclGst":420}'

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Check } from "lucide-react";
 import { HeroVisual } from "@/components/HeroVisual";
+import { CleaningBookingForm } from "@/components/CleaningBookingForm";
+import { CleaningPricingTable } from "@/components/CleaningPricingTable";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Breadcrumbs, type Crumb } from "@/components/Breadcrumbs";
 import { HamiltonPageLink } from "@/components/HamiltonPageLink";
@@ -19,8 +21,8 @@ type ServicePageTemplateProps = {
   heroPhotoAlt?: string;
   /** Base slug for Hamilton page link (e.g. house-moving) */
   hamiltonBaseSlug?: string;
-  bookingHref?: string;
-  bookingLabel?: string;
+  /** Exit cleaning uses fixed-price room selector instead of house quote form */
+  useCleaningQuoteForm?: boolean;
 };
 
 export function ServicePageTemplate({
@@ -34,8 +36,7 @@ export function ServicePageTemplate({
   heroPhoto,
   heroPhotoAlt,
   hamiltonBaseSlug,
-  bookingHref,
-  bookingLabel,
+  useCleaningQuoteForm = false,
 }: ServicePageTemplateProps) {
   return (
     <div className="bg-brand-white">
@@ -51,14 +52,6 @@ export function ServicePageTemplate({
             </p>
             {hamiltonBaseSlug ? (
               <HamiltonPageLink serviceSlug={hamiltonBaseSlug} variant="hero" />
-            ) : null}
-            {bookingHref && bookingLabel ? (
-              <Link
-                href={bookingHref}
-                className="mt-4 inline-flex rounded-full bg-brand-yellow px-5 py-2.5 font-heading text-sm font-bold text-brand-purple transition hover:bg-white"
-              >
-                {bookingLabel}
-              </Link>
             ) : null}
             <a
               href={`tel:${phoneNumber}`}
@@ -77,6 +70,7 @@ export function ServicePageTemplate({
       </section>
       <section className="mx-auto grid max-w-7xl gap-10 py-12 container-px lg:grid-cols-[minmax(0,1fr)_minmax(300px,400px)] lg:items-start">
         <article className="space-y-10">
+          {useCleaningQuoteForm ? <CleaningPricingTable /> : null}
           <div className="rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm sm:p-8">
             <h2 className="font-heading text-2xl text-brand-purple">
               What&apos;s included
@@ -125,9 +119,15 @@ export function ServicePageTemplate({
         </article>
         <div id="quote" className="scroll-mt-28 lg:sticky lg:top-28">
           <p className="mb-3 text-sm font-semibold text-brand-purple">
-            Fast quote , select all services you need + both addresses
+            {useCleaningQuoteForm
+              ? "Select rooms, see your fixed price, then send your details"
+              : "Fast quote , select all services you need + both addresses"}
           </p>
-          <QuoteForm defaultJobType={defaultJobType} />
+          {useCleaningQuoteForm ? (
+            <CleaningBookingForm />
+          ) : (
+            <QuoteForm defaultJobType={defaultJobType} />
+          )}
         </div>
       </section>
     </div>

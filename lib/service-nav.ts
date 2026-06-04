@@ -118,7 +118,6 @@ export const serviceNavHubLink = {
 export const serviceNavSpecialtyLinks: readonly ServiceNavLink[] = [
   { label: "Apartment movers Auckland", href: "/apartment-movers-auckland" },
   { label: "Retirement home movers", href: "/retirement-home-movers-auckland" },
-  { label: "Cleaning bookings", href: "/cleaning-bookings" },
   { label: "Moving to Australia", href: "/international-moving/moving-to-australia" },
 ] as const;
 

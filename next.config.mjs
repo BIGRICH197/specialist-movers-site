@@ -137,6 +137,16 @@ const nextConfig = {
         destination: "/services",
         permanent: true,
       },
+      {
+        source: "/cleaning-bookings",
+        destination: "/services/cleaning-services",
+        permanent: true,
+      },
+      {
+        source: "/cleaning-bookings/",
+        destination: "/services/cleaning-services",
+        permanent: true,
+      },
       ...cityRedirects(),
     ];
   },

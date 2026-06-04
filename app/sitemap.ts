@@ -26,7 +26,6 @@ const staticRoutes = [
   "/locations",
   "/apartment-movers-auckland",
   "/retirement-home-movers-auckland",
-  "/cleaning-bookings",
   "/international-moving/moving-to-australia",
 ];
 

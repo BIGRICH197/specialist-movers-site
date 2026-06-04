@@ -4,6 +4,8 @@ import { HeroVisual } from "@/components/HeroVisual";
 import { NumberedInfoGrid } from "@/components/NumberedInfoGrid";
 import { PianoGallerySection } from "@/components/PianoGallerySection";
 import { PianoPartnerMarquee } from "@/components/PianoPartnerMarquee";
+import { CleaningBookingForm } from "@/components/CleaningBookingForm";
+import { CleaningPricingTable } from "@/components/CleaningPricingTable";
 import { QuoteForm } from "@/components/QuoteForm";
 import { SectionReveal } from "@/components/SectionReveal";
 import type { HamiltonPageConfig } from "@/lib/hamilton-pages";
@@ -65,9 +67,15 @@ export function HamiltonServicePage({ config }: Props) {
           </div>
           <div id="quote" className="lg:sticky lg:top-28">
             <p className="mb-2 font-heading text-sm font-bold uppercase tracking-wide text-brand-yellow">
-              Request a free quote
+              {config.baseSlug === "cleaning-services"
+                ? "Fixed price cleaning quote"
+                : "Request a free quote"}
             </p>
-            <QuoteForm defaultJobType={config.defaultJobType} />
+            {config.baseSlug === "cleaning-services" ? (
+              <CleaningBookingForm />
+            ) : (
+              <QuoteForm defaultJobType={config.defaultJobType} />
+            )}
           </div>
         </div>
       </section>
@@ -93,6 +101,12 @@ export function HamiltonServicePage({ config }: Props) {
             body: item.body,
           }))}
         />
+
+        {config.baseSlug === "cleaning-services" ? (
+          <div className="mt-10">
+            <CleaningPricingTable />
+          </div>
+        ) : null}
 
         <div className="mt-10 rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm sm:p-8">
           <h2 className="font-heading text-xl text-brand-purple">What we handle</h2>

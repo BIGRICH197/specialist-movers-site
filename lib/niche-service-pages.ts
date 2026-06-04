@@ -75,7 +75,7 @@ export const apartmentMoversPage: NicheServicePageConfig = {
   relatedLinks: [
     { label: "House moving", href: "/services/house-moving" },
     { label: "Packing services", href: "/services/packing-services" },
-    { label: "Exit cleaning", href: "/cleaning-bookings" },
+    { label: "Exit cleaning", href: "/services/cleaning-services" },
     { label: "Loading and unloading", href: "/services/loading-unloading" },
   ],
   faqHeading: "Apartment moving questions",

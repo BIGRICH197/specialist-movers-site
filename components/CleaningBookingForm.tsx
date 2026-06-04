@@ -141,9 +141,9 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
       >
         <div className="flex flex-col items-center text-center">
           <CheckCircle2 className="h-12 w-12 text-brand-purple" aria-hidden />
-          <p className="mt-4 font-heading text-xl text-brand-purple">Booking request sent</p>
+          <p className="mt-4 font-heading text-xl text-brand-purple">Quote request sent</p>
           <p className="mt-2 text-sm text-brand-purple/80">
-            We will confirm your clean and call you back shortly.
+            We will call you back shortly to confirm your clean.
             {priceIncGst != null ? (
               <>
                 {" "}
@@ -161,9 +161,9 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
       onSubmit={handleSubmit}
       className={`rounded-2xl border border-brand-purple/15 bg-white p-5 shadow-lg sm:p-6 ${className}`}
     >
-      <p className="font-heading text-lg text-brand-purple">Book your clean</p>
+      <p className="font-heading text-lg text-brand-purple">Fixed price cleaning quote</p>
       <p className="mt-1 text-xs text-brand-purple/75">
-        Fixed prices excl. GST below. GST added at checkout on invoice.
+        Choose bedrooms and bathrooms. Your price updates as you go.
       </p>
 
       <label className="mt-4 block text-sm font-semibold text-brand-purple">
@@ -333,7 +333,7 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
             Sending…
           </>
         ) : (
-          "Request booking"
+          "Request quote"
         )}
       </button>
     </form>
