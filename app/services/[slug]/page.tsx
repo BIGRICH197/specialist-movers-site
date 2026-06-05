@@ -6,6 +6,7 @@ import { ServicePageTemplate } from "@/components/ServicePageTemplate";
 import { getHamiltonPageConfig, getHamiltonStaticParams } from "@/lib/hamilton-pages";
 import { getServicePhoto } from "@/lib/site-photos";
 import { getServiceLandingConfig, isServiceLandingSlug } from "@/lib/service-landings";
+import { legacyPathForServiceSlug } from "@/lib/legacy-auckland-urls";
 import { services } from "@/lib/site-data";
 
 export function generateStaticParams() {
@@ -31,9 +32,11 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
       description: landing.lead,
     };
   }
+  const legacyPath = legacyPathForServiceSlug(params.slug);
   return {
     title: `${service.title} Auckland`,
     description: `${service.description} Trusted ${service.title.toLowerCase()} specialists. Auckland base. Free quote. Callback in 15 minutes.`,
+    ...(legacyPath ? { alternates: { canonical: legacyPath } } : {}),
   };
 }
 

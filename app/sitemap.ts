@@ -9,6 +9,7 @@ import {
   whatsIncludedPage,
 } from "@/lib/service-clusters";
 import { listHamiltonPaths } from "@/lib/hamilton-pages";
+import { legacyPathForServiceSlug } from "@/lib/legacy-auckland-urls";
 import { blogPosts, pianoServices, services } from "@/lib/site-data";
 import { siteUrl } from "@/lib/site-config";
 
@@ -81,8 +82,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const service of services) {
     if (service.slug === "piano-movers") continue;
+    const legacyPath = legacyPathForServiceSlug(service.slug);
     entries.push({
-      url: `${siteUrl}/services/${service.slug}`,
+      url: `${siteUrl}${legacyPath ?? `/services/${service.slug}`}`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.75,
@@ -99,10 +101,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   entries.push({
-    url: `${siteUrl}/piano-movers/auckland`,
+    url: `${siteUrl}/piano-movers`,
     lastModified: now,
     changeFrequency: "weekly",
-    priority: 0.88,
+    priority: 0.9,
   });
   entries.push({
     url: `${siteUrl}/piano-movers/hamilton`,

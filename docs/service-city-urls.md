@@ -24,17 +24,21 @@ Redirects (301):
 
 ## Main services
 
-| Service | Auckland | Hamilton |
-|---------|----------|----------|
-| House moving | `/services/house-moving` | `/services/house-moving-hamilton` |
-| Office moving | `/services/office-moving` | `/services/office-moving-hamilton` |
-| Commercial moving | `/services/commercial-moving` | `/services/commercial-moving-hamilton` |
-| Packing | `/services/packing-services` | `/services/packing-services-hamilton` |
-| Hard to shift | `/services/hard-to-shift` | `/services/hard-to-shift-hamilton` |
-| Exit cleaning | `/services/cleaning-services` | `/services/cleaning-services-hamilton` |
-| International | `/services/international-moving` | `/services/international-moving-hamilton` |
-| Loading/unloading | `/services/loading-unloading` | `/services/loading-unloading-hamilton` |
-| WINZ quote | `/services/winz-quotes` | `/services/winz-quotes-hamilton` |
+Auckland pages use **live WordPress URLs** as the canonical path (see `lib/legacy-auckland-urls.json`). Internal `/services/{slug}` links 301 to the legacy URL at cutover.
+
+| Service | Auckland (canonical, matches live WP) | Hamilton |
+|---------|----------------------------------------|----------|
+| House moving | `/house-moving-and-packing-auckland` | `/services/house-moving-hamilton` |
+| Office moving | `/office-movers-auckland` | `/services/office-moving-hamilton` |
+| Commercial moving | `/commercial-moving-auckland` | `/services/commercial-moving-hamilton` |
+| Packing | `/packing-services-auckland` | `/services/packing-services-hamilton` |
+| Hard to shift | `/hard-to-shift-items` | `/services/hard-to-shift-hamilton` |
+| Exit cleaning | `/cleaning-bookings` | `/services/cleaning-services-hamilton` |
+| International | `/international-moving` | `/services/international-moving-hamilton` |
+| Loading/unloading | `/loading-and-unloading` | `/services/loading-unloading-hamilton` |
+| WINZ quote | `/winz-quotes` | `/services/winz-quotes-hamilton` |
+
+Also 301: `/business-relocation-auckland` → `/commercial-moving-auckland`.
 
 ## Cluster hubs
 

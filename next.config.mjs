@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 
+import legacyAucklandUrls from "./lib/legacy-auckland-urls.json" with { type: "json" };
+
 const serviceSlugs = [
   "house-moving",
   "office-moving",
@@ -30,6 +32,28 @@ function cityRedirects() {
   return rules;
 }
 
+/** Live WordPress Auckland URLs → serve the matching /services/{slug} page. */
+function legacyAucklandRewrites() {
+  const rules = [];
+  for (const entry of legacyAucklandUrls) {
+    const destination = `/services/${entry.slug}`;
+    rules.push({ source: entry.legacyPath, destination });
+    for (const alias of entry.aliases ?? []) {
+      rules.push({ source: alias, destination });
+    }
+  }
+  return rules;
+}
+
+/** One canonical URL per Auckland service (legacy path from live site). */
+function legacyAucklandCanonicalRedirects() {
+  return legacyAucklandUrls.map((entry) => ({
+    source: `/services/${entry.slug}`,
+    destination: entry.legacyPath,
+    permanent: true,
+  }));
+}
+
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -45,8 +69,50 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return {
+      beforeFiles: legacyAucklandRewrites(),
+    };
+  },
   async redirects() {
     return [
+      ...legacyAucklandCanonicalRedirects(),
+      {
+        source: "/business-relocation-auckland",
+        destination: "/commercial-moving-auckland",
+        permanent: true,
+      },
+      {
+        source: "/about-us",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/privacy-policy",
+        destination: "/policies",
+        permanent: true,
+      },
+      {
+        source: "/the-ultimate-guide-to-house-moving-in-auckland",
+        destination: "/blog/the-ultimate-guide-to-house-moving-in-auckland",
+        permanent: true,
+      },
+      {
+        source: "/diy-packing-vs-professional-packing-services",
+        destination: "/blog/diy-packing-vs-professional-packing-services",
+        permanent: true,
+      },
+      {
+        source: "/stress-free-moving-in-auckland-expert-tips-from-specialist-movers",
+        destination:
+          "/blog/stress-free-moving-in-auckland-expert-tips-from-specialist-movers",
+        permanent: true,
+      },
+      {
+        source: "/international-piano-moves",
+        destination: "/piano-movers/international-piano",
+        permanent: true,
+      },
       {
         source: "/blog/ultimate-guide-house-moving-auckland",
         destination: "/blog/the-ultimate-guide-to-house-moving-in-auckland",
@@ -74,12 +140,17 @@ const nextConfig = {
       },
       {
         source: "/piano-movers-auckland",
-        destination: "/piano-movers/auckland",
+        destination: "/piano-movers",
         permanent: true,
       },
       {
         source: "/piano-movers-auckland/",
-        destination: "/piano-movers/auckland",
+        destination: "/piano-movers",
+        permanent: true,
+      },
+      {
+        source: "/piano-movers/auckland",
+        destination: "/piano-movers",
         permanent: true,
       },
       {
@@ -135,16 +206,6 @@ const nextConfig = {
       {
         source: "/specialties/:path*",
         destination: "/services",
-        permanent: true,
-      },
-      {
-        source: "/cleaning-bookings",
-        destination: "/services/cleaning-services",
-        permanent: true,
-      },
-      {
-        source: "/cleaning-bookings/",
-        destination: "/services/cleaning-services",
         permanent: true,
       },
       ...cityRedirects(),

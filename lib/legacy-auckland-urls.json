@@ -1,0 +1,39 @@
+[
+  {
+    "slug": "house-moving",
+    "legacyPath": "/house-moving-and-packing-auckland"
+  },
+  {
+    "slug": "packing-services",
+    "legacyPath": "/packing-services-auckland"
+  },
+  {
+    "slug": "office-moving",
+    "legacyPath": "/office-movers-auckland"
+  },
+  {
+    "slug": "commercial-moving",
+    "legacyPath": "/commercial-moving-auckland",
+    "aliases": ["/business-relocation-auckland"]
+  },
+  {
+    "slug": "hard-to-shift",
+    "legacyPath": "/hard-to-shift-items"
+  },
+  {
+    "slug": "loading-unloading",
+    "legacyPath": "/loading-and-unloading"
+  },
+  {
+    "slug": "international-moving",
+    "legacyPath": "/international-moving"
+  },
+  {
+    "slug": "winz-quotes",
+    "legacyPath": "/winz-quotes"
+  },
+  {
+    "slug": "cleaning-services",
+    "legacyPath": "/cleaning-bookings"
+  }
+]
