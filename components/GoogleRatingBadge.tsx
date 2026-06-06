@@ -26,7 +26,7 @@ export function GoogleRatingBadge({ className, variant = "tile" }: Props) {
         target="_blank"
         rel="noopener noreferrer"
         className={cn(
-          "group flex w-full items-center justify-between gap-4 rounded-xl border border-white/25 bg-white/95 px-4 py-3 text-brand-purple shadow-[0_8px_28px_-10px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-[border-color,box-shadow] hover:border-brand-yellow/45 hover:shadow-[0_10px_32px_-8px_rgba(151,57,176,0.3)]",
+          "group flex w-full items-center justify-between gap-5 rounded-xl border border-white/25 bg-white/95 px-6 py-2.5 text-brand-purple shadow-[0_8px_28px_-10px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-[border-color,box-shadow] hover:border-brand-yellow/45 hover:shadow-[0_10px_32px_-8px_rgba(151,57,176,0.3)] lg:gap-4 lg:px-4 lg:py-3",
           className,
         )}
         aria-label={label}

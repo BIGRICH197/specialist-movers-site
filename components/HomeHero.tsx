@@ -52,7 +52,7 @@ const trustPills = [
 
 /** Mobile hero copy only (desktop uses full hero from props). */
 const MOBILE_HERO_TITLE = "Specialist Movers";
-const MOBILE_HERO_BADGE = "Trusted movers · Auckland & Hamilton";
+const MOBILE_HERO_BADGE = "Trusted · Auckland & Hamilton";
 
 export function HomeHero({
   hero,
@@ -112,7 +112,7 @@ export function HomeHero({
             <motion.p
               variants={reduced ? undefined : item}
               transition={t}
-              className="inline-flex max-w-full rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-yellow"
+              className="inline-flex w-fit max-w-[95%] self-start rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-brand-yellow sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-wider"
             >
               {mobileBadge ?? MOBILE_HERO_BADGE}
             </motion.p>
@@ -161,7 +161,7 @@ export function HomeHero({
             <motion.div
               variants={reduced ? undefined : item}
               transition={t}
-              className="flex flex-wrap gap-2 text-xs font-semibold text-white/95"
+              className="flex flex-wrap justify-center gap-2 text-xs font-semibold text-white/95"
             >
               {trustPills.map((label) => (
                 <span

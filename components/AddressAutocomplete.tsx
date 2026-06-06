@@ -42,7 +42,23 @@ export function AddressAutocomplete({
   "aria-label": ariaLabel,
 }: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
+  const onChangeRef = useRef(onChange);
+  const onPlaceSelectRef = useRef(onPlaceSelect);
   const [hint, setHint] = useState<string | null>(null);
+
+  useEffect(() => {
+    onChangeRef.current = onChange;
+  }, [onChange]);
+
+  useEffect(() => {
+    onPlaceSelectRef.current = onPlaceSelect;
+  }, [onPlaceSelect]);
+
+  useEffect(() => {
+    if (inputRef.current && inputRef.current.value !== value) {
+      inputRef.current.value = value;
+    }
+  }, [value]);
 
   useEffect(() => {
     if (!apiKey || !inputRef.current) return;
@@ -72,7 +88,6 @@ export function AddressAutocomplete({
           fields: ["formatted_address", "address_components", "geometry"],
           bounds,
           strictBounds: false,
-          types: ["address"],
         });
 
         listener = autocomplete.addListener("place_changed", () => {
@@ -87,8 +102,8 @@ export function AddressAutocomplete({
             place.formatted_address,
           );
           const quoteAddress = placeToQuoteAddress(parsed);
-          onChange(quoteAddress);
-          onPlaceSelect?.(parsed);
+          onChangeRef.current(quoteAddress);
+          onPlaceSelectRef.current?.(parsed);
           setHint(null);
         });
       } catch {
@@ -102,7 +117,13 @@ export function AddressAutocomplete({
       cancelled = true;
       listener?.remove();
     };
-  }, [onChange, onPlaceSelect]);
+  }, [id]);
+
+  function handleFocus() {
+    window.requestAnimationFrame(() => {
+      inputRef.current?.scrollIntoView({ block: "center", behavior: "smooth" });
+    });
+  }
 
   if (!apiKey) {
     return (
@@ -113,6 +134,7 @@ export function AddressAutocomplete({
           autoComplete="street-address"
           value={value}
           onChange={(e) => onChange(e.target.value)}
+          onFocus={handleFocus}
           placeholder={placeholder}
           className={className}
           disabled={disabled}
@@ -133,11 +155,12 @@ export function AddressAutocomplete({
         id={id}
         type="text"
         autoComplete="off"
-        value={value}
+        defaultValue={value}
         onChange={(e) => {
-          onChange(e.target.value);
+          onChangeRef.current(e.target.value);
           if (hint) setHint(null);
         }}
+        onFocus={handleFocus}
         placeholder={placeholder}
         className={className}
         disabled={disabled}

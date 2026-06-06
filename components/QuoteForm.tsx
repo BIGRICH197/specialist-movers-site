@@ -84,7 +84,7 @@ const initial: FormState = {
 };
 
 const field =
-  "h-12 w-full rounded-xl border-2 border-brand-purple/15 bg-white px-4 text-sm text-brand-purple placeholder:text-brand-purple/40 outline-none transition focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/45";
+  "h-12 w-full scroll-mt-24 rounded-xl border-2 border-brand-purple/15 bg-white px-4 text-base text-brand-purple placeholder:text-brand-purple/40 outline-none transition focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/45 sm:text-sm";
 
 const selectField =
   "h-12 w-full rounded-xl border-2 border-brand-purple/15 bg-white px-3 text-sm text-brand-purple outline-none transition focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/45 appearance-none";
@@ -1028,12 +1028,88 @@ export function QuoteForm({
     const packingCostIncGst = pricing?.packingCostIncGst as number | null | undefined;
     const cleaningCostIncGst = pricing?.cleaningCostIncGst as number | null | undefined;
 
+    const hasLineItems =
+      moveCostIncGst != null ||
+      packingCostIncGst != null ||
+      cleaningCostIncGst != null ||
+      pricing?.baseCostExGst != null;
+
     return (
       <Wrapper className={className} compact={compact}>
         <Header tag="Your quote" title="Here's your price" />
 
-        <div className="rounded-xl border-2 border-brand-yellow/60 bg-brand-yellow/15 p-5 text-center">
-          <p className="font-heading text-4xl text-brand-purple">
+        {hasLineItems ? (
+          <div className="space-y-2 rounded-xl border border-brand-purple/10 bg-brand-purple/[0.03] px-4 py-4 sm:px-5">
+            <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple/55">
+              Estimate breakdown
+            </p>
+            {moveCostIncGst != null && (
+              <div className="flex justify-between gap-4 text-sm">
+                <span className="text-brand-purple/70">Moving</span>
+                <span className="font-semibold text-brand-purple">
+                  ${moveCostIncGst.toLocaleString("en-NZ")}
+                </span>
+              </div>
+            )}
+            {packingCostIncGst != null && (
+              <div className="flex justify-between gap-4 text-sm">
+                <span className="text-brand-purple/70">Packing</span>
+                <span className="font-semibold text-brand-purple">
+                  ${packingCostIncGst.toLocaleString("en-NZ")}
+                </span>
+              </div>
+            )}
+            {cleaningCostIncGst != null && (
+              <div className="flex justify-between gap-4 text-sm">
+                <span className="text-brand-purple/70">Cleaning</span>
+                <span className="font-semibold text-brand-purple">
+                  ${cleaningCostIncGst.toLocaleString("en-NZ")}
+                </span>
+              </div>
+            )}
+
+            {pricing?.baseCostExGst != null && (
+              <>
+                <div className="flex justify-between gap-4 text-sm">
+                  <span className="text-brand-purple/70">
+                    {pricing.pianoType === "grand" ? "Grand piano" : "Upright piano"}
+                  </span>
+                  <span className="font-semibold text-brand-purple">
+                    ${(pricing.baseCostExGst as number)} + GST
+                  </span>
+                </div>
+                {(pricing.locationSurchargeExGst as number) > 0 && (
+                  <div className="flex justify-between gap-4 text-sm">
+                    <span className="text-brand-purple/70">Travel surcharge</span>
+                    <span className="font-semibold text-brand-purple">
+                      ${(pricing.locationSurchargeExGst as number)} + GST
+                    </span>
+                  </div>
+                )}
+                {(pricing.stairsSurchargeExGst as number) > 0 && (
+                  <div className="flex justify-between gap-4 text-sm">
+                    <span className="text-brand-purple/70">Stairs</span>
+                    <span className="font-semibold text-brand-purple">
+                      ${(pricing.stairsSurchargeExGst as number)} + GST
+                    </span>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
+        ) : null}
+
+        {breakdown ? (
+          <pre className="mt-3 whitespace-pre-wrap rounded-lg bg-brand-purple/[0.03] px-3 py-2.5 text-xs leading-relaxed text-brand-purple/50">
+            {breakdown}
+          </pre>
+        ) : null}
+
+        <div className="mt-4 rounded-xl border-2 border-brand-yellow/50 bg-brand-yellow/10 px-4 py-4 text-center sm:px-5">
+          <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple/55">
+            Estimated total
+          </p>
+          <p className="mt-1 font-heading text-2xl text-brand-purple sm:text-3xl">
             $
             {totalIncGst?.toLocaleString("en-NZ", {
               minimumFractionDigits: 0,
@@ -1044,68 +1120,6 @@ export function QuoteForm({
             incl. GST (estimated)
           </p>
         </div>
-
-        <div className="mt-4 space-y-2 rounded-xl border border-brand-purple/10 bg-white p-4">
-          {moveCostIncGst != null && (
-            <div className="flex justify-between text-sm">
-              <span className="text-brand-purple/70">Moving</span>
-              <span className="font-semibold text-brand-purple">
-                ${moveCostIncGst.toLocaleString("en-NZ")}
-              </span>
-            </div>
-          )}
-          {packingCostIncGst != null && (
-            <div className="flex justify-between text-sm">
-              <span className="text-brand-purple/70">Packing</span>
-              <span className="font-semibold text-brand-purple">
-                ${packingCostIncGst.toLocaleString("en-NZ")}
-              </span>
-            </div>
-          )}
-          {cleaningCostIncGst != null && (
-            <div className="flex justify-between text-sm">
-              <span className="text-brand-purple/70">Cleaning</span>
-              <span className="font-semibold text-brand-purple">
-                ${cleaningCostIncGst.toLocaleString("en-NZ")}
-              </span>
-            </div>
-          )}
-
-          {pricing?.baseCostExGst != null && (
-            <>
-              <div className="flex justify-between text-sm">
-                <span className="text-brand-purple/70">
-                  {pricing.pianoType === "grand" ? "Grand piano" : "Upright piano"}
-                </span>
-                <span className="font-semibold text-brand-purple">
-                  ${(pricing.baseCostExGst as number)} + GST
-                </span>
-              </div>
-              {(pricing.locationSurchargeExGst as number) > 0 && (
-                <div className="flex justify-between text-sm">
-                  <span className="text-brand-purple/70">Travel surcharge</span>
-                  <span className="font-semibold text-brand-purple">
-                    ${(pricing.locationSurchargeExGst as number)} + GST
-                  </span>
-                </div>
-              )}
-              {(pricing.stairsSurchargeExGst as number) > 0 && (
-                <div className="flex justify-between text-sm">
-                  <span className="text-brand-purple/70">Stairs</span>
-                  <span className="font-semibold text-brand-purple">
-                    ${(pricing.stairsSurchargeExGst as number)} + GST
-                  </span>
-                </div>
-              )}
-            </>
-          )}
-        </div>
-
-        {breakdown && (
-          <pre className="mt-3 whitespace-pre-wrap text-xs leading-relaxed text-brand-purple/50">
-            {breakdown}
-          </pre>
-        )}
 
         <p className="mt-4 text-sm leading-relaxed text-brand-purple/70">
           This is an estimate based on the details you provided. We&apos;ve saved your
@@ -1149,10 +1163,10 @@ function Wrapper({
 }) {
   return (
     <div
-      className={`relative overflow-hidden rounded-[1.25rem] border-2 border-brand-purple/10 border-t-brand-yellow bg-white shadow-[0_20px_60px_-12px_rgba(151,57,176,0.2),0_0_0_1px_rgba(243,208,42,0.25)] ${className}`}
+      className={`relative overflow-hidden rounded-[1.25rem] border-2 border-brand-purple/10 border-t-brand-yellow bg-white shadow-[0_20px_60px_-12px_rgba(151,57,176,0.2),0_0_0_1px_rgba(243,208,42,0.25)] max-lg:overflow-visible lg:overflow-hidden ${className}`}
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-yellow via-brand-yellow to-brand-purple/30" />
-      <div className={`relative p-5 sm:p-7 ${compact ? "sm:p-6" : ""}`}>
+      <div className={`relative p-4 sm:p-7 ${compact ? "sm:p-6" : ""}`}>
         {children}
       </div>
     </div>

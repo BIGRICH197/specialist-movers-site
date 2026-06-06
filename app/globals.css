@@ -45,10 +45,21 @@
   }
 }
 
-/* Google Places dropdown above quote form / header */
+/* Google Places dropdown above quote form / header / chat */
 .pac-container {
-  z-index: 10050;
+  z-index: 10050 !important;
   font-family: var(--font-inter), system-ui, sans-serif;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(151, 57, 176, 0.15);
+  box-shadow: 0 12px 32px -12px rgba(151, 57, 176, 0.35);
+  margin-top: 0.25rem;
+  touch-action: manipulation;
+}
+
+.pac-item {
+  padding: 0.65rem 0.85rem;
+  font-size: 0.875rem;
+  line-height: 1.35;
 }
 
 @layer utilities {
