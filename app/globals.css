@@ -16,13 +16,25 @@
     font-size: 100%;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
-    scrollbar-gutter: stable;
+    width: 100%;
+    overflow-x: hidden;
     scrollbar-width: thin;
     scrollbar-color: #9739b0 #e8e0ef;
   }
 
+  @media (min-width: 1024px) {
+    html {
+      overflow-x: clip;
+      scrollbar-gutter: stable;
+    }
+  }
+
   body {
     @apply overflow-x-hidden bg-brand-canvas font-sans text-brand-purple antialiased;
+    width: 100%;
+    max-width: 100%;
+    overscroll-behavior-x: none;
+    -webkit-overflow-scrolling: touch;
   }
 
   h1,

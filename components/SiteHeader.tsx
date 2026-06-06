@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
 import { LocationNavMenu } from "@/components/LocationNavMenu";
+import { MobileNavMenu } from "@/components/MobileNavMenu";
 import { ServiceNavMenu } from "@/components/ServiceNavMenu";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
@@ -122,6 +123,15 @@ export function SiteHeader() {
     setMoreOpen(false);
     setMegaMenu((current) => (current === menu ? null : menu));
   };
+
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
 
   useEffect(() => {
     if (!megaMenu) return;
@@ -259,58 +269,24 @@ export function SiteHeader() {
             <BrandLogo variant="header" onNavigate={() => setOpen(false)} />
             <button
               type="button"
-              className="shrink-0 rounded-lg p-1 hover:bg-white/10"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg hover:bg-white/10"
               onClick={() => setOpen(false)}
               aria-label="Close menu"
             >
               <X className="h-6 w-6" />
             </button>
           </div>
-          <nav className="scrollbar-brand-dark flex flex-1 flex-col gap-1 overflow-y-auto font-heading text-xl" aria-label="Mobile primary">
-            <Link href="/services" onClick={() => setOpen(false)} className="block rounded-xl px-2 py-2 hover:bg-white/10">
-              Services
-            </Link>
-            <Link href="/locations" onClick={() => setOpen(false)} className="block rounded-xl px-2 py-2 hover:bg-white/10">
-              Locations
-            </Link>
-            <Link href="/piano-movers" onClick={() => setOpen(false)} className="block rounded-xl px-2 py-2 hover:bg-white/10">
-              Piano
-            </Link>
-            <Link href="/reviews" onClick={() => setOpen(false)} className="block rounded-xl px-2 py-2 hover:bg-white/10">
-              Reviews
-            </Link>
-            <Link href="/blog" onClick={() => setOpen(false)} className="block rounded-xl px-2 py-2 hover:bg-white/10">
-              Blog
-            </Link>
-            <Link href="/contact" onClick={() => setOpen(false)} className="block rounded-xl px-2 py-2 hover:bg-white/10">
-              Contact
-            </Link>
-            <p className="mt-4 px-2 text-xs font-semibold uppercase tracking-wider text-brand-yellow/60">
-              More
-            </p>
-            {moreLinks.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="block rounded-xl px-2 py-2 hover:bg-white/10"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <a
-              href={`tel:${phoneNumber}`}
-              className="mt-2 block font-sans text-base font-semibold text-brand-yellow transition-colors hover:text-white"
-            >
-              {phoneDisplay}
-            </a>
-            <Link
-              href={quoteHref}
-              onClick={() => setOpen(false)}
-              className="mt-4 inline-flex items-center justify-center rounded-full bg-brand-yellow px-6 py-3 font-heading text-sm font-bold uppercase text-brand-purple ring-1 ring-white/25"
-            >
-              Free quote
-            </Link>
+          <nav
+            className="scrollbar-brand-dark flex flex-1 flex-col gap-1 overflow-y-auto font-heading text-xl"
+            aria-label="Mobile primary"
+          >
+            <MobileNavMenu
+              onNavigate={() => setOpen(false)}
+              moreLinks={moreLinks}
+              quoteHref={quoteHref}
+              phoneDisplay={phoneDisplay}
+              phoneNumber={phoneNumber}
+            />
           </nav>
         </div>
       )}

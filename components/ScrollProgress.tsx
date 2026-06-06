@@ -19,7 +19,7 @@ export function ScrollProgress() {
 
   return (
     <div
-      className="pointer-events-none fixed inset-x-0 top-0 z-[100] h-2"
+      className="pointer-events-none fixed left-0 top-0 z-[100] h-2 w-full max-w-full"
       aria-hidden
     >
       <div

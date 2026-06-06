@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { RouteTransition } from "@/components/RouteTransition";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ArohaChat } from "@/components/ArohaChat";
+import { OverflowGuard } from "@/components/OverflowGuard";
 
 /** Hides global chrome on internal preview routes */
 export function SiteChrome({ children }: { children: React.ReactNode }) {
@@ -25,9 +26,10 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <OverflowGuard />
       <ScrollProgress />
       <SiteHeader />
-      <main>
+      <main className="max-w-full overflow-x-clip">
         <RouteTransition>{children}</RouteTransition>
       </main>
       <SiteFooter />

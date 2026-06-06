@@ -13,47 +13,55 @@ const MARQUEE_ITEMS = [
   "Licensed & insured crews",
 ];
 
+function MarqueeLists() {
+  return (
+    <>
+      <ul className="flex shrink-0 items-center" role="list">
+        {MARQUEE_ITEMS.map((text) => (
+          <li
+            key={`a-${text}`}
+            className="flex shrink-0 items-center whitespace-nowrap px-5 sm:px-8"
+          >
+            <span className="text-brand-purple/35" aria-hidden>
+              ·
+            </span>
+            <span className="pl-3 text-sm font-medium tracking-tight text-brand-purple/90">
+              {text}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <ul className="flex shrink-0 items-center" role="presentation" aria-hidden>
+        {MARQUEE_ITEMS.map((text) => (
+          <li
+            key={`b-${text}`}
+            className="flex shrink-0 items-center whitespace-nowrap px-5 sm:px-8"
+          >
+            <span className="text-brand-purple/35" aria-hidden>
+              ·
+            </span>
+            <span className="pl-3 text-sm font-medium tracking-tight text-brand-purple/90">
+              {text}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
+
 /**
  * Homepage trust ticker , single scrolling row.
  */
 export function MovingBanners() {
   return (
     <section
-      className="group pointer-events-auto overflow-hidden rounded-2xl border border-brand-purple/[0.12] bg-gradient-to-b from-brand-yellow/95 to-brand-yellow shadow-[0_20px_40px_-24px_rgba(151,57,176,0.35)] sm:rounded-[1.25rem]"
+      className="group pointer-events-auto max-w-full overflow-hidden rounded-2xl border border-brand-purple/[0.12] bg-gradient-to-b from-brand-yellow/95 to-brand-yellow shadow-[0_20px_40px_-24px_rgba(151,57,176,0.35)] [contain:layout_paint] sm:rounded-[1.25rem]"
       aria-label="Why customers choose Specialist Movers"
     >
-      <div className="relative overflow-hidden">
+      <div className="relative w-full overflow-hidden">
         <div className="flex w-max py-3 motion-reduce:animate-none animate-marquee-gentle group-hover:[animation-play-state:paused] sm:py-3.5">
-          <ul className="flex shrink-0 items-center" role="list">
-            {MARQUEE_ITEMS.map((text) => (
-              <li
-                key={`a-${text}`}
-                className="flex shrink-0 items-center whitespace-nowrap px-5 sm:px-8"
-              >
-                <span className="text-brand-purple/35" aria-hidden>
-                  ·
-                </span>
-                <span className="pl-3 text-sm font-medium tracking-tight text-brand-purple/90">
-                  {text}
-                </span>
-              </li>
-            ))}
-          </ul>
-          <ul className="flex shrink-0 items-center" role="presentation" aria-hidden>
-            {MARQUEE_ITEMS.map((text) => (
-              <li
-                key={`b-${text}`}
-                className="flex shrink-0 items-center whitespace-nowrap px-5 sm:px-8"
-              >
-                <span className="text-brand-purple/35" aria-hidden>
-                  ·
-                </span>
-                <span className="pl-3 text-sm font-medium tracking-tight text-brand-purple/90">
-                  {text}
-                </span>
-              </li>
-            ))}
-          </ul>
+          <MarqueeLists />
         </div>
       </div>
     </section>
