@@ -5,6 +5,7 @@ import { NumberedInfoGrid } from "@/components/NumberedInfoGrid";
 import { PianoGallerySection } from "@/components/PianoGallerySection";
 import { PianoPartnerMarquee } from "@/components/PianoPartnerMarquee";
 import { QuoteForm } from "@/components/QuoteForm";
+import { ServiceHeroWithQuote } from "@/components/ServiceHeroWithQuote";
 import { SectionReveal } from "@/components/SectionReveal";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 import type { ServiceCityPageConfig } from "@/lib/service-cities";
@@ -21,51 +22,45 @@ export function ServiceCityPage({ config }: Props) {
 
   return (
     <div className="bg-brand-white">
-      <section className="overflow-visible border-b border-white/10 bg-brand-purple py-12 pb-16 text-white sm:py-16 sm:pb-20 lg:py-20 lg:pb-24">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] lg:items-start lg:gap-12 container-px">
-          <div className="min-w-0">
-            <nav className="mb-4 flex flex-wrap gap-2 text-xs font-semibold text-white/75">
-              <Link href="/" className="hover:text-brand-yellow">
-                Home
-              </Link>
-              <span aria-hidden>/</span>
-              <Link href={config.parentHref} className="hover:text-brand-yellow">
-                {config.parentLabel}
-              </Link>
-              <span aria-hidden>/</span>
-              <span className="text-brand-yellow">{config.cityName}</span>
-            </nav>
-            <p className="mb-3 inline-flex max-w-full rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-yellow">
-              {config.cityName} · Local service page
-            </p>
-            <h1 className="font-heading text-3xl leading-[1.15] text-white sm:text-4xl lg:leading-[1.12]">
-              {config.h1}
-            </h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/85">
-              {config.lead}
-            </p>
-            <a
-              href={`tel:${phoneNumber}`}
-              className="mt-6 inline-flex items-center font-heading text-2xl font-bold tracking-tight text-brand-yellow transition-colors duration-200 hover:text-white sm:text-3xl"
-            >
-              {phoneDisplay}
-            </a>
-            <HeroVisual
-              variant="moving"
-              className="mt-8"
-              photoSrc={heroPhoto}
-              photoAlt={`${config.h1} , Specialist Movers`}
-              priority
-            />
-          </div>
-          <div id="quote" className="lg:sticky lg:top-28">
-            <p className="mb-2 font-heading text-sm font-bold uppercase tracking-wide text-brand-yellow">
-              Request a free quote
-            </p>
-            <QuoteForm defaultJobType={config.defaultJobType} />
-          </div>
-        </div>
-      </section>
+      <ServiceHeroWithQuote
+        topNav={
+          <nav className="flex flex-wrap gap-2 text-xs font-semibold text-white/75">
+            <Link href="/" className="hover:text-brand-yellow">
+              Home
+            </Link>
+            <span aria-hidden>/</span>
+            <Link href={config.parentHref} className="hover:text-brand-yellow">
+              {config.parentLabel}
+            </Link>
+            <span aria-hidden>/</span>
+            <span className="text-brand-yellow">{config.cityName}</span>
+          </nav>
+        }
+        eyebrow={
+          <p className="inline-flex w-fit max-w-[95%] rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-yellow">
+            {config.cityName} · Local service page
+          </p>
+        }
+        title={
+          <h1 className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:leading-[1.12]">
+            {config.h1}
+          </h1>
+        }
+        lead={
+          <p className="max-w-2xl text-base leading-relaxed text-white/85">
+            {config.lead}
+          </p>
+        }
+        photo={
+          <HeroVisual
+            variant="moving"
+            photoSrc={heroPhoto}
+            photoAlt={`${config.h1} , Specialist Movers`}
+            priority
+          />
+        }
+        quote={<QuoteForm defaultJobType={config.defaultJobType} />}
+      />
 
       {isPiano ? (
         <div className="mx-auto max-w-7xl px-4 pt-10 sm:px-6 sm:pt-12 lg:px-8">

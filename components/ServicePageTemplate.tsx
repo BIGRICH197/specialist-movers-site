@@ -5,8 +5,9 @@ import { CleaningBookingForm } from "@/components/CleaningBookingForm";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Breadcrumbs, type Crumb } from "@/components/Breadcrumbs";
 import { HamiltonPageLink } from "@/components/HamiltonPageLink";
+import { ServiceHeroWithQuote } from "@/components/ServiceHeroWithQuote";
 import { resolveServiceLink } from "@/lib/service-links";
-import { phoneDisplay, phoneNumber, services } from "@/lib/site-data";
+import { services } from "@/lib/site-data";
 
 type ServicePageTemplateProps = {
   title: string;
@@ -41,36 +42,42 @@ export function ServicePageTemplate({
 }: ServicePageTemplateProps) {
   return (
     <div className="bg-brand-white">
-      <section className="border-b border-white/10 bg-brand-purple py-12 text-white sm:py-16">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center container-px">
-          <div>
-            <Breadcrumbs items={breadcrumbs} light />
-            <h1 className="mt-2 font-heading text-3xl leading-tight sm:text-4xl lg:text-5xl">
-              {title}
-            </h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/88 sm:text-lg">
-              {description}
-            </p>
-            {hamiltonBaseSlug ? (
-              <HamiltonPageLink serviceSlug={hamiltonBaseSlug} variant="hero" />
-            ) : null}
-            <a
-              href={`tel:${phoneNumber}`}
-              className="mt-6 inline-flex font-heading text-xl font-bold text-brand-yellow transition-colors duration-200 hover:text-white sm:text-2xl"
-            >
-              {phoneDisplay}
-            </a>
-          </div>
-          {heroPhoto && (
+      <ServiceHeroWithQuote
+        topNav={<Breadcrumbs items={breadcrumbs} light />}
+        title={
+          <h1 className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:text-5xl lg:leading-tight">
+            {title}
+          </h1>
+        }
+        lead={
+          <p className="max-w-2xl text-base leading-relaxed text-white/88 sm:text-lg">
+            {description}
+          </p>
+        }
+        meta={
+          hamiltonBaseSlug ? (
+            <HamiltonPageLink serviceSlug={hamiltonBaseSlug} variant="hero" />
+          ) : null
+        }
+        photo={
+          heroPhoto ? (
             <HeroVisual
               photoSrc={heroPhoto}
               photoAlt={heroPhotoAlt ?? `${title} , Specialist Movers`}
               priority
             />
-          )}
-        </div>
-      </section>
-      <section className="mx-auto grid max-w-7xl gap-10 py-12 container-px lg:grid-cols-[minmax(0,1fr)_minmax(300px,400px)] lg:items-start">
+          ) : undefined
+        }
+        quote={
+          useCleaningQuoteForm ? (
+            <CleaningBookingForm />
+          ) : (
+            <QuoteForm defaultJobType={defaultJobType} />
+          )
+        }
+      />
+
+      <section className="mx-auto max-w-7xl py-12 container-px">
         <article className="space-y-10">
           <div className="rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm sm:p-8">
             <h2 className="font-heading text-2xl text-brand-purple">
@@ -127,18 +134,6 @@ export function ServicePageTemplate({
             </div>
           </div>
         </article>
-        <div id="quote" className="scroll-mt-28 lg:sticky lg:top-28">
-          <p className="mb-3 text-sm font-semibold text-brand-purple">
-            {useCleaningQuoteForm
-              ? "Select rooms and property details, then get your fixed price"
-              : "Fast quote , select all services you need + both addresses"}
-          </p>
-          {useCleaningQuoteForm ? (
-            <CleaningBookingForm />
-          ) : (
-            <QuoteForm defaultJobType={defaultJobType} />
-          )}
-        </div>
       </section>
     </div>
   );

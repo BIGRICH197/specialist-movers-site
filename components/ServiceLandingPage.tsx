@@ -12,6 +12,7 @@ import { ProcessStepsGrid } from "@/components/ProcessStepsGrid";
 import { ReviewSidebarColumn } from "@/components/ReviewSidebarColumn";
 import { ScatteredReviews } from "@/components/ScatteredReviews";
 import { QuoteForm } from "@/components/QuoteForm";
+import { ServiceHeroWithQuote } from "@/components/ServiceHeroWithQuote";
 import { SectionReveal } from "@/components/SectionReveal";
 import { faqs, googleReviewsUrl, statsStrip } from "@/lib/homepage-copy";
 import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
@@ -61,73 +62,61 @@ export function ServiceLandingPage({ config }: Props) {
       />
       <FaqPageJsonLd items={landingFaqs} />
       <BreadcrumbJsonLd items={breadcrumbItems} />
-      {/* Hero + lead form */}
-      <section className="overflow-visible border-b border-white/10 bg-brand-purple py-12 pb-16 text-white sm:py-16 sm:pb-20 lg:py-20 lg:pb-24">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] lg:items-start lg:gap-12 container-px">
-          <div className="min-w-0">
-            {config.slug === "piano-movers" ? (
-              <nav className="mb-4 flex flex-wrap items-center gap-2 text-xs font-semibold text-white/75">
-                <Link href="/" className="hover:text-brand-yellow">
-                  Home
-                </Link>
-                <ChevronRight className="h-3.5 w-3.5 opacity-60" aria-hidden />
-                <Link href="/piano-movers" className="hover:text-brand-yellow">
-                  Piano moving
-                </Link>
-                <ChevronRight className="h-3.5 w-3.5 opacity-60" aria-hidden />
-                <span className="text-brand-yellow">Auckland</span>
-              </nav>
-            ) : null}
-            <p className="mb-3 inline-flex max-w-full rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-yellow">
-              {config.eyebrow}
-            </p>
-            <h1 className="font-heading text-3xl leading-[1.15] text-white sm:text-4xl lg:leading-[1.12]">
-              {config.h1}
-            </h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/85">
-              {config.lead}
-            </p>
-            <p className="mt-3 inline-block max-w-xl rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-snug text-white/90">
-              {config.subline}
-            </p>
-            <a
-              href={`tel:${phoneNumber}`}
-              className="mt-6 inline-flex items-center font-heading text-2xl font-bold tracking-tight text-brand-yellow transition-colors duration-200 hover:text-white sm:text-3xl"
-            >
-              {phoneDisplay}
-            </a>
-            <HamiltonPageLink serviceSlug={config.slug} variant="hero" />
-            <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold text-white/95">
-              <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5">
-                Licensed & insured
-              </span>
-              <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5">
-                7 days a week
-              </span>
-              <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5">
-                {regions.serviceAreaBadge}
-              </span>
-              <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5">
-                Callback in 15 min
-              </span>
-            </div>
-            <HeroVisual
-              variant="moving"
-              className={`mt-8 ${config.wrapHeroPhoto ? halfPhotoWrap : ""}`}
-              photoSrc={config.heroGagPhoto}
-              photoAlt={config.heroGagAlt}
-              overlayCaption={config.heroOverlayCaption}
-              priority
-            />
-          </div>
-          <div id="quote" className="lg:sticky lg:top-28">
-            <p className="mb-2 font-heading text-sm font-bold uppercase tracking-wide text-brand-yellow">
-              Request a free quote
-            </p>
-            <QuoteForm defaultJobType={config.defaultJobType} />
-          </div>
-        </div>
-      </section>
+      <ServiceHeroWithQuote
+        topNav={
+          config.slug === "piano-movers" ? (
+            <nav className="flex flex-wrap items-center gap-2 text-xs font-semibold text-white/75">
+              <Link href="/" className="hover:text-brand-yellow">
+                Home
+              </Link>
+              <ChevronRight className="h-3.5 w-3.5 opacity-60" aria-hidden />
+              <Link href="/piano-movers" className="hover:text-brand-yellow">
+                Piano moving
+              </Link>
+              <ChevronRight className="h-3.5 w-3.5 opacity-60" aria-hidden />
+              <span className="text-brand-yellow">Auckland</span>
+            </nav>
+          ) : undefined
+        }
+        eyebrow={
+          <p className="inline-flex w-fit max-w-[95%] rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-yellow">
+            {config.eyebrow}
+          </p>
+        }
+        title={
+          <h1 className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:leading-[1.12]">
+            {config.h1}
+          </h1>
+        }
+        lead={
+          <p className="max-w-2xl text-base leading-relaxed text-white/85">
+            {config.lead}
+          </p>
+        }
+        subline={
+          <p className="inline-block max-w-xl rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-snug text-white/90">
+            {config.subline}
+          </p>
+        }
+        meta={<HamiltonPageLink serviceSlug={config.slug} variant="hero" />}
+        photo={
+          <HeroVisual
+            variant="moving"
+            className={config.wrapHeroPhoto ? halfPhotoWrap : ""}
+            photoSrc={config.heroGagPhoto}
+            photoAlt={config.heroGagAlt}
+            overlayCaption={config.heroOverlayCaption}
+            priority
+          />
+        }
+        quote={<QuoteForm defaultJobType={config.defaultJobType} />}
+        trustPills={[
+          "Licensed & insured",
+          "7 days a week",
+          regions.serviceAreaBadge,
+          "Callback in 15 min",
+        ]}
+      />
 
       {/* Trust ticker */}
       <div className="mx-auto max-w-7xl px-4 pt-10 sm:px-6 sm:pt-12 lg:px-8">

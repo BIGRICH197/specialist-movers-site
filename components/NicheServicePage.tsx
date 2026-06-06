@@ -6,6 +6,7 @@ import { HeroVisual } from "@/components/HeroVisual";
 import { NumberedInfoGrid } from "@/components/NumberedInfoGrid";
 import { ProcessStepsGrid } from "@/components/ProcessStepsGrid";
 import { QuoteForm } from "@/components/QuoteForm";
+import { ServiceHeroWithQuote } from "@/components/ServiceHeroWithQuote";
 import { SectionReveal } from "@/components/SectionReveal";
 import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
 import { houseMovingProcess } from "@/lib/moving-process";
@@ -31,45 +32,40 @@ export function NicheServicePage({ config }: Props) {
   return (
     <div className="bg-brand-white">
       <FaqPageJsonLd items={config.faqs} />
-      <section className="overflow-visible border-b border-white/10 bg-brand-purple py-12 pb-16 text-white sm:py-16 sm:pb-20 lg:py-20 lg:pb-24">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] lg:items-start lg:gap-12 container-px">
-          <div className="min-w-0">
-            <Breadcrumbs items={crumbs} light />
-            <p className="mb-3 mt-2 inline-flex max-w-full rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-yellow">
-              {config.eyebrow}
-            </p>
-            <h1 className="font-heading text-3xl leading-[1.15] text-white sm:text-4xl lg:leading-[1.12]">
-              {config.h1}
-            </h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/85">
-              {config.lead}
-            </p>
-            <p className="mt-3 inline-block max-w-xl rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-snug text-white/90">
-              {config.subline}
-            </p>
-            <a
-              href={`tel:${phoneNumber}`}
-              className="mt-6 inline-flex items-center font-heading text-2xl font-bold tracking-tight text-brand-yellow transition-colors duration-200 hover:text-white sm:text-3xl"
-            >
-              {phoneDisplay}
-            </a>
-            <HeroVisual
-              variant="moving"
-              className={`mt-8 ${halfPhotoWrap}`}
-              photoSrc={config.heroPhoto}
-              photoAlt={config.heroPhotoAlt}
-              overlayCaption={config.heroOverlayCaption}
-              priority
-            />
-          </div>
-          <div id="quote" className="lg:sticky lg:top-28">
-            <p className="mb-2 font-heading text-sm font-bold uppercase tracking-wide text-brand-yellow">
-              Request a free quote
-            </p>
-            <QuoteForm defaultJobType={config.defaultJobType} />
-          </div>
-        </div>
-      </section>
+      <ServiceHeroWithQuote
+        topNav={<Breadcrumbs items={crumbs} light />}
+        eyebrow={
+          <p className="inline-flex w-fit max-w-[95%] rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-yellow">
+            {config.eyebrow}
+          </p>
+        }
+        title={
+          <h1 className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:leading-[1.12]">
+            {config.h1}
+          </h1>
+        }
+        lead={
+          <p className="max-w-2xl text-base leading-relaxed text-white/85">
+            {config.lead}
+          </p>
+        }
+        subline={
+          <p className="inline-block max-w-xl rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-snug text-white/90">
+            {config.subline}
+          </p>
+        }
+        photo={
+          <HeroVisual
+            variant="moving"
+            className={halfPhotoWrap}
+            photoSrc={config.heroPhoto}
+            photoAlt={config.heroPhotoAlt}
+            overlayCaption={config.heroOverlayCaption}
+            priority
+          />
+        }
+        quote={<QuoteForm defaultJobType={config.defaultJobType} />}
+      />
 
       <SectionReveal className="mx-auto max-w-7xl py-12 container-px sm:py-14">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-10">

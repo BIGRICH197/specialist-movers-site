@@ -6,7 +6,9 @@ import {
   ArrowRight,
   CheckCircle2,
   Loader2,
+  Phone,
 } from "lucide-react";
+import { AddressAutocomplete } from "@/components/AddressAutocomplete";
 import {
   bathroomsForBedrooms,
   propertySizeFromRooms,
@@ -15,10 +17,18 @@ import {
 import { regions } from "@/lib/regions";
 
 const field =
-  "h-12 w-full rounded-xl border-2 border-brand-purple/15 bg-white px-4 text-sm text-brand-purple shadow-sm outline-none transition placeholder:text-brand-purple/40 focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/30";
+  "h-12 w-full scroll-mt-24 rounded-xl border-2 border-brand-purple/15 bg-white px-4 text-base text-brand-purple placeholder:text-brand-purple/40 outline-none transition focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/45 sm:text-sm";
+
 const selectField =
-  "h-12 w-full rounded-xl border-2 border-brand-purple/15 bg-white px-4 text-sm font-medium text-brand-purple shadow-sm outline-none transition focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/30";
-const label = "text-xs font-bold uppercase tracking-wide text-brand-purple/70";
+  "h-12 w-full rounded-xl border-2 border-brand-purple/15 bg-white px-3 text-sm text-brand-purple outline-none transition focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/45 appearance-none";
+
+const dateField =
+  "quote-date-field h-12 w-full min-w-0 max-w-full box-border rounded-xl border-2 border-brand-purple/15 bg-white px-4 text-base text-brand-purple outline-none transition focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/45 sm:text-sm";
+
+const label = "text-xs font-semibold text-brand-purple";
+
+const primaryBtn =
+  "group mt-6 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-brand-yellow px-6 text-base font-bold text-brand-purple shadow-[0_8px_24px_-4px_rgba(243,208,42,0.65)] ring-2 ring-brand-yellow ring-offset-2 ring-offset-white transition hover:brightness-[1.03] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:brightness-100";
 
 type FormState = {
   bedrooms: number;
@@ -57,6 +67,14 @@ const initial: FormState = {
   error: "",
 };
 
+const cleaningTypeLabels: Record<string, string> = {
+  "exit-tenancy": "Exit and tenancy clean",
+  settlement: "Settlement day clean",
+  moving: "House moving clean",
+  construction: "Construction clean",
+  other: "Other",
+};
+
 export function CleaningBookingForm({ className = "" }: { className?: string }) {
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<FormState>(initial);
@@ -77,7 +95,9 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
 
   function onBedroomsChange(bedrooms: number) {
     const baths = bathroomsForBedrooms(bedrooms);
-    const nextBath = baths.includes(form.bathrooms) ? form.bathrooms : baths[0] ?? 1;
+    const nextBath = baths.includes(form.bathrooms)
+      ? form.bathrooms
+      : (baths[0] ?? 1);
     setForm((prev) => ({ ...prev, bedrooms, bathrooms: nextBath, error: "" }));
   }
 
@@ -138,75 +158,96 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
     setStep(0);
   }
 
-  // Step 3 — price (after contact)
   if (step === 3 && pricing) {
     return (
-      <div
-        className={`rounded-2xl border border-brand-purple/15 bg-white p-5 shadow-lg sm:p-6 ${className}`}
-      >
-        <p className="text-xs font-bold uppercase tracking-wide text-brand-yellow">
-          Your quote
-        </p>
-        <h3 className="mt-1 font-heading text-xl text-brand-purple">Here&apos;s your price</h3>
+      <Wrapper className={className}>
+        <Header tag="Your quote" title="Here's your price" />
 
-        <div className="mt-5 rounded-xl border-2 border-brand-yellow/60 bg-brand-yellow/15 p-5 text-center">
-          <p className="font-heading text-4xl text-brand-purple">
+        <div className="space-y-2 rounded-xl border border-brand-purple/10 bg-brand-purple/[0.03] px-4 py-4 sm:px-5">
+          <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple/55">
+            Quote breakdown
+          </p>
+          <div className="flex justify-between gap-4 text-sm">
+            <span className="text-brand-purple/70">Clean type</span>
+            <span className="text-right font-semibold text-brand-purple">
+              {cleaningTypeLabels[form.cleaningType] ?? form.cleaningType}
+            </span>
+          </div>
+          <div className="flex justify-between gap-4 text-sm">
+            <span className="text-brand-purple/70">Property</span>
+            <span className="text-right font-semibold text-brand-purple">
+              {pricing.propertyLabel}
+            </span>
+          </div>
+          {pricing.extraLivingRooms > 0 ? (
+            <div className="flex justify-between gap-4 text-sm">
+              <span className="text-brand-purple/70">Extra living rooms</span>
+              <span className="font-semibold text-brand-purple">
+                {pricing.extraLivingRooms}
+              </span>
+            </div>
+          ) : null}
+          {form.propertyAddress ? (
+            <div className="border-t border-brand-purple/10 pt-2 text-sm text-brand-purple/65">
+              {form.propertyAddress}
+            </div>
+          ) : null}
+        </div>
+
+        <div className="mt-4 rounded-xl border-2 border-brand-yellow/50 bg-brand-yellow/10 px-4 py-4 text-center sm:px-5">
+          <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple/55">
+            Fixed price
+          </p>
+          <p className="mt-1 font-heading text-2xl text-brand-purple sm:text-3xl">
             $
             {pricing.totalIncGst.toLocaleString("en-NZ", {
               minimumFractionDigits: 0,
               maximumFractionDigits: 0,
             })}
           </p>
-          <p className="mt-1 text-xs font-medium text-brand-purple/60">incl. GST (fixed price)</p>
+          <p className="mt-1 text-xs font-medium text-brand-purple/60">
+            incl. GST
+          </p>
         </div>
 
-        <div className="mt-4 rounded-xl border border-brand-purple/10 bg-white p-4 text-sm text-brand-purple/80">
-          <p>{pricing.propertyLabel}</p>
-          {pricing.extraLivingRooms > 0 ? (
-            <p className="mt-1">Extra living rooms: {pricing.extraLivingRooms}</p>
-          ) : null}
-        </div>
-
-        <p className="mt-4 text-sm leading-relaxed text-brand-purple/75">
-          Thanks{form.name ? ` ${form.name.split(" ")[0]}` : ""}! We&apos;ll call you within{" "}
-          <strong>15 minutes</strong> to confirm your clean.
+        <p className="mt-4 text-sm leading-relaxed text-brand-purple/70">
+          Thanks{form.name ? ` ${form.name.split(" ")[0]}` : ""}! We&apos;ll call you
+          within <strong>15 minutes</strong> to confirm your clean.
         </p>
 
-        <button
-          type="button"
-          onClick={reset}
-          className="mt-4 text-sm font-semibold text-brand-purple underline decoration-brand-yellow decoration-2 underline-offset-2"
-        >
-          Start a new quote
-        </button>
+        <div className="mt-4 space-y-2">
+          <a
+            href="tel:0212282728"
+            className="group flex h-12 w-full items-center justify-center gap-2 rounded-full bg-brand-purple px-6 text-sm font-bold text-white transition hover:bg-brand-purple/90"
+          >
+            <Phone className="h-4 w-4" />
+            Call us now
+          </a>
+          <button
+            type="button"
+            onClick={reset}
+            className="flex h-12 w-full items-center justify-center text-sm font-semibold text-brand-purple underline decoration-brand-yellow decoration-2 underline-offset-2"
+          >
+            Start a new quote
+          </button>
+        </div>
 
         <TrustPoints />
-      </div>
+      </Wrapper>
     );
   }
 
-  // Step 2 — contact
   if (step === 2) {
     return (
-      <div
-        className={`rounded-2xl border border-brand-purple/15 bg-white p-5 shadow-lg sm:p-6 ${className}`}
-      >
-        <p className="text-xs font-bold uppercase tracking-wide text-brand-yellow">Almost done</p>
-        <h3 className="mt-1 font-heading text-xl text-brand-purple">Your details</h3>
-        <p className="mt-2 text-sm text-brand-purple/75">
-          Enter your contact info and we&apos;ll calculate your fixed price.
-        </p>
+      <Wrapper className={className}>
+        <Header
+          tag="Almost done"
+          title="Your details"
+          subtitle="Enter your contact info and we'll calculate your fixed price."
+        />
+        <BackButton onClick={() => setStep(1)} />
 
-        <button
-          type="button"
-          onClick={() => setStep(1)}
-          className="mt-4 flex items-center gap-1 text-xs font-semibold text-brand-purple/70 hover:text-brand-purple"
-        >
-          <ArrowLeft className="h-3 w-3" />
-          Back
-        </button>
-
-        <div className="mt-4 space-y-4">
+        <div className="space-y-4">
           <div className="space-y-1.5">
             <label className={label}>Full name *</label>
             <input
@@ -214,6 +255,7 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
               onChange={(e) => set("name", e.target.value)}
               className={field}
               placeholder="Your name"
+              autoComplete="name"
             />
           </div>
           <div className="space-y-1.5">
@@ -224,6 +266,7 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
               onChange={(e) => set("phone", e.target.value)}
               className={field}
               placeholder="021..."
+              autoComplete="tel"
             />
           </div>
           <div className="space-y-1.5">
@@ -234,6 +277,7 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
               onChange={(e) => set("email", e.target.value)}
               className={field}
               placeholder="you@example.com"
+              autoComplete="email"
             />
           </div>
         </div>
@@ -248,7 +292,7 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
           type="button"
           onClick={submitQuote}
           disabled={form.loading || !form.name.trim() || !form.phone.trim()}
-          className="group mt-6 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-brand-yellow px-6 text-base font-bold text-brand-purple shadow-[0_8px_24px_-4px_rgba(243,208,42,0.65)] ring-2 ring-brand-yellow ring-offset-2 ring-offset-white transition hover:brightness-[1.03] disabled:cursor-not-allowed disabled:opacity-50"
+          className={primaryBtn}
         >
           {form.loading ? (
             <Loader2 className="h-5 w-5 animate-spin" />
@@ -261,35 +305,22 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
         </button>
 
         <TrustPoints />
-      </div>
+      </Wrapper>
     );
   }
 
-  // Step 1 — property details
   if (step === 1) {
     const canProceed = Boolean(form.propertyAddress.trim());
     return (
-      <div
-        className={`rounded-2xl border border-brand-purple/15 bg-white p-5 shadow-lg sm:p-6 ${className}`}
-      >
-        <p className="text-xs font-bold uppercase tracking-wide text-brand-yellow">
-          Exit cleaning
-        </p>
-        <h3 className="mt-1 font-heading text-xl text-brand-purple">Property details</h3>
-        <p className="mt-2 text-sm text-brand-purple/75">
-          Where is the clean, and when do you need it?
-        </p>
+      <Wrapper className={className}>
+        <Header
+          tag="Exit cleaning"
+          title="Property details"
+          subtitle="Where is the clean, and when do you need it?"
+        />
+        <BackButton onClick={() => setStep(0)} />
 
-        <button
-          type="button"
-          onClick={() => setStep(0)}
-          className="mt-4 flex items-center gap-1 text-xs font-semibold text-brand-purple/70 hover:text-brand-purple"
-        >
-          <ArrowLeft className="h-3 w-3" />
-          Back
-        </button>
-
-        <div className="mt-4 space-y-4">
+        <div className="space-y-4">
           <div className="space-y-1.5">
             <label className={label}>Type of clean</label>
             <select
@@ -305,21 +336,25 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
             </select>
           </div>
           <div className="space-y-1.5">
-            <label className={label}>Property address *</label>
-            <input
+            <label htmlFor="cleaning-address" className={label}>
+              Property address *
+            </label>
+            <AddressAutocomplete
+              id="cleaning-address"
               value={form.propertyAddress}
-              onChange={(e) => set("propertyAddress", e.target.value)}
+              onChange={(v) => set("propertyAddress", v)}
+              placeholder="Start typing street address…"
               className={field}
-              placeholder="Street address, suburb"
+              aria-label="Property address"
             />
           </div>
-          <div className="space-y-1.5">
+          <div className="min-w-0 max-w-full space-y-1.5">
             <label className={label}>Preferred clean date</label>
             <input
               type="date"
               value={form.preferredDate}
               onChange={(e) => set("preferredDate", e.target.value)}
-              className={field}
+              className={dateField}
             />
           </div>
           <div className="space-y-1.5">
@@ -338,32 +373,27 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
           type="button"
           onClick={() => setStep(2)}
           disabled={!canProceed}
-          className="group mt-6 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-brand-yellow px-6 text-base font-bold text-brand-purple shadow-[0_8px_24px_-4px_rgba(243,208,42,0.65)] ring-2 ring-brand-yellow ring-offset-2 ring-offset-white transition hover:brightness-[1.03] disabled:cursor-not-allowed disabled:opacity-50"
+          className={primaryBtn}
         >
           Next
           <ArrowRight className="h-5 w-5 transition group-hover:translate-x-0.5" />
         </button>
 
         <TrustPoints />
-      </div>
+      </Wrapper>
     );
   }
 
-  // Step 0 — rooms (no prices)
   const canProceed = propertySize != null;
   return (
-    <div
-      className={`rounded-2xl border border-brand-purple/15 bg-white p-5 shadow-lg sm:p-6 ${className}`}
-    >
-      <p className="text-xs font-bold uppercase tracking-wide text-brand-yellow">
-        Free quote
-      </p>
-      <h3 className="mt-1 font-heading text-xl text-brand-purple">Your property</h3>
-      <p className="mt-2 text-sm text-brand-purple/75">
-        Tell us the size of the home. We&apos;ll show your fixed price after your details.
-      </p>
+    <Wrapper className={className}>
+      <Header
+        tag="Free quote"
+        title="Your property"
+        subtitle="Tell us the size of the home. We'll show your fixed price after your details."
+      />
 
-      <div className="mt-4 space-y-4">
+      <div className="space-y-4">
         <div className="grid grid-cols-2 gap-3">
           <div className="space-y-1.5">
             <label className={label}>Bedrooms</label>
@@ -421,14 +451,70 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
         type="button"
         onClick={() => setStep(1)}
         disabled={!canProceed}
-        className="group mt-6 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-brand-yellow px-6 text-base font-bold text-brand-purple shadow-[0_8px_24px_-4px_rgba(243,208,42,0.65)] ring-2 ring-brand-yellow ring-offset-2 ring-offset-white transition hover:brightness-[1.03] disabled:cursor-not-allowed disabled:opacity-50"
+        className={primaryBtn}
       >
         Next
         <ArrowRight className="h-5 w-5 transition group-hover:translate-x-0.5" />
       </button>
 
       <TrustPoints />
+    </Wrapper>
+  );
+}
+
+function Wrapper({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className: string;
+}) {
+  return (
+    <div
+      className={`relative overflow-hidden rounded-[1.25rem] border-2 border-brand-purple/10 border-t-brand-yellow bg-white shadow-[0_20px_60px_-12px_rgba(151,57,176,0.2),0_0_0_1px_rgba(243,208,42,0.25)] ${className}`}
+    >
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-1 rounded-t-[1.2rem] bg-gradient-to-r from-brand-yellow via-brand-yellow to-brand-purple/30" />
+      <div className="relative p-4 sm:p-7">{children}</div>
     </div>
+  );
+}
+
+function Header({
+  tag,
+  title,
+  subtitle,
+}: {
+  tag: string;
+  title: string;
+  subtitle?: string;
+}) {
+  return (
+    <div className="mb-5 border-b border-brand-purple/10 pb-5">
+      <p className="inline-block rounded-md bg-brand-yellow/90 px-2 py-0.5 font-heading text-[10px] font-bold uppercase tracking-widest text-brand-purple">
+        {tag}
+      </p>
+      <p className="mt-2 font-heading text-xl uppercase tracking-wide text-brand-purple sm:text-2xl">
+        {title}
+      </p>
+      {subtitle ? (
+        <p className="mt-1.5 text-sm leading-relaxed text-brand-purple/75">
+          {subtitle}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
+function BackButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="mb-4 flex items-center gap-1 text-xs font-semibold text-brand-purple/60 transition hover:text-brand-purple"
+    >
+      <ArrowLeft className="h-3 w-3" />
+      Back
+    </button>
   );
 }
 
