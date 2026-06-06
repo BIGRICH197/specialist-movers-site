@@ -1,16 +1,11 @@
 import { ImageResponse } from "next/og";
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
 
-export const runtime = "nodejs";
+export const runtime = "edge";
 export const alt = "Specialist Movers NZ — Auckland & Hamilton house and piano movers";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default async function Image() {
-  const fontPath = join(process.cwd(), "app/fonts/TerminaTest-Bold.otf");
-  const fontData = await readFile(fontPath);
-
+export default function Image() {
   return new ImageResponse(
     (
       <div
@@ -23,13 +18,13 @@ export default async function Image() {
           background: "#3B1E5C",
           color: "#FFFFFF",
           padding: "72px",
+          fontFamily: "system-ui, sans-serif",
         }}
       >
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "20px",
             fontSize: 36,
             fontWeight: 700,
             color: "#F5C518",
@@ -62,16 +57,6 @@ export default async function Image() {
         <div style={{ fontSize: 28, color: "#F5C518" }}>specialistmovers.co.nz</div>
       </div>
     ),
-    {
-      ...size,
-      fonts: [
-        {
-          name: "Termina",
-          data: fontData,
-          style: "normal",
-          weight: 700,
-        },
-      ],
-    },
+    size,
   );
 }

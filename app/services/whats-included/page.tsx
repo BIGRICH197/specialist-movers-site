@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { InclusionAccordion } from "@/components/InclusionAccordion";
 import { PageHero } from "@/components/PageHero";

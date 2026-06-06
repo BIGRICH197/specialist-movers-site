@@ -27,7 +27,7 @@ export function LocalBusinessJsonLd() {
       latitude: businessInfo.geo.auckland.latitude,
       longitude: businessInfo.geo.auckland.longitude,
     },
-    openingHoursSpecification: businessInfo.openingHours.map((hours) => ({
+    openingHoursSpecification: businessInfo.openingHours.map(() => ({
       "@type": "OpeningHoursSpecification",
       dayOfWeek: [
         "Monday",

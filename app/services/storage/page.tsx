@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import { Clock, Moon, Package, Piano, Truck } from "lucide-react";
 import { ServiceClusterHub } from "@/components/ServiceClusterHub";
 import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
