@@ -1,6 +1,13 @@
 /** @type {import('next').NextConfig} */
 
-import legacyAucklandUrls from "./lib/legacy-auckland-urls.json" with { type: "json" };
+import { readFileSync } from "fs";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const legacyAucklandUrls = JSON.parse(
+  readFileSync(join(__dirname, "lib/legacy-auckland-urls.json"), "utf8"),
+);
 
 const serviceSlugs = [
   "house-moving",
@@ -185,7 +192,7 @@ const nextConfig = {
       },
       {
         source: "/services/moving/international-moving",
-        destination: "/services/international-moving",
+        destination: "/international-moving",
         permanent: true,
       },
       {
