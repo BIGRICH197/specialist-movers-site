@@ -12,8 +12,11 @@ interface Message {
 const GREETING =
   "Kia ora! I'm Aroha from Specialist Movers. I can help you with a quote or answer any questions about our moving services. What can I help with?";
 
+const ONLINE_PILL_KEY = "aroha-online-dismissed";
+
 export function ArohaChat() {
   const [isOpen, setIsOpen] = useState(false);
+  const [onlinePillVisible, setOnlinePillVisible] = useState(true);
   const [messages, setMessages] = useState<Message[]>([
     { role: "assistant", content: GREETING },
   ]);
@@ -30,6 +33,17 @@ export function ArohaChat() {
   useEffect(() => {
     if (isOpen) inputRef.current?.focus();
   }, [isOpen]);
+
+  useEffect(() => {
+    if (sessionStorage.getItem(ONLINE_PILL_KEY) === "1") {
+      setOnlinePillVisible(false);
+    }
+  }, []);
+
+  function dismissOnlinePill() {
+    setOnlinePillVisible(false);
+    sessionStorage.setItem(ONLINE_PILL_KEY, "1");
+  }
 
   useEffect(() => {
     if (!isOpen) return;
@@ -223,13 +237,23 @@ export function ArohaChat() {
           className="fixed right-4 z-[250] flex flex-col items-end gap-2 sm:right-6"
           style={{ bottom: fabBottom }}
         >
-          <div className="flex items-center gap-1.5 rounded-full border border-brand-purple/10 bg-white px-3 py-1.5 text-xs font-semibold text-brand-purple shadow-[0_8px_24px_-12px_rgba(151,57,176,0.35)]">
-            <span className="relative flex h-2 w-2 shrink-0" aria-hidden>
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-            </span>
-            <span>We&apos;re online now</span>
-          </div>
+          {onlinePillVisible ? (
+            <div className="flex items-center gap-1.5 rounded-full border border-brand-purple/10 bg-white py-1.5 pl-3 pr-1.5 text-xs font-semibold text-brand-purple shadow-[0_8px_24px_-12px_rgba(151,57,176,0.35)]">
+              <span className="relative flex h-2 w-2 shrink-0" aria-hidden>
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              </span>
+              <span>We&apos;re online now</span>
+              <button
+                type="button"
+                onClick={dismissOnlinePill}
+                className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-brand-purple/45 transition hover:bg-brand-purple/5 hover:text-brand-purple"
+                aria-label="Dismiss online notice"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+            </div>
+          ) : null}
           <button
             onClick={() => setIsOpen(true)}
             className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-purple text-white shadow-[0_8px_24px_-4px_rgba(151,57,176,0.5)] transition hover:scale-105 hover:shadow-[0_12px_32px_-4px_rgba(151,57,176,0.6)] active:scale-95"

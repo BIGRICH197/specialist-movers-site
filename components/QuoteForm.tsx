@@ -1166,9 +1166,9 @@ function Wrapper({
 }) {
   return (
     <div
-      className={`relative overflow-hidden rounded-[1.25rem] border-2 border-brand-purple/10 bg-white shadow-[0_20px_60px_-12px_rgba(151,57,176,0.2),0_0_0_1px_rgba(243,208,42,0.25)] max-lg:overflow-visible lg:overflow-hidden ${className}`}
+      className={`relative overflow-hidden rounded-[1.25rem] border-2 border-brand-purple/10 border-t-brand-yellow bg-white shadow-[0_20px_60px_-12px_rgba(151,57,176,0.2),0_0_0_1px_rgba(243,208,42,0.25)] ${className}`}
     >
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-[3px] bg-brand-yellow" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-1 rounded-t-[1.2rem] bg-gradient-to-r from-brand-yellow via-brand-yellow to-brand-purple/30" />
       <div className={`relative p-4 sm:p-7 ${compact ? "sm:p-6" : ""}`}>
         {children}
       </div>
