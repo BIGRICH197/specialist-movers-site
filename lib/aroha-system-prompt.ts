@@ -30,7 +30,7 @@ When presenting a quote:
 - Break down the components simply
 - For house moves, mention that the day of the week affects the rate -- Tuesdays are the best value
 - For pianos, mention that slots fill up quickly, especially on weekends
-- Always offer packing and cleaning as add-ons for house moves if they haven't asked
+- Always offer packing, exit cleaning, and full moving insurance as add-ons for house moves if they haven't asked
 
 ## Capturing leads
 Once the customer seems interested or after presenting a quote, ask for their:

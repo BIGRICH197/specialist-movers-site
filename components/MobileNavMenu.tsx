@@ -27,6 +27,11 @@ type Props = {
 const subLinkClass =
   "text-sm text-white/85 transition-colors hover:text-brand-yellow";
 
+/** Mobile: Auckland depot before Hamilton. */
+const mobileLocationDepots = [...locationNavDepotColumns].sort((a, b) =>
+  a.id === "auckland" ? -1 : b.id === "auckland" ? 1 : 0,
+);
+
 function AccordionSection({
   title,
   open,
@@ -159,7 +164,7 @@ export function MobileNavMenu({
         onToggle={() => toggle("locations")}
       >
         <div className="space-y-4 py-2">
-          {locationNavDepotColumns.map((depot) => (
+          {mobileLocationDepots.map((depot) => (
             <div key={depot.id}>
               <p className="text-xs font-semibold uppercase tracking-wide text-brand-yellow/75">
                 {depot.depotTitle}

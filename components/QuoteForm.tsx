@@ -39,6 +39,7 @@ interface FormState {
   preferredDate: string;
   wantsPacking: boolean;
   wantsCleaning: boolean;
+  wantsInsurance: boolean;
   // Office / commercial (no bedrooms)
   officeSize: string;
   // Piano
@@ -67,6 +68,7 @@ const initial: FormState = {
   preferredDate: "",
   wantsPacking: false,
   wantsCleaning: false,
+  wantsInsurance: false,
   officeSize: "medium",
   pianoType: "upright",
   pickupStairs: 0,
@@ -220,6 +222,7 @@ export function QuoteForm({
         payload.preferredDate = f.preferredDate;
         payload.wantsPacking = f.wantsPacking;
         payload.wantsCleaning = f.wantsCleaning;
+        payload.wantsInsurance = f.wantsInsurance;
       } else if (f.mode === "office") {
         payload.officeSize = f.officeSize;
         payload.pickupAccess = f.pickupAccess;
@@ -906,6 +909,18 @@ export function QuoteForm({
                 <span className="text-sm text-brand-purple">
                   Exit cleaning{" "}
                   <span className="text-brand-purple/50">(fixed price)</span>
+                </span>
+              </label>
+              <label className="flex cursor-pointer items-center gap-3">
+                <input
+                  type="checkbox"
+                  checked={f.wantsInsurance}
+                  onChange={(e) => set("wantsInsurance", e.target.checked)}
+                  className="h-5 w-5 rounded border-brand-purple/30 text-brand-yellow accent-brand-yellow"
+                />
+                <span className="text-sm text-brand-purple">
+                  Full moving insurance{" "}
+                  <span className="text-brand-purple/50">(quoted separately)</span>
                 </span>
               </label>
             </div>

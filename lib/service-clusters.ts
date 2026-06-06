@@ -252,6 +252,7 @@ export const moveInclusionCategories: readonly MoveInclusionCategory[] = [
     bullets: [
       "Full packing and unpacking, packers come in the day before",
       "Exit cleaning, fixed-price tenancy cleans",
+      "Full moving insurance, personalised transit cover for your belongings",
       "Storage, short-term, long-term, in transit, and overnight",
       "Piano, commercial, and hard-to-shift specialist moves",
     ],

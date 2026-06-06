@@ -20,6 +20,7 @@ type QuoteBody = {
   preferredDate?: string;
   wantsPacking?: boolean;
   wantsCleaning?: boolean;
+  wantsInsurance?: boolean;
   // Office / commercial
   officeSize?: string;
   // Piano
@@ -103,9 +104,22 @@ export async function POST(request: Request) {
 
     const result = calculateHouseMove(input);
 
-    const extraNotes = body.message?.trim()
-      ? `\n\nCustomer notes:\n${body.message.trim()}`
-      : "";
+    const addOnNotes = [
+      body.wantsPacking ? "Packing add-on requested" : "",
+      body.wantsCleaning ? "Exit cleaning add-on requested" : "",
+      body.wantsInsurance ? "Full moving insurance add-on requested" : "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const extraNotes = [
+      addOnNotes ? `Add-ons:\n${addOnNotes}` : "",
+      body.message?.trim() ? `Customer notes:\n${body.message.trim()}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n\n");
+
+    const notesSuffix = extraNotes ? `\n\n${extraNotes}` : "";
 
     createHubSpotDeal({
       name: body.name,
@@ -117,8 +131,8 @@ export async function POST(request: Request) {
       preferredDate: body.preferredDate,
       estimatedValue: result.outOfAuckland ? undefined : result.totalIncGst,
       notes: result.outOfAuckland
-        ? `Website quote: Out of Auckland - custom quote needed\n${body.bedrooms}BR, ${body.pickupAddress} → ${body.dropoffAddress}${extraNotes}`
-        : `Website quote: $${result.totalIncGst} incl GST\n${result.breakdown}${extraNotes}`,
+        ? `Website quote: Out of Auckland - custom quote needed\n${body.bedrooms}BR, ${body.pickupAddress} → ${body.dropoffAddress}${notesSuffix}`
+        : `Website quote: $${result.totalIncGst} incl GST\n${result.breakdown}${notesSuffix}`,
     }).catch(console.error);
 
     return NextResponse.json({ ok: true, mode: "house", pricing: result });
