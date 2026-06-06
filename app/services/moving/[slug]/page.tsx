@@ -23,7 +23,7 @@ export function generateMetadata({
   const item = getMovingDistanceService(params.slug);
   if (!item) return {};
   return buildPageMetadata({
-    title: `${item.title} | Specialist Movers`,
+    title: { absolute: `${item.title} | Specialist Movers` },
     description: `${item.excerpt} ${regions.serviceArea}. Free quote. Callback in 15 minutes.`,
     path: clusterItemPath(movingDistanceHub.path, item),
   });

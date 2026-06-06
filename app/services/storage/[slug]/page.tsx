@@ -19,7 +19,7 @@ export function generateMetadata({
   if (!item) return {};
   const path = item.href ?? `${storageHub.path}/${item.slug}`;
   return buildPageMetadata({
-    title: `${item.title} | Specialist Movers`,
+    title: { absolute: `${item.title} | Specialist Movers` },
     description: `${item.excerpt} ${regions.serviceArea}.`,
     path,
   });

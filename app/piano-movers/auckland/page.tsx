@@ -7,7 +7,7 @@ import { buildPageMetadata } from "@/lib/seo";
 const SLUG = "piano-movers";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Piano moving Auckland | Specialist Piano Movers",
+  title: { absolute: "Piano moving Auckland | Specialist Piano Movers" },
   description:
     "Piano moving Auckland for upright, grand, and digital pianos. Trusted by retailers. Local moves, Hamilton routes, international shipping. Free quote, callback in 15 minutes.",
   path: "/piano-movers/auckland",

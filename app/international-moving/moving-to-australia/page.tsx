@@ -4,7 +4,7 @@ import { movingToAustraliaPage } from "@/lib/niche-service-pages";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: movingToAustraliaPage.metaTitle,
+  title: { absolute: movingToAustraliaPage.metaTitle },
   description: movingToAustraliaPage.metaDescription,
   path: movingToAustraliaPage.path,
 });

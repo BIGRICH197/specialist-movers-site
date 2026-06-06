@@ -18,7 +18,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const hamilton = getHamiltonPageConfig(params.slug);
   if (hamilton) {
     return buildPageMetadata({
-      title: hamilton.metaTitle,
+      title: { absolute: hamilton.metaTitle },
       description: hamilton.metaDescription,
       path: hamilton.path,
     });

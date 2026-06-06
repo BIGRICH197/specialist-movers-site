@@ -4,7 +4,7 @@ import { apartmentMoversPage } from "@/lib/niche-service-pages";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: apartmentMoversPage.metaTitle,
+  title: { absolute: apartmentMoversPage.metaTitle },
   description: apartmentMoversPage.metaDescription,
   path: apartmentMoversPage.path,
 });

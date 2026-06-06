@@ -4,7 +4,7 @@ import { retirementHomeMoversHamiltonPage } from "@/lib/niche-service-pages";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: retirementHomeMoversHamiltonPage.metaTitle,
+  title: { absolute: retirementHomeMoversHamiltonPage.metaTitle },
   description: retirementHomeMoversHamiltonPage.metaDescription,
   path: retirementHomeMoversHamiltonPage.path,
 });

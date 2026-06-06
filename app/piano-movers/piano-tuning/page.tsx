@@ -4,7 +4,7 @@ import { pianoTuningContent } from "@/lib/piano-tuning-content";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: pianoTuningContent.meta.title,
+  title: { absolute: pianoTuningContent.meta.title },
   description: pianoTuningContent.meta.description,
   path: "/piano-movers/piano-tuning",
 });
