@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -76,6 +76,7 @@ const cleaningTypeLabels: Record<string, string> = {
 };
 
 export function CleaningBookingForm({ className = "" }: { className?: string }) {
+  const addressFieldId = `${useId().replace(/:/g, "")}-cleaning-address`;
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<FormState>(initial);
   const [pricing, setPricing] = useState<PricingResult | null>(null);
@@ -336,11 +337,11 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
             </select>
           </div>
           <div className="space-y-1.5">
-            <label htmlFor="cleaning-address" className={label}>
+            <label htmlFor={addressFieldId} className={label}>
               Property address *
             </label>
             <AddressAutocomplete
-              id="cleaning-address"
+              id={addressFieldId}
               value={form.propertyAddress}
               onChange={(v) => set("propertyAddress", v)}
               placeholder="Start typing street address…"

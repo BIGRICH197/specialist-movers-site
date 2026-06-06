@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import {
   ArrowRight,
   ArrowLeft,
@@ -118,6 +118,8 @@ export function QuoteForm({
   defaultJobTypes,
   initialMode,
 }: QuoteFormProps) {
+  const formUid = useId().replace(/:/g, "");
+  const addressId = (suffix: string) => `${formUid}-${suffix}`;
   const startMode = initialMode ?? defaultModeFromJob(defaultJobType, defaultJobTypes);
   const [f, setF] = useState<FormState>({ ...initial, mode: startMode });
   const [step, setStep] = useState(
@@ -537,7 +539,7 @@ export function QuoteForm({
                   Current office address
                 </label>
                 <AddressAutocomplete
-                  id="office-pickup"
+                  id={addressId("office-pickup")}
                   value={f.pickupAddress}
                   onChange={(v) => set("pickupAddress", v)}
                   placeholder="Start typing street address…"
@@ -568,7 +570,7 @@ export function QuoteForm({
                   New office address
                 </label>
                 <AddressAutocomplete
-                  id="office-dropoff"
+                  id={addressId("office-dropoff")}
                   value={f.dropoffAddress}
                   onChange={(v) => set("dropoffAddress", v)}
                   placeholder="Start typing street address…"
@@ -648,7 +650,7 @@ export function QuoteForm({
                   Pickup address
                 </label>
                 <AddressAutocomplete
-                  id="house-pickup"
+                  id={addressId("house-pickup")}
                   value={f.pickupAddress}
                   onChange={(v) => set("pickupAddress", v)}
                   className={field}
@@ -678,7 +680,7 @@ export function QuoteForm({
                   Drop-off address
                 </label>
                 <AddressAutocomplete
-                  id="house-dropoff"
+                  id={addressId("house-dropoff")}
                   value={f.dropoffAddress}
                   onChange={(v) => set("dropoffAddress", v)}
                   className={field}
@@ -744,7 +746,7 @@ export function QuoteForm({
                   Pickup address
                 </label>
                 <AddressAutocomplete
-                  id="piano-pickup"
+                  id={addressId("piano-pickup")}
                   value={f.pickupAddress}
                   onChange={(v) => set("pickupAddress", v)}
                   className={field}
@@ -770,7 +772,7 @@ export function QuoteForm({
                   Drop-off address
                 </label>
                 <AddressAutocomplete
-                  id="piano-dropoff"
+                  id={addressId("piano-dropoff")}
                   value={f.dropoffAddress}
                   onChange={(v) => set("dropoffAddress", v)}
                   className={field}
@@ -810,7 +812,7 @@ export function QuoteForm({
 
         {!canProceed && (
           <p className="mt-2 text-xs text-brand-purple/60">
-            Pick both addresses from the dropdown (or type full street and suburb)
+            Enter both pickup and drop-off addresses (full street and suburb)
             to continue.
           </p>
         )}

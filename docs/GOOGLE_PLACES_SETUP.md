@@ -8,12 +8,15 @@ When customers type pickup/drop-off addresses, the site uses **Google Places Aut
 2. Enable APIs:
    - **Maps JavaScript API** (quote form autocomplete)
    - **Places API** (legacy Places works with Autocomplete widget)
-3. Create an **API key** → Application restrictions → **HTTP referrers**:
+3. Create an **API key** → Application restrictions → **HTTP referrers** (use `/*` wildcards — required):
    - `https://specialistmovers.co.nz/*`
    - `https://www.specialistmovers.co.nz/*`
    - `https://specialist-movers-site.vercel.app/*` (Vercel preview/production)
    - `https://*.vercel.app/*` (optional, other preview URLs)
    - `http://localhost:3020/*` (dev — match your `npm run dev` port)
+
+   **Important:** Auckland service pages use legacy URLs (e.g. `/house-moving-and-packing-auckland`, `/office-movers-auckland`, `/cleaning-bookings`). If the key only allows `/` or `/services/*`, autocomplete works on the homepage but shows a `!` on service pages (`RefererNotAllowedMapError`). The `/*` entries above cover every path.
+
 4. API restrictions → restrict to Maps JavaScript API + Places API only.
 
 ## Local / production env
@@ -26,13 +29,14 @@ NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_key_here
 
 Restart `npm run dev` after adding the key.
 
-## Without a key
+## Without a key (or if Google blocks the referrer / quota)
 
-The form still works as plain text inputs with helper copy asking for street + suburb + city. No dropdown.
+The form falls back to **plain text inputs** — customers can still type a full street address and suburb. No `!` icon, no dropdown required.
 
 ## UX on the form
 
-- User must **select a row from the dropdown** (not only press Enter on partial text).
+- When Google is working, user should **select a row from the dropdown** (not only press Enter on partial text).
+- When Google is unavailable, typing the full address is fine.
 - After both addresses are filled, **RouteBranchHint** shows:
   - Auckland instant estimate
   - Waikato (Hamilton branch) instant estimate
