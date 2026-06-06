@@ -9,8 +9,6 @@ import { regions } from "@/lib/regions";
 import { motionDuration, motionStagger, motionTransition } from "@/lib/motion";
 import type { JobType } from "@/lib/site-data";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
-import { cn } from "@/lib/utils";
-
 type HeroCopy = {
   eyebrow: string;
   h1: string;
@@ -92,15 +90,6 @@ export function HomeHero({
       </div>
 
       <div className="relative z-[1] mx-auto max-w-7xl container-px">
-        <GoogleRatingBadge
-          className={cn(
-            "pointer-events-auto absolute left-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2 xl:flex",
-            heroVariant === "piano"
-              ? "top-[calc(54%-4cm)]"
-              : "top-[calc(54%-3cm)]",
-          )}
-        />
-
         <div className="flex flex-col gap-5 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] xl:gap-12">
           {/* Mobile: badge → title → photo → Google bar */}
           <motion.div
@@ -234,8 +223,16 @@ export function HomeHero({
                 </span>
               ))}
             </motion.div>
-            <motion.div variants={reduced ? undefined : item} transition={t} className="mt-8">
+            <motion.div
+              variants={reduced ? undefined : item}
+              transition={t}
+              className="relative mt-8 overflow-visible"
+            >
               {heroVisual}
+              {/* Desktop: badge beside the photo — anchored to photo, not the quote form height */}
+              <div className="pointer-events-auto absolute left-full top-1/2 z-20 hidden -translate-y-1/2 pl-4 xl:block">
+                <GoogleRatingBadge />
+              </div>
             </motion.div>
           </motion.div>
         </div>

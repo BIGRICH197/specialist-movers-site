@@ -27,9 +27,11 @@ export async function POST(request: Request) {
     );
   }
 
+  const extraLivingRooms = Math.min(2, Math.max(0, Math.floor(body.extraLivingRooms ?? 0)));
+
   const quote = calculateCleaningQuote({
     propertySize: body.propertySize,
-    extraLivingRooms: body.extraLivingRooms ?? 0,
+    extraLivingRooms,
   });
 
   if (!quote) {
@@ -51,7 +53,7 @@ export async function POST(request: Request) {
   const notes = [
     "Website cleaning quote",
     `Property: ${quote.propertyLabel}`,
-    quote.extraLivingRooms > 0 ? `Extra living rooms: ${quote.extraLivingRooms}` : null,
+    quote.extraLivingRooms > 0 ? `Living rooms: ${quote.extraLivingRooms}` : null,
     `Clean type: ${cleanLabel}`,
     `Fixed price: $${quote.priceExclGst} excl. GST ($${quote.priceIncGst} incl. GST)`,
     body.preferredDate ? `Preferred date: ${body.preferredDate}` : null,

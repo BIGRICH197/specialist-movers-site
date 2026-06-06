@@ -182,7 +182,7 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
           </div>
           {pricing.extraLivingRooms > 0 ? (
             <div className="flex justify-between gap-4 text-sm">
-              <span className="text-brand-purple/70">Extra living rooms</span>
+              <span className="text-brand-purple/70">Living rooms</span>
               <span className="font-semibold text-brand-purple">
                 {pricing.extraLivingRooms}
               </span>
@@ -427,13 +427,13 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
         </div>
 
         <div className="space-y-1.5">
-          <label className={label}>Extra living rooms</label>
+          <label className={label}>Living rooms</label>
           <select
             value={form.extraLivingRooms}
             onChange={(e) => set("extraLivingRooms", Number(e.target.value))}
             className={selectField}
           >
-            {[0, 1, 2, 3, 4, 5].map((n) => (
+            {[0, 1, 2].map((n) => (
               <option key={n} value={n}>
                 {n === 0 ? "None" : n}
               </option>

@@ -626,27 +626,27 @@ export function QuoteForm({
           {f.mode === "house" && (
             <>
               <div className="space-y-1.5">
-                <label className={label}>Number of rooms</label>
+                <label className={label}>Bedrooms</label>
                 <select
                   value={f.bedrooms}
                   onChange={(e) => set("bedrooms", Number(e.target.value))}
                   className={selectField}
                 >
-                  <option value={1}>1 room</option>
-                  <option value={2}>2 rooms</option>
-                  <option value={3}>3 rooms</option>
-                  <option value={4}>4+ rooms</option>
+                  <option value={1}>1 bedroom</option>
+                  <option value={2}>2 bedrooms</option>
+                  <option value={3}>3 bedrooms</option>
+                  <option value={4}>4+ bedrooms</option>
                 </select>
                 <p className="text-xs text-brand-purple/65">
-                  Moving, packing, and cleaning prices are based on room count.
+                  Moving, packing, and cleaning prices are based on bedroom count.
                   {f.bedrooms === 4
-                    ? " 4+ room moves use a team of 3 movers."
-                    : " Moves up to 3 rooms use a team of 2 movers."}
+                    ? " 4+ bedroom moves use a team of 3 movers."
+                    : " Moves up to 3 bedrooms use a team of 2 movers."}
                 </p>
                 {f.bedrooms === 3 ? (
                   <p className="text-xs text-brand-purple/65">
-                    3-room moves often qualify for a more accurate total estimate
-                    or fixed price quote after we view your home.
+                    3-bedroom moves often qualify for a more accurate total
+                    estimate or fixed price quote after we view your home.
                   </p>
                 ) : null}
               </div>
