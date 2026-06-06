@@ -19,7 +19,8 @@ const tools: Anthropic.Tool[] = [
         bedrooms: {
           type: "number",
           enum: [1, 2, 3, 4],
-          description: "Number of bedrooms (1-4)",
+          description:
+            "Number of rooms (1-4). Moving uses 2 movers for 1-3 rooms and 3 movers for 4 rooms; packing and cleaning use fixed prices per room count.",
         },
         pickupAddress: { type: "string", description: "Pickup suburb or address" },
         dropoffAddress: { type: "string", description: "Drop-off suburb or address" },

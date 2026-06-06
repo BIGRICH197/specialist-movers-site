@@ -22,11 +22,11 @@ export const BEDROOM_CUBES: Record<Bedrooms, number> = {
   4: 40,
 };
 
-// ── Bedroom → crew size ──
+// ── Bedroom → crew size (2 movers for 1–3 rooms; 3 movers for 4 rooms) ──
 export const BEDROOM_CREW: Record<Bedrooms, CrewSize> = {
   1: "2M",
   2: "2M",
-  3: "3M",
+  3: "2M",
   4: "3M",
 };
 

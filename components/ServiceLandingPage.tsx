@@ -311,24 +311,23 @@ export function ServiceLandingPage({ config }: Props) {
         </div>
       </SectionReveal>
 
-      {/* Final CTA — scroll to hero form (one form per page keeps address fields stable) */}
+      {/* Final CTA */}
       <section className="border-t border-brand-purple/10 bg-brand-purple py-12 text-white sm:py-16">
-        <div className="mx-auto max-w-3xl text-center container-px">
-          <h2 className="font-heading text-2xl sm:text-3xl">Get your free quote today</h2>
-          <p className="mt-4 text-white/85">
-            Use the quote form at the top of this page and we will call you back within 15 minutes.
-            Or call{" "}
-            <a href={`tel:${phoneNumber}`} className="font-bold text-brand-yellow hover:underline">
-              {phoneDisplay}
-            </a>
-            .
-          </p>
-          <a
-            href="#quote"
-            className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-brand-yellow px-8 py-3 font-heading text-sm font-bold uppercase text-brand-purple ring-1 ring-white/25 transition hover:brightness-[1.05]"
-          >
-            Back to quote form
-          </a>
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center container-px">
+          <div>
+            <h2 className="font-heading text-2xl sm:text-3xl">
+              Get your free quote today
+            </h2>
+            <p className="mt-4 max-w-lg text-white/85">
+              Fill in the form and we will call you back within 15 minutes with a fair quote and
+              our next available slot. Or call{" "}
+              <a href={`tel:${phoneNumber}`} className="font-bold text-brand-yellow hover:underline">
+                {phoneDisplay}
+              </a>
+              .
+            </p>
+          </div>
+          <QuoteForm defaultJobType={config.defaultJobType} />
         </div>
       </section>
     </div>

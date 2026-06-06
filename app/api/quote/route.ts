@@ -8,6 +8,12 @@ import {
 import { createHubSpotDeal } from "@/lib/hubspot";
 import type { AccessDifficulty, Bedrooms, PianoType } from "@/lib/pricing-data";
 
+function parseRooms(value: number | undefined): Bedrooms {
+  const rooms = value ?? 2;
+  if (rooms === 1 || rooms === 2 || rooms === 3 || rooms === 4) return rooms;
+  return 2;
+}
+
 type QuoteBody = {
   mode: "house" | "piano" | "office" | "commercial" | "callback";
   serviceType?: string;
@@ -92,7 +98,7 @@ export async function POST(request: Request) {
 
   if (body.mode === "house") {
     const input: HouseMoveInput = {
-      bedrooms: body.bedrooms ?? 2,
+      bedrooms: parseRooms(body.bedrooms),
       pickupAddress: body.pickupAddress,
       dropoffAddress: body.dropoffAddress,
       preferredDate: body.preferredDate,
@@ -131,7 +137,7 @@ export async function POST(request: Request) {
       preferredDate: body.preferredDate,
       estimatedValue: result.outOfAuckland ? undefined : result.totalIncGst,
       notes: result.outOfAuckland
-        ? `Website quote: Out of Auckland - custom quote needed\n${body.bedrooms}BR, ${body.pickupAddress} → ${body.dropoffAddress}${notesSuffix}`
+        ? `Website quote: Out of Auckland - custom quote needed\n${parseRooms(body.bedrooms)} rooms, ${body.pickupAddress} → ${body.dropoffAddress}${notesSuffix}`
         : `Website quote: $${result.totalIncGst} incl GST\n${result.breakdown}${notesSuffix}`,
     }).catch(console.error);
 
