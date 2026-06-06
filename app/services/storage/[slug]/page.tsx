@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import { notFound, redirect } from "next/navigation";
 import { ServiceClusterDetail } from "@/components/ServiceClusterDetail";
 import { getStorageService, storageHub, storageServices } from "@/lib/service-clusters";
@@ -16,10 +17,12 @@ export function generateMetadata({
 }): Metadata {
   const item = getStorageService(params.slug);
   if (!item) return {};
-  return {
+  const path = item.href ?? `${storageHub.path}/${item.slug}`;
+  return buildPageMetadata({
     title: `${item.title} | Specialist Movers`,
     description: `${item.excerpt} ${regions.serviceArea}.`,
-  };
+    path,
+  });
 }
 
 export default function StorageDetailPage({

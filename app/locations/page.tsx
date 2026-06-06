@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { LocationSearch } from "@/components/LocationSearch";
 import { PageHero } from "@/components/PageHero";
@@ -6,11 +7,12 @@ import { SectionReveal } from "@/components/SectionReveal";
 import { getLocationHubGroups } from "@/lib/locations";
 import { regions } from "@/lib/regions";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Areas We Serve",
   description:
-    "house and piano moving across Auckland suburbs and the Waikato. Bases in Auckland (Wairau Valley) and Hamilton. Find your area and get a free quote.",
-};
+    "House and piano moving across Auckland suburbs and the Waikato. Bases in Auckland (Wairau Valley) and Hamilton. Find your area and get a free quote.",
+  path: "/locations",
+});
 
 export default function LocationsPage() {
   const hubGroups = getLocationHubGroups();

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
+import { buildPageMetadata } from "@/lib/seo";
 import {
   Building2,
   Home,
@@ -30,6 +32,7 @@ import { sectionRevealDirection } from "@/lib/motion";
 import { StaggerChildren, StaggerItem } from "@/components/StaggerChildren";
 import {
   contactCta,
+  faqs,
   hero,
   homeMeta,
   experienceMilestones,
@@ -44,17 +47,21 @@ import {
 import { serviceHref } from "@/lib/service-links";
 import { phoneDisplay, phoneNumber, services } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: { absolute: homeMeta.title },
   description: homeMeta.description,
-};
+  path: "/",
+});
 
 export default function HomePage() {
   const homeServices = services.slice(0, 6);
   const icons = [Home, Building2, Piano, Package, Truck, Sparkles];
 
+  const homeFaqs = faqs.slice(0, 4);
+
   return (
     <div className="bg-brand-canvas">
+      <FaqPageJsonLd items={homeFaqs} />
       <HomeHero
         hero={{
           eyebrow: hero.eyebrow,

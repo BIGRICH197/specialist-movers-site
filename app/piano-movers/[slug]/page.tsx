@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { ServicePageTemplate } from "@/components/ServicePageTemplate";
 import { getPianoPhoto } from "@/lib/site-photos";
@@ -20,10 +21,11 @@ export function generateMetadata({
   if (RESERVED_PIANO_SLUGS.has(params.slug)) return {};
   const service = pianoServices.find((s) => s.slug === params.slug);
   if (!service) return {};
-  return {
+  return buildPageMetadata({
     title: service.title,
     description: `${service.title} by Auckland's dedicated specialist piano moving team.`,
-  };
+    path: `/piano-movers/${service.slug}`,
+  });
 }
 
 export default function PianoSlugPage({ params }: { params: { slug: string } }) {

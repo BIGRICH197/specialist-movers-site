@@ -1,3 +1,4 @@
+import { aucklandServiceHref } from "@/lib/legacy-auckland-urls";
 import { houseMovingProcess } from "@/lib/moving-process";
 import { sitePhotos } from "@/lib/site-photos";
 import type { JobType } from "@/lib/site-data";
@@ -73,10 +74,10 @@ export const apartmentMoversPage: NicheServicePageConfig = {
     "Optional exit cleaning aligned with your move-out",
   ],
   relatedLinks: [
-    { label: "House moving", href: "/services/house-moving" },
-    { label: "Packing services", href: "/services/packing-services" },
-    { label: "Exit cleaning", href: "/services/cleaning-services" },
-    { label: "Loading and unloading", href: "/services/loading-unloading" },
+    { label: "House moving", href: aucklandServiceHref("house-moving") },
+    { label: "Packing services", href: aucklandServiceHref("packing-services") },
+    { label: "Exit cleaning", href: aucklandServiceHref("cleaning-services") },
+    { label: "Loading and unloading", href: aucklandServiceHref("loading-unloading") },
   ],
   faqHeading: "Apartment moving questions",
   faqs: [
@@ -148,8 +149,8 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
     "In-home assessment for accurate fixed pricing",
   ],
   relatedLinks: [
-    { label: "House moving", href: "/services/house-moving" },
-    { label: "Packing services", href: "/services/packing-services" },
+    { label: "House moving", href: aucklandServiceHref("house-moving") },
+    { label: "Packing services", href: aucklandServiceHref("packing-services") },
     { label: "Apartment movers", href: "/apartment-movers-auckland" },
     { label: "Storage", href: "/services/storage" },
   ],
@@ -249,10 +250,10 @@ export const movingToAustraliaPage: NicheServicePageConfig = {
     "Customs and quarantine guidance",
   ],
   relatedLinks: [
-    { label: "International moving Auckland", href: "/services/international-moving" },
-    { label: "Packing services", href: "/services/packing-services" },
+    { label: "International moving Auckland", href: aucklandServiceHref("international-moving") },
+    { label: "Packing services", href: aucklandServiceHref("packing-services") },
     { label: "Piano moving", href: "/piano-movers" },
-    { label: "House moving Auckland", href: "/services/house-moving" },
+    { label: "House moving Auckland", href: aucklandServiceHref("house-moving") },
   ],
   faqHeading: "Moving to Australia FAQ",
   faqs: [
@@ -276,7 +277,7 @@ export const movingToAustraliaPage: NicheServicePageConfig = {
   breadcrumbs: [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
-    { label: "International moving", href: "/services/international-moving" },
+    { label: "International moving", href: aucklandServiceHref("international-moving") },
     { label: "Moving to Australia" },
   ],
   serviceLabel: "International Move to Australia",

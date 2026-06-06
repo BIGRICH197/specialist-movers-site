@@ -32,6 +32,7 @@ export const services = [
     whyChooseCopy: serviceWhyChooseCopy["house-moving"],
     relatedSlugs: [
       "packing-services",
+      "piano-movers",
       "office-moving",
       "hard-to-shift",
       "loading-unloading",

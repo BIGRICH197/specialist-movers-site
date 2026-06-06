@@ -1,3 +1,4 @@
+import { aucklandServiceHref } from "@/lib/legacy-auckland-urls";
 import { getLocation } from "@/lib/locations";
 
 export type LocationNavLink = {
@@ -98,6 +99,6 @@ export const locationNavDepotColumns: readonly LocationNavDepotColumn[] = [
 export const locationNavSidebarLinks: readonly LocationNavLink[] = [
   { label: "All locations", href: "/locations" },
   { label: "Regional moving", href: "/services/moving/regional-moving" },
-  { label: "House moving Auckland", href: "/services/house-moving" },
+  { label: "House moving Auckland", href: aucklandServiceHref("house-moving") },
   { label: "House moving Hamilton", href: "/services/house-moving-hamilton" },
 ] as const;

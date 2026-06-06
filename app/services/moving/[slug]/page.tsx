@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { clusterItemPath } from "@/lib/service-clusters";
+import { buildPageMetadata } from "@/lib/seo";
 import { notFound, redirect } from "next/navigation";
 import { ServiceClusterDetail } from "@/components/ServiceClusterDetail";
 import {
@@ -20,10 +22,11 @@ export function generateMetadata({
 }): Metadata {
   const item = getMovingDistanceService(params.slug);
   if (!item) return {};
-  return {
+  return buildPageMetadata({
     title: `${item.title} | Specialist Movers`,
     description: `${item.excerpt} ${regions.serviceArea}. Free quote. Callback in 15 minutes.`,
-  };
+    path: clusterItemPath(movingDistanceHub.path, item),
+  });
 }
 
 export default function MovingDistancePage({

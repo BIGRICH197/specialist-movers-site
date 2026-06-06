@@ -1,3 +1,4 @@
+import { aucklandServiceHref } from "@/lib/legacy-auckland-urls";
 import { hero } from "@/lib/homepage-copy";
 import { houseMovingProcess, workplaceMovingProcess } from "@/lib/moving-process";
 import { getServicePhoto, sitePhotos } from "@/lib/site-photos";
@@ -267,6 +268,7 @@ export function getServiceLandingConfig(
 
   return {
     ...overrides,
+    path: aucklandServiceHref(slug),
     defaultJobType: service.defaultJobType,
     includedBullets: service.includedBullets,
     relatedSlugs: service.relatedSlugs,

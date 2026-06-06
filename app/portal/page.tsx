@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { PortalTile } from "@/components/PortalTile";
@@ -6,12 +7,13 @@ import { brandAssets } from "@/lib/brand-assets";
 import { portalTiles } from "@/lib/portal-tiles";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Choose your move",
   description:
     "House moves, piano moves, commercial relocations, packing, cleaning, and more, Specialist Movers Auckland and Waikato.",
+  path: "/portal",
   robots: { index: false, follow: true },
-};
+});
 
 export default function PortalPage() {
   return (

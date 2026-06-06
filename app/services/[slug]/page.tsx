@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { HamiltonServicePage } from "@/components/HamiltonServicePage";
 import { ServiceLandingPage } from "@/components/ServiceLandingPage";
@@ -16,28 +17,29 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const hamilton = getHamiltonPageConfig(params.slug);
   if (hamilton) {
-    return {
+    return buildPageMetadata({
       title: hamilton.metaTitle,
       description: hamilton.metaDescription,
-      alternates: { canonical: hamilton.path },
-    };
+      path: hamilton.path,
+    });
   }
 
   const service = services.find((s) => s.slug === params.slug);
   if (!service) return {};
   const landing = getServiceLandingConfig(params.slug);
   if (landing) {
-    return {
+    return buildPageMetadata({
       title: landing.h1,
       description: landing.lead,
-    };
+      path: landing.path,
+    });
   }
   const legacyPath = legacyPathForServiceSlug(params.slug);
-  return {
+  return buildPageMetadata({
     title: `${service.title} Auckland`,
     description: `${service.description} Trusted ${service.title.toLowerCase()} specialists. Auckland base. Free quote. Callback in 15 minutes.`,
-    ...(legacyPath ? { alternates: { canonical: legacyPath } } : {}),
-  };
+    path: legacyPath ?? `/services/${service.slug}`,
+  });
 }
 
 export default function ServiceDetailPage({ params }: { params: { slug: string } }) {

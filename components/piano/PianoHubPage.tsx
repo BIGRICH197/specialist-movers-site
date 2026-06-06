@@ -13,6 +13,7 @@ import { TrustindexWidget } from "@/components/TrustindexWidget";
 import { trustindexHomeWidgetId } from "@/lib/trustindex-config";
 import { contactCta, googleReviewsUrl, statsStrip } from "@/lib/homepage-copy";
 import { sectionRevealDirection } from "@/lib/motion";
+import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
 import { pianoFaqs } from "@/lib/piano-faqs";
 import {
   pianoHubCities,
@@ -26,8 +27,11 @@ import { phoneDisplay, phoneNumber, pianoServices } from "@/lib/site-data";
 export function PianoHubPage() {
   const hubPianoServices = pianoServices.filter((p) => p.slug !== "piano-tuning");
 
+  const hubFaqs = pianoFaqs.slice(0, 4);
+
   return (
     <div className="bg-brand-canvas">
+      <FaqPageJsonLd items={hubFaqs} />
       <HomeHero
         hero={pianoHubHero}
         photoSrc={sitePhotos.pianoMove}
@@ -172,7 +176,7 @@ export function PianoHubPage() {
           </h2>
           <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_17rem] lg:gap-12">
             <dl className="min-w-0 space-y-6">
-              {pianoFaqs.slice(0, 4).map((item) => (
+              {hubFaqs.map((item) => (
                 <div
                   key={item.q}
                   className="rounded-2xl border border-brand-purple/12 bg-white p-5 shadow-sm"

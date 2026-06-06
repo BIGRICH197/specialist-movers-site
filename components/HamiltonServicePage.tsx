@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Check, MapPin } from "lucide-react";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
 import { HeroVisual } from "@/components/HeroVisual";
 import { NumberedInfoGrid } from "@/components/NumberedInfoGrid";
 import { PianoGallerySection } from "@/components/PianoGallerySection";
@@ -15,8 +17,18 @@ type Props = {
 };
 
 export function HamiltonServicePage({ config }: Props) {
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: config.parentLabel, href: config.parentHref },
+    { label: config.h1 },
+  ];
+
   return (
     <div className="bg-brand-white">
+      <BreadcrumbJsonLd items={breadcrumbItems} />
+      {config.faqs && config.faqs.length > 0 ? (
+        <FaqPageJsonLd items={config.faqs} />
+      ) : null}
       <section className="overflow-visible border-b border-white/10 bg-brand-purple py-12 pb-16 text-white sm:py-16 sm:pb-20 lg:py-20 lg:pb-24">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] lg:items-start lg:gap-12 container-px">
           <div className="min-w-0">

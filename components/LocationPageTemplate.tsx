@@ -3,6 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { QuoteForm } from "@/components/QuoteForm";
 import { SectionReveal } from "@/components/SectionReveal";
 import { NumberedInfoGrid } from "@/components/NumberedInfoGrid";
+import { aucklandServiceHref } from "@/lib/legacy-auckland-urls";
 import type { Location } from "@/lib/locations";
 import { getChildLocations, getLocation, getNearbyLocations } from "@/lib/locations";
 import { regions } from "@/lib/regions";
@@ -98,7 +99,7 @@ export function LocationPageTemplate({ location }: Props) {
                 ← All areas we serve
               </Link>
               {" · "}
-              <Link href="/services/house-moving" className="font-semibold text-brand-purple underline">
+              <Link href={aucklandServiceHref("house-moving")} className="font-semibold text-brand-purple underline">
                 House moving
               </Link>
               {" · "}

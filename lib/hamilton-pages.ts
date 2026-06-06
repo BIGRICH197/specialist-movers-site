@@ -3,6 +3,7 @@
  * Pattern: /services/{service}-hamilton, /piano-movers/hamilton
  */
 import type { JobType } from "@/lib/site-data";
+import { aucklandServiceHref } from "@/lib/legacy-auckland-urls";
 import { sitePhotos } from "@/lib/site-photos";
 
 export const HAMILTON_SUFFIX = "-hamilton" as const;
@@ -630,6 +631,7 @@ export function getHamiltonPageConfig(slug: string): HamiltonPageConfig | null {
     baseSlug: base,
     path: hamiltonPath(base),
     ...page,
+    parentHref: aucklandServiceHref(base),
   };
 }
 

@@ -15,12 +15,17 @@ const serviceSlugs = [
   "storage",
 ];
 
+function aucklandServicePath(slug) {
+  const legacy = legacyAucklandUrls.find((entry) => entry.slug === slug);
+  return legacy ? legacy.legacyPath : `/services/${slug}`;
+}
+
 function cityRedirects() {
   const rules = [];
   for (const slug of serviceSlugs) {
     rules.push({
       source: `/services/${slug}/auckland`,
-      destination: `/services/${slug}`,
+      destination: aucklandServicePath(slug),
       permanent: true,
     });
     rules.push({

@@ -17,6 +17,12 @@ export function legacyPathForServiceSlug(slug: string): string | null {
   return slugToLegacy.get(slug) ?? null;
 }
 
+/** Canonical Auckland href — WordPress path when mapped, else /services/{slug}. */
+export function aucklandServiceHref(slug: string): string {
+  if (slug === "piano-movers") return "/piano-movers";
+  return legacyPathForServiceSlug(slug) ?? `/services/${slug}`;
+}
+
 /** All legacy paths (primary + aliases) that should serve an Auckland service page. */
 export function allLegacyAucklandPaths(): string[] {
   return legacyAucklandServices.flatMap((entry) => [

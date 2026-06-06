@@ -65,6 +65,7 @@ export function ServicePageTemplate({
             <HeroVisual
               photoSrc={heroPhoto}
               photoAlt={heroPhotoAlt ?? `${title} , Specialist Movers`}
+              priority
             />
           )}
         </div>

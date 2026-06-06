@@ -1,3 +1,4 @@
+import { aucklandServiceHref } from "@/lib/legacy-auckland-urls";
 import { sitePhotos } from "@/lib/site-photos";
 
 export type PortalTile = {
@@ -13,7 +14,7 @@ export const portalTiles: readonly PortalTile[] = [
   {
     title: "House move",
     subtitle: "Homes, apartments, and townhouses across Auckland and the Waikato",
-    href: "/services/house-moving",
+    href: aucklandServiceHref("house-moving"),
     image: sitePhotos.homeHero,
     imageAlt: "Specialist Movers carrying furniture during a house move",
   },
@@ -27,7 +28,7 @@ export const portalTiles: readonly PortalTile[] = [
   {
     title: "Commercial move",
     subtitle: "Offices, fit outs, and workplace relocations",
-    href: "/services/commercial-moving",
+    href: aucklandServiceHref("commercial-moving"),
     image: sitePhotos.commercialHero,
     imageAlt: "Specialist Movers commercial moving truck on site",
   },

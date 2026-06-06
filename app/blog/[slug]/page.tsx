@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
@@ -17,7 +18,11 @@ export function generateMetadata({
 }): Metadata {
   const post = blogPosts.find((item) => item.slug === params.slug);
   if (!post) return {};
-  return { title: post.title, description: post.excerpt };
+  return buildPageMetadata({
+    title: post.title,
+    description: post.excerpt,
+    path: `/blog/${post.slug}`,
+  });
 }
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {

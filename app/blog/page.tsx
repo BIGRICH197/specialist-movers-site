@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
@@ -6,10 +7,11 @@ import { ScatteredReviews } from "@/components/ScatteredReviews";
 import { SectionReveal } from "@/components/SectionReveal";
 import { blogPosts } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Blog",
   description: "Moving tips, guides and specialist advice from Specialist Movers NZ.",
-};
+  path: "/blog",
+});
 
 export default function BlogPage() {
   return (

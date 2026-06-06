@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import "./patterns.css";
 import Link from "next/link";
 import { Star } from "lucide-react";
 import { BrandLogomarkWatermark } from "@/components/BrandLogomarkWatermark";
 import { PatternBand } from "@/components/PatternBand";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Pattern playground",
+  description: "Internal design pattern preview for Specialist Movers.",
+  path: "/patterns",
   robots: { index: false, follow: false },
-};
+});
 
 function ReviewCard({ label, rating }: { label: string; rating: string }) {
   return (

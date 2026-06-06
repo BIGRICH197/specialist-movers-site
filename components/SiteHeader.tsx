@@ -244,7 +244,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="-mr-1 shrink-0 rounded-lg p-2.5 text-brand-yellow transition-colors hover:bg-white/10 lg:hidden"
+          className="-mr-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-brand-yellow transition-colors hover:bg-white/10 lg:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label={open ? "Close menu" : "Open menu"}

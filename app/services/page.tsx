@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import {
   Building2,
@@ -16,11 +17,12 @@ import { serviceBlurbs } from "@/lib/homepage-copy";
 import { serviceHref } from "@/lib/service-links";
 import { phoneDisplay, phoneNumber, services } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Services",
   description:
     "House moving, piano moving, commercial relocations, packing, exit cleaning, international moves and more, Auckland and the Waikato.",
-};
+  path: "/services",
+});
 
 const icons = [
   Home,

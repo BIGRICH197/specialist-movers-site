@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import { Map, MapPin, Truck } from "lucide-react";
 import { ServiceClusterHub } from "@/components/ServiceClusterHub";
 import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
@@ -8,10 +9,11 @@ import {
 } from "@/lib/service-clusters";
 import { regions } from "@/lib/regions";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Local, Regional & Long-Distance Moving",
   description: `Local Auckland and Waikato moves, regional relocations, and long-distance moving across New Zealand. ${regions.basesShort}. Free quote.`,
-};
+  path: "/services/moving",
+});
 
 const icons = [MapPin, Truck, Map] as const;
 

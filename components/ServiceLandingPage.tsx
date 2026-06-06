@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { Check } from "lucide-react";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
+import { ServiceJsonLd } from "@/components/ServiceJsonLd";
 import { NumberedInfoGrid } from "@/components/NumberedInfoGrid";
 import { HeroVisual } from "@/components/HeroVisual";
 import { MovingBanners } from "@/components/MovingBanners";
@@ -36,8 +39,28 @@ export function ServiceLandingPage({ config }: Props) {
   const processTitle = config.processTitle ?? "How we run your move";
   const processSteps = getServiceProcessSteps(config.slug);
 
+  const breadcrumbItems =
+    config.slug === "piano-movers"
+      ? [
+          { label: "Home", href: "/" },
+          { label: "Piano moving", href: "/piano-movers" },
+          { label: "Auckland" },
+        ]
+      : [
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/services" },
+          { label: config.h1 },
+        ];
+
   return (
     <div className="bg-brand-white">
+      <ServiceJsonLd
+        name={config.h1}
+        description={config.lead}
+        path={config.path}
+      />
+      <FaqPageJsonLd items={landingFaqs} />
+      <BreadcrumbJsonLd items={breadcrumbItems} />
       {/* Hero + lead form */}
       <section className="overflow-visible border-b border-white/10 bg-brand-purple py-12 pb-16 text-white sm:py-16 sm:pb-20 lg:py-20 lg:pb-24">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] lg:items-start lg:gap-12 container-px">

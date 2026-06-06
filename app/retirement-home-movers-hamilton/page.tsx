@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { NicheServicePage } from "@/components/NicheServicePage";
 import { retirementHomeMoversHamiltonPage } from "@/lib/niche-service-pages";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: retirementHomeMoversHamiltonPage.metaTitle,
   description: retirementHomeMoversHamiltonPage.metaDescription,
-  alternates: { canonical: retirementHomeMoversHamiltonPage.path },
-};
+  path: retirementHomeMoversHamiltonPage.path,
+});
 
 export default function RetirementHomeMoversHamiltonPage() {
   return <NicheServicePage config={retirementHomeMoversHamiltonPage} />;

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
+import { buildPageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
@@ -8,15 +10,17 @@ import { SectionReveal } from "@/components/SectionReveal";
 import { faqSidebarPhotos } from "@/lib/faq-page-photos";
 import { faqs, googleReviewsUrl } from "@/lib/homepage-copy";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "FAQ",
   description:
     "Frequently asked questions about house moves, piano moves, packing, and commercial work across Auckland and the Waikato.",
-};
+  path: "/faq",
+});
 
 export default function FaqPage() {
   return (
     <div className="bg-brand-white">
+      <FaqPageJsonLd items={faqs} />
       <PageHero
         variant="light"
         eyebrow="Help"

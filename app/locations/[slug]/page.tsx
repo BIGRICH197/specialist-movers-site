@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { LocationPageTemplate } from "@/components/LocationPageTemplate";
 import { getLocation, getLocationSlugs } from "@/lib/locations";
@@ -10,10 +11,11 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const location = getLocation(params.slug);
   if (!location) return {};
-  return {
+  return buildPageMetadata({
     title: location.metaTitle,
     description: location.metaDescription,
-  };
+    path: `/locations/${location.slug}`,
+  });
 }
 
 export default function LocationDetailPage({ params }: { params: { slug: string } }) {

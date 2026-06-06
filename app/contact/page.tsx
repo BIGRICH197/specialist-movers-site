@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { MessageSquare, Phone } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
@@ -9,11 +10,12 @@ import { contactCta } from "@/lib/homepage-copy";
 import { regions } from "@/lib/regions";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Contact",
   description:
     "Contact Specialist Movers NZ for quotes, bookings and questions , phone, email, or message.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

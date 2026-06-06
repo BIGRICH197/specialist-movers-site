@@ -5,6 +5,7 @@ import {
   movingDistanceHub,
   storageHub,
 } from "@/lib/service-clusters";
+import { aucklandServiceHref } from "@/lib/legacy-auckland-urls";
 import { hamiltonPath, type HamiltonBaseSlug } from "@/lib/hamilton-pages";
 import { pianoServices, services } from "@/lib/site-data";
 
@@ -13,9 +14,7 @@ export function resolveServiceLink(
 ): { href: string; label: string } | null {
   const s = services.find((x) => x.slug === slug);
   if (s) {
-    const href =
-      s.slug === "piano-movers" ? "/piano-movers" : `/services/${s.slug}`;
-    return { href, label: s.title };
+    return { href: aucklandServiceHref(s.slug), label: s.title };
   }
   const p = pianoServices.find((x) => x.slug === slug);
   if (p) return { href: `/piano-movers/${p.slug}`, label: p.title };
@@ -44,10 +43,9 @@ export function serviceHref(slug: string): string {
   return resolveServiceLink(slug)?.href ?? `/services/${slug}`;
 }
 
-/** Auckland city page for paired services (piano hub vs direct service URL). */
+/** Auckland city page — matches live WordPress URLs (see legacy-auckland-urls.json). */
 export function serviceAucklandHref(slug: string): string {
-  if (slug === "piano-movers") return "/piano-movers/auckland";
-  return serviceHref(slug);
+  return aucklandServiceHref(slug);
 }
 
 /** Hamilton city page for paired services. */

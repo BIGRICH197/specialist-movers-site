@@ -1,4 +1,5 @@
 import type { JobType } from "@/lib/site-data";
+import { aucklandServiceHref } from "@/lib/legacy-auckland-urls";
 
 export type ServiceClusterItem = {
   slug: string;
@@ -80,7 +81,7 @@ export const movingDistanceServices: readonly ServiceClusterItem[] = [
       "International moves need reliability and one point of contact. We plan the job properly, keep you updated, and deliver with the care your home contents deserve.",
     relatedSlugs: ["house-moving", "packing-services", "regional-moving"],
     defaultJobType: "House Move",
-    href: "/services/international-moving",
+    href: aucklandServiceHref("international-moving"),
   },
 ] as const;
 

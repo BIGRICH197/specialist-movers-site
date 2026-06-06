@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { CalendarDays, Shield, Star, Truck } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
@@ -11,11 +12,12 @@ import {
   whyUsPage,
 } from "@/lib/homepage-copy";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Why Us",
   description:
     "SiteWise Gold, 90%+ safety scores, specialist crews and seven-day service. Why Auckland and Waikato clients choose Specialist Movers NZ.",
-};
+  path: "/why-us",
+});
 
 const highlights = [
   {

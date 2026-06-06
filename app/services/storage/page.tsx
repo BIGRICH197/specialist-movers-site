@@ -5,10 +5,11 @@ import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
 import { storageHub, storageServices } from "@/lib/service-clusters";
 import { regions } from "@/lib/regions";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Moving Storage, Short & Long Term",
   description: `Storage while you move: short-term, long-term, in transit, overnight, and piano storage. ${regions.basesShort}.`,
-};
+  path: "/services/storage",
+});
 
 const icons = [Clock, Package, Truck, Moon, Piano] as const;
 

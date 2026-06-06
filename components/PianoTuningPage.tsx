@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Check } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
 import { HeroVisual } from "@/components/HeroVisual";
 import { QuoteForm } from "@/components/QuoteForm";
 import type { PianoTuningContent } from "@/lib/piano-tuning-types";
@@ -16,6 +17,7 @@ type Props = {
 export function PianoTuningPage({ content }: Props) {
   return (
     <div className="bg-brand-white">
+      <FaqPageJsonLd items={content.faqs} />
       <section className="border-b border-white/10 bg-brand-purple py-12 text-white sm:py-16">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center container-px">
           <div>

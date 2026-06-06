@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 export type Crumb = { label: string; href?: string };
 
@@ -9,7 +10,9 @@ type Props = {
 
 export function Breadcrumbs({ items, light }: Props) {
   return (
-    <nav aria-label="Breadcrumb" className="mb-4 text-sm">
+    <>
+      <BreadcrumbJsonLd items={items} />
+      <nav aria-label="Breadcrumb" className="mb-4 text-sm">
       <ol className="flex flex-wrap items-center gap-1.5">
         {items.map((crumb, i) => (
           <li key={`${crumb.label}-${i}`} className="flex items-center gap-1.5">
@@ -41,5 +44,6 @@ export function Breadcrumbs({ items, light }: Props) {
         ))}
       </ol>
     </nav>
+    </>
   );
 }

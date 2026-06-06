@@ -5,6 +5,7 @@ import { PageHero } from "@/components/PageHero";
 import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
 import { QuoteForm } from "@/components/QuoteForm";
 import { SectionReveal } from "@/components/SectionReveal";
+import { aucklandServiceHref } from "@/lib/legacy-auckland-urls";
 import {
   moveInclusionCategories,
   movingDistanceHub,
@@ -14,10 +15,11 @@ import {
 import { regions } from "@/lib/regions";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "What's Included in Every Move",
   description: `Wrapping, protection, labour, and transport standards on every Specialist Movers job. ${regions.serviceArea}. Transparent quotes.`,
-};
+  path: whatsIncludedPage.path,
+});
 
 export default function WhatsIncludedPage() {
   return (
@@ -54,7 +56,7 @@ export default function WhatsIncludedPage() {
                 Storage options →
               </Link>
               <Link
-                href="/services/house-moving"
+                href={aucklandServiceHref("house-moving")}
                 className="rounded-full border border-brand-purple/20 bg-white px-4 py-2 text-brand-purple transition hover:bg-brand-yellow/30"
               >
                 House moving →
