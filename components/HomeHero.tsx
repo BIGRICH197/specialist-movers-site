@@ -162,7 +162,7 @@ export function HomeHero({
             <motion.div
               variants={reduced ? undefined : item}
               transition={t}
-              className="flex flex-wrap justify-center gap-2 text-xs font-semibold text-white/95"
+              className="flex flex-wrap gap-2 text-xs font-semibold text-white/95"
             >
               {trustPills.map((label) => (
                 <span
