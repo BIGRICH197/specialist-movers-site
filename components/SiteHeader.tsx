@@ -10,6 +10,7 @@ import { LocationNavMenu } from "@/components/LocationNavMenu";
 import { MobileNavMenu } from "@/components/MobileNavMenu";
 import { ServiceNavMenu } from "@/components/ServiceNavMenu";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
+import { scrollToInstantQuote } from "@/lib/scroll-to-quote";
 
 const navLink =
   "shrink-0 whitespace-nowrap rounded-lg px-2.5 py-2 text-xs font-medium text-brand-yellow/90 transition-colors hover:bg-white/10 hover:text-brand-yellow xl:px-3 xl:text-sm";
@@ -88,7 +89,13 @@ function NavDropdown({
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const quoteHref = pathname === "/" ? "#quote" : "/#quote";
+  const quoteHref = pathname === "/" ? "#instant-quote" : "/#instant-quote";
+
+  function handleQuoteClick(event: React.MouseEvent<HTMLAnchorElement>) {
+    if (pathname !== "/") return;
+    event.preventDefault();
+    scrollToInstantQuote();
+  }
   const [open, setOpen] = useState(false);
   const [megaMenu, setMegaMenu] = useState<"services" | "locations" | null>(null);
   const [moreOpen, setMoreOpen] = useState(false);
@@ -246,6 +253,8 @@ export function SiteHeader() {
           </a>
           <Link
             href={quoteHref}
+            onClick={handleQuoteClick}
+            scroll={pathname !== "/"}
             className="shrink-0 whitespace-nowrap rounded-full bg-brand-yellow px-4 py-2 font-heading text-xs font-bold uppercase tracking-wide text-brand-purple ring-1 ring-white/25 transition hover:brightness-[1.05] xl:px-5 xl:py-2.5 xl:text-sm"
           >
             Free quote

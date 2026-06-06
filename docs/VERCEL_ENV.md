@@ -29,6 +29,10 @@ Set in **Vercel → Project → Settings → Environment Variables** for Product
 
 After adding or changing `NEXT_PUBLIC_*` variables, **redeploy** (Vercel → Deployments → Redeploy). Those are baked in at build time.
 
+**Google autocomplete was working but dropdown is empty?** Open browser devtools → Console on the quote form. If you see `exceeded your daily request quota`, Google is blocking requests for today — enable billing in Google Cloud and/or wait for the daily limit to reset (usually midnight US Pacific). The API key is still valid; this is not a missing-env-var problem.
+
+Also enable **Maps JavaScript API** and **Places API**, and add your Vercel URL to API key HTTP referrer restrictions.
+
 Optional:
 
 - `NEXT_PUBLIC_SITE_URL` — canonical URLs in sitemap/metadata (defaults to production domain in code)

@@ -15,6 +15,8 @@ import {
   serviceNavInternationalExtras,
   serviceNavPianoExtras,
 } from "@/lib/service-nav";
+import { scrollToInstantQuote } from "@/lib/scroll-to-quote";
+import { usePathname } from "next/navigation";
 
 type Props = {
   onNavigate: () => void;
@@ -76,9 +78,17 @@ export function MobileNavMenu({
   phoneDisplay,
   phoneNumber,
 }: Props) {
+  const pathname = usePathname();
   const [expanded, setExpanded] = useState<"services" | "locations" | null>(
     null,
   );
+
+  function handleQuoteClick(event: React.MouseEvent<HTMLAnchorElement>) {
+    onNavigate();
+    if (pathname !== "/") return;
+    event.preventDefault();
+    scrollToInstantQuote();
+  }
   const serviceRows = getServiceNavRows();
 
   const toggle = (section: "services" | "locations") =>
@@ -268,7 +278,8 @@ export function MobileNavMenu({
       </a>
       <Link
         href={quoteHref}
-        onClick={onNavigate}
+        onClick={handleQuoteClick}
+        scroll={pathname !== "/"}
         className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-brand-yellow px-6 py-3 font-heading text-sm font-bold uppercase text-brand-purple ring-1 ring-white/25"
       >
         Free quote

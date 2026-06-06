@@ -62,6 +62,33 @@
   line-height: 1.35;
 }
 
+/* Places API (New) autocomplete widget in quote form */
+.address-autocomplete-host {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.address-autocomplete-host gmp-place-autocomplete {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  color-scheme: light;
+}
+
+/* iOS date inputs must stay inside the quote card */
+.quote-date-field {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 @layer utilities {
   .container-px {
     @apply px-4 sm:px-6 lg:px-8;

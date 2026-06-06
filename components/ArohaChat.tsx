@@ -219,14 +219,25 @@ export function ArohaChat() {
       ) : null}
 
       {!isOpen ? (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="fixed right-4 z-[250] flex h-14 w-14 items-center justify-center rounded-full bg-brand-purple text-white shadow-[0_8px_24px_-4px_rgba(151,57,176,0.5)] transition hover:scale-105 hover:shadow-[0_12px_32px_-4px_rgba(151,57,176,0.6)] active:scale-95 sm:right-6"
+        <div
+          className="fixed right-4 z-[250] flex flex-col items-end gap-2 sm:right-6"
           style={{ bottom: fabBottom }}
-          aria-label="Chat with Aroha"
         >
-          <MessageCircle className="h-6 w-6" />
-        </button>
+          <div className="flex items-center gap-1.5 rounded-full border border-brand-purple/10 bg-white px-3 py-1.5 text-xs font-semibold text-brand-purple shadow-[0_8px_24px_-12px_rgba(151,57,176,0.35)]">
+            <span className="relative flex h-2 w-2 shrink-0" aria-hidden>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+            </span>
+            <span>We&apos;re online now</span>
+          </div>
+          <button
+            onClick={() => setIsOpen(true)}
+            className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-purple text-white shadow-[0_8px_24px_-4px_rgba(151,57,176,0.5)] transition hover:scale-105 hover:shadow-[0_12px_32px_-4px_rgba(151,57,176,0.6)] active:scale-95"
+            aria-label="Chat with Aroha"
+          >
+            <MessageCircle className="h-6 w-6" />
+          </button>
+        </div>
       ) : null}
     </>
   );

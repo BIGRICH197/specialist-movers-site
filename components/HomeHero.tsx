@@ -133,7 +133,8 @@ export function HomeHero({
 
           {/* Quote form (mobile + desktop) */}
           <motion.div
-            className="-mt-1 min-w-0 self-start lg:col-start-2 lg:row-start-1 lg:sticky lg:top-28"
+            id="instant-quote"
+            className="-mt-1 min-w-0 scroll-mt-24 self-start lg:col-start-2 lg:row-start-1 lg:sticky lg:top-28"
             initial={reduced ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...t, delay: reduced ? 0 : 0.35 }}

@@ -89,6 +89,9 @@ const field =
 const selectField =
   "h-12 w-full rounded-xl border-2 border-brand-purple/15 bg-white px-3 text-sm text-brand-purple outline-none transition focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/45 appearance-none";
 
+const dateField =
+  "quote-date-field h-12 w-full min-w-0 max-w-full box-border rounded-xl border-2 border-brand-purple/15 bg-white px-4 text-base text-brand-purple outline-none transition focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/45 sm:text-sm";
+
 const label = "text-xs font-semibold text-brand-purple";
 
 function defaultModeFromJob(jt?: JobType, jts?: JobType[]): Mode {
@@ -595,13 +598,13 @@ export function QuoteForm({
                 </div>
               </div>
 
-              <div className="space-y-1.5">
+              <div className="min-w-0 max-w-full space-y-1.5">
                 <label className={label}>Preferred move date</label>
                 <input
                   type="date"
                   value={f.preferredDate}
                   onChange={(e) => set("preferredDate", e.target.value)}
-                  className={field}
+                  className={dateField}
                 />
               </div>
 
@@ -704,13 +707,13 @@ export function QuoteForm({
                 </div>
               </div>
 
-              <div className="space-y-1.5">
+              <div className="min-w-0 max-w-full space-y-1.5">
                 <label className={label}>Preferred move date</label>
                 <input
                   type="date"
                   value={f.preferredDate}
                   onChange={(e) => set("preferredDate", e.target.value)}
-                  className={field}
+                  className={dateField}
                 />
               </div>
             </>
@@ -1163,9 +1166,9 @@ function Wrapper({
 }) {
   return (
     <div
-      className={`relative overflow-hidden rounded-[1.25rem] border-2 border-brand-purple/10 border-t-brand-yellow bg-white shadow-[0_20px_60px_-12px_rgba(151,57,176,0.2),0_0_0_1px_rgba(243,208,42,0.25)] max-lg:overflow-visible lg:overflow-hidden ${className}`}
+      className={`relative overflow-hidden rounded-[1.25rem] border-2 border-brand-purple/10 bg-white shadow-[0_20px_60px_-12px_rgba(151,57,176,0.2),0_0_0_1px_rgba(243,208,42,0.25)] max-lg:overflow-visible lg:overflow-hidden ${className}`}
     >
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-yellow via-brand-yellow to-brand-purple/30" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-[3px] bg-brand-yellow" />
       <div className={`relative p-4 sm:p-7 ${compact ? "sm:p-6" : ""}`}>
         {children}
       </div>
