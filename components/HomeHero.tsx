@@ -92,6 +92,16 @@ export function HomeHero({
       </div>
 
       <div className="relative z-[1] mx-auto max-w-7xl container-px">
+        {/* Desktop tile: page-centre X (purple gutter), fixed Y — never % of row height or quote form */}
+        <GoogleRatingBadge
+          className={cn(
+            "pointer-events-auto absolute left-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2 xl:flex",
+            heroVariant === "piano"
+              ? "top-[calc(23rem-4cm)]"
+              : "top-[calc(23rem-3cm)]",
+          )}
+        />
+
         <div className="flex flex-col gap-5 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] xl:gap-12">
           {/* Mobile: badge → title → photo → Google bar */}
           <motion.div
@@ -166,9 +176,9 @@ export function HomeHero({
             </motion.div>
           </motion.div>
 
-          {/* Desktop left column — badge top % is relative here, not quote form height */}
+          {/* Desktop left column */}
           <motion.div
-            className="relative hidden min-w-0 lg:col-start-1 lg:row-start-1 lg:block"
+            className="hidden min-w-0 lg:col-start-1 lg:row-start-1 lg:block"
             variants={reduced ? undefined : container}
             initial={reduced ? false : "hidden"}
             animate="show"
@@ -228,14 +238,6 @@ export function HomeHero({
             <motion.div variants={reduced ? undefined : item} transition={t} className="mt-8">
               {heroVisual}
             </motion.div>
-            <GoogleRatingBadge
-              className={cn(
-                "pointer-events-auto absolute left-full z-20 hidden -translate-x-1/2 -translate-y-1/2 xl:flex",
-                heroVariant === "piano"
-                  ? "top-[calc(54%-4cm)]"
-                  : "top-[calc(54%-3cm)]",
-              )}
-            />
           </motion.div>
         </div>
       </div>
