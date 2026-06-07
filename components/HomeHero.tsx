@@ -96,8 +96,8 @@ export function HomeHero({
           className={cn(
             "pointer-events-auto absolute left-[calc(50%+1cm)] z-20 hidden -translate-x-1/2 xl:flex",
             heroVariant === "piano"
-              ? "top-[calc(54%-7cm)]"
-              : "top-[calc(54%-6cm)]",
+              ? "top-[calc(54%-6.5cm)]"
+              : "top-[calc(54%-5.5cm)]",
           )}
         />
 
