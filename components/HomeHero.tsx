@@ -94,10 +94,10 @@ export function HomeHero({
       <div className="relative z-[1] mx-auto max-w-7xl container-px">
         <GoogleRatingBadge
           className={cn(
-            "pointer-events-auto absolute left-[calc(50%-2cm)] z-20 hidden -translate-x-1/2 xl:flex",
+            "pointer-events-auto absolute left-[calc(50%+1cm)] z-20 hidden -translate-x-1/2 xl:flex",
             heroVariant === "piano"
-              ? "top-[calc(54%-4cm)]"
-              : "top-[calc(54%-3cm)]",
+              ? "top-[calc(54%-7cm)]"
+              : "top-[calc(54%-6cm)]",
           )}
         />
 
