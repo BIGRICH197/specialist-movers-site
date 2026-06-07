@@ -92,13 +92,12 @@ export function HomeHero({
       </div>
 
       <div className="relative z-[1] mx-auto max-w-7xl container-px">
-        {/* Desktop tile: page-centre X (purple gutter), fixed Y — never % of row height or quote form */}
         <GoogleRatingBadge
           className={cn(
-            "pointer-events-auto absolute left-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2 xl:flex",
+            "pointer-events-auto absolute left-[calc(50%-2cm)] z-20 hidden -translate-x-1/2 -translate-y-1/2 xl:flex",
             heroVariant === "piano"
-              ? "top-[calc(23rem-4cm)]"
-              : "top-[calc(23rem-3cm)]",
+              ? "top-[calc(54%-4cm)]"
+              : "top-[calc(54%-3cm)]",
           )}
         />
 
