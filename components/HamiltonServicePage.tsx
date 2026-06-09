@@ -181,27 +181,14 @@ export function HamiltonServicePage({ config }: Props) {
         }
 
         meta={
-
           isPiano ? (
-
-            <div className="flex flex-wrap gap-2">
-
-              <Link
-
-                href="/piano-movers/auckland"
-
-                className="rounded-full border border-brand-yellow/40 bg-brand-yellow/10 px-3 py-1.5 text-xs font-semibold text-brand-yellow transition hover:bg-brand-yellow/20"
-
-              >
-
-                Auckland piano page →
-
-              </Link>
-
-            </div>
-
+            <Link
+              href="/piano-movers/auckland"
+              className="inline-flex rounded-full border border-brand-yellow/40 bg-brand-yellow/10 px-3 py-1.5 text-xs font-semibold text-brand-yellow transition hover:bg-brand-yellow/20"
+            >
+              Auckland piano page →
+            </Link>
           ) : null
-
         }
 
         photo={

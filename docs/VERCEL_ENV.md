@@ -31,7 +31,7 @@ After adding or changing `NEXT_PUBLIC_*` variables, **redeploy** (Vercel → Dep
 
 **Google autocomplete was working but dropdown is empty?** Open browser devtools → Console on the quote form. If you see `exceeded your daily request quota`, Google is blocking requests for today — enable billing in Google Cloud and/or wait for the daily limit to reset (usually midnight US Pacific). The API key is still valid; this is not a missing-env-var problem.
 
-Also enable **Maps JavaScript API** and **Places API**, and add your Vercel URL to API key HTTP referrer restrictions.
+Also enable **Maps JavaScript API** and **Places API (New)** (the quote form uses `PlaceAutocompleteElement`). Add your Vercel URL to API key HTTP referrer restrictions.
 
 Optional:
 

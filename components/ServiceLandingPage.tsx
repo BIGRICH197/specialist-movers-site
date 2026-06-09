@@ -21,12 +21,12 @@ import {
   ServiceRelatedLinksSection,
   ServiceWhyChooseSection,
 } from "@/components/ServiceLandingSections";
-import { generalServiceFaqs } from "@/lib/service-faqs";
+import { faqsForService } from "@/lib/service-faqs";
+import { pianoFaqs } from "@/lib/piano-faqs";
 import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
 import { getDistinctAboutPhoto } from "@/lib/site-photos";
 import { PianoExpertiseSection } from "@/components/PianoExpertiseSection";
 import { PianoGallerySection } from "@/components/PianoGallerySection";
-import { pianoFaqs } from "@/lib/piano-faqs";
 import { regions } from "@/lib/regions";
 import { resolveServiceLink } from "@/lib/service-links";
 import { HamiltonPageLink } from "@/components/HamiltonPageLink";
@@ -45,7 +45,7 @@ type Props = {
  */
 export function ServiceLandingPage({ config }: Props) {
   const landingFaqs =
-    config.slug === "piano-movers" ? [...pianoFaqs] : generalServiceFaqs;
+    config.slug === "piano-movers" ? [...pianoFaqs] : faqsForService(config.slug);
   const processTitle = config.processTitle ?? "How we run your move";
   const processSteps = getServiceProcessSteps(config.slug);
 

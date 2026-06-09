@@ -520,15 +520,15 @@ export function QuoteForm({
         <div className="space-y-4">
           {f.mode === "office" && (
             <>
-              <div className="space-y-1.5">
+              <div className="relative z-30 space-y-1.5">
                 <label className={label}>Office size</label>
                 <select
                   value={f.officeSize}
                   onChange={(e) => set("officeSize", e.target.value)}
                   className={selectField}
                 >
-                  <option value="small">Small (up to ~10 staff)</option>
-                  <option value="medium">Medium (~10–30 staff)</option>
+                  <option value="small">Small (up to 10 staff)</option>
+                  <option value="medium">Medium (10 to 30 staff)</option>
                   <option value="large">Large (30+ staff)</option>
                   <option value="floor">Whole floor / multi-level</option>
                 </select>
@@ -581,6 +581,7 @@ export function QuoteForm({
               <RouteBranchHint
                 pickupAddress={f.pickupAddress}
                 dropoffAddress={f.dropoffAddress}
+                instantQuote={false}
               />
               <div className="space-y-1.5">
                 <label className={label}>Access at new site</label>

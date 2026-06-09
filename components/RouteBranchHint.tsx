@@ -2,33 +2,57 @@
 
 import { detectQuoteBranch, type QuoteBranch } from "@/lib/pricing";
 
-const MESSAGES: Record<QuoteBranch, { tone: "ok" | "warn"; text: string }> = {
-  auckland: {
-    tone: "ok",
-    text: "Auckland area , instant estimate available for this route.",
-  },
-  hamilton: {
-    tone: "ok",
-    text: "Waikato area , instant estimate available (Hamilton branch rates).",
-  },
-  manual: {
-    tone: "warn",
-    text: "Auckland ↔ Waikato or outside our auto-quote zones , we will call with a custom price (still free, 15 minutes).",
-  },
-};
+const INSTANT_MESSAGES: Record<QuoteBranch, { tone: "ok" | "warn"; text: string }> =
+  {
+    auckland: {
+      tone: "ok",
+      text: "Auckland area — instant estimate available for this route.",
+    },
+    hamilton: {
+      tone: "ok",
+      text: "Waikato area — instant estimate available (Hamilton branch rates).",
+    },
+    manual: {
+      tone: "warn",
+      text: "Auckland ↔ Waikato or outside our auto-quote zones — we will call with a custom price (still free, 15 minutes).",
+    },
+  };
+
+const CALLBACK_MESSAGES: Record<QuoteBranch, { tone: "ok" | "warn"; text: string }> =
+  {
+    auckland: {
+      tone: "ok",
+      text: "Auckland area — we'll call within 15 minutes with a tailored office quote.",
+    },
+    hamilton: {
+      tone: "ok",
+      text: "Waikato area — we'll call within 15 minutes with a tailored office quote.",
+    },
+    manual: {
+      tone: "warn",
+      text: "Auckland ↔ Waikato or longer routes — we'll call within 15 minutes with a tailored office quote.",
+    },
+  };
 
 type Props = {
   pickupAddress: string;
   dropoffAddress: string;
+  /** House and piano show instant pricing hints; office moves are callback-only. */
+  instantQuote?: boolean;
 };
 
-export function RouteBranchHint({ pickupAddress, dropoffAddress }: Props) {
+export function RouteBranchHint({
+  pickupAddress,
+  dropoffAddress,
+  instantQuote = true,
+}: Props) {
   const pickup = pickupAddress.trim();
   const dropoff = dropoffAddress.trim();
   if (!pickup || !dropoff) return null;
 
   const branch = detectQuoteBranch(pickup, dropoff);
-  const { tone, text } = MESSAGES[branch];
+  const messages = instantQuote ? INSTANT_MESSAGES : CALLBACK_MESSAGES;
+  const { tone, text } = messages[branch];
 
   return (
     <div

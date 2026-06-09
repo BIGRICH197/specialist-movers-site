@@ -7,6 +7,7 @@ import { PianoGallerySection } from "@/components/PianoGallerySection";
 import { PianoPartnerMarquee } from "@/components/PianoPartnerMarquee";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ScatteredReviews } from "@/components/ScatteredReviews";
+import { ServiceProcessSection } from "@/components/ServiceLandingSections";
 import { SectionReveal } from "@/components/SectionReveal";
 import { SitePhoto } from "@/components/SitePhoto";
 import { TrustindexWidget } from "@/components/TrustindexWidget";
@@ -14,6 +15,7 @@ import { trustindexHomeWidgetId } from "@/lib/trustindex-config";
 import { contactCta, googleReviewsUrl, statsStrip } from "@/lib/homepage-copy";
 import { sectionRevealDirection } from "@/lib/motion";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
+import { pianoMovingProcess } from "@/lib/moving-process";
 import { pianoFaqs } from "@/lib/piano-faqs";
 import {
   pianoHubCities,
@@ -162,6 +164,13 @@ export function PianoHubPage() {
           </div>
         </HomePurplePanel>
       </SectionReveal>
+
+      <ServiceProcessSection
+        title={pianoMovingProcess.title}
+        steps={pianoMovingProcess.steps}
+        reviewSlot="piano-hub-process"
+        piano
+      />
 
       <PianoExpertiseSection />
       <PianoGallerySection />

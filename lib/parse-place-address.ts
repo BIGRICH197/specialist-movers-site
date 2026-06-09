@@ -12,6 +12,25 @@ type AddressComponent = {
   types: string[];
 };
 
+type NewAddressComponent = {
+  longText?: string | null;
+  shortText?: string | null;
+  types: string[];
+};
+
+/** Map Places API (New) address components to the legacy parser shape. */
+export function parseNewPlaceAddressComponents(
+  components: NewAddressComponent[],
+  formattedAddress?: string,
+): ParsedPlaceAddress {
+  const legacy = components.map((component) => ({
+    long_name: component.longText ?? "",
+    short_name: component.shortText ?? "",
+    types: component.types,
+  }));
+  return parseAddressComponents(legacy, formattedAddress);
+}
+
 function pickComponent(
   components: AddressComponent[],
   ...types: string[]

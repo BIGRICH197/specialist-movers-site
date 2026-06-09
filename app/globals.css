@@ -76,6 +76,18 @@
   min-width: 0;
   max-width: 100%;
   color-scheme: light;
+  --gmp-mat-color-surface: #ffffff;
+  --gmp-mat-color-on-surface: #4a1f5c;
+  --gmp-mat-color-primary: #9739b0;
+  --gmp-mat-color-outline: rgba(151, 57, 176, 0.15);
+  --gmp-mat-font-family: var(--font-inter), system-ui, sans-serif;
+  --gmp-mat-font-body-medium: 400 0.875rem/1.25rem var(--font-inter), system-ui, sans-serif;
+  border-radius: 0.75rem;
+}
+
+.address-autocomplete-host gmp-place-autocomplete:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(243, 208, 42, 0.45);
 }
 
 /* iOS date inputs must stay inside the quote card */

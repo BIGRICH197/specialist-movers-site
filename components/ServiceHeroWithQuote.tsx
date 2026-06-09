@@ -28,6 +28,8 @@ type Props = {
   heroVariant?: "moving" | "piano";
   /** Extra lift for desktop Google badge (cm). Piano Auckland landing passes 0. */
   googleBadgeLiftCm?: number;
+  /** SEO intro rendered after the Google rating badge (does not move the badge). */
+  seoIntro?: ReactNode;
   className?: string;
 };
 
@@ -49,6 +51,7 @@ export function ServiceHeroWithQuote({
   showPhone = true,
   heroVariant = "moving",
   googleBadgeLiftCm = 3.5,
+  seoIntro,
   className,
 }: Props) {
   const badgeTopCm = (heroVariant === "piano" ? 6.5 : 5.5) + googleBadgeLiftCm;
@@ -73,6 +76,12 @@ export function ServiceHeroWithQuote({
       ))}
     </div>
   );
+
+  const seoIntroBlock = seoIntro ? (
+    <div className="mt-4 max-w-2xl text-sm leading-relaxed text-white/85 sm:text-base">
+      {seoIntro}
+    </div>
+  ) : null;
 
   const heroDetailBlock =
     heroDetail.length > 0 ? (
@@ -113,6 +122,7 @@ export function ServiceHeroWithQuote({
             {subline}
             {photo ? <div className="mt-2">{photo}</div> : null}
             <GoogleRatingBadge variant="compact" />
+            {seoIntroBlock}
           </div>
 
           <div
@@ -126,7 +136,7 @@ export function ServiceHeroWithQuote({
             {heroDetailBlock}
             {phoneLink}
             {trustPillList}
-            {meta}
+            {meta ? <div className="mt-3">{meta}</div> : null}
           </div>
 
           {/* Desktop: same copy order as HomeHero */}
@@ -138,7 +148,8 @@ export function ServiceHeroWithQuote({
             {subline ? <div className="mt-3">{subline}</div> : null}
             {phoneLink}
             {trustPillList}
-            {meta}
+            {seoIntroBlock}
+            {meta ? <div className="mt-4">{meta}</div> : null}
             {heroDetailBlock}
             {photoBlock}
           </div>

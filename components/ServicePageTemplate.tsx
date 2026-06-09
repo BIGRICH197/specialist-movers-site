@@ -25,6 +25,7 @@ import {
   getServiceHeroOverlayCaption,
   serviceHeroSubline,
 } from "@/lib/service-hero-detail";
+import { getServiceSeoIntro } from "@/lib/service-seo-intro";
 import { getDistinctAboutPhoto, getServicePhoto } from "@/lib/site-photos";
 import { services } from "@/lib/site-data";
 import type { ProcessStep } from "@/components/ProcessStepsGrid";
@@ -78,6 +79,7 @@ export function ServicePageTemplate({
   const resolvedSteps =
     processSteps.length > 0 ? processSteps : getServiceProcessSteps(slug);
   const reviewSlot = `service-${slug}`;
+  const seoIntroText = hamiltonBaseSlug ? getServiceSeoIntro(hamiltonBaseSlug) : undefined;
   const resolvedMomentKey = momentKey ?? (hamiltonBaseSlug ? `services/${hamiltonBaseSlug}` : undefined);
   const aboutPhoto = hamiltonBaseSlug
     ? getDistinctAboutPhoto(
@@ -113,6 +115,7 @@ export function ServicePageTemplate({
             <HamiltonPageLink serviceSlug={hamiltonBaseSlug} variant="hero" />
           ) : null
         }
+        seoIntro={seoIntroText ? <p>{seoIntroText}</p> : undefined}
         photo={
           heroPhoto ? (
             <HeroVisual

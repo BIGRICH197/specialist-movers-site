@@ -1,6 +1,10 @@
 import { aucklandServiceHref } from "@/lib/legacy-auckland-urls";
 import { hero } from "@/lib/homepage-copy";
-import { houseMovingProcess, workplaceMovingProcess } from "@/lib/moving-process";
+import {
+  houseMovingProcess,
+  pianoMovingProcess,
+  workplaceMovingProcess,
+} from "@/lib/moving-process";
 import { getServicePhoto, sitePhotos } from "@/lib/site-photos";
 import type { JobType } from "@/lib/site-data";
 import { services } from "@/lib/site-data";
@@ -111,25 +115,8 @@ const landingOverrides: Record<
     showMovingBanner: false,
     showPianoSubServices: true,
     faqHeading: "Piano moving questions",
-    processTitle: "Piano moving process",
-    processSteps: [
-      {
-        title: "Quote and confirm details",
-        body: "Tell us upright or grand, pickup and drop-off addresses, and stairs at each end. We confirm price and your move date.",
-      },
-      {
-        title: "Plan access and prep",
-        body: "We check doorways, steps, and parking. Grand pianos may need legs or pedals removed before transport. We handle that on site.",
-      },
-      {
-        title: "Protect and load",
-        body: "On move day the crew shrink wraps and pads your piano, then loads it onto our piano truck using specialist dollies and straps.",
-      },
-      {
-        title: "Deliver and place",
-        body: "We transport your piano safely, set it down where you need it, and do a final check with you before we leave.",
-      },
-    ],
+    processTitle: pianoMovingProcess.title,
+    processSteps: pianoMovingProcess.steps,
   },
   "house-moving": {
     slug: "house-moving",

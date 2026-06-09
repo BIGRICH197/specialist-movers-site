@@ -1,4 +1,8 @@
-import { houseMovingProcess, workplaceMovingProcess } from "@/lib/moving-process";
+import {
+  houseMovingProcess,
+  pianoMovingProcess,
+  workplaceMovingProcess,
+} from "@/lib/moving-process";
 import { homeProcessVisual } from "@/lib/homepage-sections";
 import type { ProcessStep } from "@/components/ProcessStepsGrid";
 
@@ -7,12 +11,17 @@ export function getServiceProcessSteps(slug: string): readonly ProcessStep[] {
   if (slug === "house-moving") {
     return homeProcessVisual.steps;
   }
-  if (
-    slug === "office-moving" ||
-    slug === "commercial-moving" ||
-    slug === "piano-movers"
-  ) {
+  if (slug === "office-moving" || slug === "commercial-moving") {
     return workplaceMovingProcess.steps;
+  }
+  if (
+    slug === "piano-movers" ||
+    slug === "grand-piano" ||
+    slug === "upright-piano" ||
+    slug === "international-piano" ||
+    slug === "piano-storage"
+  ) {
+    return pianoMovingProcess.steps;
   }
   return houseMovingProcess.steps;
 }

@@ -179,12 +179,12 @@ export async function POST(request: Request) {
     const serviceType = body.serviceType ?? "Office Move";
     const sizeLabel =
       body.officeSize === "small"
-        ? "Small (up to ~10 staff)"
+        ? "Small (up to 10 staff)"
         : body.officeSize === "large"
           ? "Large (30+ staff)"
           : body.officeSize === "floor"
             ? "Whole floor / multi-level"
-            : "Medium (~10–30 staff)";
+            : "Medium (10 to 30 staff)";
 
     createHubSpotDeal({
       name: body.name,

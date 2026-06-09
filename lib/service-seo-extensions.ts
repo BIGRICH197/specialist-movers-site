@@ -1,9 +1,11 @@
 import type { ProcessStep } from "@/components/ProcessStepsGrid";
-import { houseMovingProcess } from "@/lib/moving-process";
+import { houseMovingProcess, pianoMovingProcess } from "@/lib/moving-process";
 import {
   generalServiceFaqs,
+  grandPianoFaqs,
   packingServiceFaqs,
   cleaningServiceFaqs,
+  uprightPianoFaqs,
   type FaqItem,
 } from "@/lib/service-faqs";
 
@@ -18,6 +20,7 @@ export type ServiceSeoExtension = {
 const pianoProtectionBody =
   "Every piano is wrapped in padded blankets and shrink wrap before it leaves your home. Uprights are secured upright inside the truck with specialist straps. Grands are tilted onto a piano board, padded, and strapped for transport. Humidity and finish are protected with proper wrap, not just a furniture blanket.";
 
+const pianoProcessSteps = pianoMovingProcess.steps;
 const defaultProcess = houseMovingProcess.steps;
 
 export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> = {
@@ -60,8 +63,9 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
   },
   "international-moving": {
     bodyParagraphs: [
-      "International and inter-island moves are planned in stages, inventory, written quote, confirmed dates, then pack, export wrap, and coordinated delivery.",
+      "International and inter-island moves are planned in stages: inventory or viewing, written quote, confirmed dates, then pack, export wrap, and coordinated delivery.",
       "We work with trusted partners for overseas freight; North and South Island relocations are run with our own crews and clear timelines.",
+      "Sole-use containers, shared sea freight, and air freight are explained for your load size. Storage in transit is available when collection and delivery dates do not align.",
     ],
     faqs: generalServiceFaqs,
     processTitle: "International move process",
@@ -72,6 +76,7 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
     bodyParagraphs: [
       "Hire our crew and truck for load-only, unload-only, or both, ideal when you are moving yourself but need experienced movers for the heavy work.",
       "We bring blankets, straps, and the right crew size for stairs and bulky items. Priced by the hour with a clear minimum call-out.",
+      "Popular for container deliveries, storage unit loads, and DIY moves where you drive the truck but want professional help at each end.",
     ],
     faqs: generalServiceFaqs,
     processTitle: "Load and unload process",
@@ -86,11 +91,12 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
     bodyParagraphs: [
       "WINZ and housing assistance applications need a clear written quote fast. We provide itemised pricing and respond promptly so you have paperwork ready.",
       "House moves, packing, and cleaning quotes are available, tell us your deadline when you call.",
+      "We visit when needed so volume, access, and distance are accurate on your application, not guessed over the phone.",
     ],
     faqs: [
       {
         q: "How fast can you provide a WINZ quote?",
-        a: "Yes. we aim to return written quotes within one business day. Call (021) 228 2728 if your application deadline is sooner.",
+        a: "Yes, we aim to return written quotes within one business day. Call (021) 228 2728 if your application deadline is sooner.",
       },
       ...generalServiceFaqs.slice(1, 6),
     ],
@@ -103,31 +109,43 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
     ],
   },
   "grand-piano": {
-    bodyParagraphs: [pianoProtectionBody, "Grand piano moves include leg removal where required, piano board tilt, padded wrap, and placement at your new address."],
-    faqs: generalServiceFaqs,
-    processTitle: "Grand piano move process",
-    processSteps: defaultProcess,
+    bodyParagraphs: [
+      pianoProtectionBody,
+      "Grand piano moves include leg removal where required, piano board tilt, padded wrap, and placement at your new address.",
+    ],
+    faqs: grandPianoFaqs,
+    processTitle: pianoMovingProcess.title,
+    processSteps: pianoProcessSteps,
     piano: true,
   },
   "upright-piano": {
-    bodyParagraphs: [pianoProtectionBody, "Upright pianos are wrapped, strapped, and moved on specialist dollies through tight hallways and doorways."],
-    faqs: generalServiceFaqs,
-    processTitle: "Upright piano move process",
-    processSteps: defaultProcess,
+    bodyParagraphs: [
+      pianoProtectionBody,
+      "Upright pianos are wrapped, strapped, and moved on specialist dollies through tight hallways and doorways.",
+    ],
+    faqs: uprightPianoFaqs,
+    processTitle: pianoMovingProcess.title,
+    processSteps: pianoProcessSteps,
     piano: true,
   },
   "international-piano": {
-    bodyParagraphs: [pianoProtectionBody, "International piano shipping includes export wrap, crating when required, and coordination with our freight partners."],
-    faqs: generalServiceFaqs,
-    processTitle: "International piano process",
-    processSteps: defaultProcess,
+    bodyParagraphs: [
+      pianoProtectionBody,
+      "International piano shipping includes export wrap, crating when required, and coordination with our freight partners.",
+    ],
+    faqs: grandPianoFaqs,
+    processTitle: pianoMovingProcess.title,
+    processSteps: pianoProcessSteps,
     piano: true,
   },
   "piano-storage": {
-    bodyParagraphs: [pianoProtectionBody, "Climate-aware piano storage is available short or long term while sale, renovation, or international timing is sorted."],
-    faqs: generalServiceFaqs,
-    processTitle: "Piano storage process",
-    processSteps: defaultProcess,
+    bodyParagraphs: [
+      pianoProtectionBody,
+      "Climate-aware piano storage is available short or long term while sale, renovation, or international timing is sorted.",
+    ],
+    faqs: uprightPianoFaqs,
+    processTitle: pianoMovingProcess.title,
+    processSteps: pianoProcessSteps,
     piano: true,
   },
 };

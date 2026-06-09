@@ -7,7 +7,8 @@ When customers type pickup/drop-off addresses, the site uses **Google Places Aut
 1. **Google Cloud project** (can be the same project as mini PC Maps if you prefer).
 2. Enable APIs:
    - **Maps JavaScript API** (quote form autocomplete)
-   - **Places API** (legacy Places works with Autocomplete widget)
+   - **Places API (New)** (required for `PlaceAutocompleteElement` on the quote form)
+   - **Places API** (legacy) — optional backup; new Google Cloud projects may not be able to enable this
 3. Create an **API key** → Application restrictions → **HTTP referrers** (use `/*` wildcards — required):
    - `https://specialistmovers.co.nz/*`
    - `https://www.specialistmovers.co.nz/*`
@@ -38,9 +39,8 @@ The form falls back to **plain text inputs** — customers can still type a full
 - When Google is working, user should **select a row from the dropdown** (not only press Enter on partial text).
 - When Google is unavailable, typing the full address is fine.
 - After both addresses are filled, **RouteBranchHint** shows:
-  - Auckland instant estimate
-  - Waikato (Hamilton branch) instant estimate
-  - Amber warning for Auckland ↔ Waikato (custom quote)
+  - House/piano: Auckland or Waikato instant estimate, or amber warning for cross-region routes
+  - Office moves: tailored quote callback message (no instant estimate)
 
 ## Billing
 

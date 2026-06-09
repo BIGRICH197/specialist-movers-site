@@ -247,6 +247,10 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
         q: "How far in advance should I book?",
         a: "Three to four weeks ahead is best for Hawke's Bay routes. Call (021) 228 2728 for shorter-notice availability.",
       },
+      {
+        q: "Do you do return trips from Napier?",
+        a: "Yes. return loads and backhaul dates are often available. Call with your dates and we will match a return trip where possible.",
+      },
     ],
   },
   hastings: {
@@ -271,6 +275,10 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
         q: "How far in advance should I book?",
         a: "Book three to four weeks ahead for Hawke's Bay routes when possible. We will confirm your dates when you request a quote.",
       },
+      {
+        q: "Do you do return trips from Hastings?",
+        a: "Yes. return loads and backhaul dates are often available on Hawke's Bay routes. Call with your dates and we will check availability.",
+      },
     ],
   },
   "palmerston-north": {
@@ -294,6 +302,10 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       {
         q: "How far in advance should I book?",
         a: "Three weeks ahead is recommended for Manawatu routes. Call for availability on shorter notice.",
+      },
+      {
+        q: "Do you do return trips from Palmerston North?",
+        a: "Yes. return loads and backhaul dates are often available on lower North Island routes. Call with your dates and we will match a return trip where possible.",
       },
     ],
   },

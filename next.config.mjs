@@ -152,17 +152,12 @@ const nextConfig = {
       },
       {
         source: "/piano-movers-auckland",
-        destination: "/piano-movers",
+        destination: "/piano-movers/auckland",
         permanent: true,
       },
       {
         source: "/piano-movers-auckland/",
-        destination: "/piano-movers",
-        permanent: true,
-      },
-      {
-        source: "/piano-movers/auckland",
-        destination: "/piano-movers",
+        destination: "/piano-movers/auckland",
         permanent: true,
       },
       {
