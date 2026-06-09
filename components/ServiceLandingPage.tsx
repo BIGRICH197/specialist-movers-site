@@ -14,7 +14,9 @@ import { ScatteredReviews } from "@/components/ScatteredReviews";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ServiceHeroWithQuote } from "@/components/ServiceHeroWithQuote";
 import { SectionReveal } from "@/components/SectionReveal";
-import { faqs, googleReviewsUrl, statsStrip } from "@/lib/homepage-copy";
+import { GoogleReviewsBand } from "@/components/GoogleReviewsBand";
+import { googleReviewsUrl, statsStrip } from "@/lib/homepage-copy";
+import { generalServiceFaqs } from "@/lib/service-faqs";
 import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
 import { PianoExpertiseSection } from "@/components/PianoExpertiseSection";
 import { PianoGallerySection } from "@/components/PianoGallerySection";
@@ -36,7 +38,7 @@ type Props = {
  */
 export function ServiceLandingPage({ config }: Props) {
   const landingFaqs =
-    config.slug === "piano-movers" ? [...pianoFaqs] : faqs.slice(0, 4);
+    config.slug === "piano-movers" ? [...pianoFaqs] : generalServiceFaqs;
   const processTitle = config.processTitle ?? "How we run your move";
   const processSteps = getServiceProcessSteps(config.slug);
 
@@ -275,6 +277,11 @@ export function ServiceLandingPage({ config }: Props) {
       {/* FAQ */}
       <SectionReveal className="border-t border-brand-purple/10 bg-brand-purple/[0.03] py-12 sm:py-14">
         <div className="mx-auto max-w-6xl container-px">
+          <GoogleReviewsBand
+            slot={`service-${config.slug}-reviews`}
+            piano={config.slug === "piano-movers"}
+            className="mb-10"
+          />
           <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
             {config.faqHeading}
           </h2>

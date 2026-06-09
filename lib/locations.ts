@@ -4,6 +4,7 @@
  */
 
 import { extraAucklandSuburbs, extraWaikatoTowns } from "@/lib/locations-extra";
+import { applyLocationSeo } from "@/lib/location-seo";
 import type { Location, LocationGroup } from "@/lib/location-types";
 
 export type { Location, LocationGroup, LocationKind } from "@/lib/location-types";
@@ -472,7 +473,7 @@ export const allLocations: readonly Location[] = mergeLocations(
   [...extraAucklandSuburbs],
   coreTowns,
   [...extraWaikatoTowns],
-);
+).map(applyLocationSeo);
 
 const bySlug = new Map(allLocations.map((l) => [l.slug, l]));
 

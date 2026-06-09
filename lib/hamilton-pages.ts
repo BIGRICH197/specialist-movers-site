@@ -3,7 +3,9 @@
  * Pattern: /services/{service}-hamilton, /piano-movers/hamilton
  */
 import type { JobType } from "@/lib/site-data";
+import type { ProcessStep } from "@/components/ProcessStepsGrid";
 import { aucklandServiceHref } from "@/lib/legacy-auckland-urls";
+import { enrichHamiltonPageConfig } from "@/lib/hamilton-seo";
 import { sitePhotos } from "@/lib/site-photos";
 
 export const HAMILTON_SUFFIX = "-hamilton" as const;
@@ -22,6 +24,8 @@ export type HamiltonPageConfig = {
   includedBullets: readonly string[];
   whyChooseCopy: string;
   faqs?: readonly { q: string; a: string }[];
+  processTitle?: string;
+  processSteps?: readonly ProcessStep[];
   defaultJobType: JobType;
   heroPhoto: string;
   heroPhotoAlt: string;
@@ -627,12 +631,12 @@ export function getHamiltonPageConfig(slug: string): HamiltonPageConfig | null {
   const base = getHamiltonBaseSlug(slug);
   if (!base) return null;
   const page = hamiltonPages[base];
-  return {
+  return enrichHamiltonPageConfig({
     baseSlug: base,
     path: hamiltonPath(base),
     ...page,
     parentHref: aucklandServiceHref(base),
-  };
+  });
 }
 
 export function getHamiltonStaticParams(): { slug: string }[] {

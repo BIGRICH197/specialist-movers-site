@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { ServicePageTemplate } from "@/components/ServicePageTemplate";
+import { getServiceSeoExtension } from "@/lib/service-seo-extensions";
+import { faqsForService } from "@/lib/service-faqs";
 import { getPianoPhoto } from "@/lib/site-photos";
 import { pianoServices } from "@/lib/site-data";
 
@@ -33,6 +35,8 @@ export default function PianoSlugPage({ params }: { params: { slug: string } }) 
   const service = pianoServices.find((s) => s.slug === params.slug);
   if (!service) notFound();
 
+  const seo = getServiceSeoExtension(service.slug);
+
   return (
     <ServicePageTemplate
       title={service.title}
@@ -49,6 +53,12 @@ export default function PianoSlugPage({ params }: { params: { slug: string } }) 
       heroPhoto={getPianoPhoto(service.slug)}
       heroPhotoAlt={`${service.title} , Specialist Movers`}
       hamiltonBaseSlug="piano-movers"
+      bodyParagraphs={seo?.bodyParagraphs}
+      faqs={seo?.faqs ?? faqsForService(service.slug)}
+      processTitle={seo?.processTitle}
+      processSteps={seo?.processSteps}
+      pianoReviews
+      reviewSlot={`piano-${service.slug}`}
     />
   );
 }

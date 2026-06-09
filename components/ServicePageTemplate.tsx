@@ -1,12 +1,16 @@
 import Link from "next/link";
 import { Check } from "lucide-react";
+import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
+import { GoogleReviewsBand } from "@/components/GoogleReviewsBand";
 import { HeroVisual } from "@/components/HeroVisual";
 import { CleaningBookingForm } from "@/components/CleaningBookingForm";
+import { ProcessStepsGrid, type ProcessStep } from "@/components/ProcessStepsGrid";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Breadcrumbs, type Crumb } from "@/components/Breadcrumbs";
 import { HamiltonPageLink } from "@/components/HamiltonPageLink";
 import { ServiceHeroWithQuote } from "@/components/ServiceHeroWithQuote";
 import { resolveServiceLink } from "@/lib/service-links";
+import type { FaqItem } from "@/lib/service-faqs";
 import { services } from "@/lib/site-data";
 
 type ServicePageTemplateProps = {
@@ -19,11 +23,15 @@ type ServicePageTemplateProps = {
   breadcrumbs: Crumb[];
   heroPhoto?: string;
   heroPhotoAlt?: string;
-  /** Base slug for Hamilton page link (e.g. house-moving) */
   hamiltonBaseSlug?: string;
-  /** Exit cleaning uses fixed-price room selector instead of house quote form */
   useCleaningQuoteForm?: boolean;
   extraRelatedLinks?: readonly { label: string; href: string }[];
+  bodyParagraphs?: readonly string[];
+  faqs?: readonly FaqItem[];
+  processTitle?: string;
+  processSteps?: readonly ProcessStep[];
+  reviewSlot?: string;
+  pianoReviews?: boolean;
 };
 
 export function ServicePageTemplate({
@@ -39,9 +47,18 @@ export function ServicePageTemplate({
   hamiltonBaseSlug,
   useCleaningQuoteForm = false,
   extraRelatedLinks = [],
+  bodyParagraphs = [],
+  faqs = [],
+  processTitle = "How we run your move",
+  processSteps = [],
+  reviewSlot,
+  pianoReviews = false,
 }: ServicePageTemplateProps) {
+  const slot = reviewSlot ?? `service-${hamiltonBaseSlug ?? "page"}`;
+
   return (
     <div className="bg-brand-white">
+      {faqs.length > 0 ? <FaqPageJsonLd items={faqs} /> : null}
       <ServiceHeroWithQuote
         topNav={<Breadcrumbs items={breadcrumbs} light />}
         title={
@@ -79,6 +96,14 @@ export function ServicePageTemplate({
 
       <section className="mx-auto max-w-7xl py-12 container-px">
         <article className="space-y-10">
+          {bodyParagraphs.length > 0 ? (
+            <div className="space-y-4 text-base leading-relaxed text-brand-purple/85">
+              {bodyParagraphs.map((p) => (
+                <p key={p.slice(0, 48)}>{p}</p>
+              ))}
+            </div>
+          ) : null}
+
           <div className="rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm sm:p-8">
             <h2 className="font-heading text-2xl text-brand-purple">
               What&apos;s included
@@ -103,6 +128,36 @@ export function ServicePageTemplate({
               {whyChooseCopy}
             </p>
           </div>
+
+          {processSteps.length > 0 ? (
+            <div className="rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm sm:p-8">
+              <h2 className="font-heading text-2xl text-brand-purple">{processTitle}</h2>
+              <ProcessStepsGrid steps={processSteps} className="mt-6" />
+            </div>
+          ) : null}
+
+          <GoogleReviewsBand slot={slot} piano={pianoReviews} />
+
+          {faqs.length > 0 ? (
+            <div>
+              <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
+                Common questions
+              </h2>
+              <dl className="mt-6 space-y-4">
+                {faqs.map((item) => (
+                  <div
+                    key={item.q}
+                    className="rounded-2xl border border-brand-purple/12 bg-white p-5 shadow-sm"
+                  >
+                    <dt className="font-heading text-base text-brand-purple">{item.q}</dt>
+                    <dd className="mt-2 text-sm leading-relaxed text-brand-purple/80">
+                      {item.a}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          ) : null}
 
           <div>
             <h2 className="font-heading text-xl text-brand-purple">

@@ -2,6 +2,8 @@ export type LocationGroup = "auckland" | "waikato";
 
 export type LocationKind = "region" | "suburb" | "town";
 
+export type LocationFaq = { q: string; a: string };
+
 export type Location = {
   slug: string;
   name: string;
@@ -16,4 +18,5 @@ export type Location = {
   intro: string;
   paragraphs: readonly string[];
   highlights: readonly string[];
+  faqs?: readonly LocationFaq[];
 };

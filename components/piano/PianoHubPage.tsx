@@ -14,6 +14,7 @@ import { trustindexHomeWidgetId } from "@/lib/trustindex-config";
 import { contactCta, googleReviewsUrl, statsStrip } from "@/lib/homepage-copy";
 import { sectionRevealDirection } from "@/lib/motion";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
+import { GoogleReviewsBand } from "@/components/GoogleReviewsBand";
 import { pianoFaqs } from "@/lib/piano-faqs";
 import {
   pianoHubCities,
@@ -27,7 +28,7 @@ import { phoneDisplay, phoneNumber, pianoServices } from "@/lib/site-data";
 export function PianoHubPage() {
   const hubPianoServices = pianoServices.filter((p) => p.slug !== "piano-tuning");
 
-  const hubFaqs = pianoFaqs.slice(0, 4);
+  const hubFaqs = pianoFaqs;
 
   return (
     <div className="bg-brand-canvas">
@@ -171,6 +172,7 @@ export function PianoHubPage() {
         className="border-t border-brand-purple/10 bg-brand-purple/[0.03] py-12 sm:py-14"
       >
         <div className="mx-auto max-w-6xl container-px">
+          <GoogleReviewsBand slot="piano-hub" piano className="mb-10" />
           <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
             Piano moving questions
           </h2>

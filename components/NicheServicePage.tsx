@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Check } from "lucide-react";
 import { Breadcrumbs, type Crumb } from "@/components/Breadcrumbs";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
+import { GoogleReviewsBand } from "@/components/GoogleReviewsBand";
 import { HeroVisual } from "@/components/HeroVisual";
 import { NumberedInfoGrid } from "@/components/NumberedInfoGrid";
 import { ProcessStepsGrid } from "@/components/ProcessStepsGrid";
@@ -137,6 +138,10 @@ export function NicheServicePage({ config }: Props) {
           <ProcessStepsGrid steps={processSteps} />
         </SectionReveal>
       ) : null}
+
+      <SectionReveal className="mx-auto max-w-7xl py-8 container-px sm:py-10">
+        <GoogleReviewsBand slot={`niche-${config.path.replace(/\//g, "")}`} />
+      </SectionReveal>
 
       <SectionReveal className="border-t border-brand-purple/10 py-12 container-px">
         <h2 className="font-heading text-xl text-brand-purple">Related services</h2>

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
+import { GoogleReviewsBand } from "@/components/GoogleReviewsBand";
 import { PageHero } from "@/components/PageHero";
 import { QuoteForm } from "@/components/QuoteForm";
 import { SectionReveal } from "@/components/SectionReveal";
@@ -16,12 +18,14 @@ export function LocationPageTemplate({ location }: Props) {
   const children = location.kind === "region" ? getChildLocations(location.slug) : [];
   const parent = location.parentSlug ? getLocation(location.parentSlug) : null;
   const nearby = getNearbyLocations(location);
+  const faqs = location.faqs ?? [];
 
   const kindLabel =
     location.kind === "region" ? "Region" : location.kind === "town" ? "Waikato" : "Suburb";
 
   return (
     <div className="bg-brand-canvas">
+      {faqs.length > 0 ? <FaqPageJsonLd items={faqs} /> : null}
       <PageHero
         variant="purple"
         eyebrow={`${kindLabel} · ${regions.serviceAreaBadge}`}
@@ -93,6 +97,32 @@ export function LocationPageTemplate({ location }: Props) {
                 </ul>
               </div>
             )}
+
+            <GoogleReviewsBand
+              slot={`location-${location.slug}-reviews`}
+              className="mt-10"
+            />
+
+            {faqs.length > 0 ? (
+              <div className="mt-12">
+                <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
+                  {location.name} moving — common questions
+                </h2>
+                <dl className="mt-6 space-y-4">
+                  {faqs.map((item) => (
+                    <div
+                      key={item.q}
+                      className="rounded-2xl border border-brand-purple/12 bg-white p-5 shadow-sm"
+                    >
+                      <dt className="font-heading text-base text-brand-purple">{item.q}</dt>
+                      <dd className="mt-2 text-sm leading-relaxed text-brand-purple/80">
+                        {item.a}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            ) : null}
 
             <p className="mt-10 text-sm text-brand-purple/70">
               <Link href="/locations" className="font-semibold text-brand-purple underline">

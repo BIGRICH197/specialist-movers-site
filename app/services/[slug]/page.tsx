@@ -7,6 +7,8 @@ import { ServicePageTemplate } from "@/components/ServicePageTemplate";
 import { getHamiltonPageConfig, getHamiltonStaticParams } from "@/lib/hamilton-pages";
 import { getServicePhoto } from "@/lib/site-photos";
 import { getServiceLandingConfig, isServiceLandingSlug } from "@/lib/service-landings";
+import { getServiceSeoExtension } from "@/lib/service-seo-extensions";
+import { faqsForService } from "@/lib/service-faqs";
 import { legacyPathForServiceSlug } from "@/lib/legacy-auckland-urls";
 import { services } from "@/lib/site-data";
 
@@ -57,6 +59,8 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
     return <ServiceLandingPage config={config} />;
   }
 
+  const seo = getServiceSeoExtension(params.slug);
+
   return (
     <ServicePageTemplate
       title={service.title}
@@ -74,6 +78,11 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
       heroPhotoAlt={`${service.title} , Specialist Movers Auckland`}
       hamiltonBaseSlug={service.slug}
       useCleaningQuoteForm={params.slug === "cleaning-services"}
+      bodyParagraphs={seo?.bodyParagraphs}
+      faqs={seo?.faqs ?? faqsForService(params.slug)}
+      processTitle={seo?.processTitle}
+      processSteps={seo?.processSteps}
+      pianoReviews={seo?.piano}
       extraRelatedLinks={
         params.slug === "international-moving"
           ? [

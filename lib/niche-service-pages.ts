@@ -97,6 +97,14 @@ export const apartmentMoversPage: NicheServicePageConfig = {
       q: "How do I get a price for my apartment move?",
       a: "Fill in the quote form or call us. We will call back within 15 minutes with a clear quote for your addresses and access.",
     },
+    {
+      q: "How far in advance should I book an apartment move?",
+      a: "Two weeks ahead is ideal for weekends and month-end. Call (021) 228 2728 — we often have sooner slots when lift access allows.",
+    },
+    {
+      q: "How do you protect furniture in tight apartment access?",
+      a: "Yes — blankets, wrap, and careful carry paths are planned before move day. We measure tight turns and stairwells when we quote.",
+    },
   ],
   processTitle: houseMovingProcess.title,
   breadcrumbs: [
@@ -171,6 +179,14 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
     {
       q: "How do we get started?",
       a: "Call us or use the quote form. We will discuss your move date, facility access, and services you need, then confirm pricing.",
+    },
+    {
+      q: "How far in advance should we book?",
+      a: "Two to three weeks ahead helps secure your preferred date, especially around month-end. We can often help sooner for smaller loads.",
+    },
+    {
+      q: "What areas do you cover for retirement home moves?",
+      a: "Yes — Auckland suburbs and Hamilton/Waikato daily. Regional routes to family elsewhere in the North Island are quoted upfront.",
     },
   ],
   processTitle: houseMovingProcess.title,
@@ -272,6 +288,14 @@ export const movingToAustraliaPage: NicheServicePageConfig = {
     {
       q: "What should I do to prepare?",
       a: "Declutter early, gather passports and visa documents, and list items that need special approval. We help with packing lists and customs forms.",
+    },
+    {
+      q: "How far in advance should I book an Australia move?",
+      a: "Eight to twelve weeks before your target departure is ideal for sea freight. Air freight can be booked on shorter notice when volume is smaller.",
+    },
+    {
+      q: "Can you store goods before they ship to Australia?",
+      a: "Yes — short-term storage bridges settlement gaps while freight is booked and customs paperwork is finalised.",
     },
   ],
   breadcrumbs: [
