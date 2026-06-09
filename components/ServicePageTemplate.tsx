@@ -1,17 +1,33 @@
-import Link from "next/link";
 import { Check } from "lucide-react";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
-import { GoogleReviewsBand } from "@/components/GoogleReviewsBand";
+import { ServiceTrustindexBand } from "@/components/ServiceTrustindexBand";
 import { HeroVisual } from "@/components/HeroVisual";
 import { CleaningBookingForm } from "@/components/CleaningBookingForm";
-import { ProcessStepsGrid, type ProcessStep } from "@/components/ProcessStepsGrid";
 import { QuoteForm } from "@/components/QuoteForm";
+import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
 import { Breadcrumbs, type Crumb } from "@/components/Breadcrumbs";
 import { HamiltonPageLink } from "@/components/HamiltonPageLink";
+import { SectionReveal } from "@/components/SectionReveal";
 import { ServiceHeroWithQuote } from "@/components/ServiceHeroWithQuote";
+import {
+  ServiceBottomCta,
+  ServiceFaqSection,
+  ServiceProcessSection,
+  ServiceRelatedLink,
+  ServiceRelatedLinksSection,
+  ServiceWhyChooseSection,
+} from "@/components/ServiceLandingSections";
+import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
 import { resolveServiceLink } from "@/lib/service-links";
 import type { FaqItem } from "@/lib/service-faqs";
+import {
+  getServiceHeroDetail,
+  getServiceHeroOverlayCaption,
+  serviceHeroSubline,
+} from "@/lib/service-hero-detail";
+import { getDistinctAboutPhoto, getServicePhoto } from "@/lib/site-photos";
 import { services } from "@/lib/site-data";
+import type { ProcessStep } from "@/components/ProcessStepsGrid";
 
 type ServicePageTemplateProps = {
   title: string;
@@ -24,14 +40,17 @@ type ServicePageTemplateProps = {
   heroPhoto?: string;
   heroPhotoAlt?: string;
   hamiltonBaseSlug?: string;
+  /** Defaults to services/{hamiltonBaseSlug}; piano subs use piano-movers/{slug}. */
+  momentKey?: string;
   useCleaningQuoteForm?: boolean;
   extraRelatedLinks?: readonly { label: string; href: string }[];
   bodyParagraphs?: readonly string[];
   faqs?: readonly FaqItem[];
   processTitle?: string;
   processSteps?: readonly ProcessStep[];
-  reviewSlot?: string;
-  pianoReviews?: boolean;
+  heroVariant?: "moving" | "piano";
+  /** Defaults to hamiltonBaseSlug; use piano sub-slugs for distinct on-photo slogans. */
+  overlayCaptionSlug?: string;
 };
 
 export function ServicePageTemplate({
@@ -45,30 +64,48 @@ export function ServicePageTemplate({
   heroPhoto,
   heroPhotoAlt,
   hamiltonBaseSlug,
+  momentKey,
   useCleaningQuoteForm = false,
   extraRelatedLinks = [],
   bodyParagraphs = [],
   faqs = [],
   processTitle = "How we run your move",
   processSteps = [],
-  reviewSlot,
-  pianoReviews = false,
+  heroVariant = "moving",
+  overlayCaptionSlug,
 }: ServicePageTemplateProps) {
-  const slot = reviewSlot ?? `service-${hamiltonBaseSlug ?? "page"}`;
+  const slug = hamiltonBaseSlug ?? "house-moving";
+  const resolvedSteps =
+    processSteps.length > 0 ? processSteps : getServiceProcessSteps(slug);
+  const reviewSlot = `service-${slug}`;
+  const resolvedMomentKey = momentKey ?? (hamiltonBaseSlug ? `services/${hamiltonBaseSlug}` : undefined);
+  const aboutPhoto = hamiltonBaseSlug
+    ? getDistinctAboutPhoto(
+        hamiltonBaseSlug,
+        heroPhoto ?? getServicePhoto(hamiltonBaseSlug) ?? "",
+      )
+    : undefined;
 
   return (
     <div className="bg-brand-white">
       {faqs.length > 0 ? <FaqPageJsonLd items={faqs} /> : null}
       <ServiceHeroWithQuote
+        heroVariant={heroVariant}
         topNav={<Breadcrumbs items={breadcrumbs} light />}
         title={
-          <h1 className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:text-5xl lg:leading-tight">
+          <h1 className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:leading-[1.12]">
             {title}
           </h1>
         }
         lead={
-          <p className="max-w-2xl text-base leading-relaxed text-white/88 sm:text-lg">
+          <p className="max-w-2xl text-base leading-relaxed text-white/85">
             {description}
+          </p>
+        }
+        heroDetail={hamiltonBaseSlug ? getServiceHeroDetail(hamiltonBaseSlug) : []}
+        subline={
+          <p className="inline-block max-w-xl rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-snug text-white/90">
+            {serviceHeroSubline}
           </p>
         }
         meta={
@@ -79,8 +116,16 @@ export function ServicePageTemplate({
         photo={
           heroPhoto ? (
             <HeroVisual
+              variant={heroVariant}
               photoSrc={heroPhoto}
               photoAlt={heroPhotoAlt ?? `${title} , Specialist Movers`}
+              overlayCaption={
+                hamiltonBaseSlug
+                  ? getServiceHeroOverlayCaption(
+                      overlayCaptionSlug ?? hamiltonBaseSlug,
+                    )
+                  : undefined
+              }
               priority
             />
           ) : undefined
@@ -94,23 +139,59 @@ export function ServicePageTemplate({
         }
       />
 
-      <section className="mx-auto max-w-7xl py-12 container-px">
-        <article className="space-y-10">
-          {bodyParagraphs.length > 0 ? (
-            <div className="space-y-4 text-base leading-relaxed text-brand-purple/85">
-              {bodyParagraphs.map((p) => (
-                <p key={p.slice(0, 48)}>{p}</p>
-              ))}
-            </div>
-          ) : null}
+      <ServiceTrustindexBand />
 
+      {resolvedMomentKey ? (
+        <PagePhotoMomentStrip
+          momentKey={resolvedMomentKey}
+          tone="purple"
+          useQuoteAnchor={false}
+        />
+      ) : null}
+
+      <SectionReveal className="border-t border-brand-purple/10 bg-brand-white py-12 sm:py-14">
+        <div className="mx-auto max-w-7xl container-px">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-10">
+            {bodyParagraphs.length > 0 ? (
+              <div className="space-y-4 text-base leading-relaxed text-brand-purple/85">
+                {bodyParagraphs.map((p) => (
+                  <p key={p.slice(0, 48)}>{p}</p>
+                ))}
+              </div>
+            ) : (
+              <div className="min-w-0">
+                <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
+                  About this service
+                </h2>
+                <p className="mt-4 text-base leading-relaxed text-brand-purple/85">
+                  {description}
+                </p>
+              </div>
+            )}
+            {aboutPhoto ? (
+              <HeroVisual
+                photoSrc={aboutPhoto}
+                photoAlt={`${title} , Specialist Movers team`}
+                className="w-full"
+              />
+            ) : null}
+          </div>
+
+        </div>
+      </SectionReveal>
+
+      <ServiceWhyChooseSection
+        title="Why choose us for this service"
+        body={whyChooseCopy}
+      />
+
+      <SectionReveal className="border-t border-brand-purple/10 bg-brand-white py-12 sm:py-14">
+        <div className="mx-auto max-w-7xl container-px">
           <div className="rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm sm:p-8">
-            <h2 className="font-heading text-2xl text-brand-purple">
-              What&apos;s included
-            </h2>
-            <ul className="mt-5 space-y-3">
+            <h2 className="font-heading text-2xl text-brand-purple">What&apos;s included</h2>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
               {includedBullets.map((b) => (
-                <li key={b} className="flex gap-3 text-brand-purple/85">
+                <li key={b} className="flex gap-3 text-sm text-brand-purple/85">
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-yellow/90 text-brand-purple">
                     <Check className="h-3 w-3" strokeWidth={3} />
                   </span>
@@ -119,77 +200,44 @@ export function ServicePageTemplate({
               ))}
             </ul>
           </div>
+        </div>
+      </SectionReveal>
 
-          <div className="rounded-2xl border border-brand-purple/15 bg-brand-purple/[0.04] p-6 sm:p-8">
-            <h2 className="font-heading text-2xl text-brand-purple">
-              Why choose us for this service
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-brand-purple/85">
-              {whyChooseCopy}
-            </p>
-          </div>
+      <ServiceProcessSection
+        title={processTitle}
+        steps={resolvedSteps}
+        reviewSlot={`${reviewSlot}-process`}
+        piano={heroVariant === "piano"}
+      />
 
-          {processSteps.length > 0 ? (
-            <div className="rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm sm:p-8">
-              <h2 className="font-heading text-2xl text-brand-purple">{processTitle}</h2>
-              <ProcessStepsGrid steps={processSteps} className="mt-6" />
-            </div>
-          ) : null}
+      <ServiceRelatedLinksSection>
+        {extraRelatedLinks.map((link) => (
+          <ServiceRelatedLink key={link.href} href={link.href}>
+            {link.label}
+          </ServiceRelatedLink>
+        ))}
+        {relatedSlugs.map((relatedSlug) => {
+          const link = resolveServiceLink(relatedSlug);
+          if (!link) return null;
+          return (
+            <ServiceRelatedLink key={relatedSlug} href={link.href}>
+              {link.label}
+            </ServiceRelatedLink>
+          );
+        })}
+      </ServiceRelatedLinksSection>
 
-          <GoogleReviewsBand slot={slot} piano={pianoReviews} />
+      <ServiceFaqSection
+        heading="Common questions"
+        faqs={faqs}
+        reviewSlot={`${reviewSlot}-faq`}
+        piano={heroVariant === "piano"}
+      />
 
-          {faqs.length > 0 ? (
-            <div>
-              <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
-                Common questions
-              </h2>
-              <dl className="mt-6 space-y-4">
-                {faqs.map((item) => (
-                  <div
-                    key={item.q}
-                    className="rounded-2xl border border-brand-purple/12 bg-white p-5 shadow-sm"
-                  >
-                    <dt className="font-heading text-base text-brand-purple">{item.q}</dt>
-                    <dd className="mt-2 text-sm leading-relaxed text-brand-purple/80">
-                      {item.a}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          ) : null}
-
-          <div>
-            <h2 className="font-heading text-xl text-brand-purple">
-              Related services
-            </h2>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {extraRelatedLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="rounded-full border border-brand-purple/20 bg-white px-4 py-2 text-sm font-semibold text-brand-purple shadow-sm transition hover:border-brand-purple/40 hover:bg-brand-purple/[0.04]"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              {relatedSlugs.map((slug) => {
-                const link = resolveServiceLink(slug);
-                if (!link) return null;
-                return (
-                  <Link
-                    key={slug}
-                    href={link.href}
-                    className="rounded-full border border-brand-purple/20 bg-white px-4 py-2 text-sm font-semibold text-brand-purple shadow-sm transition hover:border-brand-purple/40 hover:bg-brand-purple/[0.04]"
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </article>
-      </section>
+      <ServiceBottomCta
+        defaultJobType={defaultJobType}
+        useCleaningForm={useCleaningQuoteForm}
+      />
     </div>
   );
 }

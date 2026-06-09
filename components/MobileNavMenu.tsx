@@ -70,7 +70,7 @@ function AccordionSection({
   );
 }
 
-/** Mobile drawer nav — same service/location trees as desktop mega menus. */
+/** Mobile drawer nav, same service/location trees as desktop mega menus. */
 export function MobileNavMenu({
   onNavigate,
   moreLinks,

@@ -7,17 +7,23 @@ import { ServiceJsonLd } from "@/components/ServiceJsonLd";
 import { NumberedInfoGrid } from "@/components/NumberedInfoGrid";
 import { HeroVisual } from "@/components/HeroVisual";
 import { MovingBanners } from "@/components/MovingBanners";
+import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
 import { PianoPartnerMarquee } from "@/components/PianoPartnerMarquee";
-import { ProcessStepsGrid } from "@/components/ProcessStepsGrid";
-import { ReviewSidebarColumn } from "@/components/ReviewSidebarColumn";
-import { ScatteredReviews } from "@/components/ScatteredReviews";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ServiceHeroWithQuote } from "@/components/ServiceHeroWithQuote";
 import { SectionReveal } from "@/components/SectionReveal";
-import { GoogleReviewsBand } from "@/components/GoogleReviewsBand";
-import { googleReviewsUrl, statsStrip } from "@/lib/homepage-copy";
+import { ServiceTrustindexBand } from "@/components/ServiceTrustindexBand";
+import {
+  ServiceBottomCta,
+  ServiceFaqSection,
+  ServiceProcessSection,
+  ServiceRelatedLink,
+  ServiceRelatedLinksSection,
+  ServiceWhyChooseSection,
+} from "@/components/ServiceLandingSections";
 import { generalServiceFaqs } from "@/lib/service-faqs";
 import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
+import { getDistinctAboutPhoto } from "@/lib/site-photos";
 import { PianoExpertiseSection } from "@/components/PianoExpertiseSection";
 import { PianoGallerySection } from "@/components/PianoGallerySection";
 import { pianoFaqs } from "@/lib/piano-faqs";
@@ -26,7 +32,8 @@ import { resolveServiceLink } from "@/lib/service-links";
 import { HamiltonPageLink } from "@/components/HamiltonPageLink";
 import type { ServiceLandingConfig } from "@/lib/service-landings";
 import { halfPhotoWrap } from "@/lib/photo-layout";
-import { phoneDisplay, phoneNumber, pianoServices } from "@/lib/site-data";
+import { getServiceHeroDetail, serviceHeroSubline } from "@/lib/service-hero-detail";
+import { pianoServices } from "@/lib/site-data";
 
 type Props = {
   config: ServiceLandingConfig;
@@ -65,6 +72,16 @@ export function ServiceLandingPage({ config }: Props) {
       <FaqPageJsonLd items={landingFaqs} />
       <BreadcrumbJsonLd items={breadcrumbItems} />
       <ServiceHeroWithQuote
+        heroVariant={config.slug === "piano-movers" ? "piano" : "moving"}
+        googleBadgeLiftCm={
+          config.slug === "piano-movers"
+            ? 0
+            : config.slug === "house-moving"
+              ? 4.5
+              : config.slug === "office-moving"
+                ? 5.5
+                : undefined
+        }
         topNav={
           config.slug === "piano-movers" ? (
             <nav className="flex flex-wrap items-center gap-2 text-xs font-semibold text-white/75">
@@ -80,11 +97,6 @@ export function ServiceLandingPage({ config }: Props) {
             </nav>
           ) : undefined
         }
-        eyebrow={
-          <p className="inline-flex w-fit max-w-[95%] rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-yellow">
-            {config.eyebrow}
-          </p>
-        }
         title={
           <h1 className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:leading-[1.12]">
             {config.h1}
@@ -95,9 +107,10 @@ export function ServiceLandingPage({ config }: Props) {
             {config.lead}
           </p>
         }
+        heroDetail={getServiceHeroDetail(config.slug)}
         subline={
           <p className="inline-block max-w-xl rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-snug text-white/90">
-            {config.subline}
+            {config.subline || serviceHeroSubline}
           </p>
         }
         meta={<HamiltonPageLink serviceSlug={config.slug} variant="hero" />}
@@ -120,6 +133,14 @@ export function ServiceLandingPage({ config }: Props) {
         ]}
       />
 
+      <ServiceTrustindexBand />
+
+      <PagePhotoMomentStrip
+        momentKey={`services/${config.slug}`}
+        tone="purple"
+        useQuoteAnchor={false}
+      />
+
       {/* Trust ticker */}
       <div className="mx-auto max-w-7xl px-4 pt-10 sm:px-6 sm:pt-12 lg:px-8">
         {config.showPianoPartners ? <PianoPartnerMarquee /> : null}
@@ -127,46 +148,51 @@ export function ServiceLandingPage({ config }: Props) {
       </div>
 
       {/* About + highlights */}
-      <SectionReveal className="mx-auto max-w-7xl py-12 container-px sm:py-14">
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-10">
-          <div className="min-w-0">
-            <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
-              {config.aboutTitle}
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-brand-purple/85">
-              {config.aboutBody}
-            </p>
+      <SectionReveal className="border-t border-brand-purple/10 bg-brand-white py-12 sm:py-14">
+        <div className="mx-auto max-w-7xl container-px">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-10">
+            <div className="min-w-0">
+              <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
+                {config.aboutTitle}
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-brand-purple/85">
+                {config.aboutBody}
+              </p>
+            </div>
+            {config.showAboutSideImage !== false ? (
+              <HeroVisual
+                variant="moving"
+                photoSrc={
+                  config.aboutSidePhoto ??
+                  getDistinctAboutPhoto(config.slug, config.heroGagPhoto ?? config.heroPhoto)
+                }
+                photoAlt={config.aboutSidePhotoAlt ?? config.heroPhotoAlt}
+                className="w-full"
+              />
+            ) : null}
           </div>
-          {config.showAboutSideImage !== false ? (
-            <HeroVisual
-              variant="moving"
-              photoSrc={config.aboutSidePhoto ?? config.heroPhoto}
-              photoAlt={config.aboutSidePhotoAlt ?? config.heroPhotoAlt}
-              className="w-full"
-            />
-          ) : null}
-        </div>
-        <NumberedInfoGrid
-          columns={3}
-          className="mt-8"
-          items={config.trustHighlights.map((item) => ({
-            title: item.title,
-            body: item.text,
-          }))}
-        />
+          <NumberedInfoGrid
+            columns={3}
+            className="mt-8"
+            items={config.trustHighlights.map((item) => ({
+              title: item.title,
+              body: item.text,
+            }))}
+          />
 
-        <div className="mt-10 rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm sm:p-8">
-          <h3 className="font-heading text-xl text-brand-purple">What we handle</h3>
-          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-            {config.includedBullets.map((b) => (
-              <li key={b} className="flex gap-3 text-sm text-brand-purple/85">
-                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-yellow/90 text-brand-purple">
-                  <Check className="h-3 w-3" strokeWidth={3} />
-                </span>
-                <span>{b}</span>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-10 rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm sm:p-8">
+            <h3 className="font-heading text-xl text-brand-purple">What we handle</h3>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+              {config.includedBullets.map((b) => (
+                <li key={b} className="flex gap-3 text-sm text-brand-purple/85">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-yellow/90 text-brand-purple">
+                    <Check className="h-3 w-3" strokeWidth={3} />
+                  </span>
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </SectionReveal>
 
@@ -177,48 +203,14 @@ export function ServiceLandingPage({ config }: Props) {
         </>
       ) : null}
 
-      {/* Why choose */}
-      <SectionReveal className="border-t border-brand-purple/10 bg-brand-purple/[0.03] py-12 sm:py-14">
-        <div className="mx-auto max-w-7xl container-px">
-          <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
-            {config.whyTitle}
-          </h2>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-brand-purple/85">
-            {config.whyBody}
-          </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {statsStrip.items.map((item) => (
-              <div
-                key={item.label}
-                className="rounded-2xl border border-brand-purple/15 bg-white p-5 shadow-sm"
-              >
-                <p className="font-heading text-2xl text-brand-purple">{item.value}</p>
-                <p className="mt-1 text-xs text-brand-purple/75">{item.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </SectionReveal>
+      <ServiceWhyChooseSection title={config.whyTitle} body={config.whyBody} />
 
-      {/* Process */}
-      <SectionReveal className="mx-auto max-w-7xl py-12 container-px sm:py-14">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_16rem] lg:items-start lg:gap-12">
-          <div className="min-w-0">
-            <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
-              {processTitle}
-            </h2>
-            <ProcessStepsGrid steps={processSteps} />
-          </div>
-          <div className="lg:pt-12">
-            <ScatteredReviews
-              slot={`service-${config.slug}-process`}
-              count={1}
-              piano={config.slug === "piano-movers"}
-              variant="sidebar"
-            />
-          </div>
-        </div>
-      </SectionReveal>
+      <ServiceProcessSection
+        title={processTitle}
+        steps={processSteps}
+        reviewSlot={`service-${config.slug}-process`}
+        piano={config.slug === "piano-movers"}
+      />
 
       {/* Piano sub-services or related */}
       {config.showPianoSubServices ? (
@@ -246,97 +238,32 @@ export function ServiceLandingPage({ config }: Props) {
           </div>
         </SectionReveal>
       ) : (
-        <SectionReveal className="border-t border-brand-purple/10 py-12 container-px">
-          <h2 className="font-heading text-xl text-brand-purple">Related services</h2>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {config.slug === "house-moving" ? (
-              <Link
-                href="/apartment-movers-auckland"
-                className="rounded-full border border-brand-purple/20 bg-white px-4 py-2 text-sm font-semibold text-brand-purple shadow-sm transition hover:border-brand-purple/40"
-              >
-                Apartment movers Auckland
-              </Link>
-            ) : null}
-            {config.relatedSlugs.map((slug) => {
-              const link = resolveServiceLink(slug);
-              if (!link) return null;
-              return (
-                <Link
-                  key={slug}
-                  href={link.href}
-                  className="rounded-full border border-brand-purple/20 bg-white px-4 py-2 text-sm font-semibold text-brand-purple shadow-sm transition hover:border-brand-purple/40"
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </div>
-        </SectionReveal>
+        <ServiceRelatedLinksSection>
+          {config.slug === "house-moving" ? (
+            <ServiceRelatedLink href="/apartment-movers-auckland">
+              Apartment movers Auckland
+            </ServiceRelatedLink>
+          ) : null}
+          {config.relatedSlugs.map((slug) => {
+            const link = resolveServiceLink(slug);
+            if (!link) return null;
+            return (
+              <ServiceRelatedLink key={slug} href={link.href}>
+                {link.label}
+              </ServiceRelatedLink>
+            );
+          })}
+        </ServiceRelatedLinksSection>
       )}
 
-      {/* FAQ */}
-      <SectionReveal className="border-t border-brand-purple/10 bg-brand-purple/[0.03] py-12 sm:py-14">
-        <div className="mx-auto max-w-6xl container-px">
-          <GoogleReviewsBand
-            slot={`service-${config.slug}-reviews`}
-            piano={config.slug === "piano-movers"}
-            className="mb-10"
-          />
-          <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
-            {config.faqHeading}
-          </h2>
-          <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_17rem] lg:gap-12">
-            <dl className="min-w-0 space-y-6">
-              {landingFaqs.map((item) => (
-                <div
-                  key={item.q}
-                  className="rounded-2xl border border-brand-purple/12 bg-white p-5 shadow-sm"
-                >
-                  <dt className="font-heading text-base text-brand-purple">{item.q}</dt>
-                  <dd className="mt-2 text-sm leading-relaxed text-brand-purple/80">
-                    {item.a}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-            <ReviewSidebarColumn
-              reviewSlot={`service-${config.slug}-faq`}
-              reviewCount={2}
-              piano={config.slug === "piano-movers"}
-            />
-          </div>
-          <p className="mt-6 text-center text-sm text-brand-purple/70 lg:hidden">
-            <a
-              href={googleReviewsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-brand-purple underline underline-offset-2"
-            >
-              See hundreds of 5-star Google reviews →
-            </a>
-          </p>
-        </div>
-      </SectionReveal>
+      <ServiceFaqSection
+        heading={config.faqHeading}
+        faqs={landingFaqs}
+        reviewSlot={`service-${config.slug}-faq`}
+        piano={config.slug === "piano-movers"}
+      />
 
-      {/* Final CTA */}
-      <section className="border-t border-brand-purple/10 bg-brand-purple py-12 text-white sm:py-16">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center container-px">
-          <div>
-            <h2 className="font-heading text-2xl sm:text-3xl">
-              Get your free quote today
-            </h2>
-            <p className="mt-4 max-w-lg text-white/85">
-              Fill in the form and we will call you back within 15 minutes with a fair quote and
-              our next available slot. Or call{" "}
-              <a href={`tel:${phoneNumber}`} className="font-bold text-brand-yellow hover:underline">
-                {phoneDisplay}
-              </a>
-              .
-            </p>
-          </div>
-          <QuoteForm defaultJobType={config.defaultJobType} />
-        </div>
-      </section>
+      <ServiceBottomCta defaultJobType={config.defaultJobType} />
     </div>
   );
 }

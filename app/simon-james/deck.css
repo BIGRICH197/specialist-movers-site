@@ -1,4 +1,4 @@
-/* Simon James deck — full-width scroll (web presentation) */
+/* Simon James deck, full-width scroll (web presentation) */
 
 .deck-root {
   scroll-snap-type: y mandatory;

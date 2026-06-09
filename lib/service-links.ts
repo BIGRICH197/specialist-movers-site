@@ -43,7 +43,7 @@ export function serviceHref(slug: string): string {
   return resolveServiceLink(slug)?.href ?? `/services/${slug}`;
 }
 
-/** Auckland city page — matches live WordPress URLs (see legacy-auckland-urls.json). */
+/** Auckland city page, matches live WordPress URLs (see legacy-auckland-urls.json). */
 export function serviceAucklandHref(slug: string): string {
   return aucklandServiceHref(slug);
 }

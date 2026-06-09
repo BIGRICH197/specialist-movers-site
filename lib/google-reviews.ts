@@ -82,7 +82,7 @@ export const googleReviews: GoogleReview[] = [
   },
   {
     "name": "Carri-Ann Hoy",
-    "text": "​Shoutout to Specialist Movers! 🙌 Seriously, their team is the best—so hardworking, friendly, and positive. The whole moving day was stress-free thanks to their amazing service and integrity, from top, down. If you need movers, I can't recommend them enough! Wishing them continued success! #specialistmovers #movingday #greatservice #highlyrecommended",
+    "text": "​Shoutout to Specialist Movers! 🙌 Seriously, their team is the best-so hardworking, friendly, and positive. The whole moving day was stress-free thanks to their amazing service and integrity, from top, down. If you need movers, I can't recommend them enough! Wishing them continued success! #specialistmovers #movingday #greatservice #highlyrecommended",
     "rating": 5,
     "date": "16/09/2025",
     "avatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjUZ2OmcsdHdw3ppw40XOwETs4F6PrD2ODe__xqH7TY3y_3mTvQ=s120-c-rp-mo-br100"
@@ -145,7 +145,7 @@ export const googleReviews: GoogleReview[] = [
   },
   {
     "name": "Sagar Kariya",
-    "text": "We recently relocated a two-bedroom house from the Shore to Blockhouse, and the move was completed within just three hours. The team was highly efficient, professional, and proactive throughout the process. Communication: 5/5 Service: 5/5 Staff: 10/5 🙂 Cost: Excellent value — unlikely to find a better deal. Overall, I am very satisfied with the experience and would not hesitate to recommend their services.",
+    "text": "We recently relocated a two-bedroom house from the Shore to Blockhouse, and the move was completed within just three hours. The team was highly efficient, professional, and proactive throughout the process. Communication: 5/5 Service: 5/5 Staff: 10/5 🙂 Cost: Excellent value, unlikely to find a better deal. Overall, I am very satisfied with the experience and would not hesitate to recommend their services.",
     "rating": 5,
     "date": "25/08/2025",
     "avatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjXVvW60n6O34gmPrMZWpNplP21plFJ9ZTWpDC8PdQ1M1um0X5Yq=s120-c-rp-mo-ba4-br100"
@@ -187,7 +187,7 @@ export const googleReviews: GoogleReview[] = [
   },
   {
     "name": "Cheuk Johnny Lau",
-    "text": "I can't recommend this team highly enough. They were well-coordinated, communicated clearly, well managed and it was obvious the crew was trained to work seamlessly together—especially when handling heavy items. Truly impressive teamwork. Highly recommended!",
+    "text": "I can't recommend this team highly enough. They were well-coordinated, communicated clearly, well managed and it was obvious the crew was trained to work seamlessly together-especially when handling heavy items. Truly impressive teamwork. Highly recommended!",
     "rating": 5,
     "date": "03/08/2025",
     "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocIEaVNkbRRWBZJyTlGRoqBdNAZn14-W5T42xHfYzITMK9fwcQ=s120-c-rp-mo-br100"

@@ -44,7 +44,7 @@ function StorageOptionCard({ item, icon: Icon }: { item: ServiceClusterItem; ico
   );
 }
 
-/** Flexible storage — directly after local / regional / international moves. */
+/** Flexible storage, directly after local / regional / international moves. */
 export function HomeStorageSection() {
   return (
     <SectionReveal

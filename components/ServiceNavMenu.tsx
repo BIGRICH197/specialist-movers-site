@@ -51,7 +51,7 @@ function ServiceNavRowItem({
   );
 }
 
-/** Full-width services mega menu — tagline, 2-column service grid, piano + company links. */
+/** Full-width services mega menu, tagline, 2-column service grid, piano + company links. */
 export function ServiceNavMenu({ onNavigate }: Props) {
   const { left: leftRows, right: rightRows } = getServiceNavMenuColumns();
 

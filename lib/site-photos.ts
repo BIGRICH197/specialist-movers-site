@@ -16,8 +16,8 @@ export const sitePhotos = {
   aboutTeam: `${p125}/P1250030.jpg`,
   /** Commercial hero , truck load (not house couch gag) */
   commercialHero: `${p125}/P1250386.jpg`,
-  /** Commercial about , crew on a fit out / kitchen job */
-  commercialFitOut: `${p126}/P1260077.jpg`,
+  /** Packing team in kitchen , packing pages only (P1260077) */
+  kitchenPack: `${p126}/P1260077.jpg`,
   /** Commercial brand moment , truck on site */
   commercialOnSite: `${p125}/P1250366.jpg`,
   /** Commercial , team + trucks at depot (group photo) */
@@ -38,14 +38,24 @@ export const sitePhotos = {
   premiumService: `${p126}/P1260963.jpg`,
   /** Truck loading */
   truckLoad: `${p125}/P1250366.jpg`,
-  /** Kitchen packing team */
-  kitchenPack: `${p126}/P1260077.jpg`,
+  /** Exit clean / kitchen handover */
+  cleaningHero: `${p126}/P1260080.jpg`,
   /** Packing , bubble wrap in kitchen */
   packing: `${p126}/P1260453.jpg`,
   /** Wrapped furniture / specialist handling */
   specialistItem: `${p125}/P1250461.jpg`,
   /** Piano positioning under furniture */
   pianoDetail: `${p125}/P1250836.jpg`,
+  /** Office brand moment , differs from officeMove hero */
+  officeMoment: `${p125}/P1250510.jpg`,
+  /** House brand moment , differs from houseMove hero on Hamilton/local pages */
+  houseMoment: `${p126}/P1260347.jpg`,
+  /** Exit clean brand moment , differs from cleaningHero */
+  cleaningMoment: `${p126}/P1260162.jpg`,
+  /** Storage brand moment */
+  storageMoment: `${p125}/P1250977.jpg`,
+  /** Office about-side , differs from officeMove hero */
+  officeAbout: `${p126}/P1260017.jpg`,
 } as const;
 
 /** Shared purple-band layout for the premium service photo (faces in frame). */
@@ -63,13 +73,21 @@ export const servicePhotoBySlug: Record<string, string> = {
   "house-moving": sitePhotos.homeHero,
   "office-moving": sitePhotos.officeMove,
   "piano-movers": sitePhotos.pianoMove,
-  "commercial-moving": sitePhotos.commercialTeam,
+  "commercial-moving": sitePhotos.commercialHero,
   "packing-services": sitePhotos.packing,
   "hard-to-shift": sitePhotos.hardToShift,
   "loading-unloading": sitePhotos.truckLoad,
-  "cleaning-services": sitePhotos.kitchenPack,
-  "international-moving": `${p125}/P1250386.jpg`,
+  "cleaning-services": sitePhotos.cleaningHero,
+  "international-moving": sitePhotos.commercialHero,
   "winz-quotes": sitePhotos.aboutTeam,
+  storage: sitePhotos.specialistItem,
+  "local-moving": sitePhotos.houseMove,
+  "regional-moving": sitePhotos.truckLoad,
+  "short-term-storage": sitePhotos.specialistItem,
+  "long-term-storage": sitePhotos.specialistItem,
+  "storage-in-transit": sitePhotos.truckLoad,
+  "overnight-storage": sitePhotos.truckLoad,
+  "piano-storage": sitePhotos.pianoCare,
 };
 
 /**
@@ -77,16 +95,17 @@ export const servicePhotoBySlug: Record<string, string> = {
  * Pair with servicePhotoBySlug when adding or editing a service route.
  */
 export const serviceMomentPhotoBySlug: Record<string, string> = {
-  "house-moving": sitePhotos.houseMove,
-  "office-moving": sitePhotos.commercialFitOut,
+  "house-moving": sitePhotos.houseMoment,
+  "office-moving": sitePhotos.officeMoment,
   "piano-movers": sitePhotos.pianoCare,
-  "commercial-moving": sitePhotos.commercialFitOut,
-  "packing-services": `${p126}/P1260446.jpg`,
+  "commercial-moving": sitePhotos.commercialOnSite,
+  "packing-services": sitePhotos.kitchenPack,
   "hard-to-shift": `${p125}/P1250878.jpg`,
   "loading-unloading": `${p125}/P1250386.jpg`,
-  "cleaning-services": `${p126}/P1260080.jpg`,
+  "cleaning-services": sitePhotos.cleaningMoment,
   "international-moving": sitePhotos.homeRainMoment,
   "winz-quotes": `${p125}/P1250204.jpg`,
+  storage: sitePhotos.storageMoment,
 };
 
 /** Piano sub-service pages , moment photo differs from pianoPhotoBySlug hero */
@@ -112,6 +131,65 @@ export function getServicePhoto(slug: string): string | undefined {
 
 export function getServiceMomentPhoto(slug: string): string | undefined {
   return serviceMomentPhotoBySlug[slug];
+}
+
+/**
+ * About-section photo on service/cluster templates — must differ from hero
+ * and purple-band moment on the same page.
+ */
+export const serviceAboutPhotoBySlug: Record<string, string> = {
+  "house-moving": sitePhotos.houseMove,
+  "office-moving": sitePhotos.officeAbout,
+  "piano-movers": sitePhotos.pianoAbout,
+  "commercial-moving": sitePhotos.commercialTeam,
+  "packing-services": `${p126}/P1260446.jpg`,
+  "hard-to-shift": sitePhotos.houseMove,
+  "cleaning-services": sitePhotos.packing,
+  "international-moving": sitePhotos.houseMove,
+  "loading-unloading": sitePhotos.commercialTeam,
+  "winz-quotes": sitePhotos.officeMoment,
+  storage: sitePhotos.truckLoad,
+  "local-moving": sitePhotos.homeHero,
+  "regional-moving": sitePhotos.houseMove,
+  "short-term-storage": sitePhotos.truckLoad,
+  "long-term-storage": sitePhotos.truckLoad,
+  "storage-in-transit": sitePhotos.houseMove,
+  "overnight-storage": sitePhotos.houseMove,
+  "piano-storage": sitePhotos.pianoAbout,
+};
+
+export function getServiceAboutPhoto(slug: string): string | undefined {
+  return serviceAboutPhotoBySlug[slug];
+}
+
+/** About-section photo that never matches the page hero (hero / moment / about must differ). */
+export function getDistinctAboutPhoto(slug: string, heroSrc: string): string {
+  const preferred = getServiceAboutPhoto(slug);
+  if (preferred && preferred !== heroSrc) return preferred;
+
+  const fallbacks: Record<string, string> = {
+    "house-moving": sitePhotos.homeHero,
+    "office-moving": sitePhotos.officeMoment,
+    "piano-movers": sitePhotos.pianoCare,
+    "commercial-moving": sitePhotos.commercialOnSite,
+    "packing-services": sitePhotos.kitchenPack,
+    "cleaning-services": sitePhotos.cleaningMoment,
+    "hard-to-shift": `${p125}/P1250878.jpg`,
+    "loading-unloading": sitePhotos.commercialHero,
+    storage: sitePhotos.storageMoment,
+    "local-moving": sitePhotos.houseMoment,
+    "regional-moving": sitePhotos.truckLoad,
+  };
+
+  const candidates = [
+    fallbacks[slug],
+    sitePhotos.houseMoment,
+    sitePhotos.officeAbout,
+    sitePhotos.homeRainMoment,
+    `${p126}/P1260446.jpg`,
+  ].filter((src): src is string => Boolean(src) && src !== heroSrc);
+
+  return candidates[0] ?? sitePhotos.officeAbout;
 }
 
 export function getPianoMomentPhoto(slug: string): string | undefined {

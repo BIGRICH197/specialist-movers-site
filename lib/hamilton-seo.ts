@@ -11,17 +11,17 @@ import {
 
 const hamiltonCoverageFaq: FaqItem = {
   q: "What areas do you cover from Hamilton?",
-  a: "Yes — daily coverage across Hamilton city, Cambridge, Morrinsville, Te Awamutu, Matamata, and wider Waikato towns. Auckland corridor moves are quoted with travel included upfront.",
+  a: "Yes. daily coverage across Hamilton city, Cambridge, Morrinsville, Te Awamutu, Matamata, and wider Waikato towns. Auckland corridor moves are quoted with travel included upfront.",
 };
 
 const hamiltonBookingFaq: FaqItem = {
   q: "How far in advance should I book a Hamilton move?",
-  a: "Two weeks ahead is ideal for weekends and month-end. Call (021) 228 2728 — we often have sooner slots for local Waikato jobs.",
+  a: "Two weeks ahead is ideal for weekends and month-end. Call (021) 228 2728, we often have sooner slots for local Waikato jobs.",
 };
 
 const hamiltonTravelFaq: FaqItem = {
   q: "Are travel costs included in my Hamilton quote?",
-  a: "Yes — in-area Waikato jobs include travel from our Hamilton base in your written quote. Regional routes (Auckland, Bay of Plenty, etc.) show travel upfront before you book.",
+  a: "Yes. in-area Waikato jobs include travel from our Hamilton base in your written quote. Regional routes (Auckland, Bay of Plenty, etc.) show travel upfront before you book.",
 };
 
 const hamiltonQuoteFaq: FaqItem = {
@@ -32,14 +32,14 @@ const hamiltonQuoteFaq: FaqItem = {
 const hamiltonHouseFaqs: readonly FaqItem[] = [
   {
     q: "How much does it cost to move house in Hamilton?",
-    a: "Most local Hamilton house moves start from around $350 excl. GST for smaller loads. Full home moves are fixed after a free viewing — volume, stairs, and travel drive the final price.",
+    a: "Most local Hamilton house moves start from around $350 excl. GST for smaller loads. Full home moves are fixed after a free viewing, volume, stairs, and travel drive the final price.",
   },
   hamiltonCoverageFaq,
   hamiltonBookingFaq,
   hamiltonTravelFaq,
   {
     q: "Do you offer packing and exit cleaning in Hamilton?",
-    a: "Yes — professional packing the day before your move and fixed-price exit cleans can be added to the same Hamilton quote.",
+    a: "Yes. professional packing the day before your move and fixed-price exit cleans can be added to the same Hamilton quote.",
   },
   hamiltonQuoteFaq,
 ];
@@ -52,7 +52,7 @@ const hamiltonOfficeFaqs: readonly FaqItem[] = [
   hamiltonCoverageFaq,
   {
     q: "Can you move our office after hours?",
-    a: "Yes — weekend and evening Hamilton office moves are available to reduce staff downtime.",
+    a: "Yes. weekend and evening Hamilton office moves are available to reduce staff downtime.",
   },
   hamiltonBookingFaq,
   hamiltonTravelFaq,
@@ -84,7 +84,7 @@ const hamiltonCleaningFaqs: readonly FaqItem[] = [
 const defaultHamiltonFaqs: readonly FaqItem[] = [
   {
     q: "How much does this service cost in Hamilton?",
-    a: "Pricing depends on scope, access, and travel. Most local jobs start from around $350 excl. GST — we confirm a written price before you book.",
+    a: "Pricing depends on scope, access, and travel. Most local jobs start from around $350 excl. GST, we confirm a written price before you book.",
   },
   hamiltonCoverageFaq,
   hamiltonBookingFaq,
@@ -164,10 +164,10 @@ const hamiltonProcesses: Record<
 
 const hamiltonExtraParagraphs: Partial<Record<HamiltonBaseSlug, readonly string[]>> = {
   "piano-movers": [
-    "Every Hamilton piano move uses padded blankets, shrink wrap, and securing straps. Grands are tilted onto piano boards; uprights are wrapped and strapped inside the truck. Humidity and lacquer finishes are protected with proper wrap — not standard furniture blankets alone.",
+    "Every Hamilton piano move uses padded blankets, shrink wrap, and securing straps. Grands are tilted onto piano boards; uprights are wrapped and strapped inside the truck. Humidity and lacquer finishes are protected with proper wrap, not standard furniture blankets alone.",
   ],
   "hard-to-shift": [
-    "Spa pools, safes, and oversized items need planning — we scope weight, access, and equipment before we quote from Hamilton.",
+    "Spa pools, safes, and oversized items need planning, we scope weight, access, and equipment before we quote from Hamilton.",
   ],
 };
 

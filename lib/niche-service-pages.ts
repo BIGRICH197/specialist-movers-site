@@ -16,6 +16,9 @@ export type NicheServicePageConfig = {
   defaultJobType: JobType;
   heroPhoto: string;
   heroPhotoAlt: string;
+  /** About section image , must differ from heroPhoto on the same page */
+  aboutSidePhoto?: string;
+  aboutSidePhotoAlt?: string;
   heroOverlayCaption?: string;
   aboutTitle: string;
   aboutBody: string;
@@ -45,6 +48,8 @@ export const apartmentMoversPage: NicheServicePageConfig = {
   defaultJobType: "House Move",
   heroPhoto: sitePhotos.homeHero,
   heroPhotoAlt: "Specialist Movers crew moving furniture in an Auckland apartment",
+  aboutSidePhoto: sitePhotos.houseMove,
+  aboutSidePhotoAlt: "Crew moving wrapped furniture in an Auckland apartment",
   heroOverlayCaption: "You settle in. We handle the stairs.",
   aboutTitle: "Apartment relocation done properly",
   aboutBody:
@@ -99,11 +104,11 @@ export const apartmentMoversPage: NicheServicePageConfig = {
     },
     {
       q: "How far in advance should I book an apartment move?",
-      a: "Two weeks ahead is ideal for weekends and month-end. Call (021) 228 2728 — we often have sooner slots when lift access allows.",
+      a: "Two weeks ahead is ideal for weekends and month-end. Call (021) 228 2728, we often have sooner slots when lift access allows.",
     },
     {
       q: "How do you protect furniture in tight apartment access?",
-      a: "Yes — blankets, wrap, and careful carry paths are planned before move day. We measure tight turns and stairwells when we quote.",
+      a: "Yes. blankets, wrap, and careful carry paths are planned before move day. We measure tight turns and stairwells when we quote.",
     },
   ],
   processTitle: houseMovingProcess.title,
@@ -128,6 +133,8 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
   defaultJobType: "House Move",
   heroPhoto: sitePhotos.homeHero,
   heroPhotoAlt: "Specialist Movers team carefully handling furniture for a senior client move",
+  aboutSidePhoto: sitePhotos.packing,
+  aboutSidePhotoAlt: "Specialist Movers team carefully packing items for a senior client move",
   heroOverlayCaption: "We listen first. Then we move.",
   aboutTitle: "Moves tailored for seniors and families",
   aboutBody:
@@ -186,7 +193,7 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
     },
     {
       q: "What areas do you cover for retirement home moves?",
-      a: "Yes — Auckland suburbs and Hamilton/Waikato daily. Regional routes to family elsewhere in the North Island are quoted upfront.",
+      a: "Yes. Auckland suburbs and Hamilton/Waikato daily. Regional routes to family elsewhere in the North Island are quoted upfront.",
     },
   ],
   processTitle: houseMovingProcess.title,
@@ -238,6 +245,9 @@ export const movingToAustraliaPage: NicheServicePageConfig = {
   defaultJobType: "House Move",
   heroPhoto: sitePhotos.homeHero,
   heroPhotoAlt: "Specialist Movers international relocation consultation",
+  heroOverlayCaption: "You plan it. We ship it.",
+  aboutSidePhoto: sitePhotos.commercialHero,
+  aboutSidePhotoAlt: "Specialist Movers truck ready for an international relocation load",
   aboutTitle: "International shipping and moving experts",
   aboutBody:
     "We handle household goods, personal effects, and specialist items including vehicles when required. Choose shared container sea freight for value or sole-use containers and air freight when timing matters. Customs, quarantine, and bio-security steps are managed with clear updates along the way.",
@@ -295,7 +305,7 @@ export const movingToAustraliaPage: NicheServicePageConfig = {
     },
     {
       q: "Can you store goods before they ship to Australia?",
-      a: "Yes — short-term storage bridges settlement gaps while freight is booked and customs paperwork is finalised.",
+      a: "Yes. short-term storage bridges settlement gaps while freight is booked and customs paperwork is finalised.",
     },
   ],
   breadcrumbs: [

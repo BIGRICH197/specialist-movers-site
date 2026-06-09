@@ -17,7 +17,7 @@ function getNarrowMq() {
   return window.matchMedia(narrowMq).matches;
 }
 
-/** Horizontal slide reveals widen the page by 48px on phones — use vertical only. */
+/** Horizontal slide reveals widen the page by 48px on phones, use vertical only. */
 function useNarrowViewport() {
   return useSyncExternalStore(subscribeNarrowMq, getNarrowMq, () => true);
 }

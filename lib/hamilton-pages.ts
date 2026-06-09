@@ -1,5 +1,5 @@
 /**
- * Hamilton service pages — separate URLs with unique copy (SEO).
+ * Hamilton service pages, separate URLs with unique copy (SEO).
  * Pattern: /services/{service}-hamilton, /piano-movers/hamilton
  */
 import type { JobType } from "@/lib/site-data";
@@ -184,8 +184,9 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     whyChooseCopy:
       "Hamilton moves fail when travel and access are guessed. We visit when needed, explain call-out and day rates clearly, and keep you updated from quote to handover.",
     defaultJobType: "House Move",
-    heroPhoto: sitePhotos.houseMove,
-    heroPhotoAlt: "Specialist Movers house move crew in the Waikato",
+    heroPhoto: sitePhotos.homeHero,
+    heroPhotoAlt:
+      "Specialist Movers carrying a sofa while the client relaxes and reads a magazine",
     locationHref: "/locations/hamilton",
     locationLabel: "Hamilton and nearby towns",
   },
@@ -248,7 +249,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     lead:
       "Commercial work in Hamilton includes fit-outs, staging, printer and vending deliveries, and tenant relocations. We plan parking, access, and crew size from our Waikato base so install days stay on track.",
     paragraphs: [
-      "Retail, light industrial, and trade clients around Te Rapa and Frankton need reliable contractors who show up on time with the right gear. We work to your schedule, not the other way around.",
+      "Retail, light industrial, and trade clients around Te Rapa and Frankton need reliable contractors who show up on time with the right crew and equipment. We work to your schedule, not the other way around.",
       "Auckland crews support larger Waikato projects when you need extra capacity. One company, clear communication, SiteWise Gold safety systems.",
       "Tight timelines and specialist equipment are normal for us. Tell us what is moving, where it is going, and any building rules we need to follow.",
     ],
@@ -280,8 +281,8 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     whyChooseCopy:
       "Commercial jobs in Hamilton need predictability. We quote scope clearly and turn up with trained crews who treat your site with respect.",
     defaultJobType: "Commercial Move",
-    heroPhoto: sitePhotos.commercialFitOut,
-    heroPhotoAlt: "Commercial fit out move Specialist Movers Waikato",
+    heroPhoto: sitePhotos.commercialHero,
+    heroPhotoAlt: "Commercial movers loading a truck Specialist Movers Waikato",
     locationHref: "/locations/hamilton",
     locationLabel: "Hamilton and Waikato",
   },
@@ -424,8 +425,8 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     whyChooseCopy:
       "Exit cleaning stress usually comes from bad timing. We coordinate with your move so the property is ready when the agent arrives.",
     defaultJobType: "Cleaning",
-    heroPhoto: sitePhotos.kitchenPack,
-    heroPhotoAlt: "Exit clean preparation Specialist Movers Hamilton",
+    heroPhoto: sitePhotos.cleaningHero,
+    heroPhotoAlt: "Exit cleaning team Specialist Movers Hamilton",
     locationHref: "/locations/hamilton",
     locationLabel: "Hamilton area",
   },

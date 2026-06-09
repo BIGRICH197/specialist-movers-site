@@ -50,7 +50,7 @@ export default function MovingDistancePage({
       item={item}
       hubLabel="Moving by distance"
       hubHref={movingDistanceHub.path}
-      photoSlug="house-moving"
+      photoSlug={item.slug}
     />
   );
 }

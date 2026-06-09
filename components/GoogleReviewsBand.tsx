@@ -15,7 +15,7 @@ type Props = {
 };
 
 /**
- * Visible aggregate rating (4.9, 331+) plus readable excerpts — not link-only.
+ * Visible aggregate rating (4.9, 331+) plus readable excerpts, not link-only.
  */
 export function GoogleReviewsBand({
   slot,

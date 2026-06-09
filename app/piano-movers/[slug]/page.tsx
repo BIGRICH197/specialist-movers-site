@@ -53,12 +53,13 @@ export default function PianoSlugPage({ params }: { params: { slug: string } }) 
       heroPhoto={getPianoPhoto(service.slug)}
       heroPhotoAlt={`${service.title} , Specialist Movers`}
       hamiltonBaseSlug="piano-movers"
+      overlayCaptionSlug={service.slug}
+      momentKey={`piano-movers/${service.slug}`}
+      heroVariant="piano"
       bodyParagraphs={seo?.bodyParagraphs}
       faqs={seo?.faqs ?? faqsForService(service.slug)}
       processTitle={seo?.processTitle}
       processSteps={seo?.processSteps}
-      pianoReviews
-      reviewSlot={`piano-${service.slug}`}
     />
   );
 }

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { BrandLogomarkWatermark } from "@/components/BrandLogomarkWatermark";
 import { GoogleRatingBadge } from "@/components/GoogleRatingBadge";
 import { regions } from "@/lib/regions";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
@@ -15,48 +16,53 @@ type Props = {
   topNav?: ReactNode;
   eyebrow?: ReactNode;
   title: ReactNode;
-  /** Desktop left column; optional extra block below trust pills on mobile */
   lead?: ReactNode;
+  /** Extra lines shown after trust pills, before hero photo on desktop. */
+  heroDetail?: readonly string[];
   subline?: ReactNode;
   meta?: ReactNode;
   photo?: ReactNode;
   quote: ReactNode;
   trustPills?: readonly string[];
-  showGoogleBadge?: boolean;
   showPhone?: boolean;
+  heroVariant?: "moving" | "piano";
+  /** Extra lift for desktop Google badge (cm). Piano Auckland landing passes 0. */
+  googleBadgeLiftCm?: number;
   className?: string;
 };
 
 /**
- * Service page hero — on mobile matches homepage order:
- * intro → photo → (Google bar) → quote → phone → trust pills.
- * Desktop: full intro + photo in left column, sticky quote on the right.
+ * Service page hero. Desktop copy order matches HomeHero so the Google badge
+ * sits in the gutter without overlapping text. Trustindex band renders below.
  */
 export function ServiceHeroWithQuote({
   topNav,
   eyebrow,
   title,
   lead,
+  heroDetail = [],
   subline,
   meta,
   photo,
   quote,
   trustPills = defaultTrustPills,
-  showGoogleBadge = true,
   showPhone = true,
+  heroVariant = "moving",
+  googleBadgeLiftCm = 3.5,
   className,
 }: Props) {
+  const badgeTopCm = (heroVariant === "piano" ? 6.5 : 5.5) + googleBadgeLiftCm;
   const phoneLink = showPhone ? (
     <a
       href={`tel:${phoneNumber}`}
-      className="inline-flex font-heading text-2xl font-bold tracking-tight text-brand-yellow transition-colors duration-200 hover:text-white sm:text-3xl"
+      className="mt-6 inline-flex font-heading text-2xl font-bold tracking-tight text-brand-yellow transition-colors duration-200 hover:text-white sm:text-3xl"
     >
       {phoneDisplay}
     </a>
   ) : null;
 
   const trustPillList = (
-    <div className="flex flex-wrap gap-2 text-xs font-semibold text-white/95">
+    <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold text-white/95">
       {trustPills.map((label) => (
         <span
           key={label}
@@ -68,25 +74,47 @@ export function ServiceHeroWithQuote({
     </div>
   );
 
+  const heroDetailBlock =
+    heroDetail.length > 0 ? (
+      <div className="mt-4 max-w-2xl space-y-2 text-sm leading-relaxed text-white/80 sm:text-base">
+        {heroDetail.map((line) => (
+          <p key={line.slice(0, 48)}>{line}</p>
+        ))}
+      </div>
+    ) : null;
+
+  const photoBlock = photo ? <div className="mt-8">{photo}</div> : null;
+
   return (
     <section
       className={cn(
-        "overflow-visible border-b border-white/10 bg-brand-purple py-12 pb-16 text-white sm:py-16 sm:pb-20 lg:py-20 lg:pb-24",
+        "hero-ambient relative scroll-mt-24 overflow-visible border-b border-white/10 bg-brand-purple py-12 pb-16 text-white sm:py-16 sm:pb-20 lg:py-20 lg:pb-24",
         className,
       )}
     >
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+        <BrandLogomarkWatermark mark="yellow" position="bottom-right" size={300} opacity={0.065} />
+        <BrandLogomarkWatermark mark="yellow" position="top-right" size={200} opacity={0.04} />
+      </div>
+
       <div className="relative z-[1] mx-auto max-w-7xl container-px">
+        <GoogleRatingBadge
+          className="pointer-events-auto absolute left-[calc(50%+1cm)] z-20 hidden -translate-x-1/2 xl:flex"
+          style={{ top: `calc(54% - ${badgeTopCm}cm)` }}
+        />
+
         <div className="flex flex-col gap-5 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] xl:gap-12">
-          {/* Mobile: compact intro → photo → Google bar */}
+          {/* Mobile: intro + photo + compact Google bar */}
           <div className="flex min-w-0 flex-col gap-5 lg:hidden">
             {topNav}
             {eyebrow}
             {title}
-            {photo}
-            {showGoogleBadge ? <GoogleRatingBadge variant="compact" /> : null}
+            {lead}
+            {subline}
+            {photo ? <div className="mt-2">{photo}</div> : null}
+            <GoogleRatingBadge variant="compact" />
           </div>
 
-          {/* Quote form — high on mobile, sticky right on desktop */}
           <div
             id="quote"
             className="min-w-0 scroll-mt-28 self-start lg:col-start-2 lg:row-start-1 lg:sticky lg:top-28"
@@ -94,26 +122,25 @@ export function ServiceHeroWithQuote({
             {quote}
           </div>
 
-          {/* Mobile: phone + trust below form */}
           <div className="flex flex-col gap-5 lg:hidden">
+            {heroDetailBlock}
             {phoneLink}
             {trustPillList}
-            {lead}
-            {subline}
             {meta}
           </div>
 
-          {/* Desktop: full left column */}
-          <div className="hidden min-w-0 flex-col gap-5 lg:col-start-1 lg:row-start-1 lg:flex">
+          {/* Desktop: same copy order as HomeHero */}
+          <div className="hidden min-w-0 flex-col lg:col-start-1 lg:row-start-1 lg:flex">
             {topNav}
             {eyebrow}
             {title}
-            {lead}
-            {subline}
-            {meta}
+            {lead ? <div className="mt-4">{lead}</div> : null}
+            {subline ? <div className="mt-3">{subline}</div> : null}
             {phoneLink}
             {trustPillList}
-            {photo}
+            {meta}
+            {heroDetailBlock}
+            {photoBlock}
           </div>
         </div>
       </div>

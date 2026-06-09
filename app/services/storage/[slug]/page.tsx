@@ -43,14 +43,12 @@ export default function StorageDetailPage({
     redirect(item.href);
   }
 
-  const photoSlug = item.slug === "piano-storage" ? "piano-movers" : "house-moving";
-
   return (
     <ServiceClusterDetail
       item={item}
       hubLabel="Storage"
       hubHref={storageHub.path}
-      photoSlug={photoSlug}
+      photoSlug={item.slug}
     />
   );
 }

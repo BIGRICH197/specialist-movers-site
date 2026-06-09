@@ -66,7 +66,7 @@ export function createTown(
   options?: {
     /** Meta title area suffix, e.g. "Waikato", "Bay of Plenty". Omit for name-only title. */
     areaLabel?: string;
-    /** Which depot schedules the work — affects intro copy. */
+    /** Which depot schedules the work, affects intro copy. */
     depot?: "Hamilton" | "Auckland";
   },
 ): Location {

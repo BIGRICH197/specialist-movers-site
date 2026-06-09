@@ -46,7 +46,7 @@ function TownLinks({
   );
 }
 
-/** Full-width locations mega menu — depot columns + sidebar links. */
+/** Full-width locations mega menu, depot columns + sidebar links. */
 export function LocationNavMenu({ onNavigate }: Props) {
   return (
     <div className="relative overflow-hidden py-4 sm:py-5">

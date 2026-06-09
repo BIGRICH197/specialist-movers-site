@@ -1,12 +1,12 @@
 /**
- * Pattern experiments — /patterns only.
+ * Pattern experiments, /patterns only.
  */
 
 .playground-band-deep {
   background-color: #7a2d94;
 }
 
-/* Roadway reference — single row of circles (unchanged) */
+/* Roadway reference, single row of circles (unchanged) */
 .playground-roadway-circles {
   display: block;
   width: 100%;
@@ -32,7 +32,7 @@
   );
 }
 
-/* 3-row brick triangles — solid at top of band, dissolve downward */
+/* 3-row brick triangles, solid at top of band, dissolve downward */
 .playground-roadway-triangles {
   position: absolute;
   inset: 0;
@@ -55,7 +55,7 @@
   mask-repeat: no-repeat;
 }
 
-/* Straddles purple/white boundary — half over each (~75px overlap) */
+/* Straddles purple/white boundary, half over each (~75px overlap) */
 .playground-triangle-straddle {
   position: relative;
   z-index: 1;

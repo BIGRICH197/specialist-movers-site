@@ -19,8 +19,8 @@ export const faqSidebarPhotos = [
     alt: "Packer wrapping items with bubble wrap",
   },
   {
-    src: sitePhotos.kitchenPack,
-    alt: "Team carefully packing in a customer's home",
+    src: sitePhotos.commercialOnSite,
+    alt: "Specialist Movers crew loading a truck on site",
   },
   {
     src: sitePhotos.truckLoad,

@@ -106,7 +106,7 @@ export function LocationPageTemplate({ location }: Props) {
             {faqs.length > 0 ? (
               <div className="mt-12">
                 <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
-                  {location.name} moving — common questions
+                  {location.name} moving, common questions
                 </h2>
                 <dl className="mt-6 space-y-4">
                   {faqs.map((item) => (

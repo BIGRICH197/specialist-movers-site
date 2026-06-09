@@ -6,17 +6,17 @@ import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
 
-import { GoogleReviewsBand } from "@/components/GoogleReviewsBand";
+import { ServiceTrustindexBand } from "@/components/ServiceTrustindexBand";
 
 import { HeroVisual } from "@/components/HeroVisual";
 
 import { NumberedInfoGrid } from "@/components/NumberedInfoGrid";
 
+import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
+
 import { PianoGallerySection } from "@/components/PianoGallerySection";
 
 import { PianoPartnerMarquee } from "@/components/PianoPartnerMarquee";
-
-import { ProcessStepsGrid } from "@/components/ProcessStepsGrid";
 
 import { CleaningBookingForm } from "@/components/CleaningBookingForm";
 
@@ -26,9 +26,32 @@ import { SectionReveal } from "@/components/SectionReveal";
 
 import { ServiceHeroWithQuote } from "@/components/ServiceHeroWithQuote";
 
+import {
+
+  ServiceBottomCta,
+
+  ServiceFaqSection,
+
+  ServiceProcessSection,
+
+  ServiceRelatedLink,
+
+  ServiceRelatedLinksSection,
+
+  ServiceWhyChooseSection,
+
+} from "@/components/ServiceLandingSections";
+
 import type { HamiltonPageConfig } from "@/lib/hamilton-pages";
 
-import { phoneDisplay, phoneNumber } from "@/lib/site-data";
+import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
+
+import {
+  getServiceHeroDetail,
+  getServiceHeroOverlayCaption,
+  serviceHeroSubline,
+} from "@/lib/service-hero-detail";
+import { getDistinctAboutPhoto } from "@/lib/site-photos";
 
 
 
@@ -52,6 +75,19 @@ export function HamiltonServicePage({ config }: Props) {
 
   ];
 
+  const isPiano = config.baseSlug === "piano-movers";
+  const aboutPhoto = getDistinctAboutPhoto(config.baseSlug, config.heroPhoto);
+
+  const processSteps =
+
+    config.processSteps && config.processSteps.length > 0
+
+      ? config.processSteps
+
+      : getServiceProcessSteps(config.baseSlug);
+
+  const reviewSlot = `hamilton-${config.baseSlug}`;
+
 
 
   return (
@@ -69,6 +105,22 @@ export function HamiltonServicePage({ config }: Props) {
 
 
       <ServiceHeroWithQuote
+
+        heroVariant={isPiano ? "piano" : "moving"}
+
+        googleBadgeLiftCm={
+          config.baseSlug === "house-moving"
+            ? 4
+            : config.baseSlug === "office-moving"
+              ? 6
+              : config.baseSlug === "commercial-moving"
+                ? 3
+                : config.baseSlug === "piano-movers"
+                  ? 3
+                  : config.baseSlug === "storage"
+                    ? 4.5
+                    : undefined
+        }
 
         topNav={
 
@@ -96,16 +148,6 @@ export function HamiltonServicePage({ config }: Props) {
 
         }
 
-        eyebrow={
-
-          <p className="inline-flex w-fit max-w-[95%] rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-yellow">
-
-            Hamilton · Waikato base
-
-          </p>
-
-        }
-
         title={
 
           <h1 className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:leading-[1.12]">
@@ -126,9 +168,21 @@ export function HamiltonServicePage({ config }: Props) {
 
         }
 
+        heroDetail={getServiceHeroDetail(config.baseSlug)}
+
+        subline={
+
+          <p className="inline-block max-w-xl rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-snug text-white/90">
+
+            {serviceHeroSubline}
+
+          </p>
+
+        }
+
         meta={
 
-          config.baseSlug === "piano-movers" ? (
+          isPiano ? (
 
             <div className="flex flex-wrap gap-2">
 
@@ -154,11 +208,13 @@ export function HamiltonServicePage({ config }: Props) {
 
           <HeroVisual
 
-            variant="moving"
+            variant={isPiano ? "piano" : "moving"}
 
             photoSrc={config.heroPhoto}
 
             photoAlt={config.heroPhotoAlt}
+
+            overlayCaption={getServiceHeroOverlayCaption(config.baseSlug)}
 
             priority
 
@@ -184,6 +240,22 @@ export function HamiltonServicePage({ config }: Props) {
 
 
 
+      <ServiceTrustindexBand />
+
+
+
+      <PagePhotoMomentStrip
+
+        momentKey={`services/${config.baseSlug}`}
+
+        tone="purple"
+
+        useQuoteAnchor={false}
+
+      />
+
+
+
       {config.showPianoPartners ? (
 
         <div className="mx-auto max-w-7xl px-4 pt-10 sm:px-6 sm:pt-12 lg:px-8">
@@ -196,191 +268,53 @@ export function HamiltonServicePage({ config }: Props) {
 
 
 
-      <SectionReveal className="mx-auto max-w-7xl py-12 container-px sm:py-14">
+      <SectionReveal className="border-t border-brand-purple/10 bg-brand-white py-12 sm:py-14">
 
-        <div className="space-y-4 text-base leading-relaxed text-brand-purple/85">
+        <div className="mx-auto max-w-7xl container-px">
 
-          {config.paragraphs.map((p, i) => (
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-10">
 
-            <p key={i}>{p}</p>
+            <div className="space-y-4 text-base leading-relaxed text-brand-purple/85">
 
-          ))}
+              {config.paragraphs.map((p, i) => (
 
-        </div>
-
-
-
-        <NumberedInfoGrid
-
-          className="mt-8"
-
-          columns={2}
-
-          items={config.highlightCards.map((item) => ({
-
-            title: item.title,
-
-            body: item.body,
-
-          }))}
-
-        />
-
-
-
-        <div className="mt-10 rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm sm:p-8">
-
-          <h2 className="font-heading text-xl text-brand-purple">What we handle</h2>
-
-          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-
-            {config.includedBullets.map((b) => (
-
-              <li key={b} className="flex gap-3 text-sm text-brand-purple/85">
-
-                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-yellow/90 text-brand-purple">
-
-                  <Check className="h-3 w-3" strokeWidth={3} />
-
-                </span>
-
-                <span>{b}</span>
-
-              </li>
-
-            ))}
-
-          </ul>
-
-        </div>
-
-
-
-        <div className="mt-8 rounded-2xl border border-brand-purple/15 bg-brand-purple/[0.04] p-6">
-
-          <h2 className="font-heading text-lg text-brand-purple">Why choose us in Hamilton</h2>
-
-          <p className="mt-3 text-sm leading-relaxed text-brand-purple/85">
-
-            {config.whyChooseCopy}
-
-          </p>
-
-        </div>
-
-
-
-        {config.processSteps && config.processSteps.length > 0 ? (
-
-          <div className="mt-10 rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm sm:p-8">
-
-            <h2 className="font-heading text-2xl text-brand-purple">
-
-              {config.processTitle ?? "How we run your move"}
-
-            </h2>
-
-            <ProcessStepsGrid steps={config.processSteps} className="mt-6" />
-
-          </div>
-
-        ) : null}
-
-
-
-        <GoogleReviewsBand
-
-          slot={`hamilton-${config.baseSlug}`}
-
-          piano={config.baseSlug === "piano-movers"}
-
-        />
-
-
-
-        {config.faqs && config.faqs.length > 0 ? (
-
-          <div className="mt-10">
-
-            <h2 className="font-heading text-2xl text-brand-purple">Common questions</h2>
-
-            <dl className="mt-6 space-y-4">
-
-              {config.faqs.map((item) => (
-
-                <div
-
-                  key={item.q}
-
-                  className="rounded-2xl border border-brand-purple/12 bg-white p-5 shadow-sm"
-
-                >
-
-                  <dt className="font-heading text-base text-brand-purple">{item.q}</dt>
-
-                  <dd className="mt-2 text-sm leading-relaxed text-brand-purple/80">
-
-                    {item.a}
-
-                  </dd>
-
-                </div>
+                <p key={i}>{p}</p>
 
               ))}
 
-            </dl>
+            </div>
+
+            <HeroVisual
+
+              variant="moving"
+
+              photoSrc={aboutPhoto}
+
+              photoAlt={`${config.h1} , Specialist Movers team`}
+
+              className="w-full"
+
+            />
 
           </div>
 
-        ) : null}
 
 
+          <NumberedInfoGrid
 
-        <div className="mt-8 flex flex-wrap gap-3">
+            className="mt-8"
 
-          {config.extraLinks?.map((link) => (
+            columns={2}
 
-            <Link
+            items={config.highlightCards.map((item) => ({
 
-              key={link.href}
+              title: item.title,
 
-              href={link.href}
+              body: item.body,
 
-              className="rounded-full border border-brand-purple/20 bg-white px-4 py-2 text-sm font-semibold text-brand-purple shadow-sm transition hover:border-brand-purple/40"
+            }))}
 
-            >
-
-              {link.label}
-
-            </Link>
-
-          ))}
-
-          <Link
-
-            href={config.parentHref}
-
-            className="rounded-full border border-brand-purple/20 bg-white px-4 py-2 text-sm font-semibold text-brand-purple shadow-sm transition hover:border-brand-purple/40"
-
-          >
-
-            Auckland service page
-
-          </Link>
-
-          <Link
-
-            href={config.locationHref}
-
-            className="inline-flex items-center gap-1.5 rounded-full border border-brand-purple/20 bg-white px-4 py-2 text-sm font-semibold text-brand-purple shadow-sm transition hover:border-brand-purple/40"
-
-          >
-
-            <MapPin className="h-3.5 w-3.5" aria-hidden />
-
-            {config.locationLabel}
-
-          </Link>
+          />
 
         </div>
 
@@ -388,33 +322,125 @@ export function HamiltonServicePage({ config }: Props) {
 
 
 
+      <ServiceWhyChooseSection
+
+        title="Why choose us in Hamilton"
+
+        body={config.whyChooseCopy}
+
+      />
+
+
+
+      <SectionReveal className="border-t border-brand-purple/10 bg-brand-white py-12 sm:py-14">
+
+        <div className="mx-auto max-w-7xl container-px">
+
+          <div className="rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm sm:p-8">
+
+            <h2 className="font-heading text-xl text-brand-purple">What we handle</h2>
+
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+
+              {config.includedBullets.map((b) => (
+
+                <li key={b} className="flex gap-3 text-sm text-brand-purple/85">
+
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-yellow/90 text-brand-purple">
+
+                    <Check className="h-3 w-3" strokeWidth={3} />
+
+                  </span>
+
+                  <span>{b}</span>
+
+                </li>
+
+              ))}
+
+            </ul>
+
+          </div>
+
+        </div>
+
+      </SectionReveal>
+
+
+
+      <ServiceProcessSection
+
+        title={config.processTitle ?? "How we run your move"}
+
+        steps={processSteps}
+
+        reviewSlot={`${reviewSlot}-process`}
+
+        piano={isPiano}
+
+      />
+
+
+
+      <ServiceRelatedLinksSection title="More on this service">
+
+        {config.extraLinks?.map((link) => (
+
+          <ServiceRelatedLink key={link.href} href={link.href}>
+
+            {link.label}
+
+          </ServiceRelatedLink>
+
+        ))}
+
+        <ServiceRelatedLink href={config.parentHref}>Auckland service page</ServiceRelatedLink>
+
+        <Link
+
+          href={config.locationHref}
+
+          className="inline-flex items-center gap-1.5 rounded-full border border-brand-purple/20 bg-white px-4 py-2 text-sm font-semibold text-brand-purple shadow-sm transition hover:border-brand-purple/40 hover:bg-brand-purple/[0.04]"
+
+        >
+
+          <MapPin className="h-3.5 w-3.5" aria-hidden />
+
+          {config.locationLabel}
+
+        </Link>
+
+      </ServiceRelatedLinksSection>
+
+
+
+      <ServiceFaqSection
+
+        heading="Common questions"
+
+        faqs={config.faqs ?? []}
+
+        reviewSlot={`${reviewSlot}-faq`}
+
+        piano={isPiano}
+
+      />
+
+
+
       {config.showPianoGallery ? <PianoGallerySection /> : null}
 
 
 
-      <section className="border-t border-brand-purple/10 bg-brand-purple py-12 text-white sm:py-16">
+      <ServiceBottomCta
 
-        <div className="mx-auto max-w-3xl text-center container-px">
+        title="Get your Hamilton quote"
 
-          <h2 className="font-heading text-2xl sm:text-3xl">Get your Hamilton quote</h2>
+        defaultJobType={config.defaultJobType}
 
-          <p className="mt-4 text-white/85">
+        useCleaningForm={config.baseSlug === "cleaning-services"}
 
-            Use the form above or call{" "}
-
-            <a href={`tel:${phoneNumber}`} className="font-bold text-brand-yellow hover:underline">
-
-              {phoneDisplay}
-
-            </a>
-
-            . We call back within 15 minutes.
-
-          </p>
-
-        </div>
-
-      </section>
+      />
 
     </div>
 

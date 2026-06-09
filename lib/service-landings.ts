@@ -89,7 +89,7 @@ const landingOverrides: Record<
     heroVariant: "piano",
     aboutTitle: "About our piano moving team",
     aboutBody:
-      "At Specialist Piano Movers we focus on safe, efficient transport for pianos of all types and sizes. We are trusted by Steinway and major Auckland music stores including Lewis Eady, Rockshop, and Piano Traders. From our Wairau Valley base we cover the North Shore, central suburbs, west, south, and east Auckland every week. Your piano is an instrument and often a family heirloom. We plan collection, secure transport, and placement on arrival. Every piano is wrapped in padded blankets and shrink wrap before it leaves your home. Uprights are secured upright inside the truck with specialist straps. Grands are tilted onto a piano board, padded, and strapped for the drive. Humidity and lacquer finishes are protected with proper wrap — not just a standard furniture blanket.",
+      "At Specialist Piano Movers we focus on safe, efficient transport for pianos of all types and sizes. We are trusted by Steinway and major Auckland music stores including Lewis Eady, Rockshop, and Piano Traders. From our Wairau Valley base we cover the North Shore, central suburbs, west, south, and east Auckland every week. Your piano is an instrument and often a family heirloom. We plan collection, secure transport, and placement on arrival. Every piano is wrapped in padded blankets and shrink wrap before it leaves your home. Uprights are secured upright inside the truck with specialist straps. Grands are tilted onto a piano board, padded, and strapped for the drive. Humidity and lacquer finishes are protected with proper wrap, not just a standard furniture blanket.",
     trustHighlights: [
       {
         title: "Retailer trusted",
@@ -170,6 +170,9 @@ const landingOverrides: Record<
     faqHeading: "House moving questions",
     processTitle: houseMovingProcess.title,
     processSteps: houseMovingProcess.steps,
+    showAboutSideImage: true,
+    aboutSidePhoto: sitePhotos.houseMove,
+    aboutSidePhotoAlt: "Crew moving wrapped furniture into a home",
   },
   "office-moving": {
     slug: "office-moving",
@@ -209,6 +212,9 @@ const landingOverrides: Record<
     faqHeading: "Office moving questions",
     processTitle: workplaceMovingProcess.title,
     processSteps: workplaceMovingProcess.steps,
+    showAboutSideImage: true,
+    aboutSidePhoto: sitePhotos.officeAbout,
+    aboutSidePhotoAlt: "Specialist Movers office relocation crew at work",
   },
   "commercial-moving": {
     slug: "commercial-moving",
@@ -221,11 +227,11 @@ const landingOverrides: Record<
     heroGagPhoto: sitePhotos.commercialTeam,
     heroGagAlt:
       "Specialist Movers team in uniform with company trucks ready for commercial work",
-    heroOverlayCaption: "You run the business. We move the gear.",
+    heroOverlayCaption: "You run the business. We move it.",
     heroVariant: "moving",
-    aboutSidePhoto: sitePhotos.commercialFitOut,
+    aboutSidePhoto: sitePhotos.commercialHero,
     aboutSidePhotoAlt:
-      "Specialist Movers crew on a commercial kitchen and fit out job",
+      "Specialist Movers truck loaded for a commercial delivery",
     showAboutSideImage: true,
     aboutTitle: "About our commercial moving team",
     aboutBody:

@@ -10,7 +10,7 @@ export const businessInfo = {
     "https://www.facebook.com/people/Specialist-Movers/61563245376572/",
   ] as const,
   /**
-   * Primary Auckland depot — street number not published on the live site.
+   * Primary Auckland depot, street number not published on the live site.
    * TODO: confirm full street address for schema and Google Business Profile parity.
    */
   aucklandAddress: {

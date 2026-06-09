@@ -14,7 +14,6 @@ import { trustindexHomeWidgetId } from "@/lib/trustindex-config";
 import { contactCta, googleReviewsUrl, statsStrip } from "@/lib/homepage-copy";
 import { sectionRevealDirection } from "@/lib/motion";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
-import { GoogleReviewsBand } from "@/components/GoogleReviewsBand";
 import { pianoFaqs } from "@/lib/piano-faqs";
 import {
   pianoHubCities,
@@ -172,7 +171,6 @@ export function PianoHubPage() {
         className="border-t border-brand-purple/10 bg-brand-purple/[0.03] py-12 sm:py-14"
       >
         <div className="mx-auto max-w-6xl container-px">
-          <GoogleReviewsBand slot="piano-hub" piano className="mb-10" />
           <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
             Piano moving questions
           </h2>

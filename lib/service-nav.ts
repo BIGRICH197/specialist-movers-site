@@ -8,7 +8,7 @@ export type ServiceNavLink = {
   href: string;
 };
 
-/** One row in the services menu — service name with Auckland / Hamilton links. */
+/** One row in the services menu, service name with Auckland / Hamilton links. */
 export type ServiceNavRow = {
   key: string;
   /** Parent label in the menu (e.g. Piano moving) */
@@ -50,7 +50,7 @@ function buildServiceNavRow(base: HamiltonBaseSlug): ServiceNavRow {
   };
 }
 
-/** Retirement moves — Auckland + Hamilton city pages (not a paired HamiltonBaseSlug). */
+/** Retirement moves, Auckland + Hamilton city pages (not a paired HamiltonBaseSlug). */
 export const retirementHomeMoversNavRow: ServiceNavRow = {
   key: "retirement-home-movers",
   label: "Retirement home movers",
@@ -64,7 +64,7 @@ export const retirementHomeMoversNavRow: ServiceNavRow = {
   },
 };
 
-/** Mega menu left column — house and packing first. */
+/** Mega menu left column, house and packing first. */
 const serviceNavMenuLeftSlugs: readonly HamiltonBaseSlug[] = [
   "house-moving",
   "packing-services",
@@ -73,7 +73,7 @@ const serviceNavMenuLeftSlugs: readonly HamiltonBaseSlug[] = [
   "hard-to-shift",
 ];
 
-/** Mega menu right column — piano moving first. */
+/** Mega menu right column, piano moving first. */
 const serviceNavMenuRightSlugs: readonly HamiltonBaseSlug[] = [
   "piano-movers",
   "cleaning-services",
@@ -147,7 +147,7 @@ export const serviceNavInternationalExtras: readonly ServiceNavLink[] = [
   { label: "Moving to Australia", href: "/international-moving/moving-to-australia" },
 ] as const;
 
-/** Cluster / guide pages — footer and secondary nav. */
+/** Cluster / guide pages, footer and secondary nav. */
 export const serviceNavClusterLinks: readonly ServiceNavLink[] = [
   { label: "What's included", href: "/services/whats-included" },
   { label: movingDistanceHub.title, href: movingDistanceHub.path },

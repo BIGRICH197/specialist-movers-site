@@ -12,7 +12,7 @@ export type ClusterSeoExtension = {
 };
 
 const regionalPricing =
-  "Longer routes are quoted with travel and access included upfront — no hidden fees on move day.";
+  "Longer routes are quoted with travel and access included upfront, no hidden fees on move day.";
 
 const pianoProtection =
   "Pianos are wrapped in padded blankets and shrink wrap, secured with specialist straps, and carried on piano boards when required.";
@@ -21,7 +21,7 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
   "local-moving": {
     bodyParagraphs: [
       "Local Auckland and Hamilton moves use the same SiteWise Gold crews whether you are in a walk-up apartment or a lifestyle block. We confirm parking, stairs, and lift access before move day.",
-      "Day rates and call-out fees are explained when you quote — Auckland outer suburbs and Waikato zones are priced clearly upfront.",
+      "Day rates and call-out fees are explained when you quote, Auckland outer suburbs and Waikato zones are priced clearly upfront.",
     ],
     faqs: [
       {
@@ -30,7 +30,7 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
       },
       {
         q: "What is included in a local move quote?",
-        a: "Yes — crew labour, truck, blankets, and standard local travel are included. Packing, cleaning, and storage are quoted separately when you need them.",
+        a: "Yes. crew labour, truck, blankets, and standard local travel are included. Packing, cleaning, and storage are quoted separately when you need them.",
       },
       generalServiceFaqs[3],
       generalServiceFaqs[4],
@@ -48,7 +48,7 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
     faqs: [
       {
         q: "How much does a regional move cost?",
-        a: "Regional moves are quoted individually based on volume, both addresses, and travel time. You receive a written price before you confirm — typically one full day on site.",
+        a: "Regional moves are quoted individually based on volume, both addresses, and travel time. You receive a written price before you confirm, typically one full day on site.",
       },
       {
         q: "How long does an Auckland to Hamilton move take?",
@@ -56,11 +56,11 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
       },
       {
         q: "How is furniture protected on longer routes?",
-        a: "Yes — blankets, wrap, and internal truck strapping are standard on every regional load.",
+        a: "Yes. blankets, wrap, and internal truck strapping are standard on every regional load.",
       },
       {
         q: "Are travel costs included upfront?",
-        a: "Yes — travel and access are built into your written quote before you book.",
+        a: "Yes. travel and access are built into your written quote before you book.",
       },
       generalServiceFaqs[3],
       generalServiceFaqs[6],
@@ -70,7 +70,7 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
   },
   "international-moving": {
     bodyParagraphs: [
-      "International and inter-island moves are planned in stages — inventory, written quote, confirmed dates, then pack, export wrap, and coordinated delivery.",
+      "International and inter-island moves are planned in stages, inventory, written quote, confirmed dates, then pack, export wrap, and coordinated delivery.",
       `${pianoProtection} International piano shipping includes export wrap and crating when quoted.`,
       "Long-distance quotes include travel, crew time, and access factored in before you confirm.",
     ],
@@ -81,11 +81,11 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
       },
       {
         q: "What is included in an international move quote?",
-        a: "Yes — labour, packing coordination, and transport to port or freight handover are itemised. Storage in transit can be added when dates do not align.",
+        a: "Yes. labour, packing coordination, and transport to port or freight handover are itemised. Storage in transit can be added when dates do not align.",
       },
       {
         q: "How is a piano protected on an international route?",
-        a: "Yes — export wrap, crating when required, and specialist handling through to freight handover.",
+        a: "Yes. export wrap, crating when required, and specialist handling through to freight handover.",
       },
       generalServiceFaqs[3],
       generalServiceFaqs[4],
@@ -96,7 +96,7 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
   },
   "short-term-storage": {
     bodyParagraphs: [
-      "Short-term storage bridges overlapping tenancies — we collect, wrap, and inventory your goods, then deliver when your next home is ready.",
+      "Short-term storage bridges overlapping tenancies, we collect, wrap, and inventory your goods, then deliver when your next home is ready.",
       regionalPricing,
     ],
     faqs: [
@@ -106,7 +106,7 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
       },
       {
         q: "What is included in storage?",
-        a: "Yes — careful pickup, wrapping on intake, secure holding, and delivery to your new address when ready.",
+        a: "Yes. careful pickup, wrapping on intake, secure holding, and delivery to your new address when ready.",
       },
       generalServiceFaqs[3],
       generalServiceFaqs[6],
@@ -133,7 +133,7 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
       },
       {
         q: "Can I access my goods while in storage?",
-        a: "Yes — retrieval visits are arranged on agreed terms. Most clients book delivery when their new property is ready.",
+        a: "Yes. retrieval visits are arranged on agreed terms. Most clients book delivery when their new property is ready.",
       },
       generalServiceFaqs[3],
       generalServiceFaqs[6],
@@ -156,11 +156,11 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
     faqs: [
       {
         q: "When is storage in transit used?",
-        a: "Yes — when a regional or long-distance move cannot finish in one day, goods are secured between legs rather than left unattended.",
+        a: "Yes. when a regional or long-distance move cannot finish in one day, goods are secured between legs rather than left unattended.",
       },
       {
         q: "Is storage in transit included in the quote?",
-        a: "Yes — overnight or multi-day holding is planned and priced before move day, not added as a surprise.",
+        a: "Yes. overnight or multi-day holding is planned and priced before move day, not added as a surprise.",
       },
       generalServiceFaqs[3],
       generalServiceFaqs[6],
@@ -178,11 +178,11 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
     faqs: [
       {
         q: "When do you use overnight storage?",
-        a: "Yes — when a move spans two days or building rules limit single-day access, your goods are secured overnight between crew shifts.",
+        a: "Yes. when a move spans two days or building rules limit single-day access, your goods are secured overnight between crew shifts.",
       },
       {
         q: "Is overnight storage included in my quote?",
-        a: "Yes — planned overnight legs are priced upfront before you confirm the move.",
+        a: "Yes. planned overnight legs are priced upfront before you confirm the move.",
       },
       generalServiceFaqs[3],
       generalServiceFaqs[6],
@@ -194,7 +194,7 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
   },
   "piano-storage": {
     bodyParagraphs: [
-      `Piano storage is handled by our Specialist Piano Movers team — not generic household locker storage. ${pianoProtection}`,
+      `Piano storage is handled by our Specialist Piano Movers team, not generic household locker storage. ${pianoProtection}`,
       "Short and long-term piano holding is available when settlement dates or international timing does not line up.",
     ],
     faqs: [
@@ -204,7 +204,7 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
       },
       {
         q: "How is my piano protected in storage?",
-        a: "Yes — padded blankets, shrink wrap, and climate-aware handling. Collection and return delivery use the same specialist crew.",
+        a: "Yes. padded blankets, shrink wrap, and climate-aware handling. Collection and return delivery use the same specialist crew.",
       },
       generalServiceFaqs[3],
       generalServiceFaqs[6],

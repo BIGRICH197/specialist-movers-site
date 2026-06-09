@@ -56,7 +56,7 @@ const hamiltonRegionalLinks: LocationNavLink[] = [
   link("Wellington", "wellington"),
 ];
 
-/** Rodney, Kaipara, and Northland — Auckland depot regional schedule. */
+/** Rodney, Kaipara, and Northland, Auckland depot regional schedule. */
 const upperNorthIslandLinks: LocationNavLink[] = [
   link("Warkworth", "warkworth"),
   link("Wellsford", "wellsford"),

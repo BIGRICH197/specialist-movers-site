@@ -11,7 +11,7 @@ type Props = {
   innerClassName?: string;
 };
 
-/** Rounded purple band — matches What's included on the homepage. */
+/** Rounded purple band, matches What's included on the homepage. */
 export function HomePurplePanel({
   id,
   eyebrow,

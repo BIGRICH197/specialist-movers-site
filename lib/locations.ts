@@ -485,7 +485,7 @@ export function getLocationSlugs(): string[] {
   return allLocations.map((l) => l.slug);
 }
 
-/** Header dropdown — All Auckland suburbs first, then Waikato towns. */
+/** Header dropdown, All Auckland suburbs first, then Waikato towns. */
 export type LocationNavItem = {
   label: string;
   href: string;

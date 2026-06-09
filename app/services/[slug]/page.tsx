@@ -82,7 +82,6 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
       faqs={seo?.faqs ?? faqsForService(params.slug)}
       processTitle={seo?.processTitle}
       processSteps={seo?.processSteps}
-      pianoReviews={seo?.piano}
       extraRelatedLinks={
         params.slug === "international-moving"
           ? [

@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Star } from "lucide-react";
@@ -9,14 +10,15 @@ const reviewLine = (count: number) => `Based on ${count}+ reviews`;
 
 type Props = {
   className?: string;
+  style?: CSSProperties;
   /** Square tile for desktop hero gap; compact bar for mobile above the fold */
   variant?: "tile" | "compact";
 };
 
 /**
- * Google rating — square tile (desktop) or compact horizontal bar (mobile).
+ * Google rating, square tile (desktop) or compact horizontal bar (mobile).
  */
-export function GoogleRatingBadge({ className, variant = "tile" }: Props) {
+export function GoogleRatingBadge({ className, style, variant = "tile" }: Props) {
   const label = `${googleRating} out of 5 on Google, ${reviewLine(googleReviewCount)}`;
 
   if (variant === "compact") {
@@ -29,6 +31,7 @@ export function GoogleRatingBadge({ className, variant = "tile" }: Props) {
           "group flex w-full items-center justify-between gap-5 rounded-xl border border-white/25 bg-white/95 px-6 py-2.5 text-brand-purple shadow-[0_8px_28px_-10px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-[border-color,box-shadow] hover:border-brand-yellow/45 hover:shadow-[0_10px_32px_-8px_rgba(151,57,176,0.3)] lg:gap-4 lg:px-4 lg:py-3",
           className,
         )}
+        style={style}
         aria-label={label}
       >
         <span className="flex shrink-0 flex-col items-center gap-1">
@@ -67,6 +70,7 @@ export function GoogleRatingBadge({ className, variant = "tile" }: Props) {
         "group mx-auto flex aspect-square w-[10.5rem] shrink-0 flex-col items-center justify-center gap-1.5 rounded-2xl border-2 border-white/25 bg-white/95 p-4 text-center text-brand-purple shadow-[0_12px_40px_-12px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-[border-color,background-color,box-shadow] hover:border-brand-yellow/50 hover:bg-white hover:shadow-[0_16px_44px_-10px_rgba(151,57,176,0.35)] sm:w-[11rem]",
         className,
       )}
+      style={style}
       aria-label={label}
     >
       <Image

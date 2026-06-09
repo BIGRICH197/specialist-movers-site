@@ -66,7 +66,7 @@ const photoHoverBySrc: Record<string, PhotoHoverPair> = {
     src: hoverPool[2]!,
     alt: "",
   },
-  [sitePhotos.commercialFitOut]: {
+  [sitePhotos.kitchenPack]: {
     src: hoverPool[3]!,
     alt: "",
   },

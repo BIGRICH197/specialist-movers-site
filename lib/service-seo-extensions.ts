@@ -16,7 +16,7 @@ export type ServiceSeoExtension = {
 };
 
 const pianoProtectionBody =
-  "Every piano is wrapped in padded blankets and shrink wrap before it leaves your home. Uprights are secured upright inside the truck with specialist straps. Grands are tilted onto a piano board, padded, and strapped for transport. Humidity and finish are protected with proper wrap — not just a furniture blanket.";
+  "Every piano is wrapped in padded blankets and shrink wrap before it leaves your home. Uprights are secured upright inside the truck with specialist straps. Grands are tilted onto a piano board, padded, and strapped for transport. Humidity and finish are protected with proper wrap, not just a furniture blanket.";
 
 const defaultProcess = houseMovingProcess.steps;
 
@@ -31,13 +31,13 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
     processSteps: [
       { title: "Quote by bedroom count", body: "Fixed packing price based on home size. Add packing when you request your house move quote." },
       { title: "Pack day", body: "Crew packs the day before move day with materials supplied." },
-      { title: "Move day", body: "Pre-packed cartons load faster — your move crew handles furniture and transport." },
+      { title: "Move day", body: "Pre-packed cartons load faster, your move crew handles furniture and transport." },
       { title: "Unpack on request", body: "Unpacking and box removal can be added when you book." },
     ],
   },
   "hard-to-shift": {
     bodyParagraphs: [
-      "Spa pools, large safes, gym equipment, and oversized furniture need planning — we scope access, weight, and equipment before we quote.",
+      "Spa pools, large safes, gym equipment, and oversized furniture need planning, we scope access, weight, and equipment before we quote.",
       "Padded blankets, custom dollies, and extra crew are arranged when needed. We have moved spa pools, bathtubs, and commercial fit-outs across Auckland and the Waikato.",
     ],
     faqs: generalServiceFaqs,
@@ -46,7 +46,7 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
   },
   "cleaning-services": {
     bodyParagraphs: [
-      "Exit cleans are fixed-price by bedrooms and bathrooms on our booking form — no hourly surprises. Kitchen, bathrooms, floors, and living areas are cleaned to tenancy inspection standard.",
+      "Exit cleans are fixed-price by bedrooms and bathrooms on our booking form, no hourly surprises. Kitchen, bathrooms, floors, and living areas are cleaned to tenancy inspection standard.",
       "Settlement-day and post-construction cleans are available across Auckland, Hamilton, and Waikato towns. Add extra living rooms on the form when you need them.",
     ],
     faqs: cleaningServiceFaqs,
@@ -55,12 +55,12 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
       { title: "Fixed quote online", body: "Select bedrooms, bathrooms, and clean type for an instant fixed price." },
       { title: "Schedule around move-out", body: "We book your clean to align with handover or settlement." },
       { title: "Inspection-ready finish", body: "Kitchen, bathrooms, and living areas cleaned to standard." },
-      { title: "Invoice matches quote", body: "Fixed price on the form is what you pay — no hidden add-ons." },
+      { title: "Invoice matches quote", body: "Fixed price on the form is what you pay, no hidden add-ons." },
     ],
   },
   "international-moving": {
     bodyParagraphs: [
-      "International and inter-island moves are planned in stages — inventory, written quote, confirmed dates, then pack, export wrap, and coordinated delivery.",
+      "International and inter-island moves are planned in stages, inventory, written quote, confirmed dates, then pack, export wrap, and coordinated delivery.",
       "We work with trusted partners for overseas freight; North and South Island relocations are run with our own crews and clear timelines.",
     ],
     faqs: generalServiceFaqs,
@@ -70,7 +70,7 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
   },
   "loading-unloading": {
     bodyParagraphs: [
-      "Hire our crew and truck for load-only, unload-only, or both — ideal when you are moving yourself but need experienced movers for the heavy work.",
+      "Hire our crew and truck for load-only, unload-only, or both, ideal when you are moving yourself but need experienced movers for the heavy work.",
       "We bring blankets, straps, and the right crew size for stairs and bulky items. Priced by the hour with a clear minimum call-out.",
     ],
     faqs: generalServiceFaqs,
@@ -85,12 +85,12 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
   "winz-quotes": {
     bodyParagraphs: [
       "WINZ and housing assistance applications need a clear written quote fast. We provide itemised pricing and respond promptly so you have paperwork ready.",
-      "House moves, packing, and cleaning quotes are available — tell us your deadline when you call.",
+      "House moves, packing, and cleaning quotes are available, tell us your deadline when you call.",
     ],
     faqs: [
       {
         q: "How fast can you provide a WINZ quote?",
-        a: "Yes — we aim to return written quotes within one business day. Call (021) 228 2728 if your application deadline is sooner.",
+        a: "Yes. we aim to return written quotes within one business day. Call (021) 228 2728 if your application deadline is sooner.",
       },
       ...generalServiceFaqs.slice(1, 6),
     ],

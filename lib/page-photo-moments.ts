@@ -157,7 +157,7 @@ export const pagePhotoMoments: Record<string, PagePhotoMoment> = {
   },
   "services/office-moving": {
     photo: serviceMomentPhotoBySlug["office-moving"],
-    alt: "Specialist Movers crew on a workplace fit out and relocation job",
+    alt: "Specialist Movers crew carrying office boxes through glass doors",
     caption: "More than movers",
     layout: "wide",
     captionPlacement: "beside",
@@ -186,8 +186,8 @@ export const pagePhotoMoments: Record<string, PagePhotoMoment> = {
   },
   "services/commercial-moving": {
     photo: serviceMomentPhotoBySlug["commercial-moving"],
-    alt: "Specialist Movers crew on a commercial kitchen and fit out job",
-    caption: "Fit outs, kitchens, gear",
+    alt: "Specialist Movers truck on site for a commercial move",
+    caption: "Fit outs, kitchens, installs",
     layout: "wide",
     captionPlacement: "beside",
     showCta: true,
@@ -197,7 +197,7 @@ export const pagePhotoMoments: Record<string, PagePhotoMoment> = {
   "services/packing-services": {
     ...premiumServicePhotoLayout,
     photo: serviceMomentPhotoBySlug["packing-services"],
-    alt: "Specialist Movers team carefully packing in a customer's home",
+    alt: "Specialist Movers packing team wrapping items in a customer's kitchen",
     caption: "Packed right the first time",
     showCta: true,
     defaultJobType: "Packing",
@@ -238,6 +238,15 @@ export const pagePhotoMoments: Record<string, PagePhotoMoment> = {
     showCta: true,
     defaultJobType: "House Move",
     body: "Truck hire or container delivery? Our crew loads and unloads with care and efficiency.",
+  },
+  "services/storage": {
+    ...premiumServicePhotoLayout,
+    photo: serviceMomentPhotoBySlug.storage,
+    alt: "Wrapped furniture ready for secure storage",
+    caption: "Stored until you are ready",
+    showCta: true,
+    defaultJobType: "House Move",
+    body: "Short and long-term storage with careful intake, wrapping, and return delivery when your dates align.",
   },
   "services/winz-quotes": {
     ...premiumServicePhotoLayout,

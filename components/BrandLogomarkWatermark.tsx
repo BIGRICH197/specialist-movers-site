@@ -10,7 +10,7 @@ type Position =
   | "center-right";
 type Mark = "yellow" | "purple";
 
-/** Keep marks inside the section — positive translate-x caused page-wide horizontal overflow. */
+/** Keep marks inside the section, positive translate-x caused page-wide horizontal overflow. */
 const positionClass: Record<Position, string> = {
   "top-left": "left-0 top-0 -translate-x-1/4 -translate-y-1/4",
   "top-right": "right-0 top-0 translate-x-1/4 -translate-y-1/4",
