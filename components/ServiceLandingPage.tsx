@@ -97,11 +97,7 @@ export function ServiceLandingPage({ config }: Props) {
             </nav>
           ) : undefined
         }
-        title={
-          <h1 className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:leading-[1.12]">
-            {config.h1}
-          </h1>
-        }
+        heading={config.h1}
         lead={
           <p className="max-w-2xl text-base leading-relaxed text-white/85">
             {config.lead}
@@ -203,7 +199,11 @@ export function ServiceLandingPage({ config }: Props) {
         </>
       ) : null}
 
-      <ServiceWhyChooseSection title={config.whyTitle} body={config.whyBody} />
+      <ServiceWhyChooseSection
+        title={config.whyTitle}
+        body={config.whyBody}
+        statsVariant={config.slug === "piano-movers" ? "piano" : "default"}
+      />
 
       <ServiceProcessSection
         title={processTitle}

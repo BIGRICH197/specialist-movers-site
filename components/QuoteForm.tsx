@@ -8,6 +8,7 @@ import {
   Phone,
   Home,
   Music,
+  Building2,
   Loader2,
 } from "lucide-react";
 import { AddressAutocomplete } from "@/components/AddressAutocomplete";
@@ -359,6 +360,26 @@ export function QuoteForm({
               </p>
               <p className="text-xs text-brand-purple/60">
                 Fixed pricing for upright and grand pianos
+              </p>
+            </div>
+            <ArrowRight className="ml-auto h-5 w-5 shrink-0 text-brand-purple/40" />
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              set("mode", "office");
+              goStep(1);
+            }}
+            className="flex w-full items-center gap-3 rounded-xl border-2 border-brand-purple/15 bg-white p-4 text-left transition hover:border-brand-yellow hover:bg-brand-yellow/10"
+          >
+            <Building2 className="h-6 w-6 shrink-0 text-brand-purple" />
+            <div>
+              <p className="font-heading text-sm font-bold uppercase tracking-wide text-brand-purple">
+                Office Move
+              </p>
+              <p className="text-xs text-brand-purple/60">
+                Workplace relocations with minimal downtime
               </p>
             </div>
             <ArrowRight className="ml-auto h-5 w-5 shrink-0 text-brand-purple/40" />

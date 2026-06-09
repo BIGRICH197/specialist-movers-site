@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { HeroVisual } from "@/components/HeroVisual";
+import { legacyMetaDescription } from "@/lib/legacy-meta-descriptions";
+import { buildPageMetadata } from "@/lib/seo";
 import { sitePhotos } from "@/lib/site-photos";
 import { PageHero } from "@/components/PageHero";
 import { AboutTeamSection } from "@/components/AboutTeamSection";
@@ -15,8 +16,7 @@ import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "About Us",
-  description:
-    "NZ-owned movers with Auckland and Hamilton bases , house, piano, commercial and specialist moves across Auckland and the Waikato.",
+  description: legacyMetaDescription("about"),
   path: "/about",
 });
 

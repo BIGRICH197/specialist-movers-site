@@ -60,11 +60,7 @@ export function NicheServicePage({ config }: Props) {
           config.path.includes("retirement-home-movers") ? 2.8 : undefined
         }
         topNav={<Breadcrumbs items={crumbs} light />}
-        title={
-          <h1 className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:leading-[1.12]">
-            {config.h1}
-          </h1>
-        }
+        heading={config.h1}
         lead={
           <p className="max-w-2xl text-base leading-relaxed text-white/85">
             {config.lead}

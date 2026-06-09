@@ -107,15 +107,7 @@ export function ServiceCityPage({ config }: Props) {
 
         }
 
-        title={
-
-          <h1 className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:leading-[1.12]">
-
-            {config.h1}
-
-          </h1>
-
-        }
+        heading={config.h1}
 
         lead={
 

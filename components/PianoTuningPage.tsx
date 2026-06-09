@@ -76,17 +76,11 @@ export function PianoTuningPage({ content }: Props) {
 
         heroVariant="piano"
 
+        googleBadgeLiftCm={2.5}
+
         topNav={<Breadcrumbs items={[...content.breadcrumbs]} light />}
 
-        title={
-
-          <h1 className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:leading-[1.12]">
-
-            {content.hero.h1}
-
-          </h1>
-
-        }
+        heading={content.hero.h1}
 
         lead={
 
@@ -248,7 +242,7 @@ export function PianoTuningPage({ content }: Props) {
 
 
 
-      <ServiceWhyChooseSection title="Why book through us" body={content.whyChoose} />
+      <ServiceWhyChooseSection title="Why book through us" body={content.whyChoose} statsVariant="piano" />
 
 
 

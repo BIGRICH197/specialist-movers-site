@@ -14,6 +14,8 @@ export function scrollToInstantQuote() {
   window.history.replaceState(
     null,
     "",
-    `${window.location.pathname}${window.location.search}#instant-quote`,
+    `${window.location.pathname}${window.location.search}${
+      window.location.hash === "#quote" ? "#quote" : "#instant-quote"
+    }`,
   );
 }

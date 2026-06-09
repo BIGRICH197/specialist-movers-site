@@ -9,6 +9,14 @@ import { pianoServices } from "@/lib/site-data";
 
 const RESERVED_PIANO_SLUGS = new Set(["auckland", "hamilton"]);
 
+/** Desktop Google badge offset vs default 3.5cm lift (higher = up, lower = down). */
+const pianoGoogleBadgeLiftCm: Partial<Record<string, number>> = {
+  "grand-piano": 4.5,
+  "international-piano": 2.5,
+  "piano-storage": 2.5,
+  "upright-piano": 4.5,
+};
+
 export function generateStaticParams() {
   return pianoServices
     .filter((s) => s.slug !== "piano-tuning")
@@ -25,9 +33,21 @@ export function generateMetadata({
   if (!service) return {};
   return buildPageMetadata({
     title: service.title,
-    description: `${service.title} by Auckland's dedicated specialist piano moving team.`,
+    description: pianoMetaDescription(service.slug, service.title),
     path: `/piano-movers/${service.slug}`,
   });
+}
+
+function pianoMetaDescription(slug: string, title: string): string {
+  const bySlug: Record<string, string> = {
+    "grand-piano":
+      "Grand piano moving in Auckland. Specialist tilt, board, padding, and strapping. Shrink wrap and insured transport. Free quote.",
+    "upright-piano":
+      "Upright piano movers Auckland. Padded blankets, shrink wrap, and specialist straps. Local and long-distance moves. Free quote.",
+    "international-piano":
+      "International piano shipping from Auckland. Crating, customs coordination, and door-to-door delivery. Specialist Movers. Free quote.",
+  };
+  return bySlug[slug] ?? `${title} by Auckland's dedicated specialist piano moving team. Free quote.`;
 }
 
 export default function PianoSlugPage({ params }: { params: { slug: string } }) {
@@ -56,6 +76,7 @@ export default function PianoSlugPage({ params }: { params: { slug: string } }) 
       overlayCaptionSlug={service.slug}
       momentKey={`piano-movers/${service.slug}`}
       heroVariant="piano"
+      googleBadgeLiftCm={pianoGoogleBadgeLiftCm[service.slug]}
       bodyParagraphs={seo?.bodyParagraphs}
       faqs={seo?.faqs ?? faqsForService(service.slug)}
       processTitle={seo?.processTitle}

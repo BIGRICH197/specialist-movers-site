@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ServiceLandingPage } from "@/components/ServiceLandingPage";
 import { getServiceLandingConfig } from "@/lib/service-landings";
+import { legacyMetaDescription } from "@/lib/legacy-meta-descriptions";
 import { buildPageMetadata } from "@/lib/seo";
 
 const SLUG = "piano-movers";
 
 export const metadata: Metadata = buildPageMetadata({
   title: { absolute: "Piano moving Auckland | Specialist Piano Movers" },
-  description:
-    "Piano moving Auckland for upright, grand, and digital pianos. Trusted by retailers. Local moves, Hamilton routes, international shipping. Free quote, callback in 15 minutes.",
+  description: legacyMetaDescription("piano-movers-auckland"),
   path: "/piano-movers/auckland",
 });
 

@@ -12,7 +12,7 @@ import { SectionReveal } from "@/components/SectionReveal";
 import { SitePhoto } from "@/components/SitePhoto";
 import { TrustindexWidget } from "@/components/TrustindexWidget";
 import { trustindexHomeWidgetId } from "@/lib/trustindex-config";
-import { contactCta, googleReviewsUrl, statsStrip } from "@/lib/homepage-copy";
+import { contactCta, googleReviewsUrl, pianoStatsStrip } from "@/lib/homepage-copy";
 import { sectionRevealDirection } from "@/lib/motion";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
 import { pianoMovingProcess } from "@/lib/moving-process";
@@ -152,7 +152,7 @@ export function PianoHubPage() {
           description="Minimum three trained movers on standard piano jobs. Piano boards, shrink wrap, and trucks built for instruments."
         >
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {statsStrip.items.map((item) => (
+            {pianoStatsStrip.items.map((item) => (
               <div
                 key={item.label}
                 className="rounded-2xl border border-white/15 bg-white/10 p-5"

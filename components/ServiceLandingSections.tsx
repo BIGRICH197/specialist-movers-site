@@ -7,7 +7,7 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { ReviewSidebarColumn } from "@/components/ReviewSidebarColumn";
 import { ScatteredReviews } from "@/components/ScatteredReviews";
 import { SectionReveal } from "@/components/SectionReveal";
-import { contactCta, googleReviewsUrl, statsStrip } from "@/lib/homepage-copy";
+import { contactCta, googleReviewsUrl, pianoStatsStrip, statsStrip } from "@/lib/homepage-copy";
 import { sitePhotos } from "@/lib/site-photos";
 import type { FaqItem } from "@/lib/service-faqs";
 import type { JobType } from "@/lib/site-data";
@@ -17,6 +17,8 @@ type WhyChooseProps = {
   title: string;
   body: string;
   showStats?: boolean;
+  /** Piano service pages show moves from $300, not $350. */
+  statsVariant?: "default" | "piano";
 };
 
 /** Full purple band: why choose copy + homepage stats strip. */
@@ -24,7 +26,10 @@ export function ServiceWhyChooseSection({
   title,
   body,
   showStats = true,
+  statsVariant = "default",
 }: WhyChooseProps) {
+  const statsItems = statsVariant === "piano" ? pianoStatsStrip.items : statsStrip.items;
+
   return (
     <SectionReveal className="border-t border-brand-purple/15 bg-brand-purple py-12 text-white sm:py-14">
       <div className="mx-auto max-w-7xl container-px">
@@ -32,7 +37,7 @@ export function ServiceWhyChooseSection({
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/85">{body}</p>
         {showStats ? (
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {statsStrip.items.map((item) => (
+            {statsItems.map((item) => (
               <div
                 key={item.label}
                 className="rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-sm"

@@ -141,15 +141,7 @@ export function ServiceClusterDetail({
 
         topNav={<Breadcrumbs items={breadcrumbs} light />}
 
-        title={
-
-          <h1 className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:leading-[1.12]">
-
-            {item.title}
-
-          </h1>
-
-        }
+        heading={item.title}
 
         lead={
 

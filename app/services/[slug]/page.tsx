@@ -9,6 +9,7 @@ import { getServicePhoto } from "@/lib/site-photos";
 import { getServiceLandingConfig, isServiceLandingSlug } from "@/lib/service-landings";
 import { getServiceSeoExtension } from "@/lib/service-seo-extensions";
 import { faqsForService } from "@/lib/service-faqs";
+import { legacyMetaForServiceSlug } from "@/lib/legacy-meta-descriptions";
 import { legacyPathForServiceSlug } from "@/lib/legacy-auckland-urls";
 import { services } from "@/lib/site-data";
 
@@ -32,14 +33,17 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   if (landing) {
     return buildPageMetadata({
       title: landing.h1,
-      description: landing.lead,
+      description: legacyMetaForServiceSlug(params.slug) ?? landing.lead,
       path: landing.path,
     });
   }
   const legacyPath = legacyPathForServiceSlug(params.slug);
+  const legacyDescription = legacyMetaForServiceSlug(params.slug);
   return buildPageMetadata({
     title: `${service.title} Auckland`,
-    description: `${service.description} Trusted ${service.title.toLowerCase()} specialists. Auckland base. Free quote. Callback in 15 minutes.`,
+    description:
+      legacyDescription ??
+      `${service.description} Trusted ${service.title.toLowerCase()} specialists. Auckland base. Free quote. Callback in 15 minutes.`,
     path: legacyPath ?? `/services/${service.slug}`,
   });
 }

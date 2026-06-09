@@ -18,7 +18,7 @@ export type PianoCityExtra = {
 export const pianoAucklandCity: PianoCityExtra = {
   metaTitle: "Piano moving Auckland | Specialist Piano Movers",
   metaDescription:
-    "Trusted piano moving in Auckland for upright, grand, and digital pianos. Local, cross-island, and international moves. Skids, dollies, storage, and insured specialist crews. Free quote.",
+    "Hire Special Movers, your piano moving experts in Auckland. We move your piano safely both locally and internationally. Contact us today to know more.",
   lead:
     "Looking for reliable piano moving in Auckland? Specialist Piano Movers handles local moves, runs between Auckland and Hamilton, and coordinates international piano shipping when you need it.",
   paragraphs: [

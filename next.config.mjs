@@ -215,6 +215,26 @@ const nextConfig = {
         destination: "/services",
         permanent: true,
       },
+      {
+        source: "/house-movers-hamilton",
+        destination: "/services/house-moving-hamilton",
+        permanent: true,
+      },
+      {
+        source: "/house-movers-hamilton/",
+        destination: "/services/house-moving-hamilton",
+        permanent: true,
+      },
+      {
+        source: "/locations/auckland-central",
+        destination: "/locations/central-auckland",
+        permanent: true,
+      },
+      {
+        source: "/locations/auckland-central/",
+        destination: "/locations/central-auckland",
+        permanent: true,
+      },
       ...cityRedirects(),
     ];
   },

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { legacyMetaDescription } from "@/lib/legacy-meta-descriptions";
 import { buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
@@ -7,8 +8,7 @@ import { privacyPolicySections } from "@/lib/privacy-policy-sections";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Privacy Policy",
-  description:
-    "How Specialist Movers collects, uses, and protects your personal information.",
+  description: legacyMetaDescription("policies"),
   path: "/policies",
 });
 

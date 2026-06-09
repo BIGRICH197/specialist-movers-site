@@ -3,7 +3,7 @@ import { regions } from "@/lib/regions";
 export const pianoHubMeta = {
   title: "Piano moving Auckland & Hamilton | Specialist Piano Movers",
   description:
-    "Specialist piano moving with Auckland and Hamilton bases. Upright and grand pianos, storage, international shipping, and tuning. Free quote. Callback within 15 minutes.",
+    "Hire Special Movers, your piano moving experts in Auckland. We move your piano safely both locally and internationally. Contact us today to know more.",
 };
 
 export const pianoHubHero = {

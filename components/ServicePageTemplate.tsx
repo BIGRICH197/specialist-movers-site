@@ -52,6 +52,8 @@ type ServicePageTemplateProps = {
   heroVariant?: "moving" | "piano";
   /** Defaults to hamiltonBaseSlug; use piano sub-slugs for distinct on-photo slogans. */
   overlayCaptionSlug?: string;
+  /** Desktop Google badge vertical offset tweak (cm). Lower = badge sits further down. */
+  googleBadgeLiftCm?: number;
 };
 
 export function ServicePageTemplate({
@@ -74,6 +76,7 @@ export function ServicePageTemplate({
   processSteps = [],
   heroVariant = "moving",
   overlayCaptionSlug,
+  googleBadgeLiftCm,
 }: ServicePageTemplateProps) {
   const slug = hamiltonBaseSlug ?? "house-moving";
   const resolvedSteps =
@@ -93,12 +96,9 @@ export function ServicePageTemplate({
       {faqs.length > 0 ? <FaqPageJsonLd items={faqs} /> : null}
       <ServiceHeroWithQuote
         heroVariant={heroVariant}
+        googleBadgeLiftCm={googleBadgeLiftCm}
         topNav={<Breadcrumbs items={breadcrumbs} light />}
-        title={
-          <h1 className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:leading-[1.12]">
-            {title}
-          </h1>
-        }
+        heading={title}
         lead={
           <p className="max-w-2xl text-base leading-relaxed text-white/85">
             {description}
@@ -186,6 +186,7 @@ export function ServicePageTemplate({
       <ServiceWhyChooseSection
         title="Why choose us for this service"
         body={whyChooseCopy}
+        statsVariant={heroVariant === "piano" ? "piano" : "default"}
       />
 
       <SectionReveal className="border-t border-brand-purple/10 bg-brand-white py-12 sm:py-14">

@@ -268,8 +268,8 @@ async function main() {
     report.warnings.push("robots.txt sitemap URL may not match Vercel deployment host");
   }
 
-  // Check portal/simon-james (should not be in sitemap but test exposure)
-  for (const path of ["/portal", "/simon-james", "/patterns"]) {
+  // Check internal preview routes (should not be in sitemap but test exposure)
+  for (const path of ["/portal", "/patterns"]) {
     const r = await fetchWithMeta(path);
     report.samples.internalPages = report.samples.internalPages || [];
     report.samples.internalPages.push({ path, status: r.status });

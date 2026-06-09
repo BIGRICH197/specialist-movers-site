@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
+import { legacyMetaDescription } from "@/lib/legacy-meta-descriptions";
 import { buildPageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,8 +13,7 @@ import { faqs, googleReviewsUrl } from "@/lib/homepage-copy";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "FAQ",
-  description:
-    "Frequently asked questions about house moves, piano moves, packing, and commercial work across Auckland and the Waikato.",
+  description: legacyMetaDescription("faq"),
   path: "/faq",
 });
 

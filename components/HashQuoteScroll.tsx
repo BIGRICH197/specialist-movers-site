@@ -4,12 +4,17 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { scrollToInstantQuote } from "@/lib/scroll-to-quote";
 
-/** Scroll to quote form when landing on /#instant-quote or /#quote. */
+/** Paths where #quote / #instant-quote scroll to an on-page form. */
+const QUOTE_HASH_PATHS = ["/", "/contact"] as const;
+
+/** Scroll to quote form when landing on /#instant-quote, /#quote, or /contact#quote. */
 export function HashQuoteScroll() {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (pathname !== "/") return;
+    if (!pathname || !QUOTE_HASH_PATHS.includes(pathname as (typeof QUOTE_HASH_PATHS)[number])) {
+      return;
+    }
 
     function scrollIfQuoteHash() {
       const hash = window.location.hash;

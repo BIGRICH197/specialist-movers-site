@@ -3,7 +3,7 @@
 ## Build failed on Vercel?
 
 1. Open **Deployments** → failed deployment → **Building** log. The last red line is the real error.
-2. This repo ships **Puppeteer** only for local scripts (`scripts/export-simon-james-pdf.mjs`, etc.). Vercel must **not** download Chromium. `vercel.json` and `.npmrc` set `PUPPETEER_SKIP_DOWNLOAD` / `puppeteer_skip_download=true`. If you removed those files, restore them and redeploy.
+2. If **Puppeteer** is listed in `package.json`, Vercel must **not** download Chromium. `vercel.json` and `.npmrc` set `PUPPETEER_SKIP_DOWNLOAD` / `puppeteer_skip_download=true`. If you removed those files, restore them and redeploy.
 3. Confirm **Root Directory** is empty (repo root), **Framework** is Next.js, **Build Command** is `npm run build`.
 4. Reproduce locally: `npm ci` then `npm run build` (no `.env.local` required for build).
 

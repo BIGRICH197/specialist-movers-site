@@ -12,10 +12,13 @@ const defaultTrustPills = [
   "Callback in 15 min",
 ] as const;
 
+const HEADING_CLASS =
+  "font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:leading-[1.12]";
+
 type Props = {
   topNav?: ReactNode;
   eyebrow?: ReactNode;
-  title: ReactNode;
+  heading: string;
   lead?: ReactNode;
   /** Extra lines shown after trust pills, before hero photo on desktop. */
   heroDetail?: readonly string[];
@@ -40,7 +43,7 @@ type Props = {
 export function ServiceHeroWithQuote({
   topNav,
   eyebrow,
-  title,
+  heading,
   lead,
   heroDetail = [],
   subline,
@@ -117,7 +120,7 @@ export function ServiceHeroWithQuote({
           <div className="flex min-w-0 flex-col gap-5 lg:hidden">
             {topNav}
             {eyebrow}
-            {title}
+            <h1 className={HEADING_CLASS}>{heading}</h1>
             {lead}
             {subline}
             {photo ? <div className="mt-2">{photo}</div> : null}
@@ -143,7 +146,9 @@ export function ServiceHeroWithQuote({
           <div className="hidden min-w-0 flex-col lg:col-start-1 lg:row-start-1 lg:flex">
             {topNav}
             {eyebrow}
-            {title}
+            <p className={HEADING_CLASS} role="heading" aria-level={1}>
+              {heading}
+            </p>
             {lead ? <div className="mt-4">{lead}</div> : null}
             {subline ? <div className="mt-3">{subline}</div> : null}
             {phoneLink}

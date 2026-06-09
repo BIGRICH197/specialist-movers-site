@@ -148,15 +148,7 @@ export function HamiltonServicePage({ config }: Props) {
 
         }
 
-        title={
-
-          <h1 className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:leading-[1.12]">
-
-            {config.h1}
-
-          </h1>
-
-        }
+        heading={config.h1}
 
         lead={
 
@@ -310,11 +302,9 @@ export function HamiltonServicePage({ config }: Props) {
 
 
       <ServiceWhyChooseSection
-
         title="Why choose us in Hamilton"
-
         body={config.whyChooseCopy}
-
+        statsVariant={isPiano ? "piano" : "default"}
       />
 
 

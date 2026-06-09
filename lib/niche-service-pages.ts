@@ -39,7 +39,7 @@ export const apartmentMoversPage: NicheServicePageConfig = {
   path: "/apartment-movers-auckland",
   metaTitle: "Apartment Movers Auckland | Specialist Movers",
   metaDescription:
-    "Apartment movers Auckland. Lifts, stairs, and tight access planned before move day. Free quote. Callback within 15 minutes.",
+    "Moving to a new apartment? Take the help of Specialist Movers who specializes in apartment relocation in Auckland. Click here to learn more.",
   eyebrow: "Auckland apartment moving specialists",
   h1: "Apartment movers Auckland",
   lead:
@@ -124,7 +124,7 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
   path: "/retirement-home-movers-auckland",
   metaTitle: "Retirement Home Movers Auckland | Specialist Movers",
   metaDescription:
-    "Compassionate retirement home movers in Auckland. Full pack and move, in-home visits, and stress-free transitions. Free quote.",
+    "Retiring soon? Hire your personalised retirement home movers, the Specialist Movers in Auckland and experience the difference. Click here now!",
   eyebrow: "Auckland retirement village and rest-home moves",
   h1: "Retirement home movers Auckland",
   lead:

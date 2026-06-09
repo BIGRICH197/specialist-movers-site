@@ -16,6 +16,7 @@ export {
   siteWideBullets,
   siteWiseHomeSection,
   statsStrip,
+  pianoStatsStrip,
   trustPillars,
   whyChooseShort,
   whyUsPage,

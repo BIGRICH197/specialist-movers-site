@@ -7,7 +7,7 @@ export const pianoTuningContent: PianoTuningContent = {
   meta: {
     title: "Piano Tuning | Specialist Piano Movers",
     description:
-      "Piano tuning across Auckland and the Waikato. Experienced tuners for upright and grand pianos. Book after a move or for regular maintenance. Call back within 15 minutes.",
+      "Piano tuning across Auckland and the Waikato. Upright and grand pianos. Book after a move or for maintenance. Callback within 15 minutes.",
   },
   hero: {
     eyebrow: "Auckland & Waikato",

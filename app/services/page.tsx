@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { legacyMetaDescription } from "@/lib/legacy-meta-descriptions";
 import { buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import {
@@ -19,8 +20,7 @@ import { phoneDisplay, phoneNumber, services } from "@/lib/site-data";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Services",
-  description:
-    "House moving, piano moving, commercial relocations, packing, exit cleaning, international moves and more, Auckland and the Waikato.",
+  description: legacyMetaDescription("services"),
   path: "/services",
 });
 

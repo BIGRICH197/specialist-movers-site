@@ -116,6 +116,14 @@ export const statsStrip = {
   ],
 };
 
+/** Piano pages , same SiteWise strip with piano starting price. */
+export const pianoStatsStrip = {
+  ...statsStrip,
+  items: statsStrip.items.map((item) =>
+    item.label === "Moves from" ? { ...item, value: "$300" } : item,
+  ),
+};
+
 /** Homepage purple band , SiteWise stats + numbered detail cards (not the volume stats band). */
 export const siteWiseHomeSection = {
   title: "SiteWise Gold & health and safety",

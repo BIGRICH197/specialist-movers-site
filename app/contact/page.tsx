@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { legacyMetaDescription } from "@/lib/legacy-meta-descriptions";
 import { buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { MessageSquare, Phone } from "lucide-react";
@@ -12,8 +13,7 @@ import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact",
-  description:
-    "Contact Specialist Movers NZ for quotes, bookings and questions , phone, email, or message.",
+  description: legacyMetaDescription("contact"),
   path: "/contact",
 });
 
@@ -82,19 +82,21 @@ export default function ContactPage() {
             </ul>
           </div>
 
-          <ContactForm />
+          <div id="contact-form">
+            <ContactForm />
+          </div>
         </div>
 
-        <aside className="space-y-8 lg:sticky lg:top-28">
+        <aside id="quote" className="scroll-mt-28 space-y-8 lg:sticky lg:top-28">
           <div>
           <p className="mb-2 text-sm font-semibold text-brand-purple">
             Prefer a call-back?
           </p>
-          <QuoteForm defaultJobType="House Move" />
+          <QuoteForm />
           <p className="mt-6 text-center text-sm text-brand-purple/65">
-            Or{" "}
-            <Link href="#quote" className="font-semibold text-brand-purple underline">
-              use the quote form above
+            Or send a message with the{" "}
+            <Link href="#contact-form" className="font-semibold text-brand-purple underline">
+              contact form
             </Link>
             .
           </p>

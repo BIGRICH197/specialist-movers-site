@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { legacyMetaDescription } from "@/lib/legacy-meta-descriptions";
 import { buildPageMetadata } from "@/lib/seo";
 
 import Link from "next/link";
@@ -17,8 +18,7 @@ import { googleReviewsUrl } from "@/lib/homepage-copy";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Reviews",
-  description:
-    "Customer satisfaction is our top priority. Read what Auckland and Waikato customers say about Specialist Movers on Google.",
+  description: legacyMetaDescription("reviews"),
   path: "/reviews",
 });
 
