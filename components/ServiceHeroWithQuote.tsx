@@ -119,7 +119,7 @@ export function ServiceHeroWithQuote({
           {/* Mobile: intro + photo + compact Google bar */}
           <div className="flex min-w-0 flex-col gap-5 lg:hidden">
             {topNav}
-            {eyebrow}
+            {eyebrow ? <div className="self-start">{eyebrow}</div> : null}
             <h1 className={HEADING_CLASS}>{heading}</h1>
             {lead}
             {subline}
@@ -145,7 +145,7 @@ export function ServiceHeroWithQuote({
           {/* Desktop: same copy order as HomeHero */}
           <div className="hidden min-w-0 flex-col lg:col-start-1 lg:row-start-1 lg:flex">
             {topNav}
-            {eyebrow}
+            {eyebrow ? <div className="self-start">{eyebrow}</div> : null}
             <p className={HEADING_CLASS} role="heading" aria-level={1}>
               {heading}
             </p>

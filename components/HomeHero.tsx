@@ -119,7 +119,7 @@ export function HomeHero({
             <motion.p
               variants={reduced ? undefined : item}
               transition={t}
-              className="mb-3 hidden max-w-full rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-yellow lg:inline-flex"
+              className="mb-3 hidden w-fit max-w-[95%] self-start rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-yellow lg:inline-flex"
             >
               {hero.eyebrow}
             </motion.p>
