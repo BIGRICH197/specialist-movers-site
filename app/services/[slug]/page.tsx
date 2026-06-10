@@ -9,6 +9,7 @@ import { getServicePhoto } from "@/lib/site-photos";
 import { getServiceLandingConfig, isServiceLandingSlug } from "@/lib/service-landings";
 import { getServiceSeoExtension } from "@/lib/service-seo-extensions";
 import { faqsForService } from "@/lib/service-faqs";
+import { hardToShiftPageHeroPhoto } from "@/lib/hard-to-shift-gallery";
 import { legacyMetaForServiceSlug } from "@/lib/legacy-meta-descriptions";
 import { legacyPathForServiceSlug } from "@/lib/legacy-auckland-urls";
 import { services } from "@/lib/site-data";
@@ -78,7 +79,11 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
         { label: "Services", href: "/services" },
         { label: service.title },
       ]}
-      heroPhoto={getServicePhoto(service.slug)}
+      heroPhoto={
+        params.slug === "hard-to-shift"
+          ? hardToShiftPageHeroPhoto
+          : getServicePhoto(service.slug)
+      }
       heroPhotoAlt={`${service.title} , Specialist Movers Auckland`}
       hamiltonBaseSlug={service.slug}
       useCleaningQuoteForm={params.slug === "cleaning-services"}
@@ -96,6 +101,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
             ]
           : undefined
       }
+      googleBadgeLiftCm={params.slug === "international-moving" ? 5 : undefined}
     />
   );
 }

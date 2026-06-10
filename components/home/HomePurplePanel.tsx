@@ -33,7 +33,7 @@ export function HomePurplePanel({
       <BrandLogomarkWatermark mark="yellow" position="bottom-left" size={180} opacity={0.05} />
       <div className={cn("relative z-[1] max-w-3xl", innerClassName)}>
         {eyebrow ? (
-          <p className="inline-flex max-w-full rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-yellow">
+          <p className="inline-flex w-fit max-w-[95%] rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-yellow">
             {eyebrow}
           </p>
         ) : null}

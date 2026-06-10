@@ -206,11 +206,11 @@ export const pagePhotoMoments: Record<string, PagePhotoMoment> = {
   "services/hard-to-shift": {
     ...premiumServicePhotoLayout,
     photo: serviceMomentPhotoBySlug["hard-to-shift"],
-    alt: "Specialist Movers crew positioning a heavy item with care",
-    caption: "If it is awkward, we have done it before",
+    alt: "Specialist Movers crane truck preparing a heavy item lift",
+    caption: "Cranes, rigging, and experienced crews for the tough jobs",
     showCta: true,
     defaultJobType: "Hard to Shift",
-    body: "Pool tables, safes, gym gear, and bulky items moved with the right crew and equipment.",
+    body: "Pool tables, safes, spa pools, pianos, and bulky items moved with the right crew and equipment.",
   },
   "services/cleaning-services": {
     ...premiumServicePhotoLayout,

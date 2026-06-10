@@ -187,7 +187,7 @@ export function QuoteForm({
         pricing?: Record<string, unknown>;
       };
       if (data.ok) {
-        set("result", data.pricing ?? null);
+        set("result", { ...(data.pricing ?? {}), enquiryMode: "commercial" });
         setF((prev) => ({ ...prev, mode: "result" }));
         goStep(3);
       } else {
@@ -368,7 +368,7 @@ export function QuoteForm({
           <button
             type="button"
             onClick={() => {
-              set("mode", "office");
+              set("mode", "commercial");
               goStep(1);
             }}
             className="flex w-full items-center gap-3 rounded-xl border-2 border-brand-purple/15 bg-white p-4 text-left transition hover:border-brand-yellow hover:bg-brand-yellow/10"
@@ -376,10 +376,10 @@ export function QuoteForm({
             <Building2 className="h-6 w-6 shrink-0 text-brand-purple" />
             <div>
               <p className="font-heading text-sm font-bold uppercase tracking-wide text-brand-purple">
-                Office Move
+                Commercial
               </p>
               <p className="text-xs text-brand-purple/60">
-                Workplace relocations with minimal downtime
+                Fit-outs, bulky items, and specialist jobs. General enquiry
               </p>
             </div>
             <ArrowRight className="ml-auto h-5 w-5 shrink-0 text-brand-purple/40" />
@@ -444,10 +444,19 @@ export function QuoteForm({
     return (
       <Wrapper className={className} compact={compact}>
         <Header
-          tag="Commercial enquiry"
+          tag="General enquiry"
           title="Tell us about your job"
-          subtitle="We will get back to you within 15 minutes with a tailored quote."
+          subtitle="Commercial moves, fit-outs, and specialist work. We will reply within 15 minutes."
         />
+
+        {startMode === "choose" ? (
+          <BackButton
+            onClick={() => {
+              set("mode", "choose");
+              goStep(0);
+            }}
+          />
+        ) : null}
 
         <div className="space-y-4">
           <div className="space-y-1.5">
@@ -1004,7 +1013,7 @@ export function QuoteForm({
             <p className="text-sm leading-relaxed text-brand-purple">
               Thanks{f.name ? ` ${f.name.split(" ")[0]}` : ""}! Your{" "}
               {modeLabel(
-                defaultJobType === "Commercial Move" ? "commercial" : "office",
+                pricing?.enquiryMode === "commercial" ? "commercial" : "office",
               ).toLowerCase()}{" "}
               details are saved. We will call
               you within <strong>15 minutes</strong> with a tailored quote.

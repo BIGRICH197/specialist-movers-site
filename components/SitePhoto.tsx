@@ -21,6 +21,8 @@ type Props = {
   overlay?: boolean;
   /** Set false to disable hover swap on this instance */
   hoverSwap?: boolean;
+  /** CSS object-position when using object-cover (default center) */
+  objectPosition?: string;
 };
 
 export function SitePhoto({
@@ -31,6 +33,7 @@ export function SitePhoto({
   className = "",
   overlay = false,
   hoverSwap = false,
+  objectPosition = "center",
 }: Props) {
   const hover = hoverSwap ? getPhotoHoverProps(src) : undefined;
   const hasHoverSwap = Boolean(hover?.src);
@@ -52,11 +55,12 @@ export function SitePhoto({
           priority={priority}
           quality={82}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 720px"
-          className={`object-cover object-center ${
+          className={`object-cover ${
             hasHoverSwap
               ? "transition-opacity duration-500 ease-out motion-reduce:transition-none group-hover/photo-swap:opacity-0 group-hover:opacity-0"
               : ""
           }`}
+          style={{ objectPosition }}
           aria-hidden={hasHoverSwap ? true : undefined}
         />
         {hover?.src ? (
@@ -66,7 +70,8 @@ export function SitePhoto({
             fill
             quality={82}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 720px"
-            className="object-cover object-center opacity-0 transition-opacity duration-500 ease-out motion-reduce:transition-none group-hover/photo-swap:opacity-100 group-hover:opacity-100"
+            className="object-cover opacity-0 transition-opacity duration-500 ease-out motion-reduce:transition-none group-hover/photo-swap:opacity-100 group-hover:opacity-100"
+            style={{ objectPosition }}
             aria-hidden
           />
         ) : null}

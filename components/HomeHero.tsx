@@ -147,7 +147,7 @@ export function HomeHero({
             <motion.p
               variants={reduced ? undefined : item}
               transition={t}
-              className="mt-3 hidden max-w-xl rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-snug text-white/90 lg:inline-block"
+              className="mt-3 hidden w-fit max-w-xl self-start rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-snug text-white/90 lg:inline-block"
             >
               {hero.subline}
             </motion.p>

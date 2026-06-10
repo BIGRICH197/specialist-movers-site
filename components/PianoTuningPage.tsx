@@ -42,6 +42,7 @@ import {
   getServiceHeroDetail,
   getServiceHeroOverlayCaption,
   serviceHeroSubline,
+  serviceHeroSublineClass,
 } from "@/lib/service-hero-detail";
 
 import { resolveServiceLink } from "@/lib/service-links";
@@ -96,7 +97,7 @@ export function PianoTuningPage({ content }: Props) {
 
         subline={
 
-          <p className="inline-block max-w-xl rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-snug text-white/90">
+          <p className={serviceHeroSublineClass}>
 
             {content.hero.subline || serviceHeroSubline}
 

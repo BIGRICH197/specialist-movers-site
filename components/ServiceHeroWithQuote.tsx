@@ -150,7 +150,7 @@ export function ServiceHeroWithQuote({
               {heading}
             </p>
             {lead ? <div className="mt-4">{lead}</div> : null}
-            {subline ? <div className="mt-3">{subline}</div> : null}
+            {subline ? <div className="mt-3 self-start">{subline}</div> : null}
             {phoneLink}
             {trustPillList}
             {seoIntroBlock}

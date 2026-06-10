@@ -6,6 +6,7 @@ import type { JobType } from "@/lib/site-data";
 import type { ProcessStep } from "@/components/ProcessStepsGrid";
 import { aucklandServiceHref } from "@/lib/legacy-auckland-urls";
 import { enrichHamiltonPageConfig } from "@/lib/hamilton-seo";
+import { hardToShiftPageHeroPhoto } from "@/lib/hard-to-shift-gallery";
 import { sitePhotos } from "@/lib/site-photos";
 
 export const HAMILTON_SUFFIX = "-hamilton" as const;
@@ -377,8 +378,8 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     whyChooseCopy:
       "Standard movers often say no to the hard jobs. We plan Hamilton specialist moves properly so nothing is improvised on the day.",
     defaultJobType: "Hard to Shift",
-    heroPhoto: sitePhotos.hardToShift,
-    heroPhotoAlt: "Specialist item move Waikato",
+    heroPhoto: hardToShiftPageHeroPhoto,
+    heroPhotoAlt: "Crane lifting a piano to an upper balcony, Specialist Movers",
     locationHref: "/locations/hamilton",
     locationLabel: "Hamilton and Waikato",
   },

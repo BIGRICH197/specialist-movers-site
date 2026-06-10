@@ -25,6 +25,7 @@ import {
   getServiceHeroDetail,
   getServiceHeroOverlayCaption,
   serviceHeroSubline,
+  serviceHeroSublineClass,
 } from "@/lib/service-hero-detail";
 
 type Props = {
@@ -57,7 +58,11 @@ export function NicheServicePage({ config }: Props) {
       <FaqPageJsonLd items={config.faqs} />
       <ServiceHeroWithQuote
         googleBadgeLiftCm={
-          config.path.includes("retirement-home-movers") ? 2.8 : undefined
+          config.path.includes("retirement-home-movers")
+            ? 2.8
+            : config.path.includes("australia")
+              ? 3
+              : undefined
         }
         topNav={<Breadcrumbs items={crumbs} light />}
         heading={config.h1}
@@ -68,7 +73,7 @@ export function NicheServicePage({ config }: Props) {
         }
         heroDetail={getServiceHeroDetail(reviewSlug)}
         subline={
-          <p className="inline-block max-w-xl rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-snug text-white/90">
+          <p className={serviceHeroSublineClass}>
             {config.subline || serviceHeroSubline}
           </p>
         }

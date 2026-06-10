@@ -5,7 +5,7 @@ import { siteName, siteUrl } from "@/lib/site-config";
 /** Served by `app/opengraph-image.tsx` at 1200×630. */
 export const ogImagePath = "/opengraph-image";
 
-const ogImageAlt = `${siteName} — Auckland & Hamilton house and piano movers`;
+const ogImageAlt = `${siteName}, Auckland and Hamilton house and piano movers`;
 
 const defaultOpenGraphImages = [
   {

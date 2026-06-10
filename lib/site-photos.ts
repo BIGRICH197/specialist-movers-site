@@ -2,6 +2,12 @@
  * Curated photo paths (60 originals in public/photos/source).
  * Filenames match WeTransfer batches , swap any time in this file.
  */
+import {
+  hardToShiftAboutPhoto,
+  hardToShiftCardPhoto,
+  hardToShiftMomentPhoto,
+} from "@/lib/hard-to-shift-gallery";
+
 const p125 = "/photos/source/batch-p125";
 const p126 = "/photos/source/batch-p126-p127";
 
@@ -32,8 +38,8 @@ export const sitePhotos = {
   houseMove: `${p125}/P1250461.jpg`,
   /** Office move , crew carrying boxes past client (through glass doors) */
   officeMove: `${p126}/P1260879.jpg`,
-  /** Hard to shift , specialist awkward item handling */
-  hardToShift: `${p125}/P1250836.jpg`,
+  /** Hard to shift , homepage service card (crane truck on site) */
+  hardToShift: hardToShiftCardPhoto,
   /** Premium service , you looking at camera, crew serving (Why Us, FAQ, Contact, etc.) */
   premiumService: `${p126}/P1260963.jpg`,
   /** Truck loading */
@@ -100,7 +106,7 @@ export const serviceMomentPhotoBySlug: Record<string, string> = {
   "piano-movers": sitePhotos.pianoCare,
   "commercial-moving": sitePhotos.commercialOnSite,
   "packing-services": sitePhotos.kitchenPack,
-  "hard-to-shift": `${p125}/P1250878.jpg`,
+  "hard-to-shift": hardToShiftMomentPhoto,
   "loading-unloading": `${p125}/P1250386.jpg`,
   "cleaning-services": sitePhotos.cleaningMoment,
   "international-moving": sitePhotos.homeRainMoment,
@@ -143,7 +149,7 @@ export const serviceAboutPhotoBySlug: Record<string, string> = {
   "piano-movers": sitePhotos.pianoAbout,
   "commercial-moving": sitePhotos.commercialTeam,
   "packing-services": `${p126}/P1260446.jpg`,
-  "hard-to-shift": sitePhotos.houseMove,
+  "hard-to-shift": hardToShiftAboutPhoto,
   "cleaning-services": sitePhotos.packing,
   "international-moving": sitePhotos.houseMove,
   "loading-unloading": sitePhotos.commercialTeam,
@@ -174,7 +180,7 @@ export function getDistinctAboutPhoto(slug: string, heroSrc: string): string {
     "commercial-moving": sitePhotos.commercialOnSite,
     "packing-services": sitePhotos.kitchenPack,
     "cleaning-services": sitePhotos.cleaningMoment,
-    "hard-to-shift": `${p125}/P1250878.jpg`,
+    "hard-to-shift": hardToShiftMomentPhoto,
     "loading-unloading": sitePhotos.commercialHero,
     storage: sitePhotos.storageMoment,
     "local-moving": sitePhotos.houseMoment,

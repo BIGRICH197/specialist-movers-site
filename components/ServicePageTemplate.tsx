@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
 import { ServiceTrustindexBand } from "@/components/ServiceTrustindexBand";
+import { HardToShiftGallerySection } from "@/components/HardToShiftGallerySection";
 import { HeroVisual } from "@/components/HeroVisual";
 import { CleaningBookingForm } from "@/components/CleaningBookingForm";
 import { QuoteForm } from "@/components/QuoteForm";
@@ -24,6 +25,7 @@ import {
   getServiceHeroDetail,
   getServiceHeroOverlayCaption,
   serviceHeroSubline,
+  serviceHeroSublineClass,
 } from "@/lib/service-hero-detail";
 import { getServiceSeoIntro } from "@/lib/service-seo-intro";
 import { getDistinctAboutPhoto, getServicePhoto } from "@/lib/site-photos";
@@ -106,7 +108,7 @@ export function ServicePageTemplate({
         }
         heroDetail={hamiltonBaseSlug ? getServiceHeroDetail(hamiltonBaseSlug) : []}
         subline={
-          <p className="inline-block max-w-xl rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-snug text-white/90">
+          <p className={serviceHeroSublineClass}>
             {serviceHeroSubline}
           </p>
         }
@@ -128,6 +130,9 @@ export function ServicePageTemplate({
                       overlayCaptionSlug ?? hamiltonBaseSlug,
                     )
                   : undefined
+              }
+              imageObjectPosition={
+                hamiltonBaseSlug === "hard-to-shift" ? "center 32%" : undefined
               }
               priority
             />
@@ -152,36 +157,39 @@ export function ServicePageTemplate({
         />
       ) : null}
 
-      <SectionReveal className="border-t border-brand-purple/10 bg-brand-white py-12 sm:py-14">
-        <div className="mx-auto max-w-7xl container-px">
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-10">
-            {bodyParagraphs.length > 0 ? (
-              <div className="space-y-4 text-base leading-relaxed text-brand-purple/85">
-                {bodyParagraphs.map((p) => (
-                  <p key={p.slice(0, 48)}>{p}</p>
-                ))}
-              </div>
-            ) : (
-              <div className="min-w-0">
-                <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
-                  About this service
-                </h2>
-                <p className="mt-4 text-base leading-relaxed text-brand-purple/85">
-                  {description}
-                </p>
-              </div>
-            )}
-            {aboutPhoto ? (
-              <HeroVisual
-                photoSrc={aboutPhoto}
-                photoAlt={`${title} , Specialist Movers team`}
-                className="w-full"
-              />
-            ) : null}
+      {hamiltonBaseSlug !== "hard-to-shift" ? (
+        <SectionReveal className="border-t border-brand-purple/10 bg-brand-white py-12 sm:py-14">
+          <div className="mx-auto max-w-7xl container-px">
+            <div className="grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-10">
+              {bodyParagraphs.length > 0 ? (
+                <div className="space-y-4 text-base leading-relaxed text-brand-purple/85">
+                  {bodyParagraphs.map((p) => (
+                    <p key={p.slice(0, 48)}>{p}</p>
+                  ))}
+                </div>
+              ) : (
+                <div className="min-w-0">
+                  <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
+                    About this service
+                  </h2>
+                  <p className="mt-4 text-base leading-relaxed text-brand-purple/85">
+                    {description}
+                  </p>
+                </div>
+              )}
+              {aboutPhoto ? (
+                <HeroVisual
+                  photoSrc={aboutPhoto}
+                  photoAlt={`${title} , Specialist Movers team`}
+                  className="w-full"
+                />
+              ) : null}
+            </div>
           </div>
+        </SectionReveal>
+      ) : null}
 
-        </div>
-      </SectionReveal>
+      {hamiltonBaseSlug === "hard-to-shift" ? <HardToShiftGallerySection /> : null}
 
       <ServiceWhyChooseSection
         title="Why choose us for this service"

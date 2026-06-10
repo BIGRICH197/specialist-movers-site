@@ -6,15 +6,15 @@ const INSTANT_MESSAGES: Record<QuoteBranch, { tone: "ok" | "warn"; text: string 
   {
     auckland: {
       tone: "ok",
-      text: "Auckland area — instant estimate available for this route.",
+      text: "Auckland area. Instant estimate available for this route.",
     },
     hamilton: {
       tone: "ok",
-      text: "Waikato area — instant estimate available (Hamilton branch rates).",
+      text: "Waikato area. Instant estimate available (Hamilton branch rates).",
     },
     manual: {
       tone: "warn",
-      text: "Auckland ↔ Waikato or outside our auto-quote zones — we will call with a custom price (still free, 15 minutes).",
+      text: "Auckland ↔ Waikato or outside our auto-quote zones. We will call with a custom price (still free, 15 minutes).",
     },
   };
 
@@ -22,15 +22,15 @@ const CALLBACK_MESSAGES: Record<QuoteBranch, { tone: "ok" | "warn"; text: string
   {
     auckland: {
       tone: "ok",
-      text: "Auckland area — we'll call within 15 minutes with a tailored office quote.",
+      text: "Auckland area. We'll call within 15 minutes with a tailored office quote.",
     },
     hamilton: {
       tone: "ok",
-      text: "Waikato area — we'll call within 15 minutes with a tailored office quote.",
+      text: "Waikato area. We'll call within 15 minutes with a tailored office quote.",
     },
     manual: {
       tone: "warn",
-      text: "Auckland ↔ Waikato or longer routes — we'll call within 15 minutes with a tailored office quote.",
+      text: "Auckland ↔ Waikato or longer routes. We'll call within 15 minutes with a tailored office quote.",
     },
   };
 
