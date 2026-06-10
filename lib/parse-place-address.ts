@@ -4,6 +4,7 @@ export type ParsedPlaceAddress = {
   suburb: string;
   city: string;
   region: string;
+  country: string;
 };
 
 type AddressComponent = {
@@ -59,6 +60,7 @@ export function parseAddressComponents(
     "administrative_area_level_2",
   );
   const region = pickComponent(components, "administrative_area_level_1");
+  const country = pickComponent(components, "country");
 
   const parts = [suburb, city, region].filter(Boolean);
   const deduped = Array.from(new Set(parts));
@@ -68,6 +70,7 @@ export function parseAddressComponents(
     suburb,
     city,
     region,
+    country,
   };
 }
 

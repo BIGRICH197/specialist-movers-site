@@ -1,42 +1,30 @@
 "use client";
 
-import { detectQuoteBranch, type QuoteBranch } from "@/lib/pricing";
+import type { ParsedPlaceAddress } from "@/lib/parse-place-address";
+import { resolveQuoteRoute } from "@/lib/quote-route";
 
-const INSTANT_MESSAGES: Record<QuoteBranch, { tone: "ok" | "warn"; text: string }> =
-  {
-    auckland: {
-      tone: "ok",
-      text: "Auckland area. Instant estimate available for this route.",
-    },
-    hamilton: {
-      tone: "ok",
-      text: "Waikato area. Instant estimate available (Hamilton branch rates).",
-    },
-    manual: {
-      tone: "warn",
-      text: "Auckland ↔ Waikato or outside our auto-quote zones. We will call with a custom price (still free, 15 minutes).",
-    },
-  };
+const INSTANT_MESSAGES = {
+  auckland:
+    "Auckland area. Instant estimate available for this route.",
+  hamilton:
+    "Waikato area. Instant estimate available (Hamilton branch rates).",
+} as const;
 
-const CALLBACK_MESSAGES: Record<QuoteBranch, { tone: "ok" | "warn"; text: string }> =
-  {
-    auckland: {
-      tone: "ok",
-      text: "Auckland area. We'll call within 15 minutes with a tailored office quote.",
-    },
-    hamilton: {
-      tone: "ok",
-      text: "Waikato area. We'll call within 15 minutes with a tailored office quote.",
-    },
-    manual: {
-      tone: "warn",
-      text: "Auckland ↔ Waikato or longer routes. We'll call within 15 minutes with a tailored office quote.",
-    },
-  };
+const CALLBACK_MESSAGES = {
+  auckland:
+    "Auckland area. We'll call within 15 minutes with a tailored office quote.",
+  hamilton:
+    "Waikato area. We'll call within 15 minutes with a tailored office quote.",
+} as const;
 
 type Props = {
   pickupAddress: string;
   dropoffAddress: string;
+  pickupVerified?: boolean;
+  dropoffVerified?: boolean;
+  placesActive?: boolean;
+  pickupParsed?: ParsedPlaceAddress | null;
+  dropoffParsed?: ParsedPlaceAddress | null;
   /** House and piano show instant pricing hints; office moves are callback-only. */
   instantQuote?: boolean;
 };
@@ -44,15 +32,53 @@ type Props = {
 export function RouteBranchHint({
   pickupAddress,
   dropoffAddress,
+  pickupVerified = false,
+  dropoffVerified = false,
+  placesActive = false,
+  pickupParsed = null,
+  dropoffParsed = null,
   instantQuote = true,
 }: Props) {
   const pickup = pickupAddress.trim();
   const dropoff = dropoffAddress.trim();
   if (!pickup || !dropoff) return null;
 
-  const branch = detectQuoteBranch(pickup, dropoff);
-  const messages = instantQuote ? INSTANT_MESSAGES : CALLBACK_MESSAGES;
-  const { tone, text } = messages[branch];
+  const route = resolveQuoteRoute({
+    pickupAddress: pickup,
+    dropoffAddress: dropoff,
+    pickupVerified,
+    dropoffVerified,
+    placesActive,
+    pickupParsed,
+    dropoffParsed,
+  });
+
+  let tone: "ok" | "warn" = "warn";
+  let text = "";
+
+  if (route.status === "places_unavailable") {
+    text =
+      "Address lookup is unavailable. We'll call within 15 minutes with your quote.";
+  } else if (route.status === "addresses_unverified") {
+    text =
+      "Choose both addresses from the dropdown so we can confirm they're in our service area. Otherwise we'll call you with a quote.";
+  } else if (route.status === "manual_route") {
+    text = instantQuote
+      ? "Outside our auto-quote zones (for example Auckland to Waikato, or beyond our service area). We'll call with a custom price within 15 minutes."
+      : "Auckland to Waikato or longer routes. We'll call within 15 minutes with a tailored office quote.";
+  } else if (instantQuote) {
+    tone = "ok";
+    text =
+      route.branch === "hamilton"
+        ? INSTANT_MESSAGES.hamilton
+        : INSTANT_MESSAGES.auckland;
+  } else {
+    tone = "ok";
+    text =
+      route.branch === "hamilton"
+        ? CALLBACK_MESSAGES.hamilton
+        : CALLBACK_MESSAGES.auckland;
+  }
 
   return (
     <div

@@ -37,6 +37,8 @@ import {
   HAMILTON_ZONE_B_KEYWORDS,
   HAMILTON_ZONE_C_KEYWORDS,
 } from "./hamilton-pricing-data";
+import { classifyServiceArea } from "./service-area";
+import type { ParsedPlaceAddress } from "./parse-place-address";
 
 export type QuoteBranch = "auckland" | "hamilton" | "manual";
 
@@ -82,28 +84,32 @@ export function detectHamiltonZone(address: string): HamiltonZone {
   return "A";
 }
 
-export function detectQuoteBranch(pickup: string, dropoff: string): QuoteBranch {
-  const pHam = isHamiltonInArea(pickup);
-  const dHam = isHamiltonInArea(dropoff);
-  const pHamOOA = isHamiltonOOA(pickup);
-  const dHamOOA = isHamiltonOOA(dropoff);
-  const pAuckOOA = isAucklandOOA(pickup);
-  const dAuckOOA = isAucklandOOA(dropoff);
+export type QuoteBranchOptions = {
+  pickupParsed?: ParsedPlaceAddress | null;
+  dropoffParsed?: ParsedPlaceAddress | null;
+};
 
-  const pAuckMetro = !pHam && !pAuckOOA;
-  const dAuckMetro = !dHam && !dAuckOOA;
+export function detectQuoteBranch(
+  pickup: string,
+  dropoff: string,
+  options?: QuoteBranchOptions,
+): QuoteBranch {
+  const pZone = classifyServiceArea(pickup, options?.pickupParsed);
+  const dZone = classifyServiceArea(dropoff, options?.dropoffParsed);
 
-  if ((pHam && dAuckMetro) || (dHam && pAuckMetro)) {
+  if (
+    pZone === "outside" ||
+    dZone === "outside" ||
+    pZone === "unrecognised" ||
+    dZone === "unrecognised"
+  ) {
     return "manual";
   }
 
-  if (pHam && dHam && !pHamOOA && !dHamOOA) {
-    return "hamilton";
-  }
-
-  if (!pAuckOOA && !dAuckOOA) {
-    return "auckland";
-  }
+  if (pZone === "auckland" && dZone === "hamilton") return "manual";
+  if (pZone === "hamilton" && dZone === "auckland") return "manual";
+  if (pZone === "hamilton" && dZone === "hamilton") return "hamilton";
+  if (pZone === "auckland" && dZone === "auckland") return "auckland";
 
   return "manual";
 }

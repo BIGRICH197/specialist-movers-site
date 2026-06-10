@@ -11,8 +11,12 @@ import {
   Building2,
   Loader2,
 } from "lucide-react";
-import { AddressAutocomplete } from "@/components/AddressAutocomplete";
+import {
+  AddressAutocomplete,
+  type ParsedPlaceAddress,
+} from "@/components/AddressAutocomplete";
 import { RouteBranchHint } from "@/components/RouteBranchHint";
+import { resolveQuoteRoute } from "@/lib/quote-route";
 import { regions } from "@/lib/regions";
 import type { JobType } from "@/lib/site-data";
 
@@ -126,9 +130,50 @@ export function QuoteForm({
   const [step, setStep] = useState(
     startMode === "choose" || startMode === "callback" ? 0 : 1,
   );
+  const [pickupVerified, setPickupVerified] = useState(false);
+  const [dropoffVerified, setDropoffVerified] = useState(false);
+  const [placesActive, setPlacesActive] = useState(false);
+  const [pickupParsed, setPickupParsed] = useState<ParsedPlaceAddress | null>(
+    null,
+  );
+  const [dropoffParsed, setDropoffParsed] = useState<ParsedPlaceAddress | null>(
+    null,
+  );
+
+  const routeResolution = resolveQuoteRoute({
+    pickupAddress: f.pickupAddress,
+    dropoffAddress: f.dropoffAddress,
+    pickupVerified,
+    dropoffVerified,
+    placesActive,
+    pickupParsed,
+    dropoffParsed,
+  });
+
+  const routeHintProps = {
+    pickupAddress: f.pickupAddress,
+    dropoffAddress: f.dropoffAddress,
+    pickupVerified,
+    dropoffVerified,
+    placesActive,
+    pickupParsed,
+    dropoffParsed,
+  };
 
   const set = <K extends keyof FormState>(key: K, val: FormState[K]) =>
     setF((prev) => ({ ...prev, [key]: val, error: "" }));
+
+  function updatePickupAddress(value: string) {
+    set("pickupAddress", value);
+    setPickupVerified(false);
+    setPickupParsed(null);
+  }
+
+  function updateDropoffAddress(value: string) {
+    set("dropoffAddress", value);
+    setDropoffVerified(false);
+    setDropoffParsed(null);
+  }
 
   const goStep = (n: number) => setStep(n);
 
@@ -218,6 +263,7 @@ export function QuoteForm({
         pickupAddress: f.pickupAddress,
         dropoffAddress: f.dropoffAddress,
         message: f.message,
+        addressesVerified: routeResolution.canInstantQuote,
       };
       payload.serviceType = defaultJobType ?? (f.mode === "house" ? "House Move" : f.mode === "piano" ? "Piano Move" : "Office Move");
 
@@ -571,7 +617,10 @@ export function QuoteForm({
                 <AddressAutocomplete
                   id={addressId("office-pickup")}
                   value={f.pickupAddress}
-                  onChange={(v) => set("pickupAddress", v)}
+                  onChange={updatePickupAddress}
+                  onPlaceSelect={setPickupParsed}
+                  onValidatedChange={setPickupVerified}
+                  onPlacesModeChange={setPlacesActive}
                   placeholder="Start typing street address…"
                   className={field}
                   aria-label="Current office address"
@@ -602,17 +651,16 @@ export function QuoteForm({
                 <AddressAutocomplete
                   id={addressId("office-dropoff")}
                   value={f.dropoffAddress}
-                  onChange={(v) => set("dropoffAddress", v)}
+                  onChange={updateDropoffAddress}
+                  onPlaceSelect={setDropoffParsed}
+                  onValidatedChange={setDropoffVerified}
+                  onPlacesModeChange={setPlacesActive}
                   placeholder="Start typing street address…"
                   className={field}
                   aria-label="New office address"
                 />
               </div>
-              <RouteBranchHint
-                pickupAddress={f.pickupAddress}
-                dropoffAddress={f.dropoffAddress}
-                instantQuote={false}
-              />
+              <RouteBranchHint {...routeHintProps} instantQuote={false} />
               <div className="space-y-1.5">
                 <label className={label}>Access at new site</label>
                 <div className="flex gap-2">
@@ -689,7 +737,10 @@ export function QuoteForm({
                 <AddressAutocomplete
                   id={addressId("house-pickup")}
                   value={f.pickupAddress}
-                  onChange={(v) => set("pickupAddress", v)}
+                  onChange={updatePickupAddress}
+                  onPlaceSelect={setPickupParsed}
+                  onValidatedChange={setPickupVerified}
+                  onPlacesModeChange={setPlacesActive}
                   className={field}
                   aria-label="Pickup address"
                 />
@@ -719,15 +770,15 @@ export function QuoteForm({
                 <AddressAutocomplete
                   id={addressId("house-dropoff")}
                   value={f.dropoffAddress}
-                  onChange={(v) => set("dropoffAddress", v)}
+                  onChange={updateDropoffAddress}
+                  onPlaceSelect={setDropoffParsed}
+                  onValidatedChange={setDropoffVerified}
+                  onPlacesModeChange={setPlacesActive}
                   className={field}
                   aria-label="Drop-off address"
                 />
               </div>
-              <RouteBranchHint
-                pickupAddress={f.pickupAddress}
-                dropoffAddress={f.dropoffAddress}
-              />
+              <RouteBranchHint {...routeHintProps} />
               <div className="space-y-1.5">
                 <label className={label}>Drop-off access</label>
                 <div className="flex gap-2">
@@ -785,7 +836,10 @@ export function QuoteForm({
                 <AddressAutocomplete
                   id={addressId("piano-pickup")}
                   value={f.pickupAddress}
-                  onChange={(v) => set("pickupAddress", v)}
+                  onChange={updatePickupAddress}
+                  onPlaceSelect={setPickupParsed}
+                  onValidatedChange={setPickupVerified}
+                  onPlacesModeChange={setPlacesActive}
                   className={field}
                   aria-label="Pickup address"
                 />
@@ -811,15 +865,15 @@ export function QuoteForm({
                 <AddressAutocomplete
                   id={addressId("piano-dropoff")}
                   value={f.dropoffAddress}
-                  onChange={(v) => set("dropoffAddress", v)}
+                  onChange={updateDropoffAddress}
+                  onPlaceSelect={setDropoffParsed}
+                  onValidatedChange={setDropoffVerified}
+                  onPlacesModeChange={setPlacesActive}
                   className={field}
                   aria-label="Drop-off address"
                 />
               </div>
-              <RouteBranchHint
-                pickupAddress={f.pickupAddress}
-                dropoffAddress={f.dropoffAddress}
-              />
+              <RouteBranchHint {...routeHintProps} />
               <div className="space-y-1.5">
                 <label className={label}>Stairs at drop-off</label>
                 <select
@@ -865,13 +919,15 @@ export function QuoteForm({
   if (step === 2) {
     const canCalculate = Boolean(f.name.trim() && f.phone.trim());
     const isOffice = f.mode === "office";
+    const showInstantPrice =
+      !isOffice && f.mode !== "commercial" && routeResolution.canInstantQuote;
     return (
       <Wrapper className={className} compact={compact}>
         <Header
           tag="Almost done"
           title="Your details"
           subtitle={
-            isOffice
+            isOffice || !showInstantPrice
               ? "We will call you within 15 minutes with a tailored quote."
               : "Enter your contact info and we'll calculate your price."
           }
@@ -983,7 +1039,9 @@ export function QuoteForm({
             <Loader2 className="h-5 w-5 animate-spin" />
           ) : (
             <>
-              {isOffice ? "Request my quote" : "Calculate my price"}
+              {isOffice || !showInstantPrice
+                ? "Request my quote"
+                : "Calculate my price"}
               <ArrowRight className="h-5 w-5 transition group-hover:translate-x-0.5" />
             </>
           )}
@@ -991,7 +1049,8 @@ export function QuoteForm({
 
         {!canCalculate && (
           <p className="mt-2 text-xs text-brand-purple/60">
-            Name and phone are required{isOffice ? "" : " to calculate your price"}.
+            Name and phone are required
+            {isOffice || !showInstantPrice ? "" : " to calculate your price"}.
           </p>
         )}
 
@@ -1042,9 +1101,10 @@ export function QuoteForm({
           <Header tag="Custom quote" title="We'll be in touch" />
           <div className="rounded-xl border-2 border-brand-yellow/60 bg-brand-yellow/20 p-5">
             <p className="text-sm leading-relaxed text-brand-purple">
-              Your route is outside our online quote area (for example Auckland to
-              Waikato, or beyond our service zones). We&apos;ll call you within{" "}
-              <strong>15 minutes</strong> with a custom quote tailored to your move.
+              We couldn&apos;t confirm an instant price for your route (outside
+              our service area, or the address wasn&apos;t verified). We&apos;ll
+              call you within <strong>15 minutes</strong> with a custom quote
+              tailored to your move.
             </p>
           </div>
           <p className="mt-4 text-sm text-brand-purple/60">

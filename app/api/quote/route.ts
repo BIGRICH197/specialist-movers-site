@@ -2,9 +2,11 @@ import { NextResponse } from "next/server";
 import {
   calculateHouseMove,
   calculatePianoMove,
+  needsManualQuote,
   type HouseMoveInput,
   type PianoMoveInput,
 } from "@/lib/pricing";
+import { isGooglePlacesConfigured } from "@/lib/google-places-config";
 import { createHubSpotDeal } from "@/lib/hubspot";
 import type { AccessDifficulty, Bedrooms, PianoType } from "@/lib/pricing-data";
 
@@ -38,7 +40,20 @@ type QuoteBody = {
   phone: string;
   email?: string;
   message?: string;
+  /** Both addresses selected from Google Places and in service area. */
+  addressesVerified?: boolean;
 };
+
+function requiresCustomQuote(
+  pickupAddress: string,
+  dropoffAddress: string,
+  addressesVerified?: boolean,
+): boolean {
+  if (!isGooglePlacesConfigured() || addressesVerified !== true) {
+    return true;
+  }
+  return needsManualQuote(pickupAddress, dropoffAddress);
+}
 
 export async function POST(request: Request) {
   const body = (await request.json()) as QuoteBody;
@@ -109,6 +124,11 @@ export async function POST(request: Request) {
     };
 
     const result = calculateHouseMove(input);
+    const customQuote = requiresCustomQuote(
+      body.pickupAddress,
+      body.dropoffAddress,
+      body.addressesVerified,
+    );
 
     const addOnNotes = [
       body.wantsPacking ? "Packing add-on requested" : "",
@@ -127,6 +147,12 @@ export async function POST(request: Request) {
 
     const notesSuffix = extraNotes ? `\n\n${extraNotes}` : "";
 
+    const manualReason = customQuote
+      ? result.outOfAuckland
+        ? "Outside service area"
+        : "Addresses not verified via Places"
+      : null;
+
     createHubSpotDeal({
       name: body.name,
       phone: body.phone,
@@ -135,11 +161,19 @@ export async function POST(request: Request) {
       pickupAddress: body.pickupAddress,
       dropoffAddress: body.dropoffAddress,
       preferredDate: body.preferredDate,
-      estimatedValue: result.outOfAuckland ? undefined : result.totalIncGst,
-      notes: result.outOfAuckland
-        ? `Website quote: Out of Auckland - custom quote needed\n${parseRooms(body.bedrooms)} rooms, ${body.pickupAddress} → ${body.dropoffAddress}${notesSuffix}`
+      estimatedValue: customQuote ? undefined : result.totalIncGst,
+      notes: customQuote
+        ? `Website quote: Custom quote needed (${manualReason})\n${parseRooms(body.bedrooms)} rooms, ${body.pickupAddress} → ${body.dropoffAddress}${notesSuffix}`
         : `Website quote: $${result.totalIncGst} incl GST\n${result.breakdown}${notesSuffix}`,
     }).catch(console.error);
+
+    if (customQuote) {
+      return NextResponse.json({
+        ok: true,
+        mode: "house",
+        pricing: { outOfAuckland: true, branch: result.branch },
+      });
+    }
 
     return NextResponse.json({ ok: true, mode: "house", pricing: result });
   }
@@ -154,10 +188,21 @@ export async function POST(request: Request) {
     };
 
     const result = calculatePianoMove(input);
+    const customQuote = requiresCustomQuote(
+      body.pickupAddress,
+      body.dropoffAddress,
+      body.addressesVerified,
+    );
 
     const extraNotes = body.message?.trim()
       ? `\n\nCustomer notes:\n${body.message.trim()}`
       : "";
+
+    const manualReason = customQuote
+      ? result.outOfAuckland
+        ? "Outside service area"
+        : "Addresses not verified via Places"
+      : null;
 
     createHubSpotDeal({
       name: body.name,
@@ -166,11 +211,19 @@ export async function POST(request: Request) {
       serviceType: "Piano Move",
       pickupAddress: body.pickupAddress,
       dropoffAddress: body.dropoffAddress,
-      estimatedValue: result.outOfAuckland ? undefined : result.totalIncGst,
-      notes: result.outOfAuckland
-        ? `Website quote: Out of Auckland - custom quote needed\n${body.pianoType} piano, ${body.pickupAddress} → ${body.dropoffAddress}${extraNotes}`
+      estimatedValue: customQuote ? undefined : result.totalIncGst,
+      notes: customQuote
+        ? `Website quote: Custom quote needed (${manualReason})\n${body.pianoType} piano, ${body.pickupAddress} → ${body.dropoffAddress}${extraNotes}`
         : `Website quote: $${result.totalIncGst} incl GST\n${result.breakdown}${extraNotes}`,
     }).catch(console.error);
+
+    if (customQuote) {
+      return NextResponse.json({
+        ok: true,
+        mode: "piano",
+        pricing: { outOfAuckland: true, branch: result.branch },
+      });
+    }
 
     return NextResponse.json({ ok: true, mode: "piano", pricing: result });
   }
