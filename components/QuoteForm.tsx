@@ -425,7 +425,7 @@ export function QuoteForm({
                 Commercial
               </p>
               <p className="text-xs text-brand-purple/60">
-                Fit-outs, bulky items, and specialist jobs. General enquiry
+                Fit-outs and specialist jobs. General enquiry
               </p>
             </div>
             <ArrowRight className="ml-auto h-5 w-5 shrink-0 text-brand-purple/40" />

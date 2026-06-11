@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { importLibrary, setOptions } from "@googlemaps/js-api-loader";
 import {
   parseAddressComponents,
-  parseNewPlaceAddressComponents,
   placeToQuoteAddress,
   type ParsedPlaceAddress,
 } from "@/lib/parse-place-address";
@@ -46,7 +45,7 @@ let mapsOptionsSet = false;
 const manualHint =
   "Type your full street address and suburb (e.g. 12 Main St, Remuera, Auckland).";
 
-type WidgetMode = "places-widget" | "manual";
+type AutocompleteMode = "places" | "manual";
 
 export function AddressAutocomplete({
   id,
@@ -60,18 +59,13 @@ export function AddressAutocomplete({
   disabled,
   "aria-label": ariaLabel,
 }: Props) {
-  const hostRef = useRef<HTMLDivElement>(null);
-  const manualInputRef = useRef<HTMLInputElement>(null);
-  const widgetRef = useRef<google.maps.places.PlaceAutocompleteElement | null>(
-    null,
-  );
+  const inputRef = useRef<HTMLInputElement>(null);
+  const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
   const onChangeRef = useRef(onChange);
   const onPlaceSelectRef = useRef(onPlaceSelect);
   const onValidatedChangeRef = useRef(onValidatedChange);
-  const [mode, setMode] = useState<WidgetMode>(
-    !isGooglePlacesConfigured() || isGoogleMapsAuthFailed()
-      ? "manual"
-      : "places-widget",
+  const [mode, setMode] = useState<AutocompleteMode>(
+    !isGooglePlacesConfigured() || isGoogleMapsAuthFailed() ? "manual" : "places",
   );
   const [hint, setHint] = useState<string | null>(null);
 
@@ -88,7 +82,7 @@ export function AddressAutocomplete({
   }, [onValidatedChange]);
 
   useEffect(() => {
-    onPlacesModeChange?.(mode === "places-widget" && Boolean(apiKey));
+    onPlacesModeChange?.(mode === "places" && Boolean(apiKey));
   }, [mode, onPlacesModeChange]);
 
   useEffect(() => {
@@ -97,13 +91,10 @@ export function AddressAutocomplete({
   }, []);
 
   useEffect(() => {
-    if (mode !== "places-widget" || !apiKey || !hostRef.current) return;
+    if (mode !== "places" || !apiKey || !inputRef.current || disabled) return;
 
     let cancelled = false;
-    let element: google.maps.places.PlaceAutocompleteElement | null = null;
-    let onSelect: EventListener | null = null;
-    let onError: EventListener | null = null;
-    let onInput: EventListener | null = null;
+    let listener: google.maps.MapsEventListener | null = null;
 
     (async () => {
       try {
@@ -112,146 +103,92 @@ export function AddressAutocomplete({
           mapsOptionsSet = true;
         }
 
-        const { PlaceAutocompleteElement } = (await importLibrary(
+        const { Autocomplete } = (await importLibrary(
           "places",
-        )) as google.maps.PlacesLibrary & {
-          PlaceAutocompleteElement: typeof google.maps.places.PlaceAutocompleteElement;
-        };
+        )) as google.maps.PlacesLibrary;
         const { LatLngBounds } = (await importLibrary(
           "core",
         )) as google.maps.CoreLibrary;
 
-        if (cancelled || !hostRef.current || isGoogleMapsAuthFailed()) return;
+        if (cancelled || !inputRef.current || isGoogleMapsAuthFailed()) return;
 
         const bounds = new LatLngBounds(
           { lat: SERVICE_BOUNDS.south, lng: SERVICE_BOUNDS.west },
           { lat: SERVICE_BOUNDS.north, lng: SERVICE_BOUNDS.east },
         );
 
-        element = new PlaceAutocompleteElement({
-          includedRegionCodes: ["nz"],
-          locationBias: bounds,
-          placeholder,
+        const autocomplete = new Autocomplete(inputRef.current, {
+          componentRestrictions: { country: "nz" },
+          bounds,
+          strictBounds: false,
+          fields: ["formatted_address", "address_components"],
+          types: ["address"],
         });
 
-        element.id = id;
-        element.name = id;
-        element.description = ariaLabel ?? placeholder;
-        if (disabled) element.disabled = true;
+        autocompleteRef.current = autocomplete;
 
-        widgetRef.current = element;
-        hostRef.current.replaceChildren(element);
+        listener = autocomplete.addListener("place_changed", () => {
+          const place = autocomplete.getPlace();
+          const formatted = place.formatted_address ?? "";
+          const components = place.address_components ?? [];
 
-        onInput = () => {
-          const next = element?.value?.trim() ?? "";
-          onChangeRef.current(next);
-          onValidatedChangeRef.current?.(false);
-          setHint((current) => (current ? null : current));
-        };
-        element.addEventListener("input", onInput);
-
-        onSelect = async (event) => {
-          try {
-            const { placePrediction } =
-              event as google.maps.places.PlacePredictionSelectEvent;
-            const place = placePrediction.toPlace();
-            await place.fetchFields({
-              fields: ["formattedAddress", "addressComponents"],
-            });
-            const formatted = place.formattedAddress ?? "";
-            const components = place.addressComponents ?? [];
-            const parsed = components.length
-              ? parseNewPlaceAddressComponents(components, formatted)
-              : parseAddressComponents([], formatted);
-            const quoteAddress = placeToQuoteAddress(parsed);
-            onChangeRef.current(quoteAddress);
-            onPlaceSelectRef.current?.(parsed);
-            onValidatedChangeRef.current?.(true);
-            if (element) element.value = quoteAddress;
-            setHint(null);
-          } catch {
+          if (!formatted && components.length === 0) {
             onValidatedChangeRef.current?.(false);
             setHint("Pick an address from the list so we get the right suburb.");
+            return;
           }
-        };
-        element.addEventListener("gmp-select", onSelect);
 
-        onError = () => {
-          markGoogleMapsAuthFailure();
-          if (!cancelled) setMode("manual");
-        };
-        element.addEventListener("gmp-error", onError);
+          const parsed = parseAddressComponents(components, formatted);
+          const quoteAddress = placeToQuoteAddress(parsed);
+          onChangeRef.current(quoteAddress);
+          onPlaceSelectRef.current?.(parsed);
+          onValidatedChangeRef.current?.(true);
+          setHint(null);
+        });
       } catch {
+        markGoogleMapsAuthFailure();
         if (!cancelled) setMode("manual");
       }
     })();
 
     return () => {
       cancelled = true;
-      if (element) {
-        if (onSelect) element.removeEventListener("gmp-select", onSelect);
-        if (onError) element.removeEventListener("gmp-error", onError);
-        if (onInput) element.removeEventListener("input", onInput);
+      if (listener) google.maps.event.removeListener(listener);
+      if (autocompleteRef.current) {
+        google.maps.event.clearInstanceListeners(autocompleteRef.current);
+        autocompleteRef.current = null;
       }
-      widgetRef.current = null;
     };
-  }, [id, mode, disabled, placeholder, ariaLabel]);
-
-  useEffect(() => {
-    if (mode !== "places-widget" || !widgetRef.current) return;
-    const widgetValue = widgetRef.current.value ?? "";
-    if (widgetValue !== value) {
-      widgetRef.current.value = value || null;
-    }
-  }, [value, mode]);
+  }, [mode, disabled]);
 
   function handleFocus() {
     window.requestAnimationFrame(() => {
-      const el =
-        mode === "manual" ? manualInputRef.current : hostRef.current;
-      el?.scrollIntoView({ block: "center", behavior: "smooth" });
+      inputRef.current?.scrollIntoView({ block: "center", behavior: "smooth" });
     });
-  }
-
-  if (mode === "manual" || !apiKey) {
-    return (
-      <div className="space-y-1">
-        <input
-          id={id}
-          ref={manualInputRef}
-          type="text"
-          autoComplete="street-address"
-          value={value}
-          onChange={(e) => {
-            onChange(e.target.value);
-            onValidatedChange?.(false);
-            if (hint) setHint(null);
-          }}
-          onFocus={handleFocus}
-          placeholder={placeholder}
-          className={className}
-          disabled={disabled}
-          aria-label={ariaLabel}
-        />
-        <p className="text-xs text-brand-purple/55">{manualHint}</p>
-        {hint ? (
-          <p className="text-xs font-medium text-amber-800">{hint}</p>
-        ) : null}
-      </div>
-    );
   }
 
   return (
     <div className="space-y-1">
-      <div
-        ref={hostRef}
-        className={`address-autocomplete-host ${className ?? ""}`}
+      <input
+        id={id}
+        ref={inputRef}
+        type="text"
+        autoComplete="off"
+        value={value}
+        onChange={(e) => {
+          onChange(e.target.value);
+          onValidatedChange?.(false);
+          if (hint) setHint(null);
+        }}
         onFocus={handleFocus}
+        placeholder={placeholder}
+        className={className}
+        disabled={disabled}
+        aria-label={ariaLabel}
       />
-      <p className="text-xs text-brand-purple/55">
-        Choose a match from the dropdown so we can confirm your address is in
-        our service area.
-      </p>
+      {mode === "manual" ? (
+        <p className="text-xs text-brand-purple/55">{manualHint}</p>
+      ) : null}
       {hint ? (
         <p className="text-xs font-medium text-amber-800">{hint}</p>
       ) : null}

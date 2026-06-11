@@ -92,19 +92,10 @@ export function HomeHero({
       </div>
 
       <div className="relative z-[1] mx-auto max-w-7xl container-px">
-        <GoogleRatingBadge
-          className={cn(
-            "pointer-events-auto absolute left-[calc(50%+1cm)] z-20 hidden -translate-x-1/2 xl:flex",
-            heroVariant === "piano"
-              ? "top-[calc(54%-6.5cm)]"
-              : "top-[calc(54%-5.5cm)]",
-          )}
-        />
-
-        <div className="flex flex-col gap-5 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] xl:gap-12">
+        <div className="flex flex-col gap-5 overflow-visible lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] xl:gap-12">
           {/* Left column: one h1 for mobile + desktop (different text per breakpoint). */}
           <motion.div
-            className="flex flex-col gap-5 lg:col-start-1 lg:row-start-1"
+            className="flex flex-col gap-5 lg:col-start-1 lg:row-start-1 lg:gap-0"
             variants={reduced ? undefined : container}
             initial={reduced ? false : "hidden"}
             animate="show"
@@ -151,29 +142,27 @@ export function HomeHero({
             >
               {hero.subline}
             </motion.p>
-            <motion.a
-              variants={reduced ? undefined : item}
-              transition={t}
-              href={`tel:${phoneNumber}`}
-              className="mt-6 hidden items-center font-heading text-2xl font-bold tracking-tight text-brand-yellow transition-colors duration-200 hover:text-white sm:mt-6 sm:text-3xl lg:inline-flex"
-              whileHover={reduced ? undefined : { scale: 1.01 }}
-              whileTap={reduced ? undefined : { scale: 0.98 }}
-            >
-              {phoneDisplay}
-            </motion.a>
             <motion.div
               variants={reduced ? undefined : item}
               transition={t}
-              className="mt-5 hidden flex-wrap gap-2 text-xs font-semibold text-white/95 lg:flex"
+              className="mt-6 hidden flex-col gap-4 lg:flex"
             >
-              {trustPills.map((label) => (
-                <span
-                  key={label}
-                  className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5"
-                >
-                  {label}
-                </span>
-              ))}
+              <a
+                href={`tel:${phoneNumber}`}
+                className="inline-flex font-heading text-2xl font-bold tracking-tight text-brand-yellow transition-colors duration-200 hover:text-white sm:text-3xl"
+              >
+                {phoneDisplay}
+              </a>
+              <div className="flex flex-wrap gap-2 text-xs font-semibold text-white/95">
+                {trustPills.map((label) => (
+                  <span
+                    key={label}
+                    className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5"
+                  >
+                    {label}
+                  </span>
+                ))}
+              </div>
             </motion.div>
             <motion.div variants={reduced ? undefined : item} transition={t} className="mt-8 hidden lg:block">
               {heroVisual}
@@ -183,11 +172,21 @@ export function HomeHero({
           {/* Quote form (mobile + desktop) */}
           <motion.div
             id="instant-quote"
-            className="-mt-1 min-w-0 scroll-mt-24 self-start lg:col-start-2 lg:row-start-1 lg:sticky lg:top-28"
+            className={cn(
+              "relative -mt-1 min-w-0 scroll-mt-24 self-start overflow-visible lg:col-start-2 lg:row-start-1 lg:sticky lg:top-28",
+            )}
             initial={reduced ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...t, delay: reduced ? 0 : 0.35 }}
           >
+            <GoogleRatingBadge
+              className={cn(
+                "pointer-events-auto absolute right-full z-20 hidden shrink-0 xl:flex",
+                heroVariant === "piano"
+                  ? "top-[calc(23rem-3.5cm)] mr-[1cm]"
+                  : "top-[calc(23rem-2cm)] mr-[1.5cm]",
+              )}
+            />
             <QuoteForm defaultJobType={defaultJobType} />
           </motion.div>
 
