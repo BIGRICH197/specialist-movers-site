@@ -1,7 +1,6 @@
 "use client";
 
 import type { ParsedPlaceAddress } from "@/lib/parse-place-address";
-import { isQuoteDevBypassClient } from "@/lib/quote-dev-bypass";
 import { resolveQuoteRoute } from "@/lib/quote-route";
 
 const INSTANT_MESSAGES = {
@@ -57,12 +56,7 @@ export function RouteBranchHint({
   let tone: "ok" | "warn" = "warn";
   let text = "";
 
-  if (isQuoteDevBypassClient()) {
-    tone = "ok";
-    text = instantQuote
-      ? "Local test mode — instant estimate (Auckland rates)."
-      : "Local test mode — we'll show a callback confirmation.";
-  } else if (route.status === "places_unavailable") {
+  if (route.status === "places_unavailable") {
     text =
       "Address lookup is unavailable. We'll call within 15 minutes with your quote.";
   } else if (route.status === "addresses_unverified") {

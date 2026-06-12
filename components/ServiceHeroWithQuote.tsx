@@ -181,7 +181,7 @@ export function ServiceHeroWithQuote({
           </div>
 
           {/* Desktop — matches HomeHero */}
-          <div className="hidden w-full min-w-0 flex-col lg:col-start-1 lg:row-start-1 lg:flex lg:gap-0">
+          <div className="hidden w-full min-w-0 flex-col lg:col-start-1 lg:row-start-1 lg:flex lg:gap-0 lg:-translate-y-[1cm]">
             {topNav ? <div className="mb-4">{topNav}</div> : null}
             {photo ? (
               <HeroPhotoFrame

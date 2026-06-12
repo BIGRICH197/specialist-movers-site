@@ -21,7 +21,6 @@ import {
   quotePriceRange,
   shortAddress,
 } from "@/lib/quote-display";
-import { isQuoteDevBypassClient } from "@/lib/quote-dev-bypass";
 import { resolveQuoteRoute } from "@/lib/quote-route";
 import { regions } from "@/lib/regions";
 import type { JobType } from "@/lib/site-data";
@@ -269,8 +268,7 @@ export function QuoteForm({
         pickupAddress: f.pickupAddress,
         dropoffAddress: f.dropoffAddress,
         message: f.message,
-        addressesVerified:
-          isQuoteDevBypassClient() || routeResolution.canInstantQuote,
+        addressesVerified: routeResolution.canInstantQuote,
       };
       payload.serviceType = defaultJobType ?? (f.mode === "house" ? "House Move" : f.mode === "piano" ? "Piano Move" : "Office Move");
 
@@ -927,8 +925,7 @@ export function QuoteForm({
     const canCalculate = Boolean(f.name.trim() && f.phone.trim());
     const isOffice = f.mode === "office";
     const showInstantPrice =
-      isQuoteDevBypassClient() ||
-      (!isOffice && f.mode !== "commercial" && routeResolution.canInstantQuote);
+      !isOffice && f.mode !== "commercial" && routeResolution.canInstantQuote;
     return (
       <Wrapper className={className} compact={compact}>
         <Header
@@ -1101,8 +1098,7 @@ export function QuoteForm({
       );
     }
 
-    const isOutOfAuckland =
-      pricing?.outOfAuckland === true && !isQuoteDevBypassClient();
+    const isOutOfAuckland = pricing?.outOfAuckland === true;
 
     if (isOutOfAuckland) {
       return (
@@ -1185,9 +1181,8 @@ export function QuoteForm({
         <div className="mt-4 space-y-2 rounded-xl border border-brand-purple/10 bg-white px-4 py-4 text-sm leading-relaxed text-brand-purple/80">
           <p className="font-semibold text-brand-purple">What happens next</p>
           <p>
-            We&apos;ve saved your details. A moving consultant will call you within{" "}
-            <strong>15 minutes</strong> to confirm access, timing, and your final
-            quote.
+            We&apos;ve saved your details. One of our team will call you as soon
+            as possible to confirm access, timing, and your final quote.
           </p>
           <p className="text-xs text-brand-purple/60">
             *Subject to volume and access on the day. Insurance quoted separately

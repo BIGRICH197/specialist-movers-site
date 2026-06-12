@@ -111,7 +111,7 @@ export function HomeHero({
         <div className="flex flex-col gap-5 overflow-visible lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] xl:gap-12">
           {/* Left column: one h1 for mobile + desktop (different text per breakpoint). */}
           <motion.div
-            className="flex w-full min-w-0 flex-col gap-5 lg:col-start-1 lg:row-start-1 lg:gap-0"
+            className="flex w-full min-w-0 flex-col gap-5 lg:col-start-1 lg:row-start-1 lg:gap-0 lg:-translate-y-[1cm]"
             variants={reduced ? undefined : container}
             initial={reduced ? false : "hidden"}
             animate="show"

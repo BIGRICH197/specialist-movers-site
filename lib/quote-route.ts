@@ -1,6 +1,5 @@
 import { isGooglePlacesConfigured } from "@/lib/google-places-config";
 import type { ParsedPlaceAddress } from "@/lib/parse-place-address";
-import { isQuoteDevBypassClient } from "@/lib/quote-dev-bypass";
 import { detectQuoteBranch, type QuoteBranch } from "@/lib/pricing";
 
 export type QuoteRouteStatus =
@@ -35,23 +34,6 @@ export function resolveQuoteRoute(params: ResolveParams): QuoteRouteResolution {
       status: "addresses_unverified",
       branch: "manual",
       canInstantQuote: false,
-    };
-  }
-
-  if (isQuoteDevBypassClient()) {
-    const branch = detectQuoteBranch(pickup, dropoff, {
-      pickupParsed: params.pickupParsed,
-      dropoffParsed: params.dropoffParsed,
-    });
-    const effectiveBranch: QuoteBranch =
-      branch === "manual" ? "auckland" : branch;
-    return {
-      status:
-        effectiveBranch === "hamilton"
-          ? "instant_hamilton"
-          : "instant_auckland",
-      branch: effectiveBranch,
-      canInstantQuote: true,
     };
   }
 
