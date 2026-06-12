@@ -104,6 +104,11 @@ export function ServiceLandingPage({ config }: Props) {
           regions.serviceAreaBadge,
           "Callback in 15 min",
         ]}
+        phoneBlockClassName={
+          config.slug === "house-moving"
+            ? "mt-[calc(1.5rem+1cm)]"
+            : undefined
+        }
       />
 
       <ServiceTrustindexBand />

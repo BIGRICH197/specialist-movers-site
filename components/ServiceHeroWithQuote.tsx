@@ -40,6 +40,8 @@ type Props = {
   seoIntro?: ReactNode;
   /** Allow long headings to wrap on desktop (e.g. niche pages). */
   headingNowrap?: boolean;
+  /** Optional override for desktop phone + trust pills block spacing. */
+  phoneBlockClassName?: string;
   className?: string;
 };
 
@@ -63,6 +65,7 @@ export function ServiceHeroWithQuote({
   heroVariant = "moving",
   seoIntro,
   headingNowrap = true,
+  phoneBlockClassName = "mt-6",
   className,
 }: Props) {
   const pianoTrustPills =
@@ -195,7 +198,7 @@ export function ServiceHeroWithQuote({
             ) : null}
             {lead ? <div className="mt-5 max-w-2xl">{lead}</div> : null}
             {subline ? <div className="mt-3 self-start">{subline}</div> : null}
-            <div className="mt-6 flex flex-col gap-4">
+            <div className={cn("flex flex-col gap-4", phoneBlockClassName)}>
               {phoneLink}
               {trustPillList}
             </div>

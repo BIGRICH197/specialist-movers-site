@@ -8,6 +8,7 @@ import {
   type ParsedPlaceAddress,
 } from "@/lib/parse-place-address";
 import { isGooglePlacesConfigured } from "@/lib/google-places-config";
+import { isQuoteDevBypassClient } from "@/lib/quote-dev-bypass";
 import {
   ensureGoogleMapsAuthFailureHook,
   isGoogleMapsAuthFailed,
@@ -45,7 +46,16 @@ let mapsOptionsSet = false;
 const manualHint =
   "Type your full street address and suburb (e.g. 12 Main St, Remuera, Auckland).";
 
+const localDevHint =
+  "Local test mode — type any address (e.g. 12 Main St, Remuera, Auckland).";
+
 type AutocompleteMode = "places" | "manual";
+
+function shouldUseManualMode(): boolean {
+  if (isQuoteDevBypassClient()) return true;
+  if (!isGooglePlacesConfigured() || isGoogleMapsAuthFailed()) return true;
+  return false;
+}
 
 export function AddressAutocomplete({
   id,
@@ -64,10 +74,12 @@ export function AddressAutocomplete({
   const onChangeRef = useRef(onChange);
   const onPlaceSelectRef = useRef(onPlaceSelect);
   const onValidatedChangeRef = useRef(onValidatedChange);
-  const [mode, setMode] = useState<AutocompleteMode>(
-    !isGooglePlacesConfigured() || isGoogleMapsAuthFailed() ? "manual" : "places",
+  const [mode, setMode] = useState<AutocompleteMode>(() =>
+    shouldUseManualMode() ? "manual" : "places",
   );
+  const [inputKey, setInputKey] = useState(0);
   const [hint, setHint] = useState<string | null>(null);
+  const localDev = isQuoteDevBypassClient();
 
   useEffect(() => {
     onChangeRef.current = onChange;
@@ -87,7 +99,10 @@ export function AddressAutocomplete({
 
   useEffect(() => {
     ensureGoogleMapsAuthFailureHook();
-    return subscribeGoogleMapsAuthFailure(() => setMode("manual"));
+    return subscribeGoogleMapsAuthFailure(() => {
+      setMode("manual");
+      setInputKey((key) => key + 1);
+    });
   }, []);
 
   useEffect(() => {
@@ -170,6 +185,7 @@ export function AddressAutocomplete({
   return (
     <div className="space-y-1">
       <input
+        key={inputKey}
         id={id}
         ref={inputRef}
         type="text"
@@ -187,7 +203,9 @@ export function AddressAutocomplete({
         aria-label={ariaLabel}
       />
       {mode === "manual" ? (
-        <p className="text-xs text-brand-purple/55">{manualHint}</p>
+        <p className="text-xs text-brand-purple/55">
+          {localDev ? localDevHint : manualHint}
+        </p>
       ) : null}
       {hint ? (
         <p className="text-xs font-medium text-amber-800">{hint}</p>

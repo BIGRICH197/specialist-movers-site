@@ -7,6 +7,9 @@ import {
   type PianoMoveInput,
 } from "@/lib/pricing";
 import { isGooglePlacesConfigured } from "@/lib/google-places-config";
+import { isQuoteDevBypassActive } from "@/lib/quote-dev-bypass";
+import type { QuoteBranch } from "@/lib/pricing";
+import { quotePriceRange } from "@/lib/quote-display";
 import { createHubSpotDeal } from "@/lib/hubspot";
 import type { AccessDifficulty, Bedrooms, PianoType } from "@/lib/pricing-data";
 
@@ -47,15 +50,33 @@ type QuoteBody = {
 function requiresCustomQuote(
   pickupAddress: string,
   dropoffAddress: string,
-  addressesVerified?: boolean,
+  addressesVerified: boolean | undefined,
+  devBypass: boolean,
 ): boolean {
+  if (devBypass) {
+    return false;
+  }
   if (!isGooglePlacesConfigured() || addressesVerified !== true) {
     return true;
   }
   return needsManualQuote(pickupAddress, dropoffAddress);
 }
 
+function withDisplayPricing<T extends { totalIncGst: number }>(pricing: T) {
+  const range = quotePriceRange(pricing.totalIncGst);
+  return { ...pricing, ...range };
+}
+
+function asLocalTestPricing<T extends { branch: QuoteBranch; outOfAuckland: boolean }>(
+  pricing: T,
+  devBypass: boolean,
+): T {
+  if (!devBypass || !pricing.outOfAuckland) return pricing;
+  return { ...pricing, branch: "auckland", outOfAuckland: false };
+}
+
 export async function POST(request: Request) {
+  const devBypass = isQuoteDevBypassActive(request.headers.get("host"));
   const body = (await request.json()) as QuoteBody;
 
   if (body.mode === "commercial") {
@@ -123,11 +144,12 @@ export async function POST(request: Request) {
       wantsCleaning: body.wantsCleaning ?? false,
     };
 
-    const result = calculateHouseMove(input);
+    const result = asLocalTestPricing(calculateHouseMove(input), devBypass);
     const customQuote = requiresCustomQuote(
       body.pickupAddress,
       body.dropoffAddress,
       body.addressesVerified,
+      devBypass,
     );
 
     const addOnNotes = [
@@ -175,7 +197,11 @@ export async function POST(request: Request) {
       });
     }
 
-    return NextResponse.json({ ok: true, mode: "house", pricing: result });
+    return NextResponse.json({
+      ok: true,
+      mode: "house",
+      pricing: withDisplayPricing(result),
+    });
   }
 
   if (body.mode === "piano") {
@@ -187,11 +213,12 @@ export async function POST(request: Request) {
       dropoffStairFlights: body.dropoffStairFlights ?? 0,
     };
 
-    const result = calculatePianoMove(input);
+    const result = asLocalTestPricing(calculatePianoMove(input), devBypass);
     const customQuote = requiresCustomQuote(
       body.pickupAddress,
       body.dropoffAddress,
       body.addressesVerified,
+      devBypass,
     );
 
     const extraNotes = body.message?.trim()
@@ -225,7 +252,11 @@ export async function POST(request: Request) {
       });
     }
 
-    return NextResponse.json({ ok: true, mode: "piano", pricing: result });
+    return NextResponse.json({
+      ok: true,
+      mode: "piano",
+      pricing: withDisplayPricing(result),
+    });
   }
 
   if (body.mode === "office") {

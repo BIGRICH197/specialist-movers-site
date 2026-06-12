@@ -37,6 +37,7 @@ import {
   HAMILTON_ZONE_B_KEYWORDS,
   HAMILTON_ZONE_C_KEYWORDS,
 } from "./hamilton-pricing-data";
+import { isQuoteDevBypass } from "./quote-dev-bypass";
 import { classifyServiceArea } from "./service-area";
 import type { ParsedPlaceAddress } from "./parse-place-address";
 
@@ -195,11 +196,14 @@ export interface HouseMoveResult {
 }
 
 export function calculateHouseMove(input: HouseMoveInput): HouseMoveResult {
-  const branch = detectQuoteBranch(
+  let branch = detectQuoteBranch(
     input.pickupAddress,
     input.dropoffAddress,
   );
-  const outOfAuckland = branch === "manual";
+  if (isQuoteDevBypass() && branch === "manual") {
+    branch = "auckland";
+  }
+  const outOfAuckland = isQuoteDevBypass() ? false : branch === "manual";
 
   if (branch === "hamilton") {
     return calculateHouseMoveHamilton(input, outOfAuckland);
@@ -458,11 +462,14 @@ function getAucklandPianoSurcharge(address: string): number {
 }
 
 export function calculatePianoMove(input: PianoMoveInput): PianoMoveResult {
-  const branch = detectQuoteBranch(
+  let branch = detectQuoteBranch(
     input.pickupAddress,
     input.dropoffAddress,
   );
-  const outOfAuckland = branch === "manual";
+  if (isQuoteDevBypass() && branch === "manual") {
+    branch = "auckland";
+  }
+  const outOfAuckland = isQuoteDevBypass() ? false : branch === "manual";
 
   const baseCost = PIANO_BASE[input.pianoType];
   const totalFlights = input.pickupStairFlights + input.dropoffStairFlights;

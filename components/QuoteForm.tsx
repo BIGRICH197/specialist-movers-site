@@ -16,6 +16,12 @@ import {
   type ParsedPlaceAddress,
 } from "@/components/AddressAutocomplete";
 import { RouteBranchHint } from "@/components/RouteBranchHint";
+import {
+  formatNzd,
+  quotePriceRange,
+  shortAddress,
+} from "@/lib/quote-display";
+import { isQuoteDevBypassClient } from "@/lib/quote-dev-bypass";
 import { resolveQuoteRoute } from "@/lib/quote-route";
 import { regions } from "@/lib/regions";
 import type { JobType } from "@/lib/site-data";
@@ -263,7 +269,8 @@ export function QuoteForm({
         pickupAddress: f.pickupAddress,
         dropoffAddress: f.dropoffAddress,
         message: f.message,
-        addressesVerified: routeResolution.canInstantQuote,
+        addressesVerified:
+          isQuoteDevBypassClient() || routeResolution.canInstantQuote,
       };
       payload.serviceType = defaultJobType ?? (f.mode === "house" ? "House Move" : f.mode === "piano" ? "Piano Move" : "Office Move");
 
@@ -297,7 +304,7 @@ export function QuoteForm({
         pricing?: Record<string, unknown>;
       };
       if (data.ok) {
-        set("result", data.pricing ?? null);
+        set("result", { ...(data.pricing ?? {}), quoteMode: f.mode });
         setF((prev) => ({ ...prev, mode: "result" }));
         goStep(3);
       } else {
@@ -920,7 +927,8 @@ export function QuoteForm({
     const canCalculate = Boolean(f.name.trim() && f.phone.trim());
     const isOffice = f.mode === "office";
     const showInstantPrice =
-      !isOffice && f.mode !== "commercial" && routeResolution.canInstantQuote;
+      isQuoteDevBypassClient() ||
+      (!isOffice && f.mode !== "commercial" && routeResolution.canInstantQuote);
     return (
       <Wrapper className={className} compact={compact}>
         <Header
@@ -1093,7 +1101,8 @@ export function QuoteForm({
       );
     }
 
-    const isOutOfAuckland = pricing?.outOfAuckland === true;
+    const isOutOfAuckland =
+      pricing?.outOfAuckland === true && !isQuoteDevBypassClient();
 
     if (isOutOfAuckland) {
       return (
@@ -1125,108 +1134,66 @@ export function QuoteForm({
     }
 
     const totalIncGst = pricing?.totalIncGst as number;
-    const breakdown = pricing?.breakdown as string;
     const moveCostIncGst = pricing?.moveCostIncGst as number | undefined;
     const packingCostIncGst = pricing?.packingCostIncGst as number | null | undefined;
     const cleaningCostIncGst = pricing?.cleaningCostIncGst as number | null | undefined;
-
-    const hasLineItems =
-      moveCostIncGst != null ||
-      packingCostIncGst != null ||
-      cleaningCostIncGst != null ||
-      pricing?.baseCostExGst != null;
+    const lowIncGst =
+      (pricing?.lowIncGst as number | undefined) ??
+      quotePriceRange(totalIncGst).lowIncGst;
+    const highIncGst =
+      (pricing?.highIncGst as number | undefined) ??
+      quotePriceRange(totalIncGst).highIncGst;
+    const quoteMode = (pricing?.quoteMode as string) ?? "house";
+    const recap = buildQuoteRecap(f.name, quoteMode, f);
 
     return (
       <Wrapper className={className} compact={compact}>
-        <Header tag="Your quote" title="Here's your price" />
+        <Header
+          tag="Your estimate"
+          title="Thanks for your details"
+          subtitle={recap}
+        />
 
-        {hasLineItems ? (
-          <div className="space-y-2 rounded-xl border border-brand-purple/10 bg-brand-purple/[0.03] px-4 py-4 sm:px-5">
+        <div className="mt-2 space-y-4 rounded-xl border border-brand-purple/10 bg-brand-purple/[0.03] px-4 py-4 sm:px-5">
+          <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple/55">
-              Estimate breakdown
+              Estimated price range
             </p>
-            {moveCostIncGst != null && (
-              <div className="flex justify-between gap-4 text-sm">
-                <span className="text-brand-purple/70">Moving</span>
-                <span className="font-semibold text-brand-purple">
-                  ${moveCostIncGst.toLocaleString("en-NZ")}
-                </span>
-              </div>
-            )}
-            {packingCostIncGst != null && (
-              <div className="flex justify-between gap-4 text-sm">
-                <span className="text-brand-purple/70">Packing</span>
-                <span className="font-semibold text-brand-purple">
-                  ${packingCostIncGst.toLocaleString("en-NZ")}
-                </span>
-              </div>
-            )}
-            {cleaningCostIncGst != null && (
-              <div className="flex justify-between gap-4 text-sm">
-                <span className="text-brand-purple/70">Cleaning</span>
-                <span className="font-semibold text-brand-purple">
-                  ${cleaningCostIncGst.toLocaleString("en-NZ")}
-                </span>
-              </div>
-            )}
-
-            {pricing?.baseCostExGst != null && (
-              <>
-                <div className="flex justify-between gap-4 text-sm">
-                  <span className="text-brand-purple/70">
-                    {pricing.pianoType === "grand" ? "Grand piano" : "Upright piano"}
-                  </span>
-                  <span className="font-semibold text-brand-purple">
-                    ${(pricing.baseCostExGst as number)} + GST
-                  </span>
-                </div>
-                {(pricing.locationSurchargeExGst as number) > 0 && (
-                  <div className="flex justify-between gap-4 text-sm">
-                    <span className="text-brand-purple/70">Travel surcharge</span>
-                    <span className="font-semibold text-brand-purple">
-                      ${(pricing.locationSurchargeExGst as number)} + GST
-                    </span>
-                  </div>
-                )}
-                {(pricing.stairsSurchargeExGst as number) > 0 && (
-                  <div className="flex justify-between gap-4 text-sm">
-                    <span className="text-brand-purple/70">Stairs</span>
-                    <span className="font-semibold text-brand-purple">
-                      ${(pricing.stairsSurchargeExGst as number)} + GST
-                    </span>
-                  </div>
-                )}
-              </>
-            )}
+            <p className="mt-2 text-lg font-semibold leading-snug text-brand-purple sm:text-xl">
+              {formatNzd(lowIncGst)} – {formatNzd(highIncGst)}
+            </p>
+            <p className="mt-1 text-xs text-brand-purple/60">incl. GST (estimate)</p>
           </div>
-        ) : null}
 
-        {breakdown ? (
-          <pre className="mt-3 whitespace-pre-wrap rounded-lg bg-brand-purple/[0.03] px-3 py-2.5 text-xs leading-relaxed text-brand-purple/50">
-            {breakdown}
-          </pre>
-        ) : null}
-
-        <div className="mt-4 rounded-xl border-2 border-brand-yellow/50 bg-brand-yellow/10 px-4 py-4 text-center sm:px-5">
-          <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple/55">
-            Estimated total
-          </p>
-          <p className="mt-1 font-heading text-2xl text-brand-purple sm:text-3xl">
-            $
-            {totalIncGst?.toLocaleString("en-NZ", {
-              minimumFractionDigits: 0,
-              maximumFractionDigits: 0,
-            })}
-          </p>
-          <p className="mt-1 text-xs font-medium text-brand-purple/60">
-            incl. GST (estimated)
-          </p>
+          {moveCostIncGst != null ? (
+            <p className="text-sm text-brand-purple/75">
+              Moving component approx. {formatNzd(moveCostIncGst)} incl. GST
+            </p>
+          ) : null}
+          {packingCostIncGst != null ? (
+            <p className="text-sm text-brand-purple/75">
+              Packing approx. {formatNzd(packingCostIncGst)} incl. GST
+            </p>
+          ) : null}
+          {cleaningCostIncGst != null ? (
+            <p className="text-sm text-brand-purple/75">
+              Cleaning approx. {formatNzd(cleaningCostIncGst)} incl. GST
+            </p>
+          ) : null}
         </div>
 
-        <p className="mt-4 text-sm leading-relaxed text-brand-purple/70">
-          This is an estimate based on the details you provided. We&apos;ve saved your
-          info and one of our team will follow up to confirm everything.
-        </p>
+        <div className="mt-4 space-y-2 rounded-xl border border-brand-purple/10 bg-white px-4 py-4 text-sm leading-relaxed text-brand-purple/80">
+          <p className="font-semibold text-brand-purple">What happens next</p>
+          <p>
+            We&apos;ve saved your details. A moving consultant will call you within{" "}
+            <strong>15 minutes</strong> to confirm access, timing, and your final
+            quote.
+          </p>
+          <p className="text-xs text-brand-purple/60">
+            *Subject to volume and access on the day. Insurance quoted separately
+            if required.
+          </p>
+        </div>
 
         <div className="mt-4 space-y-2">
           <a
@@ -1252,6 +1219,40 @@ export function QuoteForm({
   }
 
   return null;
+}
+
+function buildQuoteRecap(
+  name: string,
+  quoteMode: string,
+  f: Pick<
+    FormState,
+    | "bedrooms"
+    | "pickupAddress"
+    | "dropoffAddress"
+    | "pianoType"
+    | "wantsPacking"
+    | "wantsCleaning"
+  >,
+): string {
+  const first = name.trim().split(/\s+/)[0] || "there";
+  const from = shortAddress(f.pickupAddress);
+  const to = shortAddress(f.dropoffAddress);
+
+  if (quoteMode === "piano") {
+    const kind = f.pianoType === "grand" ? "grand piano" : "upright piano";
+    return `Hi ${first}, your estimated price range for moving a ${kind} from ${from} to ${to}.`;
+  }
+
+  const bedLabel = f.bedrooms === 4 ? "4+" : String(f.bedrooms);
+  const extras = [
+    f.wantsPacking ? "packing" : "",
+    f.wantsCleaning ? "cleaning" : "",
+  ].filter(Boolean);
+  const extrasText = extras.length
+    ? `, including ${extras.join(" and ")}`
+    : "";
+
+  return `Hi ${first}, your estimated price range for a ${bedLabel}-bedroom move from ${from} to ${to}${extrasText}.`;
 }
 
 function Wrapper({

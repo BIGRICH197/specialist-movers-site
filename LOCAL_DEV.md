@@ -12,14 +12,14 @@ OneDrive sync locks `.next` and causes `EBUSY` / 500 Internal Server Error. Keep
 npm run dev:clean
 ```
 
-Opens **http://localhost:3020** (deletes `.next` first, then starts).
+Opens **http://localhost:3055** (deletes `.next` first, then starts).
 
 Legacy port 3010: `npm run dev:clean:3010`
 
 If the port is stuck:
 
 ```powershell
-Get-NetTCPConnection -LocalPort 3020 | Select OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force }
+Get-NetTCPConnection -LocalPort 3055 | Select OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force }
 npm run dev:clean
 ```
 
