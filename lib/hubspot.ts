@@ -13,7 +13,9 @@ function jobSourceFor(serviceType: string): string | null {
 }
 
 function getToken(): string {
-  const token = process.env.HUBSPOT_ACCESS_TOKEN;
+  // Strip BOM and whitespace — a stray invisible character in the env var
+  // makes the Authorization header invalid and every request fail.
+  const token = process.env.HUBSPOT_ACCESS_TOKEN?.replace(/^\uFEFF/, "").trim();
   if (!token) throw new Error("HUBSPOT_ACCESS_TOKEN not set");
   return token;
 }
