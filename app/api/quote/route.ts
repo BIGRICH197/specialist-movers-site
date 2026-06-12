@@ -97,7 +97,7 @@ export async function POST(request: Request) {
       );
     }
 
-    await createHubSpotDeal({
+    const hsResult = await createHubSpotDeal({
       name: body.name,
       phone: body.phone,
       email: body.email,
@@ -108,6 +108,17 @@ export async function POST(request: Request) {
         ? `Website contact form message:\n\n${body.message.trim()}`
         : "Website contact form submission (no message).",
     });
+
+    // TEMP DEBUG — remove before go-live
+    if (request.headers.get("x-debug-hubspot") === "sm-wiring-check") {
+      return NextResponse.json({
+        ok: true,
+        mode: "contact",
+        debug: hsResult,
+        tokenSet: Boolean(process.env.HUBSPOT_ACCESS_TOKEN),
+        tokenPrefix: process.env.HUBSPOT_ACCESS_TOKEN?.slice(0, 10) ?? null,
+      });
+    }
 
     return NextResponse.json({ ok: true, mode: "contact" });
   }
