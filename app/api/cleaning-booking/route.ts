@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
 import {
   calculateCleaningQuote,
   type CleaningPropertySize,
@@ -62,7 +62,7 @@ export async function POST(request: Request) {
     .filter(Boolean)
     .join("\n");
 
-  createHubSpotDeal({
+  await createHubSpotDeal({
     name: body.name.trim(),
     phone: body.phone.trim(),
     email: body.email?.trim(),
@@ -72,7 +72,7 @@ export async function POST(request: Request) {
     preferredDate: body.preferredDate,
     estimatedValue: quote.priceIncGst,
     notes,
-  }).catch(console.error);
+  });
 
   return NextResponse.json({
     ok: true,

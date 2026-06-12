@@ -1,4 +1,4 @@
-import Anthropic from "@anthropic-ai/sdk";
+﻿import Anthropic from "@anthropic-ai/sdk";
 import { AROHA_SYSTEM_PROMPT } from "@/lib/aroha-system-prompt";
 import {
   calculateHouseMove,
@@ -103,7 +103,7 @@ const tools: Anthropic.Tool[] = [
   },
 ];
 
-function executeTool(name: string, input: Record<string, unknown>): string {
+async function executeTool(name: string, input: Record<string, unknown>): Promise<string> {
   if (name === "calculate_house_move") {
     const result = calculateHouseMove(input as unknown as HouseMoveInput);
     return JSON.stringify(result);
@@ -113,7 +113,7 @@ function executeTool(name: string, input: Record<string, unknown>): string {
     return JSON.stringify(result);
   }
   if (name === "capture_lead") {
-    createHubSpotDeal({
+    await createHubSpotDeal({
       name: input.name as string,
       phone: input.phone as string,
       email: (input.email as string) || undefined,
@@ -121,7 +121,7 @@ function executeTool(name: string, input: Record<string, unknown>): string {
       pickupAddress: (input.pickupAddress as string) || "",
       dropoffAddress: (input.dropoffAddress as string) || "",
       notes: `Aroha chatbot lead\n${(input.notes as string) || ""}`,
-    }).catch(console.error);
+    });
     return JSON.stringify({ success: true, message: "Lead saved successfully" });
   }
   return JSON.stringify({ error: "Unknown tool" });
@@ -177,11 +177,16 @@ export async function POST(request: Request) {
       { role: "assistant", content: response.content },
       {
         role: "user",
-        content: toolUseBlocks.map((toolBlock) => ({
-          type: "tool_result" as const,
-          tool_use_id: toolBlock.id,
-          content: executeTool(toolBlock.name, toolBlock.input as Record<string, unknown>),
-        })),
+        content: await Promise.all(
+          toolUseBlocks.map(async (toolBlock) => ({
+            type: "tool_result" as const,
+            tool_use_id: toolBlock.id,
+            content: await executeTool(
+              toolBlock.name,
+              toolBlock.input as Record<string, unknown>,
+            ),
+          })),
+        ),
       },
     ];
   }

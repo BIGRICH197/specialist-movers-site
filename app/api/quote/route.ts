@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
 import {
   calculateHouseMove,
   calculatePianoMove,
@@ -72,7 +72,7 @@ export async function POST(request: Request) {
       );
     }
 
-    createHubSpotDeal({
+    await createHubSpotDeal({
       name: body.name,
       phone: body.phone?.trim() || "Via website",
       email: body.email,
@@ -80,7 +80,7 @@ export async function POST(request: Request) {
       pickupAddress: "",
       dropoffAddress: "",
       notes: `Website commercial enquiry\n\n${body.message.trim()}`,
-    }).catch(console.error);
+    });
 
     return NextResponse.json({
       ok: true,
@@ -97,7 +97,7 @@ export async function POST(request: Request) {
       );
     }
 
-    createHubSpotDeal({
+    await createHubSpotDeal({
       name: body.name,
       phone: body.phone,
       email: body.email,
@@ -107,7 +107,7 @@ export async function POST(request: Request) {
       notes: body.message?.trim()
         ? `Website contact form message:\n\n${body.message.trim()}`
         : "Website contact form submission (no message).",
-    }).catch(console.error);
+    });
 
     return NextResponse.json({ ok: true, mode: "contact" });
   }
@@ -120,7 +120,7 @@ export async function POST(request: Request) {
   }
 
   if (body.mode === "callback") {
-    createHubSpotDeal({
+    await createHubSpotDeal({
       name: body.name,
       phone: body.phone,
       email: body.email,
@@ -128,7 +128,7 @@ export async function POST(request: Request) {
       pickupAddress: "",
       dropoffAddress: "",
       notes: "Customer requested a callback from the website.",
-    }).catch(console.error);
+    });
 
     return NextResponse.json({ ok: true, callback: true });
   }
@@ -182,7 +182,7 @@ export async function POST(request: Request) {
         : "Addresses not verified via Places"
       : null;
 
-    createHubSpotDeal({
+    await createHubSpotDeal({
       name: body.name,
       phone: body.phone,
       email: body.email,
@@ -192,9 +192,9 @@ export async function POST(request: Request) {
       preferredDate: body.preferredDate,
       estimatedValue: customQuote ? undefined : result.totalIncGst,
       notes: customQuote
-        ? `Website quote: Custom quote needed (${manualReason})\n${parseRooms(body.bedrooms)} rooms, ${body.pickupAddress} → ${body.dropoffAddress}${notesSuffix}`
+        ? `Website quote: Custom quote needed (${manualReason})\n${parseRooms(body.bedrooms)} rooms, ${body.pickupAddress} to ${body.dropoffAddress}${notesSuffix}`
         : `Website quote: $${result.totalIncGst} incl GST\n${result.breakdown}${notesSuffix}`,
-    }).catch(console.error);
+    });
 
     if (customQuote) {
       return NextResponse.json({
@@ -237,7 +237,7 @@ export async function POST(request: Request) {
         : "Addresses not verified via Places"
       : null;
 
-    createHubSpotDeal({
+    await createHubSpotDeal({
       name: body.name,
       phone: body.phone,
       email: body.email,
@@ -246,9 +246,9 @@ export async function POST(request: Request) {
       dropoffAddress: body.dropoffAddress,
       estimatedValue: customQuote ? undefined : result.totalIncGst,
       notes: customQuote
-        ? `Website quote: Custom quote needed (${manualReason})\n${body.pianoType} piano, ${body.pickupAddress} → ${body.dropoffAddress}${extraNotes}`
+        ? `Website quote: Custom quote needed (${manualReason})\n${body.pianoType} piano, ${body.pickupAddress} to ${body.dropoffAddress}${extraNotes}`
         : `Website quote: $${result.totalIncGst} incl GST\n${result.breakdown}${extraNotes}`,
-    }).catch(console.error);
+    });
 
     if (customQuote) {
       return NextResponse.json({
@@ -276,7 +276,7 @@ export async function POST(request: Request) {
             ? "Whole floor / multi-level"
             : "Medium (10 to 30 staff)";
 
-    createHubSpotDeal({
+    await createHubSpotDeal({
       name: body.name,
       phone: body.phone,
       email: body.email,
@@ -293,7 +293,7 @@ export async function POST(request: Request) {
       ]
         .filter(Boolean)
         .join("\n"),
-    }).catch(console.error);
+    });
 
     return NextResponse.json({
       ok: true,
