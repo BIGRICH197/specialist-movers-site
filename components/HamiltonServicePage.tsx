@@ -49,6 +49,7 @@ import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
 
 import {
   getServiceHeroDetail,
+  getServiceHeroEyebrow,
   getServiceHeroOverlayCaption,
   serviceHeroSubline,
   serviceHeroSublineClass,
@@ -110,47 +111,9 @@ export function HamiltonServicePage({ config }: Props) {
 
         heroVariant={isPiano ? "piano" : "moving"}
 
-        googleBadgeLiftCm={
-          config.baseSlug === "house-moving"
-            ? 4
-            : config.baseSlug === "office-moving"
-              ? 6
-              : config.baseSlug === "commercial-moving"
-                ? 3
-                : config.baseSlug === "piano-movers"
-                  ? 3
-                  : config.baseSlug === "storage"
-                    ? 4.5
-                    : undefined
-        }
-
-        topNav={
-
-          <nav className="flex flex-wrap gap-2 text-xs font-semibold text-white/75">
-
-            <Link href="/" className="hover:text-brand-yellow">
-
-              Home
-
-            </Link>
-
-            <span aria-hidden>/</span>
-
-            <Link href={config.parentHref} className="hover:text-brand-yellow">
-
-              {config.parentLabel}
-
-            </Link>
-
-            <span aria-hidden>/</span>
-
-            <span className="text-brand-yellow">Hamilton</span>
-
-          </nav>
-
-        }
-
         heading={config.h1}
+
+        eyebrowLabel={getServiceHeroEyebrow(config.baseSlug, { hamilton: true })}
 
         lead={
 
@@ -200,6 +163,8 @@ export function HamiltonServicePage({ config }: Props) {
             imageObjectPosition={
               config.baseSlug === "hard-to-shift" ? "center 32%" : undefined
             }
+
+            captionBottomFadeOnly
 
             priority
 

@@ -1,6 +1,11 @@
 import Image from "next/image";
 import { getPhotoHoverProps } from "@/lib/photo-hover";
-import { photoFrameCaptionClass, photoFrameClass } from "@/lib/photo-fade";
+import {
+  photoFrameCaptionClass,
+  photoFrameCaptionTopClearClass,
+  photoFrameCaptionBottomOnlyClass,
+  photoFrameClass,
+} from "@/lib/photo-fade";
 
 type Props = {
   variant?: "moving" | "piano";
@@ -20,6 +25,10 @@ type Props = {
   aspectClassName?: string;
   /** CSS object-position (e.g. "center 20%" keeps faces in frame) */
   imageObjectPosition?: string;
+  /** Keep bottom caption fade only (no top purple wash) */
+  clearTopFade?: boolean;
+  /** Bottom caption fade only, no top purple wash */
+  captionBottomFadeOnly?: boolean;
 };
 
 /**
@@ -37,9 +46,17 @@ export function HeroVisual({
   hoverSwap = false,
   aspectClassName = "aspect-[4/3] min-h-[12rem] sm:aspect-[16/10] sm:min-h-[14rem]",
   imageObjectPosition = "center",
+  clearTopFade = false,
+  captionBottomFadeOnly = false,
 }: Props) {
   if (photoSrc) {
-    const frameClass = overlayCaption ? photoFrameCaptionClass : photoFrameClass;
+    const frameClass = overlayCaption
+      ? captionBottomFadeOnly
+        ? photoFrameCaptionBottomOnlyClass
+        : clearTopFade
+          ? photoFrameCaptionTopClearClass
+          : photoFrameCaptionClass
+      : photoFrameClass;
     const hover =
       photoHoverSrc != null
         ? { src: photoHoverSrc, alt: photoHoverAlt ?? "" }

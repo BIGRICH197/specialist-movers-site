@@ -101,7 +101,6 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
             ]
           : undefined
       }
-      googleBadgeLiftCm={params.slug === "international-moving" ? 5 : undefined}
     />
   );
 }

@@ -15,6 +15,7 @@ export const homeMeta = {
 export const hero = {
   eyebrow: regions.heroEyebrow,
   h1: regions.heroH1,
+  h1Sub: regions.heroH1Sub,
   lead: regions.heroLead,
   subline:
     "Moves starting from $350. Free quote. We call back within 15 minutes.",

@@ -1,4 +1,5 @@
 import { hero } from "@/lib/homepage-copy";
+import { getServiceLandingConfig } from "@/lib/service-landings";
 
 /** On-photo slogan (couch gag style) for service hero photos. */
 export const serviceHeroOverlayCaptionBySlug: Record<string, string> = {
@@ -9,7 +10,7 @@ export const serviceHeroOverlayCaptionBySlug: Record<string, string> = {
   "packing-services": "You rest. We pack.",
   "hard-to-shift": "Too heavy? We shift it.",
   "cleaning-services": "Keys handed over. We clean.",
-  "international-moving": "You plan it. We ship it.",
+  "international-moving": "Going overseas? We handle it.",
   "loading-unloading": "You drive. We lift.",
   "winz-quotes": "Need paperwork? We quote.",
   storage: "Need time? We store it.",
@@ -133,6 +134,57 @@ export const serviceHeroDetailBySlug: Record<string, readonly string[]> = {
 
 export function getServiceHeroDetail(slug: string): readonly string[] {
   return serviceHeroDetailBySlug[slug] ?? defaultDetail;
+}
+
+const serviceHeroEyebrowBySlug: Record<string, string> = {
+  "packing-services": "Auckland packing and unpacking specialists",
+  "hard-to-shift": "Auckland heavy and awkward item specialists",
+  "cleaning-services": "Auckland exit cleaning specialists",
+  "international-moving": "New Zealand international moving specialists",
+  "loading-unloading": "Auckland load and unload specialists",
+  "winz-quotes": "WINZ and budget move quotes",
+  storage: "Storage while you move",
+  "local-moving": "Auckland and Waikato local moves",
+  "regional-moving": "North Island regional moving",
+  "short-term-storage": "Short-term storage while you move",
+  "long-term-storage": "Long-term storage solutions",
+  "storage-in-transit": "Storage in transit",
+  "overnight-storage": "Overnight storage on multi-day moves",
+  "piano-storage": "Piano storage specialists",
+  "grand-piano": "Trusted by Auckland music retailers. Piano specialists.",
+  "upright-piano": "Trusted by Auckland music retailers. Piano specialists.",
+  "international-piano": "International piano moving specialists",
+  "piano-tuning": "Auckland and Waikato piano tuning",
+};
+
+type ServiceHeroEyebrowOptions = {
+  city?: string;
+  hamilton?: boolean;
+};
+
+/** White pill above the hero photo — from landing config or slug lookup. */
+export function getServiceHeroEyebrow(
+  slug: string,
+  options?: ServiceHeroEyebrowOptions,
+): string | undefined {
+  const landing = getServiceLandingConfig(slug);
+  let eyebrow = landing?.eyebrow ?? serviceHeroEyebrowBySlug[slug];
+
+  if (!eyebrow && options?.city) {
+    eyebrow = `${options.city} moving specialists`;
+  }
+
+  if (!eyebrow) return undefined;
+
+  if (options?.hamilton) {
+    return eyebrow.replace(/Auckland/g, "Hamilton");
+  }
+
+  if (options?.city && options.city !== "Auckland") {
+    return eyebrow.replace(/Auckland/g, options.city);
+  }
+
+  return eyebrow;
 }
 
 export const serviceHeroSubline =

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Check } from "lucide-react";
 
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
 
@@ -73,15 +73,15 @@ export function PianoTuningPage({ content }: Props) {
 
       <FaqPageJsonLd items={content.faqs} />
 
+      <BreadcrumbJsonLd items={[...content.breadcrumbs]} />
+
       <ServiceHeroWithQuote
 
         heroVariant="piano"
 
-        googleBadgeLiftCm={2.5}
-
-        topNav={<Breadcrumbs items={[...content.breadcrumbs]} light />}
-
         heading={content.hero.h1}
+
+        eyebrowLabel={content.hero.eyebrow}
 
         lead={
 
@@ -136,6 +136,8 @@ export function PianoTuningPage({ content }: Props) {
             photoAlt="Piano tuning in progress with the front cover removed for adjustment"
 
             overlayCaption={getServiceHeroOverlayCaption("piano-tuning")}
+
+            captionBottomFadeOnly
 
             priority
 

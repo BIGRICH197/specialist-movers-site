@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
 import { Check } from "lucide-react";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
@@ -73,31 +72,8 @@ export function ServiceLandingPage({ config }: Props) {
       <BreadcrumbJsonLd items={breadcrumbItems} />
       <ServiceHeroWithQuote
         heroVariant={config.slug === "piano-movers" ? "piano" : "moving"}
-        googleBadgeLiftCm={
-          config.slug === "piano-movers"
-            ? 0
-            : config.slug === "house-moving"
-              ? 4.5
-              : config.slug === "office-moving"
-                ? 5.5
-                : undefined
-        }
-        topNav={
-          config.slug === "piano-movers" ? (
-            <nav className="flex flex-wrap items-center gap-2 text-xs font-semibold text-white/75">
-              <Link href="/" className="hover:text-brand-yellow">
-                Home
-              </Link>
-              <ChevronRight className="h-3.5 w-3.5 opacity-60" aria-hidden />
-              <Link href="/piano-movers" className="hover:text-brand-yellow">
-                Piano moving
-              </Link>
-              <ChevronRight className="h-3.5 w-3.5 opacity-60" aria-hidden />
-              <span className="text-brand-yellow">Auckland</span>
-            </nav>
-          ) : undefined
-        }
         heading={config.h1}
+        eyebrowLabel={config.eyebrow}
         lead={
           <p className="max-w-2xl text-base leading-relaxed text-white/85">
             {config.lead}
@@ -117,6 +93,7 @@ export function ServiceLandingPage({ config }: Props) {
             photoSrc={config.heroGagPhoto}
             photoAlt={config.heroGagAlt}
             overlayCaption={config.heroOverlayCaption}
+            captionBottomFadeOnly
             priority
           />
         }

@@ -6,7 +6,8 @@ import { HeroVisual } from "@/components/HeroVisual";
 import { CleaningBookingForm } from "@/components/CleaningBookingForm";
 import { QuoteForm } from "@/components/QuoteForm";
 import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
-import { Breadcrumbs, type Crumb } from "@/components/Breadcrumbs";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import type { Crumb } from "@/components/Breadcrumbs";
 import { HamiltonPageLink } from "@/components/HamiltonPageLink";
 import { SectionReveal } from "@/components/SectionReveal";
 import { ServiceHeroWithQuote } from "@/components/ServiceHeroWithQuote";
@@ -23,6 +24,7 @@ import { resolveServiceLink } from "@/lib/service-links";
 import type { FaqItem } from "@/lib/service-faqs";
 import {
   getServiceHeroDetail,
+  getServiceHeroEyebrow,
   getServiceHeroOverlayCaption,
   serviceHeroSubline,
   serviceHeroSublineClass,
@@ -54,8 +56,6 @@ type ServicePageTemplateProps = {
   heroVariant?: "moving" | "piano";
   /** Defaults to hamiltonBaseSlug; use piano sub-slugs for distinct on-photo slogans. */
   overlayCaptionSlug?: string;
-  /** Desktop Google badge vertical offset tweak (cm). Lower = badge sits further down. */
-  googleBadgeLiftCm?: number;
 };
 
 export function ServicePageTemplate({
@@ -78,7 +78,6 @@ export function ServicePageTemplate({
   processSteps = [],
   heroVariant = "moving",
   overlayCaptionSlug,
-  googleBadgeLiftCm,
 }: ServicePageTemplateProps) {
   const slug = hamiltonBaseSlug ?? "house-moving";
   const resolvedSteps =
@@ -96,11 +95,13 @@ export function ServicePageTemplate({
   return (
     <div className="bg-brand-white">
       {faqs.length > 0 ? <FaqPageJsonLd items={faqs} /> : null}
+      <BreadcrumbJsonLd items={breadcrumbs} />
       <ServiceHeroWithQuote
         heroVariant={heroVariant}
-        googleBadgeLiftCm={googleBadgeLiftCm}
-        topNav={<Breadcrumbs items={breadcrumbs} light />}
         heading={title}
+        eyebrowLabel={
+          hamiltonBaseSlug ? getServiceHeroEyebrow(hamiltonBaseSlug) : undefined
+        }
         lead={
           <p className="max-w-2xl text-base leading-relaxed text-white/85">
             {description}
@@ -134,6 +135,7 @@ export function ServicePageTemplate({
               imageObjectPosition={
                 hamiltonBaseSlug === "hard-to-shift" ? "center 32%" : undefined
               }
+              captionBottomFadeOnly
               priority
             />
           ) : undefined

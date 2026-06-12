@@ -8,8 +8,9 @@ export const regions = {
   serviceAreaBadge: "Auckland & Waikato",
   widerNorthIsland: "Wider North Island: Taupo to Cape Reinga",
   heroEyebrow:
-    "Trusted house and piano moving. Bases in Auckland and Hamilton.",
-  heroH1: "Specialist Movers. Auckland and Hamilton moving specialists.",
+    "Trusted house and piano moving. Auckland and Hamilton.",
+  heroH1: "Specialist Movers.",
+  heroH1Sub: "Auckland and Hamilton moving specialists.",
   heroLead:
     "Relocation does not need to be stressful. We run 7 days a week from our Auckland and Hamilton bases, with strong coverage across Auckland, Hamilton and inbetween. We also service the wider Waikato when you need us. Precision, care, and clear communication from quote to handover.",
   homeMetaTitle:

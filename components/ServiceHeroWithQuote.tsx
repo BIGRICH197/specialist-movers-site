@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { BrandLogomarkWatermark } from "@/components/BrandLogomarkWatermark";
 import { GoogleRatingBadge } from "@/components/GoogleRatingBadge";
+import { HeroPhotoFrame } from "@/components/hero/HeroPhotoFrame";
 import { regions } from "@/lib/regions";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
@@ -12,15 +13,21 @@ const defaultTrustPills = [
   "Callback in 15 min",
 ] as const;
 
-const HEADING_CLASS =
-  "font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:leading-[1.12]";
+const MOBILE_HEADING_CLASS =
+  "font-heading text-3xl leading-[1.12] text-white sm:text-4xl";
 
 type Props = {
   topNav?: ReactNode;
-  eyebrow?: ReactNode;
+  /** Yellow title above photo (desktop). */
   heading: string;
+  /** White eyebrow pill above photo (desktop). */
+  eyebrowLabel?: string;
+  /** Optional legacy eyebrow slot (mobile / custom). */
+  eyebrow?: ReactNode;
+  /** Line under photo on desktop, same as homepage h1Sub. */
+  headingSub?: string;
   lead?: ReactNode;
-  /** Extra lines shown after trust pills, before hero photo on desktop. */
+  /** Extra lines shown after trust pills on desktop. */
   heroDetail?: readonly string[];
   subline?: ReactNode;
   meta?: ReactNode;
@@ -29,21 +36,22 @@ type Props = {
   trustPills?: readonly string[];
   showPhone?: boolean;
   heroVariant?: "moving" | "piano";
-  /** Extra lift for desktop Google badge (cm). Piano Auckland landing passes 0. */
-  googleBadgeLiftCm?: number;
-  /** SEO intro rendered after the Google rating badge (does not move the badge). */
+  /** SEO intro rendered after trust pills on desktop. */
   seoIntro?: ReactNode;
+  /** Allow long headings to wrap on desktop (e.g. niche pages). */
+  headingNowrap?: boolean;
   className?: string;
 };
 
 /**
- * Service page hero. Desktop copy order matches HomeHero so the Google badge
- * sits in the gutter without overlapping text. Trustindex band renders below.
+ * Service page hero — desktop layout matches HomeHero (title stack + photo, copy below).
  */
 export function ServiceHeroWithQuote({
   topNav,
-  eyebrow,
   heading,
+  eyebrowLabel,
+  eyebrow,
+  headingSub,
   lead,
   heroDetail = [],
   subline,
@@ -53,30 +61,42 @@ export function ServiceHeroWithQuote({
   trustPills = defaultTrustPills,
   showPhone = true,
   heroVariant = "moving",
-  googleBadgeLiftCm = 3.5,
   seoIntro,
+  headingNowrap = true,
   className,
 }: Props) {
-  const badgeTopCm = (heroVariant === "piano" ? 6.5 : 5.5) + googleBadgeLiftCm;
+  const pianoTrustPills =
+    heroVariant === "piano"
+      ? ([
+          "Licensed & insured",
+          "7 days a week",
+          regions.serviceAreaBadge,
+          "Piano specialists",
+        ] as const)
+      : trustPills;
+
   const phoneLink = showPhone ? (
     <a
       href={`tel:${phoneNumber}`}
-      className="mt-6 inline-flex font-heading text-2xl font-bold tracking-tight text-brand-yellow transition-colors duration-200 hover:text-white sm:text-3xl"
+      className="inline-flex font-heading text-2xl font-bold tracking-tight text-brand-yellow transition-colors duration-200 hover:text-white sm:text-3xl"
     >
       {phoneDisplay}
     </a>
   ) : null;
 
   const trustPillList = (
-    <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold text-white/95">
-      {trustPills.map((label) => (
-        <span
-          key={label}
-          className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5"
-        >
-          {label}
-        </span>
-      ))}
+    <div className="relative w-full">
+      <div className="flex flex-wrap gap-2 text-xs font-semibold text-white/95">
+        {pianoTrustPills.map((label) => (
+          <span
+            key={label}
+            className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5"
+          >
+            {label}
+          </span>
+        ))}
+      </div>
+      <GoogleRatingBadge className="pointer-events-auto absolute bottom-0 right-0 z-20 hidden shrink-0 xl:flex" />
     </div>
   );
 
@@ -95,10 +115,9 @@ export function ServiceHeroWithQuote({
       </div>
     ) : null;
 
-  const photoBlock = photo ? <div className="mt-8">{photo}</div> : null;
-
   return (
     <section
+      id="quote"
       className={cn(
         "hero-ambient relative scroll-mt-24 overflow-visible border-b border-white/10 bg-brand-purple py-12 pb-16 text-white sm:py-16 sm:pb-20 lg:py-20 lg:pb-24",
         className,
@@ -110,17 +129,22 @@ export function ServiceHeroWithQuote({
       </div>
 
       <div className="relative z-[1] mx-auto max-w-7xl container-px">
-        <GoogleRatingBadge
-          className="pointer-events-auto absolute left-[calc(50%+1cm)] z-20 hidden -translate-x-1/2 xl:flex"
-          style={{ top: `calc(54% - ${badgeTopCm}cm)` }}
-        />
-
-        <div className="flex flex-col gap-5 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] xl:gap-12">
-          {/* Mobile: intro + photo + compact Google bar */}
+        <div className="flex flex-col gap-5 overflow-visible lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] xl:gap-12">
+          {/* Mobile */}
           <div className="flex min-w-0 flex-col gap-5 lg:hidden">
             {topNav}
             {eyebrow ? <div className="self-start">{eyebrow}</div> : null}
-            <h1 className={HEADING_CLASS}>{heading}</h1>
+            {!eyebrow && eyebrowLabel ? (
+              <p className="inline-flex w-fit max-w-[95%] self-start rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-brand-yellow sm:px-3 sm:py-1.5 sm:text-xs">
+                {eyebrowLabel}
+              </p>
+            ) : null}
+            <h1 className={MOBILE_HEADING_CLASS}>{heading}</h1>
+            {headingSub ? (
+              <p className="max-w-2xl font-heading text-xl leading-snug text-white/95">
+                {headingSub}
+              </p>
+            ) : null}
             {lead}
             {subline}
             {photo ? <div className="mt-2">{photo}</div> : null}
@@ -128,35 +152,56 @@ export function ServiceHeroWithQuote({
             {seoIntroBlock}
           </div>
 
+          {/* Quote form */}
           <div
-            id="quote"
-            className="min-w-0 scroll-mt-28 self-start lg:col-start-2 lg:row-start-1 lg:sticky lg:top-28"
+            id="instant-quote"
+            className="relative -mt-1 min-w-0 scroll-mt-24 self-start overflow-visible lg:col-start-2 lg:row-start-1 lg:sticky lg:top-28"
           >
             {quote}
           </div>
 
+          {/* Mobile: detail + phone + pills */}
           <div className="flex flex-col gap-5 lg:hidden">
             {heroDetailBlock}
             {phoneLink}
-            {trustPillList}
+            <div className="flex flex-wrap gap-2 text-xs font-semibold text-white/95">
+              {pianoTrustPills.map((label) => (
+                <span
+                  key={label}
+                  className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5"
+                >
+                  {label}
+                </span>
+              ))}
+            </div>
             {meta ? <div className="mt-3">{meta}</div> : null}
           </div>
 
-          {/* Desktop: same copy order as HomeHero */}
-          <div className="hidden min-w-0 flex-col lg:col-start-1 lg:row-start-1 lg:flex">
-            {topNav}
-            {eyebrow ? <div className="self-start">{eyebrow}</div> : null}
-            <p className={HEADING_CLASS} role="heading" aria-level={1}>
-              {heading}
-            </p>
-            {lead ? <div className="mt-4">{lead}</div> : null}
+          {/* Desktop — matches HomeHero */}
+          <div className="hidden w-full min-w-0 flex-col lg:col-start-1 lg:row-start-1 lg:flex lg:gap-0">
+            {topNav ? <div className="mb-4">{topNav}</div> : null}
+            {photo ? (
+              <HeroPhotoFrame
+                heading={heading}
+                eyebrowLabel={eyebrowLabel}
+                headingNowrap={headingNowrap}
+                photo={photo}
+              />
+            ) : null}
+            {headingSub ? (
+              <p className="mt-4 max-w-2xl font-heading text-2xl leading-snug text-white xl:text-[1.75rem]">
+                {headingSub}
+              </p>
+            ) : null}
+            {lead ? <div className="mt-5 max-w-2xl">{lead}</div> : null}
             {subline ? <div className="mt-3 self-start">{subline}</div> : null}
-            {phoneLink}
-            {trustPillList}
+            <div className="mt-6 flex flex-col gap-4">
+              {phoneLink}
+              {trustPillList}
+            </div>
+            {heroDetailBlock}
             {seoIntroBlock}
             {meta ? <div className="mt-4">{meta}</div> : null}
-            {heroDetailBlock}
-            {photoBlock}
           </div>
         </div>
       </div>

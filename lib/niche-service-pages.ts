@@ -245,7 +245,7 @@ export const movingToAustraliaPage: NicheServicePageConfig = {
   defaultJobType: "House Move",
   heroPhoto: sitePhotos.homeHero,
   heroPhotoAlt: "Specialist Movers international relocation consultation",
-  heroOverlayCaption: "You plan it. We ship it.",
+  heroOverlayCaption: "Moving to Australia? We handle it.",
   aboutSidePhoto: sitePhotos.commercialHero,
   aboutSidePhotoAlt: "Specialist Movers truck ready for an international relocation load",
   aboutTitle: "International shipping and moving experts",

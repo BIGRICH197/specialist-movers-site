@@ -12,7 +12,8 @@ import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
 
 import { QuoteForm } from "@/components/QuoteForm";
 
-import { Breadcrumbs, type Crumb } from "@/components/Breadcrumbs";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import type { Crumb } from "@/components/Breadcrumbs";
 
 import { SectionReveal } from "@/components/SectionReveal";
 
@@ -61,6 +62,8 @@ type Props = {
 
   hubHref: string;
 
+  hubEyebrow: string;
+
   photoSlug?: string;
 
 };
@@ -88,6 +91,8 @@ export function ServiceClusterDetail({
   hubLabel,
 
   hubHref,
+
+  hubEyebrow,
 
   photoSlug = item.slug,
 
@@ -136,13 +141,15 @@ export function ServiceClusterDetail({
 
       {faqs.length > 0 ? <FaqPageJsonLd items={faqs} /> : null}
 
+      <BreadcrumbJsonLd items={breadcrumbs} />
+
       <ServiceHeroWithQuote
 
         heroVariant={isPiano ? "piano" : "moving"}
 
-        topNav={<Breadcrumbs items={breadcrumbs} light />}
-
         heading={item.title}
+
+        eyebrowLabel={hubEyebrow}
 
         lead={
 
@@ -193,6 +200,8 @@ export function ServiceClusterDetail({
               photoAlt={`${item.title}, Specialist Movers`}
 
               overlayCaption={getServiceHeroOverlayCaption(photoSlug)}
+
+              captionBottomFadeOnly
 
               priority
 

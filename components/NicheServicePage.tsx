@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
-import { Breadcrumbs, type Crumb } from "@/components/Breadcrumbs";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import type { Crumb } from "@/components/Breadcrumbs";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
 import { ServiceTrustindexBand } from "@/components/ServiceTrustindexBand";
 import { HeroVisual } from "@/components/HeroVisual";
@@ -56,16 +57,10 @@ export function NicheServicePage({ config }: Props) {
   return (
     <div className="bg-brand-white">
       <FaqPageJsonLd items={config.faqs} />
+      <BreadcrumbJsonLd items={crumbs} />
       <ServiceHeroWithQuote
-        googleBadgeLiftCm={
-          config.path.includes("retirement-home-movers")
-            ? 2.8
-            : config.path.includes("australia")
-              ? 3
-              : undefined
-        }
-        topNav={<Breadcrumbs items={crumbs} light />}
         heading={config.h1}
+        eyebrowLabel={config.eyebrow}
         lead={
           <p className="max-w-2xl text-base leading-relaxed text-white/85">
             {config.lead}
@@ -87,6 +82,7 @@ export function NicheServicePage({ config }: Props) {
               config.heroOverlayCaption ??
               getServiceHeroOverlayCaption(reviewSlug)
             }
+            captionBottomFadeOnly
             priority
           />
         }

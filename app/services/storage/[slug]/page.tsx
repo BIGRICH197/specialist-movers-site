@@ -48,6 +48,7 @@ export default function StorageDetailPage({
       item={item}
       hubLabel="Storage"
       hubHref={storageHub.path}
+      hubEyebrow={storageHub.eyebrow}
       photoSlug={item.slug}
     />
   );

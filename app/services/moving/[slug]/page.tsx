@@ -50,6 +50,7 @@ export default function MovingDistancePage({
       item={item}
       hubLabel="Moving by distance"
       hubHref={movingDistanceHub.path}
+      hubEyebrow={movingDistanceHub.eyebrow}
       photoSlug={item.slug}
     />
   );

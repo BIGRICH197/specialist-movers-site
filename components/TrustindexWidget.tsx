@@ -23,17 +23,22 @@ const layoutClass: Record<NonNullable<Props["layout"]>, string> = {
   full: "min-h-[20rem] w-full sm:min-h-[24rem] [&_.ti-widget]:relative [&_.ti-widget]:mx-auto [&_.ti-widget]:max-w-full",
 };
 
-/** Trustindex “floating” layouts clone the widget onto document.body , remove those copies. */
-function removeOrphanTrustindexWidgets(keepInside: HTMLElement) {
+function isInsideAnyTrustindexHost(node: Node) {
+  if (!(node instanceof Element)) return false;
+  return Boolean(node.closest(".trustindex-host"));
+}
+
+/** Trustindex “floating” layouts clone the widget onto document.body , remove stray copies only. */
+function removeOrphanTrustindexWidgets() {
   document.querySelectorAll(".ti-widget").forEach((el) => {
-    if (!keepInside.contains(el)) {
+    if (!isInsideAnyTrustindexHost(el)) {
       el.remove();
     }
   });
 
   document.body.querySelectorAll(":scope > div").forEach((el) => {
-    if (keepInside.contains(el)) return;
-    if (el.querySelector(".ti-widget") && !el.classList.contains("trustindex-host")) {
+    if (el.classList.contains("trustindex-host")) return;
+    if (el.querySelector(".ti-widget") && !isInsideAnyTrustindexHost(el)) {
       el.remove();
     }
   });
@@ -61,7 +66,7 @@ export function TrustindexWidget({
     setLoadError(false);
     host.replaceChildren();
 
-    removeOrphanTrustindexWidgets(host);
+    removeOrphanTrustindexWidgets();
 
     const script = document.createElement("script");
     script.src = `https://cdn.trustindex.io/loader.js?${id}`;
@@ -80,14 +85,14 @@ export function TrustindexWidget({
     hostObserver.observe(host, { childList: true, subtree: true });
 
     const sweeps = [400, 1200, 3000, 6000].map((ms) =>
-      window.setTimeout(() => removeOrphanTrustindexWidgets(host), ms),
+      window.setTimeout(() => removeOrphanTrustindexWidgets(), ms),
     );
 
     return () => {
       hostObserver.disconnect();
       sweeps.forEach((t) => window.clearTimeout(t));
       host.replaceChildren();
-      removeOrphanTrustindexWidgets(host);
+      removeOrphanTrustindexWidgets();
     };
   }, [id]);
 

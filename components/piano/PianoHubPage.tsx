@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { ChevronRight, MapPin, Piano } from "lucide-react";
-import { HomeHero } from "@/components/HomeHero";
+import { HeroVisual } from "@/components/HeroVisual";
 import { HomePurplePanel } from "@/components/home/HomePurplePanel";
 import { PianoExpertiseSection } from "@/components/PianoExpertiseSection";
 import { PianoGallerySection } from "@/components/PianoGallerySection";
 import { PianoPartnerMarquee } from "@/components/PianoPartnerMarquee";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ScatteredReviews } from "@/components/ScatteredReviews";
+import { ServiceHeroWithQuote } from "@/components/ServiceHeroWithQuote";
 import { ServiceProcessSection } from "@/components/ServiceLandingSections";
+import { ServiceTrustindexBand } from "@/components/ServiceTrustindexBand";
 import { SectionReveal } from "@/components/SectionReveal";
 import { SitePhoto } from "@/components/SitePhoto";
-import { TrustindexWidget } from "@/components/TrustindexWidget";
-import { trustindexHomeWidgetId } from "@/lib/trustindex-config";
 import { contactCta, googleReviewsUrl, pianoStatsStrip } from "@/lib/homepage-copy";
 import { sectionRevealDirection } from "@/lib/motion";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
@@ -34,17 +34,38 @@ export function PianoHubPage() {
   return (
     <div className="bg-brand-canvas">
       <FaqPageJsonLd items={hubFaqs} />
-      <HomeHero
-        hero={pianoHubHero}
-        photoSrc={sitePhotos.pianoMove}
-        photoAlt="Specialist Movers crew moving a piano with specialist equipment"
-        photoHoverSrc={sitePhotos.pianoAbout}
-        photoHoverAlt="Specialist Piano Movers team beside a wrapped piano and company truck"
-        defaultJobType="Piano Move"
+      <ServiceHeroWithQuote
         heroVariant="piano"
-        mobileTitle="Specialist Piano Movers"
-        mobileBadge="Trusted piano movers · Auckland & Hamilton"
+        heading={pianoHubHero.h1}
+        eyebrowLabel={pianoHubHero.eyebrow}
+        headingSub={pianoHubHero.h1Sub}
+        lead={
+          <p className="text-base leading-relaxed text-white/85">
+            {pianoHubHero.lead}
+          </p>
+        }
+        subline={
+          <p className="w-fit max-w-xl rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-snug text-white/90">
+            {pianoHubHero.subline}
+          </p>
+        }
+        photo={
+          <HeroVisual
+            variant="piano"
+            photoSrc={sitePhotos.pianoMove}
+            photoAlt="Specialist Movers crew moving a piano with specialist equipment"
+            photoHoverSrc={sitePhotos.pianoAbout}
+            photoHoverAlt="Specialist Piano Movers team beside a wrapped piano and company truck"
+            overlayCaption={pianoHubHero.photoTagline}
+            captionBottomFadeOnly
+            priority
+            className="hero-photo-ambient"
+          />
+        }
+        quote={<QuoteForm defaultJobType="Piano Move" />}
       />
+
+      <ServiceTrustindexBand />
 
       <div className="mx-auto max-w-7xl container-px pb-2 pt-8 sm:pb-4 sm:pt-10">
         <PianoPartnerMarquee />
@@ -54,18 +75,7 @@ export function PianoHubPage() {
         direction={sectionRevealDirection(0)}
         className="mx-auto max-w-7xl py-10 container-px sm:py-12"
       >
-        <div className="border-b border-brand-purple/10 pb-6 sm:pb-8">
-          <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple/50">
-            What customers say
-          </p>
-          <TrustindexWidget
-            widgetId={trustindexHomeWidgetId}
-            layout="carousel"
-            className="mt-4 w-full"
-          />
-        </div>
-
-        <h2 className="mt-8 font-heading text-3xl text-brand-purple sm:mt-10">
+        <h2 className="font-heading text-3xl text-brand-purple sm:mt-2">
           {pianoHubCitiesIntro.title}
         </h2>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-brand-purple/85">

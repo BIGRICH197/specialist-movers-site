@@ -2,6 +2,8 @@ import Link from "next/link";
 
 import { Check, MapPin } from "lucide-react";
 
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+
 import { HeroVisual } from "@/components/HeroVisual";
 
 import { NumberedInfoGrid } from "@/components/NumberedInfoGrid";
@@ -40,6 +42,7 @@ import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
 
 import {
   getServiceHeroDetail,
+  getServiceHeroEyebrow,
   getServiceHeroOverlayCaption,
   serviceHeroSubline,
   serviceHeroSublineClass,
@@ -72,43 +75,27 @@ export function ServiceCityPage({ config }: Props) {
 
   const processSteps = getServiceProcessSteps(config.serviceSlug);
 
-
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: config.parentLabel, href: config.parentHref },
+    { label: config.cityName },
+  ];
 
   return (
 
     <div className="bg-brand-white">
 
+      <BreadcrumbJsonLd items={breadcrumbItems} />
+
       <ServiceHeroWithQuote
 
         heroVariant={isPiano ? "piano" : "moving"}
 
-        topNav={
-
-          <nav className="flex flex-wrap gap-2 text-xs font-semibold text-white/75">
-
-            <Link href="/" className="hover:text-brand-yellow">
-
-              Home
-
-            </Link>
-
-            <span aria-hidden>/</span>
-
-            <Link href={config.parentHref} className="hover:text-brand-yellow">
-
-              {config.parentLabel}
-
-            </Link>
-
-            <span aria-hidden>/</span>
-
-            <span className="text-brand-yellow">{config.cityName}</span>
-
-          </nav>
-
-        }
-
         heading={config.h1}
+
+        eyebrowLabel={getServiceHeroEyebrow(config.serviceSlug, {
+          city: config.cityName,
+        })}
 
         lead={
 
@@ -143,6 +130,8 @@ export function ServiceCityPage({ config }: Props) {
             photoAlt={`${config.h1} , Specialist Movers`}
 
             overlayCaption={getServiceHeroOverlayCaption(config.serviceSlug)}
+
+            captionBottomFadeOnly
 
             priority
 

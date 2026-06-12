@@ -246,6 +246,34 @@
     );
 }
 
+.photo-frame--caption-top-clear::after {
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(151, 57, 176, 0.97) 0%,
+      rgba(151, 57, 176, 0.72) 18%,
+      rgba(151, 57, 176, 0.35) 42%,
+      rgba(190, 118, 239, 0.12) 58%,
+      transparent 72%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(190, 118, 239, 0.11) 0%,
+      transparent 55%
+    );
+}
+
+.photo-frame--caption-bottom-only::after {
+  background-image: linear-gradient(
+    to top,
+    rgba(151, 57, 176, 0.97) 0%,
+    rgba(151, 57, 176, 0.72) 18%,
+    rgba(151, 57, 176, 0.35) 42%,
+    rgba(190, 118, 239, 0.12) 58%,
+    transparent 72%
+  );
+}
+
 .photo-frame--round::after {
   border-radius: 9999px;
 }

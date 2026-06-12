@@ -81,7 +81,7 @@ const landingOverrides: Record<
     h1: "Piano movers Auckland",
     lead:
       "Looking for reliable piano movers in Auckland? Specialist Piano Movers handles local moves, runs to Hamilton and the Waikato, and coordinates international shipping when you need it. Upright, baby grand, and grand pianos with shrink wrap, piano boards, and crews who do this every day.",
-    subline: "Piano moves from $300 excl. GST. Free quote. Callback within 15 minutes.",
+    subline: "Piano moves from $300. Free quote. Callback within 15 minutes.",
     heroGagPhoto: sitePhotos.pianoAbout,
     heroGagAlt: "Specialist Piano Movers team with a wrapped piano beside the company truck",
     heroOverlayCaption: "You play. We move.",

@@ -7,11 +7,13 @@ export const pianoHubMeta = {
 };
 
 export const pianoHubHero = {
-  eyebrow: "Trusted by Steinway and Auckland music retailers. Piano specialists.",
-  h1: "Specialist Piano Movers. Auckland and Hamilton.",
+  eyebrow:
+    "Trusted by Steinway and Auckland music retailers. Piano specialists.",
+  h1: "Specialist Piano Movers.",
+  h1Sub: "Auckland and Hamilton moving specialists.",
   lead:
     "We move uprights, baby grands, and grands with dedicated piano trucks and crews who do this every day. Choose your city below, or request a quote and we will confirm the right depot and crew.",
-  subline: "Piano moves from $300 excl. GST. Free quote. Callback within 15 minutes.",
+  subline: "Piano moves from $300. Free quote. Callback within 15 minutes.",
   photoTagline: "You play. We move.",
 };
 

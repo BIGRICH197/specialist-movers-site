@@ -9,14 +9,6 @@ import { pianoServices } from "@/lib/site-data";
 
 const RESERVED_PIANO_SLUGS = new Set(["auckland", "hamilton"]);
 
-/** Desktop Google badge offset vs default 3.5cm lift (higher = up, lower = down). */
-const pianoGoogleBadgeLiftCm: Partial<Record<string, number>> = {
-  "grand-piano": 4.5,
-  "international-piano": 2.5,
-  "piano-storage": 2.5,
-  "upright-piano": 4.5,
-};
-
 export function generateStaticParams() {
   return pianoServices
     .filter((s) => s.slug !== "piano-tuning")
@@ -76,7 +68,6 @@ export default function PianoSlugPage({ params }: { params: { slug: string } }) 
       overlayCaptionSlug={service.slug}
       momentKey={`piano-movers/${service.slug}`}
       heroVariant="piano"
-      googleBadgeLiftCm={pianoGoogleBadgeLiftCm[service.slug]}
       bodyParagraphs={seo?.bodyParagraphs}
       faqs={seo?.faqs ?? faqsForService(service.slug)}
       processTitle={seo?.processTitle}

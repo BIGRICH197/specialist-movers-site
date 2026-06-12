@@ -66,6 +66,7 @@ export default function HomePage() {
         hero={{
           eyebrow: hero.eyebrow,
           h1: hero.h1,
+          h1Sub: hero.h1Sub,
           lead: hero.lead,
           subline: hero.subline,
           photoTagline: hero.photoTagline,
