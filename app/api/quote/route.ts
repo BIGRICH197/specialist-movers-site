@@ -18,7 +18,7 @@ function parseRooms(value: number | undefined): Bedrooms {
 }
 
 type QuoteBody = {
-  mode: "house" | "piano" | "office" | "commercial" | "callback";
+  mode: "house" | "piano" | "office" | "commercial" | "callback" | "contact";
   serviceType?: string;
   // House
   bedrooms?: Bedrooms;
@@ -87,6 +87,29 @@ export async function POST(request: Request) {
       mode: "commercial",
       pricing: { quoteRequested: true },
     });
+  }
+
+  if (body.mode === "contact") {
+    if (!body.name?.trim() || !body.phone?.trim() || !body.email?.trim()) {
+      return NextResponse.json(
+        { ok: false, error: "Name, phone, and email required" },
+        { status: 400 },
+      );
+    }
+
+    createHubSpotDeal({
+      name: body.name,
+      phone: body.phone,
+      email: body.email,
+      serviceType: "Website Enquiry",
+      pickupAddress: "",
+      dropoffAddress: "",
+      notes: body.message?.trim()
+        ? `Website contact form message:\n\n${body.message.trim()}`
+        : "Website contact form submission (no message).",
+    }).catch(console.error);
+
+    return NextResponse.json({ ok: true, mode: "contact" });
   }
 
   if (!body.name || !body.phone) {

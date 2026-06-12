@@ -9,6 +9,8 @@ export function ContactForm() {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
   const field =
     "h-12 w-full rounded-xl border border-brand-purple/20 bg-brand-white px-4 text-sm text-brand-purple placeholder:text-brand-purple/40 outline-none transition focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20";
@@ -16,12 +18,25 @@ export function ContactForm() {
   return (
     <form
       className="rounded-[1.25rem] border border-brand-purple/10 bg-white p-5 shadow-[0_20px_60px_-20px_rgba(151,57,176,0.15)] sm:p-7"
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
-        const payload = { name, email, phone, message };
-        console.log("Contact submitted", payload);
-        setSuccess(`Thanks ${name}! We'll get back to you shortly.`);
-        setMessage("");
+        if (submitting) return;
+        setSubmitting(true);
+        setError(null);
+        try {
+          const res = await fetch("/api/quote", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ mode: "contact", name, email, phone, message }),
+          });
+          if (!res.ok) throw new Error("Request failed");
+          setSuccess(`Thanks ${name}! We'll get back to you shortly.`);
+          setMessage("");
+        } catch {
+          setError("Something went wrong sending your message. Please call us instead.");
+        } finally {
+          setSubmitting(false);
+        }
       }}
     >
       <h2 className="font-heading text-xl uppercase tracking-wide text-brand-purple sm:text-2xl">
@@ -91,12 +106,19 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="group mt-6 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-brand-yellow px-6 text-base font-bold text-brand-purple shadow-lg transition hover:brightness-[1.02] active:scale-[0.99] sm:w-auto sm:px-10"
+        disabled={submitting}
+        className="group mt-6 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-brand-yellow px-6 text-base font-bold text-brand-purple shadow-lg transition hover:brightness-[1.02] active:scale-[0.99] disabled:opacity-60 sm:w-auto sm:px-10"
       >
-        Send message
+        {submitting ? "Sending..." : "Send message"}
         <ArrowRight className="h-5 w-5 transition group-hover:translate-x-0.5" />
       </button>
       <p className="mt-3 text-xs text-brand-purple/60">Prefer a call? Use the number above.</p>
+
+      {error && (
+        <p className="mt-4 rounded-xl border border-red-300 bg-red-50 p-4 text-sm font-medium text-red-700">
+          {error}
+        </p>
+      )}
 
       {success && (
         <p className="mt-4 rounded-xl border border-brand-purple/20 bg-brand-purple/[0.06] p-4 text-sm font-medium text-brand-purple">

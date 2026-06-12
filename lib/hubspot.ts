@@ -1,6 +1,16 @@
 const HUBSPOT_API_URL = "https://api.hubapi.com";
 const PIPELINE_ID = "997404386";
-const STAGE_NEW = "997404387"; // first stage in pipeline
+const STAGE_NEW = "1526377150"; // "New" stage in pipeline 997404386
+
+// job_source is a dropdown — only these values are accepted by HubSpot.
+// Service types without a matching option get no job_source.
+function jobSourceFor(serviceType: string): string | null {
+  const s = serviceType.toLowerCase();
+  if (s.includes("piano")) return "website_piano";
+  if (s.includes("office") || s.includes("commercial")) return "commercial_job";
+  if (s.includes("house")) return "website_house_move";
+  return null;
+}
 
 function getToken(): string {
   const token = process.env.HUBSPOT_ACCESS_TOKEN;
@@ -88,8 +98,9 @@ export async function createHubSpotDeal(params: {
       dealstage: STAGE_NEW,
       pick_up_deal: params.pickupAddress,
       drop_off_deal: params.dropoffAddress,
-      job_source: "Website Calculator",
     };
+    const jobSource = jobSourceFor(params.serviceType);
+    if (jobSource) properties.job_source = jobSource;
     if (params.preferredDate) {
       properties.deal_preferred_date = params.preferredDate;
     }
