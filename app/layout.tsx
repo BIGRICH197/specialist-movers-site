@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { GoogleTagManager } from "@next/third-parties/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { AttributionTracker } from "@/components/AttributionTracker";
@@ -42,9 +43,12 @@ export const metadata: Metadata = {
   },
 };
 
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en-NZ" className={`${inter.variable} ${termina.variable}`}>
+      {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
       <body className="min-h-screen bg-brand-canvas font-sans text-brand-purple">
         <LocalBusinessJsonLd />
         <AttributionTracker />

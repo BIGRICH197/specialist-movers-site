@@ -8,6 +8,8 @@ export const brandAssets = {
   primaryLogoYellow: enc("/brand/logos/svg/Primary Logo Yellow.svg"),
   /** 2× PNG , full yellow lockup; use in header on purple bar for clarity */
   primaryLogoYellow2xPng: "/brand/logos/primary-logo-yellow-2x.png",
+  /** 2× PNG , yellow wordmark only (from email sig assets) */
+  wordmarkYellow2xPng: "/brand/logos/wordmark-yellow-2x.png",
   socialInstagram: "/brand/icons/social-instagram-white.svg",
   socialFacebook: "/brand/icons/social-facebook-white.svg",
 } as const;

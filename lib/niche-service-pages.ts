@@ -39,7 +39,7 @@ export const apartmentMoversPage: NicheServicePageConfig = {
   path: "/apartment-movers-auckland",
   metaTitle: "Apartment Movers Auckland | Specialist Movers",
   metaDescription:
-    "Moving to a new apartment? Take the help of Specialist Movers who specializes in apartment relocation in Auckland. Click here to learn more.",
+    "Moving to a new apartment? Take the help of Specialist Movers who specialises in apartment relocation in Auckland. Click here to learn more.",
   eyebrow: "Auckland apartment moving specialists",
   h1: "Apartment movers Auckland",
   lead:

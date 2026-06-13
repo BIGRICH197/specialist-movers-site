@@ -17,6 +17,7 @@ const staticRoutes = [
   "",
   "/services",
   "/piano-movers",
+  "/piano-movers/auckland",
   "/reviews",
   "/faq",
   "/about",
@@ -100,19 +101,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  entries.push({
-    url: `${siteUrl}/piano-movers`,
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: 0.9,
-  });
-  entries.push({
-    url: `${siteUrl}/piano-movers/hamilton`,
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: 0.88,
-  });
-
   for (const path of listHamiltonPaths()) {
     entries.push({
       url: `${siteUrl}${path}`,
@@ -140,5 +128,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  return entries;
+  const seen = new Set<string>();
+  return entries.filter((entry) => {
+    if (seen.has(entry.url)) return false;
+    seen.add(entry.url);
+    return true;
+  });
 }

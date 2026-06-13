@@ -4,9 +4,9 @@
  */
 export const legacyMetaDescriptions = {
   home:
-    "Are you relocating houses? Hire Specialist Movers in Auckland! We specialize in local and international house and piano packing and moving. Contact us today!",
+    "Are you relocating houses? Hire Specialist Movers in Auckland! We specialise in local and international house and piano packing and moving. Contact us today!",
   "house-moving":
-    "Relocating cars can be stressful, but not anymore with Specialist Movers, your expert house moving and packing services company in Auckland. Hire us today!",
+    "Relocating your home can be stressful, but not anymore with Specialist Movers, your expert house moving and packing services company in Auckland. Hire us today!",
   "office-moving":
     "Moving your business to a new location? Contact Specialist Movers, your office furniture movers in Auckland for a smooth transition.",
   "commercial-moving":
@@ -28,7 +28,7 @@ export const legacyMetaDescriptions = {
   "piano-movers":
     "Hire Special Movers, your piano moving experts in Auckland. We move your piano safely both locally and internationally. Contact us today to know more.",
   "apartment-movers-auckland":
-    "Moving to a new apartment? Take the help of Specialist Movers who specializes in apartment relocation in Auckland. Click here to learn more.",
+    "Moving to a new apartment? Take the help of Specialist Movers who specialises in apartment relocation in Auckland. Click here to learn more.",
   "retirement-home-movers-auckland":
     "Retiring soon? Hire your personalised retirement home movers, the Specialist Movers in Auckland and experience the difference. Click here now!",
   about:

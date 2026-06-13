@@ -39,6 +39,8 @@ export function ContactForm() {
             }),
           });
           if (!res.ok) throw new Error("Request failed");
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: "quote_submit", form_type: "contact" });
           setSuccess(`Thanks ${name}! We'll get back to you shortly.`);
           setMessage("");
         } catch {

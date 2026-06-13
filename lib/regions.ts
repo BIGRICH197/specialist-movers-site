@@ -16,7 +16,7 @@ export const regions = {
   homeMetaTitle:
     "Auckland & Waikato Movers | House & Piano | Specialist Movers",
   homeMetaDescription:
-    "Are you relocating houses? Hire Specialist Movers in Auckland! We specialize in local and international house and piano packing and moving. Contact us today!",
+    "Are you relocating houses? Hire Specialist Movers in Auckland! We specialise in local and international house and piano packing and moving. Contact us today!",
   layoutDescription:
     "Specialist Movers has Auckland and Hamilton bases. House, piano, commercial, packing and specialist moves across Auckland, Hamilton, and the Waikato. Free quote and callback in 15 minutes.",
   quoteTrustLine: "Auckland and Waikato moving specialists",

@@ -40,8 +40,11 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   }
   const legacyPath = legacyPathForServiceSlug(params.slug);
   const legacyDescription = legacyMetaForServiceSlug(params.slug);
+  const title = /\bauckland\b/i.test(service.title)
+    ? service.title
+    : `${service.title} Auckland`;
   return buildPageMetadata({
-    title: `${service.title} Auckland`,
+    title,
     description:
       legacyDescription ??
       `${service.description} Trusted ${service.title.toLowerCase()} specialists. Auckland base. Free quote. Callback in 15 minutes.`,

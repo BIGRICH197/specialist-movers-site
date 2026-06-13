@@ -148,6 +148,8 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
         set("error", data.error ?? "Something went wrong. Please call us.");
         return;
       }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "quote_submit", form_type: "cleaning" });
       setPricing(data.pricing);
       setStep(3);
     } catch {

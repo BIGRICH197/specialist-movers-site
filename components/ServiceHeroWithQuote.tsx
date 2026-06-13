@@ -150,12 +150,13 @@ export function ServiceHeroWithQuote({
             <GoogleRatingBadge variant="compact" />
           </div>
 
-          {/* Quote form */}
+          {/* Quote form + pricing pill (pill always below quote) */}
           <div
             id="instant-quote"
-            className="relative -mt-1 min-w-0 scroll-mt-24 self-start overflow-visible lg:col-start-2 lg:row-start-1 lg:sticky lg:top-28"
+            className="relative -mt-1 flex min-w-0 flex-col gap-5 scroll-mt-24 self-start overflow-visible lg:col-start-2 lg:row-start-1 lg:sticky lg:top-28"
           >
             {quote}
+            {subline ? <div>{subline}</div> : null}
           </div>
 
           {/* Mobile: phone + trust pills below form (matches HomeHero) */}
@@ -182,10 +183,9 @@ export function ServiceHeroWithQuote({
               </p>
             ) : null}
             {lead ? <div className="mt-5 max-w-2xl">{lead}</div> : null}
-            {(subline || showPhone) ? (
+            {showPhone ? (
               <ServiceHeroTrustStack
-                className={subline ? "mt-3" : phoneBlockClassName}
-                subline={subline ?? null}
+                className={phoneBlockClassName}
                 trustPills={pianoTrustPills}
                 phone={phoneLink}
               />

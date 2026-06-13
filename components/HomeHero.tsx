@@ -11,6 +11,7 @@ import { motionDuration, motionStagger, motionTransition } from "@/lib/motion";
 import type { JobType } from "@/lib/site-data";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
+import { ServiceHeroSublinePrice } from "@/components/ServiceHeroSublinePrice";
 import { ServiceHeroTrustStack } from "@/components/ServiceHeroTrustStack";
 
 type HeroCopy = {
@@ -170,7 +171,6 @@ export function HomeHero({
               className="mt-3 hidden lg:block"
             >
               <ServiceHeroTrustStack
-                subline={hero.subline}
                 trustPills={trustPills}
                 phone={
                   <a
@@ -188,13 +188,14 @@ export function HomeHero({
           <motion.div
             id="instant-quote"
             className={cn(
-              "relative -mt-1 min-w-0 scroll-mt-24 self-start overflow-visible lg:col-start-2 lg:row-start-1 lg:sticky lg:top-28",
+              "relative -mt-1 flex min-w-0 flex-col gap-5 scroll-mt-24 self-start overflow-visible lg:col-start-2 lg:row-start-1 lg:sticky lg:top-28",
             )}
             initial={reduced ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...t, delay: reduced ? 0 : 0.35 }}
           >
             <QuoteForm defaultJobType={defaultJobType} />
+            <ServiceHeroSublinePrice>{hero.subline}</ServiceHeroSublinePrice>
           </motion.div>
 
           {/* Mobile: phone + trust pills below form */}
