@@ -8,6 +8,7 @@ import {
   type PianoMoveInput,
 } from "@/lib/pricing";
 import { isGooglePlacesConfigured } from "@/lib/google-places-config";
+import type { ParsedPlaceAddress } from "@/lib/parse-place-address";
 import { quotePriceRange } from "@/lib/quote-display";
 import { createHubSpotDeal } from "@/lib/hubspot";
 import type { AccessDifficulty, Bedrooms, PianoType } from "@/lib/pricing-data";
@@ -46,7 +47,27 @@ type QuoteBody = {
   addressesVerified?: boolean;
   /** Page path the form was submitted from, e.g. /hamilton/piano-movers. */
   sourcePage?: string;
+  /** Google Places parsed components for each address, when verified. */
+  pickupParsed?: ParsedPlaceAddress;
+  dropoffParsed?: ParsedPlaceAddress;
 };
+
+/**
+ * Branch for the HubSpot deal. Uses Google Places data when available.
+ * Unverified addresses that don't classify get NO branch (blank in HubSpot)
+ * rather than a possibly-wrong "out of town" tag.
+ */
+function resolveDealBranch(
+  body: QuoteBody,
+): "auckland" | "hamilton" | "manual" | undefined {
+  if (!body.pickupAddress || !body.dropoffAddress) return undefined;
+  const branch = detectQuoteBranch(body.pickupAddress, body.dropoffAddress, {
+    pickupParsed: body.pickupParsed,
+    dropoffParsed: body.dropoffParsed,
+  });
+  if (branch !== "manual") return branch;
+  return body.addressesVerified ? "manual" : undefined;
+}
 
 function accessLabel(access: AccessDifficulty | undefined): string {
   return access === "hard" ? "Stairs / difficult" : "Easy (ground level)";
@@ -208,7 +229,7 @@ export async function POST(request: Request) {
       preferredDate: body.preferredDate,
       estimatedValue: customQuote ? undefined : result.totalIncGst,
       bedrooms: parseRooms(body.bedrooms),
-      branch: result.branch,
+      branch: resolveDealBranch(body),
       sourcePage: body.sourcePage,
       pickupAccess: accessLabel(body.pickupAccess),
       dropoffAccess: accessLabel(body.dropoffAccess),
@@ -219,7 +240,7 @@ export async function POST(request: Request) {
       ].filter(Boolean),
       notes: customQuote
         ? `Website quote: Custom quote needed (${manualReason})\n${parseRooms(body.bedrooms)} rooms, ${body.pickupAddress} to ${body.dropoffAddress}${notesSuffix}`
-        : `Website quote: $${result.totalIncGst} incl GST\n${result.breakdown}${notesSuffix}`,
+        : `Website quote: $${result.totalIncGst} incl GST\nCustomer shown range: $${quotePriceRange(result.totalIncGst).lowIncGst} to $${quotePriceRange(result.totalIncGst).highIncGst} incl GST\n${result.breakdown}${notesSuffix}`,
     });
 
     if (customQuote) {
@@ -271,13 +292,13 @@ export async function POST(request: Request) {
       pickupAddress: body.pickupAddress,
       dropoffAddress: body.dropoffAddress,
       estimatedValue: customQuote ? undefined : result.totalIncGst,
-      branch: result.branch,
+      branch: resolveDealBranch(body),
       sourcePage: body.sourcePage,
       pickupAccess: stairsLabel(body.pickupStairFlights),
       dropoffAccess: stairsLabel(body.dropoffStairFlights),
       notes: customQuote
         ? `Website quote: Custom quote needed (${manualReason})\n${body.pianoType} piano, ${body.pickupAddress} to ${body.dropoffAddress}${extraNotes}`
-        : `Website quote: $${result.totalIncGst} incl GST\n${result.breakdown}${extraNotes}`,
+        : `Website quote: $${result.totalIncGst} incl GST\nCustomer shown range: $${quotePriceRange(result.totalIncGst).lowIncGst} to $${quotePriceRange(result.totalIncGst).highIncGst} incl GST\n${result.breakdown}${extraNotes}`,
     });
 
     if (customQuote) {
@@ -314,7 +335,7 @@ export async function POST(request: Request) {
       pickupAddress: body.pickupAddress,
       dropoffAddress: body.dropoffAddress,
       preferredDate: body.preferredDate,
-      branch: detectQuoteBranch(body.pickupAddress, body.dropoffAddress),
+      branch: resolveDealBranch(body),
       sourcePage: body.sourcePage,
       pickupAccess: accessLabel(body.pickupAccess),
       dropoffAccess: accessLabel(body.dropoffAccess),

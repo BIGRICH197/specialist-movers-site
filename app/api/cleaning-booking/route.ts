@@ -82,7 +82,11 @@ export async function POST(request: Request) {
     preferredDate: body.preferredDate,
     estimatedValue: quote.priceIncGst,
     bedrooms: body.bedrooms,
-    branch: detectQuoteBranch(body.propertyAddress, body.propertyAddress),
+    // Blank branch when the address doesn't classify — no wrong tags.
+    branch: (() => {
+      const b = detectQuoteBranch(body.propertyAddress, body.propertyAddress);
+      return b === "manual" ? undefined : b;
+    })(),
     sourcePage: body.sourcePage,
     extraProperties: {
       cleaning_address: body.propertyAddress.trim(),

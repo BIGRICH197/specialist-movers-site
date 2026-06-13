@@ -272,6 +272,8 @@ export function QuoteForm({
         message: f.message,
         addressesVerified: routeResolution.canInstantQuote,
         sourcePage: window.location.pathname,
+        pickupParsed: pickupParsed ?? undefined,
+        dropoffParsed: dropoffParsed ?? undefined,
       };
       payload.serviceType = defaultJobType ?? (f.mode === "house" ? "House Move" : f.mode === "piano" ? "Piano Move" : "Office Move");
 

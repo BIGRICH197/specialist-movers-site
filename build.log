@@ -1,0 +1,89 @@
+npm warn Unknown project config "puppeteer_skip_download". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> specialist-movers@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.25
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+ ⚠ Using edge runtime on a page currently disables static generation for that page
+   Generating static pages (0/175) ...
+   Generating static pages (43/175) 
+   Generating static pages (87/175) 
+   Generating static pages (131/175) 
+ ✓ Generating static pages (175/175)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                                                    Size     First Load JS
+┌ ○ /                                                                          12.3 kB         180 kB
+├ ○ /_not-found                                                                142 B          87.3 kB
+├ ○ /about                                                                     2.78 kB         153 kB
+├ ○ /apartment-movers-auckland                                                 1.12 kB         170 kB
+├ ƒ /api/chat                                                                  0 B                0 B
+├ ƒ /api/cleaning-booking                                                      0 B                0 B
+├ ƒ /api/quote                                                                 0 B                0 B
+├ ○ /blog                                                                      154 B           157 kB
+├ ● /blog/[slug]                                                               154 B           157 kB
+├   ├ /blog/the-ultimate-guide-to-house-moving-in-auckland
+├   ├ /blog/diy-packing-vs-professional-packing-services
+├   └ /blog/stress-free-moving-in-auckland-expert-tips-from-specialist-movers
+├ ○ /contact                                                                   3.17 kB         114 kB
+├ ○ /faq                                                                       1.63 kB         144 kB
+├ ○ /international-moving/moving-to-australia                                  1.12 kB         170 kB
+├ ○ /locations                                                                 2.86 kB         154 kB
+├ ● /locations/[slug]                                                          3.24 kB         156 kB
+├   ├ /locations/north-shore
+├   ├ /locations/central-auckland
+├   ├ /locations/west-auckland
+├   └ [+107 more paths]
+├ ƒ /opengraph-image                                                           0 B                0 B
+├ ○ /patterns                                                                  199 B          99.9 kB
+├ ○ /piano-movers                                                              236 B           170 kB
+├ ● /piano-movers/[slug]                                                       1.11 kB         170 kB
+├   ├ /piano-movers/grand-piano
+├   ├ /piano-movers/upright-piano
+├   ├ /piano-movers/international-piano
+├   └ /piano-movers/piano-storage
+├ ○ /piano-movers/auckland                                                     1.12 kB         170 kB
+├ ○ /piano-movers/hamilton                                                     1.11 kB         170 kB
+├ ○ /piano-movers/piano-tuning                                                 1.12 kB         170 kB
+├ ○ /policies                                                                  154 B           157 kB
+├ ○ /portal                                                                    199 B          99.9 kB
+├ ○ /retirement-home-movers-auckland                                           1.12 kB         170 kB
+├ ○ /retirement-home-movers-hamilton                                           1.12 kB         170 kB
+├ ○ /reviews                                                                   4.86 kB         166 kB
+├ ○ /robots.txt                                                                0 B                0 B
+├ ○ /services                                                                  154 B           157 kB
+├ ● /services/[slug]                                                           1.11 kB         170 kB
+├   ├ /services/house-moving
+├   ├ /services/office-moving
+├   ├ /services/piano-movers
+├   └ [+17 more paths]
+├ ○ /services/moving                                                           154 B           157 kB
+├ ● /services/moving/[slug]                                                    1.13 kB         170 kB
+├   ├ /services/moving/local-moving
+├   └ /services/moving/regional-moving
+├ ○ /services/storage                                                          154 B           157 kB
+├ ● /services/storage/[slug]                                                   1.12 kB         170 kB
+├   ├ /services/storage/short-term-storage
+├   ├ /services/storage/long-term-storage
+├   ├ /services/storage/storage-in-transit
+├   └ /services/storage/overnight-storage
+├ ○ /services/whats-included                                                   4.61 kB         166 kB
+├ ○ /sitemap.xml                                                               0 B                0 B
+└ ○ /why-us                                                                    1.63 kB         144 kB
++ First Load JS shared by all                                                  87.2 kB
+  ├ chunks/2117-6c8b190289d574d3.js                                            31.6 kB
+  ├ chunks/fd9d1056-60b89ebdef54fbe8.js                                        53.6 kB
+  └ other shared chunks (total)                                                1.96 kB
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses getStaticProps)
+ƒ  (Dynamic)  server-rendered on demand
+
