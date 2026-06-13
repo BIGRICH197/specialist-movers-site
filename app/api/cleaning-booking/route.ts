@@ -88,6 +88,7 @@ export async function POST(request: Request) {
       return b === "manual" ? undefined : b;
     })(),
     sourcePage: body.sourcePage,
+    quoteRange: `$${quote.priceIncGst} incl GST (fixed price)`,
     extraProperties: {
       cleaning_address: body.propertyAddress.trim(),
       ...(cleaningTypeOptions[body.cleaningType]

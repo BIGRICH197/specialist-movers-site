@@ -103,6 +103,8 @@ export async function createHubSpotDeal(params: {
   pickupAccess?: string;
   dropoffAccess?: string;
   addOns?: string[];
+  /** Price window shown to the customer, e.g. "$2,450 to $2,890 incl GST". */
+  quoteRange?: string;
   /** Route-specific deal properties (must already exist in HubSpot). */
   extraProperties?: Record<string, string>;
 }): Promise<{ dealId: string } | { error: string }> {
@@ -151,6 +153,9 @@ export async function createHubSpotDeal(params: {
     }
     if (params.addOns?.length) {
       properties.website_add_ons = params.addOns.join(", ");
+    }
+    if (params.quoteRange) {
+      properties.website_quote_range = params.quoteRange;
     }
     if (params.extraProperties) {
       Object.assign(properties, params.extraProperties);

@@ -228,6 +228,11 @@ export async function POST(request: Request) {
         : "Addresses not verified via Places"
       : null;
 
+    const range = customQuote ? null : quotePriceRange(result.totalIncGst);
+    const rangeText = range
+      ? `$${range.lowIncGst} to $${range.highIncGst} incl GST`
+      : undefined;
+
     await createHubSpotDeal({
       name: body.name,
       phone: body.phone,
@@ -247,9 +252,10 @@ export async function POST(request: Request) {
         body.wantsCleaning ? "Exit cleaning" : "",
         body.wantsInsurance ? "Insurance" : "",
       ].filter(Boolean),
+      quoteRange: rangeText,
       notes: customQuote
         ? `Website quote: Custom quote needed (${manualReason})\n${parseRooms(body.bedrooms)} rooms, ${body.pickupAddress} to ${body.dropoffAddress}${notesSuffix}`
-        : `Website quote: $${result.totalIncGst} incl GST\nCustomer shown range: $${quotePriceRange(result.totalIncGst).lowIncGst} to $${quotePriceRange(result.totalIncGst).highIncGst} incl GST\n${result.breakdown}${notesSuffix}`,
+        : `Website quote: $${result.totalIncGst} incl GST\nCustomer shown range: ${rangeText}\n${result.breakdown}${notesSuffix}`,
     });
 
     if (customQuote) {
@@ -297,6 +303,11 @@ export async function POST(request: Request) {
         : "Addresses not verified via Places"
       : null;
 
+    const range = customQuote ? null : quotePriceRange(result.totalIncGst);
+    const rangeText = range
+      ? `$${range.lowIncGst} to $${range.highIncGst} incl GST`
+      : undefined;
+
     await createHubSpotDeal({
       name: body.name,
       phone: body.phone,
@@ -309,9 +320,10 @@ export async function POST(request: Request) {
       sourcePage: body.sourcePage,
       pickupAccess: stairsLabel(body.pickupStairFlights),
       dropoffAccess: stairsLabel(body.dropoffStairFlights),
+      quoteRange: rangeText,
       notes: customQuote
         ? `Website quote: Custom quote needed (${manualReason})\n${body.pianoType} piano, ${body.pickupAddress} to ${body.dropoffAddress}${extraNotes}`
-        : `Website quote: $${result.totalIncGst} incl GST\nCustomer shown range: $${quotePriceRange(result.totalIncGst).lowIncGst} to $${quotePriceRange(result.totalIncGst).highIncGst} incl GST\n${result.breakdown}${extraNotes}`,
+        : `Website quote: $${result.totalIncGst} incl GST\nCustomer shown range: ${rangeText}\n${result.breakdown}${extraNotes}`,
     });
 
     if (customQuote) {
