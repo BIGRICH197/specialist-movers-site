@@ -8,7 +8,7 @@ export const regions = {
   serviceAreaBadge: "Auckland & Waikato",
   widerNorthIsland: "Wider North Island: Taupo to Cape Reinga",
   heroEyebrow:
-    "Trusted house and piano moving. Auckland and Hamilton.",
+    "Trusted house and piano movers. Auckland and Hamilton.",
   heroH1: "Specialist Movers.",
   heroH1Sub: "Auckland and Hamilton moving specialists.",
   heroLead:
