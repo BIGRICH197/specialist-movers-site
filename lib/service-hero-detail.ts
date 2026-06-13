@@ -1,10 +1,6 @@
 import { hero } from "@/lib/homepage-copy";
 import { getServiceLandingConfig } from "@/lib/service-landings";
-import {
-  getMovingHeroSubline,
-  getServiceHeroSubline,
-  pianoHeroSubline,
-} from "@/lib/service-hero-pricing";
+import { getMovingHeroSubline } from "@/lib/service-hero-pricing";
 
 export {
   getMovingHeroSubline,
