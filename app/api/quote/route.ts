@@ -11,6 +11,11 @@ import { isGooglePlacesConfigured } from "@/lib/google-places-config";
 import type { ParsedPlaceAddress } from "@/lib/parse-place-address";
 import { quotePriceRange } from "@/lib/quote-display";
 import { createHubSpotDeal } from "@/lib/hubspot";
+import type { Attribution } from "@/lib/attribution";
+import {
+  attributionNoteLines,
+  classifyTrafficSource,
+} from "@/lib/traffic-source";
 import type { AccessDifficulty, Bedrooms, PianoType } from "@/lib/pricing-data";
 
 function parseRooms(value: number | undefined): Bedrooms {
@@ -50,6 +55,8 @@ type QuoteBody = {
   /** Google Places parsed components for each address, when verified. */
   pickupParsed?: ParsedPlaceAddress;
   dropoffParsed?: ParsedPlaceAddress;
+  /** First-touch attribution captured on the landing page. */
+  attribution?: Attribution;
 };
 
 /**
@@ -103,6 +110,11 @@ function withDisplayPricing<T extends { totalIncGst: number }>(pricing: T) {
 export async function POST(request: Request) {
   const body = (await request.json()) as QuoteBody;
 
+  const trafficSource = classifyTrafficSource(body.attribution);
+  const landingPage = body.attribution?.landingPage;
+  const attributionNote =
+    attributionNoteLines(body.attribution).join("\n") || undefined;
+
   if (body.mode === "commercial") {
     if (!body.name?.trim() || !body.email?.trim() || !body.message?.trim()) {
       return NextResponse.json(
@@ -119,6 +131,9 @@ export async function POST(request: Request) {
       pickupAddress: "",
       dropoffAddress: "",
       sourcePage: body.sourcePage,
+      trafficSource,
+      landingPage,
+      attributionNote,
       notes: `Website commercial enquiry\n\n${body.message.trim()}`,
     });
 
@@ -145,6 +160,9 @@ export async function POST(request: Request) {
       pickupAddress: "",
       dropoffAddress: "",
       sourcePage: body.sourcePage,
+      trafficSource,
+      landingPage,
+      attributionNote,
       notes: body.message?.trim()
         ? `Website contact form message:\n\n${body.message.trim()}`
         : "Website contact form submission (no message).",
@@ -169,6 +187,9 @@ export async function POST(request: Request) {
       pickupAddress: "",
       dropoffAddress: "",
       sourcePage: body.sourcePage,
+      trafficSource,
+      landingPage,
+      attributionNote,
       notes: "Customer requested a callback from the website.",
     });
 
@@ -245,6 +266,9 @@ export async function POST(request: Request) {
       bedrooms: parseRooms(body.bedrooms),
       branch: resolveDealBranch(body),
       sourcePage: body.sourcePage,
+      trafficSource,
+      landingPage,
+      attributionNote,
       pickupAccess: accessLabel(body.pickupAccess),
       dropoffAccess: accessLabel(body.dropoffAccess),
       addOns: [
@@ -318,6 +342,9 @@ export async function POST(request: Request) {
       estimatedValue: customQuote ? undefined : result.totalIncGst,
       branch: resolveDealBranch(body),
       sourcePage: body.sourcePage,
+      trafficSource,
+      landingPage,
+      attributionNote,
       pickupAccess: stairsLabel(body.pickupStairFlights),
       dropoffAccess: stairsLabel(body.dropoffStairFlights),
       quoteRange: rangeText,
@@ -362,6 +389,9 @@ export async function POST(request: Request) {
       preferredDate: body.preferredDate,
       branch: resolveDealBranch(body),
       sourcePage: body.sourcePage,
+      trafficSource,
+      landingPage,
+      attributionNote,
       pickupAccess: accessLabel(body.pickupAccess),
       dropoffAccess: accessLabel(body.dropoffAccess),
       notes: [

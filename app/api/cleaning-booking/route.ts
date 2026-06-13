@@ -5,6 +5,11 @@ import {
 } from "@/lib/cleaning-pricing";
 import { createHubSpotDeal } from "@/lib/hubspot";
 import { detectQuoteBranch } from "@/lib/pricing";
+import type { Attribution } from "@/lib/attribution";
+import {
+  attributionNoteLines,
+  classifyTrafficSource,
+} from "@/lib/traffic-source";
 
 type CleaningBookingBody = {
   name: string;
@@ -18,6 +23,7 @@ type CleaningBookingBody = {
   cleaningType: string;
   message?: string;
   sourcePage?: string;
+  attribution?: Attribution;
 };
 
 // service_type_cleaning_options dropdown values in HubSpot.
@@ -88,6 +94,10 @@ export async function POST(request: Request) {
       return b === "manual" ? undefined : b;
     })(),
     sourcePage: body.sourcePage,
+    trafficSource: classifyTrafficSource(body.attribution),
+    landingPage: body.attribution?.landingPage,
+    attributionNote:
+      attributionNoteLines(body.attribution).join("\n") || undefined,
     quoteRange: `$${quote.priceIncGst} incl GST (fixed price)`,
     extraProperties: {
       cleaning_address: body.propertyAddress.trim(),

@@ -105,6 +105,12 @@ export async function createHubSpotDeal(params: {
   addOns?: string[];
   /** Price window shown to the customer, e.g. "$2,450 to $2,890 incl GST". */
   quoteRange?: string;
+  /** e.g. "Paid Search - Google Ads", "Organic Search - Google", "Direct". */
+  trafficSource?: string;
+  /** First page of the visit, with query string. */
+  landingPage?: string;
+  /** Extra attribution detail (campaign, gclid, referrer) for the note. */
+  attributionNote?: string;
   /** Route-specific deal properties (must already exist in HubSpot). */
   extraProperties?: Record<string, string>;
 }): Promise<{ dealId: string } | { error: string }> {
@@ -157,6 +163,12 @@ export async function createHubSpotDeal(params: {
     if (params.quoteRange) {
       properties.website_quote_range = params.quoteRange;
     }
+    if (params.trafficSource) {
+      properties.website_traffic_source = params.trafficSource;
+    }
+    if (params.landingPage) {
+      properties.website_landing_page = params.landingPage.slice(0, 500);
+    }
     if (params.extraProperties) {
       Object.assign(properties, params.extraProperties);
     }
@@ -178,11 +190,14 @@ export async function createHubSpotDeal(params: {
 
     // Add automation note
     if (params.notes) {
+      const noteBody = params.attributionNote
+        ? `${params.notes}\n\nAttribution:\n${params.attributionNote}`
+        : params.notes;
       await hubspotFetch("/crm/v3/objects/notes", {
         method: "POST",
         body: JSON.stringify({
           properties: {
-            hs_note_body: `[AUTOMATION] Website Quote\n${params.notes}`,
+            hs_note_body: `[AUTOMATION] Website Quote\n${noteBody}`,
             hs_timestamp: new Date().toISOString(),
           },
           associations: [

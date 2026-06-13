@@ -9,6 +9,7 @@ import {
   Phone,
 } from "lucide-react";
 import { AddressAutocomplete } from "@/components/AddressAutocomplete";
+import { getAttribution } from "@/lib/attribution";
 import {
   bathroomsForBedrooms,
   propertySizeFromRooms,
@@ -135,6 +136,7 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
           cleaningType: form.cleaningType,
           message: form.message.trim() || undefined,
           sourcePage: window.location.pathname,
+          attribution: getAttribution(),
         }),
       });
       const data = (await res.json()) as {

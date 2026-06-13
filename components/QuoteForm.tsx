@@ -21,6 +21,7 @@ import {
   quotePriceRange,
   shortAddress,
 } from "@/lib/quote-display";
+import { getAttribution } from "@/lib/attribution";
 import { resolveQuoteRoute } from "@/lib/quote-route";
 import { regions } from "@/lib/regions";
 import type { JobType } from "@/lib/site-data";
@@ -198,6 +199,7 @@ export function QuoteForm({
           phone: f.phone,
           email: f.email,
           sourcePage: window.location.pathname,
+          attribution: getAttribution(),
         }),
       });
       set("callbackSent", true);
@@ -231,6 +233,7 @@ export function QuoteForm({
           email: f.email,
           message: f.message,
           sourcePage: window.location.pathname,
+          attribution: getAttribution(),
         }),
       });
       const data = (await res.json()) as {
@@ -274,6 +277,7 @@ export function QuoteForm({
         sourcePage: window.location.pathname,
         pickupParsed: pickupParsed ?? undefined,
         dropoffParsed: dropoffParsed ?? undefined,
+        attribution: getAttribution(),
       };
       payload.serviceType = defaultJobType ?? (f.mode === "house" ? "House Move" : f.mode === "piano" ? "Piano Move" : "Office Move");
 

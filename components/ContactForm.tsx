@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { getAttribution } from "@/lib/attribution";
 
 export function ContactForm() {
   const [name, setName] = useState("");
@@ -34,6 +35,7 @@ export function ContactForm() {
               phone,
               message,
               sourcePage: window.location.pathname,
+              attribution: getAttribution(),
             }),
           });
           if (!res.ok) throw new Error("Request failed");
