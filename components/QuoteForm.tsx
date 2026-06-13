@@ -202,6 +202,8 @@ export function QuoteForm({
           attribution: getAttribution(),
         }),
       });
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "quote_submit", form_type: "callback" });
       set("callbackSent", true);
     } catch {
       set("error", "Something went wrong. Please try again.");
@@ -242,6 +244,8 @@ export function QuoteForm({
         pricing?: Record<string, unknown>;
       };
       if (data.ok) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "quote_submit", form_type: "commercial" });
         set("result", { ...(data.pricing ?? {}), enquiryMode: "commercial" });
         setF((prev) => ({ ...prev, mode: "result" }));
         goStep(3);
@@ -311,6 +315,10 @@ export function QuoteForm({
         pricing?: Record<string, unknown>;
       };
       if (data.ok) {
+        if (f.mode === "house" || f.mode === "piano" || f.mode === "office") {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: "quote_submit", form_type: f.mode });
+        }
         set("result", { ...(data.pricing ?? {}), quoteMode: f.mode });
         setF((prev) => ({ ...prev, mode: "result" }));
         goStep(3);
