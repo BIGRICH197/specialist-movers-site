@@ -130,9 +130,11 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
           propertyAddress: form.propertyAddress.trim(),
           preferredDate: form.preferredDate || undefined,
           propertySize,
+          bedrooms: form.bedrooms,
           extraLivingRooms: form.extraLivingRooms,
           cleaningType: form.cleaningType,
           message: form.message.trim() || undefined,
+          sourcePage: window.location.pathname,
         }),
       });
       const data = (await res.json()) as {

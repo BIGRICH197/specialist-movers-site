@@ -2,6 +2,7 @@
 import {
   calculateHouseMove,
   calculatePianoMove,
+  detectQuoteBranch,
   needsManualQuote,
   type HouseMoveInput,
   type PianoMoveInput,
@@ -43,7 +44,19 @@ type QuoteBody = {
   message?: string;
   /** Both addresses selected from Google Places and in service area. */
   addressesVerified?: boolean;
+  /** Page path the form was submitted from, e.g. /hamilton/piano-movers. */
+  sourcePage?: string;
 };
+
+function accessLabel(access: AccessDifficulty | undefined): string {
+  return access === "hard" ? "Stairs / difficult" : "Easy (ground level)";
+}
+
+function stairsLabel(flights: number | undefined): string {
+  const n = flights ?? 0;
+  if (n === 0) return "No stairs (ground level)";
+  return n === 1 ? "1 flight of stairs" : `${n} flights of stairs`;
+}
 
 function requiresCustomQuote(
   pickupAddress: string,
@@ -79,6 +92,7 @@ export async function POST(request: Request) {
       serviceType: "Commercial Move",
       pickupAddress: "",
       dropoffAddress: "",
+      sourcePage: body.sourcePage,
       notes: `Website commercial enquiry\n\n${body.message.trim()}`,
     });
 
@@ -104,6 +118,7 @@ export async function POST(request: Request) {
       serviceType: "Website Enquiry",
       pickupAddress: "",
       dropoffAddress: "",
+      sourcePage: body.sourcePage,
       notes: body.message?.trim()
         ? `Website contact form message:\n\n${body.message.trim()}`
         : "Website contact form submission (no message).",
@@ -127,6 +142,7 @@ export async function POST(request: Request) {
       serviceType: "Callback Request",
       pickupAddress: "",
       dropoffAddress: "",
+      sourcePage: body.sourcePage,
       notes: "Customer requested a callback from the website.",
     });
 
@@ -191,6 +207,16 @@ export async function POST(request: Request) {
       dropoffAddress: body.dropoffAddress,
       preferredDate: body.preferredDate,
       estimatedValue: customQuote ? undefined : result.totalIncGst,
+      bedrooms: parseRooms(body.bedrooms),
+      branch: result.branch,
+      sourcePage: body.sourcePage,
+      pickupAccess: accessLabel(body.pickupAccess),
+      dropoffAccess: accessLabel(body.dropoffAccess),
+      addOns: [
+        body.wantsPacking ? "Packing" : "",
+        body.wantsCleaning ? "Exit cleaning" : "",
+        body.wantsInsurance ? "Insurance" : "",
+      ].filter(Boolean),
       notes: customQuote
         ? `Website quote: Custom quote needed (${manualReason})\n${parseRooms(body.bedrooms)} rooms, ${body.pickupAddress} to ${body.dropoffAddress}${notesSuffix}`
         : `Website quote: $${result.totalIncGst} incl GST\n${result.breakdown}${notesSuffix}`,
@@ -245,6 +271,10 @@ export async function POST(request: Request) {
       pickupAddress: body.pickupAddress,
       dropoffAddress: body.dropoffAddress,
       estimatedValue: customQuote ? undefined : result.totalIncGst,
+      branch: result.branch,
+      sourcePage: body.sourcePage,
+      pickupAccess: stairsLabel(body.pickupStairFlights),
+      dropoffAccess: stairsLabel(body.dropoffStairFlights),
       notes: customQuote
         ? `Website quote: Custom quote needed (${manualReason})\n${body.pianoType} piano, ${body.pickupAddress} to ${body.dropoffAddress}${extraNotes}`
         : `Website quote: $${result.totalIncGst} incl GST\n${result.breakdown}${extraNotes}`,
@@ -284,6 +314,10 @@ export async function POST(request: Request) {
       pickupAddress: body.pickupAddress,
       dropoffAddress: body.dropoffAddress,
       preferredDate: body.preferredDate,
+      branch: detectQuoteBranch(body.pickupAddress, body.dropoffAddress),
+      sourcePage: body.sourcePage,
+      pickupAccess: accessLabel(body.pickupAccess),
+      dropoffAccess: accessLabel(body.dropoffAccess),
       notes: [
         `Website ${serviceType} quote request`,
         `Office size: ${sizeLabel}`,

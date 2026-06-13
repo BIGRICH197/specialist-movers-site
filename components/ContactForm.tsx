@@ -27,7 +27,14 @@ export function ContactForm() {
           const res = await fetch("/api/quote", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ mode: "contact", name, email, phone, message }),
+            body: JSON.stringify({
+              mode: "contact",
+              name,
+              email,
+              phone,
+              message,
+              sourcePage: window.location.pathname,
+            }),
           });
           if (!res.ok) throw new Error("Request failed");
           setSuccess(`Thanks ${name}! We'll get back to you shortly.`);

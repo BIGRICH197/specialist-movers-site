@@ -4,6 +4,7 @@ import {
   type CleaningPropertySize,
 } from "@/lib/cleaning-pricing";
 import { createHubSpotDeal } from "@/lib/hubspot";
+import { detectQuoteBranch } from "@/lib/pricing";
 
 type CleaningBookingBody = {
   name: string;
@@ -12,9 +13,18 @@ type CleaningBookingBody = {
   propertyAddress: string;
   preferredDate?: string;
   propertySize: CleaningPropertySize;
+  bedrooms?: number;
   extraLivingRooms: number;
   cleaningType: string;
   message?: string;
+  sourcePage?: string;
+};
+
+// service_type_cleaning_options dropdown values in HubSpot.
+const cleaningTypeOptions: Record<string, string> = {
+  "exit-tenancy": "exit_tenancy_cleaning",
+  settlement: "settlement_day_cleaning",
+  construction: "construction_cleaning",
 };
 
 export async function POST(request: Request) {
@@ -71,6 +81,15 @@ export async function POST(request: Request) {
     dropoffAddress: "",
     preferredDate: body.preferredDate,
     estimatedValue: quote.priceIncGst,
+    bedrooms: body.bedrooms,
+    branch: detectQuoteBranch(body.propertyAddress, body.propertyAddress),
+    sourcePage: body.sourcePage,
+    extraProperties: {
+      cleaning_address: body.propertyAddress.trim(),
+      ...(cleaningTypeOptions[body.cleaningType]
+        ? { service_type_cleaning_options: cleaningTypeOptions[body.cleaningType] }
+        : {}),
+    },
     notes,
   });
 

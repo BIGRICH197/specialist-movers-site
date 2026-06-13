@@ -12,6 +12,17 @@ function jobSourceFor(serviceType: string): string | null {
   return null;
 }
 
+// dealtype is a dropdown: moversgeneral, moverspiano, cleaning (plus international).
+function dealTypeFor(serviceType: string): string | null {
+  const s = serviceType.toLowerCase();
+  if (s.includes("piano")) return "moverspiano";
+  if (s.includes("clean")) return "cleaning";
+  if (s.includes("house") || s.includes("office") || s.includes("commercial")) {
+    return "moversgeneral";
+  }
+  return null;
+}
+
 function getToken(): string {
   // Strip BOM and whitespace — a stray invisible character in the env var
   // makes the Authorization header invalid and every request fail.
@@ -83,6 +94,17 @@ export async function createHubSpotDeal(params: {
   preferredDate?: string;
   estimatedValue?: number;
   notes?: string;
+  /** Bedroom count from the house/cleaning forms. */
+  bedrooms?: number;
+  /** Quote branch from the pricing engine — "manual" maps to out_of_town. */
+  branch?: "auckland" | "hamilton" | "manual";
+  /** Page path the form was submitted from, e.g. /hamilton/piano-movers. */
+  sourcePage?: string;
+  pickupAccess?: string;
+  dropoffAccess?: string;
+  addOns?: string[];
+  /** Route-specific deal properties (must already exist in HubSpot). */
+  extraProperties?: Record<string, string>;
 }): Promise<{ dealId: string } | { error: string }> {
   try {
     const contactId = await findOrCreateContact({
@@ -103,11 +125,35 @@ export async function createHubSpotDeal(params: {
     };
     const jobSource = jobSourceFor(params.serviceType);
     if (jobSource) properties.job_source = jobSource;
+    const dealType = dealTypeFor(params.serviceType);
+    if (dealType) properties.dealtype = dealType;
     if (params.preferredDate) {
       properties.deal_preferred_date = params.preferredDate;
     }
     if (params.estimatedValue) {
       properties.amount = String(params.estimatedValue);
+    }
+    if (params.bedrooms) {
+      properties.number_bedrooms = String(params.bedrooms);
+    }
+    if (params.branch) {
+      properties.branch =
+        params.branch === "manual" ? "out_of_town" : params.branch;
+    }
+    if (params.sourcePage) {
+      properties.website_source_page = params.sourcePage;
+    }
+    if (params.pickupAccess) {
+      properties.pickup_access = params.pickupAccess;
+    }
+    if (params.dropoffAccess) {
+      properties.drop_off_access = params.dropoffAccess;
+    }
+    if (params.addOns?.length) {
+      properties.website_add_ons = params.addOns.join(", ");
+    }
+    if (params.extraProperties) {
+      Object.assign(properties, params.extraProperties);
     }
 
     const deal = await hubspotFetch("/crm/v3/objects/deals", {
