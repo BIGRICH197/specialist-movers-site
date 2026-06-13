@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { RouteTransition } from "@/components/RouteTransition";
 import { ScrollProgress } from "@/components/ScrollProgress";
-import { ArohaChat } from "@/components/ArohaChat";
+import { JoeyChat } from "@/components/JoeyChat";
 import { OverflowGuard } from "@/components/OverflowGuard";
 import { HashQuoteScroll } from "@/components/HashQuoteScroll";
 
@@ -33,7 +33,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
         <RouteTransition>{children}</RouteTransition>
       </main>
       <SiteFooter />
-      <ArohaChat />
+      <JoeyChat />
     </>
   );
 }

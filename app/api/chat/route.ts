@@ -1,5 +1,5 @@
 ﻿import Anthropic from "@anthropic-ai/sdk";
-import { AROHA_SYSTEM_PROMPT } from "@/lib/aroha-system-prompt";
+import { JOEY_SYSTEM_PROMPT } from "@/lib/joey-system-prompt";
 import {
   calculateHouseMove,
   calculatePianoMove,
@@ -7,6 +7,19 @@ import {
   type PianoMoveInput,
 } from "@/lib/pricing";
 import { createHubSpotDeal } from "@/lib/hubspot";
+
+const WEEKDAYS = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+
+/** Convert a day-of-week (e.g. "tuesday") to the next matching YYYY-MM-DD date. */
+function nextDateForDay(day: string): string | undefined {
+  const idx = WEEKDAYS.indexOf(day.toLowerCase());
+  if (idx === -1) return undefined;
+  const today = new Date();
+  const diff = ((idx - today.getDay() + 7) % 7) || 7;
+  const d = new Date(today);
+  d.setDate(today.getDate() + diff);
+  return d.toISOString().slice(0, 10);
+}
 
 const tools: Anthropic.Tool[] = [
   {
@@ -27,6 +40,12 @@ const tools: Anthropic.Tool[] = [
         preferredDate: {
           type: "string",
           description: "Preferred move date in YYYY-MM-DD format (optional)",
+        },
+        dayOfWeek: {
+          type: "string",
+          enum: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+          description:
+            "Preferred day of the week for the move (optional). Use this when the customer gives a day rather than a specific date.",
         },
         pickupAccess: {
           type: "string",
@@ -105,7 +124,12 @@ const tools: Anthropic.Tool[] = [
 
 async function executeTool(name: string, input: Record<string, unknown>): Promise<string> {
   if (name === "calculate_house_move") {
-    const result = calculateHouseMove(input as unknown as HouseMoveInput);
+    const raw = { ...input } as Record<string, unknown>;
+    if (!raw.preferredDate && typeof raw.dayOfWeek === "string") {
+      const dt = nextDateForDay(raw.dayOfWeek);
+      if (dt) raw.preferredDate = dt;
+    }
+    const result = calculateHouseMove(raw as unknown as HouseMoveInput);
     return JSON.stringify(result);
   }
   if (name === "calculate_piano_move") {
@@ -120,7 +144,7 @@ async function executeTool(name: string, input: Record<string, unknown>): Promis
       serviceType: (input.serviceType as string) || "Website Chat",
       pickupAddress: (input.pickupAddress as string) || "",
       dropoffAddress: (input.dropoffAddress as string) || "",
-      notes: `Aroha chatbot lead\n${(input.notes as string) || ""}`,
+      notes: `Joey chatbot lead\n${(input.notes as string) || ""}`,
     });
     return JSON.stringify({ success: true, message: "Lead saved successfully" });
   }
@@ -152,7 +176,7 @@ export async function POST(request: Request) {
     const response = await client.messages.create({
       model: "claude-sonnet-4-20250514",
       max_tokens: 1024,
-      system: AROHA_SYSTEM_PROMPT,
+      system: JOEY_SYSTEM_PROMPT,
       tools,
       messages: currentMessages,
     });
