@@ -39,3 +39,4 @@ docs/audit-lighthouse*.json
 next-env.d.ts
 
 .vercel
+build.log
