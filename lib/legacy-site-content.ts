@@ -6,6 +6,7 @@
 
 import { houseMovingProcess } from "@/lib/moving-process";
 import { regions } from "@/lib/regions";
+import { getMovingHeroSubline } from "@/lib/service-hero-pricing";
 
 export const homeMeta = {
   title: regions.homeMetaTitle,
@@ -17,8 +18,7 @@ export const hero = {
   h1: regions.heroH1,
   h1Sub: regions.heroH1Sub,
   lead: regions.heroLead,
-  subline:
-    "Moves starting from $350. Free quote. We call back within 15 minutes.",
+  subline: getMovingHeroSubline(),
   /** On-photo caption (couch gag). Swap any line from photoTaglineAlternates. */
   photoTagline: "You relax. We move.",
   photoTaglineAlternates: [

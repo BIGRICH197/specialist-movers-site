@@ -1,5 +1,17 @@
 import { hero } from "@/lib/homepage-copy";
 import { getServiceLandingConfig } from "@/lib/service-landings";
+import {
+  getMovingHeroSubline,
+  getServiceHeroSubline,
+  pianoHeroSubline,
+} from "@/lib/service-hero-pricing";
+
+export {
+  getMovingHeroSubline,
+  getServiceHeroSubline,
+  isPianoMoveHeroSlug,
+  pianoHeroSubline,
+} from "@/lib/service-hero-pricing";
 
 /** On-photo slogan (couch gag style) for service hero photos. */
 export const serviceHeroOverlayCaptionBySlug: Record<string, string> = {
@@ -187,9 +199,11 @@ export function getServiceHeroEyebrow(
   return eyebrow;
 }
 
-export const serviceHeroSubline =
-  "Free quote · We call back within 15 minutes · 7 days a week";
+/** Wraps the price pill. Width capped to trust-pills row via ServiceHeroTrustStack. */
+export const serviceHeroSublineWrapClass = "service-hero-price-pill-wrap";
 
-/** Purple hero subline pill — w-fit so the border ends at the text, not full column width. */
 export const serviceHeroSublineClass =
-  "inline-block w-fit max-w-xl rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-snug text-white/90";
+  "service-hero-price-pill block w-full max-w-full rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-snug text-white/90";
+
+/** @deprecated Use getServiceHeroSubline() or getMovingHeroSubline(). */
+export const serviceHeroSubline = getMovingHeroSubline();

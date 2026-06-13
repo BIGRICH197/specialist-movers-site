@@ -17,6 +17,8 @@ import { sectionRevealDirection } from "@/lib/motion";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
 import { pianoMovingProcess } from "@/lib/moving-process";
 import { pianoFaqs } from "@/lib/piano-faqs";
+import { ServiceHeroSublinePrice } from "@/components/ServiceHeroSublinePrice";
+import { getServiceHeroSubline } from "@/lib/service-hero-detail";
 import {
   pianoHubCities,
   pianoHubCitiesIntro,
@@ -45,9 +47,9 @@ export function PianoHubPage() {
           </p>
         }
         subline={
-          <p className="w-fit max-w-xl rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-snug text-white/90">
-            {pianoHubHero.subline}
-          </p>
+          <ServiceHeroSublinePrice>
+            {getServiceHeroSubline("piano-movers")}
+          </ServiceHeroSublinePrice>
         }
         photo={
           <HeroVisual

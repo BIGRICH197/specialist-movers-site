@@ -38,11 +38,11 @@ import type { PianoTuningContent } from "@/lib/piano-tuning-types";
 
 import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
 
+import { ServiceHeroSublinePrice } from "@/components/ServiceHeroSublinePrice";
 import {
   getServiceHeroDetail,
   getServiceHeroOverlayCaption,
-  serviceHeroSubline,
-  serviceHeroSublineClass,
+  getServiceHeroSubline,
 } from "@/lib/service-hero-detail";
 
 import { resolveServiceLink } from "@/lib/service-links";
@@ -96,13 +96,9 @@ export function PianoTuningPage({ content }: Props) {
         heroDetail={getServiceHeroDetail("piano-movers")}
 
         subline={
-
-          <p className={serviceHeroSublineClass}>
-
-            {content.hero.subline || serviceHeroSubline}
-
-          </p>
-
+          <ServiceHeroSublinePrice>
+            {getServiceHeroSubline("piano-tuning")}
+          </ServiceHeroSublinePrice>
         }
 
         meta={

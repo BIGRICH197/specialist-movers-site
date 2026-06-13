@@ -40,12 +40,12 @@ import {
 
 import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
 
+import { ServiceHeroSublinePrice } from "@/components/ServiceHeroSublinePrice";
 import {
   getServiceHeroDetail,
   getServiceHeroEyebrow,
   getServiceHeroOverlayCaption,
-  serviceHeroSubline,
-  serviceHeroSublineClass,
+  getServiceHeroSubline,
 } from "@/lib/service-hero-detail";
 
 import type { ServiceCityPageConfig } from "@/lib/service-cities";
@@ -110,13 +110,11 @@ export function ServiceCityPage({ config }: Props) {
         heroDetail={getServiceHeroDetail(config.serviceSlug)}
 
         subline={
-
-          <p className={serviceHeroSublineClass}>
-
-            {serviceHeroSubline}
-
-          </p>
-
+          <ServiceHeroSublinePrice>
+            {getServiceHeroSubline(config.serviceSlug, {
+              hamilton: config.city === "hamilton",
+            })}
+          </ServiceHeroSublinePrice>
         }
 
         photo={

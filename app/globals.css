@@ -164,6 +164,11 @@
     }
   }
 
+  .service-hero-price-pill-wrap {
+    width: 100%;
+    min-width: 0;
+  }
+
   /* Raster cartoons from WP, tint to brand (process step images) */
   .illustration-tint-purple {
     filter: brightness(0) saturate(100%) invert(28%) sepia(79%) saturate(2476%)

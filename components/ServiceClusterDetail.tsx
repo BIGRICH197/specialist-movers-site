@@ -39,11 +39,11 @@ import { getClusterSeoExtension } from "@/lib/cluster-seo";
 
 import type { ServiceClusterItem } from "@/lib/service-clusters";
 
+import { ServiceHeroSublinePrice } from "@/components/ServiceHeroSublinePrice";
 import {
   getServiceHeroDetail,
   getServiceHeroOverlayCaption,
-  serviceHeroSubline,
-  serviceHeroSublineClass,
+  getServiceHeroSubline,
 } from "@/lib/service-hero-detail";
 
 import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
@@ -164,13 +164,9 @@ export function ServiceClusterDetail({
         heroDetail={getServiceHeroDetail(item.slug)}
 
         subline={
-
-          <p className={serviceHeroSublineClass}>
-
-            {serviceHeroSubline}
-
-          </p>
-
+          <ServiceHeroSublinePrice>
+            {getServiceHeroSubline(item.slug)}
+          </ServiceHeroSublinePrice>
         }
 
         meta={

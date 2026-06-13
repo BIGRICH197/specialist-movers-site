@@ -47,12 +47,12 @@ import type { HamiltonPageConfig } from "@/lib/hamilton-pages";
 
 import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
 
+import { ServiceHeroSublinePrice } from "@/components/ServiceHeroSublinePrice";
 import {
   getServiceHeroDetail,
   getServiceHeroEyebrow,
   getServiceHeroOverlayCaption,
-  serviceHeroSubline,
-  serviceHeroSublineClass,
+  getServiceHeroSubline,
 } from "@/lib/service-hero-detail";
 import { getDistinctAboutPhoto } from "@/lib/site-photos";
 
@@ -128,13 +128,9 @@ export function HamiltonServicePage({ config }: Props) {
         heroDetail={getServiceHeroDetail(config.baseSlug)}
 
         subline={
-
-          <p className={serviceHeroSublineClass}>
-
-            {serviceHeroSubline}
-
-          </p>
-
+          <ServiceHeroSublinePrice>
+            {getServiceHeroSubline(config.baseSlug, { hamilton: true })}
+          </ServiceHeroSublinePrice>
         }
 
         meta={

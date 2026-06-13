@@ -31,7 +31,8 @@ import { resolveServiceLink } from "@/lib/service-links";
 import { HamiltonPageLink } from "@/components/HamiltonPageLink";
 import type { ServiceLandingConfig } from "@/lib/service-landings";
 import { halfPhotoWrap } from "@/lib/photo-layout";
-import { getServiceHeroDetail, serviceHeroSubline, serviceHeroSublineClass } from "@/lib/service-hero-detail";
+import { ServiceHeroSublinePrice } from "@/components/ServiceHeroSublinePrice";
+import { getServiceHeroDetail, getServiceHeroSubline } from "@/lib/service-hero-detail";
 import { pianoServices } from "@/lib/site-data";
 
 type Props = {
@@ -81,9 +82,9 @@ export function ServiceLandingPage({ config }: Props) {
         }
         heroDetail={getServiceHeroDetail(config.slug)}
         subline={
-          <p className={serviceHeroSublineClass}>
-            {config.subline || serviceHeroSubline}
-          </p>
+          <ServiceHeroSublinePrice>
+            {getServiceHeroSubline(config.slug)}
+          </ServiceHeroSublinePrice>
         }
         meta={<HamiltonPageLink serviceSlug={config.slug} variant="hero" />}
         photo={

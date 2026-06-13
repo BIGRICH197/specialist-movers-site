@@ -4,6 +4,7 @@ import { GoogleRatingBadge } from "@/components/GoogleRatingBadge";
 import { HeroPhotoFrame } from "@/components/hero/HeroPhotoFrame";
 import { regions } from "@/lib/regions";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
+import { ServiceHeroTrustStack } from "@/components/ServiceHeroTrustStack";
 import { cn } from "@/lib/utils";
 
 const defaultTrustPills = [
@@ -15,6 +16,9 @@ const defaultTrustPills = [
 
 const MOBILE_HEADING_CLASS =
   "font-heading text-3xl leading-[1.12] text-white sm:text-4xl";
+
+const MOBILE_PHONE_CLASS =
+  "inline-flex items-center justify-center font-heading text-2xl font-bold tracking-tight text-brand-yellow transition-colors duration-200 hover:text-white";
 
 type Props = {
   topNav?: ReactNode;
@@ -81,25 +85,25 @@ export function ServiceHeroWithQuote({
   const phoneLink = showPhone ? (
     <a
       href={`tel:${phoneNumber}`}
-      className="inline-flex font-heading text-2xl font-bold tracking-tight text-brand-yellow transition-colors duration-200 hover:text-white sm:text-3xl"
+      className={cn(
+        MOBILE_PHONE_CLASS,
+        "lg:inline-flex lg:justify-start lg:text-3xl",
+      )}
     >
       {phoneDisplay}
     </a>
   ) : null;
 
-  const trustPillList = (
-    <div className="relative w-full">
-      <div className="flex flex-wrap gap-2 text-xs font-semibold text-white/95">
-        {pianoTrustPills.map((label) => (
-          <span
-            key={label}
-            className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5"
-          >
-            {label}
-          </span>
-        ))}
-      </div>
-      <GoogleRatingBadge className="pointer-events-auto absolute bottom-0 right-0 z-20 hidden shrink-0 xl:flex" />
+  const mobileTrustPills = (
+    <div className="flex flex-wrap gap-2 text-xs font-semibold text-white/95">
+      {pianoTrustPills.map((label) => (
+        <span
+          key={label}
+          className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5"
+        >
+          {label}
+        </span>
+      ))}
     </div>
   );
 
@@ -133,26 +137,17 @@ export function ServiceHeroWithQuote({
 
       <div className="relative z-[1] mx-auto max-w-7xl container-px">
         <div className="flex flex-col gap-5 overflow-visible lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] xl:gap-12">
-          {/* Mobile */}
+          {/* Mobile — same flow as HomeHero: badge, title, photo, Google bar */}
           <div className="flex min-w-0 flex-col gap-5 lg:hidden">
-            {topNav}
             {eyebrow ? <div className="self-start">{eyebrow}</div> : null}
             {!eyebrow && eyebrowLabel ? (
-              <p className="inline-flex w-fit max-w-[95%] self-start rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-brand-yellow sm:px-3 sm:py-1.5 sm:text-xs">
+              <p className="inline-flex w-fit max-w-[95%] self-start rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-brand-yellow sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-wider">
                 {eyebrowLabel}
               </p>
             ) : null}
             <h1 className={MOBILE_HEADING_CLASS}>{heading}</h1>
-            {headingSub ? (
-              <p className="max-w-2xl font-heading text-xl leading-snug text-white/95">
-                {headingSub}
-              </p>
-            ) : null}
-            {lead}
-            {subline}
-            {photo ? <div className="mt-2">{photo}</div> : null}
+            {photo ? <div>{photo}</div> : null}
             <GoogleRatingBadge variant="compact" />
-            {seoIntroBlock}
           </div>
 
           {/* Quote form */}
@@ -163,21 +158,11 @@ export function ServiceHeroWithQuote({
             {quote}
           </div>
 
-          {/* Mobile: detail + phone + pills */}
+          {/* Mobile: phone + trust pills below form (matches HomeHero) */}
           <div className="flex flex-col gap-5 lg:hidden">
-            {heroDetailBlock}
             {phoneLink}
-            <div className="flex flex-wrap gap-2 text-xs font-semibold text-white/95">
-              {pianoTrustPills.map((label) => (
-                <span
-                  key={label}
-                  className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5"
-                >
-                  {label}
-                </span>
-              ))}
-            </div>
-            {meta ? <div className="mt-3">{meta}</div> : null}
+            {mobileTrustPills}
+            {meta ? <div>{meta}</div> : null}
           </div>
 
           {/* Desktop — matches HomeHero */}
@@ -197,11 +182,14 @@ export function ServiceHeroWithQuote({
               </p>
             ) : null}
             {lead ? <div className="mt-5 max-w-2xl">{lead}</div> : null}
-            {subline ? <div className="mt-3 self-start">{subline}</div> : null}
-            <div className={cn("flex flex-col gap-4", phoneBlockClassName)}>
-              {phoneLink}
-              {trustPillList}
-            </div>
+            {(subline || showPhone) ? (
+              <ServiceHeroTrustStack
+                className={subline ? "mt-3" : phoneBlockClassName}
+                subline={subline ?? null}
+                trustPills={pianoTrustPills}
+                phone={phoneLink}
+              />
+            ) : null}
             {heroDetailBlock}
             {seoIntroBlock}
             {meta ? <div className="mt-4">{meta}</div> : null}

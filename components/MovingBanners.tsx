@@ -1,9 +1,9 @@
+import { getMovingHeroRateLine } from "@/lib/service-hero-pricing";
 import { phoneDisplay } from "@/lib/site-data";
 
 const MARQUEE_ITEMS = [
   "SiteWise Gold certified",
-  "Moves from $350",
-  `Free quote · ${phoneDisplay}`,
+  getMovingHeroRateLine(),  `Free quote · ${phoneDisplay}`,
   "If you're reading this, it's a sign to book with Specialist Movers",
   "House · office · piano · commercial",
   "The universe is telling me something. It's telling me you need to book with Specialist Movers",

@@ -11,6 +11,7 @@ import { motionDuration, motionStagger, motionTransition } from "@/lib/motion";
 import type { JobType } from "@/lib/site-data";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
+import { ServiceHeroTrustStack } from "@/components/ServiceHeroTrustStack";
 
 type HeroCopy = {
   eyebrow: string;
@@ -163,39 +164,23 @@ export function HomeHero({
             >
               {hero.lead}
             </motion.p>
-            <motion.p
-              variants={reduced ? undefined : item}
-              transition={t}
-              className="mt-3 hidden w-fit max-w-xl self-start rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-semibold leading-snug text-white/90 lg:inline-block"
-            >
-              {hero.subline}
-            </motion.p>
             <motion.div
               variants={reduced ? undefined : item}
               transition={t}
-              className="mt-6 hidden flex-col gap-4 lg:flex"
+              className="mt-3 hidden lg:block"
             >
-              <a
-                href={`tel:${phoneNumber}`}
-                className="inline-flex font-heading text-2xl font-bold tracking-tight text-brand-yellow transition-colors duration-200 hover:text-white sm:text-3xl"
-              >
-                {phoneDisplay}
-              </a>
-              <div className="relative w-full">
-                <div className="flex flex-wrap gap-2 text-xs font-semibold text-white/95">
-                  {trustPills.map((label) => (
-                    <span
-                      key={label}
-                      className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5"
-                    >
-                      {label}
-                    </span>
-                  ))}
-                </div>
-                <GoogleRatingBadge
-                  className="pointer-events-auto absolute bottom-0 right-0 z-20 hidden shrink-0 xl:flex"
-                />
-              </div>
+              <ServiceHeroTrustStack
+                subline={hero.subline}
+                trustPills={trustPills}
+                phone={
+                  <a
+                    href={`tel:${phoneNumber}`}
+                    className="inline-flex font-heading text-2xl font-bold tracking-tight text-brand-yellow transition-colors duration-200 hover:text-white sm:text-3xl"
+                  >
+                    {phoneDisplay}
+                  </a>
+                }
+              />
             </motion.div>
           </motion.div>
 

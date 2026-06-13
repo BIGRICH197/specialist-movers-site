@@ -22,12 +22,12 @@ import {
 import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
 import { resolveServiceLink } from "@/lib/service-links";
 import type { FaqItem } from "@/lib/service-faqs";
+import { ServiceHeroSublinePrice } from "@/components/ServiceHeroSublinePrice";
 import {
   getServiceHeroDetail,
   getServiceHeroEyebrow,
   getServiceHeroOverlayCaption,
-  serviceHeroSubline,
-  serviceHeroSublineClass,
+  getServiceHeroSubline,
 } from "@/lib/service-hero-detail";
 import { getServiceSeoIntro } from "@/lib/service-seo-intro";
 import { getDistinctAboutPhoto, getServicePhoto } from "@/lib/site-photos";
@@ -109,9 +109,9 @@ export function ServicePageTemplate({
         }
         heroDetail={hamiltonBaseSlug ? getServiceHeroDetail(hamiltonBaseSlug) : []}
         subline={
-          <p className={serviceHeroSublineClass}>
-            {serviceHeroSubline}
-          </p>
+          <ServiceHeroSublinePrice>
+            {getServiceHeroSubline(hamiltonBaseSlug ?? "house-moving")}
+          </ServiceHeroSublinePrice>
         }
         meta={
           hamiltonBaseSlug ? (

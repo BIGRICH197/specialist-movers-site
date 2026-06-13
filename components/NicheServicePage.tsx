@@ -22,11 +22,11 @@ import { getDistinctAboutPhoto } from "@/lib/site-photos";
 import { houseMovingProcess } from "@/lib/moving-process";
 import type { NicheServicePageConfig } from "@/lib/niche-service-pages";
 import { halfPhotoWrap } from "@/lib/photo-layout";
+import { ServiceHeroSublinePrice } from "@/components/ServiceHeroSublinePrice";
 import {
   getServiceHeroDetail,
   getServiceHeroOverlayCaption,
-  serviceHeroSubline,
-  serviceHeroSublineClass,
+  getServiceHeroSubline,
 } from "@/lib/service-hero-detail";
 
 type Props = {
@@ -68,9 +68,11 @@ export function NicheServicePage({ config }: Props) {
         }
         heroDetail={getServiceHeroDetail(reviewSlug)}
         subline={
-          <p className={serviceHeroSublineClass}>
-            {config.subline || serviceHeroSubline}
-          </p>
+          <ServiceHeroSublinePrice>
+            {getServiceHeroSubline("house-moving", {
+              hamilton: config.path.includes("hamilton"),
+            })}
+          </ServiceHeroSublinePrice>
         }
         photo={
           <HeroVisual
