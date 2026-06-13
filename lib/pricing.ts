@@ -114,8 +114,12 @@ export function detectQuoteBranch(
   return "manual";
 }
 
-export function needsManualQuote(pickup: string, dropoff: string): boolean {
-  return detectQuoteBranch(pickup, dropoff) === "manual";
+export function needsManualQuote(
+  pickup: string,
+  dropoff: string,
+  options?: QuoteBranchOptions,
+): boolean {
+  return detectQuoteBranch(pickup, dropoff, options) === "manual";
 }
 
 function selectTruck(cubes: number): TruckSpec {
@@ -168,6 +172,8 @@ export interface HouseMoveInput {
   dropoffAccess: AccessDifficulty;
   wantsPacking: boolean;
   wantsCleaning: boolean;
+  pickupParsed?: ParsedPlaceAddress | null;
+  dropoffParsed?: ParsedPlaceAddress | null;
 }
 
 export interface HouseMoveResult {
@@ -195,10 +201,10 @@ export interface HouseMoveResult {
 }
 
 export function calculateHouseMove(input: HouseMoveInput): HouseMoveResult {
-  const branch = detectQuoteBranch(
-    input.pickupAddress,
-    input.dropoffAddress,
-  );
+  const branch = detectQuoteBranch(input.pickupAddress, input.dropoffAddress, {
+    pickupParsed: input.pickupParsed,
+    dropoffParsed: input.dropoffParsed,
+  });
   const outOfAuckland = branch === "manual";
 
   if (branch === "hamilton") {
@@ -432,6 +438,8 @@ export interface PianoMoveInput {
   dropoffAddress: string;
   pickupStairFlights: number;
   dropoffStairFlights: number;
+  pickupParsed?: ParsedPlaceAddress | null;
+  dropoffParsed?: ParsedPlaceAddress | null;
 }
 
 export interface PianoMoveResult {
@@ -458,10 +466,10 @@ function getAucklandPianoSurcharge(address: string): number {
 }
 
 export function calculatePianoMove(input: PianoMoveInput): PianoMoveResult {
-  const branch = detectQuoteBranch(
-    input.pickupAddress,
-    input.dropoffAddress,
-  );
+  const branch = detectQuoteBranch(input.pickupAddress, input.dropoffAddress, {
+    pickupParsed: input.pickupParsed,
+    dropoffParsed: input.dropoffParsed,
+  });
   const outOfAuckland = branch === "manual";
 
   const baseCost = PIANO_BASE[input.pianoType];

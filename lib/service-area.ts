@@ -177,18 +177,23 @@ export function classifyServiceArea(
 
   const addr = normalize(trimmed);
 
-  // NZ street names like Victoria Street, England Street, or Canada Street
-  // must not trigger the overseas keywords ("victoria", "england", ...) —
-  // strip "<name> street/road/..." patterns before the country check.
-  const streetSuffix =
-    "(?:st|street|road|rd|avenue|ave|av|lane|ln|place|pl|crescent|cres|terrace|tce|way|drive|dr|court|ct|parade|quay|highway|hwy)";
-  const addrForCountryCheck = addr.replace(
-    new RegExp(`\\b[a-z']+\\s+${streetSuffix}\\b`, "g"),
-    "",
-  );
+  // The overseas keyword check is a fallback for free-typed addresses only.
+  // When Google Places verified the address, its country/region fields are
+  // authoritative — NZ street names like Victoria Street or England Street
+  // must not trip the overseas keywords ("victoria", "england", ...).
+  if (!parsed) {
+    const streetSuffix =
+      "(?:st|street|road|rd|avenue|ave|av|lane|ln|place|pl|crescent|cres|terrace|tce|way|drive|dr|court|ct|parade|quay|highway|hwy)";
+    const addrForCountryCheck = addr.replace(
+      new RegExp(`\\b[a-z']+\\s+${streetSuffix}\\b`, "g"),
+      "",
+    );
 
-  if (NON_NZ_KEYWORDS.some((kw) => addrForCountryCheck.includes(normalize(kw)))) {
-    return "outside";
+    if (
+      NON_NZ_KEYWORDS.some((kw) => addrForCountryCheck.includes(normalize(kw)))
+    ) {
+      return "outside";
+    }
   }
 
   if (parsed) {

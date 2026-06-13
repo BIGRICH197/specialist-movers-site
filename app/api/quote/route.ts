@@ -83,11 +83,16 @@ function requiresCustomQuote(
   pickupAddress: string,
   dropoffAddress: string,
   addressesVerified?: boolean,
+  pickupParsed?: ParsedPlaceAddress,
+  dropoffParsed?: ParsedPlaceAddress,
 ): boolean {
   if (!isGooglePlacesConfigured() || addressesVerified !== true) {
     return true;
   }
-  return needsManualQuote(pickupAddress, dropoffAddress);
+  return needsManualQuote(pickupAddress, dropoffAddress, {
+    pickupParsed,
+    dropoffParsed,
+  });
 }
 
 function withDisplayPricing<T extends { totalIncGst: number }>(pricing: T) {
@@ -187,6 +192,8 @@ export async function POST(request: Request) {
       dropoffAccess: body.dropoffAccess ?? "easy",
       wantsPacking: body.wantsPacking ?? false,
       wantsCleaning: body.wantsCleaning ?? false,
+      pickupParsed: body.pickupParsed,
+      dropoffParsed: body.dropoffParsed,
     };
 
     const result = calculateHouseMove(input);
@@ -194,6 +201,8 @@ export async function POST(request: Request) {
       body.pickupAddress,
       body.dropoffAddress,
       body.addressesVerified,
+      body.pickupParsed,
+      body.dropoffParsed,
     );
 
     const addOnNotes = [
@@ -265,6 +274,8 @@ export async function POST(request: Request) {
       dropoffAddress: body.dropoffAddress,
       pickupStairFlights: body.pickupStairFlights ?? 0,
       dropoffStairFlights: body.dropoffStairFlights ?? 0,
+      pickupParsed: body.pickupParsed,
+      dropoffParsed: body.dropoffParsed,
     };
 
     const result = calculatePianoMove(input);
@@ -272,6 +283,8 @@ export async function POST(request: Request) {
       body.pickupAddress,
       body.dropoffAddress,
       body.addressesVerified,
+      body.pickupParsed,
+      body.dropoffParsed,
     );
 
     const extraNotes = body.message?.trim()
