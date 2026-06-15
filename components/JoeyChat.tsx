@@ -34,16 +34,19 @@ export function JoeyChat() {
   const hasInteractedRef = useRef<boolean>(false);
 
   if (!conversationIdRef.current && typeof window !== "undefined") {
-    const KEY = "joey-conversation-id";
-    let id = sessionStorage.getItem(KEY);
-    if (!id) {
-      id =
-        typeof crypto !== "undefined" && crypto.randomUUID
-          ? crypto.randomUUID()
-          : `c-${Date.now()}-${Math.floor(Math.random() * 1e9)}`;
-      sessionStorage.setItem(KEY, id);
-    }
-    conversationIdRef.current = id;
+    // Fresh conversation per page load. JoeyChat lives in the root layout, so it
+    // stays mounted across in-app navigation (the chat continues) and only resets
+    // on a full page reload — which the visitor experiences as a new chat.
+    // We deliberately do NOT persist this in sessionStorage: a reused id would
+    // resurface a previous (possibly taken-over) conversation and replay its
+    // messages into the new chat.
+    conversationIdRef.current =
+      typeof crypto !== "undefined" && crypto.randomUUID
+        ? crypto.randomUUID()
+        : `c-${Date.now()}-${Math.floor(Math.random() * 1e9)}`;
+    // Only show human (takeover) replies that arrive after load — never replay
+    // history.
+    pollCursorRef.current = Date.now();
   }
 
   useEffect(() => {
