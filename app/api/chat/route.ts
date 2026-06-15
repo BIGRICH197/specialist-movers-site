@@ -1,4 +1,4 @@
-﻿import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from "@anthropic-ai/sdk";
 import { JOEY_SYSTEM_PROMPT } from "@/lib/joey-system-prompt";
 import {
   calculateHouseMove,
@@ -7,6 +7,15 @@ import {
   type PianoMoveInput,
 } from "@/lib/pricing";
 import { createHubSpotDeal } from "@/lib/hubspot";
+import { postSlackMessage, slackChannel, slackConfigured } from "@/lib/slack";
+import {
+  appendMessage,
+  getConversation,
+  newConversation,
+  saveConversation,
+  storeConfigured,
+  type Conversation,
+} from "@/lib/conversation-store";
 
 const WEEKDAYS = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 
@@ -151,21 +160,57 @@ async function executeTool(name: string, input: Record<string, unknown>): Promis
   return JSON.stringify({ error: "Unknown tool" });
 }
 
-export async function POST(request: Request) {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
-    return new Response(JSON.stringify({ error: "API key not configured" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
+const JOEY_ICON = ":robot_face:";
+const VISITOR_ICON = ":bust_in_silhouette:";
+
+/**
+ * Mirror a chat into Slack. Opens a thread on the first message, then replies
+ * inside it. Best-effort: any failure is logged and swallowed so chat keeps working.
+ */
+async function mirrorToSlack(
+  conv: Conversation,
+  who: "customer" | "joey",
+  text: string,
+): Promise<void> {
+  if (!slackConfigured()) return;
+  const channel = slackChannel();
+  if (!channel) return;
+
+  try {
+    // Open the thread with a scannable header on the very first message.
+    if (!conv.slackThreadTs) {
+      const root = await postSlackMessage({
+        channel,
+        text:
+          "🟢 *New website chat*\nReply in this thread to take over from Joey. Type `!joey` to hand it back to the bot.",
+        username: "Joey",
+        iconEmoji: JOEY_ICON,
+      });
+      if (root.ok && root.ts) {
+        conv.slackThreadTs = root.ts;
+        conv.slackChannel = root.channel || channel;
+      }
+    }
+
+    if (!conv.slackThreadTs) return; // couldn't open a thread; give up quietly
+
+    await postSlackMessage({
+      channel: conv.slackChannel || channel,
+      threadTs: conv.slackThreadTs,
+      text,
+      username: who === "customer" ? "Website visitor" : "Joey",
+      iconEmoji: who === "customer" ? VISITOR_ICON : JOEY_ICON,
     });
+  } catch (err) {
+    console.error("mirrorToSlack failed:", err);
   }
+}
 
-  const { messages } = (await request.json()) as {
-    messages: Array<{ role: "user" | "assistant"; content: string }>;
-  };
-
+async function runJoey(
+  messages: Array<{ role: "user" | "assistant"; content: string }>,
+  apiKey: string,
+): Promise<string> {
   const client = new Anthropic({ apiKey });
-
   let currentMessages: Anthropic.MessageParam[] = messages.map((m) => ({
     role: m.role,
     content: m.content,
@@ -186,14 +231,10 @@ export async function POST(request: Request) {
     );
 
     if (toolUseBlocks.length === 0) {
-      const text = response.content
+      return response.content
         .filter((b): b is Anthropic.TextBlock => b.type === "text")
         .map((b) => b.text)
         .join("");
-
-      return new Response(JSON.stringify({ role: "assistant", content: text }), {
-        headers: { "Content-Type": "application/json" },
-      });
     }
 
     currentMessages = [
@@ -215,13 +256,58 @@ export async function POST(request: Request) {
     ];
   }
 
-  return new Response(
-    JSON.stringify({
-      role: "assistant",
-      content:
-        "I'm having a bit of trouble with that right now. Give us a call on (021) 228 2728 and the team will sort you out!",
-    }),
-    { headers: { "Content-Type": "application/json" } },
-  );
+  return "I'm having a bit of trouble with that right now. Give us a call on (021) 228 2728 and the team will sort you out!";
 }
 
+export async function POST(request: Request) {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) {
+    return new Response(JSON.stringify({ error: "API key not configured" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  const { messages, conversationId } = (await request.json()) as {
+    messages: Array<{ role: "user" | "assistant"; content: string }>;
+    conversationId?: string;
+  };
+
+  const lastUser = [...messages].reverse().find((m) => m.role === "user");
+  const newUserText = lastUser?.content?.trim() || "";
+
+  // --- Stateful path: Slack mirroring + human takeover (store must be configured) ---
+  if (conversationId && storeConfigured()) {
+    let conv = await getConversation(conversationId);
+    if (!conv) conv = newConversation(conversationId);
+
+    if (newUserText) {
+      appendMessage(conv, "customer", newUserText);
+      await mirrorToSlack(conv, "customer", newUserText);
+    }
+
+    // A human is driving this chat — Joey stays silent. The widget will poll
+    // /api/chat/poll for the human's replies coming back from Slack.
+    if (conv.takenOver) {
+      await saveConversation(conv);
+      return new Response(JSON.stringify({ takenOver: true, content: null }), {
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    const reply = await runJoey(messages, apiKey);
+    appendMessage(conv, "joey", reply);
+    await mirrorToSlack(conv, "joey", reply);
+    await saveConversation(conv);
+
+    return new Response(JSON.stringify({ role: "assistant", content: reply }), {
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  // --- Fallback path: plain stateless bot (store/Slack not configured) ---
+  const reply = await runJoey(messages, apiKey);
+  return new Response(JSON.stringify({ role: "assistant", content: reply }), {
+    headers: { "Content-Type": "application/json" },
+  });
+}

@@ -25,6 +25,23 @@ export function JoeyChat() {
   const [keyboardOffset, setKeyboardOffset] = useState(0);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  // Stable id so the website chat and the Slack thread refer to the same chat.
+  const conversationIdRef = useRef<string>("");
+  // Cursor: ts of the last human (Slack takeover) message we've already shown.
+  const pollCursorRef = useRef<number>(0);
+
+  if (!conversationIdRef.current && typeof window !== "undefined") {
+    const KEY = "joey-conversation-id";
+    let id = sessionStorage.getItem(KEY);
+    if (!id) {
+      id =
+        typeof crypto !== "undefined" && crypto.randomUUID
+          ? crypto.randomUUID()
+          : `c-${Date.now()}-${Math.floor(Math.random() * 1e9)}`;
+      sessionStorage.setItem(KEY, id);
+    }
+    conversationIdRef.current = id;
+  }
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -78,6 +95,47 @@ export function JoeyChat() {
     };
   }, [isOpen]);
 
+  // While the panel is open, poll for replies a team member typed in Slack
+  // after taking over the chat. They arrive as normal assistant bubbles.
+  useEffect(() => {
+    if (!isOpen) return;
+    const conversationId = conversationIdRef.current;
+    if (!conversationId) return;
+
+    let cancelled = false;
+    const tick = async () => {
+      try {
+        const res = await fetch(
+          `/api/chat/poll?conversationId=${encodeURIComponent(conversationId)}&since=${pollCursorRef.current}`,
+          { cache: "no-store" },
+        );
+        if (!res.ok) return;
+        const data = (await res.json()) as {
+          messages?: { content: string; ts: number }[];
+        };
+        if (cancelled || !data.messages?.length) return;
+        for (const m of data.messages) {
+          if (m.ts > pollCursorRef.current) pollCursorRef.current = m.ts;
+        }
+        setMessages((prev) => [
+          ...prev,
+          ...data.messages!.map((m) => ({
+            role: "assistant" as const,
+            content: m.content,
+          })),
+        ]);
+      } catch {
+        /* network blip — try again next tick */
+      }
+    };
+
+    const interval = setInterval(tick, 4000);
+    return () => {
+      cancelled = true;
+      clearInterval(interval);
+    };
+  }, [isOpen]);
+
   async function sendMessage() {
     const text = input.trim();
     if (!text || isLoading) return;
@@ -92,15 +150,27 @@ export function JoeyChat() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: updatedMessages }),
+        body: JSON.stringify({
+          messages: updatedMessages,
+          conversationId: conversationIdRef.current,
+        }),
       });
-      const data = (await res.json()) as { content?: string; error?: string };
+      const data = (await res.json()) as {
+        content?: string;
+        error?: string;
+        takenOver?: boolean;
+      };
       if (!res.ok) {
         const fallback =
           data.error === "API key not configured"
             ? "Chat is not set up on this server yet. Call (021) 228 2728 and we will help you straight away."
             : "Sorry, something went wrong. Give us a call on (021) 228 2728!";
         setMessages((prev) => [...prev, { role: "assistant", content: fallback }]);
+        return;
+      }
+      // A team member is handling this chat — stay quiet; their reply will
+      // arrive via the poll above.
+      if (data.takenOver && !data.content) {
         return;
       }
       setMessages((prev) => [
