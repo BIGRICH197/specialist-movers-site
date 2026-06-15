@@ -178,11 +178,14 @@ async function mirrorToSlack(
 
   try {
     // Open the thread with a scannable header on the very first message.
+    // Include the customer's opening line so each thread is distinguishable
+    // at a glance in the channel list.
     if (!conv.slackThreadTs) {
+      const snippet = text.length > 90 ? `${text.slice(0, 90)}…` : text;
       const root = await postSlackMessage({
         channel,
         text:
-          "🟢 *New website chat*\nReply in this thread to take over from Joey. Type `!joey` to hand it back to the bot.",
+          `🟢 *New website chat*\n💬 “${snippet}”\n_Reply in this thread to take over from Joey. Type_ \`!joey\` _to hand it back._`,
         username: "Joey",
         iconEmoji: JOEY_ICON,
       });
