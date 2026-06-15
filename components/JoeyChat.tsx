@@ -29,6 +29,9 @@ export function JoeyChat() {
   const conversationIdRef = useRef<string>("");
   // Cursor: ts of the last human (Slack takeover) message we've already shown.
   const pollCursorRef = useRef<number>(0);
+  // Only start polling once the visitor has sent a message (avoids idle traffic
+  // from people who open the widget but never type).
+  const hasInteractedRef = useRef<boolean>(false);
 
   if (!conversationIdRef.current && typeof window !== "undefined") {
     const KEY = "joey-conversation-id";
@@ -104,6 +107,11 @@ export function JoeyChat() {
 
     let cancelled = false;
     const tick = async () => {
+      // Keep the request volume low so Vercel's DDoS protection doesn't flag the
+      // site: only poll once the visitor has actually sent a message, and never
+      // while the tab is hidden.
+      if (!hasInteractedRef.current) return;
+      if (typeof document !== "undefined" && document.hidden) return;
       try {
         const res = await fetch(
           `/api/chat/poll?conversationId=${encodeURIComponent(conversationId)}&since=${pollCursorRef.current}`,
@@ -129,7 +137,7 @@ export function JoeyChat() {
       }
     };
 
-    const interval = setInterval(tick, 4000);
+    const interval = setInterval(tick, 6000);
     return () => {
       cancelled = true;
       clearInterval(interval);
@@ -145,6 +153,7 @@ export function JoeyChat() {
     setMessages(updatedMessages);
     setInput("");
     setIsLoading(true);
+    hasInteractedRef.current = true;
 
     try {
       const res = await fetch("/api/chat", {
