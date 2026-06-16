@@ -55,7 +55,7 @@ const trustPills = [
 ] as const;
 
 /** Mobile hero copy only (desktop uses full hero from props). */
-const MOBILE_HERO_TITLE = "Specialist Movers";
+const MOBILE_HERO_TITLE = "Trusted Auckland & Hamilton Movers";
 const MOBILE_HERO_BADGE = "Trusted movers · Auckland & Hamilton";
 
 export function HomeHero({
