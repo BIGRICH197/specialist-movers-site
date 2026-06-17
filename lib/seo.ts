@@ -39,6 +39,7 @@ type PageMetadataInput = {
   path: string;
   openGraphTitle?: string;
   openGraphDescription?: string;
+  openGraphType?: "website" | "article";
   robots?: Metadata["robots"];
 };
 
@@ -58,7 +59,7 @@ export function buildPageMetadata(input: PageMetadataInput): Metadata {
     description: input.description,
     alternates: { canonical: input.path },
     openGraph: {
-      type: "website",
+      type: input.openGraphType ?? "website",
       locale: "en_NZ",
       siteName,
       url: `${siteUrl}${input.path}`,

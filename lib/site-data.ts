@@ -249,6 +249,7 @@ export const blogPosts = [
     slug: "the-ultimate-guide-to-house-moving-in-auckland",
     title: "The Ultimate Guide to House Moving in Auckland",
     seoTitle: "House Moving Guide Auckland | Specialist Movers",
+    publishedDate: "2026-04-22",
     excerpt:
       "Moving house in Auckland? Straight talk on dates, packing, movers, and local tips. Plan your move with less stress and clearer costs.",
   },
@@ -256,6 +257,7 @@ export const blogPosts = [
     slug: "diy-packing-vs-professional-packing-services",
     title: "Comparing Do-It-Yourself Packing with Expert Packing Services",
     seoTitle: "DIY vs Professional Packing Auckland | Specialist Movers",
+    publishedDate: "2026-05-13",
     excerpt:
       "DIY vs professional packing in Auckland: costs, control, stress, and when expert packers are worth it. Compare options before your move day.",
   },
@@ -263,6 +265,7 @@ export const blogPosts = [
     slug: "stress-free-moving-in-auckland-expert-tips-from-specialist-movers",
     title: "Stress-Free Moving in Auckland: Expert Tips from Specialist Movers",
     seoTitle: "Stress-Free Moving Auckland Tips | Specialist Movers",
+    publishedDate: "2026-06-03",
     excerpt:
       "Expert tips for a smoother Auckland move. Planning, packing, access, and communication from Specialist Movers crews who do this every day.",
   },

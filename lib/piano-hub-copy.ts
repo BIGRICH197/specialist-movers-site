@@ -8,7 +8,7 @@ export const pianoHubMeta = {
 
 export const pianoHubHero = {
   eyebrow: "Trusted by Steinway and music retailers",
-  h1: "Specialist Piano Movers.",
+  h1: "Piano movers Auckland",
   h1Sub: "Auckland and Hamilton moving specialists.",
   lead:
     "We move uprights, baby grands, and grands with dedicated piano trucks and crews who do this every day. Choose your city below, or request a quote and we will confirm the right depot and crew.",

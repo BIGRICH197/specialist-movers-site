@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
+import { brandAssets } from "@/lib/brand-assets";
 import { getBlogArticle } from "@/lib/blog-articles";
 import { blogPosts } from "@/lib/site-data";
+import { siteName, siteUrl } from "@/lib/site-config";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -22,6 +25,7 @@ export function generateMetadata({
     title: { absolute: post.seoTitle },
     description: post.excerpt,
     path: `/blog/${post.slug}`,
+    openGraphType: "article",
   });
 }
 
@@ -32,8 +36,31 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const article = getBlogArticle(params.slug);
   if (!article) notFound();
 
+  const pageUrl = `${siteUrl}/blog/${post.slug}`;
+  const blogPostingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.publishedDate,
+    dateModified: post.publishedDate,
+    image: `${siteUrl}/opengraph-image`,
+    url: pageUrl,
+    mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+    author: { "@type": "Organization", name: siteName, url: siteUrl },
+    publisher: {
+      "@type": "Organization",
+      name: siteName,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteUrl}${brandAssets.logomarkPurple}`,
+      },
+    },
+  };
+
   return (
     <article className="bg-brand-white">
+      <JsonLd data={blogPostingJsonLd} />
       <PageHero
         variant="light"
         title={article.title}
