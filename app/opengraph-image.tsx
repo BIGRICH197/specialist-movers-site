@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { siteUrl } from "@/lib/site-config";
 
 export const runtime = "edge";
-export const alt = "Specialist Movers NZ, Auckland and Hamilton house and piano movers";
+
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
