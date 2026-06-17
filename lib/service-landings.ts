@@ -1,5 +1,6 @@
 import { aucklandServiceHref } from "@/lib/legacy-auckland-urls";
 import { hero } from "@/lib/homepage-copy";
+import { getServiceHeroH1 } from "@/lib/service-hero-h1";
 import {
   houseMovingProcess,
   pianoMovingProcess,
@@ -78,7 +79,7 @@ const landingOverrides: Record<
     slug: "piano-movers",
     path: "/piano-movers/auckland",
     eyebrow: "Trusted by Steinway and music retailers",
-    h1: "Piano movers Auckland",
+    h1: getServiceHeroH1("piano-movers", "Auckland"),
     lead:
       "Looking for reliable piano movers in Auckland? Specialist Piano Movers handles local moves, runs to Hamilton and the Waikato, and coordinates international shipping when you need it. Upright, baby grand, and grand pianos with shrink wrap, piano boards, and crews who do this every day.",
     subline: "Piano moves from $300. Free quote. Callback within 15 minutes.",
@@ -122,7 +123,7 @@ const landingOverrides: Record<
     slug: "house-moving",
     path: "/services/house-moving",
     eyebrow: "Auckland house moving specialists",
-    h1: "House movers Auckland",
+    h1: getServiceHeroH1("house-moving", "Auckland"),
     lead:
       "Relocating your Auckland home should feel manageable, not overwhelming. Our Wairau Valley crews handle apartments, townhouses, and family homes across the city with clear communication, careful handling, and free in-home viewings when you need a fixed price.",
     subline: "Moves starting from $350. Free quote. We call back within 15 minutes.",
@@ -165,7 +166,7 @@ const landingOverrides: Record<
     slug: "office-moving",
     path: "/services/office-moving",
     eyebrow: "Auckland office relocation specialists",
-    h1: "Office movers Auckland",
+    h1: getServiceHeroH1("office-moving", "Auckland"),
     lead:
       "Office and workplace moves across Auckland CBD fringe, inner suburbs, and business parks. We plan lifts, loading zones, and after-hours access so desks, IT, and files move with minimal downtime.",
     subline: "Office move quotes tailored to your space. Callback within 15 minutes.",
@@ -207,7 +208,7 @@ const landingOverrides: Record<
     slug: "commercial-moving",
     path: "/services/commercial-moving",
     eyebrow: "Auckland commercial moving specialists",
-    h1: "Commercial movers Auckland",
+    h1: getServiceHeroH1("commercial-moving", "Auckland"),
     lead:
       "Kitchen installs, shop fit outs, staging, printer runs, vending machines, and heavy equipment across Auckland. We move commercial work with clear timelines, SiteWise Gold systems, and the right gear.",
     subline: "Commercial quotes tailored to your job. Callback within 15 minutes.",

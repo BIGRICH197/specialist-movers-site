@@ -10,6 +10,7 @@ import { ScatteredReviews } from "@/components/ScatteredReviews";
 import { SectionReveal } from "@/components/SectionReveal";
 import { faqSidebarPhotos } from "@/lib/faq-page-photos";
 import { faqs, googleReviewsUrl } from "@/lib/homepage-copy";
+import { formatHeadingText } from "@/lib/heading-ampersand";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Moving FAQ Auckland",
@@ -61,7 +62,7 @@ export default function FaqPage() {
                   className="rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm"
                 >
                   <dt className="font-heading text-lg text-brand-purple">
-                    {item.q}
+                    {formatHeadingText(item.q)}
                   </dt>
                   <dd className="mt-3 text-sm leading-relaxed text-brand-purple/85">
                     {item.a}

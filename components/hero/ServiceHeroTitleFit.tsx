@@ -2,6 +2,7 @@
 
 import { useLayoutEffect, useRef, useState } from "react";
 import { fitHeroTitlePx } from "@/lib/hero-title-fit";
+import { formatHeadingText } from "@/lib/heading-ampersand";
 import { cn } from "@/lib/utils";
 
 const LINE_HEIGHT = 1.12;
@@ -79,11 +80,11 @@ export function ServiceHeroTitleFit({
     >
       {Tag === "div" ? (
         <div ref={titleRef} className={titleClassName}>
-          {text}
+          {formatHeadingText(text)}
         </div>
       ) : (
         <h1 ref={titleRef} className={titleClassName}>
-          {text}
+          {formatHeadingText(text)}
         </h1>
       )}
     </div>

@@ -13,6 +13,7 @@ import { hardToShiftPageHeroPhoto } from "@/lib/hard-to-shift-gallery";
 import { legacyMetaForServiceSlug } from "@/lib/legacy-meta-descriptions";
 import { legacyPathForServiceSlug } from "@/lib/legacy-auckland-urls";
 import { services } from "@/lib/site-data";
+import { getServiceHeroH1 } from "@/lib/service-hero-h1";
 
 export function generateStaticParams() {
   return [...services.map((s) => ({ slug: s.slug })), ...getHamiltonStaticParams()];
@@ -40,11 +41,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   }
   const legacyPath = legacyPathForServiceSlug(params.slug);
   const legacyDescription = legacyMetaForServiceSlug(params.slug);
-  const title = /\bauckland\b/i.test(service.title)
-    ? service.title
-    : `${service.title} Auckland`;
+  const heroH1 = getServiceHeroH1(params.slug, "Auckland");
   return buildPageMetadata({
-    title,
+    title: heroH1,
     description:
       legacyDescription ??
       `${service.description} Trusted ${service.title.toLowerCase()} specialists. Auckland base. Free quote. Callback in 15 minutes.`,
@@ -69,9 +68,11 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
 
   const seo = getServiceSeoExtension(params.slug);
 
+  const heroH1 = getServiceHeroH1(service.slug, "Auckland");
+
   return (
     <ServicePageTemplate
-      title={service.title}
+      title={heroH1}
       description={service.description}
       includedBullets={service.includedBullets}
       whyChooseCopy={service.whyChooseCopy}
@@ -80,7 +81,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
       breadcrumbs={[
         { label: "Home", href: "/" },
         { label: "Services", href: "/services" },
-        { label: service.title },
+        { label: heroH1 },
       ]}
       heroPhoto={
         params.slug === "hard-to-shift"

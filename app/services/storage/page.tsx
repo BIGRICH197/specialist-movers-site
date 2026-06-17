@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
+import { getServiceHeroH1 } from "@/lib/service-hero-h1";
 import { Clock, Moon, Package, Piano, Truck } from "lucide-react";
 import { ServiceClusterHub } from "@/components/ServiceClusterHub";
 import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
@@ -7,7 +8,7 @@ import { storageHub, storageServices } from "@/lib/service-clusters";
 import { regions } from "@/lib/regions";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Moving Storage, Short & Long Term",
+  title: getServiceHeroH1("storage-hub", "Auckland"),
   description: `Storage while you move: short-term, long-term, in transit, overnight, and piano storage. ${regions.basesShort}. Free quote and callback in 15 minutes.`,
   path: "/services/storage",
 });
@@ -19,7 +20,7 @@ export default function StorageHubPage() {
     <>
       <ServiceClusterHub
         eyebrow={storageHub.eyebrow}
-        title={storageHub.title}
+        title={getServiceHeroH1("storage-hub", "Auckland")}
         description={storageHub.description}
         basePath={storageHub.path}
         items={storageServices}

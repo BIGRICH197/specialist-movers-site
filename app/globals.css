@@ -96,6 +96,12 @@
     @apply transition-[transform,box-shadow,border-color] duration-200 ease-out;
   }
 
+  /** Inter punctuation inside Termina headings — only Light is loaded, avoid faux-bold. */
+  .heading-punct {
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-weight: 300;
+  }
+
   .card-interactive:hover {
     @apply -translate-y-1 border-brand-purple/25 shadow-md;
   }

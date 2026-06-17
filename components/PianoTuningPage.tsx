@@ -45,7 +45,9 @@ import {
   getServiceHeroSubline,
 } from "@/lib/service-hero-detail";
 
+import { getPianoHeroH1 } from "@/lib/piano-mobile-hero";
 import { resolveServiceLink } from "@/lib/service-links";
+import { formatHeadingText } from "@/lib/heading-ampersand";
 
 
 
@@ -79,7 +81,9 @@ export function PianoTuningPage({ content }: Props) {
 
         heroVariant="piano"
 
-        heading={content.hero.h1}
+        heading={getPianoHeroH1("piano-tuning", "Auckland")}
+
+        titleSlug="piano-tuning"
 
         eyebrowLabel={content.hero.eyebrow}
 
@@ -93,7 +97,7 @@ export function PianoTuningPage({ content }: Props) {
 
         }
 
-        heroDetail={getServiceHeroDetail("piano-movers")}
+        heroDetail={getServiceHeroDetail("piano-tuning")}
 
         subline={
           <ServiceHeroSublinePrice>
@@ -176,9 +180,7 @@ export function PianoTuningPage({ content }: Props) {
                 <div key={section.title}>
 
                   <h2 className="font-heading text-xl text-brand-purple sm:text-2xl">
-
-                    {section.title}
-
+                    {formatHeadingText(section.title)}
                   </h2>
 
                   <p className="mt-3 text-base leading-relaxed text-brand-purple/85">

@@ -23,12 +23,9 @@ import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
 import { resolveServiceLink } from "@/lib/service-links";
 import type { FaqItem } from "@/lib/service-faqs";
 import { ServiceHeroSublinePrice } from "@/components/ServiceHeroSublinePrice";
-import {
-  getServiceHeroDetail,
-  getServiceHeroEyebrow,
-  getServiceHeroOverlayCaption,
-  getServiceHeroSubline,
-} from "@/lib/service-hero-detail";
+import { getServiceHeroDetail, getServiceHeroEyebrow, getServiceHeroOverlayCaption, getServiceHeroSubline } from "@/lib/service-hero-detail";
+import { getPianoHeroH1 } from "@/lib/piano-mobile-hero";
+import { getServiceHeroH1 } from "@/lib/service-hero-h1";
 import { getServiceSeoIntro } from "@/lib/service-seo-intro";
 import { getDistinctAboutPhoto, getServicePhoto } from "@/lib/site-photos";
 import { services } from "@/lib/site-data";
@@ -80,6 +77,12 @@ export function ServicePageTemplate({
   overlayCaptionSlug,
 }: ServicePageTemplateProps) {
   const slug = hamiltonBaseSlug ?? "house-moving";
+  const heroHeading =
+    heroVariant === "piano" && hamiltonBaseSlug
+      ? getPianoHeroH1(hamiltonBaseSlug, "Auckland")
+      : hamiltonBaseSlug
+        ? getServiceHeroH1(hamiltonBaseSlug, "Auckland")
+        : title;
   const resolvedSteps =
     processSteps.length > 0 ? processSteps : getServiceProcessSteps(slug);
   const reviewSlot = `service-${slug}`;
@@ -98,7 +101,8 @@ export function ServicePageTemplate({
       <BreadcrumbJsonLd items={breadcrumbs} />
       <ServiceHeroWithQuote
         heroVariant={heroVariant}
-        heading={title}
+        heading={heroHeading}
+        titleSlug={hamiltonBaseSlug}
         eyebrowLabel={
           hamiltonBaseSlug ? getServiceHeroEyebrow(hamiltonBaseSlug) : undefined
         }

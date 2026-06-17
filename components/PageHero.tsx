@@ -1,5 +1,6 @@
 import { BrandLogomarkWatermark } from "@/components/BrandLogomarkWatermark";
 import { Breadcrumbs, type Crumb } from "@/components/Breadcrumbs";
+import { formatHeadingText } from "@/lib/heading-ampersand";
 
 type Variant = "light" | "purple";
 
@@ -56,7 +57,7 @@ export function PageHero({
             isPurple ? "text-white" : "text-brand-purple"
           }`}
         >
-          {title}
+          {formatHeadingText(title)}
         </h1>
         {description && (
           <p

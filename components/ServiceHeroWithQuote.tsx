@@ -46,6 +46,8 @@ type Props = {
   className?: string;
   /** Piano hub / city pages: partner logos above Google badge on mobile. */
   showMobilePartnerMarquee?: boolean;
+  /** Service slug for mobile fitted title overrides (winz-quotes, storage, etc.). */
+  titleSlug?: string;
 };
 
 /**
@@ -71,6 +73,7 @@ export function ServiceHeroWithQuote({
   phoneBlockClassName = "mt-6",
   className,
   showMobilePartnerMarquee = false,
+  titleSlug,
 }: Props) {
   const pianoTrustPills =
     heroVariant === "piano"
@@ -145,6 +148,7 @@ export function ServiceHeroWithQuote({
             photo={photo}
             heroVariant={heroVariant}
             showMobilePartnerMarquee={showMobilePartnerMarquee}
+            titleSlug={titleSlug}
           />
 
           {/* Quote form (desktop: quote only; mobile: quote then pricing pill) */}

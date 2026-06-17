@@ -4,6 +4,7 @@ import { ScatteredReviews } from "@/components/ScatteredReviews";
 import { SectionReveal } from "@/components/SectionReveal";
 import { HomePurplePanel } from "@/components/home/HomePurplePanel";
 import { faqs } from "@/lib/homepage-copy";
+import { formatHeadingText } from "@/lib/heading-ampersand";
 import { sectionRevealDirection } from "@/lib/motion";
 
 const homeFaqs = faqs.slice(0, 4);
@@ -36,7 +37,9 @@ export function HomeFaqSection() {
                 key={item.q}
                 className="card-interactive flex h-full min-h-[11rem] flex-col rounded-2xl border border-brand-purple/15 bg-white p-6 shadow-sm sm:min-h-[12.5rem] sm:p-7"
               >
-                <dt className="font-heading text-lg leading-snug text-brand-purple">{item.q}</dt>
+                <dt className="font-heading text-lg leading-snug text-brand-purple">
+                  {formatHeadingText(item.q)}
+                </dt>
                 <dd className="mt-3 flex-1 text-sm leading-relaxed text-brand-purple/80 sm:text-[0.9375rem]">
                   {item.a}
                 </dd>

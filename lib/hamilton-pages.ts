@@ -6,6 +6,7 @@ import type { JobType } from "@/lib/site-data";
 import type { ProcessStep } from "@/components/ProcessStepsGrid";
 import { aucklandServiceHref } from "@/lib/legacy-auckland-urls";
 import { enrichHamiltonPageConfig } from "@/lib/hamilton-seo";
+import { getServiceHeroH1 } from "@/lib/service-hero-h1";
 import { hardToShiftPageHeroPhoto } from "@/lib/hard-to-shift-gallery";
 import { sitePhotos } from "@/lib/site-photos";
 
@@ -637,6 +638,7 @@ export function getHamiltonPageConfig(slug: string): HamiltonPageConfig | null {
     baseSlug: base,
     path: hamiltonPath(base),
     ...page,
+    h1: getServiceHeroH1(base, "Hamilton"),
     parentHref: aucklandServiceHref(base),
   });
 }

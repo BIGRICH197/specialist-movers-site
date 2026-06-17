@@ -17,6 +17,7 @@ import { sectionRevealDirection } from "@/lib/motion";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
 import { pianoMovingProcess } from "@/lib/moving-process";
 import { pianoFaqs } from "@/lib/piano-faqs";
+import { formatHeadingText } from "@/lib/heading-ampersand";
 import { ServiceHeroSublinePrice } from "@/components/ServiceHeroSublinePrice";
 import { getServiceHeroSubline } from "@/lib/service-hero-detail";
 import {
@@ -39,6 +40,7 @@ export function PianoHubPage() {
       <ServiceHeroWithQuote
         heroVariant="piano"
         heading={pianoHubHero.h1}
+        titleSlug="piano-movers"
         eyebrowLabel={pianoHubHero.eyebrow}
         headingSub={pianoHubHero.h1Sub}
         lead={
@@ -203,7 +205,9 @@ export function PianoHubPage() {
                   key={item.q}
                   className="rounded-2xl border border-brand-purple/12 bg-white p-5 shadow-sm"
                 >
-                  <dt className="font-heading text-base text-brand-purple">{item.q}</dt>
+                  <dt className="font-heading text-base text-brand-purple">
+                    {formatHeadingText(item.q)}
+                  </dt>
                   <dd className="mt-2 text-sm leading-relaxed text-brand-purple/80">{item.a}</dd>
                 </div>
               ))}

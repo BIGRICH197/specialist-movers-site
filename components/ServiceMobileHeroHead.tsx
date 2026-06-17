@@ -5,7 +5,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 import { GoogleRatingBadge } from "@/components/GoogleRatingBadge";
 import { PianoPartnerMarquee } from "@/components/PianoPartnerMarquee";
 import { ServiceHeroTitleFit } from "@/components/hero/ServiceHeroTitleFit";
-import { normalizeServiceMobileHeroTitle } from "@/lib/mobile-hero-title-reference";
+import { getServiceMobileHeroTitle } from "@/lib/mobile-hero-title-reference";
 import {
   getPianoMobileTitle,
   PIANO_MOBILE_TRUST_PILL,
@@ -32,6 +32,8 @@ type Props = {
   heroVariant?: "moving" | "piano";
   /** Piano pages: retailer marquee above Google badge on mobile only. */
   showMobilePartnerMarquee?: boolean;
+  /** Service slug for mobile-only fitted title overrides (e.g. winz-quotes, storage). */
+  titleSlug?: string;
 };
 
 function FittedHeroTitle({
@@ -66,12 +68,13 @@ export function ServiceMobileHeroHead({
   photo,
   heroVariant = "moving",
   showMobilePartnerMarquee = false,
+  titleSlug,
 }: Props) {
   const photoWrapRef = useRef<HTMLDivElement>(null);
   const [photoWidthPx, setPhotoWidthPx] = useState<number>();
   const isPiano = heroVariant === "piano";
-  const pianoTitle = isPiano ? getPianoMobileTitle(heading) : null;
-  const mobileTitleText = normalizeServiceMobileHeroTitle(eyebrowLabel ?? heading);
+  const pianoTitle = isPiano ? getPianoMobileTitle(heading, titleSlug) : null;
+  const mobileTitleText = getServiceMobileHeroTitle(titleSlug, heading, eyebrowLabel);
 
   useLayoutEffect(() => {
     const wrap = photoWrapRef.current;

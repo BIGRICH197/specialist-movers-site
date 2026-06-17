@@ -9,6 +9,7 @@ import { aucklandServiceHref } from "@/lib/legacy-auckland-urls";
 import type { Location } from "@/lib/locations";
 import { getChildLocations, getLocation, getNearbyLocations } from "@/lib/locations";
 import { regions } from "@/lib/regions";
+import { formatHeadingText } from "@/lib/heading-ampersand";
 
 type Props = {
   location: Location;
@@ -114,7 +115,9 @@ export function LocationPageTemplate({ location }: Props) {
                       key={item.q}
                       className="rounded-2xl border border-brand-purple/12 bg-white p-5 shadow-sm"
                     >
-                      <dt className="font-heading text-base text-brand-purple">{item.q}</dt>
+                      <dt className="font-heading text-base text-brand-purple">
+                        {formatHeadingText(item.q)}
+                      </dt>
                       <dd className="mt-2 text-sm leading-relaxed text-brand-purple/80">
                         {item.a}
                       </dd>

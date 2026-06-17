@@ -10,6 +10,7 @@ import { SectionReveal } from "@/components/SectionReveal";
 import { contactCta, googleReviewsUrl, pianoStatsStrip, statsStrip } from "@/lib/homepage-copy";
 import { sitePhotos } from "@/lib/site-photos";
 import type { FaqItem } from "@/lib/service-faqs";
+import { formatHeadingText } from "@/lib/heading-ampersand";
 import type { JobType } from "@/lib/site-data";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
@@ -126,7 +127,9 @@ export function ServiceFaqSection({ heading, faqs, reviewSlot, piano = false }: 
                 key={item.q}
                 className="rounded-2xl border border-brand-purple/12 bg-white p-5 shadow-sm"
               >
-                <dt className="font-heading text-base text-brand-purple">{item.q}</dt>
+                <dt className="font-heading text-base text-brand-purple">
+                  {formatHeadingText(item.q)}
+                </dt>
                 <dd className="mt-2 text-sm leading-relaxed text-brand-purple/80">{item.a}</dd>
               </div>
             ))}

@@ -54,6 +54,7 @@ import {
   getServiceHeroOverlayCaption,
   getServiceHeroSubline,
 } from "@/lib/service-hero-detail";
+import { getPianoHeroH1 } from "@/lib/piano-mobile-hero";
 import { getDistinctAboutPhoto } from "@/lib/site-photos";
 
 
@@ -79,6 +80,9 @@ export function HamiltonServicePage({ config }: Props) {
   ];
 
   const isPiano = config.baseSlug === "piano-movers";
+  const heroHeading = isPiano
+    ? getPianoHeroH1(config.baseSlug, "Hamilton")
+    : config.h1;
   const aboutPhoto = getDistinctAboutPhoto(config.baseSlug, config.heroPhoto);
 
   const processSteps =
@@ -111,7 +115,9 @@ export function HamiltonServicePage({ config }: Props) {
 
         heroVariant={isPiano ? "piano" : "moving"}
 
-        heading={config.h1}
+        heading={heroHeading}
+
+        titleSlug={config.baseSlug}
 
         eyebrowLabel={getServiceHeroEyebrow(config.baseSlug, { hamilton: true })}
 

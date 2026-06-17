@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { ProcessIllustration } from "@/components/ProcessIllustration";
 import { cn } from "@/lib/utils";
+import { formatHeadingText } from "@/lib/heading-ampersand";
 
 export type NumberedInfoItem = {
   readonly title?: string;
@@ -61,7 +62,9 @@ export function NumberedInfoGrid({
               </div>
             ) : null}
             {item.title ? (
-              <h3 className="font-heading text-lg leading-snug text-brand-purple">{item.title}</h3>
+              <h3 className="font-heading text-lg leading-snug text-brand-purple">
+                {formatHeadingText(item.title)}
+              </h3>
             ) : null}
             <div
               className={cn(

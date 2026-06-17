@@ -6,6 +6,7 @@ import {
   photoFrameCaptionBottomOnlyClass,
   photoFrameClass,
 } from "@/lib/photo-fade";
+import { formatHeadingText } from "@/lib/heading-ampersand";
 
 type Props = {
   variant?: "moving" | "piano";
@@ -114,7 +115,7 @@ export function HeroVisual({
         {overlayCaption ? (
           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 px-4 pb-4 pt-20 sm:px-6 sm:pb-5 sm:pt-24">
             <p className="max-w-xl font-heading text-xl font-bold leading-[1.12] text-brand-yellow sm:text-2xl lg:leading-[1.1]">
-              {overlayCaption}
+              {formatHeadingText(overlayCaption)}
             </p>
           </div>
         ) : null}
