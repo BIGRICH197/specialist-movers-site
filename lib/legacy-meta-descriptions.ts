@@ -24,7 +24,7 @@ export const legacyMetaDescriptions = {
   "winz-quotes":
     "Looking for Winz house moving quotes? Contact Specialist Movers today and get a free quotation. Save money on movers and packs!",
   "piano-movers-auckland":
-    "Auckland piano movers for upright and grand pianos. Trusted by music stores across the North Shore, central Auckland, and wider metro. Free quote and callback in 15 minutes.",
+    "Auckland piano movers for upright and grand pianos. Trusted by North Shore and central Auckland music stores. Free quote and callback in 15 min.",
   "piano-movers":
     "Auckland and Hamilton piano moving for uprights and grands. Dedicated piano trucks, storage, and international shipping. Free quote and callback in 15 minutes.",
   "apartment-movers-auckland":
@@ -40,9 +40,9 @@ export const legacyMetaDescriptions = {
   reviews:
     "Customer satisfaction is our top priority at Specialist Movers. Check what our customers have to say about our services. Call us now to get your custom quote.",
   services:
-    "Trust Specialist Movers Auckland for house, commercial, international, and piano moves. Packing, storage, and exit cleaning available. Free quote and callback in 15 minutes.",
+    "Specialist Movers Auckland for house, commercial, international, and piano moves, plus packing, storage, and exit cleaning. Free quote in 15 minutes.",
   policies:
-    "At Specialist Movers, we are committed to protecting your privacy & personal information by adhering to strict standards and legal requirements. Learn more here.",
+    "Specialist Movers is committed to protecting your privacy and personal information under strict standards and legal requirements. Learn more here.",
 } as const;
 
 export type LegacyMetaKey = keyof typeof legacyMetaDescriptions;

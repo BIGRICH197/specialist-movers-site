@@ -9,6 +9,10 @@ import { pianoServices } from "@/lib/site-data";
 
 const RESERVED_PIANO_SLUGS = new Set(["auckland", "hamilton"]);
 
+// piano-tuning has its own static route; never let the dynamic route render a
+// competing version of it (or any unlisted slug) at runtime.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return pianoServices
     .filter((s) => s.slug !== "piano-tuning")

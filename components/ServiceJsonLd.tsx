@@ -24,6 +24,7 @@ export function ServiceJsonLd({ name, description, path, serviceType }: Props) {
     areaServed: [
       { "@type": "City", name: "Auckland" },
       { "@type": "City", name: "Hamilton" },
+      { "@type": "AdministrativeArea", name: "Waikato" },
       { "@type": "AdministrativeArea", name: "North Island" },
     ],
   };

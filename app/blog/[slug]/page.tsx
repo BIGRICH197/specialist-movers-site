@@ -69,7 +69,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             Tell us your suburbs and move date , we&apos;ll call back within 15 minutes.
           </p>
           <Link
-            href="#quote"
+            href="/#quote"
             className="mt-4 inline-flex rounded-full bg-brand-yellow px-5 py-2.5 font-heading text-sm font-bold uppercase tracking-wide text-brand-purple"
           >
             Free quote
