@@ -62,13 +62,11 @@ export function buildPageMetadata(input: PageMetadataInput): Metadata {
       url: `${siteUrl}${input.path}`,
       title: ogTitle,
       description: ogDescription,
-      images: [...defaultOpenGraphImages],
     },
     twitter: {
       card: "summary_large_image",
       title: ogTitle,
       description: ogDescription,
-      images: [ogImagePath],
     },
     ...(input.robots ? { robots: input.robots } : {}),
   };
