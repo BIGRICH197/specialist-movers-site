@@ -15,7 +15,7 @@ import { regions } from "@/lib/regions";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "About Us",
+  title: "About Specialist Movers Auckland",
   description: legacyMetaDescription("about"),
   path: "/about",
 });

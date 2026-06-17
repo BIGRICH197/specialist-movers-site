@@ -116,16 +116,21 @@ export async function POST(request: Request) {
     attributionNoteLines(body.attribution).join("\n") || undefined;
 
   if (body.mode === "commercial") {
-    if (!body.name?.trim() || !body.email?.trim() || !body.message?.trim()) {
+    if (
+      !body.name?.trim() ||
+      !body.phone?.trim() ||
+      !body.email?.trim() ||
+      !body.message?.trim()
+    ) {
       return NextResponse.json(
-        { ok: false, error: "Name, email, and description required" },
+        { ok: false, error: "Name, phone, email, and description required" },
         { status: 400 },
       );
     }
 
     await createHubSpotDeal({
       name: body.name,
-      phone: body.phone?.trim() || "Via website",
+      phone: body.phone.trim(),
       email: body.email,
       serviceType: "Commercial Move",
       pickupAddress: "",

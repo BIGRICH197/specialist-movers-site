@@ -44,6 +44,8 @@ type Props = {
   /** Optional override for desktop phone + trust pills block spacing. */
   phoneBlockClassName?: string;
   className?: string;
+  /** Piano hub / city pages: partner logos above Google badge on mobile. */
+  showMobilePartnerMarquee?: boolean;
 };
 
 /**
@@ -68,6 +70,7 @@ export function ServiceHeroWithQuote({
   headingNowrap = true,
   phoneBlockClassName = "mt-6",
   className,
+  showMobilePartnerMarquee = false,
 }: Props) {
   const pianoTrustPills =
     heroVariant === "piano"
@@ -140,6 +143,8 @@ export function ServiceHeroWithQuote({
             eyebrowLabel={eyebrowLabel}
             eyebrow={eyebrow}
             photo={photo}
+            heroVariant={heroVariant}
+            showMobilePartnerMarquee={showMobilePartnerMarquee}
           />
 
           {/* Quote form (desktop: quote only; mobile: quote then pricing pill) */}

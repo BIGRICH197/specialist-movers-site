@@ -182,6 +182,8 @@ export function HamiltonServicePage({ config }: Props) {
 
         }
 
+        showMobilePartnerMarquee={isPiano && Boolean(config.showPianoPartners)}
+
       />
 
 
@@ -204,7 +206,7 @@ export function HamiltonServicePage({ config }: Props) {
 
       {config.showPianoPartners ? (
 
-        <div className="mx-auto max-w-7xl px-4 pt-10 sm:px-6 sm:pt-12 lg:px-8">
+        <div className="mx-auto hidden max-w-7xl px-4 pt-10 sm:px-6 sm:pt-12 lg:block lg:px-8">
 
           <PianoPartnerMarquee />
 

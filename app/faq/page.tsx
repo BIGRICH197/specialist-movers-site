@@ -12,7 +12,7 @@ import { faqSidebarPhotos } from "@/lib/faq-page-photos";
 import { faqs, googleReviewsUrl } from "@/lib/homepage-copy";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FAQ",
+  title: "Moving FAQ Auckland",
   description: legacyMetaDescription("faq"),
   path: "/faq",
 });

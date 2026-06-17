@@ -9,7 +9,6 @@ import {
   movingDistanceServices,
 } from "@/lib/service-clusters";
 import { isServiceCitySlug } from "@/lib/service-cities";
-import { regions } from "@/lib/regions";
 
 export function generateStaticParams() {
   return movingDistanceServices.filter((s) => !s.href).map((s) => ({ slug: s.slug }));
@@ -24,7 +23,7 @@ export function generateMetadata({
   if (!item) return {};
   return buildPageMetadata({
     title: { absolute: `${item.title} | Specialist Movers` },
-    description: `${item.excerpt} ${regions.serviceArea}. Free quote. Callback in 15 minutes.`,
+    description: item.excerpt,
     path: clusterItemPath(movingDistanceHub.path, item),
   });
 }

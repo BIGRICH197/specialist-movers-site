@@ -1,22 +1,18 @@
 import { HAMILTON_TIER_1_RATES } from "@/lib/hamilton-pricing-data";
-import { GST_MULTIPLIER, TIER_1_RATES } from "@/lib/pricing-data";
+import { TIER_1_RATES } from "@/lib/pricing-data";
 
 /** Tuesday 2-mover floor rate (excl. GST) — must match pricing tables. */
 const AUCKLAND_MIN_HOURLY_EX = TIER_1_RATES.tue["2M"];
 const HAMILTON_MIN_HOURLY_EX = HAMILTON_TIER_1_RATES.tue["2M"];
 
-function hourlyInclGst(exGst: number): number {
-  return Math.round(exGst * GST_MULTIPLIER);
-}
-
 export const pianoHeroSubline =
   "Piano moves from $300. Every move quoted upfront, so you know the number before we lift a thing.";
 
 export function getMovingHeroRateLine(options?: { hamilton?: boolean }): string {
-  const hourlyIncl = options?.hamilton
-    ? hourlyInclGst(HAMILTON_MIN_HOURLY_EX)
-    : hourlyInclGst(AUCKLAND_MIN_HOURLY_EX);
-  return `Crew + truck from $${hourlyIncl}/hour incl. GST`;
+  const hourlyEx = options?.hamilton
+    ? HAMILTON_MIN_HOURLY_EX
+    : AUCKLAND_MIN_HOURLY_EX;
+  return `Crew + truck from $${hourlyEx} per hour`;
 }
 
 export function getMovingHeroSubline(options?: { hamilton?: boolean }): string {

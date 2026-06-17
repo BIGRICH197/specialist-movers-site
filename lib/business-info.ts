@@ -9,15 +9,11 @@ export const businessInfo = {
     "https://www.instagram.com/specialistmovers/",
     "https://www.facebook.com/people/Specialist-Movers/61563245376572/",
   ] as const,
-  /**
-   * Primary Auckland depot — street number not published on the live site.
-   * TODO: confirm full street address for schema and Google Business Profile parity.
-   */
   aucklandAddress: {
-    streetAddress: "Wairau Valley",
-    addressLocality: "Auckland",
+    streetAddress: "186 Target Road",
+    addressLocality: "Glenfield",
     addressRegion: "Auckland",
-    postalCode: "0627",
+    postalCode: "0629",
     addressCountry: "NZ",
   },
   hamiltonAddress: {

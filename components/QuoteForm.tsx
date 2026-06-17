@@ -117,8 +117,8 @@ function defaultModeFromJob(jt?: JobType, jts?: JobType[]): Mode {
 function modeLabel(mode: Mode): string {
   if (mode === "commercial") return "Commercial move";
   if (mode === "office") return "Office move";
-  if (mode === "house") return "House move";
-  if (mode === "piano") return "Piano move";
+  if (mode === "house") return "House move instant quote";
+  if (mode === "piano") return "Piano move instant quote";
   return "Move";
 }
 
@@ -216,6 +216,10 @@ export function QuoteForm({
       set("error", "Please enter your name.");
       return;
     }
+    if (!f.phone.trim()) {
+      set("error", "Please enter your phone number.");
+      return;
+    }
     if (!f.email.trim()) {
       set("error", "Please enter your email.");
       return;
@@ -232,6 +236,7 @@ export function QuoteForm({
         body: JSON.stringify({
           mode: "commercial",
           name: f.name,
+          phone: f.phone,
           email: f.email,
           message: f.message,
           sourcePage: window.location.pathname,
@@ -504,10 +509,10 @@ export function QuoteForm({
     );
   }
 
-  // Step 1 , Commercial lead (name, email, description only)
+  // Step 1 , Commercial lead (name, phone, email, description)
   if (step === 1 && f.mode === "commercial") {
     const canSend = Boolean(
-      f.name.trim() && f.email.trim() && f.message.trim(),
+      f.name.trim() && f.phone.trim() && f.email.trim() && f.message.trim(),
     );
     return (
       <Wrapper className={className} compact={compact}>
@@ -533,6 +538,17 @@ export function QuoteForm({
               placeholder="Your name"
               value={f.name}
               onChange={(e) => set("name", e.target.value)}
+              className={field}
+            />
+          </div>
+          <div className="space-y-1.5">
+            <label className={label}>Phone number *</label>
+            <input
+              type="tel"
+              inputMode="tel"
+              placeholder="021..."
+              value={f.phone}
+              onChange={(e) => set("phone", e.target.value)}
               className={field}
             />
           </div>
@@ -580,7 +596,7 @@ export function QuoteForm({
 
         {!canSend && (
           <p className="mt-2 text-xs text-brand-purple/60">
-            Name, email, and a short description are required.
+            Name, phone, email, and a short description are required.
           </p>
         )}
 

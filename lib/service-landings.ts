@@ -77,7 +77,7 @@ const landingOverrides: Record<
   "piano-movers": {
     slug: "piano-movers",
     path: "/piano-movers/auckland",
-    eyebrow: "Trusted by Auckland music retailers. Piano specialists.",
+    eyebrow: "Trusted by Steinway and music retailers",
     h1: "Piano movers Auckland",
     lead:
       "Looking for reliable piano movers in Auckland? Specialist Piano Movers handles local moves, runs to Hamilton and the Waikato, and coordinates international shipping when you need it. Upright, baby grand, and grand pianos with shrink wrap, piano boards, and crews who do this every day.",

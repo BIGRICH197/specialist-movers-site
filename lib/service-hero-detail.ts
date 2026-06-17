@@ -159,8 +159,8 @@ const serviceHeroEyebrowBySlug: Record<string, string> = {
   "storage-in-transit": "Storage in transit",
   "overnight-storage": "Overnight storage on multi-day moves",
   "piano-storage": "Piano storage specialists",
-  "grand-piano": "Trusted by Auckland music retailers. Piano specialists.",
-  "upright-piano": "Trusted by Auckland music retailers. Piano specialists.",
+  "grand-piano": "Trusted by Steinway and music retailers",
+  "upright-piano": "Trusted by Steinway and music retailers",
   "international-piano": "International piano moving specialists",
   "piano-tuning": "Auckland and Waikato piano tuning",
 };

@@ -19,7 +19,7 @@ export function generateMetadata({
   const post = blogPosts.find((item) => item.slug === params.slug);
   if (!post) return {};
   return buildPageMetadata({
-    title: post.title,
+    title: { absolute: post.seoTitle },
     description: post.excerpt,
     path: `/blog/${post.slug}`,
   });

@@ -8,8 +8,9 @@ import { SectionReveal } from "@/components/SectionReveal";
 import { blogPosts } from "@/lib/site-data";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Blog",
-  description: "Moving tips, guides and specialist advice from Specialist Movers NZ.",
+  title: "Moving Tips & Guides Auckland",
+  description:
+    "Practical moving tips, packing guides, and house move advice for Auckland and the Waikato from Specialist Movers NZ. House, piano, and commercial moves.",
   path: "/blog",
 });
 
