@@ -13,7 +13,6 @@ type Props = {
   maxPx?: number;
   minPx?: number;
   tone?: "yellow" | "white";
-  as?: "h1" | "span";
   /** Shrink fit width (e.g. 0.9 keeps text inside a photo below). */
   fitScale?: number;
 };
@@ -27,11 +26,10 @@ export function HeroTitleFit({
   maxPx = 44,
   minPx = 22,
   tone = "yellow",
-  as: Tag = "h1",
   fitScale = 1,
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
   const [visible, setVisible] = useState(false);
 
   useLayoutEffect(() => {
@@ -76,7 +74,7 @@ export function HeroTitleFit({
       className="w-full min-w-0"
       style={{ minHeight: `calc(${maxPx}px * ${LINE_HEIGHT})` }}
     >
-      <Tag
+      <h1
         ref={titleRef}
         className={cn(
           "block w-full min-w-0 whitespace-nowrap font-heading leading-[1.12]",
@@ -87,7 +85,7 @@ export function HeroTitleFit({
         style={{ fontSize: `${initialPx}px` }}
       >
         {text}
-      </Tag>
+      </h1>
     </div>
   );
 }
