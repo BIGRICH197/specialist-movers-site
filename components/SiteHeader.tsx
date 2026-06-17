@@ -11,6 +11,7 @@ import { LocationNavMenu } from "@/components/LocationNavMenu";
 import { MobileNavMenu } from "@/components/MobileNavMenu";
 import { ServiceNavMenu } from "@/components/ServiceNavMenu";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
+import { isMobileLogoLockupPath } from "@/lib/mobile-logo-lockup-path";
 import { scrollToInstantQuote } from "@/lib/scroll-to-quote";
 
 const navLink =
@@ -90,7 +91,7 @@ function NavDropdown({
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const useMobileHomeLockup = pathname === "/";
+  const useMobileLogoLockup = isMobileLogoLockupPath(pathname);
   const quoteHref = pathname === "/" ? "#instant-quote" : "/#instant-quote";
 
   function handleQuoteClick(event: React.MouseEvent<HTMLAnchorElement>) {
@@ -166,12 +167,12 @@ export function SiteHeader() {
     <header className="relative sticky top-0 z-50 border-b border-white/10 bg-brand-purple text-brand-yellow">
       <div
         className={`mx-auto flex h-14 max-w-7xl items-center gap-2 sm:h-16 sm:gap-3 ${
-          useMobileHomeLockup
+          useMobileLogoLockup
             ? "pl-1.5 pr-4 sm:pl-2 sm:pr-6 lg:px-8"
             : "container-px"
         }`}
       >
-        {useMobileHomeLockup ? (
+        {useMobileLogoLockup ? (
           <>
             <Link
               href="/"
@@ -192,7 +193,7 @@ export function SiteHeader() {
           <BrandLogo variant="header" />
         )}
 
-        {useMobileHomeLockup ? (
+        {useMobileLogoLockup ? (
           <div className="min-w-2 flex-1 lg:hidden" aria-hidden />
         ) : null}
 
@@ -276,7 +277,7 @@ export function SiteHeader() {
 
         <div
           className={`ml-auto flex shrink-0 items-center gap-1.5 lg:gap-2 ${
-            useMobileHomeLockup ? "max-lg:mr-0.5" : ""
+            useMobileLogoLockup ? "max-lg:mr-0.5" : ""
           }`}
         >
           <a
@@ -291,7 +292,7 @@ export function SiteHeader() {
             onClick={handleQuoteClick}
             scroll={pathname !== "/"}
             className={`inline-flex shrink-0 items-center whitespace-nowrap rounded-full bg-brand-yellow font-heading font-bold uppercase text-brand-purple ring-1 ring-white/25 transition hover:brightness-[1.05] ${
-              useMobileHomeLockup
+              useMobileLogoLockup
                 ? "h-7 px-3 text-[10px] tracking-wide xl:h-auto xl:px-5 xl:py-2.5 xl:text-sm"
                 : "h-8 px-4 text-xs tracking-wide xl:h-auto xl:px-5 xl:py-2.5 xl:text-sm"
             }`}
@@ -314,7 +315,7 @@ export function SiteHeader() {
       {open && (
         <div className="fixed inset-0 z-[200] flex flex-col bg-brand-purple p-6 text-brand-yellow lg:hidden">
           <div className="mb-8 flex items-center justify-between gap-4">
-            {useMobileHomeLockup ? (
+            {useMobileLogoLockup ? (
               <Link
                 href="/"
                 onClick={() => setOpen(false)}

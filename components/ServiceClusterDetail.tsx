@@ -42,6 +42,7 @@ import type { ServiceClusterItem } from "@/lib/service-clusters";
 import { ServiceHeroSublinePrice } from "@/components/ServiceHeroSublinePrice";
 import {
   getServiceHeroDetail,
+  getServiceHeroEyebrow,
   getServiceHeroOverlayCaption,
   getServiceHeroSubline,
 } from "@/lib/service-hero-detail";
@@ -149,7 +150,7 @@ export function ServiceClusterDetail({
 
         heading={item.title}
 
-        eyebrowLabel={hubEyebrow}
+        eyebrowLabel={getServiceHeroEyebrow(item.slug) ?? hubEyebrow}
 
         lead={
 
