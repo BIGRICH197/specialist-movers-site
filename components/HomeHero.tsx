@@ -1,9 +1,11 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { BrandLogomarkWatermark } from "@/components/BrandLogomarkWatermark";
 import { GoogleRatingBadge } from "@/components/GoogleRatingBadge";
 import { HeroPhotoFrame } from "@/components/hero/HeroPhotoFrame";
+import { HeroTitleFit } from "@/components/hero/HeroTitleFit";
 import { HeroVisual } from "@/components/HeroVisual";
 import { QuoteForm } from "@/components/QuoteForm";
 import { regions } from "@/lib/regions";
@@ -57,6 +59,7 @@ const trustPills = [
 /** Mobile hero copy only (desktop uses full hero from props). */
 const MOBILE_HERO_TITLE = "Specialist Movers";
 const MOBILE_HERO_BADGE = "Trusted movers · Auckland & Hamilton";
+const MOBILE_HOME_LOGO_TITLE = "Trusted Auckland & Hamilton movers";
 
 export function HomeHero({
   hero,
@@ -71,6 +74,8 @@ export function HomeHero({
 }: Props) {
   const reduced = useReducedMotion() ?? false;
   const t = motionTransition(motionDuration.normal, reduced);
+  const pathname = usePathname();
+  const mobileHomeLogoExperiment = pathname === "/";
 
   const heroVisual = (
     <HeroVisual
@@ -102,7 +107,9 @@ export function HomeHero({
   return (
     <section
       id="quote"
-      className="hero-ambient relative scroll-mt-24 border-b border-white/10 bg-brand-purple py-12 pb-16 text-white sm:py-16 sm:pb-20 lg:py-20 lg:pb-24"
+      className={`hero-ambient relative scroll-mt-24 border-b border-white/10 bg-brand-purple py-12 pb-16 text-white sm:py-16 sm:pb-20 lg:py-20 lg:pb-24 ${
+        mobileHomeLogoExperiment ? "max-lg:pt-7" : ""
+      }`}
     >
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
         <BrandLogomarkWatermark mark="yellow" position="bottom-right" size={300} opacity={0.065} />
@@ -113,25 +120,46 @@ export function HomeHero({
         <div className="flex flex-col gap-5 overflow-visible lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] xl:gap-12">
           {/* Left column: one h1 for mobile + desktop (different text per breakpoint). */}
           <motion.div
-            className="flex w-full min-w-0 flex-col gap-5 lg:col-start-1 lg:row-start-1 lg:gap-0 lg:-translate-y-[1cm]"
+            className={`flex w-full min-w-0 flex-col lg:col-start-1 lg:row-start-1 lg:gap-0 lg:-translate-y-[1cm] ${
+              mobileHomeLogoExperiment ? "gap-3" : "gap-5"
+            }`}
             variants={reduced ? undefined : container}
             initial={reduced ? false : "hidden"}
             animate="show"
           >
-            <motion.p
-              variants={reduced ? undefined : item}
-              transition={t}
-              className="inline-flex w-fit max-w-[95%] self-start rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-brand-yellow sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-wider lg:hidden"
-            >
-              {mobileBadge ?? MOBILE_HERO_BADGE}
-            </motion.p>
-            <motion.h1
-              variants={reduced ? undefined : item}
-              transition={t}
-              className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:hidden"
-            >
-              {mobileTitle ?? MOBILE_HERO_TITLE}
-            </motion.h1>
+            {!mobileHomeLogoExperiment ? (
+              <motion.p
+                variants={reduced ? undefined : item}
+                transition={t}
+                className="inline-flex w-fit max-w-[95%] self-start rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-brand-yellow sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-wider lg:hidden"
+              >
+                {mobileBadge ?? MOBILE_HERO_BADGE}
+              </motion.p>
+            ) : null}
+            {mobileHomeLogoExperiment ? (
+              <motion.div
+                variants={reduced ? undefined : item}
+                transition={t}
+                className="-mt-0.5 w-full min-w-0 lg:hidden"
+              >
+                <HeroTitleFit
+                  text={MOBILE_HOME_LOGO_TITLE}
+                  tone="white"
+                  maxPx={28}
+                  minPx={13}
+                  fitScale={0.9}
+                  className="font-normal uppercase"
+                />
+              </motion.div>
+            ) : (
+              <motion.h1
+                variants={reduced ? undefined : item}
+                transition={t}
+                className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:hidden"
+              >
+                {mobileTitle ?? MOBILE_HERO_TITLE}
+              </motion.h1>
+            )}
             <motion.div variants={reduced ? undefined : item} transition={t} className="lg:hidden">
               {heroVisual}
             </motion.div>

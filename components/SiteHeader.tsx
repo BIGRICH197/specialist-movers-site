@@ -6,6 +6,7 @@ import { Menu, Phone, X, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
+import { BrandCornerLockup } from "@/components/BrandCornerLockup";
 import { LocationNavMenu } from "@/components/LocationNavMenu";
 import { MobileNavMenu } from "@/components/MobileNavMenu";
 import { ServiceNavMenu } from "@/components/ServiceNavMenu";
@@ -89,6 +90,7 @@ function NavDropdown({
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const useMobileHomeLockup = pathname === "/";
   const quoteHref = pathname === "/" ? "#instant-quote" : "/#instant-quote";
 
   function handleQuoteClick(event: React.MouseEvent<HTMLAnchorElement>) {
@@ -162,8 +164,37 @@ export function SiteHeader() {
 
   return (
     <header className="relative sticky top-0 z-50 border-b border-white/10 bg-brand-purple text-brand-yellow">
-      <div className="mx-auto flex h-14 max-w-7xl items-center gap-2 sm:h-16 sm:gap-3 container-px">
-        <BrandLogo variant="header" />
+      <div
+        className={`mx-auto flex h-14 max-w-7xl items-center gap-2 sm:h-16 sm:gap-3 ${
+          useMobileHomeLockup
+            ? "pl-1.5 pr-4 sm:pl-2 sm:pr-6 lg:px-8"
+            : "container-px"
+        }`}
+      >
+        {useMobileHomeLockup ? (
+          <>
+            <Link
+              href="/"
+              className="flex min-w-0 shrink-0 items-center lg:hidden"
+              aria-label="Specialist Movers NZ , home"
+            >
+              <BrandCornerLockup
+                variant="header"
+                circleSize="2.25rem"
+                wordmarkHeight="clamp(1.85rem, 5vw, 2.125rem)"
+              />
+            </Link>
+            <div className="hidden min-w-0 shrink-0 lg:block">
+              <BrandLogo variant="header" />
+            </div>
+          </>
+        ) : (
+          <BrandLogo variant="header" />
+        )}
+
+        {useMobileHomeLockup ? (
+          <div className="min-w-2 flex-1 lg:hidden" aria-hidden />
+        ) : null}
 
         <nav
           className="hidden min-w-0 flex-1 flex-nowrap items-center justify-center gap-0 lg:flex"
@@ -243,7 +274,11 @@ export function SiteHeader() {
           </NavDropdown>
         </nav>
 
-        <div className="ml-auto flex shrink-0 items-center gap-2">
+        <div
+          className={`ml-auto flex shrink-0 items-center gap-1.5 lg:gap-2 ${
+            useMobileHomeLockup ? "max-lg:mr-0.5" : ""
+          }`}
+        >
           <a
             href={`tel:${phoneNumber}`}
             className="group hidden items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-semibold text-brand-yellow transition-colors hover:bg-white/15 hover:text-white xl:inline-flex xl:text-sm"
@@ -255,7 +290,11 @@ export function SiteHeader() {
             href={quoteHref}
             onClick={handleQuoteClick}
             scroll={pathname !== "/"}
-            className="shrink-0 whitespace-nowrap rounded-full bg-brand-yellow px-4 py-2 font-heading text-xs font-bold uppercase tracking-wide text-brand-purple ring-1 ring-white/25 transition hover:brightness-[1.05] xl:px-5 xl:py-2.5 xl:text-sm"
+            className={`inline-flex shrink-0 items-center whitespace-nowrap rounded-full bg-brand-yellow font-heading font-bold uppercase text-brand-purple ring-1 ring-white/25 transition hover:brightness-[1.05] ${
+              useMobileHomeLockup
+                ? "h-7 px-3 text-[10px] tracking-wide xl:h-auto xl:px-5 xl:py-2.5 xl:text-sm"
+                : "h-8 px-4 text-xs tracking-wide xl:h-auto xl:px-5 xl:py-2.5 xl:text-sm"
+            }`}
           >
             Free quote
           </Link>
@@ -275,7 +314,22 @@ export function SiteHeader() {
       {open && (
         <div className="fixed inset-0 z-[200] flex flex-col bg-brand-purple p-6 text-brand-yellow lg:hidden">
           <div className="mb-8 flex items-center justify-between gap-4">
-            <BrandLogo variant="header" onNavigate={() => setOpen(false)} />
+            {useMobileHomeLockup ? (
+              <Link
+                href="/"
+                onClick={() => setOpen(false)}
+                className="block shrink-0"
+                aria-label="Specialist Movers NZ , home"
+              >
+                <BrandCornerLockup
+                  variant="header"
+                  circleSize="2.25rem"
+                  wordmarkHeight="2.125rem"
+                />
+              </Link>
+            ) : (
+              <BrandLogo variant="header" onNavigate={() => setOpen(false)} />
+            )}
             <button
               type="button"
               className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg hover:bg-white/10"
