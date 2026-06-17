@@ -12,16 +12,21 @@ type Props = {
   className?: string;
   maxPx?: number;
   minPx?: number;
+  tone?: "yellow" | "white";
+  /** Shrink fit width (e.g. 0.9 keeps text inside a photo below). */
+  fitScale?: number;
 };
 
 const LINE_HEIGHT = 1.12;
 
-/** Shrinks desktop hero h1 until it fits one line inside its column. */
+/** Shrinks hero title text until it fits one line inside its column. */
 export function HeroTitleFit({
   text,
   className,
   maxPx = 44,
   minPx = 22,
+  tone = "yellow",
+  fitScale = 1,
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -38,7 +43,7 @@ export function HeroTitleFit({
       await document.fonts.ready;
       if (cancelled) return;
 
-      const width = container.clientWidth;
+      const width = Math.floor(container.clientWidth * fitScale);
       const size = fitHeroTitlePx(width, maxPx, minPx, (px) => {
         title.style.fontSize = `${px}px`;
         return title.scrollWidth;
@@ -59,7 +64,7 @@ export function HeroTitleFit({
       cancelled = true;
       observer.disconnect();
     };
-  }, [text, maxPx, minPx]);
+  }, [text, maxPx, minPx, fitScale]);
 
   const initialPx = estimateHeroTitlePx(text, 0, maxPx, minPx);
 
@@ -72,7 +77,8 @@ export function HeroTitleFit({
       <h1
         ref={titleRef}
         className={cn(
-          "w-full whitespace-nowrap font-heading leading-[1.12] text-brand-yellow",
+          "block w-full min-w-0 whitespace-nowrap font-heading leading-[1.12]",
+          tone === "white" ? "text-white" : "text-brand-yellow",
           visible ? "opacity-100" : "opacity-0",
           className,
         )}

@@ -148,7 +148,7 @@ const serviceHeroEyebrowBySlug: Record<string, string> = {
   "packing-services": "Auckland packing and unpacking specialists",
   "hard-to-shift": "Auckland heavy and awkward item specialists",
   "cleaning-services": "Auckland exit cleaning specialists",
-  "international-moving": "New Zealand international moving specialists",
+  "international-moving": "Auckland international movers",
   "loading-unloading": "Auckland load and unload specialists",
   "winz-quotes": "WINZ and budget move quotes",
   storage: "Storage while you move",

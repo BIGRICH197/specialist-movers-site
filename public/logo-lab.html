@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en-NZ">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logo lab | Specialist Movers</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        min-height: 100vh;
+        overflow: hidden;
+        background: #9739b0;
+      }
+
+      .canvas {
+        position: relative;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+
+      /* Saved export: transparent PNG lockup (circle + wordmark) */
+      .lockup {
+        position: absolute;
+        top: 0.3cm;
+        left: 0.3cm;
+        height: clamp(4rem, 10vw, 13rem);
+        width: auto;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .label {
+        position: absolute;
+        left: 0.3cm;
+        bottom: 0.3cm;
+        color: rgba(255, 255, 255, 0.45);
+        font: 0.75rem/1.4 system-ui, sans-serif;
+      }
+
+      .watermark {
+        position: absolute;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .watermark.top-right {
+        top: 0;
+        right: 0;
+        width: 220px;
+        height: 220px;
+        transform: translate(25%, -25%);
+        opacity: 0.04;
+      }
+
+      .watermark.bottom-right {
+        right: 0;
+        bottom: 0;
+        width: 320px;
+        height: 320px;
+        transform: translate(25%, 25%);
+        opacity: 0.065;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas">
+      <img
+        class="lockup"
+        src="brand/logos/exports/specialist-movers-lockup-yellow.png"
+        alt="Specialist Movers"
+      />
+
+      <img
+        class="watermark top-right"
+        src="brand/logos/svg/Logomark%20Yellow.svg"
+        alt=""
+      />
+      <img
+        class="watermark bottom-right"
+        src="brand/logos/svg/Logomark%20Yellow.svg"
+        alt=""
+      />
+
+      <p class="label">Saved logo export (transparent PNG)</p>
+    </div>
+  </body>
+</html>

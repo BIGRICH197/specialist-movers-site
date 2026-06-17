@@ -83,7 +83,10 @@ const nextConfig = {
   },
   async rewrites() {
     return {
-      beforeFiles: legacyAucklandRewrites(),
+      beforeFiles: [
+        { source: "/logo-lab", destination: "/logo-lab.html" },
+        ...legacyAucklandRewrites(),
+      ],
     };
   },
   async redirects() {

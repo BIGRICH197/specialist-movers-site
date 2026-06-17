@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { BrandLogomarkWatermark } from "@/components/BrandLogomarkWatermark";
-import { GoogleRatingBadge } from "@/components/GoogleRatingBadge";
 import { HeroPhotoFrame } from "@/components/hero/HeroPhotoFrame";
+import { ServiceMobileHeroHead } from "@/components/ServiceMobileHeroHead";
 import { regions } from "@/lib/regions";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 import { ServiceHeroTrustStack } from "@/components/ServiceHeroTrustStack";
@@ -13,9 +13,6 @@ const defaultTrustPills = [
   regions.serviceAreaBadge,
   "Callback in 15 min",
 ] as const;
-
-const MOBILE_HEADING_CLASS =
-  "font-heading text-3xl leading-[1.12] text-white sm:text-4xl";
 
 const MOBILE_PHONE_CLASS =
   "inline-flex items-center justify-center font-heading text-2xl font-bold tracking-tight text-brand-yellow transition-colors duration-200 hover:text-white";
@@ -126,7 +123,7 @@ export function ServiceHeroWithQuote({
     <section
       id="quote"
       className={cn(
-        "hero-ambient relative scroll-mt-24 overflow-visible border-b border-white/10 bg-brand-purple py-12 pb-16 text-white sm:py-16 sm:pb-20 lg:py-20 lg:pb-24",
+        "hero-ambient relative scroll-mt-24 overflow-visible border-b border-white/10 bg-brand-purple py-12 pb-16 text-white max-lg:pt-7 sm:py-16 sm:pb-20 lg:py-20 lg:pb-24",
         className,
       )}
     >
@@ -137,18 +134,13 @@ export function ServiceHeroWithQuote({
 
       <div className="relative z-[1] mx-auto max-w-7xl container-px">
         <div className="flex flex-col gap-5 overflow-visible lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(320px,440px)] xl:gap-12">
-          {/* Mobile — same flow as HomeHero: badge, title, photo, Google bar */}
-          <div className="flex min-w-0 flex-col gap-5 lg:hidden">
-            {eyebrow ? <div className="self-start">{eyebrow}</div> : null}
-            {!eyebrow && eyebrowLabel ? (
-              <p className="inline-flex w-fit max-w-[95%] self-start rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-brand-yellow sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-wider">
-                {eyebrowLabel}
-              </p>
-            ) : null}
-            <h1 className={MOBILE_HEADING_CLASS}>{heading}</h1>
-            {photo ? <div>{photo}</div> : null}
-            <GoogleRatingBadge variant="compact" />
-          </div>
+          {/* Mobile — pill copy becomes fitted white title; service h1 stays for SEO only */}
+          <ServiceMobileHeroHead
+            heading={heading}
+            eyebrowLabel={eyebrowLabel}
+            eyebrow={eyebrow}
+            photo={photo}
+          />
 
           {/* Quote form (desktop: quote only; mobile: quote then pricing pill) */}
           <div

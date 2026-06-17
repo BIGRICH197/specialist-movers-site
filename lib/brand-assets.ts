@@ -10,6 +10,10 @@ export const brandAssets = {
   primaryLogoYellow2xPng: "/brand/logos/primary-logo-yellow-2x.png",
   /** 2× PNG , yellow wordmark only (from email sig assets) */
   wordmarkYellow2xPng: "/brand/logos/wordmark-yellow-2x.png",
+  /** Circle + wordmark lockup exports (logo lab , transparent PNG) */
+  lockupYellowPng: "/brand/logos/exports/specialist-movers-lockup-yellow.png",
+  lockupYellow2xPng: "/brand/logos/exports/specialist-movers-lockup-yellow@2x.png",
+  lockupYellowSvg: "/brand/logos/exports/specialist-movers-lockup-yellow.svg",
   socialInstagram: "/brand/icons/social-instagram-white.svg",
   socialFacebook: "/brand/icons/social-facebook-white.svg",
 } as const;
