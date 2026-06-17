@@ -15,6 +15,8 @@ type Props = {
   tone?: "yellow" | "white";
   /** Shrink fit width (e.g. 0.9 keeps text inside a photo below). */
   fitScale?: number;
+  /** Element to render. Use "div"/"h2" when the page's <h1> lives elsewhere. */
+  as?: "h1" | "h2" | "div";
 };
 
 const LINE_HEIGHT = 1.12;
@@ -27,9 +29,10 @@ export function HeroTitleFit({
   minPx = 22,
   tone = "yellow",
   fitScale = 1,
+  as: Tag = "h1",
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
+  const titleRef = useRef<HTMLHeadingElement & HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
   useLayoutEffect(() => {
@@ -68,24 +71,33 @@ export function HeroTitleFit({
 
   const initialPx = estimateHeroTitlePx(text, 0, maxPx, minPx);
 
+  const titleClassName = cn(
+    "block w-full min-w-0 whitespace-nowrap font-heading leading-[1.12]",
+    tone === "white" ? "text-white" : "text-brand-yellow",
+    visible ? "opacity-100" : "opacity-0",
+    className,
+  );
+  const titleStyle = { fontSize: `${initialPx}px` };
+
   return (
     <div
       ref={containerRef}
       className="w-full min-w-0"
       style={{ minHeight: `calc(${maxPx}px * ${LINE_HEIGHT})` }}
     >
-      <h1
-        ref={titleRef}
-        className={cn(
-          "block w-full min-w-0 whitespace-nowrap font-heading leading-[1.12]",
-          tone === "white" ? "text-white" : "text-brand-yellow",
-          visible ? "opacity-100" : "opacity-0",
-          className,
-        )}
-        style={{ fontSize: `${initialPx}px` }}
-      >
-        {text}
-      </h1>
+      {Tag === "div" ? (
+        <div ref={titleRef} className={titleClassName} style={titleStyle}>
+          {text}
+        </div>
+      ) : Tag === "h2" ? (
+        <h2 ref={titleRef} className={titleClassName} style={titleStyle}>
+          {text}
+        </h2>
+      ) : (
+        <h1 ref={titleRef} className={titleClassName} style={titleStyle}>
+          {text}
+        </h1>
+      )}
     </div>
   );
 }

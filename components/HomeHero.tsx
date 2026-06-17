@@ -171,10 +171,16 @@ export function HomeHero({
               transition={t}
               className="hidden w-full min-w-0 lg:block"
             >
+              {/* Desktop keeps the "Specialist Movers." visual, but the indexed
+                  h1 matches the mobile keyword title (Google is mobile-first). */}
+              {mobileHomeLogoExperiment ? (
+                <h1 className="sr-only">{MOBILE_HOME_LOGO_TITLE}</h1>
+              ) : null}
               <HeroPhotoFrame
                 heading={hero.h1}
                 eyebrowLabel={hero.eyebrow}
                 photo={desktopHeroVisual}
+                headingAs={mobileHomeLogoExperiment ? "div" : "h1"}
               />
             </motion.div>
             {hero.h1Sub ? (

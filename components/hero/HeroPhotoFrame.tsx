@@ -8,6 +8,8 @@ type Props = {
   photo: ReactNode;
   headingNowrap?: boolean;
   className?: string;
+  /** Element for the visible title. Use "div"/"h2" when the <h1> is elsewhere. */
+  headingAs?: "h1" | "h2" | "div";
 };
 
 /** Photo with title stack above it in the left column (desktop). */
@@ -17,6 +19,7 @@ export function HeroPhotoFrame({
   photo,
   headingNowrap = true,
   className,
+  headingAs = "h1",
 }: Props) {
   return (
     <div className={cn("hidden w-full min-w-0 lg:block", className)}>
@@ -24,6 +27,7 @@ export function HeroPhotoFrame({
         heading={heading}
         eyebrowLabel={eyebrowLabel}
         nowrap={headingNowrap}
+        headingAs={headingAs}
       />
       {photo}
     </div>
