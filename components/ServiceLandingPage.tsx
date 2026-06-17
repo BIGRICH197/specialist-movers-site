@@ -28,6 +28,7 @@ import { PianoExpertiseSection } from "@/components/PianoExpertiseSection";
 import { PianoGallerySection } from "@/components/PianoGallerySection";
 import { regions } from "@/lib/regions";
 import { resolveServiceLink } from "@/lib/service-links";
+import { cn } from "@/lib/utils";
 import { HamiltonPageLink } from "@/components/HamiltonPageLink";
 import type { ServiceLandingConfig } from "@/lib/service-landings";
 import { halfPhotoWrap } from "@/lib/photo-layout";
@@ -110,6 +111,7 @@ export function ServiceLandingPage({ config }: Props) {
             ? "mt-[calc(1.5rem+1cm)]"
             : undefined
         }
+        showMobilePartnerMarquee={config.showPianoPartners}
       />
 
       <ServiceTrustindexBand />
@@ -120,8 +122,13 @@ export function ServiceLandingPage({ config }: Props) {
         useQuoteAnchor={false}
       />
 
-      {/* Trust ticker */}
-      <div className="mx-auto max-w-7xl px-4 pt-10 sm:px-6 sm:pt-12 lg:px-8">
+      {/* Trust ticker — desktop only when marquee is in mobile hero */}
+      <div
+        className={cn(
+          "mx-auto max-w-7xl px-4 pt-10 sm:px-6 sm:pt-12 lg:px-8",
+          config.showPianoPartners && "hidden lg:block",
+        )}
+      >
         {config.showPianoPartners ? <PianoPartnerMarquee /> : null}
         {config.showMovingBanner ? <MovingBanners /> : null}
       </div>

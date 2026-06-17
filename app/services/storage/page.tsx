@@ -8,7 +8,7 @@ import { regions } from "@/lib/regions";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Moving Storage, Short & Long Term",
-  description: `Storage while you move: short-term, long-term, in transit, overnight, and piano storage. ${regions.basesShort}.`,
+  description: `Storage while you move: short-term, long-term, in transit, overnight, and piano storage. ${regions.basesShort}. Free quote and callback in 15 minutes.`,
   path: "/services/storage",
 });
 

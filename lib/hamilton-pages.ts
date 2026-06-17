@@ -82,7 +82,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     metaTitle: "Piano moving Hamilton | Specialist Piano Movers",
     metaDescription:
       "Hamilton piano moving for upright and grand pianos. Waikato base, Auckland routes, storage and international crating. Free quote within 15 minutes.",
-    h1: "Piano moving Hamilton",
+    h1: "Piano movers Hamilton",
     lead:
       "Hamilton is our second base for piano work. We move uprights and grands across the city, Cambridge, and wider Waikato, and we run regular Hamilton to Auckland routes for families and music stores.",
     paragraphs: [
@@ -341,7 +341,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     parentLabel: "Hard to shift Auckland",
     metaTitle: "Hard to Shift Items Hamilton | Specialist Movers",
     metaDescription:
-      "Spa pools, bathtubs, saunas, and bulky items in Hamilton and the Waikato. Specialist gear and planning. Free quote.",
+      "Spa pools, bathtubs, saunas, and bulky items in Hamilton and the Waikato. Specialist gear and planning. Free quote and callback in 15 minutes.",
     h1: "Hard to shift items Hamilton",
     lead:
       "Spa pools, bathtubs, oversized furniture, and awkward access jobs around Hamilton and rural Waikato need planning before move day. We scope stairs, pathways, and crane or rigging requirements from our local base.",
@@ -491,7 +491,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     parentLabel: "Loading and unloading Auckland",
     metaTitle: "Loading & Unloading Hamilton | Specialist Movers",
     metaDescription:
-      "Hire experienced Hamilton movers for loading, unloading, and heavy lifts. Containers and storage transfers. Free quote.",
+      "Hire experienced Hamilton movers for loading, unloading, and heavy lifts. Containers and storage transfers. Free quote and callback in 15 minutes.",
     h1: "Loading and unloading Hamilton",
     lead:
       "Need extra hands in Hamilton without booking a full house move? Our crews load and unload containers, storage units, and rental trucks with careful handling for furniture and boxed goods.",
@@ -538,7 +538,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     parentLabel: "WINZ quotes Auckland",
     metaTitle: "WINZ Moving Quote Hamilton | Specialist Movers",
     metaDescription:
-      "Written WINZ and assistance quotes for Hamilton and Waikato moves. Fast turnaround, clear scope. Specialist Movers.",
+      "Written WINZ and assistance quotes for Hamilton and Waikato moves. Fast turnaround, clear scope. Specialist Movers. Free quote and callback in 15 minutes.",
     h1: "WINZ moving quotes Hamilton",
     lead:
       "Applying for moving assistance in Hamilton or the Waikato? We provide written quotes with clear scope and pricing you can submit with confidence.",

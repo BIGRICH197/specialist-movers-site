@@ -43,7 +43,7 @@ export function createSuburb(
     parentSlug,
     searchTerms: [name, slug, ...searchTerms],
     metaTitle: `Movers ${name}`,
-    metaDescription: `${name} house and piano moving. Specialist Movers ${regionLabel}. Free quote.`,
+    metaDescription: `${name} house and piano movers. Specialist Movers serves ${regionLabel} from our Auckland base. Free quote and callback in 15 minutes.`,
     intro: `We move homes and pianos in ${name} and nearby streets. Our Auckland crew plans access, parking, and timing before move day.`,
     paragraphs: [
       `${note} We quote after a free in-home viewing when you need an accurate fixed price for a house move.`,
@@ -57,6 +57,25 @@ export function createSuburb(
       "Licensed and insured crews",
     ],
   };
+}
+
+/** Ensure location meta descriptions meet SEO length and sentence case. */
+export function normalizeLocationMeta(location: Location): Location {
+  let metaDescription = location.metaDescription.trim();
+  if (metaDescription.length > 0 && /^[a-z]/.test(metaDescription)) {
+    metaDescription = metaDescription.charAt(0).toUpperCase() + metaDescription.slice(1);
+  }
+  if (metaDescription.length < 120) {
+    const depot = location.group === "waikato" ? "Hamilton" : "Auckland";
+    const area =
+      location.kind === "region"
+        ? location.name
+        : location.parentSlug
+          ? parentRegionName(location.parentSlug)
+          : location.name;
+    metaDescription = `${location.name} house and piano movers. Specialist Movers serves ${area} from our ${depot} base. Free quote and callback in 15 minutes.`;
+  }
+  return { ...location, metaDescription };
 }
 
 export function createTown(
@@ -86,7 +105,7 @@ export function createTown(
     parentSlug: null,
     searchTerms: [name, slug, ...searchTerms],
     metaTitle,
-    metaDescription: `${name} house and piano moving. Specialist Movers ${depot} base. Free quote.`,
+    metaDescription: `${name} house and piano movers. Specialist Movers ${depot} base, Waikato and North Island routes. Free quote and callback in 15 minutes.`,
     intro: `${introNote} We quote travel and access clearly from our ${depot} base.`,
     paragraphs: [
       `We visit before larger house moves in ${name} so stairs, driveways, and volume are clear before we lock your price.`,

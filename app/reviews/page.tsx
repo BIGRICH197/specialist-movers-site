@@ -17,7 +17,7 @@ import { googleReviewsUrl } from "@/lib/homepage-copy";
 
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Reviews",
+  title: "Customer Reviews Auckland",
   description: legacyMetaDescription("reviews"),
   path: "/reviews",
 });

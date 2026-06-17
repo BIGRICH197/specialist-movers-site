@@ -65,11 +65,12 @@ export function PianoHubPage() {
           />
         }
         quote={<QuoteForm defaultJobType="Piano Move" />}
+        showMobilePartnerMarquee
       />
 
       <ServiceTrustindexBand />
 
-      <div className="mx-auto max-w-7xl container-px pb-2 pt-8 sm:pb-4 sm:pt-10">
+      <div className="mx-auto hidden max-w-7xl container-px pb-2 pt-8 sm:pb-4 sm:pt-10 lg:block">
         <PianoPartnerMarquee />
       </div>
 

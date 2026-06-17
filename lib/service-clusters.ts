@@ -29,7 +29,7 @@ export const movingDistanceServices: readonly ServiceClusterItem[] = [
     slug: "local-moving",
     title: "Local moving Auckland & Waikato",
     excerpt:
-      "Same-day and short-notice house moves across Auckland suburbs and Hamilton. Day rates, clear call-out, and crews who know local access.",
+      "Same-day and short-notice house moves across Auckland suburbs and Hamilton. Day rates, clear call-out, and crews who know local access. Free quote.",
     description:
       "Local moves are our bread and butter: apartments, townhouses, and family homes across Auckland and the Waikato. We plan parking, stairs, and lift access before move day so your crew arrives ready. Packing, storage, and specialty items can be added to the same job.",
     includedBullets: [
@@ -46,9 +46,9 @@ export const movingDistanceServices: readonly ServiceClusterItem[] = [
   },
   {
     slug: "regional-moving",
-    title: "Regional moving, Auckland, Waikato & beyond",
+    title: "Regional Moving Auckland & Waikato",
     excerpt:
-      "Moves between Auckland and Hamilton, Waikato towns, Bay of Plenty, and Northland. One company from pickup to delivery. We do not hand off your load.",
+      "Moves between Auckland and Hamilton, Waikato towns, Bay of Plenty, and Northland. One company from pickup to delivery. Free quote.",
     description:
       "Regional moves cover the gap between a local day move and an international relocation. Think Auckland to Hamilton, Tauranga, or Whangārei, or Waikato to Auckland. Your goods stay on our trucks with the same crew standards, communication, and care as a local job.",
     includedBullets: [

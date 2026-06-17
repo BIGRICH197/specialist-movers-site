@@ -102,6 +102,22 @@ export function getServiceNavRows(): ServiceNavRow[] {
   ];
 }
 
+const mobilePrimaryServiceKeys = new Set(["house-moving", "piano-movers"]);
+
+/** Mobile drawer: house + piano shown before "More services". */
+export function getMobilePrimaryServiceRows(): ServiceNavRow[] {
+  return getServiceNavRows().filter((row) =>
+    mobilePrimaryServiceKeys.has(row.key),
+  );
+}
+
+/** Mobile drawer: remaining services inside "More services". */
+export function getMobileMoreServiceRows(): ServiceNavRow[] {
+  return getServiceNavRows().filter(
+    (row) => !mobilePrimaryServiceKeys.has(row.key),
+  );
+}
+
 /** Two-column layout for the header services mega menu. */
 export function getServiceNavMenuColumns(): {
   left: ServiceNavRow[];

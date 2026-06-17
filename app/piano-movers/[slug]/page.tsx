@@ -24,10 +24,20 @@ export function generateMetadata({
   const service = pianoServices.find((s) => s.slug === params.slug);
   if (!service) return {};
   return buildPageMetadata({
-    title: service.title,
+    title: { absolute: pianoMetaTitle(service.slug, service.title) },
     description: pianoMetaDescription(service.slug, service.title),
     path: `/piano-movers/${service.slug}`,
   });
+}
+
+function pianoMetaTitle(slug: string, title: string): string {
+  const bySlug: Record<string, string> = {
+    "grand-piano": "Grand Piano Moving Auckland | Specialist Piano Movers",
+    "piano-storage": "Piano Storage Auckland | Specialist Piano Movers",
+  };
+  if (bySlug[slug]) return bySlug[slug];
+  if (/\bauckland\b/i.test(title)) return `${title} | Specialist Piano Movers`;
+  return `${title} Auckland | Specialist Piano Movers`;
 }
 
 function pianoMetaDescription(slug: string, title: string): string {
@@ -38,6 +48,8 @@ function pianoMetaDescription(slug: string, title: string): string {
       "Upright piano movers Auckland. Padded blankets, shrink wrap, and specialist straps. Local and long-distance moves. Free quote.",
     "international-piano":
       "International piano shipping from Auckland. Crating, customs coordination, and door-to-door delivery. Specialist Movers. Free quote.",
+    "piano-storage":
+      "Secure piano storage in Auckland while you move, renovate, or wait on settlement dates. Climate-aware holding and careful delivery when you are ready. Free quote.",
   };
   return bySlug[slug] ?? `${title} by Auckland's dedicated specialist piano moving team. Free quote.`;
 }

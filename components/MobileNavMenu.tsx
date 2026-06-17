@@ -8,8 +8,10 @@ import {
   locationNavDepotColumns,
   locationNavSidebarLinks,
 } from "@/lib/location-nav";
+import type { ServiceNavRow } from "@/lib/service-nav";
 import {
-  getServiceNavRows,
+  getMobileMoreServiceRows,
+  getMobilePrimaryServiceRows,
   serviceNavClusterLinks,
   serviceNavHubLink,
   serviceNavInternationalExtras,
@@ -79,7 +81,7 @@ export function MobileNavMenu({
   phoneNumber,
 }: Props) {
   const pathname = usePathname();
-  const [expanded, setExpanded] = useState<"services" | "locations" | null>(
+  const [expanded, setExpanded] = useState<"more-services" | "locations" | null>(
     null,
   );
 
@@ -89,44 +91,57 @@ export function MobileNavMenu({
     event.preventDefault();
     scrollToInstantQuote();
   }
-  const serviceRows = getServiceNavRows();
+  const primaryServiceRows = getMobilePrimaryServiceRows();
+  const moreServiceRows = getMobileMoreServiceRows();
 
-  const toggle = (section: "services" | "locations") =>
+  const toggle = (section: "more-services" | "locations") =>
     setExpanded((current) => (current === section ? null : section));
 
-  return (
-    <>
-      <AccordionSection
-        title="Services"
-        open={expanded === "services"}
-        onToggle={() => toggle("services")}
-      >
-        <div className="space-y-3 py-2">
-          {serviceRows.map((row) => (
-            <div key={row.key}>
-              <p className="text-xs font-semibold uppercase tracking-wide text-brand-yellow/75">
-                {row.label}
-              </p>
-              <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1">
+  function ServiceCityLinks({ rows }: { rows: ServiceNavRow[] }) {
+    return (
+      <div className="space-y-3 py-1">
+        {rows.map((row) => (
+          <div key={row.key}>
+            <p className="text-xs font-semibold uppercase tracking-wide text-brand-yellow/75">
+              {row.label}
+            </p>
+            <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 font-sans">
+              <Link
+                href={row.auckland.href}
+                onClick={onNavigate}
+                className={subLinkClass}
+              >
+                {row.auckland.label}
+              </Link>
+              {row.hamilton ? (
                 <Link
-                  href={row.auckland.href}
+                  href={row.hamilton.href}
                   onClick={onNavigate}
                   className={subLinkClass}
                 >
-                  {row.auckland.label}
+                  {row.hamilton.label}
                 </Link>
-                {row.hamilton ? (
-                  <Link
-                    href={row.hamilton.href}
-                    onClick={onNavigate}
-                    className={subLinkClass}
-                  >
-                    {row.hamilton.label}
-                  </Link>
-                ) : null}
-              </div>
+              ) : null}
             </div>
-          ))}
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <div className="rounded-xl px-2 py-2 font-sans text-sm">
+        <ServiceCityLinks rows={primaryServiceRows} />
+      </div>
+
+      <AccordionSection
+        title="More services"
+        open={expanded === "more-services"}
+        onToggle={() => toggle("more-services")}
+      >
+        <div className="space-y-3 py-2">
+          <ServiceCityLinks rows={moreServiceRows} />
 
           <ul className="space-y-1.5 border-t border-white/10 pt-3">
             {serviceNavPianoExtras.map((link) => (
@@ -228,13 +243,6 @@ export function MobileNavMenu({
         </div>
       </AccordionSection>
 
-      <Link
-        href="/piano-movers"
-        onClick={onNavigate}
-        className="block rounded-xl px-2 py-2 hover:bg-white/10"
-      >
-        Piano
-      </Link>
       <Link
         href="/reviews"
         onClick={onNavigate}

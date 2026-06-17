@@ -1,14 +1,13 @@
+import { legacyMetaDescriptions } from "@/lib/legacy-meta-descriptions";
 import { regions } from "@/lib/regions";
 
 export const pianoHubMeta = {
   title: "Piano moving Auckland & Hamilton | Specialist Piano Movers",
-  description:
-    "Hire Special Movers, your piano moving experts in Auckland. We move your piano safely both locally and internationally. Contact us today to know more.",
+  description: legacyMetaDescriptions["piano-movers"],
 };
 
 export const pianoHubHero = {
-  eyebrow:
-    "Trusted by Steinway and Auckland music retailers. Piano specialists.",
+  eyebrow: "Trusted by Steinway and music retailers",
   h1: "Specialist Piano Movers.",
   h1Sub: "Auckland and Hamilton moving specialists.",
   lead:

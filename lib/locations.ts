@@ -3,6 +3,7 @@
  * Every entry here has a page at /locations/[slug].
  */
 
+import { normalizeLocationMeta } from "@/lib/location-builders";
 import { extraAucklandSuburbs, extraWaikatoTowns } from "@/lib/locations-extra";
 import { applyLocationSeo } from "@/lib/location-seo";
 import type { Location, LocationGroup } from "@/lib/location-types";
@@ -473,7 +474,7 @@ export const allLocations: readonly Location[] = mergeLocations(
   [...extraAucklandSuburbs],
   coreTowns,
   [...extraWaikatoTowns],
-).map(applyLocationSeo);
+).map(applyLocationSeo).map(normalizeLocationMeta);
 
 const bySlug = new Map(allLocations.map((l) => [l.slug, l]));
 

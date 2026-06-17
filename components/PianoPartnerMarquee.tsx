@@ -33,18 +33,41 @@ function LogoMarqueeRow({ duplicate }: { duplicate?: boolean }) {
 /**
  * Retailer logos in the same moving bar style as homepage MovingBanners.
  */
-export function PianoPartnerMarquee() {
+export function PianoPartnerMarquee({
+  variant = "default",
+}: {
+  /** Compact strip above Google badge in purple hero (mobile piano pages). */
+  variant?: "default" | "hero";
+}) {
+  const isHero = variant === "hero";
+
   return (
-    <div className="mx-auto max-w-7xl container-px">
-      <p className="mb-3 text-center font-heading text-xs font-bold uppercase tracking-[0.18em] text-brand-purple/70 sm:mb-4 sm:text-sm">
+    <div className={isHero ? "w-full min-w-0" : "mx-auto max-w-7xl container-px"}>
+      <p
+        className={
+          isHero
+            ? "mb-2 text-center font-heading text-[10px] font-bold uppercase tracking-[0.16em] text-white/75 sm:text-xs"
+            : "mb-3 text-center font-heading text-xs font-bold uppercase tracking-[0.18em] text-brand-purple/70 sm:mb-4 sm:text-sm"
+        }
+      >
         Our retailer partners
       </p>
       <section
-        className="pointer-events-auto max-w-full overflow-hidden rounded-2xl border border-brand-purple/[0.12] bg-gradient-to-b from-brand-yellow/95 to-brand-yellow shadow-[0_20px_40px_-24px_rgba(151,57,176,0.35)] [contain:layout_paint] sm:rounded-[1.25rem]"
+        className={
+          isHero
+            ? "pointer-events-auto max-w-full overflow-hidden rounded-xl border border-white/20 bg-gradient-to-b from-brand-yellow/95 to-brand-yellow shadow-[0_12px_28px_-18px_rgba(0,0,0,0.45)] [contain:layout_paint]"
+            : "pointer-events-auto max-w-full overflow-hidden rounded-2xl border border-brand-purple/[0.12] bg-gradient-to-b from-brand-yellow/95 to-brand-yellow shadow-[0_20px_40px_-24px_rgba(151,57,176,0.35)] [contain:layout_paint] sm:rounded-[1.25rem]"
+        }
         aria-label="Piano retailer partners"
       >
         <div className="group relative w-full overflow-hidden border-0 bg-transparent">
-          <div className="flex w-max max-w-none py-3 motion-reduce:animate-none animate-marquee-gentle group-hover:[animation-play-state:paused] sm:py-3.5">
+          <div
+            className={
+              isHero
+                ? "flex w-max max-w-none py-2 motion-reduce:animate-none animate-marquee-gentle group-hover:[animation-play-state:paused]"
+                : "flex w-max max-w-none py-3 motion-reduce:animate-none animate-marquee-gentle group-hover:[animation-play-state:paused] sm:py-3.5"
+            }
+          >
             <LogoMarqueeRow />
             <LogoMarqueeRow duplicate />
           </div>

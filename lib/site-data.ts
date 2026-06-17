@@ -248,19 +248,22 @@ export const blogPosts = [
   {
     slug: "the-ultimate-guide-to-house-moving-in-auckland",
     title: "The Ultimate Guide to House Moving in Auckland",
+    seoTitle: "House Moving Guide Auckland | Specialist Movers",
     excerpt:
-      "Moving isn't hard because of the boxes. It's hard because it messes with your routine. If you're moving house in Auckland, here's the straight talk , dates, packing, movers, and Auckland-specific tips.",
+      "Moving house in Auckland? Straight talk on dates, packing, movers, and local tips. Plan your move with less stress and clearer costs.",
   },
   {
     slug: "diy-packing-vs-professional-packing-services",
     title: "Comparing Do-It-Yourself Packing with Expert Packing Services",
+    seoTitle: "DIY vs Professional Packing Auckland | Specialist Movers",
     excerpt:
-      "DIY vs professional packing: costs, control, stress, and when expert packers in Auckland are worth it.",
+      "DIY vs professional packing in Auckland: costs, control, stress, and when expert packers are worth it. Compare options before your move day.",
   },
   {
     slug: "stress-free-moving-in-auckland-expert-tips-from-specialist-movers",
     title: "Stress-Free Moving in Auckland: Expert Tips from Specialist Movers",
+    seoTitle: "Stress-Free Moving Auckland Tips | Specialist Movers",
     excerpt:
-      "Proper planning and expert guidance can simplify your relocating experience , tips from expert movers for Auckland moves.",
+      "Expert tips for a smoother Auckland move. Planning, packing, access, and communication from Specialist Movers crews who do this every day.",
   },
 ] as const;

@@ -10,7 +10,7 @@ import {
 import { regions } from "@/lib/regions";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Local, Regional & Long-Distance Moving",
+  title: { absolute: "Local & Regional Moving Auckland | Specialist Movers" },
   description: `Local Auckland and Waikato moves, regional relocations, and long-distance moving across New Zealand. ${regions.basesShort}. Free quote.`,
   path: "/services/moving",
 });

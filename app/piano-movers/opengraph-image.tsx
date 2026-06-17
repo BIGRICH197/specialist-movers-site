@@ -2,7 +2,8 @@ import { ImageResponse } from "next/og";
 import { siteUrl } from "@/lib/site-config";
 
 export const runtime = "edge";
-
+export const alt =
+  "Specialist Piano Movers, Auckland and Hamilton upright and grand piano moves";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -11,7 +12,7 @@ const yellow = "#f3d02a";
 
 export default async function Image() {
   const logo = `${siteUrl}/brand/logos/primary-logo-yellow-2x.png`;
-  const photo = `${siteUrl}/photos/source/batch-p126-p127/P1260739.jpg`;
+  const photo = `${siteUrl}/photos/source/batch-p125/P1250551.jpg`;
 
   return new ImageResponse(
     (
@@ -51,20 +52,20 @@ export default async function Image() {
                 textTransform: "uppercase",
               }}
             >
-              Trusted house and piano movers. Auckland and Hamilton.
+              Trusted by Steinway and music retailers
             </div>
             <div
               style={{
-                fontSize: 58,
+                fontSize: 52,
                 fontWeight: 700,
                 lineHeight: 1.08,
                 color: yellow,
                 textTransform: "uppercase",
               }}
             >
-              Specialist Movers.
+              Piano movers Auckland &amp; Hamilton
             </div>
-            <div style={{ fontSize: 30, lineHeight: 1.35, color: "rgba(255,255,255,0.9)" }}>
+            <div style={{ fontSize: 28, lineHeight: 1.35, color: "rgba(255,255,255,0.9)" }}>
               Auckland and Hamilton moving specialists.
             </div>
           </div>

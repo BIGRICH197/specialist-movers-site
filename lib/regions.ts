@@ -14,7 +14,7 @@ export const regions = {
   heroLead:
     "Relocation does not need to be stressful. We run 7 days a week from our Auckland and Hamilton bases, with strong coverage across Auckland, Hamilton and inbetween. We also service the wider Waikato when you need us. Precision, care, and clear communication from quote to handover.",
   homeMetaTitle:
-    "Auckland & Waikato Movers | House & Piano | Specialist Movers",
+    "Auckland & Waikato Movers | House & Piano",
   homeMetaDescription:
     "Are you relocating houses? Hire Specialist Movers in Auckland! We specialise in local and international house and piano packing and moving. Contact us today!",
   layoutDescription:

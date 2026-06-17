@@ -12,7 +12,7 @@ export const legacyMetaDescriptions = {
   "commercial-moving":
     "Specialist Movers are the best commercial movers for your business in Auckland, providing competitive pricing and peace of mind. Contact us today for a quote.",
   "packing-services":
-    "Get top-notch office and house packing services in Auckland with Specialist Movers. Our expert team ensures your belongings are securely packed and safely transported.",
+    "Professional house and office packing in Auckland with Specialist Movers. Our crew packs the day before your move. Cartons, wrap, and careful handling. Free quote.",
   "hard-to-shift":
     "Looking for heavy item movers? Hire Specialist Movers in Auckland for heavy and hard-to-shift items. Contact us for hassle-free movement and to learn more.",
   "cleaning-services":
@@ -24,15 +24,15 @@ export const legacyMetaDescriptions = {
   "winz-quotes":
     "Looking for Winz house moving quotes? Contact Specialist Movers today and get a free quotation. Save money on movers and packs!",
   "piano-movers-auckland":
-    "Hire Special Movers, your piano moving experts in Auckland. We move your piano safely both locally and internationally. Contact us today to know more.",
+    "Auckland piano movers for upright and grand pianos. Trusted by music stores across the North Shore, central Auckland, and wider metro. Free quote and callback in 15 minutes.",
   "piano-movers":
-    "Hire Special Movers, your piano moving experts in Auckland. We move your piano safely both locally and internationally. Contact us today to know more.",
+    "Auckland and Hamilton piano moving for uprights and grands. Dedicated piano trucks, storage, and international shipping. Free quote and callback in 15 minutes.",
   "apartment-movers-auckland":
     "Moving to a new apartment? Take the help of Specialist Movers who specialises in apartment relocation in Auckland. Click here to learn more.",
   "retirement-home-movers-auckland":
     "Retiring soon? Hire your personalised retirement home movers, the Specialist Movers in Auckland and experience the difference. Click here now!",
   about:
-    "Learn about Specialist Movers – experienced professionals delivering reliable moving and cleaning services in Auckland. Discover our values and book with confidence.",
+    "Learn about Specialist Movers, experienced professionals delivering reliable moving and cleaning services in Auckland. Discover our values and book with confidence.",
   contact:
     "Connect with Specialist Movers, your expert packers and movers in Auckland. Fill out our form for quick, no-obligation quotes and efficient moving solutions.",
   faq:
@@ -40,7 +40,7 @@ export const legacyMetaDescriptions = {
   reviews:
     "Customer satisfaction is our top priority at Specialist Movers. Check what our customers have to say about our services. Call us now to get your custom quote.",
   services:
-    "Trust Specialist Movers Auckland for professional moving services. From house and commercial moves to international relocations & piano transport, we've got you covered.",
+    "Trust Specialist Movers Auckland for house, commercial, international, and piano moves. Packing, storage, and exit cleaning available. Free quote and callback in 15 minutes.",
   policies:
     "At Specialist Movers, we are committed to protecting your privacy & personal information by adhering to strict standards and legal requirements. Learn more here.",
 } as const;
