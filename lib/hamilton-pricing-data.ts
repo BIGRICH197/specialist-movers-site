@@ -6,12 +6,12 @@ export const HAMILTON_TIER_1_RATES: Record<
   Record<CrewSize, number>
 > = {
   tue: { "2M": 140, "3M": 180 },
-  thu: { "2M": 155, "3M": 195 },
-  mon: { "2M": 165, "3M": 205 },
-  wed: { "2M": 165, "3M": 205 },
-  sun: { "2M": 180, "3M": 220 },
-  fri: { "2M": 190, "3M": 230 },
-  sat: { "2M": 190, "3M": 230 },
+  thu: { "2M": 145, "3M": 185 },
+  mon: { "2M": 150, "3M": 190 },
+  wed: { "2M": 150, "3M": 190 },
+  sun: { "2M": 155, "3M": 195 },
+  fri: { "2M": 160, "3M": 200 },
+  sat: { "2M": 160, "3M": 200 },
 };
 
 export type HamiltonZone = "A" | "B" | "C";

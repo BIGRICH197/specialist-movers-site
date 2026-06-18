@@ -30,12 +30,12 @@ Hourly rates are the SAME across all zones. Only the callout changes by zone. Ha
 | Day       | 2 men | 3 men | 4 men |
 |-----------|-------|-------|-------|
 | Tuesday   | $140  | $180  | $240  |
-| Thursday  | $155  | $195  | $255  |
-| Monday    | $165  | $205  | $265  |
-| Wednesday | $165  | $205  | $265  |
-| Sunday    | $180  | $220  | $280  |
-| Friday    | $190  | $230  | $290  |
-| Saturday  | $190  | $230  | $290  |
+| Thursday  | $145  | $185  | $245  |
+| Monday    | $150  | $190  | $250  |
+| Wednesday | $150  | $190  | $250  |
+| Sunday    | $155  | $195  | $255  |
+| Friday    | $160  | $200  | $260  |
+| Saturday  | $160  | $200  | $260  |
 
 Construction rule: 2-man rate is the explicit per-day value; 3-man = 2-man + $40; 4-man = 3-man + $60.
 
