@@ -25,7 +25,7 @@ Use the HIGHER zone if pickup and dropoff are in different zones.
 
 ## House Moves , Hourly Rates
 
-Hourly rates are the SAME across all zones. Only the callout changes by zone. Hamilton rates are higher than Auckland by ~$15–20 on weekdays and ~$30 on weekend peak , locked decision (Richard, 2026-05-18).
+Hourly rates are the SAME across all zones. Only the callout changes by zone. Hamilton rates were brought down to sit only slightly above Auckland (~$0–20: roughly +$15–20 early week, +$10 Fri/Sun, and level with Auckland on Saturday) , locked decision (Richard, 2026-06-18).
 
 | Day       | 2 men | 3 men | 4 men |
 |-----------|-------|-------|-------|
