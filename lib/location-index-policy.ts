@@ -5,39 +5,53 @@
  * out-of-area towns) is noindex'd and kept out of the sitemap, so a swarm of
  * near-duplicate pages can't drag down site quality. Promote a slug into this
  * set once its page has genuine, differentiated local content.
+ *
+ * Focus: North Shore core (near the Glenfield depot) + wealthier isthmus
+ * suburbs + Waikato towns near the Hamilton base. South Auckland is
+ * deprioritised (low job volume).
+ *
+ * TODO — requested suburbs that have NO page yet (create + enrich, then add):
+ *   Stanmore Bay, Greenhithe, Red Beach, Dairy Flat, Point Chevalier,
+ *   West Harbour, Riverhead, Saint Johns, Glendowie
  */
 export const INDEXED_LOCATION_SLUGS = new Set<string>([
-  // Auckland regions (hub pages)
+  // Auckland region hubs
   "north-shore",
   "central-auckland",
   "west-auckland",
-  "south-auckland",
   "east-auckland",
-  // North Shore
+  // North Shore (core, near depot)
+  "glenfield",
+  "birkenhead",
+  "northcote",
+  "hillcrest",
   "takapuna",
   "albany",
-  "devonport",
-  // Central
-  "ponsonby",
-  "remuera",
-  "mt-eden",
-  "newmarket",
-  // West
-  "henderson",
+  "browns-bay",
+  "long-bay",
+  "torbay",
+  "silverdale",
+  "orewa",
+  // Inner / West
+  "grey-lynn",
+  "mount-albert",
+  "te-atat", // Te Atatū Peninsula
+  "hobsonville",
   "titirangi",
-  // South
-  "manukau",
-  "papakura",
-  "pukekohe",
-  // East
-  "howick",
-  "pakuranga",
-  // Waikato core
+  // Central / East (affluent isthmus)
+  "parnell",
+  "remuera",
+  "epsom",
+  "st-heliers",
+  // Waikato (near Hamilton base)
   "hamilton",
   "cambridge",
   "te-awamutu",
   "morrinsville",
   "matamata",
+  "huntly",
+  "ngaruawahia",
+  "raglan",
 ]);
 
 export function isIndexedLocation(slug: string): boolean {
