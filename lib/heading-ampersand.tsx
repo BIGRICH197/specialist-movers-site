@@ -1,15 +1,24 @@
-import { Fragment, type ReactNode } from "react";
+import { Fragment, type CSSProperties, type ReactNode } from "react";
 
-/** Termina glyphs that read better in Inter inside headings. */
+/** Termina glyphs that read better in a neutral sans inside headings. */
 const HEADING_PUNCT_SPLIT = /([&?!])/g;
 
 const PLAIN_PUNCT = new Set(["&", "?", "!"]);
 
-/** Inter Light — matches the only Inter weight we load (see layout.tsx). */
+/** Must beat next/font Termina inheritance on nested spans. */
+export const HEADING_PUNCT_STYLE: CSSProperties = {
+  fontFamily:
+    'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+  fontWeight: 700,
+  fontStyle: "normal",
+  lineHeight: 1,
+  verticalAlign: "baseline",
+};
+
 export const HEADING_PUNCT_CLASS = "heading-punct";
 
 /**
- * Render selected punctuation in Inter — Termina's &, ?, and ! are logo-style.
+ * Render selected punctuation in system sans — Termina's &, ?, and ! are logo-style.
  */
 export function formatHeadingText(
   text: string,
@@ -20,7 +29,12 @@ export function formatHeadingText(
 
   return parts.map((part, index) =>
     PLAIN_PUNCT.has(part) ? (
-      <span key={index} className={punctClassName}>
+      <span
+        key={index}
+        className={punctClassName}
+        data-heading-punct={part}
+        style={HEADING_PUNCT_STYLE}
+      >
         {part}
       </span>
     ) : (
@@ -28,6 +42,5 @@ export function formatHeadingText(
     ),
   );
 }
-
 /** @deprecated Use formatHeadingText */
 export const withPlainAmpersand = formatHeadingText;

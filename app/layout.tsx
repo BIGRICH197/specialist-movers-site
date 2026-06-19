@@ -39,7 +39,12 @@ export const metadata: Metadata = {
   openGraph: rootOpenGraph,
   twitter: rootTwitter,
   icons: {
-    icon: [{ url: brandAssets.logomarkPurple, type: "image/svg+xml" }],
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-48.png", type: "image/png", sizes: "48x48" },
+      { url: brandAssets.logomarkPurple, type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
 

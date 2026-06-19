@@ -6,6 +6,7 @@ import { BrandLogomarkWatermark } from "@/components/BrandLogomarkWatermark";
 import { GoogleRatingBadge } from "@/components/GoogleRatingBadge";
 import { HeroPhotoFrame } from "@/components/hero/HeroPhotoFrame";
 import { HeroTitleFit } from "@/components/hero/HeroTitleFit";
+import { formatHeadingText } from "@/lib/heading-ampersand";
 import { HeroVisual } from "@/components/HeroVisual";
 import { QuoteForm } from "@/components/QuoteForm";
 import { regions } from "@/lib/regions";
@@ -157,7 +158,7 @@ export function HomeHero({
                 transition={t}
                 className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:hidden"
               >
-                {mobileTitle ?? MOBILE_HERO_TITLE}
+                {formatHeadingText(mobileTitle ?? MOBILE_HERO_TITLE)}
               </motion.h1>
             )}
             <motion.div variants={reduced ? undefined : item} transition={t} className="lg:hidden">

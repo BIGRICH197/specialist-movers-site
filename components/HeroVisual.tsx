@@ -89,7 +89,7 @@ export function HeroVisual({
             alt={hasHoverSwap ? "" : (photoAlt ?? "Specialist Movers team at work")}
             fill
             priority={priority}
-            quality={82}
+            quality={88}
             sizes="(max-width: 1024px) 100vw, 560px"
             className={`object-cover ${
               hasHoverSwap
@@ -104,7 +104,7 @@ export function HeroVisual({
               src={hoverSrc}
               alt={hoverAlt ?? ""}
               fill
-              quality={82}
+              quality={88}
               sizes="(max-width: 1024px) 100vw, 560px"
               className="object-cover opacity-0 transition-opacity duration-500 ease-out motion-reduce:transition-none group-hover/hero-photo:opacity-100 group-focus-visible/hero-photo:opacity-100"
               style={{ objectPosition: imageObjectPosition }}
