@@ -317,6 +317,346 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
     ],
   },
+  // ── Inner / West ──
+  "grey-lynn": {
+    metaDescription:
+      "Grey Lynn movers for villas and character homes. We plan narrow streets, on-street parking, and steep villa steps across the inner-west. Free quote.",
+    intro:
+      "Grey Lynn is villa country, narrow streets, tight on-street parking, and steep front steps that we plan around before move day.",
+    paragraphs: [
+      "Most Grey Lynn homes are renovated villas and bungalows with narrow hallways, high ceilings, and steps up from the street. We measure doorways and access at your free viewing so big pieces move without drama.",
+      "Parking is the inner-west catch, limited driveways and busy permit zones. We sort truck placement early, and the city fringe keeps us close for quick central runs. House moves, pianos, packing, and office relocations are all covered.",
+    ],
+    highlights: [
+      "Villa and character-home access",
+      "On-street parking sorted in advance",
+      "Inner-west, close to the city",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Can you get a truck down narrow Grey Lynn streets?",
+        a: "Yes. we plan truck size and placement for tight inner-west streets at the viewing, and arrange the closest legal parking so the carry stays short.",
+      },
+      {
+        q: "Do you move renovated villas?",
+        a: "Yes, constantly. We protect restored floors, doorways, and narrow hallways, and carry awkward pieces up villa steps with the right crew.",
+      },
+    ],
+  },
+  "mount-albert": {
+    metaDescription:
+      "Mount Albert movers for villas, bungalows, and family homes. Specialist Movers covers Mount Albert with easy Northwestern motorway access. Free quote.",
+    intro:
+      "Mount Albert mixes character villas and bungalows with newer family homes, we plan access for each and use the handy motorway links.",
+    paragraphs: [
+      "Many Mount Albert homes are pre-war villas and bungalows with steps and narrow halls, alongside newer townhouses near the town centre and Unitec. We scope the property so the right crew and truck arrive.",
+      "Sitting on the Northwestern motorway, Mount Albert is an easy run for city, west, and cross-town moves. House moves, pianos, packing, and office relocations are all covered.",
+    ],
+    highlights: [
+      "Villas, bungalows, and newer homes",
+      "Easy Northwestern motorway access",
+      "Free in-home viewing for accurate pricing",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Do you move character villas in Mount Albert?",
+        a: "Yes. we handle villa steps, narrow hallways, and high-value pieces carefully, with doorway and floor protection as standard.",
+      },
+      {
+        q: "How far ahead should I book?",
+        a: "Two weeks is ideal for weekends and month-end, though we can often move sooner. Call (021) 228 2728 for the next available crew.",
+      },
+    ],
+  },
+  "te-atat": {
+    metaDescription:
+      "Te Atatū Peninsula movers for harbour-edge homes and new builds. Specialist Movers plans peninsula access and parking with easy motorway links. Free quote.",
+    intro:
+      "Te Atatū Peninsula is harbour-edge living, 60s and 70s homes and new builds along a single peninsula with one main road in and out.",
+    paragraphs: [
+      "The peninsula's older homes and recent infill townhouses sit on quiet cul-de-sacs and waterfront streets. We plan truck access and parking, especially on narrower coastal roads, at your viewing.",
+      "Right by the Northwestern motorway, Te Atatū is a quick run to the city and west. House moves, pianos, packing, and office relocations are all covered.",
+    ],
+    highlights: [
+      "Peninsula and waterfront access planned",
+      "Older homes and new townhouses",
+      "Quick Northwestern motorway run",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Do you cover all of the Te Atatū Peninsula?",
+        a: "Yes, from the motorway end out to the harbour tip. We plan parking and carry distance for narrower coastal streets at the viewing.",
+      },
+      {
+        q: "Can you handle new townhouses on the peninsula?",
+        a: "Yes. we plan shared-driveway and parking access and protect finishes in newer builds as we carry.",
+      },
+    ],
+  },
+  hobsonville: {
+    metaDescription:
+      "Hobsonville movers for Hobsonville Point townhouses and apartments. We plan shared lanes, access codes, and parking before move day. Free quote.",
+    intro:
+      "Hobsonville, and Hobsonville Point especially, is modern and masterplanned: townhouses and apartments with shared lanes, access codes, and tight parking.",
+    paragraphs: [
+      "Hobsonville Point's terraced homes and apartments have narrow internal stairs, shared driveways, and visitor-parking limits. We confirm codes, lift bookings, and loading spots before the truck arrives so move day flows.",
+      "Easy on the Northwestern motorway and a regular run for us. House moves, pianos, packing, and office relocations are all covered.",
+    ],
+    highlights: [
+      "Hobsonville Point townhouses and apartments",
+      "Access codes, lifts, and parking handled",
+      "Northwestern motorway access",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Can you access Hobsonville Point complexes?",
+        a: "Yes. we confirm gate and lift codes, visitor parking, and loading zones in advance so there are no hold-ups on the day.",
+      },
+      {
+        q: "Do you move narrow terraced townhouses?",
+        a: "Yes. tight internal stairs are common at the Point, we bring the right crew and protect walls and finishes on the carry.",
+      },
+    ],
+  },
+  titirangi: {
+    metaDescription:
+      "Titirangi movers for bush-clad homes on steep, winding streets. We plan tight access, steep drives, and carry routes before move day. Free quote.",
+    intro:
+      "Titirangi is bush living, steep winding streets, long native-shaded driveways, and homes tucked into the hillside that need a real access plan.",
+    paragraphs: [
+      "Many Titirangi homes sit down steep drives or up bush steps where a large truck cannot get close. We scope the carry route and whether a smaller shuttle vehicle is needed at the viewing, so nothing is rushed.",
+      "We cover Titirangi and the western bush fringe on our regular schedule. House moves, pianos, packing, and exit cleans are all covered, with care for tight, leafy access.",
+    ],
+    highlights: [
+      "Steep drives and bush-step access planned",
+      "Shuttle vehicle for tight sites when needed",
+      "Hillside and bush-clad homes",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "My Titirangi driveway is steep and narrow, can you still move me?",
+        a: "Yes. we plan for it, using a smaller shuttle vehicle or a planned carry route from the viewing so your gear moves safely.",
+      },
+      {
+        q: "Do you move pianos in Titirangi's hillside homes?",
+        a: "Yes. we handle uprights and grands on steep, awkward access with piano boards, padding, and the right crew size.",
+      },
+    ],
+  },
+  // ── Central / East (affluent isthmus) ──
+  ponsonby: {
+    metaDescription:
+      "Ponsonby movers for villas and apartments. We plan narrow streets, on-street parking, and character-home steps across the inner city. Free quote.",
+    intro:
+      "Ponsonby moves mean villas, narrow frontages, and tight on-street parking, we scope all of it before move day so nothing stalls the truck.",
+    paragraphs: [
+      "Most Ponsonby homes are pre-1920 villas and bungalows with high ceilings, narrow hallways, and steep front steps that make big furniture awkward. We measure access at your free viewing so the crew comes ready.",
+      "Parking is the other Ponsonby catch, limited driveways and busy on-street zones, so we plan truck placement and any permits early. House moves, pianos, packing, and office relocations are all covered.",
+    ],
+    highlights: [
+      "Villa and character-home access",
+      "On-street parking and permits planned",
+      "Inner-city fringe, close to base routes",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Where will the truck park in Ponsonby?",
+        a: "We plan it in advance, finding the closest legal space or arranging a temporary parking spot, so the carry distance stays short on a busy street.",
+      },
+      {
+        q: "Do you move restored villas?",
+        a: "Yes, often. We protect restored floors, doorways, and narrow hallways and carry awkward pieces up villa steps with the right crew.",
+      },
+    ],
+  },
+  "herne-bay": {
+    metaDescription:
+      "Herne Bay movers for waterfront villas and grand homes. We handle high-value, large character properties with careful, planned access. Free quote.",
+    intro:
+      "Herne Bay is Auckland's premium address, large waterfront villas and grand character homes that deserve careful, well-planned moves.",
+    paragraphs: [
+      "Herne Bay's homes are often big, high-value villas on narrow leafy streets, with valuable contents, fragile pieces, and tight street parking. We plan crew, protection, and truck placement thoroughly at the viewing.",
+      "We handle these moves at a careful pace with full furniture protection. House moves, pianos, packing, art and antiques, and office relocations are all covered.",
+    ],
+    highlights: [
+      "Large, high-value villa moves",
+      "Careful handling of art and antiques",
+      "Street parking and access planned",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Can you handle high-value and fragile contents?",
+        a: "Yes. we wrap and protect art, antiques, and fragile pieces, and can arrange transit insurance options, ask when you request your quote.",
+      },
+      {
+        q: "Do you move large Herne Bay villas?",
+        a: "Yes. we size the crew to the home and plan protection and parking so a big villa move runs calmly from start to finish.",
+      },
+    ],
+  },
+  parnell: {
+    metaDescription:
+      "Parnell movers for villas, apartments, and city-fringe homes. We plan steep streets, apartment lifts, and tight parking. Free quote.",
+    intro:
+      "Parnell, Auckland's oldest suburb, mixes heritage villas with city-fringe apartments on steep, narrow streets, we plan for both.",
+    paragraphs: [
+      "Parnell's character villas have steep steps and narrow halls, while the apartments need lift bookings and loading-zone timing. We confirm which you have and plan access before move day.",
+      "On the city fringe, Parnell is a quick run for central and cross-town moves. House moves, apartments, pianos, packing, and office relocations are all covered.",
+    ],
+    highlights: [
+      "Heritage villas and city apartments",
+      "Lift bookings and loading zones arranged",
+      "City-fringe, quick central access",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Do you move Parnell apartments?",
+        a: "Yes. we book the lift, confirm loading-zone times, and check building requirements in advance so the move runs without hold-ups.",
+      },
+      {
+        q: "Can you handle steep Parnell driveways and steps?",
+        a: "Yes. we plan the carry route at the viewing and bring the crew and gear to handle steps and tight access safely.",
+      },
+    ],
+  },
+  remuera: {
+    metaDescription:
+      "Remuera movers for large character homes and leafy estates. We size crews to big-volume moves with careful handling. Free in-home viewing.",
+    intro:
+      "Remuera means large, leafy character homes, plenty of volume, valuable contents, and the occasional steep drive that we plan for.",
+    paragraphs: [
+      "Remuera homes are typically big, grand villas and substantial family homes with multiple living areas, so volume is the main factor. We scope the whole house at the viewing to size the crew and truck and avoid a second trip.",
+      "We move at a careful pace with full protection for high-value contents. House moves, pianos, packing, art and antiques, and office relocations are all covered.",
+    ],
+    highlights: [
+      "Crew sized to large, high-volume homes",
+      "Careful handling of valuable contents",
+      "Free in-home viewing for accurate pricing",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Do you handle large Remuera homes in one move?",
+        a: "Yes. we scope the full volume at the viewing and bring the right truck and crew so a big home is done in a single efficient run.",
+      },
+      {
+        q: "Can you move pianos and valuable items?",
+        a: "Yes. uprights and grands are wrapped and carried on boards, and we protect art, antiques, and fragile pieces throughout.",
+      },
+    ],
+  },
+  epsom: {
+    metaDescription:
+      "Epsom movers for villas, bungalows, and grammar-zone family homes. Specialist Movers covers Epsom with a free in-home viewing and fixed pricing. Free quote.",
+    intro:
+      "Epsom is classic family-home territory, villas, bungalows, and the busy double-grammar zone, moved carefully with clear pricing.",
+    paragraphs: [
+      "Epsom's pre-war villas and bungalows bring steps, narrow hallways, and established gardens to work around. We scope access and volume at your free viewing so your fixed price matches the real job.",
+      "Central and well-connected, Epsom is an easy run for city and cross-town moves. House moves, pianos, packing, and office relocations are all covered.",
+    ],
+    highlights: [
+      "Villas, bungalows, and family homes",
+      "Free in-home viewing, fixed pricing",
+      "Central, easy cross-town access",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Do you move character homes in Epsom?",
+        a: "Yes. we handle villa steps and narrow halls carefully, with doorway and floor protection as standard.",
+      },
+      {
+        q: "How far ahead should I book an Epsom move?",
+        a: "Two weeks is ideal for weekends and month-end. We can often move sooner, call for the next available crew.",
+      },
+    ],
+  },
+  "mt-eden": {
+    metaDescription:
+      "Mount Eden movers for villas, bungalows, and village character homes. Specialist Movers plans narrow streets and steep steps around the maunga. Free quote.",
+    intro:
+      "Mount Eden is character living around the maunga, villas and bungalows on narrow streets with steps and tight parking.",
+    paragraphs: [
+      "Most Mount Eden homes are pre-war villas and bungalows with front steps, narrow halls, and limited off-street parking near the village. We measure access at the viewing so big pieces move smoothly.",
+      "Close to the city, Mount Eden is a quick central run. House moves, pianos, packing, and office relocations are all covered.",
+    ],
+    highlights: [
+      "Villa and bungalow character homes",
+      "Narrow-street parking planned",
+      "Close to the city centre",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Can you move villas with steep front steps?",
+        a: "Yes, often. We bring the right crew and protect doorways and floors as we carry awkward pieces up and down steps.",
+      },
+      {
+        q: "Where will the truck park near Mount Eden village?",
+        a: "We plan the closest legal spot in advance so the carry stays short, even on narrow or busy streets.",
+      },
+    ],
+  },
+  newmarket: {
+    metaDescription:
+      "Newmarket movers for apartments and city-fringe homes. Specialist Movers plans lift bookings, loading zones, and tight retail-district parking. Free quote.",
+    intro:
+      "Newmarket is busy and central, apartments and city-fringe homes around the retail district where parking and lift access need planning.",
+    paragraphs: [
+      "Newmarket apartment moves need lift bookings, loading-dock times, and sometimes building-manager sign-off, we arrange these ahead. Older homes on the fringe bring villa steps and narrow drives.",
+      "Central and well-connected, Newmarket is a quick run for city and cross-town moves, including office relocations in the commercial district. House moves, pianos, and packing are all covered.",
+    ],
+    highlights: [
+      "Apartment lifts and loading zones arranged",
+      "Retail-district parking planned",
+      "Office and commercial moves",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Do you move Newmarket apartments?",
+        a: "Yes. we book the lift, confirm loading-zone times, and check building requirements in advance so there are no hold-ups.",
+      },
+      {
+        q: "Can you do office moves in Newmarket?",
+        a: "Yes. we handle commercial and office relocations in the district, planned around access and after-hours timing when needed.",
+      },
+    ],
+  },
+  "st-heliers": {
+    metaDescription:
+      "St Heliers movers for eastern-bays beachside homes and apartments. We cover St Heliers, Kohimarama, and Mission Bay with planned access. Free quote.",
+    intro:
+      "St Heliers is eastern-bays beachside living, family homes and apartments near the village and waterfront, moved with planned access and parking.",
+    paragraphs: [
+      "St Heliers homes range from character bungalows to clifftop homes and beachfront apartments. The apartments need lift and loading-zone bookings, while hillside homes bring steep drives. We plan both at the viewing.",
+      "We cover the eastern bays, Kohimarama, Mission Bay, and Glendowie, on our regular schedule. House moves, apartments, pianos, packing, and downsizing are all covered.",
+    ],
+    highlights: [
+      "Beachside homes and apartments",
+      "Lift, loading, and steep-drive access planned",
+      "Across the eastern bays",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Do you move St Heliers beachfront apartments?",
+        a: "Yes. we book the lift and loading zone and confirm building requirements in advance for waterfront apartment moves.",
+      },
+      {
+        q: "Do you cover the wider eastern bays?",
+        a: "Yes. Kohimarama, Mission Bay, and Glendowie are all on our regular schedule alongside St Heliers.",
+      },
+    ],
+  },
   cambridge: {
     extraParagraphs: [
       `Cambridge is a strong piano corridor, we move uprights and grands for homes, schools, and music retailers across town and nearby lifestyle blocks. ${pianoProtection}`,
@@ -394,6 +734,84 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       {
         q: "Are travel costs included in the quote?",
         a: "Yes. travel from Hamilton is included in your written price for in-area Matamata jobs. Zone callout, if applicable, is confirmed before you book.",
+      },
+    ],
+  },
+  huntly: {
+    metaDescription:
+      "Huntly movers on the Hamilton to Auckland corridor. We cover town and riverside homes from our Hamilton base, travel quoted upfront. Free quote.",
+    intro:
+      "Huntly sits on the Waikato River and the main Hamilton to Auckland route, a regular stop on our corridor runs from the Hamilton base.",
+    paragraphs: [
+      "We move Huntly town homes, riverside properties, and rural blocks on the town's edge. Larger moves get a viewing so driveways, access, and volume are clear before we lock your price.",
+      `Being right on the corridor, Huntly is easy to schedule alongside Hamilton and Auckland jobs. House moves, pianos, packing, and commercial work are all covered. ${waikatoInAreaPricing}`,
+    ],
+    highlights: [
+      "On the Hamilton to Auckland corridor",
+      "Town, riverside, and rural blocks",
+      "Travel quoted upfront from Hamilton",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Is Huntly easy to schedule?",
+        a: "Yes. Huntly is right on our Hamilton to Auckland corridor, so we can often combine it with other jobs and offer flexible dates.",
+      },
+      {
+        q: "Are travel costs included for Huntly?",
+        a: "Yes. Huntly is in our in-area Waikato pricing from Hamilton, travel is in your written quote, with no surprise callout.",
+      },
+    ],
+  },
+  ngaruawahia: {
+    metaDescription:
+      "Ngāruawāhia movers minutes from our Hamilton base. Specialist Movers covers town and rural moves at the river confluence, travel quoted upfront. Free quote.",
+    intro:
+      "Ngāruawāhia sits where the Waikato and Waipā rivers meet, just up the road from our Hamilton base, so it is a quick, low-travel run.",
+    paragraphs: [
+      "We move town homes, riverside properties, and rural blocks around Ngāruawāhia. A viewing before larger moves keeps driveways, gates, and volume clear in your fixed quote.",
+      `Close to Hamilton, Ngāruawāhia is easy to schedule on short notice. House moves, pianos, packing, and commercial work are all covered. ${waikatoInAreaPricing}`,
+    ],
+    highlights: [
+      "Minutes from our Hamilton base",
+      "Town and rural-block access planned",
+      "Travel quoted upfront",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "How close is Ngāruawāhia to your base?",
+        a: "Just up the road from Hamilton, so it is a quick, low-travel run that is easy to schedule, often on shorter notice.",
+      },
+      {
+        q: "Are travel costs included?",
+        a: "Yes. Ngāruawāhia is in-area from Hamilton, travel is built into your written quote with no separate callout.",
+      },
+    ],
+  },
+  raglan: {
+    metaDescription:
+      "Raglan movers for the coast. Specialist Movers covers Raglan baches, homes, and hillside properties from our Hamilton base, travel quoted upfront. Free quote.",
+    intro:
+      "Raglan is the Waikato's surf coast, about 45 minutes from our Hamilton base, with baches, family homes, and hillside properties above the harbour.",
+    paragraphs: [
+      "Raglan's coastal and hillside homes often have steep or narrow access and holiday-home timing to work around. We scope the carry route and access at the viewing so the move runs smoothly.",
+      `We run Raglan from Hamilton with travel quoted clearly upfront. House moves, pianos, packing, and bach relocations are all covered. ${waikatoInAreaPricing}`,
+    ],
+    highlights: [
+      "Coastal, bach, and hillside homes",
+      "Steep or narrow access planned",
+      "Travel from Hamilton quoted upfront",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Do you cover Raglan's hillside and coastal homes?",
+        a: "Yes. we plan steep or narrow access and the carry route at the viewing so coastal and hillside moves go smoothly.",
+      },
+      {
+        q: "Is travel to Raglan included?",
+        a: "Yes. Raglan is quoted from our Hamilton base with travel included upfront, no hidden callout on the day.",
       },
     ],
   },
