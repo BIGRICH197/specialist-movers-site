@@ -39,9 +39,13 @@ export const INDEXED_LOCATION_SLUGS = new Set<string>([
   "hobsonville",
   "titirangi",
   // Central / East (affluent isthmus)
+  "ponsonby",
+  "herne-bay",
   "parnell",
   "remuera",
   "epsom",
+  "mt-eden",
+  "newmarket",
   "st-heliers",
   // Waikato (near Hamilton base)
   "hamilton",
