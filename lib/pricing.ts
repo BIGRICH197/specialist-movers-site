@@ -11,9 +11,8 @@ import {
   BEDROOM_CREW,
   CALLOUT_FEES,
   CLEANING_PRICES,
-  DEFAULT_TRAVEL_MINS,
   GST_MULTIPLIER,
-  OUTER_TRAVEL_MINS,
+  MOVE_HOURS,
   PACKING_PRICES,
   PIANO_BASE,
   PIANO_STAIRS_PER_FLIGHT,
@@ -129,6 +128,21 @@ function selectTruck(cubes: number): TruckSpec {
   return TRUCKS[TRUCKS.length - 1];
 }
 
+/**
+ * Estimated labour hours from bedroom size + access at each end.
+ * base hours (both ends easy) + perHardEnd for each end with hard access.
+ */
+function estimateMoveHours(
+  bedrooms: Bedrooms,
+  pickupAccess: AccessDifficulty,
+  dropoffAccess: AccessDifficulty,
+): number {
+  const { base, perHardEnd } = MOVE_HOURS[bedrooms];
+  const hardEnds =
+    (pickupAccess === "hard" ? 1 : 0) + (dropoffAccess === "hard" ? 1 : 0);
+  return round2(base + perHardEnd * hardEnds);
+}
+
 function dateToDayKey(dateStr: string): DayOfWeek {
   const d = new Date(dateStr + "T12:00:00");
   const days: DayOfWeek[] = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
@@ -236,16 +250,11 @@ function calculateHouseMoveAuckland(
   const truck = selectTruck(cubes);
   const numberOfLoads = Math.ceil(cubes / truck.capacity);
 
-  const travelMins = tier >= 2 ? OUTER_TRAVEL_MINS : DEFAULT_TRAVEL_MINS;
-  const loadMins = truck.loadTime[input.pickupAccess];
-  const unloadMins = truck.unloadTime[input.dropoffAccess];
-
-  const totalMins =
-    numberOfLoads > 1
-      ? (loadMins + unloadMins + travelMins * 2) * numberOfLoads
-      : loadMins + unloadMins + travelMins;
-
-  const totalHours = round2(totalMins / 60);
+  const totalHours = estimateMoveHours(
+    input.bedrooms,
+    input.pickupAccess,
+    input.dropoffAccess,
+  );
 
   const hourlyRate = getAucklandHourlyRate(tier, crew, day);
   const calloutFee = getAucklandCalloutFee(tier, crew);
@@ -340,16 +349,11 @@ function calculateHouseMoveHamilton(
   const truck = selectTruck(cubes);
   const numberOfLoads = Math.ceil(cubes / truck.capacity);
 
-  const travelMins = zone !== "A" ? OUTER_TRAVEL_MINS : DEFAULT_TRAVEL_MINS;
-  const loadMins = truck.loadTime[input.pickupAccess];
-  const unloadMins = truck.unloadTime[input.dropoffAccess];
-
-  const totalMins =
-    numberOfLoads > 1
-      ? (loadMins + unloadMins + travelMins * 2) * numberOfLoads
-      : loadMins + unloadMins + travelMins;
-
-  const totalHours = round2(totalMins / 60);
+  const totalHours = estimateMoveHours(
+    input.bedrooms,
+    input.pickupAccess,
+    input.dropoffAccess,
+  );
 
   const hourlyRate = HAMILTON_TIER_1_RATES[day][crew];
   const calloutFee = HAMILTON_CALLOUT_FEES[zone][crew];

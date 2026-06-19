@@ -30,6 +30,16 @@ export const BEDROOM_CREW: Record<Bedrooms, CrewSize> = {
   4: "3M",
 };
 
+// ── Estimated labour hours by bedroom size + access ──
+// `base` = both ends easy access. Add `perHardEnd` for EACH end (pickup and
+// dropoff) that has hard/difficult access (so 0, 1, or 2 hard ends).
+export const MOVE_HOURS: Record<Bedrooms, { base: number; perHardEnd: number }> = {
+  1: { base: 2, perHardEnd: 0.5 },
+  2: { base: 3, perHardEnd: 0.5 },
+  3: { base: 4, perHardEnd: 1 },
+  4: { base: 6, perHardEnd: 1 },
+};
+
 // ── Tier 1: day-of-week hourly rates (excl GST) ──
 export const TIER_1_RATES: Record<DayOfWeek, Record<CrewSize, number>> = {
   tue: { "2M": 120, "3M": 160 },
