@@ -3,6 +3,7 @@ import { buildPageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { LocationPageTemplate } from "@/components/LocationPageTemplate";
 import { getLocation, getLocationSlugs } from "@/lib/locations";
+import { isIndexedLocation } from "@/lib/location-index-policy";
 
 export function generateStaticParams() {
   return getLocationSlugs().map((slug) => ({ slug }));
@@ -15,6 +16,11 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     title: location.metaTitle,
     description: location.metaDescription,
     path: `/locations/${location.slug}`,
+    // Thin/templated long-tail pages: keep live for users + internal links,
+    // but don't let Google index near-duplicate content.
+    robots: isIndexedLocation(location.slug)
+      ? undefined
+      : { index: false, follow: true },
   });
 }
 

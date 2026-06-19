@@ -1,5 +1,6 @@
 ﻿import type { MetadataRoute } from "next";
 import { getLocationSlugs } from "@/lib/locations";
+import { isIndexedLocation } from "@/lib/location-index-policy";
 import {
   clusterItemPath,
   movingDistanceHub,
@@ -111,6 +112,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   for (const slug of getLocationSlugs()) {
+    if (!isIndexedLocation(slug)) continue;
     entries.push({
       url: `${siteUrl}/locations/${slug}`,
       lastModified: now,
