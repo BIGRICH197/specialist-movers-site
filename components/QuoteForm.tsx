@@ -1163,9 +1163,14 @@ export function QuoteForm({
     }
 
     const totalIncGst = pricing?.totalIncGst as number;
-    const moveCostIncGst = pricing?.moveCostIncGst as number | undefined;
-    const packingCostIncGst = pricing?.packingCostIncGst as number | null | undefined;
-    const cleaningCostIncGst = pricing?.cleaningCostIncGst as number | null | undefined;
+    const moveCostExGst = pricing?.moveCostExGst as number | undefined;
+    const packingCostExGst = pricing?.packingCostExGst as number | null | undefined;
+    const cleaningCostExGst = pricing?.cleaningCostExGst as number | null | undefined;
+    const totalExGst = pricing?.totalExGst as number | undefined;
+    const crewCount = pricing?.crewCount as number | undefined;
+    const totalHours = pricing?.totalHours as number | undefined;
+    const hourlyRate = pricing?.hourlyRate as number | undefined;
+    const calloutFee = pricing?.calloutFee as number | undefined;
     const lowIncGst =
       (pricing?.lowIncGst as number | undefined) ??
       quotePriceRange(totalIncGst).lowIncGst;
@@ -1183,32 +1188,65 @@ export function QuoteForm({
           subtitle={recap}
         />
 
-        <div className="mt-2 space-y-4 rounded-xl border border-brand-purple/10 bg-brand-purple/[0.03] px-4 py-4 sm:px-5">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple/55">
-              Estimated price range
-            </p>
-            <p className="mt-2 text-lg font-semibold leading-snug text-brand-purple sm:text-xl">
-              {formatNzd(lowIncGst)} – {formatNzd(highIncGst)}
-            </p>
-            <p className="mt-1 text-xs text-brand-purple/60">incl. GST (estimate)</p>
-          </div>
+        <div className="mt-2 space-y-3 rounded-xl border border-brand-purple/10 bg-brand-purple/[0.03] px-4 py-4 sm:px-5">
+          <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple/55">
+            Your estimate breakdown
+          </p>
 
-          {moveCostIncGst != null ? (
-            <p className="text-sm text-brand-purple/75">
-              Moving component approx. {formatNzd(moveCostIncGst)} incl. GST
-            </p>
+          {moveCostExGst != null ? (
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-brand-purple">Moving</p>
+                {totalHours != null && hourlyRate != null ? (
+                  <p className="text-xs text-brand-purple/60">
+                    {crewCount ?? 2} movers · {totalHours} hrs @ {formatNzd(hourlyRate)}/hr
+                    {calloutFee ? ` + ${formatNzd(calloutFee)} callout` : ""}
+                  </p>
+                ) : null}
+              </div>
+              <p className="whitespace-nowrap text-sm font-semibold text-brand-purple">
+                {formatNzd(moveCostExGst)}
+              </p>
+            </div>
           ) : null}
-          {packingCostIncGst != null ? (
-            <p className="text-sm text-brand-purple/75">
-              Packing approx. {formatNzd(packingCostIncGst)} incl. GST
-            </p>
+
+          {packingCostExGst != null ? (
+            <div className="flex items-start justify-between gap-3">
+              <p className="text-sm font-semibold text-brand-purple">Packing</p>
+              <p className="whitespace-nowrap text-sm font-semibold text-brand-purple">
+                {formatNzd(packingCostExGst)}
+              </p>
+            </div>
           ) : null}
-          {cleaningCostIncGst != null ? (
-            <p className="text-sm text-brand-purple/75">
-              Cleaning approx. {formatNzd(cleaningCostIncGst)} incl. GST
-            </p>
+
+          {cleaningCostExGst != null ? (
+            <div className="flex items-start justify-between gap-3">
+              <p className="text-sm font-semibold text-brand-purple">Cleaning</p>
+              <p className="whitespace-nowrap text-sm font-semibold text-brand-purple">
+                {formatNzd(cleaningCostExGst)}
+              </p>
+            </div>
           ) : null}
+
+          {totalExGst != null ? (
+            <div className="flex items-center justify-between gap-3 border-t border-brand-purple/10 pt-3">
+              <p className="text-sm font-semibold text-brand-purple">Subtotal</p>
+              <p className="whitespace-nowrap text-sm font-semibold text-brand-purple">
+                {formatNzd(totalExGst)}{" "}
+                <span className="font-normal text-brand-purple/55">excl. GST</span>
+              </p>
+            </div>
+          ) : null}
+        </div>
+
+        <div className="mt-4 rounded-xl border border-brand-purple/20 bg-brand-yellow/10 px-4 py-4 sm:px-5">
+          <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple/55">
+            Estimated total
+          </p>
+          <p className="mt-2 text-xl font-semibold leading-snug text-brand-purple sm:text-2xl">
+            {formatNzd(lowIncGst)} – {formatNzd(highIncGst)}
+          </p>
+          <p className="mt-1 text-xs text-brand-purple/60">incl. GST (estimate)</p>
         </div>
 
         <div className="mt-4 space-y-2 rounded-xl border border-brand-purple/10 bg-white px-4 py-4 text-sm leading-relaxed text-brand-purple/80">
