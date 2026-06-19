@@ -31,8 +31,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Specialist Movers NZ | Auckland & Waikato Movers",
-    template: "%s | Specialist Movers NZ",
+    default: "Specialist Movers Auckland & Hamilton | House & Piano",
+    template: "%s | Specialist Movers Auckland & Hamilton",
   },
   description: regions.layoutDescription,
   alternates: { canonical: "/" },

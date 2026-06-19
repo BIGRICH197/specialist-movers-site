@@ -13,7 +13,7 @@ export function BrandLogo({ variant, onNavigate }: Props) {
         href="/"
         onClick={onNavigate}
         className="flex min-w-0 items-center"
-        aria-label="Specialist Movers NZ , home"
+        aria-label="Specialist Movers Auckland and Hamilton, home"
       >
         {/* Same footprint as purple header: ~36–44px tall row, horizontal lockup; yellow PNG on purple bar */}
         <Image

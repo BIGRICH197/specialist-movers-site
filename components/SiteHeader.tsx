@@ -177,7 +177,7 @@ export function SiteHeader() {
             <Link
               href="/"
               className="flex min-w-0 shrink-0 items-center lg:hidden"
-              aria-label="Specialist Movers NZ , home"
+              aria-label="Specialist Movers Auckland and Hamilton, home"
             >
               <BrandCornerLockup
                 variant="header"
@@ -320,7 +320,7 @@ export function SiteHeader() {
                 href="/"
                 onClick={() => setOpen(false)}
                 className="block shrink-0"
-                aria-label="Specialist Movers NZ , home"
+                aria-label="Specialist Movers Auckland and Hamilton, home"
               >
                 <BrandCornerLockup
                   variant="header"

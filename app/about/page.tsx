@@ -26,7 +26,7 @@ export default function AboutPage() {
       <PageHero
         variant="light"
         eyebrow="Our team"
-        title="About Specialist Movers NZ"
+        title="About Specialist Movers Auckland & Hamilton"
         description={aboutPage.intro}
       />
 
