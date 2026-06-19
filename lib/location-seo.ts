@@ -3,7 +3,16 @@ import type { Location } from "@/lib/location-types";
 export type FaqItem = { q: string; a: string };
 
 export type LocationSeoPatch = {
+  /** Replace the templated meta description (keep ≥120 chars). */
+  metaDescription?: string;
+  /** Replace the templated intro line. */
+  intro?: string;
+  /** Replace the templated body paragraphs entirely. */
+  paragraphs?: readonly string[];
+  /** Append unique paragraphs after the (templated or replaced) body. */
   extraParagraphs?: readonly string[];
+  /** Replace the templated highlight bullets. */
+  highlights?: readonly string[];
   faqs?: readonly FaqItem[];
 };
 
@@ -21,6 +30,183 @@ const pianoProtection =
 
 /** SEO patches keyed by /locations/[slug] */
 export const locationSeoPatches: Record<string, LocationSeoPatch> = {
+  // ── North Shore (core, near the Glenfield/Wairau Valley depot) ──
+  glenfield: {
+    metaDescription:
+      "Glenfield movers based next door in Wairau Valley. House and piano moves across Glenfield's 1970s homes, units, and townhouses, often at short notice. Free quote.",
+    intro:
+      "Glenfield is home turf, our depot sits next door in Wairau Valley, so we reach local jobs fast and know the streets, malls, and cul-de-sacs well.",
+    paragraphs: [
+      "Glenfield is mostly 1970s and 80s brick-and-tile homes, newer townhouse infill, and cross-leases off shared driveways. We check driveway width and parking at your free viewing so the truck lands close to the door.",
+      "Being minutes from base keeps Glenfield callouts low and lets us slot in shorter-notice moves. We handle house moves, packing, piano transport, and office relocations across the suburb.",
+    ],
+    highlights: [
+      "Depot next door in Wairau Valley",
+      "Shared-driveway and cross-lease access sorted",
+      "Often available on shorter notice",
+      "Piano specialists, upright and grand",
+    ],
+  },
+  birkenhead: {
+    metaDescription:
+      "Birkenhead movers for hillside villas and harbour-edge homes. Specialist Movers plans narrow streets, steep drives, and tight parking from our nearby Glenfield depot. Free quote.",
+    intro:
+      "Birkenhead moves mean hills, character villas, and narrow harbour-side streets, we scope steep drives and parking before move day.",
+    paragraphs: [
+      "From Highbury's older villas and bungalows to the steep streets above Little Shoal Bay, Birkenhead access is often tight: narrow frontages, sloped driveways, and limited on-street parking. We plan truck placement and carry routes at the viewing.",
+      "Our Glenfield depot is just up the road, so Birkenhead is a regular run. House moves, pianos, packing, and exit cleans are all covered.",
+    ],
+    highlights: [
+      "Hillside villa and character-home access",
+      "Narrow-street parking planned in advance",
+      "Close to our Glenfield depot",
+      "Piano specialists, upright and grand",
+    ],
+  },
+  northcote: {
+    metaDescription:
+      "Northcote movers for villas, units, and the regenerated town centre. Specialist Movers covers Northcote Point to Onepoto from our nearby Glenfield base. Free quote.",
+    intro:
+      "Northcote runs from character villas on the Point to the redeveloped town-centre townhouses, we plan access for both.",
+    paragraphs: [
+      "Northcote Point's pre-war villas have steep steps and narrow hallways, while the regenerated town centre brings new townhouses with shared lanes and parking limits. We confirm the access type at your viewing so the quote fits the property.",
+      "We are minutes away in Glenfield, so Northcote is a frequent run for house moves, pianos, and packing, with easy motorway access for moves over the bridge.",
+    ],
+    highlights: [
+      "Villas on the Point and new townhouses",
+      "Shared-lane and parking access planned",
+      "Quick run from our Glenfield depot",
+      "Piano specialists, upright and grand",
+    ],
+  },
+  hillcrest: {
+    metaDescription:
+      "Hillcrest movers for family homes and units near our Glenfield depot. Specialist Movers handles cross-lease driveways and unit access across Hillcrest. Free quote.",
+    intro:
+      "Hillcrest is a quick run from our Glenfield depot, established family homes, units, and cross-leases we move every week.",
+    paragraphs: [
+      "Much of Hillcrest is 1960s to 80s homes and brick units down shared driveways, where parking and carry distance matter most. We scope the driveway and door access so the crew works efficiently.",
+      "Close to base, Hillcrest moves are easy to schedule, often on shorter notice. House, piano, packing, and office moves are all covered.",
+    ],
+    highlights: [
+      "Minutes from our Glenfield depot",
+      "Cross-lease and unit access sorted",
+      "Often available on shorter notice",
+      "Piano specialists, upright and grand",
+    ],
+  },
+  takapuna: {
+    metaDescription:
+      "Takapuna movers for beachfront apartments and character homes. Specialist Movers plans lift bookings, loading zones, and town-centre parking before move day. Free quote.",
+    intro:
+      "Takapuna moves split between beachfront apartments and character homes, we plan lift bookings, loading zones, and town-centre parking before move day.",
+    paragraphs: [
+      "Apartment moves around the town centre and waterfront need lift bookings, loading-dock times, and sometimes building-manager sign-off, we arrange these in advance. Older homes near the lake and Hauraki bring villa steps and narrow drives.",
+      "From our nearby North Shore depot we run Takapuna constantly: house moves, apartments, piano transport, and commercial fit-outs in the business district.",
+    ],
+    highlights: [
+      "Apartment lift and loading-zone planning",
+      "Beachfront apartments and character homes",
+      "Close to our North Shore depot",
+      "Piano specialists, upright and grand",
+    ],
+  },
+  albany: {
+    metaDescription:
+      "Albany movers for new builds, large family homes, and townhouses. Specialist Movers covers Albany, Pinehill, and Oteha with easy motorway access. Free quote.",
+    intro:
+      "Albany is newer and bigger, large family homes, modern subdivisions, and townhouse blocks across Pinehill and Oteha. We size the crew and truck to match the volume.",
+    paragraphs: [
+      "Albany's newer homes mean more to move: double garages, multiple living areas, and townhouse complexes with shared parking and access codes. We scope it at the viewing so the right truck and crew turn up.",
+      "Sitting on the motorway, Albany is a fast run from our depot and a natural staging point for moves further north. House moves, pianos, packing, and office relocations are all covered.",
+    ],
+    highlights: [
+      "Large homes and new builds, crew sized to volume",
+      "Easy motorway access",
+      "Townhouse complex codes and parking handled",
+      "Piano specialists, upright and grand",
+    ],
+  },
+  "browns-bay": {
+    metaDescription:
+      "Browns Bay movers for the East Coast Bays. Specialist Movers covers beachside family homes, units, and downsizes from our North Shore depot. Free quote.",
+    intro:
+      "Browns Bay and the East Coast Bays mix beachside family homes, units, and retiree downsizes, we plan parking and access for each.",
+    paragraphs: [
+      "Many Browns Bay homes are 1960s to 70s on the bays' slopes, with sloped driveways and busy beachside parking near the village. We confirm truck placement and carry routes so move day runs smoothly.",
+      "We cover the wider Bays, Mairangi, Murrays, and Rothesay, on our regular North Shore schedule. House moves, pianos, packing, and downsizing moves are all welcome.",
+    ],
+    highlights: [
+      "Across the East Coast Bays",
+      "Sloped-drive and beachside parking planned",
+      "Retiree downsizing a specialty",
+      "Piano specialists, upright and grand",
+    ],
+  },
+  "long-bay": {
+    metaDescription:
+      "Long Bay movers for the new subdivision's modern homes and townhouses. Specialist Movers plans complex access codes, shared lanes, and parking. Free quote.",
+    intro:
+      "Long Bay is one of the Shore's newest neighbourhoods, modern homes and townhouse blocks where access codes, shared lanes, and parking need planning.",
+    paragraphs: [
+      "The Long Bay development brings large new builds and tightly packed townhouses with shared driveways, visitor-parking limits, and gated access. We confirm these before the truck arrives so there are no hold-ups.",
+      "It is an outer-north run from our depot; we schedule Long Bay alongside Torbay and the upper Bays. House moves, pianos, and packing are all covered.",
+    ],
+    highlights: [
+      "Gated access and visitor-parking limits handled",
+      "Modern homes and townhouse blocks",
+      "Scheduled with the upper Bays",
+      "Piano specialists, upright and grand",
+    ],
+  },
+  torbay: {
+    metaDescription:
+      "Torbay movers for hillside coastal homes. Specialist Movers plans steep driveways, narrow winding streets, and carry distance from our North Shore base. Free quote.",
+    intro:
+      "Torbay is steep and coastal, winding streets and sloped driveways that need a proper access plan before move day.",
+    paragraphs: [
+      "Many Torbay homes sit up or down steep drives on narrow, winding streets where a large truck cannot always reach the door. We scope carry distance and whether a smaller shuttle vehicle is needed at the viewing.",
+      "Torbay is part of our regular upper-Bays schedule from the North Shore depot. House moves, pianos, packing, and exit cleans are all covered.",
+    ],
+    highlights: [
+      "Steep-driveway and narrow-street planning",
+      "Shuttle vehicle for tight access when needed",
+      "Hillside coastal homes",
+      "Piano specialists, upright and grand",
+    ],
+  },
+  silverdale: {
+    metaDescription:
+      "Silverdale movers for Millwater, new subdivisions, and rural-residential. Specialist Movers covers the northern growth area with travel quoted upfront. Free quote.",
+    intro:
+      "Silverdale and Millwater are fast-growing, new subdivisions, large homes, and rural-residential blocks at the northern edge of our patch.",
+    paragraphs: [
+      "Silverdale's new builds bring volume, double garages, sheds, and multiple living areas, while rural-residential lots add long driveways and gates. We scope the whole property so the truck and crew are right-sized.",
+      "Silverdale sits in our outer-north zone, so we quote travel clearly upfront, with no surprise callout on the day. House moves, pianos, and packing are all covered.",
+    ],
+    highlights: [
+      "New subdivisions and lifestyle blocks",
+      "Outer-north travel quoted upfront",
+      "Crew sized to larger homes",
+      "Piano specialists, upright and grand",
+    ],
+  },
+  orewa: {
+    metaDescription:
+      "Orewa movers for the Hibiscus Coast. Specialist Movers covers beachfront apartments, family homes, and retiree downsizes, travel quoted upfront. Free quote.",
+    intro:
+      "Orewa moves run from beachfront apartments along the strip to family homes and retiree downsizes across the Hibiscus Coast.",
+    paragraphs: [
+      "Orewa's beachfront apartments need lift bookings and loading-zone timing, while the newer hillside subdivisions bring volume and access codes. We plan both at the viewing.",
+      "Orewa is in our outer-north zone; travel is quoted upfront with no hidden callout. House moves, apartments, pianos, packing, and downsizing are all covered.",
+    ],
+    highlights: [
+      "Beachfront apartment lift and loading planning",
+      "Outer-north travel quoted upfront",
+      "Retiree downsizing a specialty",
+      "Piano specialists, upright and grand",
+    ],
+  },
   cambridge: {
     extraParagraphs: [
       `Cambridge is a strong piano corridor, we move uprights and grands for homes, schools, and music retailers across town and nearby lifestyle blocks. ${pianoProtection}`,
@@ -314,11 +500,15 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
 export function applyLocationSeo(location: Location): Location {
   const patch = locationSeoPatches[location.slug];
   if (!patch) return location;
+  const body = patch.paragraphs ?? location.paragraphs;
   return {
     ...location,
+    metaDescription: patch.metaDescription ?? location.metaDescription,
+    intro: patch.intro ?? location.intro,
     paragraphs: patch.extraParagraphs
-      ? [...location.paragraphs, ...patch.extraParagraphs]
-      : location.paragraphs,
+      ? [...body, ...patch.extraParagraphs]
+      : body,
+    highlights: patch.highlights ?? location.highlights,
     faqs: patch.faqs ?? location.faqs,
   };
 }
