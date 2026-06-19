@@ -68,6 +68,16 @@ export const extraAucklandSuburbs = [
   createSuburb("Farm Cove", "east-auckland"),
   createSuburb("Beachlands", "east-auckland"),
   createSuburb("Maraetai", "east-auckland"),
+  // Priority additions (indexed + enriched in location-seo.ts)
+  createSuburb("Greenhithe", "north-shore"),
+  createSuburb("Stanmore Bay", "north-shore", undefined, ["Whangaparaoa"]),
+  createSuburb("Red Beach", "north-shore"),
+  createSuburb("Dairy Flat", "north-shore"),
+  createSuburb("Point Chevalier", "central-auckland", undefined, ["Pt Chevalier", "Pt Chev"]),
+  createSuburb("West Harbour", "west-auckland"),
+  createSuburb("Riverhead", "west-auckland"),
+  createSuburb("St Johns", "east-auckland", undefined, ["Saint Johns"]),
+  createSuburb("Glendowie", "east-auckland"),
 ] as const;
 
 /** Waikato towns beyond the original four */

@@ -657,6 +657,241 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
     ],
   },
+  // ── Priority additions ──
+  greenhithe: {
+    metaDescription:
+      "Greenhithe movers for Upper Harbour homes and lifestyle blocks. We plan long driveways and access from our nearby North Shore base. Free quote.",
+    intro:
+      "Greenhithe is leafy Upper Harbour living, larger homes and semi-rural lifestyle blocks with long driveways we plan around.",
+    paragraphs: [
+      "Many Greenhithe properties sit on big sections with long or shared driveways and plenty of volume. We scope the whole property at the viewing so the right truck and crew arrive.",
+      "Close to our North Shore base with easy Upper Harbour motorway access. House moves, pianos, packing, and office relocations are all covered.",
+    ],
+    highlights: [
+      "Upper Harbour homes and lifestyle blocks",
+      "Long-driveway access planned",
+      "Easy Upper Harbour motorway run",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Do you move large Greenhithe properties?",
+        a: "Yes. we size the crew and truck to bigger homes and lifestyle blocks, scoped at the viewing so it is done in one run.",
+      },
+      {
+        q: "Can you handle long or shared driveways?",
+        a: "Yes. we check driveway length, turning, and parking so the truck gets as close as possible and the carry is planned.",
+      },
+    ],
+  },
+  "stanmore-bay": {
+    metaDescription:
+      "Stanmore Bay movers on the Whangaparāoa Peninsula. We cover Hibiscus Coast homes with outer-north travel quoted upfront. Free quote.",
+    intro:
+      "Stanmore Bay sits on the Whangaparāoa Peninsula, beachside Hibiscus Coast homes we cover on our outer-north schedule.",
+    paragraphs: [
+      "Peninsula homes range from older beachside houses to newer subdivisions, with one main road along the peninsula and parking that gets busy near the coast. We plan access and timing at the viewing.",
+      "Stanmore Bay is in our outer-north zone, so travel is quoted clearly upfront. House moves, pianos, packing, and downsizing are all covered.",
+    ],
+    highlights: [
+      "Whangaparāoa Peninsula coverage",
+      "Outer-north travel quoted upfront",
+      "Beachside homes and new subdivisions",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Is Stanmore Bay in your service area?",
+        a: "Yes. Stanmore Bay and the Whangaparāoa Peninsula are in our outer-north zone, travel is quoted upfront with no surprise callout.",
+      },
+      {
+        q: "How far ahead should I book?",
+        a: "Two weeks is ideal for weekends. Call (021) 228 2728 for the next crew heading up the Hibiscus Coast.",
+      },
+    ],
+  },
+  "red-beach": {
+    metaDescription:
+      "Red Beach movers on the Hibiscus Coast. We cover beachside family homes and new subdivisions, outer-north travel quoted upfront. Free quote.",
+    intro:
+      "Red Beach is Hibiscus Coast beachside living, family homes and newer subdivisions we cover on our outer-north schedule.",
+    paragraphs: [
+      "Red Beach mixes established beachside homes with newer developments. We plan parking and access, busy near the beach, at the viewing.",
+      "Red Beach is in our outer-north zone with travel quoted upfront. House moves, pianos, packing, and downsizing are all covered.",
+    ],
+    highlights: [
+      "Hibiscus Coast beachside homes",
+      "Outer-north travel quoted upfront",
+      "Established homes and new subdivisions",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Is Red Beach in your service area?",
+        a: "Yes. Red Beach is in our outer-north Hibiscus Coast zone, travel is quoted upfront.",
+      },
+      {
+        q: "Do you do downsizing moves?",
+        a: "Yes. we handle retiree and downsizing moves at a careful pace, with packing and storage available.",
+      },
+    ],
+  },
+  "dairy-flat": {
+    metaDescription:
+      "Dairy Flat movers for rural and lifestyle properties. We cover the outer-north countryside, long driveways and travel quoted upfront. Free quote.",
+    intro:
+      "Dairy Flat is rural outer-north, lifestyle blocks, long driveways, and sheds that add volume and need a viewing.",
+    paragraphs: [
+      "Dairy Flat properties are often on acreage with long driveways, gates, and outbuildings, so volume and access are the key factors. We scope the whole property before quoting.",
+      "Dairy Flat is in our outer-north zone with travel quoted clearly upfront. House moves, pianos, packing, and farm-gate pickups are all covered.",
+    ],
+    highlights: [
+      "Rural and lifestyle properties",
+      "Long driveways and outbuildings scoped",
+      "Outer-north travel quoted upfront",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Do you cover rural Dairy Flat properties?",
+        a: "Yes. lifestyle blocks and acreage are covered. We scope driveways, gates, and sheds at the viewing so volume and access are clear.",
+      },
+      {
+        q: "Is travel included?",
+        a: "Dairy Flat is in our outer-north zone; travel is quoted upfront and included in your written price.",
+      },
+    ],
+  },
+  "point-chevalier": {
+    metaDescription:
+      "Point Chevalier movers for villas, bungalows, and beachside homes. We plan narrow streets and parking on the inner-west peninsula. Free quote.",
+    intro:
+      "Point Chevalier is a beachside inner-west peninsula, villas and bungalows on quiet streets near the coast that we plan access for.",
+    paragraphs: [
+      "Pt Chev's pre-war villas and bungalows bring steps and narrow hallways, while the peninsula's quiet streets and beach reserves shape parking. We plan truck placement at the viewing.",
+      "On the Northwestern motorway, Point Chevalier is a quick city and west run. House moves, pianos, packing, and office relocations are all covered.",
+    ],
+    highlights: [
+      "Villa and bungalow access",
+      "Beachside peninsula parking planned",
+      "Quick Northwestern motorway run",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Do you move villas in Point Chevalier?",
+        a: "Yes. we handle villa steps and narrow halls carefully, with doorway and floor protection as standard.",
+      },
+      {
+        q: "Where will the truck park?",
+        a: "We plan the closest legal spot in advance so the carry stays short on Pt Chev's quieter streets.",
+      },
+    ],
+  },
+  "west-harbour": {
+    metaDescription:
+      "West Harbour movers for Upper Harbour homes and marina-side streets. We plan access and parking from our nearby base. Free quote.",
+    intro:
+      "West Harbour sits on the Upper Harbour, family homes and marina-side properties we cover with easy motorway access.",
+    paragraphs: [
+      "West Harbour homes range from 80s and 90s family houses to newer builds, often on sloped sections with shared driveways. We scope access and parking at the viewing.",
+      "Close to the Upper Harbour motorway, West Harbour is a quick run for city and west moves. House moves, pianos, packing, and office relocations are all covered.",
+    ],
+    highlights: [
+      "Upper Harbour family homes",
+      "Sloped-section and driveway access planned",
+      "Easy Upper Harbour motorway run",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Do you cover West Harbour and Marina View?",
+        a: "Yes. West Harbour and the marina-side streets are on our regular west schedule.",
+      },
+      {
+        q: "Can you handle sloped driveways?",
+        a: "Yes. we plan carry routes and parking for sloped sections at the viewing so move day runs smoothly.",
+      },
+    ],
+  },
+  riverhead: {
+    metaDescription:
+      "Riverhead movers for village homes and lifestyle blocks. We cover the outer north-west, long driveways and travel quoted upfront. Free quote.",
+    intro:
+      "Riverhead is outer north-west village and lifestyle living, growing subdivisions and rural blocks at the edge of our patch.",
+    paragraphs: [
+      "Riverhead mixes new village subdivisions with rural lifestyle blocks, long driveways, sheds, and volume that we scope before quoting.",
+      "Riverhead sits in our outer north-west zone with travel quoted upfront. House moves, pianos, packing, and farm-gate pickups are all covered.",
+    ],
+    highlights: [
+      "Village homes and lifestyle blocks",
+      "Outer north-west travel quoted upfront",
+      "Long driveways and sheds scoped",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Is Riverhead in your service area?",
+        a: "Yes. Riverhead is in our outer north-west zone, travel is quoted clearly upfront.",
+      },
+      {
+        q: "Do you move lifestyle blocks?",
+        a: "Yes. we scope long driveways, gates, and outbuildings so the truck and crew are right-sized.",
+      },
+    ],
+  },
+  "st-johns": {
+    metaDescription:
+      "St Johns movers for family homes near Meadowbank and Stonefields. We plan access and parking on the central-east fringe. Free quote.",
+    intro:
+      "St Johns sits between Remuera and the eastern bays, established family homes and newer Stonefields-edge builds we move regularly.",
+    paragraphs: [
+      "St Johns homes range from post-war houses to newer townhouses near Stonefields, with a mix of driveways and shared access. We scope it at the viewing so pricing matches the job.",
+      "Central and well-connected, St Johns is a quick cross-town run. House moves, pianos, packing, and office relocations are all covered.",
+    ],
+    highlights: [
+      "Family homes and newer townhouses",
+      "Driveway and shared-access planning",
+      "Quick central-east access",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Do you cover St Johns and Stonefields?",
+        a: "Yes. St Johns and the Stonefields edge are on our regular central-east schedule.",
+      },
+      {
+        q: "How far ahead should I book?",
+        a: "Two weeks is ideal for peak dates, though we can often move sooner, call for the next crew.",
+      },
+    ],
+  },
+  glendowie: {
+    metaDescription:
+      "Glendowie movers for eastern-bays family homes. We cover Glendowie and St Heliers with planned access and parking. Free quote.",
+    intro:
+      "Glendowie is leafy eastern-bays living, larger family homes near the coast and St Heliers that we move with planned access.",
+    paragraphs: [
+      "Glendowie homes are often substantial family houses on bigger sections, some with steep drives down toward the water. We scope volume and access at the viewing so the right crew arrives.",
+      "We cover Glendowie alongside St Heliers, Kohimarama, and Mission Bay. House moves, pianos, packing, and downsizing are all covered.",
+    ],
+    highlights: [
+      "Eastern-bays family homes",
+      "Steep-drive and access planning",
+      "Covered with the wider eastern bays",
+      "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Do you cover Glendowie and the eastern bays?",
+        a: "Yes. Glendowie, St Heliers, Kohimarama, and Mission Bay are all on our regular schedule.",
+      },
+      {
+        q: "Can you handle steep driveways toward the water?",
+        a: "Yes. we plan the carry route and parking at the viewing so steep or narrow access is sorted before the day.",
+      },
+    ],
+  },
   cambridge: {
     extraParagraphs: [
       `Cambridge is a strong piano corridor, we move uprights and grands for homes, schools, and music retailers across town and nearby lifestyle blocks. ${pianoProtection}`,

@@ -32,12 +32,19 @@ export const INDEXED_LOCATION_SLUGS = new Set<string>([
   "torbay",
   "silverdale",
   "orewa",
+  "greenhithe",
+  "stanmore-bay",
+  "red-beach",
+  "dairy-flat",
   // Inner / West
   "grey-lynn",
   "mount-albert",
   "te-atat", // Te Atatū Peninsula
   "hobsonville",
   "titirangi",
+  "point-chevalier",
+  "west-harbour",
+  "riverhead",
   // Central / East (affluent isthmus)
   "ponsonby",
   "herne-bay",
@@ -47,6 +54,8 @@ export const INDEXED_LOCATION_SLUGS = new Set<string>([
   "mt-eden",
   "newmarket",
   "st-heliers",
+  "st-johns",
+  "glendowie",
   // Waikato (near Hamilton base)
   "hamilton",
   "cambridge",
