@@ -46,6 +46,16 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Often available on shorter notice",
       "Piano specialists, upright and grand",
     ],
+    faqs: [
+      {
+        q: "How quickly can you move me in Glenfield?",
+        a: "Because our depot is next door in Wairau Valley, Glenfield is one of our fastest suburbs to schedule, we can often fit short-notice and mid-week moves. Call (021) 228 2728 for the next available crew.",
+      },
+      {
+        q: "Can you handle cross-lease and shared-driveway access?",
+        a: "Yes. a lot of Glenfield homes sit down shared drives. We check width, turning, and parking at your free viewing so the truck gets as close to the door as possible.",
+      },
+    ],
   },
   birkenhead: {
     metaDescription:
@@ -61,6 +71,16 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Narrow-street parking planned in advance",
       "Close to our Glenfield depot",
       "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Can your truck reach steep Birkenhead driveways?",
+        a: "We scope this at the viewing. Where a driveway is too steep or narrow, we plan the carry route or use a smaller shuttle vehicle so your gear still moves safely.",
+      },
+      {
+        q: "Do you move villas and character homes?",
+        a: "Yes. Birkenhead and Highbury have many older villas with steep steps and narrow hallways. We protect doorways and handle awkward pieces every week.",
+      },
     ],
   },
   northcote: {
@@ -78,6 +98,16 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Quick run from our Glenfield depot",
       "Piano specialists, upright and grand",
     ],
+    faqs: [
+      {
+        q: "Do you cover both Northcote Point and the new town centre?",
+        a: "Yes. from the Point's character villas to the regenerated town-centre townhouses. We confirm whether it is villa steps or shared-lane townhouse access when we quote.",
+      },
+      {
+        q: "Can you move across the harbour bridge?",
+        a: "Yes. Northcote's motorway access makes city and cross-bridge moves straightforward, travel is included in your written quote.",
+      },
+    ],
   },
   hillcrest: {
     metaDescription:
@@ -93,6 +123,16 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Cross-lease and unit access sorted",
       "Often available on shorter notice",
       "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "How soon can you move me in Hillcrest?",
+        a: "Hillcrest is minutes from our Glenfield depot, so it is easy to schedule, often on shorter notice. Contact us for the next available crew.",
+      },
+      {
+        q: "Do you move brick-and-tile units?",
+        a: "Yes. many Hillcrest units sit down shared driveways. We plan parking and carry distance at the viewing so the move runs efficiently.",
+      },
     ],
   },
   takapuna: {
@@ -110,6 +150,16 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Close to our North Shore depot",
       "Piano specialists, upright and grand",
     ],
+    faqs: [
+      {
+        q: "Do you move apartments in Takapuna?",
+        a: "Yes, regularly. We book the lift, confirm loading-zone times, and check any building-manager requirements before move day so there are no hold-ups.",
+      },
+      {
+        q: "Where will the truck park in the town centre?",
+        a: "We plan this in advance, finding the closest legal loading zone or arranging building access, so the carry distance is kept short.",
+      },
+    ],
   },
   albany: {
     metaDescription:
@@ -125,6 +175,16 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Easy motorway access",
       "Townhouse complex codes and parking handled",
       "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Can you handle large Albany homes?",
+        a: "Yes. Albany new builds often have more volume, double garages and multiple living areas. We size the crew and truck to the home so it is done in one efficient run.",
+      },
+      {
+        q: "Do you cover Pinehill, Oteha, and Rosedale?",
+        a: "Yes. the wider Albany area is a regular run from our depot, with easy motorway access in and out.",
+      },
     ],
   },
   "browns-bay": {
@@ -142,6 +202,16 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Retiree downsizing a specialty",
       "Piano specialists, upright and grand",
     ],
+    faqs: [
+      {
+        q: "Do you help with downsizing moves?",
+        a: "Yes. retiree and downsizing moves are common across the Bays. We work at a careful pace and can combine the move with packing or storage when you need it.",
+      },
+      {
+        q: "Do you cover the wider East Coast Bays?",
+        a: "Yes. Mairangi Bay, Murrays Bay, Rothesay Bay, and Torbay are all on our regular North Shore schedule.",
+      },
+    ],
   },
   "long-bay": {
     metaDescription:
@@ -157,6 +227,16 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Modern homes and townhouse blocks",
       "Scheduled with the upper Bays",
       "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Can you access gated Long Bay complexes?",
+        a: "Yes. we confirm gate codes, visitor parking, and shared-lane access before the truck arrives so move day is smooth.",
+      },
+      {
+        q: "Do you move new townhouses?",
+        a: "Yes. Long Bay's modern townhouses often have tight internal stairs and shared parking. We plan the carry and protect finishes as we go.",
+      },
     ],
   },
   torbay: {
@@ -174,6 +254,16 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Hillside coastal homes",
       "Piano specialists, upright and grand",
     ],
+    faqs: [
+      {
+        q: "What if a large truck cannot reach my Torbay home?",
+        a: "We plan for it. on steep or narrow streets we use a smaller shuttle vehicle or work out the carry route at the viewing, so nothing is rushed on the day.",
+      },
+      {
+        q: "Do you move hillside homes with lots of steps?",
+        a: "Yes, often. We bring the right crew size and equipment for the steps and tight turns common in Torbay.",
+      },
+    ],
   },
   silverdale: {
     metaDescription:
@@ -190,6 +280,16 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Crew sized to larger homes",
       "Piano specialists, upright and grand",
     ],
+    faqs: [
+      {
+        q: "Is Silverdale in your service area?",
+        a: "Yes. Silverdale and Millwater are in our outer-north zone. We quote travel clearly upfront so there is no surprise callout on the day.",
+      },
+      {
+        q: "Do you move rural-residential and lifestyle blocks?",
+        a: "Yes. long driveways, sheds, and outbuildings add volume, so we scope the whole property to size the truck and crew correctly.",
+      },
+    ],
   },
   orewa: {
     metaDescription:
@@ -205,6 +305,16 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Outer-north travel quoted upfront",
       "Retiree downsizing a specialty",
       "Piano specialists, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Do you move Orewa beachfront apartments?",
+        a: "Yes. we book the lift and loading zone and confirm building requirements in advance, common for the apartments along the Orewa strip.",
+      },
+      {
+        q: "Is travel to Orewa included in the quote?",
+        a: "Orewa is in our outer-north zone; travel is quoted upfront and included in your written price, with no hidden callout.",
+      },
     ],
   },
   cambridge: {
