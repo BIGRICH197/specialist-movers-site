@@ -6,4 +6,4 @@ export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
   "https://www.specialistmovers.co.nz";
 
-export const siteName = "Specialist Movers NZ";
+export const siteName = "Specialist Movers Auckland & Hamilton";

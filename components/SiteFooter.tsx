@@ -141,7 +141,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="mx-auto mt-10 max-w-7xl border-t border-white/20 pt-6 text-center text-xs text-white/70 container-px">
-        © {new Date().getFullYear()} Specialist Movers NZ. All rights reserved.
+        © {new Date().getFullYear()} Specialist Movers Auckland & Hamilton. All rights reserved.
       </div>
     </footer>
   );

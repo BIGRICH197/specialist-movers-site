@@ -15,7 +15,7 @@ import {
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Us",
   description:
-    "SiteWise Gold, 90%+ safety scores, specialist crews and seven-day service. Why Auckland and Waikato clients choose Specialist Movers NZ.",
+    "SiteWise Gold, 90%+ safety scores, specialist crews and seven-day service. Why Auckland and Waikato clients choose Specialist Movers Auckland & Hamilton.",
   path: "/why-us",
 });
 

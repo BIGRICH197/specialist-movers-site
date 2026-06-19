@@ -31,15 +31,20 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Specialist Movers NZ | Auckland & Waikato Movers",
-    template: "%s | Specialist Movers NZ",
+    default: "Specialist Movers Auckland & Hamilton | House & Piano",
+    template: "%s | Specialist Movers Auckland & Hamilton",
   },
   description: regions.layoutDescription,
   alternates: { canonical: "/" },
   openGraph: rootOpenGraph,
   twitter: rootTwitter,
   icons: {
-    icon: [{ url: brandAssets.logomarkPurple, type: "image/svg+xml" }],
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-48.png", type: "image/png", sizes: "48x48" },
+      { url: brandAssets.logomarkPurple, type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
 

@@ -45,6 +45,21 @@
   }
 }
 
+/* Plain punctuation inside Termina headings — inline styles in formatHeadingText too. */
+span.heading-punct {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+  line-height: 1 !important;
+  vertical-align: baseline !important;
+}
+
+.uppercase span.heading-punct,
+.font-heading.uppercase span.heading-punct {
+  vertical-align: 0.06em !important;
+}
+
 /* Google Places dropdown above quote form / header / chat */
 .pac-container {
   z-index: 10050 !important;
@@ -94,12 +109,6 @@
   /* Interactive cards, lift on hover (service grid, FAQs, stats) */
   .card-interactive {
     @apply transition-[transform,box-shadow,border-color] duration-200 ease-out;
-  }
-
-  /** Inter punctuation inside Termina headings — only Light is loaded, avoid faux-bold. */
-  .heading-punct {
-    font-family: var(--font-inter), system-ui, sans-serif;
-    font-weight: 300;
   }
 
   .card-interactive:hover {
@@ -227,16 +236,16 @@
   background-image:
     linear-gradient(
       to top,
-      rgba(151, 57, 176, 0.52) 0%,
-      rgba(151, 57, 176, 0.22) 38%,
-      rgba(190, 118, 239, 0.08) 55%,
-      transparent 72%
+      rgba(151, 57, 176, 0.42) 0%,
+      rgba(151, 57, 176, 0.16) 34%,
+      rgba(190, 118, 239, 0.05) 50%,
+      transparent 64%
     ),
     linear-gradient(
       145deg,
-      rgba(190, 118, 239, 0.28) 0%,
-      rgba(151, 57, 176, 0.1) 45%,
-      transparent 70%
+      rgba(190, 118, 239, 0.18) 0%,
+      rgba(151, 57, 176, 0.06) 40%,
+      transparent 62%
     );
 }
 
@@ -244,16 +253,16 @@
   background-image:
     linear-gradient(
       to top,
-      rgba(151, 57, 176, 0.97) 0%,
-      rgba(151, 57, 176, 0.72) 18%,
-      rgba(151, 57, 176, 0.35) 42%,
-      rgba(190, 118, 239, 0.12) 58%,
-      transparent 72%
+      rgba(151, 57, 176, 0.92) 0%,
+      rgba(151, 57, 176, 0.58) 16%,
+      rgba(151, 57, 176, 0.24) 36%,
+      rgba(190, 118, 239, 0.07) 50%,
+      transparent 62%
     ),
     linear-gradient(
       145deg,
-      rgba(190, 118, 239, 0.22) 0%,
-      transparent 55%
+      rgba(190, 118, 239, 0.14) 0%,
+      transparent 48%
     );
 }
 
@@ -261,27 +270,27 @@
   background-image:
     linear-gradient(
       to top,
-      rgba(151, 57, 176, 0.97) 0%,
-      rgba(151, 57, 176, 0.72) 18%,
-      rgba(151, 57, 176, 0.35) 42%,
-      rgba(190, 118, 239, 0.12) 58%,
-      transparent 72%
+      rgba(151, 57, 176, 0.92) 0%,
+      rgba(151, 57, 176, 0.58) 16%,
+      rgba(151, 57, 176, 0.24) 36%,
+      rgba(190, 118, 239, 0.07) 50%,
+      transparent 62%
     ),
     linear-gradient(
       145deg,
-      rgba(190, 118, 239, 0.11) 0%,
-      transparent 55%
+      rgba(190, 118, 239, 0.07) 0%,
+      transparent 48%
     );
 }
 
 .photo-frame--caption-bottom-only::after {
   background-image: linear-gradient(
     to top,
-    rgba(151, 57, 176, 0.97) 0%,
-    rgba(151, 57, 176, 0.72) 18%,
-    rgba(151, 57, 176, 0.35) 42%,
-    rgba(190, 118, 239, 0.12) 58%,
-    transparent 72%
+    rgba(151, 57, 176, 0.92) 0%,
+    rgba(151, 57, 176, 0.58) 16%,
+    rgba(151, 57, 176, 0.22) 34%,
+    rgba(190, 118, 239, 0.06) 48%,
+    transparent 58%
   );
 }
 

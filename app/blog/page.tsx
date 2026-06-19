@@ -10,7 +10,7 @@ import { blogPosts } from "@/lib/site-data";
 export const metadata: Metadata = buildPageMetadata({
   title: "Moving Tips & Guides Auckland",
   description:
-    "Practical moving tips, packing guides, and house move advice for Auckland and the Waikato from Specialist Movers NZ. House, piano, and commercial moves.",
+    "Practical moving tips, packing guides, and house move advice for Auckland and the Waikato from Specialist Movers Auckland & Hamilton. House, piano, and commercial moves.",
   path: "/blog",
 });
 
