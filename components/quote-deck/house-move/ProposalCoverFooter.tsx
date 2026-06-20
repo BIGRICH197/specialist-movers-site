@@ -20,7 +20,7 @@ export function ProposalCoverFooter({
     <div
       className={`proposal-cover-footer flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:justify-between ${className}`}
     >
-      <ProposalReviewsBadge />
+      <ProposalReviewsBadge className="sm:-ml-[5cm]" />
       <QuoteActions quoteRef={quoteRef} />
     </div>
   );

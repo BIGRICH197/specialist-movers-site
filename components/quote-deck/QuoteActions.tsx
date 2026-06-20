@@ -49,7 +49,7 @@ export function QuoteActions({ quoteRef }: { quoteRef: string }) {
         disabled={accepting}
         className="w-full max-w-sm rounded-full bg-brand-purple px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-brand-purple/90 disabled:opacity-60 sm:w-auto"
       >
-        {accepting ? "One moment…" : "Accept & book your move"}
+        {accepting ? "One moment…" : "Accept"}
       </button>
 
       {callState === "done" ? (
