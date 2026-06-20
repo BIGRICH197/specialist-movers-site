@@ -6,6 +6,7 @@ import {
   saveQuote,
   type StoredQuote,
   type QuoteServiceType,
+  type QuotePrefill,
 } from "@/lib/quote-store";
 import type { HouseMoveQuote } from "@/lib/quote-deck/house-move-quote";
 
@@ -19,6 +20,8 @@ type CreateBody = {
   quote: HouseMoveQuote;
   quoteType?: QuoteServiceType;
   xeroQuoteId?: string;
+  /** Contact/move details for booking-form prefill only (not shown on the deck). */
+  prefill?: QuotePrefill;
   /** Pass an existing token to update that quote in place (same link). */
   token?: string;
 };
@@ -72,6 +75,7 @@ export async function POST(request: Request) {
     quoteType: body.quoteType,
     xeroQuoteId: body.xeroQuoteId,
     quote: body.quote,
+    prefill: body.prefill,
     createdAt: new Date().toISOString(),
   };
 

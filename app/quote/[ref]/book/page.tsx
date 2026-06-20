@@ -25,11 +25,24 @@ export default async function BookPage({ params }: { params: { ref: string } }) 
 
   const q = stored.quote;
   const addOns = q.includedAddOns ?? [];
+  const pf = stored.prefill ?? {};
+
+  // Map a HubSpot bedroom count to the booking "Size of move" dropdown options.
+  function sizeFromBedrooms(beds?: number): string {
+    if (!beds || beds < 1) return "";
+    if (beds >= 4) return "4 Bedroom+";
+    return `${beds} Bedroom`;
+  }
+
   const prefill: BookingPrefill = {
     fullName: q.clientName ?? "",
+    email: pf.email ?? "",
+    phone: pf.phone ?? "",
     pickupAddress: formatAddress(q.pickup),
     dropoffAddress: formatAddress(q.delivery),
     moveDate: q.moveDate ?? "",
+    sizeOfMove: pf.sizeOfMove ?? sizeFromBedrooms(pf.bedrooms),
+    typeOfMove: pf.typeOfMove ?? "",
     cleaningBooked: addOns.includes("cleaning") ? "Yes Cleaning" : "",
     packing: addOns.includes("packing") ? "Yes packing" : "",
   };

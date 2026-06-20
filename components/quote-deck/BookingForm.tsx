@@ -8,9 +8,13 @@ import { useState } from "react";
 
 export type BookingPrefill = {
   fullName?: string;
+  email?: string;
+  phone?: string;
   pickupAddress?: string;
   dropoffAddress?: string;
   moveDate?: string;
+  sizeOfMove?: string;
+  typeOfMove?: string;
   cleaningBooked?: string;
   packing?: string;
 };
@@ -44,14 +48,14 @@ export function BookingForm({
 }) {
   const [f, setF] = useState<Record<string, string>>({
     fullName: prefill.fullName ?? "",
-    email: "",
-    phone: "",
+    email: prefill.email ?? "",
+    phone: prefill.phone ?? "",
     pickupAddress: prefill.pickupAddress ?? "",
     dropoffAddress: prefill.dropoffAddress ?? "",
     moveDate: prefill.moveDate ?? "",
-    sizeOfMove: "",
+    sizeOfMove: prefill.sizeOfMove ?? "",
     howManyMovers: "",
-    typeOfMove: "",
+    typeOfMove: prefill.typeOfMove ?? "",
     payment: "",
     cleaningBooked: prefill.cleaningBooked ?? "",
     cleaningSameDay: "",

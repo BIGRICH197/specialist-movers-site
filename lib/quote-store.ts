@@ -9,6 +9,21 @@ import type { HouseMoveQuote } from "@/lib/quote-deck/house-move-quote";
 
 export type QuoteServiceType = "house" | "packing" | "cleaning";
 
+/**
+ * Contact + move details used ONLY to pre-fill the booking form. Kept separate
+ * from `quote` because it is the client's own PII (email/phone) and must never
+ * be rendered on the public quote deck — it is surfaced only on /book, to the
+ * person holding the unguessable link. Joey populates this from the HubSpot deal.
+ */
+export type QuotePrefill = {
+  email?: string;
+  phone?: string;
+  /** Bedroom count from HubSpot — maps to the booking "Size of move" dropdown. */
+  bedrooms?: number;
+  sizeOfMove?: string;
+  typeOfMove?: string;
+};
+
 export type StoredQuote = {
   token: string;
   slug: string;
@@ -17,6 +32,8 @@ export type StoredQuote = {
   xeroQuoteId?: string;
   /** The full deck-renderable quote object. */
   quote: HouseMoveQuote;
+  /** Contact/move details for booking-form prefill only. Never rendered on the deck. */
+  prefill?: QuotePrefill;
   createdAt: string;
 };
 
