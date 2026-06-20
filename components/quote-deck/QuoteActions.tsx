@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-// Action bar shown under a hosted quote: Accept (-> booking form) and Request a call.
+// Accept (-> booking form) and Request-a-call actions. Rendered inline in the
+// quote deck footer, beside the Google reviews badge.
 
 export function QuoteActions({ quoteRef }: { quoteRef: string }) {
   const router = useRouter();
@@ -41,35 +42,30 @@ export function QuoteActions({ quoteRef }: { quoteRef: string }) {
   }
 
   return (
-    <div className="quote-actions bg-white px-6 pb-12 pt-2 sm:pb-16">
-      <div className="mx-auto flex max-w-2xl flex-col items-center gap-3 text-center">
-        <p className="text-sm font-semibold uppercase tracking-wide text-brand-purple/60">
-          Happy with your quote?
+    <div className="quote-actions flex flex-col items-center gap-2 sm:items-end">
+      <button
+        type="button"
+        onClick={accept}
+        disabled={accepting}
+        className="w-full max-w-sm rounded-full bg-brand-purple px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-brand-purple/90 disabled:opacity-60 sm:w-auto"
+      >
+        {accepting ? "One moment…" : "Accept & book your move"}
+      </button>
+
+      {callState === "done" ? (
+        <p className="text-sm font-medium text-brand-purple">
+          Thanks — we&apos;ll call you shortly.
         </p>
+      ) : (
         <button
           type="button"
-          onClick={accept}
-          disabled={accepting}
-          className="w-full max-w-sm rounded-full bg-brand-purple px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-brand-purple/90 disabled:opacity-60"
+          onClick={requestCall}
+          disabled={callState === "sending"}
+          className="text-sm font-semibold text-brand-purple underline-offset-4 hover:underline disabled:opacity-60"
         >
-          {accepting ? "One moment…" : "Accept & book your move"}
+          {callState === "sending" ? "Sending…" : "Or request a call back"}
         </button>
-
-        {callState === "done" ? (
-          <p className="text-sm font-medium text-brand-purple">
-            Thanks — we&apos;ll call you shortly.
-          </p>
-        ) : (
-          <button
-            type="button"
-            onClick={requestCall}
-            disabled={callState === "sending"}
-            className="text-sm font-semibold text-brand-purple underline-offset-4 hover:underline disabled:opacity-60"
-          >
-            {callState === "sending" ? "Sending…" : "Or request a call back"}
-          </button>
-        )}
-      </div>
+      )}
     </div>
   );
 }

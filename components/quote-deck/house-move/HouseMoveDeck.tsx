@@ -51,9 +51,10 @@ function QuoteMoveDetails({ quote }: { quote: HouseMoveQuote }) {
 
 type Props = {
   quote: HouseMoveQuote;
+  quoteRef?: string;
 };
 
-export function HouseMoveDeck({ quote }: Props) {
+export function HouseMoveDeck({ quote, quoteRef }: Props) {
   const showNotes = hasNotes(quote);
 
   return (
@@ -112,7 +113,7 @@ export function HouseMoveDeck({ quote }: Props) {
               </div>
             ) : null}
 
-            <ProposalCoverFooter className="proposal-cover-footer" />
+            <ProposalCoverFooter className="proposal-cover-footer" quoteRef={quoteRef} />
           </div>
         </div>
       </DeckSlide>

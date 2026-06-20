@@ -3,7 +3,6 @@ import { getQuote, tokenFromRef } from "@/lib/quote-store";
 import { quotePreviewCopy } from "@/lib/quote-preview-meta";
 import { siteName, siteUrl } from "@/lib/site-config";
 import { HouseMoveDeck } from "@/components/quote-deck/house-move/HouseMoveDeck";
-import { QuoteActions } from "@/components/quote-deck/QuoteActions";
 
 // Public hosted quote page. Reads the stored quote from KV server-side (the
 // browser never touches the store, so quotes can't be enumerated) and renders
@@ -85,10 +84,5 @@ export default async function HostedQuotePage({
     return <NotFound />;
   }
 
-  return (
-    <>
-      <HouseMoveDeck quote={stored.quote} />
-      <QuoteActions quoteRef={params.ref} />
-    </>
-  );
+  return <HouseMoveDeck quote={stored.quote} quoteRef={params.ref} />;
 }
