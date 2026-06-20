@@ -1,5 +1,9 @@
+import type { Metadata } from "next";
 import { getQuote, tokenFromRef } from "@/lib/quote-store";
+import { quotePreviewCopy } from "@/lib/quote-preview-meta";
+import { siteName, siteUrl } from "@/lib/site-config";
 import { HouseMoveDeck } from "@/components/quote-deck/house-move/HouseMoveDeck";
+import { QuoteActions } from "@/components/quote-deck/QuoteActions";
 
 // Public hosted quote page. Reads the stored quote from KV server-side (the
 // browser never touches the store, so quotes can't be enumerated) and renders
@@ -7,10 +11,49 @@ import { HouseMoveDeck } from "@/components/quote-deck/house-move/HouseMoveDeck"
 
 export const dynamic = "force-dynamic";
 
-export const metadata = {
-  title: "Your quote — Specialist Movers",
-  robots: { index: false, follow: false },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: { ref: string };
+}): Promise<Metadata> {
+  const path = `/quote/${params.ref}`;
+  const stored = await getQuote(tokenFromRef(params.ref));
+
+  if (!stored) {
+    return {
+      title: { absolute: "Quote not found | Specialist Movers" },
+      description: "This quote link is no longer available. Contact Specialist Movers for a fresh quote.",
+      robots: { index: false, follow: false },
+      openGraph: {
+        type: "website",
+        siteName,
+        url: `${siteUrl}${path}`,
+        title: "Quote not found | Specialist Movers",
+        description: "This quote link is no longer available.",
+      },
+    };
+  }
+
+  const { title, description } = quotePreviewCopy(stored, params.ref);
+
+  return {
+    title: { absolute: title },
+    description,
+    robots: { index: false, follow: false },
+    openGraph: {
+      type: "website",
+      siteName,
+      url: `${siteUrl}${path}`,
+      title,
+      description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
+}
 
 function NotFound() {
   return (
@@ -42,5 +85,10 @@ export default async function HostedQuotePage({
     return <NotFound />;
   }
 
-  return <HouseMoveDeck quote={stored.quote} />;
+  return (
+    <>
+      <HouseMoveDeck quote={stored.quote} />
+      <QuoteActions quoteRef={params.ref} />
+    </>
+  );
 }
