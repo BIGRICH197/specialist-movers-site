@@ -15,7 +15,7 @@ export type BookingTermsSection = {
   tail?: string[];
 };
 
-export const BOOKING_TERMS_VERSION = "2026-06-official-1";
+export const BOOKING_TERMS_VERSION = "2026-06-official-2";
 
 export const bookingTerms: BookingTermsSection[] = [
   {
@@ -169,8 +169,7 @@ export const bookingTerms: BookingTermsSection[] = [
 ];
 
 // Shown IN ADDITION to the moving terms when the booking includes cleaning.
-// NOTE FOR RICHARD: section 13 (Insurance) was cut off in the source supplied,
-// so it is a placeholder. Replace with the full clause and bump the version.
+// Full text recovered from the JotForm source (form 241337586237866, field 58).
 export const cleaningTerms: BookingTermsSection[] = [
   {
     heading: "Specialist Cleaners - Terms and Conditions",
@@ -310,7 +309,14 @@ export const cleaningTerms: BookingTermsSection[] = [
   {
     heading: "13. Insurance",
     paragraphs: [
-      "We recommend Clients ensure adequate insurance cover is in place for their property and belongings.",
+      "We recommend Clients ensure appropriate insurance is in place.",
+      "Unless otherwise stated, cleaning services are provided at the Client's risk, as permitted under New Zealand law.",
+    ],
+  },
+  {
+    heading: "14. Consumer Guarantees Act 1993",
+    paragraphs: [
+      "Nothing in these Terms limits your rights under the Consumer Guarantees Act 1993.",
     ],
   },
 ];
