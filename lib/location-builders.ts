@@ -67,18 +67,15 @@ export function normalizeLocationMeta(location: Location): Location {
     metaDescription = metaDescription.charAt(0).toUpperCase() + metaDescription.slice(1);
   }
   if (metaDescription.length < 120) {
-    const depot = location.group === "waikato" ? "Hamilton" : "Auckland";
+    const depot: "Auckland" | "Hamilton" =
+      location.group === "waikato" ? "Hamilton" : "Auckland";
     const area =
       location.kind === "region"
         ? location.name
         : location.parentSlug
           ? parentRegionName(location.parentSlug)
           : location.name;
-    metaDescription = suburbMetaDescription(
-      location.name,
-      area,
-      location.group === "waikato" ? "Hamilton" : "Auckland",
-    );
+    metaDescription = suburbMetaDescription(location.name, area, depot);
   }
   return { ...location, metaDescription };
 }
