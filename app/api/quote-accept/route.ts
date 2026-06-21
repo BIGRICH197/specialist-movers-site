@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getQuote, tokenFromRef } from "@/lib/quote-store";
+import { getQuote, tokenFromRef, setQuoteStatus } from "@/lib/quote-store";
 import { pingBookings, quoteUrl } from "@/lib/quote-notify";
 import {
   quoteTotalInclGst,
@@ -25,6 +25,8 @@ export async function POST(request: Request) {
   if (!stored) {
     return NextResponse.json({ ok: false, error: "not found" }, { status: 404 });
   }
+
+  await setQuoteStatus(stored.token, "accepted");
 
   const total = formatNzd(quoteTotalInclGst(stored.quote));
   await pingBookings(

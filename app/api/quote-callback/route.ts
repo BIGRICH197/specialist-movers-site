@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getQuote, tokenFromRef } from "@/lib/quote-store";
+import { getQuote, tokenFromRef, setQuoteStatus } from "@/lib/quote-store";
 import { pingBookings, quoteUrl } from "@/lib/quote-notify";
 
 export const runtime = "nodejs";
@@ -21,6 +21,8 @@ export async function POST(request: Request) {
   if (!stored) {
     return NextResponse.json({ ok: false, error: "not found" }, { status: 404 });
   }
+
+  await setQuoteStatus(stored.token, "callback");
 
   await pingBookings(
     `:telephone_receiver: *${stored.quote.clientName}* requested a call back about their quote` +

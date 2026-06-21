@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getQuote, tokenFromRef } from "@/lib/quote-store";
+import { getQuote, tokenFromRef, setQuoteStatus } from "@/lib/quote-store";
 import { saveBooking } from "@/lib/booking-store";
 import { pingBookings, quoteUrl } from "@/lib/quote-notify";
 
@@ -39,6 +39,8 @@ export async function POST(request: Request) {
     submittedAt: new Date().toISOString(),
     fields,
   });
+
+  await setQuoteStatus(stored.token, "booked");
 
   // Slack ping — also the signal n8n picks up for Closed Won + Trello.
   const summary = [
