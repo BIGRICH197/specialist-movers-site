@@ -9,7 +9,7 @@ export type BlogArticle = {
 
 export const blogArticles: Record<string, BlogArticle> = {
   "the-ultimate-guide-to-house-moving-in-auckland": {
-    title: "The Ultimate Guide to House Moving in Auckland",
+    title: "The Ultimate Guide to Moving Home in Auckland",
     sections: [
       {
         heading: "Figure out your dates early",

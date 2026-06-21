@@ -10,7 +10,7 @@ import { blogPosts } from "@/lib/site-data";
 export const metadata: Metadata = buildPageMetadata({
   title: "Moving Tips & Guides Auckland",
   description:
-    "Practical moving tips, packing guides, and house move advice for Auckland and the Waikato from Specialist Movers Auckland & Hamilton. House, piano, and commercial moves.",
+    "Moving tips, packing guides and relocation advice for Auckland and the Waikato. Home relocations, piano and commercial moves from Specialist Movers.",
   path: "/blog",
 });
 
@@ -21,7 +21,7 @@ export default function BlogPage() {
         variant="light"
         eyebrow="Guides & tips"
         title="Moving insights"
-        description="Practical ideas for smoother house and piano moves across Auckland and New Zealand."
+        description="Practical ideas for smoother home relocations and piano moves across Auckland and New Zealand."
       />
       <SectionReveal className="mx-auto max-w-7xl py-12 container-px">
         <div className="grid gap-4 md:grid-cols-2">

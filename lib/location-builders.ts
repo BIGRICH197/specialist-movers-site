@@ -1,7 +1,8 @@
 import type { Location } from "@/lib/location-types";
+import { suburbMetaDescription } from "@/lib/meta-keyword-copy";
 
 const sharedServices =
-  "House moves, piano transport, packing, office and commercial work, exit cleans, and hard-to-shift items.";
+  "Home relocations, piano transport, packing, office and commercial work, exit cleans, and hard-to-shift items.";
 
 export function slugifyLocationName(name: string): string {
   return name
@@ -43,15 +44,15 @@ export function createSuburb(
     parentSlug,
     searchTerms: [name, slug, ...searchTerms],
     metaTitle: `Movers ${name}`,
-    metaDescription: `${name} house and piano movers. Specialist Movers serves ${regionLabel} from our Auckland base. Free quote and callback in 15 minutes.`,
+    metaDescription: suburbMetaDescription(name, regionLabel),
     intro: `We move homes and pianos in ${name} and nearby streets. Our Auckland crew plans access, parking, and timing before move day.`,
     paragraphs: [
-      `${note} We quote after a free in-home viewing when you need an accurate fixed price for a house move.`,
+      `${note} We quote after a free in-home viewing when you need an accurate fixed price for a home relocation.`,
       `From our Wairau Valley depot we run ${name} jobs often, alongside wider ${regionLabel} work. ${sharedServices}`,
       `Need a piano move in ${name}? We are trusted by Auckland music stores and handle uprights and grands with care.`,
     ],
     highlights: [
-      "Free in-home viewing for house moves",
+      "Free in-home viewing for home relocations",
       "Fixed-price quotes when we have scoped the job",
       "Piano specialists, upright and grand",
       "Licensed and insured crews",
@@ -73,7 +74,11 @@ export function normalizeLocationMeta(location: Location): Location {
         : location.parentSlug
           ? parentRegionName(location.parentSlug)
           : location.name;
-    metaDescription = `${location.name} house and piano movers. Specialist Movers serves ${area} from our ${depot} base. Free quote and callback in 15 minutes.`;
+    metaDescription = suburbMetaDescription(
+      location.name,
+      area,
+      location.group === "waikato" ? "Hamilton" : "Auckland",
+    );
   }
   return { ...location, metaDescription };
 }
@@ -105,17 +110,17 @@ export function createTown(
     parentSlug: null,
     searchTerms: [name, slug, ...searchTerms],
     metaTitle,
-    metaDescription: `${name} house and piano movers. Specialist Movers ${depot} base, Waikato and North Island routes. Free quote and callback in 15 minutes.`,
+    metaDescription: suburbMetaDescription(name, areaLabel === "" ? name : areaLabel, depot),
     intro: `${introNote} We quote travel and access clearly from our ${depot} base.`,
     paragraphs: [
-      `We visit before larger house moves in ${name} so stairs, driveways, and volume are clear before we lock your price.`,
+      `We visit before larger home relocations in ${name} so stairs, driveways, and volume are clear before we lock your price.`,
       `Piano transport to and from ${name} is available with specialist handling and shrink wrap.`,
       sharedServices,
     ],
     highlights: [
       `Serviced from our ${depot} base`,
-      "In-home viewing for house moves",
-      "Piano and house specialists",
+      "In-home viewing for home relocations",
+      "Piano and relocation specialists",
       "Licensed and insured crews",
     ],
   };

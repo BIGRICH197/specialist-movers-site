@@ -21,7 +21,7 @@ export function quotePreviewCopy(stored: StoredQuote, ref: string) {
   const client = quote.clientName.trim();
 
   const title = `Quote for ${client} - ${total} incl. GST`;
-  const description = `Your house move quote from Specialist Movers. ${route}. Total ${total} incl. GST. Open to view the full proposal.`;
+  const description = `Your relocation quote from Specialist Movers. ${route}. Total ${total} incl. GST. Open to view the full proposal.`;
 
   return {
     title,

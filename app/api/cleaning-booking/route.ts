@@ -60,7 +60,7 @@ export async function POST(request: Request) {
   const cleanTypeLabels: Record<string, string> = {
     "exit-tenancy": "Exit and tenancy clean",
     settlement: "Settlement day clean",
-    moving: "House moving clean",
+    moving: "Home relocation clean",
     construction: "Construction clean",
     other: "Other",
   };

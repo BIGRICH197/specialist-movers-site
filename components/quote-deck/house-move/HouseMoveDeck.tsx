@@ -69,7 +69,7 @@ export function HouseMoveDeck({ quote, quoteRef }: Props) {
 
             <div className="proposal-cover-details">
               <p className="proposal-eyebrow-pill inline-flex rounded-full border px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-brand-purple">
-                House move proposal
+                Home relocation proposal
               </p>
               {quote.clientName ? (
                 <h1 className="mt-3 font-heading text-3xl leading-tight text-brand-purple sm:text-4xl">

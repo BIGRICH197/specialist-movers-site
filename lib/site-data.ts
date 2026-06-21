@@ -2,7 +2,7 @@ import { serviceBlurbs, serviceWhyChooseCopy } from "./legacy-site-content";
 
 export const jobTypes = [
   "Piano Move",
-  "House Move",
+  "Home Move",
   "Office Move",
   "Commercial Move",
   "Packing",
@@ -20,7 +20,7 @@ export const services = [
     slug: "house-moving",
     title: serviceBlurbs["house-moving"].title,
     description: serviceBlurbs["house-moving"].excerpt,
-    defaultJobType: "House Move" as const,
+    defaultJobType: "Home Move" as const,
     includedBullets: [
       "Residential moving for houses, apartments, and townhouses",
       "Local and long-distance moves across New Zealand",
@@ -131,7 +131,7 @@ export const services = [
     slug: "international-moving",
     title: serviceBlurbs["international-moving"].title,
     description: serviceBlurbs["international-moving"].excerpt,
-    defaultJobType: "House Move" as const,
+    defaultJobType: "Home Move" as const,
     includedBullets: [
       "North Island, South Island and international destinations",
       "Careful planning and packaging coordination",
@@ -145,7 +145,7 @@ export const services = [
     slug: "loading-unloading",
     title: serviceBlurbs["loading-unloading"].title,
     description: serviceBlurbs["loading-unloading"].excerpt,
-    defaultJobType: "House Move" as const,
+    defaultJobType: "Home Move" as const,
     includedBullets: [
       "Movers for hire for transportation and heavy lifting",
       "Loading and unloading trucks, containers and storage",
@@ -159,7 +159,7 @@ export const services = [
     slug: "winz-quotes",
     title: serviceBlurbs["winz-quotes"].title,
     description: serviceBlurbs["winz-quotes"].excerpt,
-    defaultJobType: "House Move" as const,
+    defaultJobType: "Home Move" as const,
     includedBullets: [
       "Written quote for moving assistance applications",
       "Clear scope and prompt follow-up",
@@ -247,8 +247,8 @@ export const pianoServices = [
 export const blogPosts = [
   {
     slug: "the-ultimate-guide-to-house-moving-in-auckland",
-    title: "The Ultimate Guide to House Moving in Auckland",
-    seoTitle: "House Moving Guide Auckland | Specialist Movers",
+    title: "The Ultimate Guide to Moving Home in Auckland",
+    seoTitle: "Moving Home Guide Auckland | Specialist Movers",
     publishedDate: "2026-04-22",
     excerpt:
       "Moving house in Auckland? Straight talk on dates, packing, movers, and local tips. Plan your move with less stress and clearer costs.",

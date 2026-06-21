@@ -34,7 +34,7 @@ const tools: Anthropic.Tool[] = [
   {
     name: "calculate_house_move",
     description:
-      "Calculate an instant quote for a house move. Returns pricing breakdown.",
+      "Calculate an instant quote for a home relocation. Returns pricing breakdown.",
     input_schema: {
       type: "object" as const,
       properties: {

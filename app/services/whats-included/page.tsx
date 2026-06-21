@@ -78,7 +78,7 @@ export default function WhatsIncludedPage() {
               <p className="mb-2 font-heading text-sm font-bold uppercase tracking-wide text-brand-purple">
                 Request a free quote
               </p>
-              <QuoteForm defaultJobType="House Move" />
+              <QuoteForm defaultJobType="Home Move" />
             </div>
           </aside>
         </div>

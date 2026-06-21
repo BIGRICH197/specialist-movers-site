@@ -172,8 +172,8 @@ export const pagePhotoMoments: Record<string, PagePhotoMoment> = {
     layout: "wide",
     captionPlacement: "beside",
     showCta: true,
-    defaultJobType: "House Move",
-    body: "House moves with real care, packing, heavy furniture, stairs, and clear communication from quote to handover.",
+    defaultJobType: "Home Move",
+    body: "Home relocations with real care, packing, heavy furniture, stairs, and clear communication from quote to handover.",
   },
   "services/piano-movers": {
     ...premiumServicePhotoLayout,
@@ -227,7 +227,7 @@ export const pagePhotoMoments: Record<string, PagePhotoMoment> = {
     alt: "Specialist Movers crew working in wet weather while the client stays comfortable",
     caption: "Auckland to wherever you are headed",
     showCta: true,
-    defaultJobType: "House Move",
+    defaultJobType: "Home Move",
     body: "International relocations quoted to your destination with clear scope and timing.",
   },
   "services/loading-unloading": {
@@ -236,7 +236,7 @@ export const pagePhotoMoments: Record<string, PagePhotoMoment> = {
     alt: "Crew loading the moving truck",
     caption: "Heavy lifting, handled safely",
     showCta: true,
-    defaultJobType: "House Move",
+    defaultJobType: "Home Move",
     body: "Truck hire or container delivery? Our crew loads and unloads with care and efficiency.",
   },
   "services/storage": {
@@ -245,7 +245,7 @@ export const pagePhotoMoments: Record<string, PagePhotoMoment> = {
     alt: "Wrapped furniture ready for secure storage",
     caption: "Stored until you are ready",
     showCta: true,
-    defaultJobType: "House Move",
+    defaultJobType: "Home Move",
     body: "Short and long-term storage with careful intake, wrapping, and return delivery when your dates align.",
   },
   "services/winz-quotes": {
@@ -254,7 +254,7 @@ export const pagePhotoMoments: Record<string, PagePhotoMoment> = {
     alt: "Friendly Specialist Movers team member",
     caption: "Clear quotes. No surprises.",
     showCta: true,
-    defaultJobType: "House Move",
+    defaultJobType: "Home Move",
     body: "Written quotes for moving assistance applications. Fast follow-up and straightforward communication.",
   },
   "piano-movers/grand-piano": {

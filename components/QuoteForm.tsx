@@ -108,7 +108,7 @@ const label = "text-xs font-semibold text-brand-purple";
 function defaultModeFromJob(jt?: JobType, jts?: JobType[]): Mode {
   const types = jts?.length ? jts : jt ? [jt] : [];
   if (types.includes("Piano Move")) return "piano";
-  if (types.includes("House Move")) return "house";
+  if (types.includes("Home Move")) return "house";
   if (types.includes("Commercial Move")) return "commercial";
   if (types.includes("Office Move")) return "office";
   return "choose";
@@ -117,7 +117,7 @@ function defaultModeFromJob(jt?: JobType, jts?: JobType[]): Mode {
 function modeLabel(mode: Mode): string {
   if (mode === "commercial") return "Commercial move";
   if (mode === "office") return "Office move";
-  if (mode === "house") return "House move instant quote";
+  if (mode === "house") return "Home move instant quote";
   if (mode === "piano") return "Piano move instant quote";
   return "Move";
 }
@@ -288,7 +288,7 @@ export function QuoteForm({
         dropoffParsed: dropoffParsed ?? undefined,
         attribution: getAttribution(),
       };
-      payload.serviceType = defaultJobType ?? (f.mode === "house" ? "House Move" : f.mode === "piano" ? "Piano Move" : "Office Move");
+      payload.serviceType = defaultJobType ?? (f.mode === "house" ? "Home Move" : f.mode === "piano" ? "Piano Move" : "Office Move");
 
       if (f.mode === "house") {
         payload.bedrooms = f.bedrooms;
@@ -409,7 +409,7 @@ export function QuoteForm({
             <Home className="h-6 w-6 shrink-0 text-brand-purple" />
             <div>
               <p className="font-heading text-sm font-bold uppercase tracking-wide text-brand-purple">
-                House Move
+                Home Move
               </p>
               <p className="text-xs text-brand-purple/60">
                 Get an instant estimate for your home move

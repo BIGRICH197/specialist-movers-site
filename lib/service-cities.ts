@@ -67,7 +67,7 @@ function getCityServiceSource(slug: string): CityServiceSource | null {
       parentLabel: storageHub.title,
       title: storageHub.title,
       description: storageHub.description,
-      defaultJobType: "House Move",
+      defaultJobType: "Home Move",
       includedBullets: [
         "Short-term storage between settlement dates",
         "Long-term storage for overseas postings and builds",
@@ -126,73 +126,98 @@ const cityMeta: Record<
 };
 
 type ServiceSeo = {
-  keyword: string;
+  /** Auckland meta keyword phrase (used in /services/{slug}/auckland). */
+  aucklandKeyword: string;
+  /** Hamilton meta keyword phrase; falls back to aucklandKeyword with city swapped. */
+  hamiltonKeyword?: string;
   shortTitle: string;
   jobFocus: string;
 };
 
 const serviceSeo: Record<string, ServiceSeo> = {
   "piano-movers": {
-    keyword: "piano moving",
+    aucklandKeyword: "Piano movers Auckland",
+    hamiltonKeyword: "Piano movers Hamilton",
     shortTitle: "piano moving",
     jobFocus: "piano transport",
   },
   "house-moving": {
-    keyword: "house movers",
+    aucklandKeyword: "Auckland furniture removalists and home movers",
+    hamiltonKeyword: "Hamilton movers and furniture removalists",
     shortTitle: "Moving house",
-    jobFocus: "house moves",
+    jobFocus: "home relocations",
   },
   "office-moving": {
-    keyword: "office movers",
+    aucklandKeyword: "Office movers Auckland",
+    hamiltonKeyword: "Office movers Hamilton",
     shortTitle: "Office movers",
     jobFocus: "office relocations",
   },
   "commercial-moving": {
-    keyword: "commercial movers",
+    aucklandKeyword: "Commercial movers Auckland",
+    hamiltonKeyword: "Commercial movers Hamilton",
     shortTitle: "Commercial movers",
     jobFocus: "commercial relocations",
   },
   "packing-services": {
-    keyword: "packing services",
+    aucklandKeyword: "Movers and packers Auckland",
+    hamiltonKeyword: "Movers and packers Hamilton",
     shortTitle: "Packing services",
     jobFocus: "professional packing",
   },
   "hard-to-shift": {
-    keyword: "hard to shift movers",
+    aucklandKeyword: "Hard to shift movers Auckland",
+    hamiltonKeyword: "Hard to shift movers Hamilton",
     shortTitle: "Hard to shift",
     jobFocus: "spa pools, bathtubs, and bulky items",
   },
   "cleaning-services": {
-    keyword: "exit cleaning",
+    aucklandKeyword: "Exit cleaning Auckland",
+    hamiltonKeyword: "Exit cleaning Hamilton",
     shortTitle: "Exit cleaning",
     jobFocus: "exit cleans",
   },
   "international-moving": {
-    keyword: "international movers",
+    aucklandKeyword: "International movers Auckland",
+    hamiltonKeyword: "International movers Hamilton",
     shortTitle: "International moving",
     jobFocus: "international relocations",
   },
   "loading-unloading": {
-    keyword: "loading and unloading",
+    aucklandKeyword: "Loading and unloading Auckland",
+    hamiltonKeyword: "Loading and unloading Hamilton",
     shortTitle: "Loading and unloading",
     jobFocus: "loading and unloading",
   },
   "winz-quotes": {
-    keyword: "WINZ moving quote",
+    aucklandKeyword: "WINZ moving quote Auckland",
+    hamiltonKeyword: "WINZ moving quote Hamilton",
     shortTitle: "WINZ quote",
     jobFocus: "written WINZ moving quotes",
   },
   storage: {
-    keyword: "moving storage",
+    aucklandKeyword: "Moving storage Auckland",
+    hamiltonKeyword: "Moving storage Hamilton",
     shortTitle: "Moving storage",
     jobFocus: "short and long-term storage",
   },
   moving: {
-    keyword: "movers",
+    aucklandKeyword: "Movers Auckland",
+    hamiltonKeyword: "Movers Hamilton",
     shortTitle: "Moving services",
     jobFocus: "local and regional moves",
   },
 };
+
+function metaKeywordForCity(seo: ServiceSeo, city: ServiceCitySlug): string {
+  return city === "hamilton"
+    ? (seo.hamiltonKeyword ?? seo.aucklandKeyword.replace(/Auckland/g, "Hamilton"))
+    : seo.aucklandKeyword;
+}
+
+function serviceCityMetaDescription(seo: ServiceSeo, city: ServiceCitySlug): string {
+  return `${metaKeywordForCity(seo, city)}. Trusted ${seo.jobFocus}. Free quote and callback in 15 minutes.`;
+}
 
 function buildParagraphs(
   serviceSlug: string,
@@ -226,7 +251,7 @@ function buildParagraphs(
       ];
     }
     return [
-      "Hamilton house moves are planned from our local base with the same viewing-first approach as Auckland. Student flats, family homes, and lifestyle blocks around the Waikato are part of our weekly work.",
+      "Hamilton home relocations are planned from our local base with the same viewing-first approach as Auckland. Student flats, family homes, and lifestyle blocks around the Waikato are part of our weekly work.",
       "We also coordinate moves between Hamilton and Auckland when you are relocating between cities. Packing, piano transport, and exit cleans can be bundled.",
       "Book a free viewing for larger homes so stairs, driveways, and volume are scoped before we lock your price.",
     ];
@@ -266,14 +291,14 @@ function buildParagraphs(
     if (city === "auckland") {
       return [
         "Exit cleaning for Auckland tenancies, settlements, and post-construction handovers. Fixed pricing aligned with your move-out date.",
-        "We work alongside our house moving teams so keys and inspections line up.",
+        "We work alongside our residential moving teams so keys and inspections line up.",
         "Property left spotless and ready for inspection.",
       ];
     }
     return [
       "Hamilton and Waikato exit cleans from our Hamilton base. Tenancy and settlement cleans scheduled around your move.",
       "Fixed-price cleaning matched to bedrooms and bathrooms. No surprises on invoice day.",
-      "Pair with a Hamilton house move for one coordinated timeline.",
+      "Pair with a Hamilton home relocation for one coordinated timeline.",
     ];
   }
 
@@ -288,7 +313,7 @@ function buildParagraphs(
     return [
       "Hard-to-shift work in Hamilton and the Waikato: spa pools, bulky furniture, and items that need extra planning. We scope access from our Hamilton base.",
       "Same careful handling standards as our Auckland specialist jobs, with clear travel and timing in your quote.",
-      "Combine with house moving or storage when your job spans more than one tricky item.",
+      "Combine with relocating or storage when your job spans more than one tricky item.",
     ];
   }
 
@@ -297,7 +322,7 @@ function buildParagraphs(
       return [
         "Need a written quote for a WINZ or moving assistance application in Auckland? We provide clear scope, pricing, and prompt follow-up.",
         "Tell us addresses, approximate volume, and dates. We respond quickly so you can complete your application without delay.",
-        "House moves, packing, and cleaning quotes available from the same team.",
+        "Home relocations, packing, and cleaning quotes available from the same team.",
       ];
     }
     return [
@@ -312,7 +337,7 @@ function buildParagraphs(
       return [
         "Professional packing and unpacking across Auckland homes and apartments. Packers come in the day before your move when you book a full pack.",
         "Quality materials, moving blankets, and furniture disassembly support from our Wairau Valley teams.",
-        "Pair with house moving or storage on one plan.",
+        "Pair with relocating or storage on one plan.",
       ];
     }
     return [
@@ -325,7 +350,7 @@ function buildParagraphs(
   if (serviceSlug === "loading-unloading") {
     if (city === "auckland") {
       return [
-        "Hire experienced Auckland movers for loading, unloading, containers, and heavy lifts without booking a full house move.",
+        "Hire experienced Auckland movers for loading, unloading, containers, and heavy lifts without booking a full home relocation.",
         "Careful handling for furniture and boxed goods with clear hourly or scoped pricing.",
         "Popular for container deliveries, storage transfers, and extra hands on move day.",
       ];
@@ -347,7 +372,7 @@ function buildParagraphs(
     }
     return [
       "Hamilton and Waikato storage from our local base. Bridge gaps between homes, renovations, or regional move legs.",
-      "Delivery back to your new address when you are ready, with the same crew standards as our house moves.",
+      "Delivery back to your new address when you are ready, with the same crew standards as our home relocations.",
       "Ask about storage in transit for Auckland to Hamilton routes.",
     ];
   }
@@ -384,7 +409,7 @@ export function getServiceCityConfig(
   if (!source || !isServiceCitySlug(city)) return null;
 
   const seo = serviceSeo[serviceSlug] ?? {
-    keyword: source.title.toLowerCase(),
+    aucklandKeyword: source.title.toLowerCase(),
     shortTitle: source.title,
     jobFocus: source.title.toLowerCase(),
   };
@@ -404,8 +429,7 @@ export function getServiceCityConfig(
         ? `${seo.shortTitle} ${c.name} | Specialist Piano Movers`
         : `${seo.shortTitle} ${c.name} | Specialist Movers`),
     metaDescription:
-      pianoExtra?.metaDescription ??
-      `${seo.keyword} in ${c.name}. ${source.description} Free quote. Callback within 15 minutes.`,
+      pianoExtra?.metaDescription ?? serviceCityMetaDescription(seo, city),
     h1: `${seo.shortTitle} ${c.name}`,
     lead:
       pianoExtra?.lead ??

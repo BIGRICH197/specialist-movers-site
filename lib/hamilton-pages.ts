@@ -82,7 +82,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     parentLabel: "Piano moving",
     metaTitle: "Piano moving Hamilton | Specialist Piano Movers",
     metaDescription:
-      "Hamilton piano moving for upright and grand pianos. Waikato base, Auckland routes, storage and international crating. Free quote within 15 minutes.",
+      "Hamilton piano movers for upright and grand pianos. Waikato base, Auckland routes, storage and crating. Free quote within 15 minutes.",
     h1: "Piano movers Hamilton",
     lead:
       "Hamilton is our second base for piano work. We move uprights and grands across the city, Cambridge, and wider Waikato, and we run regular Hamilton to Auckland routes for families and music stores.",
@@ -148,19 +148,19 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     parentLabel: "Auckland Moving Company",
     metaTitle: "Hamilton Moving Company | Specialist Movers",
     metaDescription:
-      "Hamilton movers for flats, family homes, and lifestyle blocks. Viewing-first quotes, packing, piano, and storage. Waikato base. Free quote.",
+      "Hamilton movers and removalists. Home relocations, furniture removals, packing and piano. Waikato base. Free quote in 15 minutes.",
     h1: "Hamilton Moving Company",
     lead:
       "Moving house in Hamilton or the wider Waikato? Our local base plans every job with a viewing-first approach so your quote matches stairs, driveways, and volume before we lock the price.",
     paragraphs: [
-      "From Hillcrest and Hamilton East through to Rototuna and rural lifestyle blocks, we run Waikato house moves every week. Apartments, townhouses, and full home relocations are all in scope.",
+      "From Hillcrest and Hamilton East through to Rototuna and rural lifestyle blocks, we run Waikato home relocations every week. Apartments, townhouses, and full home relocations are all in scope.",
       "Relocating between Hamilton and Auckland? We coordinate one crew and one timeline instead of handing your load to a third party mid-route. Packing, piano transport, exit cleans, and storage can sit on the same plan.",
       "Larger homes benefit from a free in-home viewing so we send the right truck and crew size. You get SiteWise Gold systems, licensed crews, and the same communication standards as our Auckland work.",
     ],
     highlightCards: [
       {
         title: "Viewing-first quotes",
-        body: "Fixed-price house moves when we have scoped access, volume, and parking at both ends.",
+        body: "Fixed-price home relocations when we have scoped access, volume, and parking at both ends.",
       },
       {
         title: "Waikato know-how",
@@ -185,7 +185,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     ],
     whyChooseCopy:
       "Hamilton moves fail when travel and access are guessed. We visit when needed, explain call-out and day rates clearly, and keep you updated from quote to handover.",
-    defaultJobType: "House Move",
+    defaultJobType: "Home Move",
     heroPhoto: sitePhotos.homeHero,
     heroPhotoAlt:
       "Specialist Movers carrying a sofa while the client relaxes and reads a magazine",
@@ -300,7 +300,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
       "Hamilton packing teams help before a local move or a Hamilton to Auckland relocation. Packers come in the day before your move when you book a full pack, with quality materials and the same care standards as Auckland.",
     paragraphs: [
       "Kitchens, fragile items, and wardrobe boxes need proper technique, not speed for its own sake. We label clearly so unpacking at your new Waikato or Auckland address stays organised.",
-      "Partial packs are available when you only need help with breakables or a few rooms. We can combine packing with house moving on one quote.",
+      "Partial packs are available when you only need help with breakables or a few rooms. We can combine packing with your relocation on one quote.",
       "Fixed-scope packing quotes after we understand volume, access, and your move date.",
     ],
     highlightCards: [
@@ -349,7 +349,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     paragraphs: [
       "Lifestyle blocks and hill sections are common in the Waikato. We visit when photos are not enough so crew size and equipment match the real job.",
       "The same careful handling standards apply whether you are in Hamilton city or moving a bulky item between towns. Moving blankets, straps, and specialist techniques protect your property and ours.",
-      "Combine with house moving or storage when the awkward item is part of a bigger relocation.",
+      "Combine with relocating or storage when the awkward item is part of a bigger relocation.",
     ],
     highlightCards: [
       {
@@ -374,7 +374,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
       "Hamilton city and Waikato rural properties",
       "Stairs, tight hallways, and awkward pathways",
       "Moving blankets and protective materials",
-      "Coordination with house moves when needed",
+      "Coordination with home relocations when needed",
     ],
     whyChooseCopy:
       "Standard movers often say no to the hard jobs. We plan Hamilton specialist moves properly so nothing is improvised on the day.",
@@ -395,7 +395,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     lead:
       "Tenancy and settlement cleans in Hamilton scheduled around your move-out date. Fixed pricing by bedrooms and bathrooms, no surprises on invoice day.",
     paragraphs: [
-      "We work alongside our Hamilton house moving teams so keys, inspections, and handovers line up. One timeline is easier than juggling separate contractors.",
+      "We work alongside our Hamilton residential moving teams so keys, inspections, and handovers line up. One timeline is easier than juggling separate contractors.",
       "Cambridge, Morrinsville, and nearby towns can be included when travel is quoted up front.",
       "Property left spotless and ready for inspection is the goal every time.",
     ],
@@ -422,7 +422,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
       "Post-move handover timing",
       "Fixed-price by bedrooms and bathrooms",
       "Hamilton and selected Waikato towns",
-      "Can bundle with house moving",
+      "Can bundle with home relocations",
     ],
     whyChooseCopy:
       "Exit cleaning stress usually comes from bad timing. We coordinate with your move so the property is ready when the agent arrives.",
@@ -474,7 +474,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     ],
     whyChooseCopy:
       "International moves from Hamilton should not feel like a black box. We explain the steps and stay reachable when plans change.",
-    defaultJobType: "House Move",
+    defaultJobType: "Home Move",
     heroPhoto: sitePhotos.commercialHero,
     heroPhotoAlt: "International move planning Specialist Movers",
     locationHref: "/locations/hamilton",
@@ -495,7 +495,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
       "Hire experienced Hamilton movers for loading, unloading, and heavy lifts. Containers and storage transfers. Free quote and callback in 15 minutes.",
     h1: "Loading and unloading Hamilton",
     lead:
-      "Need extra hands in Hamilton without booking a full house move? Our crews load and unload containers, storage units, and rental trucks with careful handling for furniture and boxed goods.",
+      "Need extra hands in Hamilton without booking a full home relocation? Our crews load and unload containers, storage units, and rental trucks with careful handling for furniture and boxed goods.",
     paragraphs: [
       "Popular when you have hired a truck yourself, need a container emptied, or want help for part of the day only.",
       "We quote crew size and minimum hours clearly so you know what you are paying for.",
@@ -527,7 +527,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     ],
     whyChooseCopy:
       "Loading day injuries and damage often come from untrained help. Our Hamilton crews know how to stack, strap, and protect a load properly.",
-    defaultJobType: "House Move",
+    defaultJobType: "Home Move",
     heroPhoto: sitePhotos.truckLoad,
     heroPhotoAlt: "Truck loading Specialist Movers Hamilton",
     locationHref: "/locations/hamilton",
@@ -546,7 +546,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     paragraphs: [
       "Tell us addresses, approximate volume, and dates. We respond promptly so you are not waiting on paperwork.",
       "Hamilton city, student flats, and wider Waikato towns are covered from our local base. Auckland to Hamilton relocations can be quoted when both addresses are provided.",
-      "House moves, packing, and cleaning quotes available from the same team.",
+      "Home relocations, packing, and cleaning quotes available from the same team.",
     ],
     highlightCards: [
       {
@@ -570,11 +570,11 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
       "Written quotes for moving assistance applications",
       "Hamilton and Waikato addresses",
       "Clear scope and prompt follow-up",
-      "House move, pack, and clean quotes available",
+      "Home relocation, pack, and clean quotes available",
     ],
     whyChooseCopy:
       "You need the quote fast and correct. We keep Hamilton WINZ quotes simple and respond quickly.",
-    defaultJobType: "House Move",
+    defaultJobType: "Home Move",
     heroPhoto: sitePhotos.aboutTeam,
     heroPhotoAlt: "Specialist Movers team Hamilton depot",
     locationHref: "/locations/hamilton",
@@ -622,7 +622,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     ],
     whyChooseCopy:
       "Storage works best when the same movers who packed you in unpack you out. We keep Hamilton storage accountable and clear on access terms.",
-    defaultJobType: "House Move",
+    defaultJobType: "Home Move",
     heroPhoto: sitePhotos.specialistItem,
     heroPhotoAlt: "Wrapped furniture storage Specialist Movers",
     locationHref: "/locations/hamilton",

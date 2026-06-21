@@ -10,7 +10,7 @@ import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 export const metadata: Metadata = buildPageMetadata({
   title: "Choose your move",
   description:
-    "House moves, piano moves, commercial relocations, packing, cleaning, and more, Specialist Movers Auckland and Waikato.",
+    "Home relocations, piano moves, commercial relocations, packing, cleaning, and more, Specialist Movers Auckland and Waikato.",
   path: "/portal",
   robots: { index: false, follow: true },
 });

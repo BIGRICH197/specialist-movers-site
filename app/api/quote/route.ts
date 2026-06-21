@@ -263,7 +263,7 @@ export async function POST(request: Request) {
       name: body.name,
       phone: body.phone,
       email: body.email,
-      serviceType: "House Move",
+      serviceType: "Home Move",
       pickupAddress: body.pickupAddress,
       dropoffAddress: body.dropoffAddress,
       preferredDate: body.preferredDate,
