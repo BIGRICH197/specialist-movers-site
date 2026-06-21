@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { bookingTerms, BOOKING_TERMS_VERSION } from "@/lib/quote-deck/booking-terms";
 
 // Branded booking form — mirrors the JotForm "House move booking confirmation"
 // fields, prefilled from the quote. On submit it posts to /api/bookings, which
@@ -69,7 +70,24 @@ export function BookingForm({
   });
   const [whatPacking, setWhatPacking] = useState<string[]>([]);
   const [agree, setAgree] = useState(false);
+  const [signature, setSignature] = useState("");
+  const [termsScrolled, setTermsScrolled] = useState(false);
+  const termsRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
+
+  // If the terms box is short enough not to scroll, count it as already read.
+  useEffect(() => {
+    const el = termsRef.current;
+    if (el && el.scrollHeight <= el.clientHeight + 4) setTermsScrolled(true);
+  }, []);
+
+  function handleTermsScroll() {
+    const el = termsRef.current;
+    if (!el) return;
+    if (el.scrollTop + el.clientHeight >= el.scrollHeight - 16) setTermsScrolled(true);
+  }
+
+  const canSubmit = termsScrolled && agree && signature.trim().length > 1;
 
   const set = (k: string, v: string) => setF((p) => ({ ...p, [k]: v }));
   const togglePacking = (opt: string) =>
@@ -80,12 +98,16 @@ export function BookingForm({
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    if (!agree || status === "sending") return;
+    if (!canSubmit || status === "sending") return;
     setStatus("sending");
     const fields = {
       ...f,
       whatPacking: whatPacking.join(", "),
       agreeTerms: "yes",
+      termsSignature: signature.trim(),
+      termsSignedAt: new Date().toISOString(),
+      termsVersion: BOOKING_TERMS_VERSION,
+      termsScrolled: "yes",
     };
     try {
       const res = await fetch("/api/bookings", {
@@ -259,14 +281,57 @@ export function BookingForm({
           </div>
         </div>
 
-        <label className="mt-7 flex items-start gap-3 text-sm text-brand-purple">
-          <input type="checkbox" className="mt-1" checked={agree} onChange={(e) => setAgree(e.target.checked)} />
-          <span>
-            I have read, understand and agree to the{" "}
-            <a href="/policies" target="_blank" className="font-semibold underline">terms and conditions</a>{" "}
-            of Specialist Movers.
-          </span>
-        </label>
+        <div className="mt-7">
+          <span className={labelCls}>Terms and conditions</span>
+          <p className="mt-1 text-xs text-brand-purple/60">
+            Please read these in full. Scroll to the end to sign and accept.
+          </p>
+          <div
+            ref={termsRef}
+            onScroll={handleTermsScroll}
+            className="mt-2 h-56 overflow-y-auto rounded-lg border border-brand-purple/20 bg-brand-canvas/40 p-4 text-sm leading-relaxed text-brand-purple/85"
+          >
+            {bookingTerms.map((s) => (
+              <div key={s.heading} className="mb-4 last:mb-0">
+                <h3 className="font-semibold text-brand-purple">{s.heading}</h3>
+                {s.paragraphs.map((p) => (
+                  <p key={p.slice(0, 30)} className="mt-1.5">{p}</p>
+                ))}
+              </div>
+            ))}
+          </div>
+
+          {!termsScrolled ? (
+            <p className="mt-2 text-xs font-semibold text-brand-purple/60">
+              Scroll to the bottom of the terms to sign and continue.
+            </p>
+          ) : null}
+
+          <div className={termsScrolled ? "mt-4" : "mt-4 pointer-events-none opacity-40"}>
+            <label className={labelCls}>Sign — type your full name</label>
+            <input
+              className={`${inputCls} font-heading text-lg`}
+              placeholder="Your full name"
+              autoComplete="name"
+              disabled={!termsScrolled}
+              value={signature}
+              onChange={(e) => setSignature(e.target.value)}
+            />
+            <label className="mt-3 flex items-start gap-3 text-sm text-brand-purple">
+              <input
+                type="checkbox"
+                className="mt-1"
+                checked={agree}
+                disabled={!termsScrolled}
+                onChange={(e) => setAgree(e.target.checked)}
+              />
+              <span>
+                I have read these terms and conditions of Specialist Movers in full,
+                and I agree to them.
+              </span>
+            </label>
+          </div>
+        </div>
 
         {status === "error" && (
           <p className="mt-4 text-sm font-medium text-red-600">
@@ -276,10 +341,10 @@ export function BookingForm({
 
         <button
           type="submit"
-          disabled={!agree || status === "sending"}
+          disabled={!canSubmit || status === "sending"}
           className="mt-6 w-full rounded-full bg-brand-purple px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-brand-purple/90 disabled:cursor-not-allowed disabled:opacity-50"
         >
-          {status === "sending" ? "Submitting…" : "Confirm booking"}
+          {status === "sending" ? "Submitting…" : "Sign & confirm booking"}
         </button>
       </form>
     </main>
