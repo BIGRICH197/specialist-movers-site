@@ -67,6 +67,7 @@ export async function POST(request: Request) {
           token: stored.token,
           quoteType: stored.quoteType,
           xeroQuoteId: stored.xeroQuoteId,
+          hubspotDealId: stored.hubspotDealId,
           quote: stored.quote,
           booking: fields,
         }),

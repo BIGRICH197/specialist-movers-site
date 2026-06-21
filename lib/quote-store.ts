@@ -30,6 +30,9 @@ export type StoredQuote = {
   quoteType?: QuoteServiceType;
   /** Link back to the Xero draft quote, for reference. */
   xeroQuoteId?: string;
+  /** HubSpot deal id this quote came from. Lets the booking hand-off (n8n)
+   *  move the EXACT deal to Closed Won instead of fuzzy-matching by email. */
+  hubspotDealId?: string;
   /** The full deck-renderable quote object. */
   quote: HouseMoveQuote;
   /** Contact/move details for booking-form prefill only. Never rendered on the deck. */

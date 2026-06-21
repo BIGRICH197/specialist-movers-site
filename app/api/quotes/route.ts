@@ -20,6 +20,7 @@ type CreateBody = {
   quote: HouseMoveQuote;
   quoteType?: QuoteServiceType;
   xeroQuoteId?: string;
+  hubspotDealId?: string;
   /** Contact/move details for booking-form prefill only (not shown on the deck). */
   prefill?: QuotePrefill;
   /** Pass an existing token to update that quote in place (same link). */
@@ -74,6 +75,7 @@ export async function POST(request: Request) {
     slug,
     quoteType: body.quoteType,
     xeroQuoteId: body.xeroQuoteId,
+    hubspotDealId: body.hubspotDealId,
     quote: body.quote,
     prefill: body.prefill,
     createdAt: new Date().toISOString(),
