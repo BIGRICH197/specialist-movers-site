@@ -5,12 +5,51 @@ import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
 import { privacyPolicySections } from "@/lib/privacy-policy-sections";
+import {
+  bookingTerms,
+  cleaningTerms,
+  type BookingTermsSection,
+} from "@/lib/quote-deck/booking-terms";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Privacy Policy",
+  title: "Privacy & Terms",
   description: legacyMetaDescription("policies"),
   path: "/policies",
 });
+
+function TermsGroup({
+  title,
+  sections,
+}: {
+  title: string;
+  sections: BookingTermsSection[];
+}) {
+  return (
+    <section>
+      <h2 className="font-heading text-2xl text-brand-purple">{title}</h2>
+      <div className="mt-4 space-y-6">
+        {sections.map((s) => (
+          <div key={s.heading}>
+            <h3 className="font-heading text-lg text-brand-purple">{s.heading}</h3>
+            <div className="mt-2 space-y-2 text-sm leading-relaxed text-brand-purple/85">
+              {s.paragraphs.map((p) => (
+                <p key={p.slice(0, 40)}>{p}</p>
+              ))}
+              {s.bullets ? (
+                <ul className="list-disc space-y-1 pl-5">
+                  {s.bullets.map((b) => (
+                    <li key={b.slice(0, 40)}>{b}</li>
+                  ))}
+                </ul>
+              ) : null}
+              {s.tail ? s.tail.map((p) => <p key={p.slice(0, 40)}>{p}</p>) : null}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 export default function PoliciesPage() {
   return (
@@ -18,8 +57,8 @@ export default function PoliciesPage() {
       <PageHero
         variant="light"
         eyebrow="Legal"
-        title="Privacy policy"
-        description="Imported from our live site. Booking terms, deposits, and liability wording for moves can be added when your solicitor supplies final service terms."
+        title="Privacy & terms"
+        description="Our privacy policy and the terms and conditions for your move and cleaning service."
       />
 
       <PagePhotoMomentStrip momentKey="policies" />
@@ -48,17 +87,18 @@ export default function PoliciesPage() {
           </section>
         ))}
 
+        <TermsGroup title="Moving terms and conditions" sections={bookingTerms} />
+        <TermsGroup title="Cleaning terms and conditions" sections={cleaningTerms} />
+
         <p className="rounded-xl border border-brand-purple/15 bg-brand-purple/[0.03] p-4 text-xs text-brand-purple/70">
-          Service terms and conditions (deposits, cancellations, damage claims,
-          weather delays) are not on the old site as a separate page we could
-          import. Add them here when ready, or{" "}
+          Questions about your move or clean?{" "}
           <Link
             href="/contact"
             className="font-semibold text-brand-purple underline"
           >
-            contact us
+            Contact us
           </Link>{" "}
-          for move-specific questions.
+          and we will be happy to help.
         </p>
       </div>
     </div>

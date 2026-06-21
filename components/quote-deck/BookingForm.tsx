@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { bookingTerms, BOOKING_TERMS_VERSION } from "@/lib/quote-deck/booking-terms";
+import { bookingTerms, cleaningTerms, BOOKING_TERMS_VERSION } from "@/lib/quote-deck/booking-terms";
 
 // Branded booking form — mirrors the JotForm "House move booking confirmation"
 // fields, prefilled from the quote. On submit it posts to /api/bookings, which
@@ -43,9 +43,11 @@ const inputCls =
 export function BookingForm({
   quoteRef,
   prefill,
+  quoteType,
 }: {
   quoteRef: string;
   prefill: BookingPrefill;
+  quoteType?: string;
 }) {
   const [f, setF] = useState<Record<string, string>>({
     fullName: prefill.fullName ?? "",
@@ -75,11 +77,20 @@ export function BookingForm({
   const termsRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
 
-  // If the terms box is short enough not to scroll, count it as already read.
+  // Cleaning T&Cs are shown in addition to the moving terms when the job
+  // includes cleaning (cleaning quote, or "Yes Cleaning" selected on the form).
+  const showCleaning =
+    quoteType === "cleaning" || f.cleaningBooked === "Yes Cleaning";
+  const terms = showCleaning ? [...bookingTerms, ...cleaningTerms] : bookingTerms;
+
+  // Re-evaluate the scroll gate whenever the term set changes: reset to
+  // "not read" so the customer must scroll the new content, unless it is short
+  // enough not to scroll at all.
   useEffect(() => {
     const el = termsRef.current;
-    if (el && el.scrollHeight <= el.clientHeight + 4) setTermsScrolled(true);
-  }, []);
+    if (!el) return;
+    setTermsScrolled(el.scrollHeight <= el.clientHeight + 4);
+  }, [showCleaning]);
 
   function handleTermsScroll() {
     const el = termsRef.current;
@@ -291,7 +302,7 @@ export function BookingForm({
             onScroll={handleTermsScroll}
             className="mt-2 h-56 overflow-y-auto rounded-lg border border-brand-purple/20 bg-brand-canvas/40 p-4 text-sm leading-relaxed text-brand-purple/85"
           >
-            {bookingTerms.map((s) => (
+            {terms.map((s) => (
               <div key={s.heading} className="mb-4 last:mb-0">
                 <h3 className="font-semibold text-brand-purple">{s.heading}</h3>
                 {s.paragraphs.map((p) => (

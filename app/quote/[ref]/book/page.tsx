@@ -47,5 +47,5 @@ export default async function BookPage({ params }: { params: { ref: string } }) 
     packing: addOns.includes("packing") ? "Yes packing" : "",
   };
 
-  return <BookingForm quoteRef={params.ref} prefill={prefill} />;
+  return <BookingForm quoteRef={params.ref} prefill={prefill} quoteType={stored.quoteType} />;
 }

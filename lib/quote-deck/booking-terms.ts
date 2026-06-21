@@ -167,3 +167,150 @@ export const bookingTerms: BookingTermsSection[] = [
     ],
   },
 ];
+
+// Shown IN ADDITION to the moving terms when the booking includes cleaning.
+// NOTE FOR RICHARD: section 13 (Insurance) was cut off in the source supplied,
+// so it is a placeholder. Replace with the full clause and bump the version.
+export const cleaningTerms: BookingTermsSection[] = [
+  {
+    heading: "Specialist Cleaners - Terms and Conditions",
+    paragraphs: [
+      "These Terms and Conditions apply to all residential, commercial, and end-of-tenancy cleaning services provided by Specialist Cleaners (we, us, our) to the customer (you, the Client).",
+      "By booking a cleaning service with us, you agree to the following terms.",
+    ],
+  },
+  {
+    heading: "1. Scope of Cleaning Services",
+    paragraphs: [
+      "Our cleaning services are provided strictly in accordance with our Cleaning Schedule / End of Tenancy Cleaning List as supplied at the time of booking.",
+      "Only the items listed in the schedule are included in the standard service. Any services listed as Optional Extras must be requested and confirmed prior to the booking. Any services listed as Excluded are not covered, including under any re-clean or guarantee.",
+    ],
+  },
+  {
+    heading: "2. End of Tenancy / Bond Cleans",
+    paragraphs: [
+      "Real estate agencies and property managers may have specific or additional requirements for bond or end-of-tenancy cleans.",
+      "It is the Client's responsibility to review their tenancy agreement and advise us before the service of any special conditions. If we are not informed of additional requirements prior to the clean, these items are not included and not covered under our guarantee.",
+    ],
+  },
+  {
+    heading: "3. Estimates & Pricing Adjustments",
+    paragraphs: [
+      "Where price estimates are provided based on information supplied by the Client, we reserve the right to adjust pricing if:",
+    ],
+    bullets: [
+      "The property condition differs from what was disclosed",
+      "Additional time, labour, or services are required",
+      "Optional extras were not previously advised",
+      "The property is excessively dirty or requires intensive cleaning",
+    ],
+    tail: ["Any additional costs will be discussed with the Client where possible."],
+  },
+  {
+    heading: "4. Access & Property Condition",
+    paragraphs: ["The Client must ensure:"],
+    bullets: [
+      "Safe, unobstructed access to the property at the scheduled time",
+      "Electricity and water are connected and available",
+      "The property is vacant (unless otherwise agreed)",
+      "All personal belongings have been removed where required",
+    ],
+    tail: [
+      "We are not responsible for delays or incomplete work due to lack of access or unsafe conditions.",
+    ],
+  },
+  {
+    heading: "5. Health & Safety",
+    paragraphs: [
+      "We operate under strict Health and Safety practices.",
+      "We reserve the right to refuse or discontinue services if:",
+    ],
+    bullets: [
+      "There are unsafe conditions",
+      "Biohazards, animal waste, or hazardous materials are present",
+      "Cleaning would result in damage to the property or surfaces",
+    ],
+  },
+  {
+    heading: "6. Cleaning Limitations & Wear and Tear",
+    paragraphs: [
+      "Cleaning improves appearance but does not restore items to as new condition.",
+      "The following are considered normal wear and tear and are not guaranteed outcomes:",
+    ],
+    bullets: [
+      "Permanent staining",
+      "Discolouration",
+      "Scratches, chips, rust, or damage",
+      "Nicotine or smoke staining",
+      "Mould beyond surface-level cleaning",
+    ],
+  },
+  {
+    heading: "7. Excluded Services",
+    paragraphs: [
+      "The following are excluded from our services and guarantee (non-exhaustive list):",
+    ],
+    bullets: [
+      "Carpet shampooing or wet carpet cleaning",
+      "Full wall washing (internal or external)",
+      "Tile & grout specialist cleaning",
+      "Oil or grease removal from garages or driveways",
+      "Chandelier or high-reach cleaning beyond step-ladder height",
+      "Outdoor rubbish bins, large decks, or extensive exterior areas",
+      "Animal waste, gardening, or garden waste removal",
+    ],
+    tail: ["(Refer to full exclusions list in the Cleaning Schedule.)"],
+  },
+  {
+    heading: "8. Guarantee & Re-Clean Policy",
+    paragraphs: ["Where a re-clean guarantee is offered:"],
+    bullets: [
+      "The Client must notify us within 48 hours of service completion",
+      "The issue must relate to items included in the original cleaning scope",
+      "We must be given the opportunity to re-clean before third-party cleaners are engaged",
+    ],
+    tail: [
+      "The guarantee does not apply to excluded services, wear and tear, or undisclosed requirements.",
+    ],
+  },
+  {
+    heading: "9. Damage & Liability",
+    paragraphs: ["While every care is taken, we do not accept responsibility for:"],
+    bullets: [
+      "Pre-existing damage",
+      "Damage caused by faulty fixtures, fittings, or surfaces",
+      "Items that deteriorate due to age, poor condition, or improper installation",
+    ],
+    tail: ["Any concerns must be reported within 24 hours of service completion."],
+  },
+  {
+    heading: "10. Delays",
+    paragraphs: [
+      "All services are carried out on a best-endeavours basis.",
+      "We are not liable for delays caused by factors outside our control, including traffic, weather, or access issues.",
+    ],
+  },
+  {
+    heading: "11. Cancellations",
+    paragraphs: [],
+    bullets: [
+      "Cancellations within 24 hours of the booking may incur a cancellation fee",
+      "Same-day cancellations may be charged up to the full service amount",
+    ],
+  },
+  {
+    heading: "12. Payment Terms",
+    paragraphs: [],
+    bullets: [
+      "Payment is due within 24 hours of service completion unless agreed otherwise",
+      "Overdue accounts may incur an administration fee",
+      "Unpaid accounts may be referred for debt collection, with associated costs payable by the Client",
+    ],
+  },
+  {
+    heading: "13. Insurance",
+    paragraphs: [
+      "We recommend Clients ensure adequate insurance cover is in place for their property and belongings.",
+    ],
+  },
+];
