@@ -117,7 +117,7 @@ function defaultModeFromJob(jt?: JobType, jts?: JobType[]): Mode {
 function modeLabel(mode: Mode): string {
   if (mode === "commercial") return "Commercial move";
   if (mode === "office") return "Office move";
-  if (mode === "house") return "Home move instant quote";
+  if (mode === "house") return "Moving house instant quote";
   if (mode === "piano") return "Piano move instant quote";
   return "Move";
 }
@@ -409,10 +409,10 @@ export function QuoteForm({
             <Home className="h-6 w-6 shrink-0 text-brand-purple" />
             <div>
               <p className="font-heading text-sm font-bold uppercase tracking-wide text-brand-purple">
-                Home Move
+                Moving house
               </p>
               <p className="text-xs text-brand-purple/60">
-                Get an instant estimate for your home move
+                Get an instant estimate for your relocation
               </p>
             </div>
             <ArrowRight className="ml-auto h-5 w-5 shrink-0 text-brand-purple/40" />

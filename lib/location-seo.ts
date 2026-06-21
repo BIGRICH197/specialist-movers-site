@@ -940,7 +940,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     faqs: [
       {
         q: "Do you cover rural properties around Te Awamutu?",
-        a: "Yes. we cover Te Awamutu town and surrounding rural roads from Hamilton. A viewing locks in truck access and a fixed house-move price.",
+        a: "Yes. we cover Te Awamutu town and surrounding rural roads from Hamilton. A viewing locks in truck access and a fixed price for your move.",
       },
       {
         q: "How far in advance should I book?",
@@ -1232,7 +1232,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   "palmerston-north": {
     extraParagraphs: [
-      `Palmerston North sits on our lower North Island corridor from Hamilton, house, office, piano, and commercial moves with travel quoted upfront. ${pianoProtection}`,
+      `Palmerston North sits on our lower North Island corridor from Hamilton, home, office, piano, and commercial moves with travel quoted upfront. ${pianoProtection}`,
       longDistancePricing,
     ],
     faqs: [
