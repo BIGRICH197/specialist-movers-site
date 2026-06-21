@@ -153,7 +153,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     lead:
       "Moving house in Hamilton or the wider Waikato? Our local base plans every job with a viewing-first approach so your quote matches stairs, driveways, and volume before we lock the price.",
     paragraphs: [
-      "From Hillcrest and Hamilton East through to Rototuna and rural lifestyle blocks, we run Waikato home relocations every week. Apartments, townhouses, and full home relocations are all in scope.",
+      "From Hillcrest and Hamilton East through to Rototuna and rural lifestyle blocks, we run Waikato home relocations every week. Apartments, townhouses, and full household moves are all in scope.",
       "Relocating between Hamilton and Auckland? We coordinate one crew and one timeline instead of handing your load to a third party mid-route. Packing, piano transport, exit cleans, and storage can sit on the same plan.",
       "Larger homes benefit from a free in-home viewing so we send the right truck and crew size. You get SiteWise Gold systems, licensed crews, and the same communication standards as our Auckland work.",
     ],
@@ -349,7 +349,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
     paragraphs: [
       "Lifestyle blocks and hill sections are common in the Waikato. We visit when photos are not enough so crew size and equipment match the real job.",
       "The same careful handling standards apply whether you are in Hamilton city or moving a bulky item between towns. Moving blankets, straps, and specialist techniques protect your property and ours.",
-      "Combine with relocating or storage when the awkward item is part of a bigger relocation.",
+      "Combine with a home move or storage when the awkward item is part of a bigger relocation.",
     ],
     highlightCards: [
       {

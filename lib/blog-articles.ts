@@ -224,7 +224,7 @@ export const blogArticles: Record<string, BlogArticle> = {
       {
         heading: "Introduction",
         paragraphs: [
-          "Shifting to a new home doesn't have to be a daunting task. Proper planning and expert guidance can simplify your relocating experience. Here are some tips from expert movers to guide you through the process:",
+          "Shifting to a new home doesn't have to be a daunting task. Proper planning and expert guidance can simplify your relocation. Here are some tips from expert movers to guide you through the process:",
         ],
       },
       {

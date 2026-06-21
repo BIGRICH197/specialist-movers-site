@@ -267,7 +267,7 @@ export const homepageSeoSections = [
 
 export const aboutPage = {
   intro:
-    "Auckland and Hamilton movers for home relocations, piano, commercial, and specialist work-NZ owned, SiteWise Gold, and built for careful moves.",
+    "Auckland and Hamilton movers for home relocations, piano, commercial, and specialist work. NZ owned, SiteWise Gold, and built for careful moves.",
   story: hero.coverage,
 };
 

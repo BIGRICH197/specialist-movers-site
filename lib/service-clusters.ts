@@ -105,7 +105,7 @@ export const storageServices: readonly ServiceClusterItem[] = [
       "Flexible duration, weeks, not years required",
       "Careful pickup, wrapping, and inventory on entry",
       "Delivery back to your new address when you are ready",
-      "Can combine with packing and relocating on one plan",
+      "Can combine with packing and your move on one plan",
     ],
     whyChooseCopy:
       "Timing stress is what makes moves feel chaotic. Short-term storage with the same team that moves you means fewer handoffs and clearer accountability.",

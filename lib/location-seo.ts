@@ -116,7 +116,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Hillcrest is a quick run from our Glenfield depot, established family homes, units, and cross-leases we move every week.",
     paragraphs: [
       "Much of Hillcrest is 1960s to 80s homes and brick units down shared driveways, where parking and carry distance matter most. We scope the driveway and door access so the crew works efficiently.",
-      "Close to base, Hillcrest moves are easy to schedule, often on shorter notice. House, piano, packing, and office moves are all covered.",
+      "Close to base, Hillcrest moves are easy to schedule, often on shorter notice. Home relocations, piano, packing, and office moves are all covered.",
     ],
     highlights: [
       "Minutes from our Glenfield depot",
@@ -934,7 +934,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   "te-awamutu": {
     extraParagraphs: [
-      `Te Awamutu moves include house relocations, commercial runs, and regular piano transport for homes and music schools. ${pianoProtection}`,
+      `Te Awamutu moves include home relocations, commercial runs, and regular piano transport for homes and music schools. ${pianoProtection}`,
       waikatoInAreaPricing,
     ],
     faqs: [

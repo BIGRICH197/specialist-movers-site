@@ -22,7 +22,7 @@ export type BookingPrefill = {
 
 const SIZE_OPTIONS = ["Single Item", "1 Bedroom", "2 Bedroom", "3 Bedroom", "4 Bedroom+", "Office Move"];
 const MOVERS_OPTIONS = ["2 MOVERS", "3 MOVERS", "4 MOVERS", "Other"];
-const TYPE_OPTIONS = ["Home Move", "Apartment Move", "Townhome relocation", "Office Move", "Single Item"];
+const TYPE_OPTIONS = ["Home Move", "Apartment Move", "Townhouse Move", "Office Move", "Single Item"];
 const PAYMENT_OPTIONS = ["Cash", "Invoice"];
 const CLEANING_OPTIONS = ["Yes Cleaning", "No Cleaning"];
 const CLEANING_SAMEDAY_OPTIONS = ["Yes it does", "No no it doesnt"];

@@ -313,7 +313,7 @@ function buildParagraphs(
     return [
       "Hard-to-shift work in Hamilton and the Waikato: spa pools, bulky furniture, and items that need extra planning. We scope access from our Hamilton base.",
       "Same careful handling standards as our Auckland specialist jobs, with clear travel and timing in your quote.",
-      "Combine with relocating or storage when your job spans more than one tricky item.",
+      "Combine with a home move or storage when your job spans more than one tricky item.",
     ];
   }
 
@@ -337,7 +337,7 @@ function buildParagraphs(
       return [
         "Professional packing and unpacking across Auckland homes and apartments. Packers come in the day before your move when you book a full pack.",
         "Quality materials, moving blankets, and furniture disassembly support from our Wairau Valley teams.",
-        "Pair with relocating or storage on one plan.",
+        "Pair with your move or storage on one plan.",
       ];
     }
     return [
