@@ -145,11 +145,11 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
 
   "house-moving": {
     parentHref: "/services/house-moving",
-    parentLabel: "House movers Auckland",
-    metaTitle: "House Movers Hamilton | Specialist Movers",
+    parentLabel: "Auckland Moving Company",
+    metaTitle: "Hamilton Moving Company | Specialist Movers",
     metaDescription:
-      "Hamilton house movers for flats, family homes, and lifestyle blocks. Viewing-first quotes, packing, piano, and storage. Waikato base. Free quote.",
-    h1: "House movers Hamilton",
+      "Hamilton movers for flats, family homes, and lifestyle blocks. Viewing-first quotes, packing, piano, and storage. Waikato base. Free quote.",
+    h1: "Hamilton Moving Company",
     lead:
       "Moving house in Hamilton or the wider Waikato? Our local base plans every job with a viewing-first approach so your quote matches stairs, driveways, and volume before we lock the price.",
     paragraphs: [

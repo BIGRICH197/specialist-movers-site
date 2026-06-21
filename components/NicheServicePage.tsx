@@ -61,6 +61,7 @@ export function NicheServicePage({ config }: Props) {
       <ServiceHeroWithQuote
         heading={config.h1}
         eyebrowLabel={config.eyebrow}
+        titleSlug={config.path.replace(/^\//, "")}
         lead={
           <p className="max-w-2xl text-base leading-relaxed text-white/85">
             {config.lead}

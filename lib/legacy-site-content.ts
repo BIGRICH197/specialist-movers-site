@@ -51,7 +51,7 @@ export const serviceBlurbs: Record<
   { title: string; excerpt: string }
 > = {
   "house-moving": {
-    title: "House Moving & Packing Auckland",
+    title: "Moving House & Packing Auckland",
     excerpt:
       "Full-service home moves across Auckland and the Waikato , furniture removals, professional packing, storage, and careful transport. Our experienced team makes residential moves smooth and stress-free.",
   },

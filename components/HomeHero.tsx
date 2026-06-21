@@ -57,10 +57,11 @@ const trustPills = [
   "Piano specialists",
 ] as const;
 
-/** Mobile hero copy only (desktop uses full hero from props). */
-const MOBILE_HERO_TITLE = "Trusted Auckland & Hamilton Movers";
+/** Mobile homepage hero — visible title vs indexed h1. */
+const MOBILE_HOME_DISPLAY_TITLE = "Trusted Auckland & Hamilton Movers";
+const MOBILE_HOME_SEO_H1 = "Specialist Movers Auckland & Hamilton";
+const MOBILE_HERO_TITLE = MOBILE_HOME_DISPLAY_TITLE;
 const MOBILE_HERO_BADGE = "Trusted movers · Auckland & Hamilton";
-const MOBILE_HOME_LOGO_TITLE = "Trusted Auckland & Hamilton movers";
 
 export function HomeHero({
   hero,
@@ -144,13 +145,15 @@ export function HomeHero({
                 className="-mt-0.5 w-full min-w-0 lg:hidden"
               >
                 <HeroTitleFit
-                  text={MOBILE_HOME_LOGO_TITLE}
+                  text={MOBILE_HOME_DISPLAY_TITLE}
                   tone="white"
-                  maxPx={28}
-                  minPx={13}
-                  fitScale={0.9}
-                  className="font-normal uppercase"
+                  maxPx={36}
+                  minPx={16}
+                  fitScale={1}
+                  className="font-normal"
+                  as="div"
                 />
+                <h1 className="sr-only">{MOBILE_HOME_SEO_H1}</h1>
               </motion.div>
             ) : (
               <motion.h1
@@ -175,7 +178,7 @@ export function HomeHero({
               {/* Desktop keeps the "Specialist Movers." visual, but the indexed
                   h1 matches the mobile keyword title (Google is mobile-first). */}
               {mobileHomeLogoExperiment ? (
-                <h1 className="sr-only">{MOBILE_HOME_LOGO_TITLE}</h1>
+                <h1 className="sr-only">{MOBILE_HOME_SEO_H1}</h1>
               ) : null}
               <HeroPhotoFrame
                 heading={hero.h1}

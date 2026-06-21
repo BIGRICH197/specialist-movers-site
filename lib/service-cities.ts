@@ -139,7 +139,7 @@ const serviceSeo: Record<string, ServiceSeo> = {
   },
   "house-moving": {
     keyword: "house movers",
-    shortTitle: "House movers",
+    shortTitle: "Moving house",
     jobFocus: "house moves",
   },
   "office-moving": {

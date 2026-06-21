@@ -79,7 +79,7 @@ export const apartmentMoversPage: NicheServicePageConfig = {
     "Optional exit cleaning aligned with your move-out",
   ],
   relatedLinks: [
-    { label: "House moving", href: aucklandServiceHref("house-moving") },
+    { label: "Moving house", href: aucklandServiceHref("house-moving") },
     { label: "Packing services", href: aucklandServiceHref("packing-services") },
     { label: "Exit cleaning", href: aucklandServiceHref("cleaning-services") },
     { label: "Loading and unloading", href: aucklandServiceHref("loading-unloading") },
@@ -164,7 +164,7 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
     "In-home assessment for accurate fixed pricing",
   ],
   relatedLinks: [
-    { label: "House moving", href: aucklandServiceHref("house-moving") },
+    { label: "Moving house", href: aucklandServiceHref("house-moving") },
     { label: "Packing services", href: aucklandServiceHref("packing-services") },
     { label: "Apartment movers", href: "/apartment-movers-auckland" },
     { label: "Storage", href: "/services/storage" },
@@ -279,7 +279,7 @@ export const movingToAustraliaPage: NicheServicePageConfig = {
     { label: "International moving Auckland", href: aucklandServiceHref("international-moving") },
     { label: "Packing services", href: aucklandServiceHref("packing-services") },
     { label: "Piano moving", href: "/piano-movers" },
-    { label: "House moving Auckland", href: aucklandServiceHref("house-moving") },
+    { label: "Moving house Auckland", href: aucklandServiceHref("house-moving") },
   ],
   faqHeading: "Moving to Australia FAQ",
   faqs: [

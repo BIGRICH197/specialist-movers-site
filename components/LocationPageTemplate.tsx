@@ -133,7 +133,7 @@ export function LocationPageTemplate({ location }: Props) {
               </Link>
               {" · "}
               <Link href={aucklandServiceHref("house-moving")} className="font-semibold text-brand-purple underline">
-                House moving
+                Moving house
               </Link>
               {" · "}
               <Link href="/piano-movers" className="font-semibold text-brand-purple underline">

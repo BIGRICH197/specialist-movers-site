@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { BrandLogomarkWatermark } from "@/components/BrandLogomarkWatermark";
 import { HeroPhotoFrame } from "@/components/hero/HeroPhotoFrame";
 import { ServiceMobileHeroHead } from "@/components/ServiceMobileHeroHead";
+import { getServiceMobileHeroTitle } from "@/lib/mobile-hero-title-reference";
 import { regions } from "@/lib/regions";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 import { ServiceHeroTrustStack } from "@/components/ServiceHeroTrustStack";
@@ -75,6 +76,9 @@ export function ServiceHeroWithQuote({
   showMobilePartnerMarquee = false,
   titleSlug,
 }: Props) {
+  const displayHeading = getServiceMobileHeroTitle(titleSlug, heading, eyebrowLabel);
+  const useSeoOnlyH1 = displayHeading !== heading;
+
   const pianoTrustPills =
     heroVariant === "piano"
       ? ([
@@ -172,7 +176,8 @@ export function ServiceHeroWithQuote({
             {topNav ? <div className="mb-4">{topNav}</div> : null}
             {photo ? (
               <HeroPhotoFrame
-                heading={heading}
+                heading={displayHeading}
+                seoHeading={useSeoOnlyH1 ? heading : undefined}
                 eyebrowLabel={eyebrowLabel}
                 headingNowrap={headingNowrap}
                 photo={photo}

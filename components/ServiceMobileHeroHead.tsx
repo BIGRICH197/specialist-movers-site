@@ -55,7 +55,7 @@ function FittedHeroTitle({
         as={showSeo ? "div" : "h1"}
         text={text}
         targetWidthPx={photoWidthPx}
-        className="font-normal uppercase"
+        className="font-normal"
       />
       {showSeo ? <h1 className="sr-only">{seoHeading}</h1> : null}
     </div>

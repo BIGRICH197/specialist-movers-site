@@ -19,7 +19,7 @@ export type ServiceNavRow = {
 
 const aucklandNavLabelBySlug: Record<string, string> = {
   "piano-movers": "Piano moving",
-  "house-moving": "House moving",
+  "house-moving": "Moving house",
   "office-moving": "Office moving",
   "commercial-moving": "Commercial moving",
   "packing-services": "Packing and unpacking",
