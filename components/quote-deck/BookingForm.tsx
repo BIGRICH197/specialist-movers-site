@@ -297,6 +297,18 @@ export function BookingForm({
                 {s.paragraphs.map((p) => (
                   <p key={p.slice(0, 30)} className="mt-1.5">{p}</p>
                 ))}
+                {s.bullets ? (
+                  <ul className="mt-1.5 list-disc space-y-1 pl-5">
+                    {s.bullets.map((b) => (
+                      <li key={b.slice(0, 30)}>{b}</li>
+                    ))}
+                  </ul>
+                ) : null}
+                {s.tail
+                  ? s.tail.map((p) => (
+                      <p key={p.slice(0, 30)} className="mt-1.5">{p}</p>
+                    ))
+                  : null}
               </div>
             ))}
           </div>
