@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
 import { buildPageMetadata } from "@/lib/seo";
+import { regions } from "@/lib/regions";
 import {
   Building2,
   Home,
@@ -50,6 +51,8 @@ import { phoneDisplay, phoneNumber, services } from "@/lib/site-data";
 export const metadata: Metadata = buildPageMetadata({
   title: { absolute: homeMeta.title },
   description: homeMeta.description,
+  openGraphTitle: regions.sharePreviewTitle,
+  openGraphDescription: regions.layoutDescription,
   path: "/",
 });
 

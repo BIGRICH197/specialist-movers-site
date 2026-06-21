@@ -15,7 +15,7 @@ import { isMobileLogoLockupPath } from "@/lib/mobile-logo-lockup-path";
 import { scrollToInstantQuote } from "@/lib/scroll-to-quote";
 
 const navLink =
-  "shrink-0 whitespace-nowrap rounded-lg px-2.5 py-2 text-xs font-medium text-brand-yellow/90 transition-colors hover:bg-white/10 hover:text-brand-yellow xl:px-3 xl:text-sm";
+  "shrink-0 whitespace-nowrap rounded-lg px-2.5 py-2 text-xs font-medium text-brand-yellow transition-colors hover:bg-white/10 xl:px-3 xl:text-sm";
 
 const moreLinks = [
   { href: "/why-us", label: "Why Us" },
@@ -267,7 +267,7 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMoreOpen(false)}
-                className="block rounded-xl px-3 py-2.5 text-sm font-medium text-brand-yellow/90 transition-colors hover:bg-white/10 hover:text-brand-yellow"
+                className="block rounded-xl px-3 py-2.5 text-sm font-medium text-brand-yellow transition-colors hover:bg-white/10"
               >
                 {item.label}
               </Link>

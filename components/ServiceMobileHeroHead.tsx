@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useLayoutEffect, useRef, useState } from "react";
+import { Phone } from "lucide-react";
 import { GoogleRatingBadge } from "@/components/GoogleRatingBadge";
 import { PianoPartnerMarquee } from "@/components/PianoPartnerMarquee";
 import { ServiceHeroTitleFit } from "@/components/hero/ServiceHeroTitleFit";
@@ -10,6 +11,7 @@ import {
   getPianoMobileTitle,
   PIANO_MOBILE_TRUST_PILL,
 } from "@/lib/piano-mobile-hero";
+import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
 const MOBILE_HEADING_CLASS =
   "font-heading text-3xl leading-[1.12] text-white sm:text-4xl";
@@ -135,6 +137,15 @@ export function ServiceMobileHeroHead({
         <PianoPartnerMarquee variant="hero" />
       ) : null}
       <GoogleRatingBadge variant="compact" />
+      {!isPiano ? (
+        <a
+          href={`tel:${phoneNumber}`}
+          className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-brand-yellow px-6 font-heading text-sm font-bold uppercase tracking-wide text-brand-purple ring-1 ring-white/25 transition hover:brightness-[1.05]"
+        >
+          <Phone className="h-4 w-4 shrink-0" strokeWidth={2.5} aria-hidden />
+          Call {phoneDisplay}
+        </a>
+      ) : null}
     </div>
   );
 }
