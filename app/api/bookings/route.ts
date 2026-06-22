@@ -61,10 +61,13 @@ export async function POST(request: Request) {
   // Hand off to n8n (Closed Won + Trello) when the webhook is configured.
   const webhook = process.env.QUOTE_BOOKING_WEBHOOK;
   if (webhook) {
+    const headers: Record<string, string> = { "Content-Type": "application/json" };
+    const webhookSecret = process.env.QUOTE_BOOKING_SECRET;
+    if (webhookSecret) headers["X-SPM-Webhook-Secret"] = webhookSecret;
     try {
       await fetch(webhook, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers,
         body: JSON.stringify({
           token: stored.token,
           quoteType: stored.quoteType,
