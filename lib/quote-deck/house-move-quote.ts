@@ -17,6 +17,8 @@ export type QuoteLineItem = {
   /** Xero-style table: quantity and unit price excl. GST */
   quantity?: number;
   unitPriceExclGst?: number;
+  /** Service grouping for multi-service quotes, e.g. "Moving" | "Packing" | "Cleaning". */
+  section?: string;
 };
 
 export type QuoteTableFormat = "proposal" | "xero";
@@ -72,6 +74,36 @@ const GST_RATE = 0.15;
 
 export function quoteSubtotalExclGst(quote: HouseMoveQuote): number {
   return quote.lineItems.reduce((sum, item) => sum + item.amountExclGst, 0);
+}
+
+const SECTION_ORDER = ["Moving", "Packing", "Cleaning"];
+
+/** True when any line item is tagged with a service section. */
+export function quoteHasSections(quote: HouseMoveQuote): boolean {
+  return quote.lineItems.some((i) => Boolean(i.section && i.section.trim()));
+}
+
+/** Group line items by service section, ordered Moving → Packing → Cleaning → others. */
+export function quoteSections(
+  quote: HouseMoveQuote,
+): { title: string; items: QuoteLineItem[]; subtotalExclGst: number }[] {
+  const groups = new Map<string, QuoteLineItem[]>();
+  for (const item of quote.lineItems) {
+    const key = (item.section && item.section.trim()) || "Other";
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key)!.push(item);
+  }
+  const ordered: string[] = [];
+  for (const s of SECTION_ORDER) if (groups.has(s)) ordered.push(s);
+  for (const k of Array.from(groups.keys())) if (!ordered.includes(k)) ordered.push(k);
+  return ordered.map((title) => {
+    const items = groups.get(title)!;
+    return {
+      title,
+      items,
+      subtotalExclGst: items.reduce((s, i) => s + i.amountExclGst, 0),
+    };
+  });
 }
 
 export function quoteGstAmount(quote: HouseMoveQuote): number {
