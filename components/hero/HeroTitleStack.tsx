@@ -17,7 +17,7 @@ type Props = {
   headingAs?: "h1" | "h2" | "div";
 };
 
-/** Yellow title + white eyebrow pill above the hero photo (desktop). */
+/** Yellow title above the hero photo (desktop). Eyebrow pill is mobile-only on service pages. */
 export function HeroTitleStack({
   heading,
   eyebrowLabel,
