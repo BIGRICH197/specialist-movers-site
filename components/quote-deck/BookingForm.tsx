@@ -15,6 +15,7 @@ export type BookingPrefill = {
   dropoffAddress?: string;
   moveDate?: string;
   sizeOfMove?: string;
+  howManyMovers?: string;
   typeOfMove?: string;
   cleaningBooked?: string;
   packing?: string;
@@ -57,7 +58,7 @@ export function BookingForm({
     dropoffAddress: prefill.dropoffAddress ?? "",
     moveDate: prefill.moveDate ?? "",
     sizeOfMove: prefill.sizeOfMove ?? "",
-    howManyMovers: "",
+    howManyMovers: prefill.howManyMovers ?? "",
     typeOfMove: prefill.typeOfMove ?? "",
     payment: "",
     cleaningBooked: prefill.cleaningBooked ?? "",

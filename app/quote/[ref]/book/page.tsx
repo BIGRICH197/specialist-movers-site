@@ -34,6 +34,13 @@ export default async function BookPage({ params }: { params: { ref: string } }) 
     return `${beds} Bedroom`;
   }
 
+  // Normalise a mover count ("3", "3 movers", 3) to the dropdown's "3 MOVERS".
+  function moversLabel(m?: string): string {
+    if (!m) return "";
+    const n = String(m).match(/\d/)?.[0];
+    return n ? `${n} MOVERS` : "";
+  }
+
   const prefill: BookingPrefill = {
     fullName: q.clientName ?? "",
     email: pf.email ?? "",
@@ -42,6 +49,7 @@ export default async function BookPage({ params }: { params: { ref: string } }) 
     dropoffAddress: formatAddress(q.delivery),
     moveDate: q.moveDate ?? "",
     sizeOfMove: pf.sizeOfMove ?? sizeFromBedrooms(pf.bedrooms),
+    howManyMovers: moversLabel(pf.movers),
     typeOfMove: pf.typeOfMove ?? "",
     cleaningBooked: addOns.includes("cleaning") ? "Yes Cleaning" : "",
     packing: addOns.includes("packing") ? "Yes packing" : "",

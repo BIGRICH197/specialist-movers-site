@@ -25,6 +25,8 @@ export type QuotePrefill = {
   bedrooms?: number;
   sizeOfMove?: string;
   typeOfMove?: string;
+  /** Mover count from the quote (e.g. "3" or "3 MOVERS") — prefills "Number of movers". */
+  movers?: string;
 };
 
 export type StoredQuote = {
