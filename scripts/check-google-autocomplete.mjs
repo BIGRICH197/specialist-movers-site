@@ -13,7 +13,7 @@ await page.goto(url, { waitUntil: "networkidle2", timeout: 30000 });
 const buttons = await page.$$("button");
 for (const btn of buttons) {
   const t = await page.evaluate((el) => el.textContent, btn);
-  if (t?.includes("House Move")) {
+  if (t?.includes("Home Move")) {
     await btn.click();
     break;
   }

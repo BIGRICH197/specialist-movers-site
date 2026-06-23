@@ -23,13 +23,13 @@ export const rootOpenGraph: NonNullable<Metadata["openGraph"]> = {
   type: "website",
   locale: "en_NZ",
   siteName,
-  title: "Specialist Movers Auckland & Hamilton | House & Piano",
+  title: regions.sharePreviewTitle,
   description: regions.layoutDescription,
 };
 
 export const rootTwitter: NonNullable<Metadata["twitter"]> = {
   card: "summary_large_image",
-  title: "Specialist Movers Auckland & Hamilton | House & Piano",
+  title: regions.sharePreviewTitle,
   description: regions.layoutDescription,
 };
 

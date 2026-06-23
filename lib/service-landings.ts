@@ -122,7 +122,7 @@ const landingOverrides: Record<
   "house-moving": {
     slug: "house-moving",
     path: "/services/house-moving",
-    eyebrow: "Auckland house moving specialists",
+    eyebrow: "Trusted Auckland movers",
     h1: getServiceHeroH1("house-moving", "Auckland"),
     lead:
       "Relocating your Auckland home should feel manageable, not overwhelming. Our Wairau Valley crews handle apartments, townhouses, and family homes across the city with clear communication, careful handling, and free in-home viewings when you need a fixed price.",
@@ -132,7 +132,7 @@ const landingOverrides: Record<
       "Specialist Movers carrying a sofa while the client relaxes and reads a magazine",
     heroOverlayCaption: hero.photoTagline,
     heroVariant: "moving",
-    aboutTitle: "About our house moving service",
+    aboutTitle: "About our moving service",
     aboutBody:
       "At Specialist Movers, we go beyond shifting boxes. We plan access, protect furniture, and communicate clearly from quote to handover. Apartments, townhouses, and full homes. Local moves and longer relocations when you need them.",
     trustHighlights: [
@@ -155,7 +155,7 @@ const landingOverrides: Record<
     showPianoPartners: false,
     showMovingBanner: true,
     showPianoSubServices: false,
-    faqHeading: "House moving questions",
+    faqHeading: "Moving house questions",
     processTitle: houseMovingProcess.title,
     processSteps: houseMovingProcess.steps,
     showAboutSideImage: true,

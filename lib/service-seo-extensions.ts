@@ -32,7 +32,7 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
     faqs: packingServiceFaqs,
     processTitle: "Packing process",
     processSteps: [
-      { title: "Quote by bedroom count", body: "Fixed packing price based on home size. Add packing when you request your house move quote." },
+      { title: "Quote by bedroom count", body: "Fixed packing price based on home size. Add packing when you request your moving quote." },
       { title: "Pack day", body: "Crew packs the day before move day with materials supplied." },
       { title: "Move day", body: "Pre-packed cartons load faster, your move crew handles furniture and transport." },
       { title: "Unpack on request", body: "Unpacking and box removal can be added when you book." },
@@ -90,7 +90,7 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
   "winz-quotes": {
     bodyParagraphs: [
       "WINZ and housing assistance applications need a clear written quote fast. We provide itemised pricing and respond promptly so you have paperwork ready.",
-      "House moves, packing, and cleaning quotes are available, tell us your deadline when you call.",
+      "Home relocation, packing, and cleaning quotes are available, tell us your deadline when you call.",
       "We visit when needed so volume, access, and distance are accurate on your application, not guessed over the phone.",
     ],
     faqs: [

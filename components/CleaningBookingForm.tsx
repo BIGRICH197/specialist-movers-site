@@ -71,7 +71,7 @@ const initial: FormState = {
 const cleaningTypeLabels: Record<string, string> = {
   "exit-tenancy": "Exit and tenancy clean",
   settlement: "Settlement day clean",
-  moving: "House moving clean",
+  moving: "Home relocation clean",
   construction: "Construction clean",
   other: "Other",
 };
@@ -337,7 +337,7 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
             >
               <option value="exit-tenancy">Exit and tenancy clean</option>
               <option value="settlement">Settlement day clean</option>
-              <option value="moving">House moving clean</option>
+              <option value="moving">Home relocation clean</option>
               <option value="construction">Construction clean</option>
               <option value="other">Other</option>
             </select>

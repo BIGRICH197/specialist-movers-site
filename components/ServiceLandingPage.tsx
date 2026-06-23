@@ -75,7 +75,7 @@ export function ServiceLandingPage({ config }: Props) {
       <ServiceHeroWithQuote
         heroVariant={config.slug === "piano-movers" ? "piano" : "moving"}
         heading={config.h1}
-        titleSlug={config.slug === "piano-movers" ? config.slug : undefined}
+        titleSlug={config.slug}
         eyebrowLabel={config.eyebrow}
         lead={
           <p className="max-w-2xl text-base leading-relaxed text-white/85">

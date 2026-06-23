@@ -5,7 +5,7 @@ export type FaqItem = { q: string; a: string };
 export const generalServiceFaqs: readonly FaqItem[] = [
   {
     q: "How much does it cost to hire movers in Auckland?",
-    a: "Most local moves start from around $350 excl. GST for smaller jobs. A full house move is quoted after a free in-home viewing and depends on volume, distance, crew size, and add-ons like packing or cleaning.",
+    a: "Most local moves start from around $350 excl. GST for smaller jobs. A full home relocation is quoted after a free in-home viewing and depends on volume, distance, crew size, and add-ons like packing or cleaning.",
   },
   {
     q: "What is the process for booking?",

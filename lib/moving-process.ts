@@ -1,7 +1,7 @@
 /** Per-service process steps shown on landing pages */
 
 export const houseMovingProcess = {
-  title: "House moving process",
+  title: "Moving house process",
   steps: [
     {
       title: "Free in-home viewing",

@@ -60,7 +60,7 @@ export default function WhatsIncludedPage() {
                 href={aucklandServiceHref("house-moving")}
                 className="rounded-full border border-brand-purple/20 bg-white px-4 py-2 text-brand-purple transition hover:bg-brand-yellow/30"
               >
-                House moving →
+                Moving house →
               </Link>
             </div>
           </div>
@@ -78,7 +78,7 @@ export default function WhatsIncludedPage() {
               <p className="mb-2 font-heading text-sm font-bold uppercase tracking-wide text-brand-purple">
                 Request a free quote
               </p>
-              <QuoteForm defaultJobType="House Move" />
+              <QuoteForm defaultJobType="Home Move" />
             </div>
           </aside>
         </div>

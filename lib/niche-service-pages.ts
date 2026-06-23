@@ -39,13 +39,13 @@ export const apartmentMoversPage: NicheServicePageConfig = {
   path: "/apartment-movers-auckland",
   metaTitle: "Apartment Movers Auckland | Specialist Movers",
   metaDescription:
-    "Moving to a new apartment? Take the help of Specialist Movers who specialises in apartment relocation in Auckland. Click here to learn more.",
+    "Apartment movers Auckland. Lift access, body corporate rules, and tight stairwells planned before move day. Specialist Movers. Free quote.",
   eyebrow: "Auckland apartment moving specialists",
   h1: "Apartment movers Auckland",
   lead:
     "Moving apartments means narrow stairways, lifts, building rules, and furniture that has to fit. Our crews plan access before move day so your relocation stays smooth, not stressful.",
   subline: "Free quote. We call back within 15 minutes. 7 days a week.",
-  defaultJobType: "House Move",
+  defaultJobType: "Home Move",
   heroPhoto: sitePhotos.homeHero,
   heroPhotoAlt: "Specialist Movers crew moving furniture in an Auckland apartment",
   aboutSidePhoto: sitePhotos.houseMove,
@@ -53,7 +53,7 @@ export const apartmentMoversPage: NicheServicePageConfig = {
   heroOverlayCaption: "You settle in. We handle the stairs.",
   aboutTitle: "Apartment relocation done properly",
   aboutBody:
-    "We are not a one-size-fits-all house move crew. Specialist Movers knows Auckland apartments: walk-ups, secure buildings, shared lifts, and body corporate rules. We pack, load, and deliver with the same care we use on family homes, adapted to your building.",
+    "We are not a one-size-fits-all relocation crew. Specialist Movers knows Auckland apartments: walk-ups, secure buildings, shared lifts, and body corporate rules. We pack, load, and deliver with the same care we use on family homes, adapted to your building.",
   trustHighlights: [
     {
       title: "Lift and stair plans",
@@ -79,7 +79,7 @@ export const apartmentMoversPage: NicheServicePageConfig = {
     "Optional exit cleaning aligned with your move-out",
   ],
   relatedLinks: [
-    { label: "House moving", href: aucklandServiceHref("house-moving") },
+    { label: "Moving house", href: aucklandServiceHref("house-moving") },
     { label: "Packing services", href: aucklandServiceHref("packing-services") },
     { label: "Exit cleaning", href: aucklandServiceHref("cleaning-services") },
     { label: "Loading and unloading", href: aucklandServiceHref("loading-unloading") },
@@ -124,13 +124,13 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
   path: "/retirement-home-movers-auckland",
   metaTitle: "Retirement Home Movers Auckland | Specialist Movers",
   metaDescription:
-    "Retiring soon? Hire your personalised retirement home movers, the Specialist Movers in Auckland and experience the difference. Click here now!",
+    "Retirement home movers Auckland. Patient, careful village and rest-home relocations with full pack-and-move options. Specialist Movers. Free quote.",
   eyebrow: "Auckland retirement village and rest-home moves",
   h1: "Retirement home movers Auckland",
   lead:
     "Moving to a retirement home or village is a big life change. Our team plans every step with patience and care, including full pack-and-move options and in-home visits so we understand what matters to you.",
   subline: "Personalised quotes. Callback within 15 minutes.",
-  defaultJobType: "House Move",
+  defaultJobType: "Home Move",
   heroPhoto: sitePhotos.homeHero,
   heroPhotoAlt: "Specialist Movers team carefully handling furniture for a senior client move",
   aboutSidePhoto: sitePhotos.packing,
@@ -164,7 +164,7 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
     "In-home assessment for accurate fixed pricing",
   ],
   relatedLinks: [
-    { label: "House moving", href: aucklandServiceHref("house-moving") },
+    { label: "Moving house", href: aucklandServiceHref("house-moving") },
     { label: "Packing services", href: aucklandServiceHref("packing-services") },
     { label: "Apartment movers", href: "/apartment-movers-auckland" },
     { label: "Storage", href: "/services/storage" },
@@ -242,7 +242,7 @@ export const movingToAustraliaPage: NicheServicePageConfig = {
   lead:
     "Relocating across the Tasman should feel organised, not overwhelming. Specialist Movers coordinates sea and air freight, customs paperwork, and delivery through trusted partners in Australia.",
   subline: "Free international moving quote. Expert advice on shipping options.",
-  defaultJobType: "House Move",
+  defaultJobType: "Home Move",
   heroPhoto: sitePhotos.homeHero,
   heroPhotoAlt: "Specialist Movers international relocation consultation",
   heroOverlayCaption: "Moving to Australia? We handle it.",
@@ -279,7 +279,7 @@ export const movingToAustraliaPage: NicheServicePageConfig = {
     { label: "International moving Auckland", href: aucklandServiceHref("international-moving") },
     { label: "Packing services", href: aucklandServiceHref("packing-services") },
     { label: "Piano moving", href: "/piano-movers" },
-    { label: "House moving Auckland", href: aucklandServiceHref("house-moving") },
+    { label: "Moving house Auckland", href: aucklandServiceHref("house-moving") },
   ],
   faqHeading: "Moving to Australia FAQ",
   faqs: [

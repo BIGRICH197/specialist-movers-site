@@ -12,11 +12,11 @@ export type PortalTile = {
 /** Four entry points for the trial portal page */
 export const portalTiles: readonly PortalTile[] = [
   {
-    title: "House move",
+    title: "Home move",
     subtitle: "Homes, apartments, and townhouses across Auckland and the Waikato",
     href: aucklandServiceHref("house-moving"),
     image: sitePhotos.homeHero,
-    imageAlt: "Specialist Movers carrying furniture during a house move",
+    imageAlt: "Specialist Movers carrying furniture during a home relocation",
   },
   {
     title: "Piano move",

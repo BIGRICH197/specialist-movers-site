@@ -160,9 +160,9 @@ export function ServiceHeroWithQuote({
             {subline ? <div className="mt-5 lg:hidden">{subline}</div> : null}
           </div>
 
-          {/* Mobile: phone + trust pills below form (matches HomeHero) */}
+          {/* Mobile: service pages show call above form (below Google); piano keeps phone here */}
           <div className="flex flex-col gap-5 lg:hidden">
-            {phoneLink}
+            {heroVariant === "piano" ? phoneLink : null}
             {mobileTrustPills}
             {meta ? <div>{meta}</div> : null}
           </div>
@@ -173,7 +173,6 @@ export function ServiceHeroWithQuote({
             {photo ? (
               <HeroPhotoFrame
                 heading={heading}
-                eyebrowLabel={eyebrowLabel}
                 headingNowrap={headingNowrap}
                 photo={photo}
               />

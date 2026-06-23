@@ -51,7 +51,7 @@ export const serviceBlurbs: Record<
   { title: string; excerpt: string }
 > = {
   "house-moving": {
-    title: "House Moving & Packing Auckland",
+    title: "Moving House & Packing Auckland",
     excerpt:
       "Full-service home moves across Auckland and the Waikato , furniture removals, professional packing, storage, and careful transport. Our experienced team makes residential moves smooth and stress-free.",
   },
@@ -230,7 +230,7 @@ export const homepageSeoSections = [
     paragraphs: [
       "One of the biggest concerns people have when planning a move is the cost. We believe professional moving help should be accessible without sacrificing quality. Our transparent pricing means you know what to expect, with no hidden surprises.",
       "If you are looking for affordable local movers in Auckland or Hamilton, our team combines experience, reliability, and value. We plan each move carefully, use modern equipment, and work efficiently so customers receive a high standard of service.",
-      "Many customers choose us for house moves, piano moves, and commercial work because we combine affordability with professionalism and SiteWise Gold safety systems.",
+      "Many customers choose us for home relocations, piano moves, and commercial work because we combine affordability with professionalism and SiteWise Gold safety systems.",
     ],
   },
   {
@@ -267,7 +267,7 @@ export const homepageSeoSections = [
 
 export const aboutPage = {
   intro:
-    "Auckland and Hamilton movers for house, piano, commercial, and specialist work-NZ owned, SiteWise Gold, and built for careful moves.",
+    "Auckland and Hamilton movers for home relocations, piano, commercial, and specialist work. NZ owned, SiteWise Gold, and built for careful moves.",
   story: hero.coverage,
 };
 

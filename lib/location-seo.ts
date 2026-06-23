@@ -33,12 +33,12 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   // ── North Shore (core, near the Glenfield/Wairau Valley depot) ──
   glenfield: {
     metaDescription:
-      "Glenfield movers based next door in Wairau Valley. House and piano moves across Glenfield's 1970s homes, units, and townhouses, often at short notice. Free quote.",
+      "Glenfield movers next door in Wairau Valley. Home relocations, furniture removals and piano across Glenfield. Often short notice. Free quote.",
     intro:
       "Glenfield is home turf, our depot sits next door in Wairau Valley, so we reach local jobs fast and know the streets, malls, and cul-de-sacs well.",
     paragraphs: [
       "Glenfield is mostly 1970s and 80s brick-and-tile homes, newer townhouse infill, and cross-leases off shared driveways. We check driveway width and parking at your free viewing so the truck lands close to the door.",
-      "Being minutes from base keeps Glenfield callouts low and lets us slot in shorter-notice moves. We handle house moves, packing, piano transport, and office relocations across the suburb.",
+      "Being minutes from base keeps Glenfield callouts low and lets us slot in shorter-notice moves. We handle home relocations, packing, piano transport, and office relocations across the suburb.",
     ],
     highlights: [
       "Depot next door in Wairau Valley",
@@ -64,7 +64,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Birkenhead moves mean hills, character villas, and narrow harbour-side streets, we scope steep drives and parking before move day.",
     paragraphs: [
       "From Highbury's older villas and bungalows to the steep streets above Little Shoal Bay, Birkenhead access is often tight: narrow frontages, sloped driveways, and limited on-street parking. We plan truck placement and carry routes at the viewing.",
-      "Our Glenfield depot is just up the road, so Birkenhead is a regular run. House moves, pianos, packing, and exit cleans are all covered.",
+      "Our Glenfield depot is just up the road, so Birkenhead is a regular run. Home relocations, pianos, packing, and exit cleans are all covered.",
     ],
     highlights: [
       "Hillside villa and character-home access",
@@ -90,7 +90,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Northcote runs from character villas on the Point to the redeveloped town-centre townhouses, we plan access for both.",
     paragraphs: [
       "Northcote Point's pre-war villas have steep steps and narrow hallways, while the regenerated town centre brings new townhouses with shared lanes and parking limits. We confirm the access type at your viewing so the quote fits the property.",
-      "We are minutes away in Glenfield, so Northcote is a frequent run for house moves, pianos, and packing, with easy motorway access for moves over the bridge.",
+      "We are minutes away in Glenfield, so Northcote is a frequent run for home relocations, pianos, and packing, with easy motorway access for moves over the bridge.",
     ],
     highlights: [
       "Villas on the Point and new townhouses",
@@ -116,7 +116,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Hillcrest is a quick run from our Glenfield depot, established family homes, units, and cross-leases we move every week.",
     paragraphs: [
       "Much of Hillcrest is 1960s to 80s homes and brick units down shared driveways, where parking and carry distance matter most. We scope the driveway and door access so the crew works efficiently.",
-      "Close to base, Hillcrest moves are easy to schedule, often on shorter notice. House, piano, packing, and office moves are all covered.",
+      "Close to base, Hillcrest moves are easy to schedule, often on shorter notice. Home relocations, piano, packing, and office moves are all covered.",
     ],
     highlights: [
       "Minutes from our Glenfield depot",
@@ -142,7 +142,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Takapuna moves split between beachfront apartments and character homes, we plan lift bookings, loading zones, and town-centre parking before move day.",
     paragraphs: [
       "Apartment moves around the town centre and waterfront need lift bookings, loading-dock times, and sometimes building-manager sign-off, we arrange these in advance. Older homes near the lake and Hauraki bring villa steps and narrow drives.",
-      "From our nearby North Shore depot we run Takapuna constantly: house moves, apartments, piano transport, and commercial fit-outs in the business district.",
+      "From our nearby North Shore depot we run Takapuna constantly: home relocations, apartments, piano transport, and commercial fit-outs in the business district.",
     ],
     highlights: [
       "Apartment lift and loading-zone planning",
@@ -168,7 +168,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Albany is newer and bigger, large family homes, modern subdivisions, and townhouse blocks across Pinehill and Oteha. We size the crew and truck to match the volume.",
     paragraphs: [
       "Albany's newer homes mean more to move: double garages, multiple living areas, and townhouse complexes with shared parking and access codes. We scope it at the viewing so the right truck and crew turn up.",
-      "Sitting on the motorway, Albany is a fast run from our depot and a natural staging point for moves further north. House moves, pianos, packing, and office relocations are all covered.",
+      "Sitting on the motorway, Albany is a fast run from our depot and a natural staging point for moves further north. Home relocations, pianos, packing, and office relocations are all covered.",
     ],
     highlights: [
       "Large homes and new builds, crew sized to volume",
@@ -194,7 +194,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Browns Bay and the East Coast Bays mix beachside family homes, units, and retiree downsizes, we plan parking and access for each.",
     paragraphs: [
       "Many Browns Bay homes are 1960s to 70s on the bays' slopes, with sloped driveways and busy beachside parking near the village. We confirm truck placement and carry routes so move day runs smoothly.",
-      "We cover the wider Bays, Mairangi, Murrays, and Rothesay, on our regular North Shore schedule. House moves, pianos, packing, and downsizing moves are all welcome.",
+      "We cover the wider Bays, Mairangi, Murrays, and Rothesay, on our regular North Shore schedule. Home relocations, pianos, packing, and downsizing moves are all welcome.",
     ],
     highlights: [
       "Across the East Coast Bays",
@@ -220,7 +220,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Long Bay is one of the Shore's newest neighbourhoods, modern homes and townhouse blocks where access codes, shared lanes, and parking need planning.",
     paragraphs: [
       "The Long Bay development brings large new builds and tightly packed townhouses with shared driveways, visitor-parking limits, and gated access. We confirm these before the truck arrives so there are no hold-ups.",
-      "It is an outer-north run from our depot; we schedule Long Bay alongside Torbay and the upper Bays. House moves, pianos, and packing are all covered.",
+      "It is an outer-north run from our depot; we schedule Long Bay alongside Torbay and the upper Bays. Home relocations, pianos, and packing are all covered.",
     ],
     highlights: [
       "Gated access and visitor-parking limits handled",
@@ -246,7 +246,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Torbay is steep and coastal, winding streets and sloped driveways that need a proper access plan before move day.",
     paragraphs: [
       "Many Torbay homes sit up or down steep drives on narrow, winding streets where a large truck cannot always reach the door. We scope carry distance and whether a smaller shuttle vehicle is needed at the viewing.",
-      "Torbay is part of our regular upper-Bays schedule from the North Shore depot. House moves, pianos, packing, and exit cleans are all covered.",
+      "Torbay is part of our regular upper-Bays schedule from the North Shore depot. Home relocations, pianos, packing, and exit cleans are all covered.",
     ],
     highlights: [
       "Steep-driveway and narrow-street planning",
@@ -272,7 +272,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Silverdale and Millwater are fast-growing, new subdivisions, large homes, and rural-residential blocks at the northern edge of our patch.",
     paragraphs: [
       "Silverdale's new builds bring volume, double garages, sheds, and multiple living areas, while rural-residential lots add long driveways and gates. We scope the whole property so the truck and crew are right-sized.",
-      "Silverdale sits in our outer-north zone, so we quote travel clearly upfront, with no surprise callout on the day. House moves, pianos, and packing are all covered.",
+      "Silverdale sits in our outer-north zone, so we quote travel clearly upfront, with no surprise callout on the day. Home relocations, pianos, and packing are all covered.",
     ],
     highlights: [
       "New subdivisions and lifestyle blocks",
@@ -298,7 +298,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Orewa moves run from beachfront apartments along the strip to family homes and retiree downsizes across the Hibiscus Coast.",
     paragraphs: [
       "Orewa's beachfront apartments need lift bookings and loading-zone timing, while the newer hillside subdivisions bring volume and access codes. We plan both at the viewing.",
-      "Orewa is in our outer-north zone; travel is quoted upfront with no hidden callout. House moves, apartments, pianos, packing, and downsizing are all covered.",
+      "Orewa is in our outer-north zone; travel is quoted upfront with no hidden callout. Home relocations, apartments, pianos, packing, and downsizing are all covered.",
     ],
     highlights: [
       "Beachfront apartment lift and loading planning",
@@ -325,7 +325,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Grey Lynn is villa country, narrow streets, tight on-street parking, and steep front steps that we plan around before move day.",
     paragraphs: [
       "Most Grey Lynn homes are renovated villas and bungalows with narrow hallways, high ceilings, and steps up from the street. We measure doorways and access at your free viewing so big pieces move without drama.",
-      "Parking is the inner-west catch, limited driveways and busy permit zones. We sort truck placement early, and the city fringe keeps us close for quick central runs. House moves, pianos, packing, and office relocations are all covered.",
+      "Parking is the inner-west catch, limited driveways and busy permit zones. We sort truck placement early, and the city fringe keeps us close for quick central runs. Home relocations, pianos, packing, and office relocations are all covered.",
     ],
     highlights: [
       "Villa and character-home access",
@@ -351,7 +351,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Mount Albert mixes character villas and bungalows with newer family homes, we plan access for each and use the handy motorway links.",
     paragraphs: [
       "Many Mount Albert homes are pre-war villas and bungalows with steps and narrow halls, alongside newer townhouses near the town centre and Unitec. We scope the property so the right crew and truck arrive.",
-      "Sitting on the Northwestern motorway, Mount Albert is an easy run for city, west, and cross-town moves. House moves, pianos, packing, and office relocations are all covered.",
+      "Sitting on the Northwestern motorway, Mount Albert is an easy run for city, west, and cross-town moves. Home relocations, pianos, packing, and office relocations are all covered.",
     ],
     highlights: [
       "Villas, bungalows, and newer homes",
@@ -377,7 +377,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Te Atatū Peninsula is harbour-edge living, 60s and 70s homes and new builds along a single peninsula with one main road in and out.",
     paragraphs: [
       "The peninsula's older homes and recent infill townhouses sit on quiet cul-de-sacs and waterfront streets. We plan truck access and parking, especially on narrower coastal roads, at your viewing.",
-      "Right by the Northwestern motorway, Te Atatū is a quick run to the city and west. House moves, pianos, packing, and office relocations are all covered.",
+      "Right by the Northwestern motorway, Te Atatū is a quick run to the city and west. Home relocations, pianos, packing, and office relocations are all covered.",
     ],
     highlights: [
       "Peninsula and waterfront access planned",
@@ -403,7 +403,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Hobsonville, and Hobsonville Point especially, is modern and masterplanned: townhouses and apartments with shared lanes, access codes, and tight parking.",
     paragraphs: [
       "Hobsonville Point's terraced homes and apartments have narrow internal stairs, shared driveways, and visitor-parking limits. We confirm codes, lift bookings, and loading spots before the truck arrives so move day flows.",
-      "Easy on the Northwestern motorway and a regular run for us. House moves, pianos, packing, and office relocations are all covered.",
+      "Easy on the Northwestern motorway and a regular run for us. Home relocations, pianos, packing, and office relocations are all covered.",
     ],
     highlights: [
       "Hobsonville Point townhouses and apartments",
@@ -429,7 +429,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Titirangi is bush living, steep winding streets, long native-shaded driveways, and homes tucked into the hillside that need a real access plan.",
     paragraphs: [
       "Many Titirangi homes sit down steep drives or up bush steps where a large truck cannot get close. We scope the carry route and whether a smaller shuttle vehicle is needed at the viewing, so nothing is rushed.",
-      "We cover Titirangi and the western bush fringe on our regular schedule. House moves, pianos, packing, and exit cleans are all covered, with care for tight, leafy access.",
+      "We cover Titirangi and the western bush fringe on our regular schedule. Home relocations, pianos, packing, and exit cleans are all covered, with care for tight, leafy access.",
     ],
     highlights: [
       "Steep drives and bush-step access planned",
@@ -456,7 +456,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Ponsonby moves mean villas, narrow frontages, and tight on-street parking, we scope all of it before move day so nothing stalls the truck.",
     paragraphs: [
       "Most Ponsonby homes are pre-1920 villas and bungalows with high ceilings, narrow hallways, and steep front steps that make big furniture awkward. We measure access at your free viewing so the crew comes ready.",
-      "Parking is the other Ponsonby catch, limited driveways and busy on-street zones, so we plan truck placement and any permits early. House moves, pianos, packing, and office relocations are all covered.",
+      "Parking is the other Ponsonby catch, limited driveways and busy on-street zones, so we plan truck placement and any permits early. Home relocations, pianos, packing, and office relocations are all covered.",
     ],
     highlights: [
       "Villa and character-home access",
@@ -482,7 +482,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Herne Bay is Auckland's premium address, large waterfront villas and grand character homes that deserve careful, well-planned moves.",
     paragraphs: [
       "Herne Bay's homes are often big, high-value villas on narrow leafy streets, with valuable contents, fragile pieces, and tight street parking. We plan crew, protection, and truck placement thoroughly at the viewing.",
-      "We handle these moves at a careful pace with full furniture protection. House moves, pianos, packing, art and antiques, and office relocations are all covered.",
+      "We handle these moves at a careful pace with full furniture protection. Home relocations, pianos, packing, art and antiques, and office relocations are all covered.",
     ],
     highlights: [
       "Large, high-value villa moves",
@@ -508,7 +508,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Parnell, Auckland's oldest suburb, mixes heritage villas with city-fringe apartments on steep, narrow streets, we plan for both.",
     paragraphs: [
       "Parnell's character villas have steep steps and narrow halls, while the apartments need lift bookings and loading-zone timing. We confirm which you have and plan access before move day.",
-      "On the city fringe, Parnell is a quick run for central and cross-town moves. House moves, apartments, pianos, packing, and office relocations are all covered.",
+      "On the city fringe, Parnell is a quick run for central and cross-town moves. Home relocations, apartments, pianos, packing, and office relocations are all covered.",
     ],
     highlights: [
       "Heritage villas and city apartments",
@@ -534,7 +534,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Remuera means large, leafy character homes, plenty of volume, valuable contents, and the occasional steep drive that we plan for.",
     paragraphs: [
       "Remuera homes are typically big, grand villas and substantial family homes with multiple living areas, so volume is the main factor. We scope the whole house at the viewing to size the crew and truck and avoid a second trip.",
-      "We move at a careful pace with full protection for high-value contents. House moves, pianos, packing, art and antiques, and office relocations are all covered.",
+      "We move at a careful pace with full protection for high-value contents. Home relocations, pianos, packing, art and antiques, and office relocations are all covered.",
     ],
     highlights: [
       "Crew sized to large, high-volume homes",
@@ -560,7 +560,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Epsom is classic family-home territory, villas, bungalows, and the busy double-grammar zone, moved carefully with clear pricing.",
     paragraphs: [
       "Epsom's pre-war villas and bungalows bring steps, narrow hallways, and established gardens to work around. We scope access and volume at your free viewing so your fixed price matches the real job.",
-      "Central and well-connected, Epsom is an easy run for city and cross-town moves. House moves, pianos, packing, and office relocations are all covered.",
+      "Central and well-connected, Epsom is an easy run for city and cross-town moves. Home relocations, pianos, packing, and office relocations are all covered.",
     ],
     highlights: [
       "Villas, bungalows, and family homes",
@@ -586,7 +586,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Mount Eden is character living around the maunga, villas and bungalows on narrow streets with steps and tight parking.",
     paragraphs: [
       "Most Mount Eden homes are pre-war villas and bungalows with front steps, narrow halls, and limited off-street parking near the village. We measure access at the viewing so big pieces move smoothly.",
-      "Close to the city, Mount Eden is a quick central run. House moves, pianos, packing, and office relocations are all covered.",
+      "Close to the city, Mount Eden is a quick central run. Home relocations, pianos, packing, and office relocations are all covered.",
     ],
     highlights: [
       "Villa and bungalow character homes",
@@ -612,7 +612,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Newmarket is busy and central, apartments and city-fringe homes around the retail district where parking and lift access need planning.",
     paragraphs: [
       "Newmarket apartment moves need lift bookings, loading-dock times, and sometimes building-manager sign-off, we arrange these ahead. Older homes on the fringe bring villa steps and narrow drives.",
-      "Central and well-connected, Newmarket is a quick run for city and cross-town moves, including office relocations in the commercial district. House moves, pianos, and packing are all covered.",
+      "Central and well-connected, Newmarket is a quick run for city and cross-town moves, including office relocations in the commercial district. Home relocations, pianos, and packing are all covered.",
     ],
     highlights: [
       "Apartment lifts and loading zones arranged",
@@ -638,7 +638,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "St Heliers is eastern-bays beachside living, family homes and apartments near the village and waterfront, moved with planned access and parking.",
     paragraphs: [
       "St Heliers homes range from character bungalows to clifftop homes and beachfront apartments. The apartments need lift and loading-zone bookings, while hillside homes bring steep drives. We plan both at the viewing.",
-      "We cover the eastern bays, Kohimarama, Mission Bay, and Glendowie, on our regular schedule. House moves, apartments, pianos, packing, and downsizing are all covered.",
+      "We cover the eastern bays, Kohimarama, Mission Bay, and Glendowie, on our regular schedule. Home relocations, apartments, pianos, packing, and downsizing are all covered.",
     ],
     highlights: [
       "Beachside homes and apartments",
@@ -665,7 +665,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Greenhithe is leafy Upper Harbour living, larger homes and semi-rural lifestyle blocks with long driveways we plan around.",
     paragraphs: [
       "Many Greenhithe properties sit on big sections with long or shared driveways and plenty of volume. We scope the whole property at the viewing so the right truck and crew arrive.",
-      "Close to our North Shore base with easy Upper Harbour motorway access. House moves, pianos, packing, and office relocations are all covered.",
+      "Close to our North Shore base with easy Upper Harbour motorway access. Home relocations, pianos, packing, and office relocations are all covered.",
     ],
     highlights: [
       "Upper Harbour homes and lifestyle blocks",
@@ -691,7 +691,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Stanmore Bay sits on the Whangaparāoa Peninsula, beachside Hibiscus Coast homes we cover on our outer-north schedule.",
     paragraphs: [
       "Peninsula homes range from older beachside houses to newer subdivisions, with one main road along the peninsula and parking that gets busy near the coast. We plan access and timing at the viewing.",
-      "Stanmore Bay is in our outer-north zone, so travel is quoted clearly upfront. House moves, pianos, packing, and downsizing are all covered.",
+      "Stanmore Bay is in our outer-north zone, so travel is quoted clearly upfront. Home relocations, pianos, packing, and downsizing are all covered.",
     ],
     highlights: [
       "Whangaparāoa Peninsula coverage",
@@ -717,7 +717,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Red Beach is Hibiscus Coast beachside living, family homes and newer subdivisions we cover on our outer-north schedule.",
     paragraphs: [
       "Red Beach mixes established beachside homes with newer developments. We plan parking and access, busy near the beach, at the viewing.",
-      "Red Beach is in our outer-north zone with travel quoted upfront. House moves, pianos, packing, and downsizing are all covered.",
+      "Red Beach is in our outer-north zone with travel quoted upfront. Home relocations, pianos, packing, and downsizing are all covered.",
     ],
     highlights: [
       "Hibiscus Coast beachside homes",
@@ -743,7 +743,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Dairy Flat is rural outer-north, lifestyle blocks, long driveways, and sheds that add volume and need a viewing.",
     paragraphs: [
       "Dairy Flat properties are often on acreage with long driveways, gates, and outbuildings, so volume and access are the key factors. We scope the whole property before quoting.",
-      "Dairy Flat is in our outer-north zone with travel quoted clearly upfront. House moves, pianos, packing, and farm-gate pickups are all covered.",
+      "Dairy Flat is in our outer-north zone with travel quoted clearly upfront. Home relocations, pianos, packing, and farm-gate pickups are all covered.",
     ],
     highlights: [
       "Rural and lifestyle properties",
@@ -769,7 +769,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Point Chevalier is a beachside inner-west peninsula, villas and bungalows on quiet streets near the coast that we plan access for.",
     paragraphs: [
       "Pt Chev's pre-war villas and bungalows bring steps and narrow hallways, while the peninsula's quiet streets and beach reserves shape parking. We plan truck placement at the viewing.",
-      "On the Northwestern motorway, Point Chevalier is a quick city and west run. House moves, pianos, packing, and office relocations are all covered.",
+      "On the Northwestern motorway, Point Chevalier is a quick city and west run. Home relocations, pianos, packing, and office relocations are all covered.",
     ],
     highlights: [
       "Villa and bungalow access",
@@ -795,7 +795,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "West Harbour sits on the Upper Harbour, family homes and marina-side properties we cover with easy motorway access.",
     paragraphs: [
       "West Harbour homes range from 80s and 90s family houses to newer builds, often on sloped sections with shared driveways. We scope access and parking at the viewing.",
-      "Close to the Upper Harbour motorway, West Harbour is a quick run for city and west moves. House moves, pianos, packing, and office relocations are all covered.",
+      "Close to the Upper Harbour motorway, West Harbour is a quick run for city and west moves. Home relocations, pianos, packing, and office relocations are all covered.",
     ],
     highlights: [
       "Upper Harbour family homes",
@@ -821,7 +821,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Riverhead is outer north-west village and lifestyle living, growing subdivisions and rural blocks at the edge of our patch.",
     paragraphs: [
       "Riverhead mixes new village subdivisions with rural lifestyle blocks, long driveways, sheds, and volume that we scope before quoting.",
-      "Riverhead sits in our outer north-west zone with travel quoted upfront. House moves, pianos, packing, and farm-gate pickups are all covered.",
+      "Riverhead sits in our outer north-west zone with travel quoted upfront. Home relocations, pianos, packing, and farm-gate pickups are all covered.",
     ],
     highlights: [
       "Village homes and lifestyle blocks",
@@ -847,7 +847,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "St Johns sits between Remuera and the eastern bays, established family homes and newer Stonefields-edge builds we move regularly.",
     paragraphs: [
       "St Johns homes range from post-war houses to newer townhouses near Stonefields, with a mix of driveways and shared access. We scope it at the viewing so pricing matches the job.",
-      "Central and well-connected, St Johns is a quick cross-town run. House moves, pianos, packing, and office relocations are all covered.",
+      "Central and well-connected, St Johns is a quick cross-town run. Home relocations, pianos, packing, and office relocations are all covered.",
     ],
     highlights: [
       "Family homes and newer townhouses",
@@ -873,7 +873,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Glendowie is leafy eastern-bays living, larger family homes near the coast and St Heliers that we move with planned access.",
     paragraphs: [
       "Glendowie homes are often substantial family houses on bigger sections, some with steep drives down toward the water. We scope volume and access at the viewing so the right crew arrives.",
-      "We cover Glendowie alongside St Heliers, Kohimarama, and Mission Bay. House moves, pianos, packing, and downsizing are all covered.",
+      "We cover Glendowie alongside St Heliers, Kohimarama, and Mission Bay. Home relocations, pianos, packing, and downsizing are all covered.",
     ],
     highlights: [
       "Eastern-bays family homes",
@@ -900,7 +900,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     faqs: [
       {
         q: "Do you cover rural properties around Cambridge?",
-        a: "Yes. lifestyle blocks, dairy farms, and rural driveways around Cambridge are part of our regular Hamilton schedule. We visit before larger house moves so access and volume are clear in your fixed quote.",
+        a: "Yes. lifestyle blocks, dairy farms, and rural driveways around Cambridge are part of our regular Hamilton schedule. We visit before larger home relocations so access and volume are clear in your fixed quote.",
       },
       {
         q: "How far in advance should I book a Cambridge move?",
@@ -914,7 +914,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   morrinsville: {
     extraParagraphs: [
-      `Morrinsville sees steady demand for house moves, farm-gate pickups, and piano transport for homes and local retailers. ${pianoProtection}`,
+      `Morrinsville sees steady demand for home relocations, farm-gate pickups, and piano transport for homes and local retailers. ${pianoProtection}`,
       `Town-centre villas and rural properties on the outskirts both benefit from a viewing so we send the right truck and crew. ${waikatoInAreaPricing}`,
     ],
     faqs: [
@@ -934,13 +934,13 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   "te-awamutu": {
     extraParagraphs: [
-      `Te Awamutu moves include house relocations, commercial runs, and regular piano transport for homes and music schools. ${pianoProtection}`,
+      `Te Awamutu moves include home relocations, commercial runs, and regular piano transport for homes and music schools. ${pianoProtection}`,
       waikatoInAreaPricing,
     ],
     faqs: [
       {
         q: "Do you cover rural properties around Te Awamutu?",
-        a: "Yes. we cover Te Awamutu town and surrounding rural roads from Hamilton. A viewing locks in truck access and a fixed house-move price.",
+        a: "Yes. we cover Te Awamutu town and surrounding rural roads from Hamilton. A viewing locks in truck access and a fixed price for your move.",
       },
       {
         q: "How far in advance should I book?",
@@ -954,7 +954,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   matamata: {
     extraParagraphs: [
-      `Matamata and nearby rural properties need clear access planning, we visit before larger house moves. Piano moves for homes and local businesses use padded blankets, shrink wrap, and specialist crews. ${pianoProtection}`,
+      `Matamata and nearby rural properties need clear access planning, we visit before larger home relocations. Piano moves for homes and local businesses use padded blankets, shrink wrap, and specialist crews. ${pianoProtection}`,
       `Matamata sits in Waikato Zone C from our Hamilton base, travel is quoted clearly when you book. ${waikatoInAreaPricing}`,
     ],
     faqs: [
@@ -979,7 +979,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Huntly sits on the Waikato River and the main Hamilton to Auckland route, a regular stop on our corridor runs from the Hamilton base.",
     paragraphs: [
       "We move Huntly town homes, riverside properties, and rural blocks on the town's edge. Larger moves get a viewing so driveways, access, and volume are clear before we lock your price.",
-      `Being right on the corridor, Huntly is easy to schedule alongside Hamilton and Auckland jobs. House moves, pianos, packing, and commercial work are all covered. ${waikatoInAreaPricing}`,
+      `Being right on the corridor, Huntly is easy to schedule alongside Hamilton and Auckland jobs. Home relocations, pianos, packing, and commercial work are all covered. ${waikatoInAreaPricing}`,
     ],
     highlights: [
       "On the Hamilton to Auckland corridor",
@@ -1005,7 +1005,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Ngāruawāhia sits where the Waikato and Waipā rivers meet, just up the road from our Hamilton base, so it is a quick, low-travel run.",
     paragraphs: [
       "We move town homes, riverside properties, and rural blocks around Ngāruawāhia. A viewing before larger moves keeps driveways, gates, and volume clear in your fixed quote.",
-      `Close to Hamilton, Ngāruawāhia is easy to schedule on short notice. House moves, pianos, packing, and commercial work are all covered. ${waikatoInAreaPricing}`,
+      `Close to Hamilton, Ngāruawāhia is easy to schedule on short notice. Home relocations, pianos, packing, and commercial work are all covered. ${waikatoInAreaPricing}`,
     ],
     highlights: [
       "Minutes from our Hamilton base",
@@ -1031,7 +1031,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Raglan is the Waikato's surf coast, about 45 minutes from our Hamilton base, with baches, family homes, and hillside properties above the harbour.",
     paragraphs: [
       "Raglan's coastal and hillside homes often have steep or narrow access and holiday-home timing to work around. We scope the carry route and access at the viewing so the move runs smoothly.",
-      `We run Raglan from Hamilton with travel quoted clearly upfront. House moves, pianos, packing, and bach relocations are all covered. ${waikatoInAreaPricing}`,
+      `We run Raglan from Hamilton with travel quoted clearly upfront. Home relocations, pianos, packing, and bach relocations are all covered. ${waikatoInAreaPricing}`,
     ],
     highlights: [
       "Coastal, bach, and hillside homes",
@@ -1100,7 +1100,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   taupo: {
     extraParagraphs: [
-      `Taupo piano and house moves use the same careful wrapping, blankets, shrink wrap, and secure strapping for the longer drive. ${pianoProtection}`,
+      `Taupo piano and home relocations use the same careful wrapping, blankets, shrink wrap, and secure strapping for the longer drive. ${pianoProtection}`,
       regionalPricing,
     ],
     faqs: [
@@ -1232,7 +1232,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   "palmerston-north": {
     extraParagraphs: [
-      `Palmerston North sits on our lower North Island corridor from Hamilton, house, office, piano, and commercial moves with travel quoted upfront. ${pianoProtection}`,
+      `Palmerston North sits on our lower North Island corridor from Hamilton, home, office, piano, and commercial moves with travel quoted upfront. ${pianoProtection}`,
       longDistancePricing,
     ],
     faqs: [

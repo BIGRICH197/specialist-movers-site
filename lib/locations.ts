@@ -6,12 +6,13 @@
 import { normalizeLocationMeta } from "@/lib/location-builders";
 import { extraAucklandSuburbs, extraWaikatoTowns } from "@/lib/locations-extra";
 import { applyLocationSeo } from "@/lib/location-seo";
+import { regionMetaDescriptions } from "@/lib/meta-keyword-copy";
 import type { Location, LocationGroup } from "@/lib/location-types";
 
 export type { Location, LocationGroup, LocationKind } from "@/lib/location-types";
 
 const sharedServices =
-  "House moves, piano transport, packing, office and commercial work, exit cleans, and hard-to-shift items.";
+  "Home relocations, piano transport, packing, office and commercial work, exit cleans, and hard-to-shift items.";
 
 function suburbCopy(
   name: string,
@@ -21,12 +22,12 @@ function suburbCopy(
   return {
     intro: `We move homes and pianos in ${name} and nearby streets. Our Auckland crew plans access, parking, and timing before move day.`,
     paragraphs: [
-      `${areaNote} We quote after a free in-home viewing when you need an accurate fixed price for a house move.`,
+      `${areaNote} We quote after a free in-home viewing when you need an accurate fixed price for a home relocation.`,
       `From our Wairau Valley depot we run ${name} jobs often, alongside wider ${parentRegionName} work. ${sharedServices}`,
       `Need a piano move in ${name}? We are trusted by Auckland music stores and handle uprights and grands with care.`,
     ],
     highlights: [
-      "Free in-home viewing for house moves",
+      "Free in-home viewing for home relocations",
       "Fixed-price quotes when we have scoped the job",
       "Piano specialists, upright and grand",
       "Licensed and insured crews",
@@ -43,11 +44,11 @@ const regions: Location[] = [
     parentSlug: null,
     metaTitle: "Movers North Shore Auckland",
     metaDescription:
-      "house and piano moving on the North Shore. Specialist Movers, Silverdale to Devonport. Free quote. Auckland depot.",
+      regionMetaDescriptions["north-shore"],
     intro:
       "Regular North Shore work from Takapuna and Milford through to Albany and Silverdale. We plan ferry access, apartments, and driveway limits before your move.",
     paragraphs: [
-      "Our Auckland base is in Wairau Valley, so North Shore jobs are a natural fit. We do house moves, piano transport, packing, and commercial runs across the Shore every week.",
+      "Our Auckland base is in Wairau Valley, so North Shore jobs are a natural fit. We do home relocations, piano transport, packing, and commercial runs across the Shore every week.",
       "Tight driveways, walk-up apartments, and villa steps are common here. We scope those at your free viewing so your quote matches the real job.",
       sharedServices,
     ],
@@ -65,7 +66,7 @@ const regions: Location[] = [
     parentSlug: null,
     metaTitle: "Movers Central Auckland",
     metaDescription:
-      "Premium house and piano moving in central Auckland, Herne Bay, Ponsonby, Remuera, Parnell. Free quote. Specialist Movers.",
+      regionMetaDescriptions["central-auckland"],
     intro:
       "Central suburbs mean character homes, apartments, and careful handling. We work in Herne Bay, Ponsonby, Remuera, and across the inner city.",
     paragraphs: [
@@ -87,7 +88,7 @@ const regions: Location[] = [
     parentSlug: null,
     metaTitle: "Movers West Auckland",
     metaDescription:
-      "house and piano moving West Auckland, Henderson, New Lynn, Titirangi. Specialist Movers. Free quote.",
+      regionMetaDescriptions["west-auckland"],
     intro:
       "West Auckland covers everything from Henderson and New Lynn out to Titirangi hillside homes. We quote properly for access and distance.",
     paragraphs: [
@@ -109,7 +110,7 @@ const regions: Location[] = [
     parentSlug: null,
     metaTitle: "Movers South Auckland",
     metaDescription:
-      "Movers South Auckland, Manukau, Papakura, Drury, Pukekohe zone. House and piano moves. Specialist Movers.",
+      regionMetaDescriptions["south-auckland"],
     intro:
       "South Auckland runs from Manukau and Papakura out toward Drury and the wider south. We check both ends of your move for fair pricing tiers.",
     paragraphs: [
@@ -131,7 +132,7 @@ const regions: Location[] = [
     parentSlug: null,
     metaTitle: "Movers East Auckland",
     metaDescription:
-      "House movers East Auckland, Howick, Mission Bay, Panmure. Specialist Movers Auckland. Free quote.",
+      regionMetaDescriptions["east-auckland"],
     intro:
       "East Auckland includes coastal suburbs and growing residential areas. We plan for apartments, bungalows, and busy weekend roads.",
     paragraphs: [
@@ -179,7 +180,7 @@ const suburbs: Location[] = [
     group: "auckland",
     parentSlug: "north-shore",
     metaTitle: "Movers Glenfield",
-    metaDescription: "Glenfield house movers near our Wairau Valley depot. Piano moves. Free quote.",
+    metaDescription: "Glenfield movers near our Wairau Valley depot. Piano moves. Free quote.",
     ...suburbCopy(
       "Glenfield",
       "Close to our Wairau Valley base, so Glenfield jobs are quick to schedule and easy to revisit for viewing.",
@@ -257,7 +258,7 @@ const suburbs: Location[] = [
     group: "auckland",
     parentSlug: "central-auckland",
     metaTitle: "Movers Parnell",
-    metaDescription: "Parnell house movers Auckland. Specialist Movers, careful, professional crews.",
+    metaDescription: "Parnell movers Auckland. Specialist Movers, careful, professional crews.",
     ...suburbCopy("Parnell", "Mix of apartments and character homes close to the city fringe.", "central Auckland"),
   },
   {
@@ -278,7 +279,7 @@ const suburbs: Location[] = [
     group: "auckland",
     parentSlug: "west-auckland",
     metaTitle: "Movers Henderson",
-    metaDescription: "Henderson house movers West Auckland. Specialist Movers. Free quote.",
+    metaDescription: "Henderson movers West Auckland. Specialist Movers. Free quote.",
     ...suburbCopy("Henderson", "Central West Auckland hub, good road links for local and cross-city moves.", "West Auckland"),
   },
   {
@@ -332,7 +333,7 @@ const suburbs: Location[] = [
     group: "auckland",
     parentSlug: "south-auckland",
     metaTitle: "Movers Drury",
-    metaDescription: "Drury house movers South Auckland. Specialist Movers. Free quote.",
+    metaDescription: "Drury movers South Auckland. Specialist Movers. Free quote.",
     ...suburbCopy("Drury", "Growing south corridor, new builds and family moves are common.", "South Auckland"),
   },
   {
@@ -376,7 +377,7 @@ const towns: Location[] = [
     parentSlug: null,
     metaTitle: "Movers Hamilton",
     metaDescription:
-      "Hamilton house and piano moving. Specialist Movers Hamilton base. Auckland and Waikato service.",
+      regionMetaDescriptions.hamilton,
     intro:
       "Hamilton is our second base. We run daily work across Hamilton city and nearby towns, with Auckland crews when needed.",
     paragraphs: [
@@ -401,14 +402,14 @@ const towns: Location[] = [
     intro:
       "Cambridge and nearby Waikato towns are part of our regular Hamilton coverage. We quote travel and access clearly.",
     paragraphs: [
-      "Lifestyle blocks and town homes around Cambridge need a proper viewing for accurate fixed pricing on house moves.",
+      "Lifestyle blocks and town homes around Cambridge need a proper viewing for accurate fixed pricing on home relocations.",
       "We coordinate crews from Hamilton with clear arrival windows and the same communication you get in Auckland.",
       sharedServices,
     ],
     highlights: [
       "Serviced from our Hamilton base",
       "Clear quote after viewing",
-      "Piano and house specialists",
+      "Piano and relocation specialists",
     ],
   },
   {
@@ -422,13 +423,13 @@ const towns: Location[] = [
     intro:
       "Te Awamutu moves are scheduled from Hamilton. We cover Waikato towns with the same careful crews and quoting process.",
     paragraphs: [
-      "We visit before larger house moves so stairs, driveways, and volume are clear before we lock your price.",
+      "We visit before larger home relocations so stairs, driveways, and volume are clear before we lock your price.",
       "Piano transport to and from Te Awamutu is available with specialist handling and shrink wrap.",
       sharedServices,
     ],
     highlights: [
       "Waikato scheduling from Hamilton",
-      "In-home viewing for house moves",
+      "In-home viewing for home relocations",
       "Piano specialists",
     ],
   },
@@ -441,7 +442,7 @@ const towns: Location[] = [
     metaTitle: "Movers Morrinsville",
     metaDescription: "Morrinsville Waikato movers. Specialist Movers Hamilton. Free quote.",
     intro:
-      "Morrinsville sits in our Waikato patch from Hamilton. Call for house moves, pianos, and commercial work.",
+      "Morrinsville sits in our Waikato patch from Hamilton. Call for home relocations, pianos, and commercial work.",
     paragraphs: [
       "Town and rural properties around Morrinsville benefit from a viewing so we send the right truck and crew size.",
       "We keep you updated on timing from quote through to move day.",

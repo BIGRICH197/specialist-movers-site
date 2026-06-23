@@ -101,7 +101,7 @@ export const extraWaikatoTowns = [
     { areaLabel: "Coromandel" },
   ),
   createTown("Otorohanga", "Otorohanga and surrounding towns serviced from Hamilton."),
-  createTown("Putaruru", "Putaruru and south Waikato, viewing-first for house moves."),
+  createTown("Putaruru", "Putaruru and south Waikato, viewing-first for home relocations."),
   createTown("Te Kuiti", "Te Kuiti and wider King Country, contact us for scope and timing."),
   createTown(
     "Taupo",

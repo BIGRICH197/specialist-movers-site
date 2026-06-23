@@ -4,45 +4,45 @@
  */
 export const legacyMetaDescriptions = {
   home:
-    "Specialist Movers has Auckland and Hamilton bases. House, piano, commercial, packing and specialist moves across Auckland, Hamilton, and the Waikato. Free quote and callback in 15 minutes.",
+    "Auckland movers and removalists. Home relocations, furniture removals, piano and commercial moves. Auckland and Hamilton bases. Free quote, callback in 15 minutes.",
   "house-moving":
-    "Relocating your home can be stressful, but not anymore with Specialist Movers, your expert house moving and packing services company in Auckland. Hire us today!",
+    "Auckland furniture removalists and home movers. Viewing-first quotes, packing and piano. Trusted moving company. Free quote and callback in 15 minutes.",
   "office-moving":
-    "Moving your business to a new location? Contact Specialist Movers, your office furniture movers in Auckland for a smooth transition.",
+    "Office movers Auckland. Workplace and furniture relocations planned around your downtime. Specialist Movers. Free quote and callback in 15 minutes.",
   "commercial-moving":
-    "Specialist Movers are the best commercial movers for your business in Auckland, providing competitive pricing and peace of mind. Contact us today for a quote.",
+    "Commercial movers Auckland for fit-outs, installs and business relocations. SiteWise Gold crews. Specialist Movers. Free quote today.",
   "packing-services":
-    "Professional house and office packing in Auckland with Specialist Movers. Our crew packs the day before your move. Cartons, wrap, and careful handling. Free quote.",
+    "Movers and packers Auckland. Professional packing the day before your move. Cartons, wrap, and careful handling. Free quote from Specialist Movers.",
   "hard-to-shift":
-    "Looking for heavy item movers? Hire Specialist Movers in Auckland for heavy and hard-to-shift items. Contact us for hassle-free movement and to learn more.",
+    "Heavy item and furniture movers Auckland. Spa pools, safes, and hard-to-shift gear moved safely. Specialist Movers. Free quote and callback.",
   "cleaning-services":
-    "Book trusted professional cleaning services in Auckland with Specialist Movers. Easy online cleaning bookings for homes and offices. Get a fast quote today.",
+    "Exit cleaning Auckland for tenancies and settlements. Fixed-price cleans alongside your move. Specialist Movers. Book online or get a fast quote.",
   "international-moving":
-    "Choose Specialist Movers for your International Moving Services. Our experienced team provides efficient and secure relocation services to and from New Zealand.",
+    "International moving company Auckland. Secure relocations to and from New Zealand. Specialist Movers. Experienced crews. Free quote today.",
   "loading-unloading":
-    "Need help with heavy lifting items? Discover Specialist Movers to help load a truck. We handle your belongings with care and smooth moves. Contact us!",
+    "Loading and unloading Auckland. Expert furniture movers for truck hire and container deliveries. Specialist Movers. Careful handling. Free quote.",
   "winz-quotes":
-    "Looking for Winz house moving quotes? Contact Specialist Movers today and get a free quotation. Save money on movers and packs!",
+    "WINZ home relocation quotes Auckland. Written scope and pricing for moving assistance applications. Specialist Movers. Fast follow-up. Free quote.",
   "piano-movers-auckland":
-    "Auckland piano movers for upright and grand pianos. Trusted by North Shore and central Auckland music stores. Free quote and callback in 15 min.",
+    "Piano movers Auckland for upright and grand pianos. Trusted by music stores. Dedicated piano trucks. Free quote and callback in 15 minutes.",
   "piano-movers":
-    "Auckland and Hamilton piano moving for uprights and grands. Dedicated piano trucks, storage, and international shipping. Free quote and callback in 15 minutes.",
+    "Auckland and Hamilton piano movers for uprights and grands. Dedicated trucks, storage, and international shipping. Free quote in 15 minutes.",
   "apartment-movers-auckland":
-    "Moving to a new apartment? Take the help of Specialist Movers who specialises in apartment relocation in Auckland. Click here to learn more.",
+    "Apartment movers Auckland. Lift access, body corporate rules, and tight stairwells planned before move day. Specialist Movers. Free quote.",
   "retirement-home-movers-auckland":
-    "Retiring soon? Hire your personalised retirement home movers, the Specialist Movers in Auckland and experience the difference. Click here now!",
+    "Retirement home movers Auckland. Patient, careful village and rest-home relocations with full pack-and-move options. Specialist Movers. Free quote.",
   about:
-    "Learn about Specialist Movers, experienced professionals delivering reliable moving and cleaning services in Auckland. Discover our values and book with confidence.",
+    "About Specialist Movers, Auckland and Hamilton removalists. NZ owned, SiteWise Gold, hundreds of 5-star reviews. Learn more and book with confidence.",
   contact:
-    "Connect with Specialist Movers, your expert packers and movers in Auckland. Fill out our form for quick, no-obligation quotes and efficient moving solutions.",
+    "Contact Specialist Movers, Auckland movers and removalists. Quick quotes for home relocations, piano, office and commercial moves. Callback in 15 minutes.",
   faq:
-    "Find answers to common questions about moving and cleaning services in Auckland. Visit Specialist Movers FAQs and get the information you need before booking.",
+    "Moving and cleaning FAQs from Specialist Movers Auckland. Answers on quotes, packing, piano moves, and booking. Read before you move.",
   reviews:
-    "Customer satisfaction is our top priority at Specialist Movers. Check what our customers have to say about our services. Call us now to get your custom quote.",
+    "Specialist Movers reviews. Hundreds of 5-star Google ratings for Auckland home relocations, piano, and commercial moves. See what customers say.",
   services:
-    "Specialist Movers Auckland for house, commercial, international, and piano moves, plus packing, storage, and exit cleaning. Free quote in 15 minutes.",
+    "Auckland moving company for home relocations, piano, commercial, packing, storage and exit cleaning. Specialist Movers. Free quote in 15 minutes.",
   policies:
-    "Specialist Movers is committed to protecting your privacy and personal information under strict standards and legal requirements. Learn more here.",
+    "Specialist Movers privacy policy. How we protect your personal information under NZ privacy standards. Read our policy here.",
 } as const;
 
 export type LegacyMetaKey = keyof typeof legacyMetaDescriptions;

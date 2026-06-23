@@ -3,13 +3,14 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { fitHeroTitlePx } from "@/lib/hero-title-fit";
 import { formatHeadingText } from "@/lib/heading-ampersand";
+import { isMultilineServiceMobileHeroTitle } from "@/lib/mobile-hero-title-reference";
 import { cn } from "@/lib/utils";
 
 const LINE_HEIGHT = 1.12;
-/** Match HomeHero mobile title (maxPx 28) — keeps gap to photo the same. */
-const TITLE_RESERVE_PX = 28;
+/** Match HomeHero mobile title max — keeps gap to photo the same. */
+const TITLE_RESERVE_PX = 34;
 const MAX_PX = TITLE_RESERVE_PX;
-const MIN_PX = 8;
+const MIN_PX = 10;
 
 type Props = {
   text: string;
@@ -19,7 +20,7 @@ type Props = {
   className?: string;
 };
 
-/** Service mobile hero title — one line, width locked to photo. Home uses HeroTitleFit. */
+/** Service mobile hero title — one or two lines, width locked to photo. Home uses HeroTitleFit. */
 export function ServiceHeroTitleFit({
   text,
   targetWidthPx,
@@ -27,8 +28,22 @@ export function ServiceHeroTitleFit({
   className,
 }: Props) {
   const titleRef = useRef<HTMLHeadingElement | HTMLDivElement>(null);
+  const lineRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const [visible, setVisible] = useState(false);
+  const [fittedPx, setFittedPx] = useState<number>();
   const ready = targetWidthPx != null && targetWidthPx > 0;
+
+  const lines = isMultilineServiceMobileHeroTitle(text)
+    ? text.split("\n").map((line) => line.trim()).filter(Boolean)
+    : [text];
+  const multiline = lines.length > 1;
+
+  const placeholderMinHeight = MIN_PX * LINE_HEIGHT * lines.length;
+  const minHeightPx = multiline
+    ? visible && fittedPx != null
+      ? fittedPx * LINE_HEIGHT * lines.length
+      : placeholderMinHeight
+    : TITLE_RESERVE_PX * LINE_HEIGHT;
 
   useLayoutEffect(() => {
     const title = titleRef.current;
@@ -42,32 +57,61 @@ export function ServiceHeroTitleFit({
 
       const width = targetWidthPx;
 
-      let size = fitHeroTitlePx(width, MAX_PX, MIN_PX, (px) => {
+      const measureWidth = (px: number) => {
         title.style.fontSize = `${px}px`;
+        if (multiline) {
+          return Math.max(
+            0,
+            ...lineRefs.current.map((line) => line?.scrollWidth ?? 0),
+          );
+        }
         return title.scrollWidth;
-      });
+      };
+
+      let size = fitHeroTitlePx(width, MAX_PX, MIN_PX, measureWidth);
 
       title.style.fontSize = `${size}px`;
-      while (size > MIN_PX && title.scrollWidth > width) {
+      while (size > MIN_PX && measureWidth(size) > width) {
         size -= 1;
         title.style.fontSize = `${size}px`;
       }
 
+      setFittedPx(size);
       setVisible(true);
     };
 
     setVisible(false);
+    setFittedPx(undefined);
     void fit();
 
     return () => {
       cancelled = true;
     };
-  }, [text, targetWidthPx, ready]);
+  }, [text, targetWidthPx, ready, multiline]);
 
   const titleClassName = cn(
-    "block w-full min-w-0 whitespace-nowrap text-center font-heading leading-[1.12] text-white",
+    "block w-full min-w-0 text-center font-heading leading-[1.12] text-white",
+    !multiline && "whitespace-nowrap",
     ready && visible ? "opacity-100" : "opacity-0",
     className,
+  );
+
+  const content = multiline ? (
+    <>
+      {lines.map((line, index) => (
+        <span
+          key={index}
+          ref={(node) => {
+            lineRefs.current[index] = node;
+          }}
+          className="block whitespace-nowrap"
+        >
+          {formatHeadingText(line)}
+        </span>
+      ))}
+    </>
+  ) : (
+    formatHeadingText(text)
   );
 
   return (
@@ -75,16 +119,16 @@ export function ServiceHeroTitleFit({
       className="mx-auto min-w-0"
       style={{
         width: ready ? targetWidthPx : "100%",
-        minHeight: `calc(${TITLE_RESERVE_PX}px * ${LINE_HEIGHT})`,
+        minHeight: minHeightPx,
       }}
     >
       {Tag === "div" ? (
         <div ref={titleRef} className={titleClassName}>
-          {formatHeadingText(text)}
+          {content}
         </div>
       ) : (
         <h1 ref={titleRef} className={titleClassName}>
-          {formatHeadingText(text)}
+          {content}
         </h1>
       )}
     </div>

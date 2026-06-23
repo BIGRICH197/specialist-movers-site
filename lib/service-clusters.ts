@@ -29,20 +29,20 @@ export const movingDistanceServices: readonly ServiceClusterItem[] = [
     slug: "local-moving",
     title: "Local moving Auckland & Waikato",
     excerpt:
-      "Same-day and short-notice house moves across Auckland suburbs and Hamilton. Day rates, clear call-out, and crews who know local access. Free quote.",
+      "Same-day and short-notice home relocations across Auckland suburbs and Hamilton. Day rates, clear call-out, and crews who know local access. Free quote.",
     description:
       "Local moves are our bread and butter: apartments, townhouses, and family homes across Auckland and the Waikato. We plan parking, stairs, and lift access before move day so your crew arrives ready. Packing, storage, and specialty items can be added to the same job.",
     includedBullets: [
       "Auckland and Hamilton metro moves, suburbs, apartments, and houses",
       "Careful furniture handling, blankets, and floor protection",
-      "Trucks sized for your home, from smaller loads to full house moves",
+      "Trucks sized for your home, from smaller loads to full home relocations",
       "Optional packing the day before, unpacking, and exit cleaning",
       "Transparent day-rate pricing with call-out explained up front",
     ],
     whyChooseCopy:
       "We are not a gig-economy app. You get trained crews, SiteWise Gold systems, and hundreds of 5-star reviews. Local does not mean rushed. It means we know Auckland and Waikato access and get it right the first time.",
     relatedSlugs: ["house-moving", "packing-services", "regional-moving"],
-    defaultJobType: "House Move",
+    defaultJobType: "Home Move",
   },
   {
     slug: "regional-moving",
@@ -61,7 +61,7 @@ export const movingDistanceServices: readonly ServiceClusterItem[] = [
     whyChooseCopy:
       "Mid-distance moves fail when communication breaks between teams. We run the job end to end from our Auckland and Hamilton bases, with clear ETAs and one point of contact.",
     relatedSlugs: ["house-moving", "international-moving", "packing-services"],
-    defaultJobType: "House Move",
+    defaultJobType: "Home Move",
   },
   {
     slug: "international-moving",
@@ -80,7 +80,7 @@ export const movingDistanceServices: readonly ServiceClusterItem[] = [
     whyChooseCopy:
       "International moves need reliability and one point of contact. We plan the job properly, keep you updated, and deliver with the care your home contents deserve.",
     relatedSlugs: ["house-moving", "packing-services", "regional-moving"],
-    defaultJobType: "House Move",
+    defaultJobType: "Home Move",
     href: aucklandServiceHref("international-moving"),
   },
 ] as const;
@@ -105,12 +105,12 @@ export const storageServices: readonly ServiceClusterItem[] = [
       "Flexible duration, weeks, not years required",
       "Careful pickup, wrapping, and inventory on entry",
       "Delivery back to your new address when you are ready",
-      "Can combine with packing and house moving on one plan",
+      "Can combine with packing and your move on one plan",
     ],
     whyChooseCopy:
       "Timing stress is what makes moves feel chaotic. Short-term storage with the same team that moves you means fewer handoffs and clearer accountability.",
     relatedSlugs: ["house-moving", "packing-services", "long-term-storage"],
-    defaultJobType: "House Move",
+    defaultJobType: "Home Move",
   },
   {
     slug: "long-term-storage",
@@ -128,7 +128,7 @@ export const storageServices: readonly ServiceClusterItem[] = [
     whyChooseCopy:
       "Your belongings should be stored by movers who understand how they were packed and how they need to come out again, not a generic locker with no context.",
     relatedSlugs: ["short-term-storage", "regional-moving", "piano-storage"],
-    defaultJobType: "House Move",
+    defaultJobType: "Home Move",
   },
   {
     slug: "storage-in-transit",
@@ -146,7 +146,7 @@ export const storageServices: readonly ServiceClusterItem[] = [
     whyChooseCopy:
       "Long routes need a plan for where the truck and your goods sit overnight. We build that into the quote so you are not solving logistics at the last minute.",
     relatedSlugs: ["international-moving", "regional-moving", "overnight-storage"],
-    defaultJobType: "House Move",
+    defaultJobType: "Home Move",
   },
   {
     slug: "overnight-storage",
@@ -164,7 +164,7 @@ export const storageServices: readonly ServiceClusterItem[] = [
     whyChooseCopy:
       "Overnight legs should be planned before move day, not improvised. We schedule them so you know where your goods are and when they arrive.",
     relatedSlugs: ["storage-in-transit", "regional-moving", "house-moving"],
-    defaultJobType: "House Move",
+    defaultJobType: "Home Move",
   },
   {
     slug: "piano-storage",
