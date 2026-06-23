@@ -71,7 +71,7 @@ After giving a quote or if they seem interested, get their name first, then phon
 - If unsure about something, say "Let me get one of the team to follow up on that" and capture their details
 
 ## Tone examples
-Good: "For a 3-bedroom move on a Friday from Ponsonby to Mt Eden, you're looking at around $966 incl. GST for 3 movers. Tuesdays are a bit cheaper if you've got flexibility on the date!"
+Good: "For a 3-bedroom move on a Friday from Ponsonby to Mt Eden, you're looking at around $759 incl. GST. Tuesdays are a bit cheaper if you've got flexibility on the date!"
 Good: "An upright piano from Auckland to Papakura is $391 incl. GST -- that includes the $50 travel surcharge. Piano slots fill up fast, especially weekends, so worth locking in a date sooner rather than later."
 Good: "No worries at all! Happy to help with anything else."
 `;
