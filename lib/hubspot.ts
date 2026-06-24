@@ -8,7 +8,7 @@ function jobSourceFor(serviceType: string): string | null {
   const s = serviceType.toLowerCase();
   if (s.includes("piano")) return "website_piano";
   if (s.includes("office") || s.includes("commercial")) return "commercial_job";
-  if (s.includes("house")) return "website_house_move";
+  if (s.includes("house") || s.includes("home")) return "website_house_move";
   return null;
 }
 
@@ -17,7 +17,12 @@ function dealTypeFor(serviceType: string): string | null {
   const s = serviceType.toLowerCase();
   if (s.includes("piano")) return "moverspiano";
   if (s.includes("clean")) return "cleaning";
-  if (s.includes("house") || s.includes("office") || s.includes("commercial")) {
+  if (
+    s.includes("house") ||
+    s.includes("home") ||
+    s.includes("office") ||
+    s.includes("commercial")
+  ) {
     return "moversgeneral";
   }
   return null;
