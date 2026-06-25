@@ -212,7 +212,7 @@ export function BookingForm({
             <label className={labelCls}>
               Have you booked cleaning?{" "}
               <a href="/cleaning-schedule" target="_blank" rel="noreferrer" className="font-normal text-brand-purple/70 underline underline-offset-2">
-                (see what's included)
+                (see what&apos;s included)
               </a>
             </label>
             <select className={inputCls} required value={f.cleaningBooked} onChange={(e) => set("cleaningBooked", e.target.value)}>

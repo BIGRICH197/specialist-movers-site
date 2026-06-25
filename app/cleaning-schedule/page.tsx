@@ -74,7 +74,7 @@ export default function CleaningSchedulePage() {
         <section className="mt-8 rounded-2xl border border-brand-yellow/60 bg-brand-yellow/10 p-6">
           <h2 className="font-heading text-xl text-brand-purple">Optional extras</h2>
           <p className="mt-1 text-sm text-brand-purple/75">
-            Add any of these to your clean — just ask us.
+            Add any of these to your clean. Just ask us.
           </p>
           <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
             {cleaningOptionalExtras.map((x) => (
@@ -101,7 +101,7 @@ export default function CleaningSchedulePage() {
         </section>
 
         <p className="mt-8 text-center text-sm text-brand-purple/70">
-          Questions about your clean? Get in touch and we'll be happy to help.
+          Questions about your clean? Get in touch and we&apos;ll be happy to help.
         </p>
       </div>
     </main>
