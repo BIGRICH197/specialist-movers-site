@@ -126,8 +126,8 @@ export async function createHubSpotDeal(params: {
       email: params.email,
     });
 
-    const firstName = params.name.trim().split(/\s+/)[0] || params.name;
-    const dealName = `[${params.serviceType}] ${firstName} - Website Quote`;
+    const fullName = params.name.trim();
+    const dealName = `[${params.serviceType}] ${fullName} - Website Quote`;
 
     const properties: Record<string, string> = {
       dealname: dealName,
