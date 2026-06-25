@@ -207,14 +207,17 @@ html.deck-document body {
 .proposal-cover-grid {
   display: grid;
   width: 100%;
-  gap: 0.75rem 1.25rem;
-  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  /* Mobile: single column, everything stacked full-width. The two-column
+     layout (logo + photo side by side) only kicks in at 768px+ below. */
+  grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
-    "logo photo"
-    "details details"
-    "left left"
-    "quote quote"
-    "footer footer";
+    "logo"
+    "photo"
+    "details"
+    "left"
+    "quote"
+    "footer";
 }
 
 .proposal-cover-left {
