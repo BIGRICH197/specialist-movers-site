@@ -118,6 +118,20 @@ function SectionedTable({ quote, xero }: { quote: HouseMoveQuote; xero: boolean 
                 {formatNzd(sec.subtotalExclGst)}
               </td>
             </tr>
+            {sec.title === "Cleaning" ? (
+              <tr>
+                <td colSpan={cols} className={`${tdClass} bg-brand-purple/[0.02]`}>
+                  <a
+                    href="/cleaning-schedule"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold text-brand-purple underline underline-offset-2"
+                  >
+                    View the full cleaning schedule →
+                  </a>
+                </td>
+              </tr>
+            ) : null}
           </Fragment>
         ))}
       </tbody>

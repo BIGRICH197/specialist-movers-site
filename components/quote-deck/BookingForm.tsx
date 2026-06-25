@@ -209,7 +209,12 @@ export function BookingForm({
           </div>
 
           <div>
-            <label className={labelCls}>Have you booked cleaning?</label>
+            <label className={labelCls}>
+              Have you booked cleaning?{" "}
+              <a href="/cleaning-schedule" target="_blank" rel="noreferrer" className="font-normal text-brand-purple/70 underline underline-offset-2">
+                (see what's included)
+              </a>
+            </label>
             <select className={inputCls} required value={f.cleaningBooked} onChange={(e) => set("cleaningBooked", e.target.value)}>
               <option value="">Select…</option>
               {CLEANING_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}

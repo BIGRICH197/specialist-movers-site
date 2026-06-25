@@ -19,7 +19,8 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
       pathname === "/portal" ||
       pathname.startsWith("/portal/") ||
       pathname === "/quote" ||
-      pathname.startsWith("/quote/"));
+      pathname.startsWith("/quote/") ||
+      pathname === "/cleaning-schedule");
 
   if (bare) {
     return <main className="min-h-screen">{children}</main>;
