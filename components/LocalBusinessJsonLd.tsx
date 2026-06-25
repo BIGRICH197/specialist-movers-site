@@ -2,6 +2,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { brandAssets } from "@/lib/brand-assets";
 import { businessInfo } from "@/lib/business-info";
 import { regions } from "@/lib/regions";
+import { aggregateRatingSchema } from "@/lib/schema-rating";
 import { phoneNumber } from "@/lib/site-data";
 import { siteName, siteUrl } from "@/lib/site-config";
 
@@ -15,6 +16,7 @@ export function LocalBusinessJsonLd() {
     name: siteName,
     description: regions.jsonLdDescription,
     url: siteUrl,
+    foundingDate: "2023",
     telephone: phoneE164,
     email: businessInfo.email,
     image: `${siteUrl}${brandAssets.logomarkPurple}`,
@@ -41,13 +43,9 @@ export function LocalBusinessJsonLd() {
       opens: "09:00",
       closes: "19:00",
     })),
-    areaServed: [
-      { "@type": "City", name: "Auckland" },
-      { "@type": "City", name: "Hamilton" },
-      { "@type": "AdministrativeArea", name: "Waikato" },
-      { "@type": "AdministrativeArea", name: "North Island" },
-    ],
+    areaServed: [{ "@type": "City", name: "Auckland" }],
     priceRange: "$$",
+    aggregateRating: aggregateRatingSchema,
     sameAs: [...businessInfo.sameAs],
   };
 

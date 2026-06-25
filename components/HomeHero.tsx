@@ -6,7 +6,6 @@ import { BrandLogomarkWatermark } from "@/components/BrandLogomarkWatermark";
 import { GoogleRatingBadge } from "@/components/GoogleRatingBadge";
 import { HeroPhotoFrame } from "@/components/hero/HeroPhotoFrame";
 import { HeroTitleFit } from "@/components/hero/HeroTitleFit";
-import { formatHeadingText } from "@/lib/heading-ampersand";
 import { HeroVisual } from "@/components/HeroVisual";
 import { QuoteForm } from "@/components/QuoteForm";
 import { regions } from "@/lib/regions";
@@ -153,17 +152,24 @@ export function HomeHero({
                   className="font-normal"
                   as="div"
                 />
-                <h1 className="sr-only">{MOBILE_HOME_SEO_H1}</h1>
               </motion.div>
             ) : (
-              <motion.h1
+              <motion.div
                 variants={reduced ? undefined : item}
                 transition={t}
-                className="font-heading text-3xl leading-[1.12] text-white sm:text-4xl lg:hidden"
+                className="lg:hidden"
               >
-                {formatHeadingText(mobileTitle ?? MOBILE_HERO_TITLE)}
-              </motion.h1>
+                <HeroTitleFit
+                  text={mobileTitle ?? MOBILE_HERO_TITLE}
+                  tone="white"
+                  maxPx={36}
+                  minPx={16}
+                  className="font-normal"
+                  as="div"
+                />
+              </motion.div>
             )}
+            <h1 className="sr-only">{MOBILE_HOME_SEO_H1}</h1>
             <motion.div variants={reduced ? undefined : item} transition={t} className="lg:hidden">
               {heroVisual}
             </motion.div>
@@ -175,16 +181,11 @@ export function HomeHero({
               transition={t}
               className="hidden w-full min-w-0 lg:block"
             >
-              {/* Desktop keeps the "Specialist Movers." visual, but the indexed
-                  h1 matches the mobile keyword title (Google is mobile-first). */}
-              {mobileHomeLogoExperiment ? (
-                <h1 className="sr-only">{MOBILE_HOME_SEO_H1}</h1>
-              ) : null}
               <HeroPhotoFrame
                 heading={hero.h1}
                 eyebrowLabel={hero.eyebrow}
                 photo={desktopHeroVisual}
-                headingAs={mobileHomeLogoExperiment ? "div" : "h1"}
+                headingAs="div"
               />
             </motion.div>
             {hero.h1Sub ? (

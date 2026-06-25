@@ -13,9 +13,6 @@ import {
 } from "@/lib/piano-mobile-hero";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
-const MOBILE_HEADING_CLASS =
-  "font-heading text-3xl leading-[1.12] text-white sm:text-4xl";
-
 const MOBILE_PILL_CLASS =
   "inline-flex w-fit max-w-[95%] self-start rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-brand-yellow sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-wider";
 
@@ -77,6 +74,8 @@ export function ServiceMobileHeroHead({
   const isPiano = heroVariant === "piano";
   const pianoTitle = isPiano ? getPianoMobileTitle(heading, titleSlug) : null;
   const mobileTitleText = getServiceMobileHeroTitle(titleSlug, heading, eyebrowLabel);
+  const displayTitle = isPiano && pianoTitle ? pianoTitle : mobileTitleText;
+  const seoHeading = displayTitle !== heading ? heading : undefined;
 
   useLayoutEffect(() => {
     const wrap = photoWrapRef.current;
@@ -111,8 +110,8 @@ export function ServiceMobileHeroHead({
       {!eyebrow && isPiano && pianoTitle ? (
         <>
           <FittedHeroTitle
-            text={pianoTitle}
-            seoHeading={heading}
+            text={displayTitle}
+            seoHeading={seoHeading}
             photoWidthPx={photoWidthPx}
           />
           <h2 className={MOBILE_PILL_CLASS}>{PIANO_MOBILE_TRUST_PILL}</h2>
@@ -121,15 +120,18 @@ export function ServiceMobileHeroHead({
       ) : !eyebrow ? (
         <>
           <FittedHeroTitle
-            text={mobileTitleText}
-            seoHeading={eyebrowLabel ? heading : undefined}
+            text={displayTitle}
+            seoHeading={seoHeading}
             photoWidthPx={photoWidthPx}
           />
           {photoBlock}
         </>
       ) : (
         <>
-          <h1 className={MOBILE_HEADING_CLASS}>{heading}</h1>
+          <FittedHeroTitle
+            text={heading}
+            photoWidthPx={photoWidthPx}
+          />
           {photoBlock}
         </>
       )}

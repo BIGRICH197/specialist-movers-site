@@ -12,6 +12,7 @@ import { faqsForService } from "@/lib/service-faqs";
 import { hardToShiftPageHeroPhoto } from "@/lib/hard-to-shift-gallery";
 import { legacyMetaForServiceSlug } from "@/lib/legacy-meta-descriptions";
 import { legacyPathForServiceSlug } from "@/lib/legacy-auckland-urls";
+import { absoluteTitleForServiceSlug } from "@/lib/seo-meta-for-slug";
 import { services } from "@/lib/site-data";
 import { getServiceHeroH1 } from "@/lib/service-hero-h1";
 
@@ -33,8 +34,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   if (!service) return {};
   const landing = getServiceLandingConfig(params.slug);
   if (landing) {
+    const absTitle = absoluteTitleForServiceSlug(params.slug);
     return buildPageMetadata({
-      title: landing.h1,
+      title: { absolute: absTitle ?? `${landing.h1} | Specialist Movers` },
       description: legacyMetaForServiceSlug(params.slug) ?? landing.lead,
       path: landing.path,
     });
@@ -42,8 +44,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const legacyPath = legacyPathForServiceSlug(params.slug);
   const legacyDescription = legacyMetaForServiceSlug(params.slug);
   const heroH1 = getServiceHeroH1(params.slug, "Auckland");
+  const absTitle = absoluteTitleForServiceSlug(params.slug);
   return buildPageMetadata({
-    title: heroH1,
+    title: absTitle ? { absolute: absTitle } : heroH1,
     description:
       legacyDescription ??
       `${service.description} Trusted ${service.title.toLowerCase()} specialists. Auckland base. Free quote. Callback in 15 minutes.`,
@@ -105,6 +108,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
             ]
           : undefined
       }
+      schemaPath={legacyPathForServiceSlug(params.slug) ?? `/services/${params.slug}`}
     />
   );
 }

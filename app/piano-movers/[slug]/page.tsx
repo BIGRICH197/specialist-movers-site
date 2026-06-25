@@ -5,6 +5,7 @@ import { ServicePageTemplate } from "@/components/ServicePageTemplate";
 import { getServiceSeoExtension } from "@/lib/service-seo-extensions";
 import { faqsForService } from "@/lib/service-faqs";
 import { getPianoPhoto } from "@/lib/site-photos";
+import { seoAbsoluteTitles } from "@/lib/seo-meta-titles";
 import { pianoServices } from "@/lib/site-data";
 
 const RESERVED_PIANO_SLUGS = new Set(["auckland", "hamilton"]);
@@ -38,6 +39,7 @@ function pianoMetaTitle(slug: string, title: string): string {
   const bySlug: Record<string, string> = {
     "grand-piano": "Grand Piano Moving Auckland | Specialist Piano Movers",
     "piano-storage": "Piano Storage Auckland | Specialist Piano Movers",
+    "international-piano": seoAbsoluteTitles.internationalPiano,
   };
   if (bySlug[slug]) return bySlug[slug];
   if (/\bauckland\b/i.test(title)) return `${title} | Specialist Piano Movers`;
@@ -88,6 +90,7 @@ export default function PianoSlugPage({ params }: { params: { slug: string } }) 
       faqs={seo?.faqs ?? faqsForService(service.slug)}
       processTitle={seo?.processTitle}
       processSteps={seo?.processSteps}
+      schemaPath={`/piano-movers/${service.slug}`}
     />
   );
 }

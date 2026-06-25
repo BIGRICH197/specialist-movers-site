@@ -174,6 +174,7 @@ export function ServiceHeroWithQuote({
               <HeroPhotoFrame
                 heading={heading}
                 headingNowrap={headingNowrap}
+                headingAs="div"
                 photo={photo}
               />
             ) : null}

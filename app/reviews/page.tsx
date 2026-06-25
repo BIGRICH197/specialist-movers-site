@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { legacyMetaDescription } from "@/lib/legacy-meta-descriptions";
 import { buildPageMetadata } from "@/lib/seo";
+import { seoAbsoluteTitles } from "@/lib/seo-meta-titles";
 
 import Link from "next/link";
 
 import { PageHero } from "@/components/PageHero";
-
 import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
-
+import { ReviewsPageJsonLd } from "@/components/ReviewsPageJsonLd";
 import { SectionReveal } from "@/components/SectionReveal";
 
 import { TrustindexWidget } from "@/components/TrustindexWidget";
@@ -17,7 +17,7 @@ import { googleReviewsUrl } from "@/lib/homepage-copy";
 
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Customer Reviews Auckland",
+  title: { absolute: seoAbsoluteTitles.reviews },
   description: legacyMetaDescription("reviews"),
   path: "/reviews",
 });
@@ -29,6 +29,7 @@ export default function ReviewsPage() {
   return (
 
     <div className="bg-brand-white">
+      <ReviewsPageJsonLd />
 
       <PageHero
 
@@ -93,4 +94,3 @@ export default function ReviewsPage() {
   );
 
 }
-

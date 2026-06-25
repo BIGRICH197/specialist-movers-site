@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { LocationPageTemplate } from "@/components/LocationPageTemplate";
+import { legacyMetaDescription } from "@/lib/legacy-meta-descriptions";
+import { seoAbsoluteTitles } from "@/lib/seo-meta-titles";
 import { getLocation, getLocationSlugs } from "@/lib/locations";
 import { isIndexedLocation } from "@/lib/location-index-policy";
 
@@ -13,8 +15,14 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const location = getLocation(params.slug);
   if (!location) return {};
   return buildPageMetadata({
-    title: location.metaTitle,
-    description: location.metaDescription,
+    title:
+      location.slug === "hamilton"
+        ? { absolute: seoAbsoluteTitles.locationHamilton }
+        : location.metaTitle,
+    description:
+      location.slug === "hamilton"
+        ? legacyMetaDescription("location-hamilton")
+        : location.metaDescription,
     path: `/locations/${location.slug}`,
     // Thin/templated long-tail pages: keep live for users + internal links,
     // but don't let Google index near-duplicate content.

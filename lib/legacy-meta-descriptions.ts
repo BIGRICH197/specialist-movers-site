@@ -1,48 +1,53 @@
 /**
- * Meta descriptions from live specialistmovers.co.nz (Yoast), June 2026.
- * Use verbatim on migrated URLs to preserve SEO.
+ * Meta descriptions from SEO team spreadsheet + live site (June 2026).
  */
 export const legacyMetaDescriptions = {
   home:
-    "Auckland movers and removalists. Home relocations, furniture removals, piano and commercial moves. Auckland and Hamilton bases. Free quote, callback in 15 minutes.",
+    "Professional movers in Auckland and beyond. House, office, piano, and packing services from $120/hr. Quoted upfront, 7 days a week. Free quote.",
   "house-moving":
-    "Auckland furniture removalists and home movers. Viewing-first quotes, packing and piano. Trusted moving company. Free quote and callback in 15 minutes.",
+    "Auckland house movers with full packing service. Specialist Movers handles wrapping, loading, transport, and delivery. Free quote and callback in 15 minutes.",
   "office-moving":
-    "Office movers Auckland. Workplace and furniture relocations planned around your downtime. Specialist Movers. Free quote and callback in 15 minutes.",
+    "Office movers in Auckland for desks, IT equipment, and full fit-outs. After-hours moves, SiteWise Gold certified. Minimal downtime. Free quote.",
   "commercial-moving":
-    "Commercial movers Auckland for fit-outs, installs and business relocations. SiteWise Gold crews. Specialist Movers. Free quote today.",
+    "Commercial movers in Auckland for office fit-outs, equipment, and business relocations. Trained crews, SiteWise Gold certified. Free quote.",
   "packing-services":
-    "Movers and packers Auckland. Professional packing the day before your move. Cartons, wrap, and careful handling. Free quote from Specialist Movers.",
+    "Professional house and office packing in Auckland with Specialist Movers. Our crew packs the day before your move. Cartons, wrap, and careful handling. Free quote.",
   "hard-to-shift":
     "Heavy item and furniture movers Auckland. Spa pools, safes, and hard-to-shift gear moved safely. Specialist Movers. Free quote and callback.",
   "cleaning-services":
     "Exit cleaning Auckland for tenancies and settlements. Fixed-price cleans alongside your move. Specialist Movers. Book online or get a fast quote.",
   "international-moving":
-    "International moving company Auckland. Secure relocations to and from New Zealand. Specialist Movers. Experienced crews. Free quote today.",
+    "International movers in Auckland for overseas relocations. Sea and air freight, customs coordination, and door-to-door service. Free quote.",
   "loading-unloading":
-    "Loading and unloading Auckland. Expert furniture movers for truck hire and container deliveries. Specialist Movers. Careful handling. Free quote.",
+    "Professional loading and unloading crews in Auckland from $350. Blankets and straps included, hourly pricing, 7 days a week. Call (021) 228 2728.",
   "winz-quotes":
-    "WINZ home relocation quotes Auckland. Written scope and pricing for moving assistance applications. Specialist Movers. Fast follow-up. Free quote.",
+    "Written moving quotes for WINZ and housing assistance applications in Auckland. Itemised pricing, site visits when needed, and fast turnaround. Call (021) 228 2728.",
   "piano-movers-auckland":
-    "Piano movers Auckland for upright and grand pianos. Trusted by music stores. Dedicated piano trucks. Free quote and callback in 15 minutes.",
+    "Auckland piano movers for upright and grand pianos. Trusted by North Shore and central Auckland music stores. Free quote and callback in 15 min.",
   "piano-movers":
     "Auckland and Hamilton piano movers for uprights and grands. Dedicated trucks, storage, and international shipping. Free quote in 15 minutes.",
   "apartment-movers-auckland":
-    "Apartment movers Auckland. Lift access, body corporate rules, and tight stairwells planned before move day. Specialist Movers. Free quote.",
+    "Apartment movers in Auckland covering lifts, loading zones, and access codes. Specialist Movers plans every detail before move day. Free quote.",
   "retirement-home-movers-auckland":
     "Retirement home movers Auckland. Patient, careful village and rest-home relocations with full pack-and-move options. Specialist Movers. Free quote.",
   about:
-    "About Specialist Movers, Auckland and Hamilton removalists. NZ owned, SiteWise Gold, hundreds of 5-star reviews. Learn more and book with confidence.",
+    "Founded in 2023, Specialist Movers runs from Auckland and Hamilton bases. Meet the team behind house, piano, and commercial moves across the Waikato and North Island.",
   contact:
-    "Contact Specialist Movers, Auckland movers and removalists. Quick quotes for home relocations, piano, office and commercial moves. Callback in 15 minutes.",
+    "Get a free quote from Specialist Movers in Auckland or Hamilton. Call (021) 228 2728 or fill out the form - callback guaranteed within 15 minutes.",
   faq:
     "Moving and cleaning FAQs from Specialist Movers Auckland. Answers on quotes, packing, piano moves, and booking. Read before you move.",
   reviews:
     "Specialist Movers reviews. Hundreds of 5-star Google ratings for Auckland home relocations, piano, and commercial moves. See what customers say.",
   services:
-    "Auckland moving company for home relocations, piano, commercial, packing, storage and exit cleaning. Specialist Movers. Free quote in 15 minutes.",
+    "House, commercial, international, and piano moves from our Auckland and Hamilton bases. Packing, storage, and exit cleaning. Free quote.",
   policies:
     "Specialist Movers privacy policy. How we protect your personal information under NZ privacy standards. Read our policy here.",
+  storage:
+    "Moving storage in Auckland for every situation - short-term, long-term, overnight, in transit, and piano storage. Secure holding. Free quote.",
+  "house-moving-hamilton":
+    "Hamilton house movers for flats, family homes, and lifestyle blocks. Viewing-first quotes, packing, piano, and storage. Waikato base. Free quote.",
+  "location-hamilton":
+    "Hamilton movers for house, office, and piano relocations. Local Waikato base covering Hamilton and surrounding areas. Free quote within 15 minutes.",
 } as const;
 
 export type LegacyMetaKey = keyof typeof legacyMetaDescriptions;
@@ -63,6 +68,7 @@ const serviceSlugToLegacyKey: Partial<Record<string, LegacyMetaKey>> = {
   "loading-unloading": "loading-unloading",
   "winz-quotes": "winz-quotes",
   "piano-movers": "piano-movers-auckland",
+  storage: "storage",
 };
 
 export function legacyMetaForServiceSlug(slug: string): string | undefined {

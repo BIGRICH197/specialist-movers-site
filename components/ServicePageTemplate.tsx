@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
+import { ServiceJsonLd } from "@/components/ServiceJsonLd";
 import { ServiceTrustindexBand } from "@/components/ServiceTrustindexBand";
 import { HardToShiftGallerySection } from "@/components/HardToShiftGallerySection";
 import { HeroVisual } from "@/components/HeroVisual";
@@ -53,6 +54,8 @@ type ServicePageTemplateProps = {
   heroVariant?: "moving" | "piano";
   /** Defaults to hamiltonBaseSlug; use piano sub-slugs for distinct on-photo slogans. */
   overlayCaptionSlug?: string;
+  /** Canonical path for Service JSON-LD */
+  schemaPath?: string;
 };
 
 export function ServicePageTemplate({
@@ -75,6 +78,7 @@ export function ServicePageTemplate({
   processSteps = [],
   heroVariant = "moving",
   overlayCaptionSlug,
+  schemaPath,
 }: ServicePageTemplateProps) {
   const slug = hamiltonBaseSlug ?? "house-moving";
   const heroHeading =
@@ -97,6 +101,13 @@ export function ServicePageTemplate({
 
   return (
     <div className="bg-brand-white">
+      {schemaPath ? (
+        <ServiceJsonLd
+          name={heroHeading}
+          description={description}
+          path={schemaPath}
+        />
+      ) : null}
       {faqs.length > 0 ? <FaqPageJsonLd items={faqs} /> : null}
       <BreadcrumbJsonLd items={breadcrumbs} />
       <ServiceHeroWithQuote

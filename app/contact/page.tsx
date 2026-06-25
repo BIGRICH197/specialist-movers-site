@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { legacyMetaDescription } from "@/lib/legacy-meta-descriptions";
 import { buildPageMetadata } from "@/lib/seo";
+import { seoAbsoluteTitles } from "@/lib/seo-meta-titles";
 import Link from "next/link";
 import { MessageSquare, Phone } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
@@ -12,7 +13,7 @@ import { regions } from "@/lib/regions";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Contact Specialist Movers Auckland",
+  title: { absolute: seoAbsoluteTitles.contact },
   description: legacyMetaDescription("contact"),
   path: "/contact",
 });

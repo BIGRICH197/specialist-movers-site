@@ -39,7 +39,7 @@ export const apartmentMoversPage: NicheServicePageConfig = {
   path: "/apartment-movers-auckland",
   metaTitle: "Apartment Movers Auckland | Specialist Movers",
   metaDescription:
-    "Apartment movers Auckland. Lift access, body corporate rules, and tight stairwells planned before move day. Specialist Movers. Free quote.",
+    "Apartment movers in Auckland covering lifts, loading zones, and access codes. Specialist Movers plans every detail before move day. Free quote.",
   eyebrow: "Auckland apartment moving specialists",
   h1: "Apartment movers Auckland",
   lead:

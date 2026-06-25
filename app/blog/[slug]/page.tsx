@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
+import { PageUpdatedStamp } from "@/components/PageUpdatedStamp";
 import { brandAssets } from "@/lib/brand-assets";
 import { getBlogArticle } from "@/lib/blog-articles";
 import { blogPosts } from "@/lib/site-data";
@@ -47,7 +48,12 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     image: `${siteUrl}/opengraph-image`,
     url: pageUrl,
     mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
-    author: { "@type": "Organization", name: siteName, url: siteUrl },
+    author: {
+      "@type": "Person",
+      name: "Richard Boote",
+      jobTitle: "Owner & General Manager",
+      url: "https://www.linkedin.com/in/richard-boote-531b7a1b4/",
+    },
     publisher: {
       "@type": "Organization",
       name: siteName,
@@ -75,6 +81,14 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       <PagePhotoMomentStrip momentKey="blog" />
 
       <div className="mx-auto max-w-3xl py-10 container-px">
+        <PageUpdatedStamp
+          date={new Date(post.publishedDate).toLocaleDateString("en-NZ", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })}
+          className="mb-8"
+        />
         <div className="space-y-10">
           {article.sections.map((section) => (
             <section key={section.heading}>

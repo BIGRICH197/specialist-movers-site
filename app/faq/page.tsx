@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
 import { legacyMetaDescription } from "@/lib/legacy-meta-descriptions";
 import { buildPageMetadata } from "@/lib/seo";
+import { seoAbsoluteTitles } from "@/lib/seo-meta-titles";
 import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
@@ -13,7 +14,7 @@ import { faqs, googleReviewsUrl } from "@/lib/homepage-copy";
 import { formatHeadingText } from "@/lib/heading-ampersand";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Moving FAQ Auckland",
+  title: { absolute: seoAbsoluteTitles.faq },
   description: legacyMetaDescription("faq"),
   path: "/faq",
 });

@@ -2,6 +2,7 @@ import { Check } from "lucide-react";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import type { Crumb } from "@/components/Breadcrumbs";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
+import { ServiceJsonLd } from "@/components/ServiceJsonLd";
 import { ServiceTrustindexBand } from "@/components/ServiceTrustindexBand";
 import { HeroVisual } from "@/components/HeroVisual";
 import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
@@ -56,6 +57,11 @@ export function NicheServicePage({ config }: Props) {
 
   return (
     <div className="bg-brand-white">
+      <ServiceJsonLd
+        name={config.h1}
+        description={config.lead}
+        path={config.path}
+      />
       <FaqPageJsonLd items={config.faqs} />
       <BreadcrumbJsonLd items={crumbs} />
       <ServiceHeroWithQuote

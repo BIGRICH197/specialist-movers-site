@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { HeroVisual } from "@/components/HeroVisual";
+import { AboutPageJsonLd } from "@/components/AboutPageJsonLd";
+import { PageUpdatedStamp } from "@/components/PageUpdatedStamp";
 import { legacyMetaDescription } from "@/lib/legacy-meta-descriptions";
 import { buildPageMetadata } from "@/lib/seo";
+import { seoAbsoluteTitles } from "@/lib/seo-meta-titles";
 import { sitePhotos } from "@/lib/site-photos";
 import { PageHero } from "@/components/PageHero";
 import { AboutTeamSection } from "@/components/AboutTeamSection";
@@ -15,7 +18,7 @@ import { regions } from "@/lib/regions";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "About Specialist Movers Auckland",
+  title: { absolute: seoAbsoluteTitles.about },
   description: legacyMetaDescription("about"),
   path: "/about",
 });
@@ -23,6 +26,7 @@ export const metadata: Metadata = buildPageMetadata({
 export default function AboutPage() {
   return (
     <div className="bg-brand-white">
+      <AboutPageJsonLd />
       <PageHero
         variant="light"
         eyebrow="Our team"
@@ -31,6 +35,7 @@ export default function AboutPage() {
       />
 
       <SectionReveal className="mx-auto max-w-7xl py-12 container-px">
+        <PageUpdatedStamp date="13 June 2026" className="mb-6" />
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div className="space-y-5 text-base leading-relaxed text-brand-purple/85">
             <p>{aboutPage.story}</p>

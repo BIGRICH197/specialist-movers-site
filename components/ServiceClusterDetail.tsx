@@ -4,6 +4,8 @@ import { Check } from "lucide-react";
 
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
 
+import { ServiceJsonLd } from "@/components/ServiceJsonLd";
+
 import { ServiceTrustindexBand } from "@/components/ServiceTrustindexBand";
 
 import { HeroVisual } from "@/components/HeroVisual";
@@ -38,6 +40,7 @@ import {
 import { getClusterSeoExtension } from "@/lib/cluster-seo";
 
 import type { ServiceClusterItem } from "@/lib/service-clusters";
+import { clusterItemPath } from "@/lib/service-clusters";
 
 import { ServiceHeroSublinePrice } from "@/components/ServiceHeroSublinePrice";
 import {
@@ -139,6 +142,12 @@ export function ServiceClusterDetail({
   return (
 
     <div className="bg-brand-white">
+
+      <ServiceJsonLd
+        name={item.title}
+        description={item.description}
+        path={clusterItemPath(hubHref, item)}
+      />
 
       {faqs.length > 0 ? <FaqPageJsonLd items={faqs} /> : null}
 

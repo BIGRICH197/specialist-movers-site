@@ -14,14 +14,14 @@ export const regions = {
   heroLead:
     "Relocation does not need to be stressful. We run 7 days a week from our Auckland and Hamilton bases, with strong coverage across Auckland, Hamilton and inbetween. We also service the wider Waikato when you need us. Precision, care, and clear communication from quote to handover.",
   homeMetaTitle:
-    "Specialist Movers Auckland & Hamilton | Home & Piano",
+    "Movers Auckland - Auckland Moving Company | Specialist Movers",
   /** Link previews (Slack, iMessage, WhatsApp) — keep short so titles do not truncate. */
   sharePreviewTitle: "Specialist Movers Auckland & Hamilton",
   layoutDescription:
-    "Auckland movers and removalists. Home relocations, furniture removals, piano and commercial moves. Auckland and Hamilton bases. Free quote, callback in 15 minutes.",
+    "Professional movers in Auckland and beyond. House, office, piano, and packing services from $120/hr. Quoted upfront, 7 days a week. Free quote.",
   /** Homepage meta description — same as layoutDescription (Google snippet). */
   homeMetaDescription:
-    "Auckland movers and removalists. Home relocations, furniture removals, piano and commercial moves. Auckland and Hamilton bases. Free quote, callback in 15 minutes.",
+    "Professional movers in Auckland and beyond. House, office, piano, and packing services from $120/hr. Quoted upfront, 7 days a week. Free quote.",
   quoteTrustLine: "Auckland and Waikato moving specialists",
   footerLine:
     "Auckland and Hamilton bases, servicing Auckland and the Waikato",

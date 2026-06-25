@@ -6,6 +6,8 @@ import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
 
+import { ServiceJsonLd } from "@/components/ServiceJsonLd";
+
 import { ServiceTrustindexBand } from "@/components/ServiceTrustindexBand";
 
 import { HardToShiftGallerySection } from "@/components/HardToShiftGallerySection";
@@ -100,6 +102,16 @@ export function HamiltonServicePage({ config }: Props) {
   return (
 
     <div className="bg-brand-white">
+
+      <ServiceJsonLd
+        name={heroHeading}
+        description={config.lead}
+        path={config.path}
+        areaServed={[
+          { "@type": "City", name: "Hamilton" },
+          { "@type": "AdministrativeArea", name: "Waikato" },
+        ]}
+      />
 
       <BreadcrumbJsonLd items={breadcrumbItems} />
 

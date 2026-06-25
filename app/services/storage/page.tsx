@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
+import { legacyMetaDescription } from "@/lib/legacy-meta-descriptions";
+import { seoAbsoluteTitles } from "@/lib/seo-meta-titles";
 import { getServiceHeroH1 } from "@/lib/service-hero-h1";
 import { Clock, Moon, Package, Piano, Truck } from "lucide-react";
 import { ServiceClusterHub } from "@/components/ServiceClusterHub";
 import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
 import { storageHub, storageServices } from "@/lib/service-clusters";
-import { regions } from "@/lib/regions";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: getServiceHeroH1("storage-hub", "Auckland"),
-  description: `Storage while you move: short-term, long-term, in transit, overnight, and piano storage. ${regions.basesShort}. Free quote and callback in 15 minutes.`,
+  title: { absolute: seoAbsoluteTitles.storage },
+  description: legacyMetaDescription("storage"),
   path: "/services/storage",
 });
 
