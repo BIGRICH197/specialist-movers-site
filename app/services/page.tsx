@@ -15,6 +15,8 @@ import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
 import { ScatteredReviews } from "@/components/ScatteredReviews";
 import { SectionReveal } from "@/components/SectionReveal";
 import { serviceBlurbs } from "@/lib/homepage-copy";
+import { PageUpdatedStamp } from "@/components/PageUpdatedStamp";
+import { siteContentUpdated } from "@/lib/content-dates";
 import { serviceHref } from "@/lib/service-links";
 import { phoneDisplay, phoneNumber, services } from "@/lib/site-data";
 
@@ -54,6 +56,7 @@ export default function ServicesPage() {
       </PageHero>
 
       <SectionReveal className="mx-auto max-w-7xl py-12 container-px">
+        <PageUpdatedStamp date={siteContentUpdated} className="mb-8" />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, idx) => {
             const Icon = icons[idx] ?? Truck;

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { HeroVisual } from "@/components/HeroVisual";
 import { AboutPageJsonLd } from "@/components/AboutPageJsonLd";
 import { PageUpdatedStamp } from "@/components/PageUpdatedStamp";
+import { siteContentUpdated } from "@/lib/content-dates";
 import { legacyMetaDescription } from "@/lib/legacy-meta-descriptions";
 import { buildPageMetadata } from "@/lib/seo";
 import { seoAbsoluteTitles } from "@/lib/seo-meta-titles";
@@ -35,7 +36,7 @@ export default function AboutPage() {
       />
 
       <SectionReveal className="mx-auto max-w-7xl py-12 container-px">
-        <PageUpdatedStamp date="13 June 2026" className="mb-6" />
+        <PageUpdatedStamp date={siteContentUpdated} className="mb-6" />
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div className="space-y-5 text-base leading-relaxed text-brand-purple/85">
             <p>{aboutPage.story}</p>

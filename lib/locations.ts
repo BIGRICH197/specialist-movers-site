@@ -4,6 +4,7 @@
  */
 
 import { normalizeLocationMeta } from "@/lib/location-builders";
+import { applyLocationDefaults } from "@/lib/location-default-faqs";
 import { extraAucklandSuburbs, extraWaikatoTowns } from "@/lib/locations-extra";
 import { applyLocationSeo } from "@/lib/location-seo";
 import { regionMetaDescriptions } from "@/lib/meta-keyword-copy";
@@ -475,7 +476,7 @@ export const allLocations: readonly Location[] = mergeLocations(
   [...extraAucklandSuburbs],
   coreTowns,
   [...extraWaikatoTowns],
-).map(applyLocationSeo).map(normalizeLocationMeta);
+).map(applyLocationSeo).map(normalizeLocationMeta).map(applyLocationDefaults);
 
 const bySlug = new Map(allLocations.map((l) => [l.slug, l]));
 

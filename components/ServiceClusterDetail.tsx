@@ -17,6 +17,7 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import type { Crumb } from "@/components/Breadcrumbs";
 
+import { ServiceContentUpdated } from "@/components/ServiceContentUpdated";
 import { SectionReveal } from "@/components/SectionReveal";
 
 import { ServiceHeroWithQuote } from "@/components/ServiceHeroWithQuote";
@@ -236,6 +237,8 @@ export function ServiceClusterDetail({
         <SectionReveal className="border-t border-brand-purple/10 bg-brand-white py-12 sm:py-14">
 
           <div className="mx-auto max-w-7xl container-px">
+
+            <ServiceContentUpdated className="mb-6" />
 
             <div className="grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-10">
 

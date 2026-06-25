@@ -10,6 +10,7 @@ import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
 import { PianoPartnerMarquee } from "@/components/PianoPartnerMarquee";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ServiceHeroWithQuote } from "@/components/ServiceHeroWithQuote";
+import { ServiceContentUpdated } from "@/components/ServiceContentUpdated";
 import { SectionReveal } from "@/components/SectionReveal";
 import { ServiceTrustindexBand } from "@/components/ServiceTrustindexBand";
 import {
@@ -139,6 +140,7 @@ export function ServiceLandingPage({ config }: Props) {
         <div className="mx-auto max-w-7xl container-px">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-10">
             <div className="min-w-0">
+              <ServiceContentUpdated className="mb-4" />
               <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
                 {config.aboutTitle}
               </h2>

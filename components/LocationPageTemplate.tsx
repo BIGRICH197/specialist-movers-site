@@ -1,152 +1,325 @@
 import Link from "next/link";
+
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
+
 import { GoogleReviewsBand } from "@/components/GoogleReviewsBand";
+
+import { LocationPageJsonLd } from "@/components/LocationPageJsonLd";
+
 import { PageHero } from "@/components/PageHero";
+
+import { PageUpdatedStamp } from "@/components/PageUpdatedStamp";
+
 import { QuoteForm } from "@/components/QuoteForm";
+
 import { SectionReveal } from "@/components/SectionReveal";
+
 import { NumberedInfoGrid } from "@/components/NumberedInfoGrid";
+
 import { aucklandServiceHref } from "@/lib/legacy-auckland-urls";
+
+import { siteContentUpdated } from "@/lib/content-dates";
+
 import type { Location } from "@/lib/locations";
+
 import { getChildLocations, getLocation, getNearbyLocations } from "@/lib/locations";
+
 import { regions } from "@/lib/regions";
+
 import { formatHeadingText } from "@/lib/heading-ampersand";
 
+
+
 type Props = {
+
   location: Location;
+
 };
 
+
+
 export function LocationPageTemplate({ location }: Props) {
+
   const children = location.kind === "region" ? getChildLocations(location.slug) : [];
+
   const parent = location.parentSlug ? getLocation(location.parentSlug) : null;
+
   const nearby = getNearbyLocations(location);
+
   const faqs = location.faqs ?? [];
 
+
+
   const kindLabel =
+
     location.kind === "region" ? "Region" : location.kind === "town" ? "Waikato" : "Suburb";
 
+
+
   return (
+
     <div className="bg-brand-canvas">
+
+      <LocationPageJsonLd location={location} />
+
       {faqs.length > 0 ? <FaqPageJsonLd items={faqs} /> : null}
+
       <PageHero
+
         variant="purple"
+
         eyebrow={`${kindLabel} · ${regions.serviceAreaBadge}`}
+
         title={
+
           location.kind === "suburb"
+
             ? `Movers ${location.name}`
+
             : `${location.name} movers`
+
         }
+
         description={location.intro}
+
         breadcrumbs={[
+
           { label: "Home", href: "/" },
+
           { label: "Locations", href: "/locations" },
+
           ...(parent
+
             ? [{ label: parent.name, href: `/locations/${parent.slug}` }]
+
             : []),
+
           { label: location.name },
+
         ]}
+
       />
 
+
+
       <SectionReveal className="mx-auto max-w-7xl py-12 container-px sm:py-14">
+
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(300px,400px)] lg:items-start lg:gap-12">
+
           <div>
-            <div className="space-y-4 text-base leading-relaxed text-brand-purple/85">
+
+            <PageUpdatedStamp
+
+              date={siteContentUpdated}
+
+              className="mb-6 text-sm text-brand-purple/55"
+
+            />
+
+            <div className="space-y-5 text-lg leading-relaxed text-brand-purple/88">
+
               {location.paragraphs.map((p, i) => (
+
                 <p key={i}>{p}</p>
+
               ))}
+
             </div>
 
+
+
             <NumberedInfoGrid
+
               className="mt-8"
+
               columns={2}
+
               items={location.highlights.map((body) => ({ body }))}
+
             />
+
+
 
             {children.length > 0 && (
+
               <div className="mt-10">
-                <h2 className="font-heading text-2xl text-brand-purple">
+
+                <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
+
                   Suburbs in {location.name}
+
                 </h2>
+
                 <ul className="mt-4 flex flex-wrap gap-2">
+
                   {children.map((sub) => (
+
                     <li key={sub.slug}>
+
                       <Link
+
                         href={`/locations/${sub.slug}`}
+
                         className="card-interactive inline-block rounded-full border border-brand-purple/15 bg-white px-4 py-2 text-sm font-medium text-brand-purple shadow-sm"
+
                       >
+
                         {sub.name}
+
                       </Link>
+
                     </li>
+
                   ))}
+
                 </ul>
+
               </div>
+
             )}
+
+
 
             {nearby.length > 0 && children.length === 0 && (
+
               <div className="mt-10">
-                <h2 className="font-heading text-2xl text-brand-purple">Nearby areas</h2>
+
+                <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
+
+                  Nearby areas
+
+                </h2>
+
                 <ul className="mt-4 flex flex-wrap gap-2">
+
                   {nearby.map((loc) => (
+
                     <li key={loc.slug}>
+
                       <Link
+
                         href={`/locations/${loc.slug}`}
+
                         className="card-interactive inline-block rounded-full border border-brand-purple/15 bg-white px-4 py-2 text-sm font-medium text-brand-purple shadow-sm"
+
                       >
+
                         {loc.name}
+
                       </Link>
+
                     </li>
+
                   ))}
+
                 </ul>
+
               </div>
+
             )}
 
+
+
             <GoogleReviewsBand
+
               slot={`location-${location.slug}-reviews`}
+
               className="mt-10"
+
             />
 
+
+
             {faqs.length > 0 ? (
+
               <div className="mt-12">
+
                 <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
+
                   {location.name} moving, common questions
+
                 </h2>
+
                 <dl className="mt-6 space-y-4">
+
                   {faqs.map((item) => (
+
                     <div
+
                       key={item.q}
-                      className="rounded-2xl border border-brand-purple/12 bg-white p-5 shadow-sm"
+
+                      className="rounded-2xl border border-brand-purple/12 bg-white p-5 shadow-sm sm:p-6"
+
                     >
-                      <dt className="font-heading text-base text-brand-purple">
+
+                      <dt className="font-heading text-lg text-brand-purple">
+
                         {formatHeadingText(item.q)}
+
                       </dt>
-                      <dd className="mt-2 text-sm leading-relaxed text-brand-purple/80">
+
+                      <dd className="mt-3 text-base leading-relaxed text-brand-purple/82">
+
                         {item.a}
+
                       </dd>
+
                     </div>
+
                   ))}
+
                 </dl>
+
               </div>
+
             ) : null}
 
+
+
             <p className="mt-10 text-sm text-brand-purple/70">
+
               <Link href="/locations" className="font-semibold text-brand-purple underline">
+
                 ← All areas we serve
+
               </Link>
+
               {" · "}
+
               <Link href={aucklandServiceHref("house-moving")} className="font-semibold text-brand-purple underline">
+
                 Moving house
+
               </Link>
+
               {" · "}
+
               <Link href="/piano-movers" className="font-semibold text-brand-purple underline">
+
                 Piano moving
+
               </Link>
+
             </p>
+
           </div>
 
+
+
           <div id="quote" className="lg:sticky lg:top-28">
+
             <QuoteForm />
+
           </div>
+
         </div>
+
       </SectionReveal>
+
     </div>
+
   );
+
 }
+
+

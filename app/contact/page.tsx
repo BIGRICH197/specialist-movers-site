@@ -9,6 +9,8 @@ import { PageHero } from "@/components/PageHero";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ScatteredReviews } from "@/components/ScatteredReviews";
 import { contactCta } from "@/lib/homepage-copy";
+import { PageUpdatedStamp } from "@/components/PageUpdatedStamp";
+import { siteContentUpdated } from "@/lib/content-dates";
 import { regions } from "@/lib/regions";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
@@ -29,6 +31,7 @@ export default function ContactPage() {
       />
 
       <div className="mx-auto grid max-w-7xl gap-10 py-12 container-px lg:grid-cols-[minmax(0,1fr)_minmax(300px,380px)] lg:items-start">
+        <PageUpdatedStamp date={siteContentUpdated} className="lg:col-span-2" />
         <div className="space-y-10">
           <div className="rounded-2xl border border-brand-purple/15 bg-brand-purple/[0.04] p-6 sm:p-8">
             <h2 className="font-heading text-xl text-brand-purple">Direct lines</h2>

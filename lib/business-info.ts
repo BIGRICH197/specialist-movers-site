@@ -10,7 +10,7 @@ export const businessInfo = {
     "https://www.facebook.com/people/Specialist-Movers/61563245376572/",
   ] as const,
   aucklandAddress: {
-    streetAddress: "186 Target Road",
+    streetAddress: "8/186 Target Road",
     addressLocality: "Glenfield",
     addressRegion: "Auckland",
     postalCode: "0629",

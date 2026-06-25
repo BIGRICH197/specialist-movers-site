@@ -11,6 +11,8 @@ import { ScatteredReviews } from "@/components/ScatteredReviews";
 import { SectionReveal } from "@/components/SectionReveal";
 import { faqSidebarPhotos } from "@/lib/faq-page-photos";
 import { faqs, googleReviewsUrl } from "@/lib/homepage-copy";
+import { PageUpdatedStamp } from "@/components/PageUpdatedStamp";
+import { siteContentUpdated } from "@/lib/content-dates";
 import { formatHeadingText } from "@/lib/heading-ampersand";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -54,6 +56,7 @@ export default function FaqPage() {
       </div>
 
       <SectionReveal className="mx-auto max-w-6xl py-12 container-px sm:py-14">
+        <PageUpdatedStamp date={siteContentUpdated} className="mb-8" />
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_11rem] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_12.5rem]">
           <div className="min-w-0">
             <dl className="space-y-6">

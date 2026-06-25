@@ -1,5 +1,5 @@
 import { SectionReveal } from "@/components/SectionReveal";
-import { TrustindexWidget } from "@/components/TrustindexWidget";
+import { LazyTrustindexWidget } from "@/components/LazyTrustindexWidget";
 import { trustindexHomeWidgetId } from "@/lib/trustindex-config";
 import { cn } from "@/lib/utils";
 
@@ -19,7 +19,7 @@ export function ServiceTrustindexBand({ className, bordered = true }: Props) {
         <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple/50">
           What customers say
         </p>
-        <TrustindexWidget
+        <LazyTrustindexWidget
           widgetId={trustindexHomeWidgetId}
           layout="carousel"
           className="mt-4 w-full"

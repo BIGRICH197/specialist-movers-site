@@ -31,7 +31,7 @@ function personSchema(
 
 export function AboutPageJsonLd() {
   const leadership = teamLeaders.filter((p) =>
-    ["richard", "matthew"].includes(p.id),
+    ["richard", "matthew", "danielle", "taine"].includes(p.id),
   );
 
   const data = {

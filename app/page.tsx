@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { HomeFaqSection } from "@/components/home/HomeFaqSection";
 import { HomeSeoSection } from "@/components/home/HomeSeoSection";
-import { TrustindexWidget } from "@/components/TrustindexWidget";
+import { LazyTrustindexWidget } from "@/components/LazyTrustindexWidget";
 import { trustindexHomeWidgetId } from "@/lib/trustindex-config";
 import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
 import { SitePhoto } from "@/components/SitePhoto";
@@ -89,7 +89,7 @@ export default function HomePage() {
           <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple/50">
             What customers say
           </p>
-          <TrustindexWidget
+          <LazyTrustindexWidget
             widgetId={trustindexHomeWidgetId}
             layout="carousel"
             className="mt-4 w-full"

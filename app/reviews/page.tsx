@@ -10,9 +10,11 @@ import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
 import { ReviewsPageJsonLd } from "@/components/ReviewsPageJsonLd";
 import { SectionReveal } from "@/components/SectionReveal";
 
-import { TrustindexWidget } from "@/components/TrustindexWidget";
+import { LazyTrustindexWidget } from "@/components/LazyTrustindexWidget";
 
 import { googleReviewsUrl } from "@/lib/homepage-copy";
+import { PageUpdatedStamp } from "@/components/PageUpdatedStamp";
+import { siteContentUpdated } from "@/lib/content-dates";
 
 
 
@@ -48,7 +50,8 @@ export default function ReviewsPage() {
 
 
       <SectionReveal className="relative z-0 mx-auto max-w-7xl overflow-visible py-10 pb-12 container-px sm:py-12 sm:pb-14">
-        <TrustindexWidget layout="full" className="w-full" />
+        <PageUpdatedStamp date={siteContentUpdated} className="mb-6 text-center text-white/70" />
+        <LazyTrustindexWidget layout="full" className="w-full" />
 
         <p className="mt-8 text-center text-sm text-brand-purple/70">
 

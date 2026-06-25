@@ -10,6 +10,7 @@ import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import type { Crumb } from "@/components/Breadcrumbs";
 import { HamiltonPageLink } from "@/components/HamiltonPageLink";
+import { ServiceContentUpdated } from "@/components/ServiceContentUpdated";
 import { SectionReveal } from "@/components/SectionReveal";
 import { ServiceHeroWithQuote } from "@/components/ServiceHeroWithQuote";
 import {
@@ -177,6 +178,7 @@ export function ServicePageTemplate({
       {hamiltonBaseSlug !== "hard-to-shift" ? (
         <SectionReveal className="border-t border-brand-purple/10 bg-brand-white py-12 sm:py-14">
           <div className="mx-auto max-w-7xl container-px">
+            <ServiceContentUpdated className="mb-6" />
             <div className="grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-10">
               {bodyParagraphs.length > 0 ? (
                 <div className="space-y-4 text-base leading-relaxed text-brand-purple/85">
