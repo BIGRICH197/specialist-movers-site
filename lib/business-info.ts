@@ -11,9 +11,9 @@ export const businessInfo = {
   ] as const,
   aucklandAddress: {
     streetAddress: "8/186 Target Road",
-    addressLocality: "Glenfield",
+    addressLocality: "Wairau Valley",
     addressRegion: "Auckland",
-    postalCode: "0629",
+    postalCode: "0627",
     addressCountry: "NZ",
   },
   hamiltonAddress: {
