@@ -40,7 +40,7 @@ export function AboutPageJsonLd() {
     name: `About ${siteName}`,
     url: `${siteUrl}/about`,
     description:
-      "Founded in 2023, Specialist Movers runs from Auckland and Hamilton bases with house, piano, and commercial moving teams.",
+      "Founded in 2023, Specialist Movers grew from weekend piano moves to Auckland's trusted crews for homes, offices, and Steinway dealers. ~20 staff, 5 trucks.",
     mainEntity: {
       "@type": "MovingCompany",
       name: siteName,

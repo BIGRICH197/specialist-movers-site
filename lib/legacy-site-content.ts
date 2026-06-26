@@ -4,6 +4,7 @@
  * Only obvious typos are corrected (e.g. moviang → moving, transprot → transport).
  */
 
+import { aboutStoryHeroIntro } from "@/lib/about-story";
 import { houseMovingProcess } from "@/lib/moving-process";
 import { regions } from "@/lib/regions";
 import { getMovingHeroSubline } from "@/lib/service-hero-pricing";
@@ -266,9 +267,9 @@ export const homepageSeoSections = [
 ];
 
 export const aboutPage = {
-  intro:
-    "Auckland and Hamilton movers for home relocations, piano, commercial, and specialist work. NZ owned, SiteWise Gold, and built for careful moves.",
-  story: hero.coverage,
+  intro: aboutStoryHeroIntro,
+  /** @deprecated Use aboutStorySections on /about */
+  story: aboutStoryHeroIntro,
 };
 
 export const whyUsPage = {
