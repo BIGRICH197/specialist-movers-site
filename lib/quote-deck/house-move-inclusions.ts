@@ -75,7 +75,7 @@ export const popularAddOnsTitle = "Add-ons";
 export const popularAddOns: readonly PopularAddOn[] = [
   {
     id: "packing",
-    label: "Full packing and unpacking, packers come in the day before",
+    label: "Full packing, packers come in the day before",
     matchTerms: ["packing", "packer", "unpacking", "packed"],
   },
   {
