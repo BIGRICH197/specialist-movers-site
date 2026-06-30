@@ -162,14 +162,16 @@ span.heading-punct {
   .hero-photo-ambient > * {
     animation: hero-photo-drift 24s ease-in-out infinite alternate;
     transform-origin: center center;
+    /* Keep image slightly overscaled so drift never exposes frame edges */
+    transform: scale(1.03);
   }
 
   @keyframes hero-photo-drift {
     0% {
-      transform: scale(1);
+      transform: scale(1.03);
     }
     100% {
-      transform: scale(1.02);
+      transform: scale(1.05);
     }
   }
 
@@ -233,6 +235,9 @@ span.heading-punct {
   z-index: 10;
   pointer-events: none;
   border-radius: inherit;
+  /* Bleed past edges so rounded corners never show an un-tinted sliver */
+  transform: scale(1.025);
+  transform-origin: center center;
   background-image:
     linear-gradient(
       to top,
@@ -286,11 +291,12 @@ span.heading-punct {
 .photo-frame--caption-bottom-only::after {
   background-image: linear-gradient(
     to top,
-    rgba(151, 57, 176, 0.92) 0%,
-    rgba(151, 57, 176, 0.58) 16%,
-    rgba(151, 57, 176, 0.22) 34%,
-    rgba(190, 118, 239, 0.06) 48%,
-    transparent 58%
+    rgba(151, 57, 176, 0.95) 0%,
+    rgba(151, 57, 176, 0.95) 6%,
+    rgba(151, 57, 176, 0.58) 18%,
+    rgba(151, 57, 176, 0.22) 36%,
+    rgba(190, 118, 239, 0.06) 50%,
+    transparent 60%
   );
 }
 
