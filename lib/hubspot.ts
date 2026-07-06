@@ -2,6 +2,26 @@ const HUBSPOT_API_URL = "https://api.hubapi.com";
 const PIPELINE_ID = "997404386";
 const STAGE_NEW = "1526377150"; // "New" stage in pipeline 997404386
 
+const OWNER_TAINE = "78086404";
+const OWNER_DANIELLE = "159727645";
+
+// Every deal is born owned: Hamilton leads go to Danielle, everything else
+// to Taine. The pricing engine's branch is checked first — it recognises
+// Hamilton suburbs the text signals miss, and the mini PC backstop never
+// overrides an owner once set, so a wrong stamp here would stick.
+function ownerFor(params: {
+  branch?: "auckland" | "hamilton" | "manual";
+  sourcePage?: string;
+  landingPage?: string;
+  pickupAddress: string;
+}): string {
+  if (params.branch === "hamilton") return OWNER_DANIELLE;
+  const page = params.sourcePage || params.landingPage || "";
+  if (page.toLowerCase().includes("hamilton")) return OWNER_DANIELLE;
+  if (/\bhamilton\b/i.test(params.pickupAddress)) return OWNER_DANIELLE;
+  return OWNER_TAINE;
+}
+
 // job_source is a dropdown — only these values are accepted by HubSpot.
 // Service types without a matching option get no job_source.
 function jobSourceFor(serviceType: string): string | null {
@@ -135,6 +155,7 @@ export async function createHubSpotDeal(params: {
       dealstage: STAGE_NEW,
       pick_up_deal: params.pickupAddress,
       drop_off_deal: params.dropoffAddress,
+      hubspot_owner_id: ownerFor(params),
     };
     const jobSource = jobSourceFor(params.serviceType);
     if (jobSource) properties.job_source = jobSource;
@@ -178,10 +199,23 @@ export async function createHubSpotDeal(params: {
       Object.assign(properties, params.extraProperties);
     }
 
-    const deal = await hubspotFetch("/crm/v3/objects/deals", {
+    let deal = await hubspotFetch("/crm/v3/objects/deals", {
       method: "POST",
       body: JSON.stringify({ properties }),
     });
+
+    // An unowned deal beats a lost lead — if the create failed with an
+    // owner set, retry once without it.
+    if (!deal?.id && properties.hubspot_owner_id) {
+      console.error(
+        "Deal create failed with hubspot_owner_id set — retrying without owner",
+      );
+      delete properties.hubspot_owner_id;
+      deal = await hubspotFetch("/crm/v3/objects/deals", {
+        method: "POST",
+        body: JSON.stringify({ properties }),
+      });
+    }
 
     if (!deal?.id) return { error: "Failed to create deal" };
 
