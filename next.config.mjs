@@ -155,6 +155,38 @@ const nextConfig = {
         destination: "/piano-movers/international-piano",
         permanent: true,
       },
+      // Legacy root-level URLs flagged as 404 in Search Console (2026-07).
+      {
+        source: "/packing-hacks-for-auckland-movers-maximize-space-and-minimize-stress",
+        destination: "/blog/diy-packing-vs-professional-packing-services",
+        permanent: true,
+      },
+      {
+        source: "/expert-tips-for-choosing-the-best-piano-movers-in-auckland",
+        destination: "/piano-movers",
+        permanent: true,
+      },
+      {
+        source: "/what-to-look-for-in-a-reliable-house-moving-company-in-auckland",
+        destination: "/blog/the-ultimate-guide-to-house-moving-in-auckland",
+        permanent: true,
+      },
+      {
+        source: "/seasonal-moving-in-auckland-tips-for-summer-and-winter-moves",
+        destination:
+          "/blog/stress-free-moving-in-auckland-expert-tips-from-specialist-movers",
+        permanent: true,
+      },
+      {
+        source: "/booking",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/international-piano-moves-to",
+        destination: "/piano-movers/international-piano",
+        permanent: true,
+      },
       {
         source: "/blog/ultimate-guide-house-moving-auckland",
         destination: "/blog/the-ultimate-guide-to-house-moving-in-auckland",
