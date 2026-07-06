@@ -32,6 +32,40 @@ export async function POST(request: Request) {
     );
   }
 
+  // Every booking question is compulsory — a blank submission (e.g. a customer
+  // who accepts the quote but skips the questions) must be rejected server-side,
+  // not just in the browser where validation can be bypassed.
+  const requiredKeys = [
+    "fullName",
+    "phone",
+    "email",
+    "pickupAddress",
+    "dropoffAddress",
+    "moveDate",
+    "sizeOfMove",
+    "howManyMovers",
+    "typeOfMove",
+    "payment",
+    "cleaningBooked",
+    "packing",
+    "unpacking",
+    "fragileItems",
+    "furnitureDismantle",
+    "accessRestrictions",
+    "settlementDay",
+  ];
+  const missing = requiredKeys.filter((k) => !fields[k]?.trim());
+  if (fields.cleaningBooked === "Yes Cleaning" && !fields.cleaningSameDay?.trim())
+    missing.push("cleaningSameDay");
+  if (fields.packing === "Yes packing" && !fields.whatPacking?.trim())
+    missing.push("whatPacking");
+  if (missing.length) {
+    return NextResponse.json(
+      { ok: false, error: "missing required fields", missing },
+      { status: 400 },
+    );
+  }
+
   await saveBooking({
     token: stored.token,
     quoteSlug: stored.slug,
