@@ -221,12 +221,23 @@ async function runJoey(
     content: m.content,
   }));
 
+  // Joey needs to know today's date (NZ time) so "tomorrow" / "the 8th" resolve
+  // to the right day and year — otherwise it guesses and can quote the wrong day.
+  const today = new Date().toLocaleDateString("en-NZ", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "Pacific/Auckland",
+  });
+  const system = `${JOEY_SYSTEM_PROMPT}\n\n## Today's date\nToday is ${today} (New Zealand time). Use this to work out dates like "tomorrow" or "the 8th" correctly, and always assume the current or next upcoming date, never a past one.`;
+
   const MAX_TOOL_ROUNDS = 5;
   for (let round = 0; round < MAX_TOOL_ROUNDS; round++) {
     const response = await client.messages.create({
       model: "claude-sonnet-4-6",
       max_tokens: 1024,
-      system: JOEY_SYSTEM_PROMPT,
+      system,
       tools,
       messages: currentMessages,
     });
