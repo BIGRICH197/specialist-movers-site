@@ -10,7 +10,7 @@ interface Message {
 }
 
 const GREETING =
-  "Kia ora! I'm Joey from Specialist Movers. I can help you with a quote or answer any questions about our moving services. What can I help with?";
+  "Kia ora! I'm Joey from Specialist Movers. Just in case we get cut off, can I grab your name and mobile number please?";
 
 const ONLINE_PILL_KEY = "joey-online-dismissed";
 
