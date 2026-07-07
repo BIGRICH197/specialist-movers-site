@@ -5,6 +5,9 @@ const STAGE_NEW = "1526377150"; // "New" stage in pipeline 997404386
 const OWNER_TAINE = "78086404";
 const OWNER_DANIELLE = "159727645";
 
+// Exported so callers (e.g. the chat bot) can force a specific owner.
+export const HUBSPOT_OWNERS = { taine: OWNER_TAINE, danielle: OWNER_DANIELLE };
+
 // Every deal is born owned: Hamilton leads go to Danielle, everything else
 // to Taine. The pricing engine's branch is checked first — it recognises
 // Hamilton suburbs the text signals miss, and the mini PC backstop never
@@ -138,6 +141,12 @@ export async function createHubSpotDeal(params: {
   attributionNote?: string;
   /** Route-specific deal properties (must already exist in HubSpot). */
   extraProperties?: Record<string, string>;
+  /** Where the lead came from — shown in the deal title and note so it is
+   *  findable, e.g. "Chat Bot". Defaults to "Website Quote". */
+  source?: string;
+  /** Force a specific HubSpot owner id, overriding the branch-based routing
+   *  in ownerFor (e.g. chat-bot leads always go to Danielle). */
+  ownerId?: string;
 }): Promise<{ dealId: string } | { error: string }> {
   try {
     const contactId = await findOrCreateContact({
@@ -146,8 +155,9 @@ export async function createHubSpotDeal(params: {
       email: params.email,
     });
 
+    const source = params.source?.trim() || "Website Quote";
     const fullName = params.name.trim();
-    const dealName = `[${params.serviceType}] ${fullName} - Website Quote`;
+    const dealName = `[${params.serviceType}] ${fullName} - ${source}`;
 
     const properties: Record<string, string> = {
       dealname: dealName,
@@ -155,7 +165,7 @@ export async function createHubSpotDeal(params: {
       dealstage: STAGE_NEW,
       pick_up_deal: params.pickupAddress,
       drop_off_deal: params.dropoffAddress,
-      hubspot_owner_id: ownerFor(params),
+      hubspot_owner_id: params.ownerId || ownerFor(params),
     };
     const jobSource = jobSourceFor(params.serviceType);
     if (jobSource) properties.job_source = jobSource;
@@ -236,7 +246,7 @@ export async function createHubSpotDeal(params: {
         method: "POST",
         body: JSON.stringify({
           properties: {
-            hs_note_body: `[AUTOMATION] Website Quote\n${noteBody}`,
+            hs_note_body: `[AUTOMATION] ${source}\n${noteBody}`,
             hs_timestamp: new Date().toISOString(),
           },
           associations: [

@@ -9,8 +9,7 @@ interface Message {
   content: string;
 }
 
-const GREETING =
-  "Kia ora! I'm Joey from Specialist Movers. Just in case we get cut off, can I grab your name and mobile number please?";
+const GREETING = "Hey! How can I help you today?";
 
 const ONLINE_PILL_KEY = "joey-online-dismissed";
 

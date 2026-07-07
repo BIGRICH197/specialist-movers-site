@@ -6,7 +6,7 @@ import {
   type HouseMoveInput,
   type PianoMoveInput,
 } from "@/lib/pricing";
-import { createHubSpotDeal } from "@/lib/hubspot";
+import { createHubSpotDeal, HUBSPOT_OWNERS } from "@/lib/hubspot";
 import { postSlackMessage, slackChannel, slackConfigured } from "@/lib/slack";
 import {
   appendMessage,
@@ -154,6 +154,8 @@ async function executeTool(name: string, input: Record<string, unknown>): Promis
       pickupAddress: (input.pickupAddress as string) || "",
       dropoffAddress: (input.dropoffAddress as string) || "",
       notes: `Joey chatbot lead\n${(input.notes as string) || ""}`,
+      source: "Chat Bot",
+      ownerId: HUBSPOT_OWNERS.danielle,
     });
     return JSON.stringify({ success: true, message: "Lead saved successfully" });
   }
