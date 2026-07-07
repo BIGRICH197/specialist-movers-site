@@ -28,6 +28,9 @@ export interface Conversation {
   takenOver: boolean;
   /** Slack user id of whoever took over (for the log). */
   takeoverBy?: string;
+  /** True once a HubSpot lead has been created for this chat — stops Joey
+   *  creating duplicate deals on later turns (it can't see prior tool calls). */
+  leadCaptured?: boolean;
   createdAt: number;
   updatedAt: number;
 }
