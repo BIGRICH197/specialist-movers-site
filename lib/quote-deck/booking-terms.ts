@@ -15,7 +15,7 @@ export type BookingTermsSection = {
   tail?: string[];
 };
 
-export const BOOKING_TERMS_VERSION = "2026-07-official-3";
+export const BOOKING_TERMS_VERSION = "2026-07-official-4";
 
 export const bookingTerms: BookingTermsSection[] = [
   {
@@ -50,6 +50,13 @@ export const bookingTerms: BookingTermsSection[] = [
     heading: "Whiteware Appliances",
     paragraphs: [
       "We are not plumbing specialists, and we do not connect or disconnect plumbed appliances such as washing machines or dishwashers. Please arrange a qualified plumber to disconnect and drain these appliances before your move, and to reconnect them afterwards. We are happy to transport whiteware once it has been safely disconnected and drained.",
+    ],
+  },
+  {
+    heading: "Removal of Fittings & Fixtures",
+    paragraphs: [
+      "Our crew are professional movers, not tradespeople, and we do not carry specialist tools such as drills. From time to time we may offer to help with small extras, such as taking a TV off a wall mount or removing a bracket or shelf. Any help of this kind is a complimentary courtesy only. It is not a professional removal or installation service, and it does not form part of your quoted move.",
+      "If a fitting or fixture needs tools we do not carry, or specialist skill to remove or reinstall safely, we will not be able to do it, and you will need to arrange a qualified tradesperson yourself. Where we offer complimentary help of this kind, Specialist Movers is not responsible for the cost of engaging a tradesperson or any other third party, and is not liable for loss or damage arising from it, except where caused intentionally by our team.",
     ],
   },
   {
