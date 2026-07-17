@@ -10,9 +10,12 @@
  * suburbs + Waikato towns near the Hamilton base. South Auckland is
  * deprioritised (low job volume).
  *
- * TODO — requested suburbs that have NO page yet (create + enrich, then add):
- *   Stanmore Bay, Greenhithe, Red Beach, Dairy Flat, Point Chevalier,
- *   West Harbour, Riverhead, Saint Johns, Glendowie
+ * 2026-07-17 (David pilot): the previously-missing requested suburbs now have
+ * enriched pages — Stanmore Bay, Greenhithe, Red Beach, Dairy Flat, Point
+ * Chevalier, West Harbour, Riverhead, Saint Johns (slug st-johns), Glendowie —
+ * plus Devonport enriched and promoted. Content is seeded with real job
+ * history, depot drive times, and suburb-specific access knowledge (see
+ * DAVID.md in the automation repo).
  */
 export const INDEXED_LOCATION_SLUGS = new Set<string>([
   // Auckland region hubs
@@ -22,6 +25,7 @@ export const INDEXED_LOCATION_SLUGS = new Set<string>([
   "east-auckland",
   // North Shore (core, near depot)
   "glenfield",
+  "devonport",
   "birkenhead",
   "northcote",
   "hillcrest",
