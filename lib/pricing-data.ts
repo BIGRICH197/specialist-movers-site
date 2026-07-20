@@ -46,8 +46,8 @@ export const TIER_1_RATES: Record<DayOfWeek, Record<CrewSize, number>> = {
   wed: { "2M": 135, "3M": 175 },
   thu: { "2M": 130, "3M": 170 },
   fri: { "2M": 150, "3M": 190 },
-  sat: { "2M": 160, "3M": 200 },
-  sun: { "2M": 145, "3M": 185 },
+  sat: { "2M": 140, "3M": 190 },
+  sun: { "2M": 140, "3M": 185 },
   mon: { "2M": 135, "3M": 175 },
 };
 

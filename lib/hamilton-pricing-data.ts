@@ -9,9 +9,9 @@ export const HAMILTON_TIER_1_RATES: Record<
   thu: { "2M": 145, "3M": 185 },
   mon: { "2M": 150, "3M": 190 },
   wed: { "2M": 150, "3M": 190 },
-  sun: { "2M": 155, "3M": 195 },
-  fri: { "2M": 160, "3M": 200 },
-  sat: { "2M": 160, "3M": 200 },
+  sun: { "2M": 150, "3M": 190 },
+  fri: { "2M": 150, "3M": 190 },
+  sat: { "2M": 150, "3M": 190 },
 };
 
 export type HamiltonZone = "A" | "B" | "C";
