@@ -658,237 +658,363 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     ],
   },
   // ── Priority additions ──
-  greenhithe: {
+  devonport: {
     metaDescription:
-      "Greenhithe movers for Upper Harbour homes and lifestyle blocks. We plan long driveways and access from our nearby North Shore base. Free quote.",
+      "Devonport movers for villas, apartments, and pianos. Careful crews who know the village streets. Specialist Movers North Shore. Free quote in 15 minutes.",
     intro:
-      "Greenhithe is leafy Upper Harbour living, larger homes and semi-rural lifestyle blocks with long driveways we plan around.",
+      "Devonport is one of our most-visited suburbs, with dozens of jobs done here. Heritage villas, village streets, and more pianos per square kilometre than almost anywhere in Auckland.",
     paragraphs: [
-      "Many Greenhithe properties sit on big sections with long or shared driveways and plenty of volume. We scope the whole property at the viewing so the right truck and crew arrive.",
-      "Close to our North Shore base with easy Upper Harbour motorway access. Home relocations, pianos, packing, and office relocations are all covered.",
+      "Devonport villas are beautiful and unforgiving. Narrow hallways, steep internal stairs, and front steps that have seen a century of feet. We protect floors and door frames as standard and bring crews who have done this exact house before, just on a different street.",
+      "Parking is the other Devonport puzzle. Village streets are tight and busy, especially near the ferry. We plan where the truck stands and get any council permissions sorted before the day.",
+      "Pianos are a Devonport specialty of ours. We are trusted by Auckland's music stores, and uprights and grands come down villa steps with the right gear, the right numbers, and no drama. Every piano gets a complimentary polish after the move.",
+      "Apartment moves near the waterfront are common too. We handle lift bookings and building requirements so the body corporate stays happy.",
     ],
     highlights: [
-      "Upper Harbour homes and lifestyle blocks",
-      "Long-driveway access planned",
-      "Easy Upper Harbour motorway run",
-      "Piano specialists, upright and grand",
+      "Dozens of Devonport jobs done, villas our specialty",
+      "Floor and door frame protection as standard",
+      "Piano specialists trusted by Auckland music stores",
+      "Truck parking planned before move day",
     ],
     faqs: [
       {
-        q: "Do you move large Greenhithe properties?",
-        a: "Yes. we size the crew and truck to bigger homes and lifestyle blocks, scoped at the viewing so it is done in one run.",
+        q: "Can you get furniture out of a villa with narrow halls and steep stairs?",
+        a: "Yes, it is the standard Devonport job. We measure the tight points, sometimes take doors off, and carry with enough hands so nothing touches a wall.",
       },
       {
-        q: "Can you handle long or shared driveways?",
-        a: "Yes. we check driveway length, turning, and parking so the truck gets as close as possible and the carry is planned.",
+        q: "Where does the truck park on a narrow Devonport street?",
+        a: "We plan that before the day. Usually there is a spot within a sensible carry, and where a permit or cones are needed we arrange them.",
+      },
+      {
+        q: "Can you move a grand piano out of a Devonport villa?",
+        a: "Yes. Grands come apart, travel on a piano trolley with proper padding, and get reassembled and polished at the other end. It is what we are known for.",
+      },
+      {
+        q: "Do you move apartments near the ferry terminal?",
+        a: "Often. We book the lift, protect the lobby, and follow the building's move-in rules so everything goes smoothly.",
+      },
+    ],
+  },
+  greenhithe: {
+    metaDescription:
+      "Greenhithe movers just minutes from our North Shore depot. Large family homes, stairs, and pianos handled with care. Free quote in 15 minutes.",
+    intro:
+      "Greenhithe is ten minutes from our depot, which makes it one of the easiest suburbs in Auckland for us to service. We move homes here regularly, many of them large ones.",
+    paragraphs: [
+      "Greenhithe homes tend to be big. Four bedrooms, two living areas, stairs, and a garage that has been quietly filling up for a decade. We size the crew honestly for that, usually three or four movers, so the day does not drag.",
+      "Leafy shared driveways are part of the suburb's charm and part of our planning. We confirm where the truck can stand and how far the carry is before move day, not during it.",
+      "Being ten minutes away matters more than it sounds. Early starts are genuinely early, a second trip is not a drama, and if you need us back for the piano or the pot plants, we are close.",
+      "We also handle full packs here. Kitchen, wardrobes, artwork, the lot, done the day before so move day starts at boxes-ready.",
+    ],
+    highlights: [
+      "10 minutes from our Wairau Valley depot",
+      "Large-home crews, three or four movers as standard",
+      "Shared driveway and carry planning before move day",
+      "Full packing service available",
+    ],
+    faqs: [
+      {
+        q: "How early can you start a Greenhithe move?",
+        a: "Early. We are ten minutes away, so a 7.30 or 8am start is easy to lock in. Big homes deserve the full day.",
+      },
+      {
+        q: "Our driveway is shared and slopes down. Can a truck get in?",
+        a: "We check before the day. If the truck cannot stand close to the house we plan the carry distance into the quote, so there are no surprises.",
+      },
+      {
+        q: "Do you do viewings for bigger homes?",
+        a: "Yes, and for a four bedroom Greenhithe home we recommend one. It is free, takes about 20 minutes, and makes the price accurate.",
+      },
+      {
+        q: "Can you store some furniture between houses?",
+        a: "Yes, we offer storage for the in-between gap when settlement dates do not line up. Ask when you book and we will build it into the plan.",
       },
     ],
   },
   "stanmore-bay": {
     metaDescription:
-      "Stanmore Bay movers on the Whangaparāoa Peninsula. We cover Hibiscus Coast homes with outer-north travel quoted upfront. Free quote.",
+      "Stanmore Bay movers on the Whangaparāoa Peninsula. House, piano, and insurance moves from our North Shore depot. Free quote in 15 minutes.",
     intro:
-      "Stanmore Bay sits on the Whangaparāoa Peninsula, beachside Hibiscus Coast homes we cover on our outer-north schedule.",
+      "Stanmore Bay is part of our regular run up the Whangaparāoa Peninsula. We have handled dozens of jobs here, from full house moves to single pianos.",
     paragraphs: [
-      "Peninsula homes range from older beachside houses to newer subdivisions, with one main road along the peninsula and parking that gets busy near the coast. We plan access and timing at the viewing.",
-      "Stanmore Bay is in our outer-north zone, so travel is quoted clearly upfront. Home relocations, pianos, packing, and downsizing are all covered.",
+      "The peninsula has one road in and out, so timing matters. We schedule Stanmore Bay moves to miss the Whangaparāoa Road crush, and our depot is about 25 minutes away with a clear run.",
+      "Housing here is a real mix. Older baches sit next to new builds, and plenty of homes step down towards the beach. Split levels and downhill carries are normal for us, and we bring the right crew for them.",
+      "We also do insurance restoration work in Stanmore Bay, packing out and packing back homes for insurers and project managers. The same careful handling applies to a flood pack-out as to a grand piano.",
+      "Every move gets at least two movers, a truck with a taillift, and blankets and straps as standard. If your quote needs eyes on the job first, we come to you.",
     ],
     highlights: [
-      "Whangaparāoa Peninsula coverage",
-      "Outer-north travel quoted upfront",
-      "Beachside homes and new subdivisions",
+      "Regular jobs across the Whangaparāoa Peninsula",
+      "About 25 minutes from our Wairau Valley depot",
+      "Insurance pack-out and pack-back experience",
       "Piano specialists, upright and grand",
     ],
     faqs: [
       {
-        q: "Is Stanmore Bay in your service area?",
-        a: "Yes. Stanmore Bay and the Whangaparāoa Peninsula are in our outer-north zone, travel is quoted upfront with no surprise callout.",
+        q: "Do you charge extra travel for Stanmore Bay?",
+        a: "Hourly rates are the same across Auckland. Stanmore Bay's fixed callout is slightly higher than inner North Shore because of the distance, and you see the full price upfront before you book.",
       },
       {
-        q: "How far ahead should I book?",
-        a: "Two weeks is ideal for weekends. Call (021) 228 2728 for the next crew heading up the Hibiscus Coast.",
+        q: "My house is on a slope with steps to the door. Is that a problem?",
+        a: "It is common in Stanmore Bay and we plan for it. Tell us about the steps when you book, and we will bring the right crew size and gear for a safe carry.",
+      },
+      {
+        q: "Can you move a piano out of a beach house here?",
+        a: "Yes. We are Auckland's piano specialists and we move uprights and grands across the Hibiscus Coast, including tricky downhill and multi-step access.",
+      },
+      {
+        q: "How fast can you give me a price?",
+        a: "For most Stanmore Bay moves we can quote from your details in about 15 minutes. Larger homes get a free viewing first so the price is accurate.",
       },
     ],
   },
   "red-beach": {
     metaDescription:
-      "Red Beach movers on the Hibiscus Coast. We cover beachside family homes and new subdivisions, outer-north travel quoted upfront. Free quote.",
+      "Red Beach movers on the Hibiscus Coast. Family house moves, packing, and pianos handled by our North Shore crews. Free quote in 15 minutes.",
     intro:
-      "Red Beach is Hibiscus Coast beachside living, family homes and newer subdivisions we cover on our outer-north schedule.",
+      "Red Beach is family-move country, and it is one of our regular Hibiscus Coast stops. We have done dozens of jobs here, most of them three and four bedroom homes.",
     paragraphs: [
-      "Red Beach mixes established beachside homes with newer developments. We plan parking and access, busy near the beach, at the viewing.",
-      "Red Beach is in our outer-north zone with travel quoted upfront. Home relocations, pianos, packing, and downsizing are all covered.",
+      "A lot of Red Beach moves are growing families going up a bedroom or moving in from other parts of Auckland. Three and four bedroom houses are our bread and butter, and we usually send a three-mover crew so the day stays short.",
+      "The newer subdivisions have good truck access, while some of the older streets near the beach are tighter. We check access before move day so the truck is never the surprise.",
+      "Need packing too? Our packers can do the whole house the day before, or just the kitchen and the fragiles. Plenty of Red Beach customers take the packing and moving bundle.",
+      "We are about 20 minutes up the motorway from our Wairau Valley depot, so morning starts are easy to lock in.",
     ],
     highlights: [
-      "Hibiscus Coast beachside homes",
-      "Outer-north travel quoted upfront",
-      "Established homes and new subdivisions",
-      "Piano specialists, upright and grand",
+      "Regular Hibiscus Coast crew, dozens of Red Beach jobs done",
+      "Three and four bedroom family moves are our standard work",
+      "Packing service available the day before",
+      "About 20 minutes from our depot, easy morning starts",
     ],
     faqs: [
       {
-        q: "Is Red Beach in your service area?",
-        a: "Yes. Red Beach is in our outer-north Hibiscus Coast zone, travel is quoted upfront.",
+        q: "How long does a four bedroom Red Beach move take?",
+        a: "Most take a day with a three-person crew, packing done beforehand. We confirm crew size and timing when we scope your move.",
       },
       {
-        q: "Do you do downsizing moves?",
-        a: "Yes. we handle retiree and downsizing moves at a careful pace, with packing and storage available.",
+        q: "Can you pack the house for us as well?",
+        a: "Yes. Our packers usually come the day before with all materials, so move day starts with everything boxed and labelled.",
+      },
+      {
+        q: "Do you move within Red Beach, not just in and out?",
+        a: "Absolutely. Short local shifts across the Hibiscus Coast are common for us and are priced on our normal hourly rates.",
+      },
+      {
+        q: "Is a weekend move possible?",
+        a: "Yes, we run seven days. Weekends book out first on the coast, so lock your date in early.",
       },
     ],
   },
   "dairy-flat": {
     metaDescription:
-      "Dairy Flat movers for rural and lifestyle properties. We cover the outer-north countryside, long driveways and travel quoted upfront. Free quote.",
+      "Dairy Flat movers for lifestyle blocks and rural properties. Long driveways, sheds, and big items handled properly. Free quote in 15 minutes.",
     intro:
-      "Dairy Flat is rural outer-north, lifestyle blocks, long driveways, and sheds that add volume and need a viewing.",
+      "Dairy Flat moves are different, and we like them. Lifestyle blocks, long driveways, sheds full of gear. We have moved plenty of households out here, 20 minutes from our depot.",
     paragraphs: [
-      "Dairy Flat properties are often on acreage with long driveways, gates, and outbuildings, so volume and access are the key factors. We scope the whole property before quoting.",
-      "Dairy Flat is in our outer-north zone with travel quoted clearly upfront. Home relocations, pianos, packing, and farm-gate pickups are all covered.",
+      "A lifestyle block move is not a suburban move. There is the house, and then there is the shed, the workshop, the ride-on, and the stuff in the barn. We quote Dairy Flat properties with all of that in mind, so nothing gets left for a second trip you did not plan.",
+      "Long gravel driveways and gates are standard here. We check truck clearance and turning room before the day, and our bigger trucks mean fewer runs up and down that driveway.",
+      "Heavy and awkward items are our specialty. Safes, workshop machinery, spa pools, statues, and pianos all travel with the right gear and enough hands.",
+      "Moving to Dairy Flat from town, or leaving the block for something smaller? Either way we plan the day around the property, not the other way round.",
     ],
     highlights: [
-      "Rural and lifestyle properties",
-      "Long driveways and outbuildings scoped",
-      "Outer-north travel quoted upfront",
-      "Piano specialists, upright and grand",
+      "Lifestyle block experience, house plus sheds and outbuildings",
+      "Trucks up to 33 cubic metres, fewer trips on long driveways",
+      "Heavy and awkward items are our specialty",
+      "20 minutes from our Wairau Valley depot",
     ],
     faqs: [
       {
-        q: "Do you cover rural Dairy Flat properties?",
-        a: "Yes. lifestyle blocks and acreage are covered. We scope driveways, gates, and sheds at the viewing so volume and access are clear.",
+        q: "Can you move the shed and workshop contents too?",
+        a: "Yes, and tell us about them when you book. Workshop gear and outdoor equipment change the truck size and crew we send, and we would rather plan it than discover it.",
       },
       {
-        q: "Is travel included?",
-        a: "Dairy Flat is in our outer-north zone; travel is quoted upfront and included in your written price.",
+        q: "Our driveway is long gravel with a gate. Will the truck get in?",
+        a: "Usually yes. We confirm clearance, width, and turning room before move day. If the big truck cannot get close, we plan the carry instead of improvising.",
+      },
+      {
+        q: "Do you move spa pools and safes?",
+        a: "Yes. Hard-to-shift items are one of our specialties, with the gear and crew to do it without damage.",
+      },
+      {
+        q: "Do rural moves cost more?",
+        a: "Dairy Flat is in our normal service area, about 20 minutes from our depot, and hourly rates are the same across Auckland. Larger properties get a free viewing so the quote is right.",
       },
     ],
   },
   "point-chevalier": {
     metaDescription:
-      "Point Chevalier movers for villas, bungalows, and beachside homes. We plan narrow streets and parking on the inner-west peninsula. Free quote.",
+      "Point Chevalier movers for bungalows and villas. Careful crews, narrow driveway know-how, and pianos. Specialist Movers Auckland. Free quote in 15 minutes.",
     intro:
-      "Point Chevalier is a beachside inner-west peninsula, villas and bungalows on quiet streets near the coast that we plan access for.",
+      "Pt Chev's 1920s bungalows are some of our favourite houses to move. We are in the suburb regularly, house moves, cleans, and pianos alike.",
     paragraphs: [
-      "Pt Chev's pre-war villas and bungalows bring steps and narrow hallways, while the peninsula's quiet streets and beach reserves shape parking. We plan truck placement at the viewing.",
-      "On the Northwestern motorway, Point Chevalier is a quick city and west run. Home relocations, pianos, packing, and office relocations are all covered.",
+      "Character bungalows and villas dominate Point Chevalier, and they come with character quirks. Narrow side driveways, low verandas, and hallways that were not designed with a three-seater couch in mind. We plan the tight points before the day and protect the original timber as we go.",
+      "Street trees and driveway width decide where the truck stands. We are honest about carry distance in the quote, so the price you get is the price it costs.",
+      "Families here often pair the move with an exit clean of the old place. We do fixed-price end-of-tenancy and pre-settlement cleans, and can run the clean while the truck heads to the new house.",
+      "From our depot it is about 20 minutes over the bridge, and we schedule Pt Chev jobs to miss the motorway crush.",
     ],
     highlights: [
-      "Villa and bungalow access",
-      "Beachside peninsula parking planned",
-      "Quick Northwestern motorway run",
-      "Piano specialists, upright and grand",
+      "Bungalow and villa experience, floors protected as standard",
+      "Honest carry-distance quoting on narrow driveways",
+      "Fixed-price exit cleans available with your move",
+      "Piano moves handled by specialists",
     ],
     faqs: [
       {
-        q: "Do you move villas in Point Chevalier?",
-        a: "Yes. we handle villa steps and narrow halls carefully, with doorway and floor protection as standard.",
+        q: "Will a big couch fit through a bungalow hallway?",
+        a: "Usually yes, with planning. We measure the tight points, remove feet or doors where needed, and carry with enough people that nothing gets forced.",
       },
       {
-        q: "Where will the truck park?",
-        a: "We plan the closest legal spot in advance so the carry stays short on Pt Chev's quieter streets.",
+        q: "Can you do the move and the exit clean together?",
+        a: "Yes, it is a popular combo in Pt Chev. The cleaners start as the truck loads, and the old place is handed over done.",
+      },
+      {
+        q: "Our driveway is too narrow for a truck. What happens?",
+        a: "We park on the street and plan the carry. You will know the plan and the price before move day, not after.",
+      },
+      {
+        q: "Do you move pianos in Point Chevalier?",
+        a: "Yes. Uprights and grands, moved by the crew that Auckland's music stores trust, with a complimentary polish after.",
       },
     ],
   },
   "west-harbour": {
     metaDescription:
-      "West Harbour movers for Upper Harbour homes and marina-side streets. We plan access and parking from our nearby base. Free quote.",
+      "West Harbour movers, 15 minutes from our depot. Family homes, insurance moves, and packing done properly. Specialist Movers Auckland. Free quote in 15 minutes.",
     intro:
-      "West Harbour sits on the Upper Harbour, family homes and marina-side properties we cover with easy motorway access.",
+      "West Harbour sits just across the upper harbour from our depot, about 15 minutes door to door. We have done dozens of jobs here, from family homes to insurance pack-outs.",
     paragraphs: [
-      "West Harbour homes range from 80s and 90s family houses to newer builds, often on sloped sections with shared driveways. We scope access and parking at the viewing.",
-      "Close to the Upper Harbour motorway, West Harbour is a quick run for city and west moves. Home relocations, pianos, packing, and office relocations are all covered.",
+      "Family homes around the marina and the harbour edge make up most of our West Harbour work. Established streets, decent access, and the odd steep driveway down to a view. We plan crew size around the house, not a formula.",
+      "We also do insurance restoration work in the suburb, packing out homes for restoration companies and packing them back when the work is done. Careful inventory and handling is the whole job there, and it shows in how we treat every move.",
+      "Our packers are popular in West Harbour. Kitchens, artwork, and the garage, boxed the day before, so the truck rolls at 8am with no taping in sight.",
+      "Being 15 minutes away means flexible timing, quick second trips, and easy viewings when a quote needs eyes on the job.",
     ],
     highlights: [
-      "Upper Harbour family homes",
-      "Sloped-section and driveway access planned",
-      "Easy Upper Harbour motorway run",
-      "Piano specialists, upright and grand",
+      "About 15 minutes from our Wairau Valley depot",
+      "Dozens of West Harbour jobs done",
+      "Insurance pack-out and pack-back experience",
+      "Day-before packing service available",
     ],
     faqs: [
       {
-        q: "Do you cover West Harbour and Marina View?",
-        a: "Yes. West Harbour and the marina-side streets are on our regular west schedule.",
+        q: "Our driveway drops steeply to the house. Can you handle it?",
+        a: "Yes, steep West Harbour driveways are familiar ground. We assess where the truck stands and plan the carry so it is safe and priced correctly.",
       },
       {
-        q: "Can you handle sloped driveways?",
-        a: "Yes. we plan carry routes and parking for sloped sections at the viewing so move day runs smoothly.",
+        q: "Do you handle insurance moves?",
+        a: "Yes, we work with restoration companies and insurers on pack-out and pack-back jobs, with proper inventory as standard.",
+      },
+      {
+        q: "Can I get a viewing before I commit?",
+        a: "Easily. We are 15 minutes away and viewings are free. For bigger homes we recommend one so the price is exact.",
+      },
+      {
+        q: "How much notice do you need?",
+        a: "The more the better, but being this close to our depot means we can sometimes fit West Harbour jobs in on short notice. Ask.",
       },
     ],
   },
   riverhead: {
     metaDescription:
-      "Riverhead movers for village homes and lifestyle blocks. We cover the outer north-west, long driveways and travel quoted upfront. Free quote.",
+      "Riverhead movers for village homes, new builds, and lifestyle blocks. Big trucks, careful crews. Specialist Movers Auckland. Free quote in 15 minutes.",
     intro:
-      "Riverhead is outer north-west village and lifestyle living, growing subdivisions and rural blocks at the edge of our patch.",
+      "Riverhead mixes village charm, new subdivisions, and lifestyle blocks on the forest edge. We move households in and out of all three, about 25 minutes from our depot.",
     paragraphs: [
-      "Riverhead mixes new village subdivisions with rural lifestyle blocks, long driveways, sheds, and volume that we scope before quoting.",
-      "Riverhead sits in our outer north-west zone with travel quoted upfront. Home relocations, pianos, packing, and farm-gate pickups are all covered.",
+      "The new Riverhead subdivisions move like clockwork: good access, modern layouts, done by mid-afternoon. The older village streets and lifestyle properties take more thought, and that is where the planning we do before move day earns its keep.",
+      "Lifestyle blocks towards Coatesville mean long driveways, sheds, and the kind of gear that does not fit in a hatchback. Our bigger trucks, up to 33 cubic metres, mean one trip where two would have been.",
+      "Moving out from the city to Riverhead? That is most of our work here. We pack in town, drive out, and set you up the same day.",
+      "Pianos come too. Uprights and grands travel safely on proper equipment, whatever the driveway looks like.",
     ],
     highlights: [
-      "Village homes and lifestyle blocks",
-      "Outer north-west travel quoted upfront",
-      "Long driveways and sheds scoped",
-      "Piano specialists, upright and grand",
+      "Village, new build, and lifestyle block experience",
+      "Trucks up to 33 cubic metres, one trip not two",
+      "City-to-Riverhead moves done in a day",
+      "Piano transport with specialist gear",
     ],
     faqs: [
       {
-        q: "Is Riverhead in your service area?",
-        a: "Yes. Riverhead is in our outer north-west zone, travel is quoted clearly upfront.",
+        q: "Do you charge extra to come out to Riverhead?",
+        a: "No. Riverhead is inside our standard Auckland service area, about 25 minutes from our depot, and priced at normal rates.",
       },
       {
-        q: "Do you move lifestyle blocks?",
-        a: "Yes. we scope long driveways, gates, and outbuildings so the truck and crew are right-sized.",
+        q: "We are moving from central Auckland to Riverhead. One day or two?",
+        a: "Usually one. We size the crew and truck so the load, the drive, and the unload fit inside a day, packing done beforehand.",
+      },
+      {
+        q: "Can you handle the shed and outdoor gear on a lifestyle block?",
+        a: "Yes, just tell us what is out there when you book so we bring the right truck and enough hands.",
+      },
+      {
+        q: "Is there a piano-safe way down a gravel driveway?",
+        a: "Yes. Piano trolleys, boards, and patience. We have done it plenty of times and the piano arrives polished, literally.",
       },
     ],
   },
   "st-johns": {
     metaDescription:
-      "St Johns movers for family homes near Meadowbank and Stonefields. We plan access and parking on the central-east fringe. Free quote.",
+      "Saint Johns movers for townhouses, new developments, and family homes in Auckland's east. Specialist Movers. Free quote in 15 minutes.",
     intro:
-      "St Johns sits between Remuera and the eastern bays, established family homes and newer Stonefields-edge builds we move regularly.",
+      "Saint Johns and the neighbouring Stonefields development are regular stops for our eastern crews. Townhouses, terraces, and family homes, we move them all.",
     paragraphs: [
-      "St Johns homes range from post-war houses to newer townhouses near Stonefields, with a mix of driveways and shared access. We scope it at the viewing so pricing matches the job.",
-      "Central and well-connected, St Johns is a quick cross-town run. Home relocations, pianos, packing, and office relocations are all covered.",
+      "Much of Saint Johns is newer medium-density housing: townhouses, terraces, and apartments with internal stairs and tandem garages. We move these efficiently because we know the layouts, where the truck fits, and how to protect shared walls and stairwells on the way through.",
+      "Body corporate rules and shared driveways are part of the deal here. We handle the notice, the protection, and the neighbours' driveways with the same care as your furniture.",
+      "The established streets have classic family homes too, and those moves get the same treatment: honest crew sizing, floor protection, and a plan made before the day.",
+      "Moving across town? Saint Johns to anywhere in Auckland is a routine day for us, packing service included if you want it.",
     ],
     highlights: [
-      "Family homes and newer townhouses",
-      "Driveway and shared-access planning",
-      "Quick central-east access",
-      "Piano specialists, upright and grand",
+      "Townhouse and terrace experience, stairs included",
+      "Body corporate and shared-access moves handled properly",
+      "Crews regularly working Auckland's eastern suburbs",
+      "Packing service available",
     ],
     faqs: [
       {
-        q: "Do you cover St Johns and Stonefields?",
-        a: "Yes. St Johns and the Stonefields edge are on our regular central-east schedule.",
+        q: "Can you move a three-storey townhouse with internal stairs?",
+        a: "Yes, it is standard work for us in Saint Johns. We bring the crew numbers for safe stair carries and protect the stairwell as we go.",
       },
       {
-        q: "How far ahead should I book?",
-        a: "Two weeks is ideal for peak dates, though we can often move sooner, call for the next crew.",
+        q: "Our complex has body corporate move rules. Do you deal with that?",
+        a: "We do. Tell us the requirements and we will meet them: protection, timing windows, and proof of insurance if the body corporate asks.",
+      },
+      {
+        q: "Where does the truck go if my garage is tandem and the street is busy?",
+        a: "We plan that in advance. Usually there is a legal spot within a short carry, and the plan is agreed with you before move day.",
+      },
+      {
+        q: "Do you do small moves, like one-bedroom apartments?",
+        a: "Yes. Every job gets a minimum of two movers and a taillift truck, whatever the size.",
       },
     ],
   },
   glendowie: {
     metaDescription:
-      "Glendowie movers for eastern-bays family homes. We cover Glendowie and St Heliers with planned access and parking. Free quote.",
+      "Glendowie movers for large family homes and premium furniture. Careful crews, proper protection, pianos too. Specialist Movers. Free quote in 15 minutes.",
     intro:
-      "Glendowie is leafy eastern-bays living, larger family homes near the coast and St Heliers that we move with planned access.",
+      "Glendowie homes are big, the furniture is good, and the views come with slopes. This is careful-move territory, which is exactly the work we built our name on.",
     paragraphs: [
-      "Glendowie homes are often substantial family houses on bigger sections, some with steep drives down toward the water. We scope volume and access at the viewing so the right crew arrives.",
-      "We cover Glendowie alongside St Heliers, Kohimarama, and Mission Bay. Home relocations, pianos, packing, and downsizing are all covered.",
+      "Large family homes near the water mean quality furniture, artwork, and the kind of pieces you do not want learning about stairs the hard way. We wrap, pad, and protect as standard, and our crews are chosen for care first, speed second.",
+      "Cliff-side streets and sloped sections decide the plan. We work out where the truck stands and how the heavy pieces travel before anyone lifts anything.",
+      "Grand pianos live in Glendowie, and we are the crew Auckland's music stores trust with them. Uprights and grands are moved on specialist gear and polished after the move, always.",
+      "For bigger homes we recommend a free viewing. Twenty minutes of walking the house with us gets you an accurate fixed price and a plan you can see.",
     ],
     highlights: [
-      "Eastern-bays family homes",
-      "Steep-drive and access planning",
-      "Covered with the wider eastern bays",
-      "Piano specialists, upright and grand",
+      "Premium furniture wrapped and protected as standard",
+      "Sloped section and long-carry planning before move day",
+      "Grand piano specialists, complimentary polish included",
+      "Free in-home viewing for accurate fixed pricing",
     ],
     faqs: [
       {
-        q: "Do you cover Glendowie and the eastern bays?",
-        a: "Yes. Glendowie, St Heliers, Kohimarama, and Mission Bay are all on our regular schedule.",
+        q: "How do you protect good furniture and artwork?",
+        a: "Blankets, shrink wrap, edge protection, and dance-floor sheets for delicate floors. Artwork travels padded and upright, and we plan placement at the new house before we load.",
       },
       {
-        q: "Can you handle steep driveways toward the water?",
-        a: "Yes. we plan the carry route and parking at the viewing so steep or narrow access is sorted before the day.",
+        q: "Our house is below street level with a long path. Does that change the price?",
+        a: "It changes the plan, and the quote reflects the real carry. That is why we view bigger Glendowie homes first, so the fixed price is honest both ways.",
+      },
+      {
+        q: "Can you move a grand piano with steps involved?",
+        a: "Yes. Grands are our specialty: partial disassembly, piano board, proper padding, and enough experienced hands. Steps are normal, not a problem.",
+      },
+      {
+        q: "Do you offer storage if our settlement dates do not line up?",
+        a: "Yes, short and longer-term storage is available, and we move things in and out of it ourselves so handling stays careful end to end.",
       },
     ],
   },
