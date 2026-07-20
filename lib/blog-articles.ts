@@ -247,6 +247,138 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "how-much-do-movers-cost-in-auckland": {
+    title: "How Much Do Movers Cost in Auckland? Real 2026 Numbers",
+    sections: [
+      {
+        heading: "The short answer",
+        paragraphs: [
+          "Most Auckland house moves with a professional crew land somewhere between $300 and $1,300 plus GST, depending on how much you own, what day you move, and how awkward the access is. Across the 1,500+ Auckland moves we've done, our average house move invoice comes in a little under $1,200 plus GST.",
+          "That's a wide range, so here's exactly how the pricing works, with real numbers. These are our actual 2026 rates, not a lead-generation guess.",
+        ],
+      },
+      {
+        heading: "How Auckland movers actually charge",
+        paragraphs: [
+          "Almost every reputable Auckland mover charges the same way: an hourly rate for the crew and truck, plus a one-off callout fee that covers getting the truck to you and back to base.",
+          "The clock runs from arrival at your pickup address to the last item off the truck at the other end. So the total is simple: hours worked times the hourly rate, plus the callout.",
+          "Two things move the hourly rate around: crew size (two or three movers, occasionally four for big houses) and the day of the week. Weekends and Fridays are the busiest days in Auckland, so they cost more. Tuesdays and Thursdays are the quietest, so they cost less.",
+        ],
+      },
+      {
+        heading: "Our 2026 rates",
+        paragraphs: [
+          "A two-person crew with a truck starts at $120 per hour plus GST on a Tuesday, our cheapest day. Midweek days sit around $130 to $135, and Friday, the most popular day of the week, is $150. A three-person crew runs $40 to $50 an hour more than two.",
+          "The callout fee depends on how far you are from our Glenfield depot. Close-in Auckland (roughly within 23 kilometres) is $60 for a two-person crew. The outer suburbs, like the Hibiscus Coast or Pukekohe, are $80, and the fringe of the region is $120. The hourly rate itself is the same across all of Auckland; only the callout changes with distance.",
+          "On top of that there's a flat $25 fuel surcharge per job. Everything is plus GST, and we tell you the day rate, callout and surcharge before you book, so the structure you're quoted is the structure you're invoiced on.",
+        ],
+      },
+      {
+        heading: "Worked examples by house size",
+        paragraphs: [
+          "A one-bedroom apartment with easy access at both ends typically takes a two-person crew about two hours. On a Tuesday that's 2 x $120 + $60 callout = $300 plus GST.",
+          "A two-bedroom home usually runs about three hours. Midweek: 3 x $135 + $60 = $465 plus GST.",
+          "A three-bedroom home is around four hours with straightforward access. On a Friday: 4 x $150 + $60 = $660 plus GST.",
+          "A four-bedroom home is a three-person job and usually six hours or more. On a Monday: 6 x $175 + $80 = $1,130 plus GST, and bigger or harder versions of that move go up from there.",
+          "Those hour estimates assume the truck can park close and there are no big flights of stairs. Difficult access at either end adds roughly half an hour to an hour per end, which is the single most common reason a move costs more than people expect.",
+        ],
+      },
+      {
+        heading: "What pushes the price up",
+        paragraphs: [
+          "Day of the week. Friday and the end of the month are peak. If your dates are flexible, a Tuesday or Thursday mid-month is the same crew doing the same work for up to $30 an hour less.",
+          "Access. Stairs, long carries from the truck to the door, steep or narrow driveways, and apartment lifts that need booking all add time, and time is what you're paying for.",
+          "Not being ready. If the crew arrives and boxes are still being packed, you pay hourly for packing you could have done yourself. Fully packed, labelled and stacked near the door is the cheapest move there is.",
+          "Furniture that needs disassembly. Beds, trampolines and big wardrobes come apart quickly if we know about them in advance, and slowly if we discover them on the day.",
+        ],
+      },
+      {
+        heading: "Packing and cleaning, if you want the full service",
+        paragraphs: [
+          "Professional packing is priced by house size, with three packers, all materials included, done the day before your move: $1,599 plus GST for a one-bedroom, $1,770 for two bedrooms, $1,962 for three, and $2,486 for four. Partial packing, like just the kitchen, is priced by the room and costs a lot less.",
+          "Move-out cleaning starts at $280 plus GST for a one-bedroom, one-bathroom home and scales with beds and bathrooms, up to $730 for a five-bedroom. If you're leaving a rental, this is usually cheaper than losing part of your bond.",
+        ],
+      },
+      {
+        heading: "How to keep your move cheap",
+        paragraphs: [
+          "Book a Tuesday or Thursday, and avoid the last and first days of the month if you possibly can.",
+          "Declutter before you pack. Every box you don't move is minutes you don't pay for.",
+          "Be completely packed before the crew arrives, and label boxes by room so unloading is fast.",
+          "Tell your mover the truth about access. If the driveway is steep or there are two flights of stairs, saying so upfront gets you an accurate quote instead of an awkward surprise.",
+          "Reserve parking as close to your door as you can at both ends. Ten metres of extra carry, repeated eighty times, is real money.",
+        ],
+      },
+      {
+        heading: "Get an actual number for your move",
+        paragraphs: [
+          "Ranges are useful, but your move has a specific price. Tell us your suburbs, house size and preferred date through the quote form on our house moving page and we'll come back with the real figure, usually within 15 minutes during business hours. No obligation, and the number we quote is the pricing structure we invoice on.",
+        ],
+      },
+    ],
+  },
+
+  "office-move-auckland-planning-guide": {
+    title: "Planning an Office Move in Auckland: Timeline, Costs and What Everyone Forgets",
+    sections: [
+      {
+        heading: "Why office moves go wrong",
+        paragraphs: [
+          "Office moves fail differently from house moves. Nobody's grandmother's china gets broken. Instead, the phones don't work on Monday, the server is in a box nobody labelled, and the one person who knew the alarm code is on leave.",
+          "The pattern behind almost every messy office relocation we've seen is the same: the move was treated as a single day instead of a six-week project, and it was scheduled during business hours because that seemed simpler. It isn't.",
+        ],
+      },
+      {
+        heading: "The timeline that works",
+        paragraphs: [
+          "Six weeks out: confirm the new premises, measure the lift and doorways, and decide what furniture is coming. Book your mover now, not in week five, especially if you want a weekend slot.",
+          "Four weeks out: tell your IT provider the date. Internet circuits at the new site routinely take three to four weeks to provision in Auckland, and this is the deadline businesses miss most often.",
+          "Two weeks out: order crates or boxes, assign every desk a number that matches a floor plan of the new office, and book the lifts and loading docks at both buildings with the building managers.",
+          "Move week: staff pack their own desks into labelled crates by Thursday night. IT shuts down and disconnects gear last, photographs the cabling, and packs screens properly.",
+          "Move day, ideally a Friday evening or Saturday: the crew moves everything against the numbered floor plan, furniture is placed and assembled at the new site, and IT reconnects over the weekend. Monday morning, people sit down and work.",
+        ],
+      },
+      {
+        heading: "What an office move costs in Auckland",
+        paragraphs: [
+          "Commercial moves are priced the same transparent way as our house moves: an hourly rate for the crew and truck plus a callout fee, with the crew sized to the job. A small office of six to ten desks is usually a few hours for a crew; a full floor is a planned evening-and-weekend operation with a bigger team.",
+          "For freight-style jobs, like moving stock, storage or a fit-out, we also offer per-cubic-metre pricing at $90 per cubic metre plus GST with a five-cubic-metre minimum, or $110 per cubic metre for after-hours work before 6am or after 5pm.",
+          "After-hours and weekend moves cost slightly more per hour but are almost always cheaper overall, because the alternative is your whole team being paid to not work while the office is in boxes around them.",
+        ],
+      },
+      {
+        heading: "The stuff everyone forgets",
+        paragraphs: [
+          "Lift bookings. Most Auckland CBD and Takapuna buildings require the service lift to be booked in advance, often with a time window and sometimes a bond. If it isn't booked, your move waits in the loading dock.",
+          "Building requirements. Many commercial buildings want your mover's insurance details before allowing access. We supply these routinely, but it takes a day, not a minute.",
+          "Filing cabinets and drawers. They must be emptied. A full four-drawer filing cabinet is a two-person lift at best and a lift-and-doorway problem at worst.",
+          "Keys, access cards and alarm codes for both sites, held by someone who is actually present on move day.",
+          "The tip run. Every office move surfaces broken chairs and dead monitors nobody wants to pay to relocate. Decide in advance what's being disposed of, and we can take it away rather than moving rubbish to your nice new office.",
+        ],
+      },
+      {
+        heading: "Take less than you think",
+        paragraphs: [
+          "The cheapest thing to move is nothing. Office furniture is heavy, bulky and cheap to replace second-hand, so audit honestly: if the new space is fitted out, or your desks are fifteen years old, selling or donating them often beats paying by the hour to relocate them.",
+          "What is worth moving carefully: screens, IT equipment, whiteboards with anything important on them (photograph them anyway), plants, and anything with compliance records in it.",
+        ],
+      },
+      {
+        heading: "Keeping the business running",
+        paragraphs: [
+          "The gold standard is that customers never notice you moved. That means moving outside business hours, having phones and internet live at the new site before the old one is disconnected, and keeping one 'essentials' crate per team that travels last and opens first.",
+          "For larger offices, a phased move works well: non-essential storage and spare furniture go earlier in the week, and the working desks move in one fast overnight push.",
+        ],
+      },
+      {
+        heading: "How we run commercial moves",
+        paragraphs: [
+          "Specialist Movers runs regular commercial work for dozens of Auckland businesses, from office relocations to weekly runs for cabinetry and fit-out companies, alongside the 1,500+ household moves we've completed across Auckland. Commercial gear gets blanket-wrapped as standard, crews are sized to the job, and you get one contact who owns the plan from quote to final box.",
+          "If you're planning an office move anywhere in Auckland, tell us your team size, both addresses and your ideal date through our office moving page, and we'll come back with a plan and a price. The earlier we see the job, the smoother your Monday morning.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {

@@ -269,4 +269,20 @@ export const blogPosts = [
     excerpt:
       "Expert tips for a smoother Auckland move. Planning, packing, access, and communication from Specialist Movers crews who do this every day.",
   },
+  {
+    slug: "how-much-do-movers-cost-in-auckland",
+    title: "How Much Do Movers Cost in Auckland? Real 2026 Numbers",
+    seoTitle: "Moving Costs Auckland 2026: Real Prices | Specialist Movers",
+    publishedDate: "2026-07-20",
+    excerpt:
+      "Actual Auckland moving costs from a company that does this daily: hourly rates, callout fees, worked examples by house size, and what pushes the price up.",
+  },
+  {
+    slug: "office-move-auckland-planning-guide",
+    title: "Planning an Office Move in Auckland: Timeline, Costs and What Everyone Forgets",
+    seoTitle: "Office Move Auckland: Planning Guide & Costs | Specialist Movers",
+    publishedDate: "2026-07-20",
+    excerpt:
+      "A realistic office relocation guide for Auckland businesses: the 6-week timeline, how commercial moves are priced, and the details that derail move day.",
+  },
 ] as const;
