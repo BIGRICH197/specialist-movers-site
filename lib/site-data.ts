@@ -8,6 +8,24 @@ export const jobTypes = [
   "Packing",
   "Hard to Shift",
   "Cleaning",
+  {
+    slug: "auckland-moving-day-checklist",
+    title: "The Complete Auckland Moving-Day Checklist: 4 Weeks to Keys in Hand",
+    seoTitle: "Auckland Moving Checklist | Specialist Movers",
+    publishedDate: "2026-07-24",
+    excerpt:
+      "Exactly what to do 4 weeks out, 1 week out, the night before, and on moving day. Auckland-specific tips on rain, parking, lifts, and traffic.",
+  },
+
+  {
+    slug: "moving-into-out-of-auckland-apartment",
+    title: "Moving Into or Out of an Auckland Apartment: What You Need to Know",
+    seoTitle: "Auckland Apartment Moving Guide | Specialist Movers",
+    publishedDate: "2026-07-24",
+    excerpt:
+      "Body corporate rules, service lifts, loading zones and more. A plain-English guide to apartment moves in Auckland, from the team who does them every week.",
+  },
+
 ] as const;
 
 export type JobType = (typeof jobTypes)[number];
