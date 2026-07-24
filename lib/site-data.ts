@@ -8,6 +8,15 @@ export const jobTypes = [
   "Packing",
   "Hard to Shift",
   "Cleaning",
+  {
+    slug: "hoist-furniture-delivery-wellington-how-we-did-it",
+    title: "How We Hoisted a Large Item Into a Wellington Building (July 2026)",
+    seoTitle: "Hoist Furniture Delivery Wellington | Specialist Movers",
+    publishedDate: "2026-07-24",
+    excerpt:
+      "A two-person crew, full PPE, and careful planning. Here is exactly how we handled a hoist delivery job in Wellington in July 2026.",
+  },
+
 ] as const;
 
 export type JobType = (typeof jobTypes)[number];

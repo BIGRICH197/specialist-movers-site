@@ -379,6 +379,66 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "hoist-furniture-delivery-wellington-how-we-did-it": {
+    title: "How We Hoisted a Large Item Into a Wellington Building (July 2026)",
+    sections: [
+      {
+        heading: "The job in brief",
+        paragraphs: [
+          "In July 2026 we sent two movers to Wellington for a furniture delivery that needed a hoist. The item could not go up through the building in the normal way, so it had to be lifted from street level on the outside.",
+          "This kind of job comes up more than people expect. Wellington and Auckland both have older multi-storey buildings where stairwells are narrow, lifts are too small, or there is simply no practical indoor route for a large piece.",
+        ],
+      },
+      {
+        heading: "What made this one tricky",
+        paragraphs: [
+          "The site had strict health and safety requirements. Our crew needed hard hats, high-vis vests, steel-cap boots, and long pants before they could set foot in the loading area. That is not unusual on commercial sites, but it does mean you cannot just show up and improvise.",
+          "The loading bay was in a specific location off the street. Parking and access had to be pre-arranged so we could work without blocking traffic or holding up other trades on site. On a busy Wellington street that coordination matters a lot.",
+          "A hoist delivery also means working with the building's crane or hoist operator. Our crew are not operating the hoist themselves, but they need to rig the item correctly, communicate clearly with the operator, and make sure the furniture is secure at every point in the lift.",
+        ],
+      },
+      {
+        heading: "How we planned it",
+        paragraphs: [
+          "Before the day we confirmed the PPE requirements and made sure both movers had everything they needed. We confirmed the loading bay location so there were no surprises on arrival.",
+          "We also made sure the crew brought the right trolley. Getting a heavy item from the truck to the hoist point is its own challenge. A good trolley and two experienced movers who know how to work together makes that part smooth.",
+          "The job was booked for 10am on a Monday. That timing was set by the site, not us, and we built our travel and setup around it. Starting a hoist job late is not an option when a building's hoist operator is scheduled.",
+        ],
+      },
+      {
+        heading: "On the day",
+        paragraphs: [
+          "The crew arrived in good time, kitted up, and checked in with the site. They positioned the truck, got the item off using the truck's taillift, and moved it into position for the hoist.",
+          "From there it was about clear communication with the hoist operator and keeping hands and feet clear during the lift. Once the item was at height, the crew worked with whoever was receiving it at the upper level to bring it inside safely.",
+          "The job went to plan. No damage, no delays past the scheduled window.",
+        ],
+      },
+      {
+        heading: "What we cannot tell you honestly",
+        paragraphs: [
+          "We are not going to fill this out with details we do not have. We do not have notes on exactly how long the lift took, or the specific floor it went to. What we can tell you is the shape of how these jobs work, because that is what is actually useful to you.",
+          "Every hoist job has three phases: ground handling, the lift itself, and placement at height. Our job is phases one and three. We work around the hoist operator's process, not the other way around.",
+        ],
+      },
+      {
+        heading: "What you should know if you have a similar item",
+        paragraphs: [
+          "First, check your building access before you book anyone. Walk the route from street to room. Note the stairwell width, any sharp turns, the lift dimensions, and the door widths at both ends. If any of those are going to stop the item, a hoist may be the answer.",
+          "Second, find out early whether your site has PPE requirements. Some residential buildings do not, but any commercial site or managed apartment complex likely will. Your moving company needs to know this in advance.",
+          "Third, think about timing. Hoist operators and building managers often have narrow windows. Book your movers around that fixed point, not the other way around.",
+          "Fourth, make sure your movers have the right gear for ground handling. A taillift truck and a proper trolley are not optional extras on a job like this. They are how you protect the item and the people moving it.",
+        ],
+      },
+      {
+        heading: "We cover Auckland and can travel for the right job",
+        paragraphs: [
+          "Most of our work is across Auckland, where we have completed over 1,500 moves. But as this Wellington job shows, we travel when the job calls for it.",
+          "We handle difficult deliveries and moves regularly. If you have a large item, an awkward building, or a site with specific access requirements, it helps to talk to people who have done it before.",
+          "If you want to know how we would approach your job, use the quote form on our website. During business hours you will usually hear back in about 15 minutes.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {
