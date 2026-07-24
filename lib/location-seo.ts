@@ -137,53 +137,73 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   takapuna: {
     metaDescription:
-      "Takapuna movers for beachfront apartments and character homes. Specialist Movers plans lift bookings, loading zones, and town-centre parking before move day. Free quote.",
+      "Looking for movers in Takapuna? Specialist Movers covers all of Takapuna from our nearby Wairau Valley depot. Dozens of local moves completed.",
     intro:
-      "Takapuna moves split between beachfront apartments and character homes, we plan lift bookings, loading zones, and town-centre parking before move day.",
+      "Takapuna is one of the Shore's most varied suburbs to move in. You have got high-rise apartments on the beachfront, older brick-and-tile units behind the main strip, and solid three-bedroom homes on established streets further back.",
     paragraphs: [
-      "Apartment moves around the town centre and waterfront need lift bookings, loading-dock times, and sometimes building-manager sign-off, we arrange these in advance. Older homes near the lake and Hauraki bring villa steps and narrow drives.",
-      "From our nearby North Shore depot we run Takapuna constantly: home relocations, apartments, piano transport, and commercial fit-outs in the business district.",
+      "The apartment buildings along The Strand and around the lake end of Takapuna come with their own set of logistics. Lift bookings, loading zone permits, and body corporate rules all need sorting before the truck arrives. We ask those questions early so move day does not stall waiting for a lift or a warden.",
+      "The older character homes on streets like Anzac and Huron tend to have generous rooms but tight driveway access and mature trees that can make reversing a truck tricky. Our crew scopes the property before move day for anything that needs a rethink. We bring the right gear rather than muscle through it.",
+      "We are based in Wairau Valley, about four kilometres away. That puts us in Takapuna in roughly nine minutes. It also means we are in zone A for pricing, so there is no distance premium added to your quote. You see the full price before you confirm anything.",
+      "Takapuna has a lot of long-term residents downsizing into smaller homes or beachside apartments. That often means decades of furniture and effects that need careful handling. We offer a packing service the day before the move if you want a hand getting everything boxed up properly.",
     ],
     highlights: [
-      "Apartment lift and loading-zone planning",
-      "Beachfront apartments and character homes",
-      "Close to our North Shore depot",
-      "Piano specialists, upright and grand",
+      "Apartment lift bookings and loading zones sorted in advance",
+      "Tight Takapuna driveway access scoped before move day",
+      "Zone A pricing, no distance premium from Wairau Valley",
+      "Dozens of Takapuna moves completed",
     ],
     faqs: [
       {
-        q: "Do you move apartments in Takapuna?",
-        a: "Yes, regularly. We book the lift, confirm loading-zone times, and check any building-manager requirements before move day so there are no hold-ups.",
+        q: "My apartment building requires a lift booking and a bond. Can you handle that?",
+        a: "Yes. We deal with body corporate lift bookings regularly in Takapuna. Tell us the building and we will contact the building manager ahead of time, confirm the booking window, and plan the job around it. You should still check the body corporate rules yourself, but we are used to the process.",
       },
       {
-        q: "Where will the truck park in the town centre?",
-        a: "We plan this in advance, finding the closest legal loading zone or arranging building access, so the carry distance is kept short.",
+        q: "The street outside my place fills up fast. How do you manage parking for the truck?",
+        a: "For busy Takapuna streets we look at the loading zone situation when we quote the job. If a temporary parking permit or a cone run is needed to hold space, we talk that through with you beforehand. Turning up without a plan and hoping for a gap does not work in this suburb.",
+      },
+      {
+        q: "I am downsizing from a large family home in Takapuna to a smaller apartment. Is that a straightforward job for you?",
+        a: "We do a lot of these. The key is knowing what is going to the new place and what is not before the truck is loaded. We can help with packing the day before if that is useful. For bigger homes we also offer a free in-home viewing so the quote is accurate and there are no surprises on the day.",
+      },
+      {
+        q: "How quickly can I get a quote for a Takapuna move?",
+        a: "Send us the details online and we aim to have a quote back to you in about 15 minutes during business hours. Hourly rates are the same across Auckland. The fixed callout for Takapuna is in our standard zone, so the price you see upfront is what you pay.",
       },
     ],
   },
   albany: {
     metaDescription:
-      "Albany movers for new builds, large family homes, and townhouses. Specialist Movers covers Albany, Pinehill, and Oteha with easy motorway access. Free quote.",
+      "Albany movers with dozens of local jobs done. Specialist Movers handles large family homes, Pinehill townhouses, and everything in between. Get a quote in 15 minutes.",
     intro:
-      "Albany is newer and bigger, large family homes, modern subdivisions, and townhouse blocks across Pinehill and Oteha. We size the crew and truck to match the volume.",
+      "Albany is one of the Shore's biggest and busiest suburbs, large homes on generous sections, multi-storey townhouse blocks, and everything in between. We have completed dozens of moves here and know what each property type asks of a crew.",
     paragraphs: [
-      "Albany's newer homes mean more to move: double garages, multiple living areas, and townhouse complexes with shared parking and access codes. We scope it at the viewing so the right truck and crew turn up.",
-      "Sitting on the motorway, Albany is a fast run from our depot and a natural staging point for moves further north. Home relocations, pianos, packing, and office relocations are all covered.",
+      "A lot of Albany homes are two or three storeys with double garages, big living areas, and a full set of furniture to match. Volume is the main challenge here, not terrain. We size the crew and truck to the job so nothing gets left behind or rushed.",
+      "Pinehill, Oteha, and the newer townhouse developments around Albany Highway bring a different set of access questions. Shared driveways, narrow lanes, body-corporate parking rules, and lift bookings in taller blocks all need sorting before move day, not on it. We ask those questions at the quote stage.",
+      "Albany sits about 14 minutes from our Wairau Valley depot. That proximity keeps callout costs low and means we can turn around quickly if a job runs long or needs a second trip. You see the full price before you confirm, with no surprises on the day.",
+      "A good number of Albany households have a piano, a gym setup, or both. We are the movers trusted by Steinway dealers and Auckland Town Hall for piano work, so whatever is sitting in your living room, we have moved something like it before.",
     ],
     highlights: [
-      "Large homes and new builds, crew sized to volume",
-      "Easy motorway access",
-      "Townhouse complex codes and parking handled",
-      "Piano specialists, upright and grand",
+      "Dozens of Albany jobs completed",
+      "Large-home crews of up to 4 movers",
+      "Pinehill and Oteha townhouse access sorted upfront",
+      "14 minutes from our Wairau Valley depot",
     ],
     faqs: [
       {
-        q: "Can you handle large Albany homes?",
-        a: "Yes. Albany new builds often have more volume, double garages and multiple living areas. We size the crew and truck to the home so it is done in one efficient run.",
+        q: "We are in a Pinehill townhouse with a shared driveway. Can the truck get in?",
+        a: "We check access before move day, not on it. Tell us the address at quote stage and we will confirm whether the truck can get close, or plan the carry if it cannot. Shared driveways and narrow lanes are common in Albany and we work around them regularly.",
       },
       {
-        q: "Do you cover Pinehill, Oteha, and Rosedale?",
-        a: "Yes. the wider Albany area is a regular run from our depot, with easy motorway access in and out.",
+        q: "Our Albany home is big, three storeys and a double garage full of gear. How do you handle the volume?",
+        a: "We size the crew and truck to the job. Larger Albany homes often need a crew of three or four and a full-size truck with a taillift. We work that out at the quote stage so you are not watching two movers struggle with a house that needs four.",
+      },
+      {
+        q: "Does moving from Albany cost more because it is further north?",
+        a: "No distance premium applies to Albany. Hourly rates are the same across Auckland. The fixed callout reflects distance from our Wairau Valley depot, and Albany is only about 14 minutes away, so that figure is modest. You see the full price before you book.",
+      },
+      {
+        q: "We have a grand piano in the lounge. Is that something you can move?",
+        a: "Yes. Piano moving is one of the things we are known for on the Shore. Steinway dealers and Auckland Town Hall use us for that work. We treat a piano as its own job within the move, not an afterthought, and we have the equipment and crew skill to do it properly.",
       },
     ],
   },
@@ -320,53 +340,73 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   // ── Inner / West ──
   "grey-lynn": {
     metaDescription:
-      "Grey Lynn movers for villas and character homes. We plan narrow streets, on-street parking, and steep villa steps across the inner-west. Free quote.",
+      "Grey Lynn movers with dozens of local jobs done. Specialist Movers handles villas, steep steps, and tight streets across Grey Lynn. Get a quote in 15 minutes.",
     intro:
-      "Grey Lynn is villa country, narrow streets, tight on-street parking, and steep front steps that we plan around before move day.",
+      "Grey Lynn is full of character villas on narrow streets, and moving in or out of them takes a bit more thought than a standard house. We have completed dozens of moves here and know what to plan for.",
     paragraphs: [
-      "Most Grey Lynn homes are renovated villas and bungalows with narrow hallways, high ceilings, and steps up from the street. We measure doorways and access at your free viewing so big pieces move without drama.",
-      "Parking is the inner-west catch, limited driveways and busy permit zones. We sort truck placement early, and the city fringe keeps us close for quick central runs. Home relocations, pianos, packing, and office relocations are all covered.",
+      "Most Grey Lynn homes are villas or bungalows built well before cars were a consideration. Front paths are often long, steps are steep, and hallways are narrow. We look at all of this before move day so the crew arrives with the right gear and a clear plan.",
+      "Parking on Richmond Road, Williamson Avenue, and the surrounding streets can be tight on a weekday morning. We check what is available, whether a parking restriction applies, and how close we can get the truck. A tailift truck needs room to operate safely, and we sort that out in advance.",
+      "A lot of Grey Lynn moves involve buyers and renters who have accumulated serious furniture over years in a well-loved villa. Big rimu wardrobes, upright pianos, clawfoot baths turned into planters. We are Auckland's specialists for piano moving, trusted by Steinway dealers, and we handle heavy awkward pieces carefully on stairs.",
+      "Grey Lynn is about 18 minutes from our Wairau Valley depot, so we arrive on time and do not burn the first hour of your day in traffic. Quotes come back in about 15 minutes during business hours, and we operate seven days a week.",
     ],
     highlights: [
-      "Villa and character-home access",
-      "On-street parking sorted in advance",
-      "Inner-west, close to the city",
-      "Piano specialists, upright and grand",
+      "Dozens of Grey Lynn jobs completed",
+      "Villa hallways and steep front steps planned for",
+      "On-street parking checked before move day",
+      "18 minutes from our depot, no distance premium",
     ],
     faqs: [
       {
-        q: "Can you get a truck down narrow Grey Lynn streets?",
-        a: "Yes. we plan truck size and placement for tight inner-west streets at the viewing, and arrange the closest legal parking so the carry stays short.",
+        q: "Our villa has steep front steps and a long narrow path. Is that a problem?",
+        a: "No, but it does need planning. We walk the access before move day on larger jobs, or talk it through with you for smaller ones. The crew knows to bring the right equipment for stairs and tight paths, and we factor the carry time into your quote so there are no surprises.",
       },
       {
-        q: "Do you move renovated villas?",
-        a: "Yes, constantly. We protect restored floors, doorways, and narrow hallways, and carry awkward pieces up villa steps with the right crew.",
+        q: "Where does the truck park on a narrow Grey Lynn street?",
+        a: "That depends on your street. We check parking restrictions, available space, and tailift clearance ahead of time. If the main truck cannot get close, we plan the carry accordingly rather than working it out on the day.",
+      },
+      {
+        q: "We have a big old upright piano in the lounge. Can you move it?",
+        a: "Yes. Piano moving is one of the things we are best known for. We are trusted by Steinway dealers and have moved instruments into and out of villas plenty of times. Steep steps and narrow hallways are not unusual for us.",
+      },
+      {
+        q: "How much does a Grey Lynn move cost?",
+        a: "We do not publish set prices here because every move is different. What we can tell you is that hourly rates are the same across Auckland, and because Grey Lynn is in our standard callout area there is no distance premium. You see the full price upfront before you book. Send us your details and we will have a quote back to you in about 15 minutes during business hours.",
       },
     ],
   },
   "mount-albert": {
     metaDescription:
-      "Mount Albert movers for villas, bungalows, and family homes. Specialist Movers covers Mount Albert with easy Northwestern motorway access. Free quote.",
+      "Looking for movers in Mount Albert, Auckland? Specialist Movers has completed dozens of jobs here. Local crews, tailift trucks, quotes in 15 minutes.",
     intro:
-      "Mount Albert mixes character villas and bungalows with newer family homes, we plan access for each and use the handy motorway links.",
+      "Mount Albert is a suburb of older bungalows, steep cross-lease sections, and a growing number of townhouse blocks squeezed into former back gardens. We have done dozens of moves here and know what that mix throws at you.",
     paragraphs: [
-      "Many Mount Albert homes are pre-war villas and bungalows with steps and narrow halls, alongside newer townhouses near the town centre and Unitec. We scope the property so the right crew and truck arrive.",
-      "Sitting on the Northwestern motorway, Mount Albert is an easy run for city, west, and cross-town moves. Home relocations, pianos, packing, and office relocations are all covered.",
+      "The older housing stock is the big thing in Mount Albert. Bungalows and character homes from the 1940s through the 1970s sit on sections that were subdivided long before townhouses were the norm. That means tight side access, low carports that a large truck cannot fit under, and front paths that were never designed for furniture. We walk the access before move day on anything that looks tight.",
+      "Cross-lease sections are common here. That shared driveway or right-of-way often has a turning circle that suits a car, not a truck. We check the geometry in advance and size the vehicle accordingly. Sometimes a smaller truck and a second run is the right call. We tell you that upfront, not on move day.",
+      "The townhouse developments along the main corridors, particularly near the train station and along New North Road, are a different job again. Shared driveways, intercom gates, and body corporate rules around truck access and times all need to be sorted before we arrive. We have worked through these before and know what to ask.",
+      "Our Wairau Valley depot is about 19 kilometres from Mount Albert, roughly 19 minutes on a normal morning. That keeps travel costs low. Hourly rates are the same across Auckland, and the callout for Mount Albert sits in our standard pricing zone, so there is no distance premium on top.",
     ],
     highlights: [
-      "Villas, bungalows, and newer homes",
-      "Easy Northwestern motorway access",
-      "Free in-home viewing for accurate pricing",
-      "Piano specialists, upright and grand",
+      "Dozens of Mount Albert moves completed",
+      "Cross-lease and right-of-way access checked before move day",
+      "Standard callout zone, no distance premium",
+      "Tailift trucks suited to bungalow-era properties",
     ],
     faqs: [
       {
-        q: "Do you move character villas in Mount Albert?",
-        a: "Yes. we handle villa steps, narrow hallways, and high-value pieces carefully, with doorway and floor protection as standard.",
+        q: "Our bungalow has a low carport and the truck will not fit underneath. What happens?",
+        a: "We sort this before move day, not on arrival. We confirm clearance and plan where to park the truck on the street or in the driveway approach. The tailift works just as well from the kerbside. It adds a bit of carry distance but it is not a problem we improvise around on the day.",
       },
       {
-        q: "How far ahead should I book?",
-        a: "Two weeks is ideal for weekends and month-end, though we can often move sooner. Call (021) 228 2728 for the next available crew.",
+        q: "We are in a cross-lease property with a shared driveway. Can you get a truck in?",
+        a: "Often yes, but it depends on the width and the turning room at the end. Send us the address and we will check it on Street View and confirm before booking. If the full-size truck does not fit, we will tell you and offer the right alternative.",
+      },
+      {
+        q: "Our Mount Albert townhouse has a body corporate rule about truck access times. Can you work around that?",
+        a: "Yes. Tell us the time window and any gate or intercom details when you book. We plan the start time to fit and make sure the crew knows the access setup before they leave the depot.",
+      },
+      {
+        q: "How quickly can we get a quote for a Mount Albert move?",
+        a: "Send us the details during business hours and you will usually have a quote back in about 15 minutes. For a larger home where room counts and access matter, we offer a free viewing so the quote is accurate and nothing surprises anyone on move day.",
       },
     ],
   },
@@ -477,53 +517,73 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   "herne-bay": {
     metaDescription:
-      "Herne Bay movers for waterfront villas and grand homes. We handle high-value, large character properties with careful, planned access. Free quote.",
+      "Looking for movers in Herne Bay, Auckland? Specialist Movers handles villas, steep sites, and tight street access across this inner-west suburb. Get a quote in 15 min.",
     intro:
-      "Herne Bay is Auckland's premium address, large waterfront villas and grand character homes that deserve careful, well-planned moves.",
+      "Herne Bay is one of Auckland's most character-rich suburbs, and it comes with the access challenges to match. Grand villas, elevated sites, and narrow bays-side streets mean every move here needs a proper plan.",
     paragraphs: [
-      "Herne Bay's homes are often big, high-value villas on narrow leafy streets, with valuable contents, fragile pieces, and tight street parking. We plan crew, protection, and truck placement thoroughly at the viewing.",
-      "We handle these moves at a careful pace with full furniture protection. Home relocations, pianos, packing, art and antiques, and office relocations are all covered.",
+      "Most of the housing stock in Herne Bay is older, think large two-storey villas and bungalows with high front steps, long hallways, and rooms that were not designed with sofas in mind. We carry furniture through these spaces regularly. Knowing where the tight corners are before move day saves a lot of time on the day.",
+      "The streets around the waterfront and the upper ridge can be genuinely tricky for a large truck. Parking is limited on many of the residential streets, and some driveways rise sharply off the road. We check access before we arrive, not when the truck is already blocking the street.",
+      "Herne Bay attracts buyers who have accumulated quality pieces over the years, good furniture, artwork, instruments. We are New Zealand's piano moving specialists, trusted by Steinway dealers and Auckland Town Hall, so if you have a grand or upright that needs to come with you, that is well within our usual work.",
+      "Our Wairau Valley depot is about 15 minutes and 12 km from Herne Bay, so we are not travelling across town to reach you. We operate seven days and we have completed dozens of moves in this suburb. The callout to Herne Bay sits in our standard pricing zone, so there is no distance premium on top of your quote.",
     ],
     highlights: [
-      "Large, high-value villa moves",
-      "Careful handling of art and antiques",
-      "Street parking and access planned",
-      "Piano specialists, upright and grand",
+      "Experienced with Herne Bay villas and their tight hallways and high steps",
+      "Access checked before move day, not on arrival",
+      "Piano moving for the suburb's many quality instruments",
+      "Standard callout zone, no distance premium, full price shown upfront",
     ],
     faqs: [
       {
-        q: "Can you handle high-value and fragile contents?",
-        a: "Yes. we wrap and protect art, antiques, and fragile pieces, and can arrange transit insurance options, ask when you request your quote.",
+        q: "Our villa has a steep front path and a lot of steps. Can you manage heavy furniture?",
+        a: "Yes. Steep entries and high front steps are common in Herne Bay and we come prepared with the right equipment and crew size. We will ask about the access when you book so nothing catches us off guard on move day.",
       },
       {
-        q: "Do you move large Herne Bay villas?",
-        a: "Yes. we size the crew to the home and plan protection and parking so a big villa move runs calmly from start to finish.",
+        q: "Parking on our street is very limited. How do you handle the truck?",
+        a: "We plan this before we arrive. We will talk through the street layout with you and, if needed, we time our arrival to make the most of quieter periods or identify the best nearby loading spot. We do not just show up and hope for the best.",
+      },
+      {
+        q: "We have a grand piano in the lounge. Can you move it as part of the house move?",
+        a: "Absolutely. Piano moving is one of our specialities. We are trusted by Steinway dealers and Auckland Town Hall, so a grand piano coming out of a Herne Bay villa is straightforward for our crew. Just let us know when you enquire.",
+      },
+      {
+        q: "How much does a Herne Bay move cost?",
+        a: "We do not publish set prices here because the right answer depends on your home size, what you are moving, and how far you are going. What we can tell you is that Herne Bay sits in our standard callout zone, so there is no distance premium. Hourly rates are the same across Auckland. You see the full price upfront before you commit, and in business hours we usually get a quote back to you in about 15 minutes.",
       },
     ],
   },
   parnell: {
     metaDescription:
-      "Parnell movers for villas, apartments, and city-fringe homes. We plan steep streets, apartment lifts, and tight parking. Free quote.",
+      "Moving in Parnell? Specialist Movers has completed dozens of jobs in this historic Auckland suburb. Local crew, taillifted trucks, quotes in 15 minutes.",
     intro:
-      "Parnell, Auckland's oldest suburb, mixes heritage villas with city-fringe apartments on steep, narrow streets, we plan for both.",
+      "Parnell is one of Auckland's oldest suburbs, and the housing stock shows it. Heritage villas, converted apartments in old buildings, and steep sections that catch movers off guard if they haven't been before.",
     paragraphs: [
-      "Parnell's character villas have steep steps and narrow halls, while the apartments need lift bookings and loading-zone timing. We confirm which you have and plan access before move day.",
-      "On the city fringe, Parnell is a quick run for central and cross-town moves. Home relocations, apartments, pianos, packing, and office relocations are all covered.",
+      "We've completed dozens of moves in Parnell. The jobs range from Victorian and Edwardian villas on elevated sections to boutique apartment buildings along the ridge. Access varies a lot from street to street, so we check it before move day, not on the morning of.",
+      "The terrain here is real. Some of Parnell's streets drop away sharply toward the Domain or the waterfront, and a driveway that looks fine on Google Maps can be a different story with a full truck. Our taillifted trucks help, and we size the crew to handle the carry when the vehicle can't get close.",
+      "Apartment buildings in Parnell tend to be older conversions rather than purpose-built towers. That often means a smaller lift, or no lift at all, and corridor widths that weren't designed with sofas in mind. We walk through the access before we quote on larger jobs so there are no surprises.",
+      "Our depot is in Wairau Valley, about 18 minutes from Parnell. That puts us well within our standard callout area, so there's no distance premium added to your job. You see the full price before you confirm anything.",
     ],
     highlights: [
-      "Heritage villas and city apartments",
-      "Lift bookings and loading zones arranged",
-      "City-fringe, quick central access",
-      "Piano specialists, upright and grand",
+      "Dozens of Parnell jobs completed, villas to heritage apartments",
+      "Steep-section and narrow-street access planned in advance",
+      "Older apartment buildings assessed for lift and corridor size",
+      "Standard callout zone, no distance premium from our depot",
     ],
     faqs: [
       {
-        q: "Do you move Parnell apartments?",
-        a: "Yes. we book the lift, confirm loading-zone times, and check building requirements in advance so the move runs without hold-ups.",
+        q: "We're in a converted villa apartment with no lift and a tight stairwell. Can you still move us?",
+        a: "Yes, this is common in Parnell. Older conversions rarely have lifts, and staircases are often narrow or turn sharply. We factor that into the crew size and the time allowed. It's worth mentioning when you request a quote so we plan it properly.",
       },
       {
-        q: "Can you handle steep Parnell driveways and steps?",
-        a: "Yes. we plan the carry route at the viewing and bring the crew and gear to handle steps and tight access safely.",
+        q: "Our section slopes quite steeply and the truck may not get onto the drive. What happens?",
+        a: "We confirm the driveway grade, width, and surface before move day. If the truck needs to stay on the street, we plan the carry distance into the job. Parnell has plenty of steep sections and we've worked around most of them.",
+      },
+      {
+        q: "Street parking near our Parnell villa is limited. How do you handle that?",
+        a: "We check parking options when we scope the job. In some cases we arrive early to secure a position close to the door. If a loading zone permit is worth organising, we'll tell you ahead of time so you can arrange it with Auckland Transport.",
+      },
+      {
+        q: "We have a grand piano in our Parnell home. Is that something you can move?",
+        a: "Piano moving is something we're known for across Auckland. We work with Steinway dealers and have moved instruments into Auckland Town Hall. A grand piano in a Parnell villa, including down steps or around tight corners, is well within what we handle. Mention the piano when you enquire and we'll confirm the right crew and equipment.",
       },
     ],
   },
@@ -581,27 +641,37 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   "mt-eden": {
     metaDescription:
-      "Mount Eden movers for villas, bungalows, and village character homes. Specialist Movers plans narrow streets and steep steps around the maunga. Free quote.",
+      "Moving in Mount Eden? Specialist Movers has completed dozens of jobs across this suburb. Local knowledge, honest pricing, quotes in 15 minutes.",
     intro:
-      "Mount Eden is character living around the maunga, villas and bungalows on narrow streets with steps and tight parking.",
+      "Mount Eden packs a lot into a small area. Steep volcanic terrain, century-old villas, and some of Auckland's tightest driveways. We have completed dozens of moves here and know what to plan for.",
     paragraphs: [
-      "Most Mount Eden homes are pre-war villas and bungalows with front steps, narrow halls, and limited off-street parking near the village. We measure access at the viewing so big pieces move smoothly.",
-      "Close to the city, Mount Eden is a quick central run. Home relocations, pianos, packing, and office relocations are all covered.",
+      "The housing stock is largely pre-1940. Villas and bungalows with high timber floors, narrow hallways, and front doors that face the street at an angle. Getting a sofa or a king bed through those spaces takes patience and the right approach, not brute force. We scope the tight spots before move day so nothing gets held up on the day.",
+      "Mount Eden Road and Dominion Road are busy arterials and parking enforcement is active. Side streets off the volcano slopes can be one-lane with no kerb space for a large truck. We check access and arrange parking before we arrive. Our trucks have taillifts, which matters when the street drops away steeply from where we need to load.",
+      "The suburb attracts a mix of long-term owner-occupiers and younger families buying into character homes for the first time. Both groups often have pianos. We are New Zealand's piano moving specialists, trusted by Steinway dealers and Auckland Town Hall, so a grand or upright in a Villa front room is familiar territory for our crew.",
+      "We run seven days and can have a quote back to you in around 15 minutes during business hours. For larger homes we offer a free viewing so we can size the crew and truck properly. Mount Eden is about 21 kilometres from our Wairau Valley depot, well within our standard callout area, so there is no distance premium on the job.",
     ],
     highlights: [
-      "Villa and bungalow character homes",
-      "Narrow-street parking planned",
-      "Close to the city centre",
-      "Piano specialists, upright and grand",
+      "Dozens of Mount Eden moves completed",
+      "Pre-1940 villa access and narrow hallways handled routinely",
+      "Piano moves trusted by Steinway dealers and Auckland Town Hall",
+      "Parking and steep street access planned before move day",
     ],
     faqs: [
       {
-        q: "Can you move villas with steep front steps?",
-        a: "Yes, often. We bring the right crew and protect doorways and floors as we carry awkward pieces up and down steps.",
+        q: "The front path to our villa is narrow and there are steps. How do you handle that?",
+        a: "It is one of the most common situations we deal with in Mount Eden. We confirm the step count, path width, and any tight turns at the door before move day. The crew comes prepared with the right equipment and enough people to carry safely without rushing or damaging door frames.",
       },
       {
-        q: "Where will the truck park near Mount Eden village?",
-        a: "We plan the closest legal spot in advance so the carry stays short, even on narrow or busy streets.",
+        q: "Parking on our street is very limited. Can your truck actually get close enough?",
+        a: "We sort this out before we arrive. If we cannot get a loading zone permit or confirmed street space, we plan the carry distance instead of hoping for the best on the day. Our trucks have taillifts, which helps when the road surface slopes away from the kerb.",
+      },
+      {
+        q: "We have an upright piano in the villa. Can you move it?",
+        a: "Yes. Piano moving is one of the things we are specifically known for across Auckland. We have moved pianos in and out of villas like yours many times, including navigating the angles that old doorways and hallways create. Just mention it when you book so we allocate the right crew size.",
+      },
+      {
+        q: "How do you price a Mount Eden job and will I see the cost before committing?",
+        a: "Hourly rates are the same across Auckland. The callout fee varies with distance from our depot and Mount Eden sits in our standard zone, so there is no distance premium. You see the full price before you confirm the booking, and quotes come back in around 15 minutes during business hours.",
       },
     ],
   },
@@ -633,27 +703,37 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   "st-heliers": {
     metaDescription:
-      "St Heliers movers for eastern-bays beachside homes and apartments. We cover St Heliers, Kohimarama, and Mission Bay with planned access. Free quote.",
+      "Saint Heliers movers with dozens of local jobs done. Specialist Movers handles bungalows, clifftop homes, and steep beach-suburb access with care.",
     intro:
-      "St Heliers is eastern-bays beachside living, family homes and apartments near the village and waterfront, moved with planned access and parking.",
+      "Saint Heliers sits on the edge of the Waitemata, and the homes here reflect that. Older bungalows, character houses on sloped sections, and a suburb where the street layout and sea views often mean tricky access.",
     paragraphs: [
-      "St Heliers homes range from character bungalows to clifftop homes and beachfront apartments. The apartments need lift and loading-zone bookings, while hillside homes bring steep drives. We plan both at the viewing.",
-      "We cover the eastern bays, Kohimarama, Mission Bay, and Glendowie, on our regular schedule. Home relocations, apartments, pianos, packing, and downsizing are all covered.",
+      "A lot of Saint Heliers homes were built decades ago, and they show it in the best way. Wide verandahs, wooden floors, high ceilings, and furniture to match. We carry heavy, oversized pieces out of these homes every week and we know how to protect doorframes and polished floors while we do it.",
+      "The terrain here catches people out. Some streets drop sharply toward the waterfront, and driveways can be steep, narrow, or both. We look at access before move day, not on it. If a tailgate truck cannot get close, we plan the carry in advance so nothing is improvised.",
+      "Saint Heliers has a settled, owner-occupier feel, but we also move plenty of renters and families upsizing within the suburb. Whatever the job, we bring a crew sized to match it, usually two to four movers, and a truck with a taillift to handle the heavy work safely.",
+      "Our depot is in Wairau Valley, about 30 minutes and 23 kilometres from Saint Heliers. That puts us well within our standard callout area, so there is no distance premium on top of your quote. You see the full price before you confirm.",
     ],
     highlights: [
-      "Beachside homes and apartments",
-      "Lift, loading, and steep-drive access planned",
-      "Across the eastern bays",
-      "Piano specialists, upright and grand",
+      "Dozens of Saint Heliers jobs completed",
+      "Steep driveways and beach-suburb access planned in advance",
+      "Right crew size for older bungalows and character homes",
+      "Standard callout area, no distance surcharge",
     ],
     faqs: [
       {
-        q: "Do you move St Heliers beachfront apartments?",
-        a: "Yes. we book the lift and loading zone and confirm building requirements in advance for waterfront apartment moves.",
+        q: "Our house is on a steep section above the waterfront. Can you get a truck close enough?",
+        a: "We check this before move day. Tell us the address and we will look at the street, the driveway grade, and how far back the truck can safely go. If we need to carry from the road, we build that into the plan upfront, not when we arrive.",
       },
       {
-        q: "Do you cover the wider eastern bays?",
-        a: "Yes. Kohimarama, Mission Bay, and Glendowie are all on our regular schedule alongside St Heliers.",
+        q: "We have heavy antique furniture from an older bungalow. Is that a problem?",
+        a: "Not at all. Solid timber sideboards, cast-iron beds, upright pianos, we move these regularly from Saint Heliers homes. We bring the right gear and the right number of hands. We are also trusted by Steinway dealers for piano moves if that is relevant.",
+      },
+      {
+        q: "What does it cost to move within Saint Heliers or from here to another Auckland suburb?",
+        a: "We charge hourly rates, which are the same across Auckland. Because Saint Heliers sits in our standard callout area, the fixed callout fee does not carry a distance premium. You get the full price upfront before you book, with no surprises on the day.",
+      },
+      {
+        q: "Can you help with packing the day before the move?",
+        a: "Yes. We offer a full packing service the day before your move date. That works well for Saint Heliers homes with a lot of rooms or fragile items to wrap. Just mention it when you get your quote and we will add it to the booking.",
       },
     ],
   },
