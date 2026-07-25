@@ -5,6 +5,7 @@ import { ServiceTrustindexBand } from "@/components/ServiceTrustindexBand";
 import { HardToShiftGallerySection } from "@/components/HardToShiftGallerySection";
 import { HeroVisual } from "@/components/HeroVisual";
 import { CleaningBookingForm } from "@/components/CleaningBookingForm";
+import { HardToShiftEnquiryForm } from "@/components/HardToShiftEnquiryForm";
 import { QuoteForm } from "@/components/QuoteForm";
 import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
@@ -47,6 +48,7 @@ type ServicePageTemplateProps = {
   /** Defaults to services/{hamiltonBaseSlug}; piano subs use piano-movers/{slug}. */
   momentKey?: string;
   useCleaningQuoteForm?: boolean;
+  useHardToShiftForm?: boolean;
   extraRelatedLinks?: readonly { label: string; href: string }[];
   bodyParagraphs?: readonly string[];
   faqs?: readonly FaqItem[];
@@ -72,6 +74,7 @@ export function ServicePageTemplate({
   hamiltonBaseSlug,
   momentKey,
   useCleaningQuoteForm = false,
+  useHardToShiftForm = false,
   extraRelatedLinks = [],
   bodyParagraphs = [],
   faqs = [],
@@ -159,6 +162,8 @@ export function ServicePageTemplate({
         quote={
           useCleaningQuoteForm ? (
             <CleaningBookingForm />
+          ) : useHardToShiftForm ? (
+            <HardToShiftEnquiryForm />
           ) : (
             <QuoteForm defaultJobType={defaultJobType} />
           )
@@ -268,6 +273,7 @@ export function ServicePageTemplate({
       <ServiceBottomCta
         defaultJobType={defaultJobType}
         useCleaningForm={useCleaningQuoteForm}
+        useHardToShiftForm={useHardToShiftForm}
       />
     </div>
   );

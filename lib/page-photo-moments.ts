@@ -208,7 +208,7 @@ export const pagePhotoMoments: Record<string, PagePhotoMoment> = {
     photo: serviceMomentPhotoBySlug["hard-to-shift"],
     alt: "Specialist Movers crane truck preparing a heavy item lift",
     caption: "Cranes, rigging, and experienced crews for the tough jobs",
-    showCta: true,
+    showCta: false,
     defaultJobType: "Hard to Shift",
     body: "Pool tables, safes, spa pools, pianos, and bulky items moved with the right crew and equipment.",
   },

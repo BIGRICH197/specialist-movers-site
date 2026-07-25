@@ -94,6 +94,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
       heroPhotoAlt={`${service.title} , Specialist Movers Auckland`}
       hamiltonBaseSlug={service.slug}
       useCleaningQuoteForm={params.slug === "cleaning-services"}
+      useHardToShiftForm={params.slug === "hard-to-shift"}
       bodyParagraphs={seo?.bodyParagraphs}
       faqs={seo?.faqs ?? faqsForService(params.slug)}
       processTitle={seo?.processTitle}

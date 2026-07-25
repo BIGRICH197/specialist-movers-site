@@ -25,7 +25,14 @@ function parseRooms(value: number | undefined): Bedrooms {
 }
 
 type QuoteBody = {
-  mode: "house" | "piano" | "office" | "commercial" | "callback" | "contact";
+  mode:
+    | "house"
+    | "piano"
+    | "office"
+    | "commercial"
+    | "callback"
+    | "contact"
+    | "hard-to-shift";
   serviceType?: string;
   // House
   bedrooms?: Bedrooms;
@@ -174,6 +181,41 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json({ ok: true, mode: "contact" });
+  }
+
+  if (body.mode === "hard-to-shift") {
+    if (
+      !body.name?.trim() ||
+      !body.email?.trim() ||
+      !body.pickupAddress?.trim() ||
+      !body.dropoffAddress?.trim() ||
+      !body.message?.trim()
+    ) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error: "Name, email, pickup, drop-off, and what you are shifting are required",
+        },
+        { status: 400 },
+      );
+    }
+
+    await createHubSpotDeal({
+      name: body.name,
+      phone: body.phone?.trim() || "Via website",
+      email: body.email,
+      serviceType: "Hard to Shift",
+      pickupAddress: body.pickupAddress.trim(),
+      dropoffAddress: body.dropoffAddress.trim(),
+      branch: resolveDealBranch(body),
+      sourcePage: body.sourcePage,
+      trafficSource,
+      landingPage,
+      attributionNote,
+      notes: `Website hard-to-shift enquiry\n\nWhat to shift:\n${body.message.trim()}`,
+    });
+
+    return NextResponse.json({ ok: true, mode: "hard-to-shift" });
   }
 
   if (!body.name || !body.phone) {

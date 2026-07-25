@@ -44,7 +44,9 @@ function dealTypeFor(serviceType: string): string | null {
     s.includes("house") ||
     s.includes("home") ||
     s.includes("office") ||
-    s.includes("commercial")
+    s.includes("commercial") ||
+    s.includes("hard") ||
+    s.includes("shift")
   ) {
     return "moversgeneral";
   }
