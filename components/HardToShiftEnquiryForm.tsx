@@ -1,14 +1,24 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { getAttribution } from "@/lib/attribution";
+import { regions } from "@/lib/regions";
+import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
 type Props = { className?: string };
 
+const field =
+  "h-12 w-full scroll-mt-24 rounded-xl border-2 border-brand-purple/15 bg-white px-4 text-base text-brand-purple placeholder:text-brand-purple/40 outline-none transition focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/45 sm:text-sm";
+
+const label = "text-xs font-semibold text-brand-purple";
+
+const primaryBtn =
+  "group mt-6 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-brand-yellow px-6 text-base font-bold text-brand-purple shadow-[0_8px_24px_-4px_rgba(243,208,42,0.65)] ring-2 ring-brand-yellow ring-offset-2 ring-offset-white transition hover:brightness-[1.03] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:brightness-100";
+
 /**
  * Simple enquiry form for hard-to-shift jobs: name, email, from/to, and
- * what needs moving. No bedrooms, stairs, or instant pricing.
+ * what needs moving. Same card chrome as QuoteForm.
  */
 export function HardToShiftEnquiryForm({ className = "" }: Props) {
   const [name, setName] = useState("");
@@ -16,162 +26,224 @@ export function HardToShiftEnquiryForm({ className = "" }: Props) {
   const [pickupAddress, setPickupAddress] = useState("");
   const [dropoffAddress, setDropoffAddress] = useState("");
   const [message, setMessage] = useState("");
-  const [success, setSuccess] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
-  const field =
-    "h-12 w-full rounded-xl border border-brand-purple/20 bg-brand-white px-4 text-sm text-brand-purple placeholder:text-brand-purple/40 outline-none transition focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20";
+  if (success) {
+    return (
+      <Wrapper className={className}>
+        <Header tag="Enquiry sent" title="Thanks, we'll be in touch" />
+        <p className="text-sm leading-relaxed text-brand-purple/75">
+          Thanks{name ? ` ${name.split(" ")[0]}` : ""}! We&apos;ll reply shortly with a
+          clear quote for your hard-to-shift job.
+        </p>
+        <a
+          href={`tel:${phoneNumber}`}
+          className="mt-6 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-brand-purple px-6 text-sm font-bold text-white transition hover:bg-brand-purple/90"
+        >
+          Call us now · {phoneDisplay}
+        </a>
+        <TrustPoints />
+      </Wrapper>
+    );
+  }
 
   return (
-    <form
-      className={`rounded-[1.25rem] border border-brand-purple/10 bg-white p-5 shadow-[0_20px_60px_-20px_rgba(151,57,176,0.15)] sm:p-7 ${className}`}
-      onSubmit={async (e) => {
-        e.preventDefault();
-        if (submitting) return;
-        setSubmitting(true);
-        setError(null);
-        try {
-          const res = await fetch("/api/quote", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              mode: "hard-to-shift",
-              name,
-              email,
-              pickupAddress,
-              dropoffAddress,
-              message,
-              sourcePage: window.location.pathname,
-              attribution: getAttribution(),
-            }),
-          });
-          const data = (await res.json()) as { ok?: boolean; error?: string };
-          if (!res.ok || !data.ok) {
-            throw new Error(data.error || "Request failed");
+    <Wrapper className={className}>
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+          if (submitting) return;
+          setSubmitting(true);
+          setError("");
+          try {
+            const res = await fetch("/api/quote", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                mode: "hard-to-shift",
+                name,
+                email,
+                pickupAddress,
+                dropoffAddress,
+                message,
+                sourcePage: window.location.pathname,
+                attribution: getAttribution(),
+              }),
+            });
+            const data = (await res.json()) as { ok?: boolean; error?: string };
+            if (!res.ok || !data.ok) {
+              throw new Error(data.error || "Request failed");
+            }
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: "quote_submit",
+              form_type: "hard-to-shift",
+            });
+            setSuccess(true);
+          } catch {
+            setError(
+              "Something went wrong sending your enquiry. Please call us instead.",
+            );
+          } finally {
+            setSubmitting(false);
           }
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            event: "quote_submit",
-            form_type: "hard-to-shift",
-          });
-          setSuccess(`Thanks ${name}! We'll get back to you shortly.`);
-          setMessage("");
-        } catch {
-          setError(
-            "Something went wrong sending your enquiry. Please call us instead.",
-          );
-        } finally {
-          setSubmitting(false);
-        }
-      }}
-    >
-      <h2 className="font-heading text-xl uppercase tracking-wide text-brand-purple sm:text-2xl">
-        Hard to shift enquiry
-      </h2>
-      <p className="mt-2 text-sm leading-relaxed text-brand-purple/75">
-        Tell us what you need moved and where. We&apos;ll reply with a clear quote.
-      </p>
-
-      <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        <div className="space-y-1.5">
-          <label className="text-xs font-semibold text-brand-purple" htmlFor="hts-name">
-            Full name
-          </label>
-          <input
-            id="hts-name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            placeholder="Your name"
-            className={field}
-          />
-        </div>
-        <div className="space-y-1.5">
-          <label className="text-xs font-semibold text-brand-purple" htmlFor="hts-email">
-            Email
-          </label>
-          <input
-            id="hts-email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            type="email"
-            placeholder="you@example.com"
-            className={field}
-          />
-        </div>
-        <div className="space-y-1.5 sm:col-span-2">
-          <label
-            className="text-xs font-semibold text-brand-purple"
-            htmlFor="hts-from"
-          >
-            From (pickup)
-          </label>
-          <input
-            id="hts-from"
-            value={pickupAddress}
-            onChange={(e) => setPickupAddress(e.target.value)}
-            required
-            placeholder="Pickup address"
-            className={field}
-          />
-        </div>
-        <div className="space-y-1.5 sm:col-span-2">
-          <label className="text-xs font-semibold text-brand-purple" htmlFor="hts-to">
-            To (drop-off)
-          </label>
-          <input
-            id="hts-to"
-            value={dropoffAddress}
-            onChange={(e) => setDropoffAddress(e.target.value)}
-            required
-            placeholder="Drop-off address"
-            className={field}
-          />
-        </div>
-        <div className="space-y-1.5 sm:col-span-2">
-          <label
-            className="text-xs font-semibold text-brand-purple"
-            htmlFor="hts-message"
-          >
-            What are we shifting?
-          </label>
-          <textarea
-            id="hts-message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            required
-            rows={4}
-            placeholder="e.g. spa pool, safe, gym equipment, piano..."
-            className={`${field} h-auto resize-none py-3`}
-          />
-        </div>
-      </div>
-
-      <button
-        type="submit"
-        disabled={submitting}
-        className="group mt-6 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-brand-yellow px-6 text-base font-bold text-brand-purple shadow-lg transition hover:brightness-[1.02] active:scale-[0.99] disabled:opacity-60 sm:w-auto sm:px-10"
+        }}
       >
-        {submitting ? "Sending..." : "Send enquiry"}
-        <ArrowRight className="h-5 w-5 transition group-hover:translate-x-0.5" />
-      </button>
-      <p className="mt-3 text-xs text-brand-purple/60">
-        Prefer a call? (021) 228 2728
+        <Header
+          tag="Free quote"
+          title="Hard to shift enquiry"
+          subtitle="Tell us what you need moved and where. We'll reply with a clear quote."
+        />
+
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="space-y-1.5">
+            <label className={label} htmlFor="hts-name">
+              Full name *
+            </label>
+            <input
+              id="hts-name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              placeholder="Your name"
+              className={field}
+            />
+          </div>
+          <div className="space-y-1.5">
+            <label className={label} htmlFor="hts-email">
+              Email *
+            </label>
+            <input
+              id="hts-email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              type="email"
+              placeholder="you@example.com"
+              className={field}
+            />
+          </div>
+          <div className="space-y-1.5 sm:col-span-2">
+            <label className={label} htmlFor="hts-from">
+              From (pickup) *
+            </label>
+            <input
+              id="hts-from"
+              value={pickupAddress}
+              onChange={(e) => setPickupAddress(e.target.value)}
+              required
+              placeholder="Pickup address"
+              className={field}
+            />
+          </div>
+          <div className="space-y-1.5 sm:col-span-2">
+            <label className={label} htmlFor="hts-to">
+              To (drop-off) *
+            </label>
+            <input
+              id="hts-to"
+              value={dropoffAddress}
+              onChange={(e) => setDropoffAddress(e.target.value)}
+              required
+              placeholder="Drop-off address"
+              className={field}
+            />
+          </div>
+          <div className="space-y-1.5 sm:col-span-2">
+            <label className={label} htmlFor="hts-message">
+              What are we shifting? *
+            </label>
+            <textarea
+              id="hts-message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              required
+              rows={4}
+              placeholder="e.g. spa pool, safe, gym equipment, piano..."
+              className={`${field} h-auto resize-none py-3`}
+            />
+          </div>
+        </div>
+
+        <button type="submit" disabled={submitting} className={primaryBtn}>
+          {submitting ? "Sending..." : "Send enquiry"}
+          <ArrowRight className="h-5 w-5 transition group-hover:translate-x-0.5" />
+        </button>
+
+        {error ? (
+          <p className="mt-4 rounded-xl border border-red-300 bg-red-50 p-4 text-sm font-medium text-red-700">
+            {error}
+          </p>
+        ) : null}
+
+        <TrustPoints />
+      </form>
+    </Wrapper>
+  );
+}
+
+function Wrapper({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className: string;
+}) {
+  return (
+    <div
+      className={`relative overflow-hidden rounded-[1.25rem] border-2 border-brand-purple/10 border-t-brand-yellow bg-white shadow-[0_20px_60px_-12px_rgba(151,57,176,0.2),0_0_0_1px_rgba(243,208,42,0.25)] ${className}`}
+    >
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-1 rounded-t-[1.2rem] bg-gradient-to-r from-brand-yellow via-brand-yellow to-brand-purple/30" />
+      <div className="relative p-4 sm:p-7">{children}</div>
+    </div>
+  );
+}
+
+function Header({
+  tag,
+  title,
+  subtitle,
+}: {
+  tag: string;
+  title: string;
+  subtitle?: string;
+}) {
+  return (
+    <div className="mb-5 border-b border-brand-purple/10 pb-5">
+      <p className="inline-block rounded-md bg-brand-yellow/90 px-2 py-0.5 font-heading text-[10px] font-bold uppercase tracking-widest text-brand-purple">
+        {tag}
       </p>
-
-      {error && (
-        <p className="mt-4 rounded-xl border border-red-300 bg-red-50 p-4 text-sm font-medium text-red-700">
-          {error}
+      <p className="mt-2 font-heading text-xl uppercase tracking-wide text-brand-purple sm:text-2xl">
+        {title}
+      </p>
+      {subtitle ? (
+        <p className="mt-1.5 text-sm leading-relaxed text-brand-purple/75">
+          {subtitle}
         </p>
-      )}
+      ) : null}
+    </div>
+  );
+}
 
-      {success && (
-        <p className="mt-4 rounded-xl border border-brand-purple/20 bg-brand-purple/[0.06] p-4 text-sm font-medium text-brand-purple">
-          {success}
-        </p>
-      )}
-    </form>
+function TrustPoints() {
+  const points = [
+    "Hundreds of 5-star reviews",
+    "No obligation, clear quotes",
+    regions.quoteTrustLine,
+  ];
+  return (
+    <ul className="mt-4 space-y-2">
+      {points.map((line) => (
+        <li
+          key={line}
+          className="flex items-center gap-2 text-xs font-medium text-brand-purple/80"
+        >
+          <CheckCircle2 className="h-4 w-4 shrink-0 text-brand-yellow drop-shadow-sm" />
+          {line}
+        </li>
+      ))}
+    </ul>
   );
 }
