@@ -8,6 +8,15 @@ export const jobTypes = [
   "Packing",
   "Hard to Shift",
   "Cleaning",
+  {
+    slug: "balcony-fridge-delivery-st-heliers-auckland",
+    title: "How We Got a Full-Size Fridge Up a Balcony in St Heliers",
+    seoTitle: "Balcony Fridge Move St Heliers | Specialist Movers",
+    publishedDate: "2026-07-24",
+    excerpt:
+      "A 900mm-wide fridge, an 820mm balcony gap, one flight of stairs. Here is exactly how our two-person crew planned and completed this St Heliers job.",
+  },
+
 ] as const;
 
 export type JobType = (typeof jobTypes)[number];
