@@ -523,6 +523,73 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "balcony-fridge-delivery-st-heliers-auckland": {
+    title: "How We Got a Full-Size Fridge Up a Balcony in St Heliers",
+    sections: [
+      {
+        heading: "The job in plain terms",
+        paragraphs: [
+          "In June 2026 we delivered a full-size fridge to a property in St Heliers. Sounds straightforward. It was not.",
+          "The fridge measured 900mm wide, 710mm deep, and 1717mm tall. The access route went up one flight of stairs and then through a balcony opening. That opening measured 855mm at the bottom, narrowing to 820mm at the top where a slat wall cut into the clearance.",
+          "We had two movers on the job. This is what we did.",
+        ],
+      },
+      {
+        heading: "Why the measurements mattered so much",
+        paragraphs: [
+          "The fridge was 900mm wide. The tightest point of the balcony opening was 820mm. On paper that is an 80mm problem.",
+          "In practice it means you cannot carry the fridge upright and walk it straight through. You have to think about which way the item can be tilted, whether the depth changes when it is on its side, and whether the balcony floor and the balustrade give you enough working room to rotate safely.",
+          "We also had a measurement query before the job. The original email listed the fridge height as 17170mm, which is clearly a typo for 1717mm. We flagged that with the client before dispatch. Always confirm measurements from the manufacturer spec sheet or measure the item yourself. A wrong number at the planning stage costs everyone time on the day.",
+        ],
+      },
+      {
+        heading: "Planning before we turned up",
+        paragraphs: [
+          "We reviewed the measurements against the access notes ahead of the job. The staircase and balcony route was identified as the only viable way in. The main door approach was ruled out based on the site information we had.",
+          "Two movers is the right crew size for a job like this. A third person in a narrow balcony space creates more problems than it solves. What you need is two people who know how to read each other and communicate through a lift, not a crowd.",
+          "We made sure the truck had the right gear loaded. Our trucks carry taillifts, furniture blankets, and strapping as standard. For an item this size and weight, the taililft handles the ground-to-truck stage safely. The manual work is the stair and balcony section, and that is where technique counts.",
+        ],
+      },
+      {
+        heading: "How we got it through",
+        paragraphs: [
+          "Up the stair flight first. One mover at the base controlling the weight, one at the top guiding. We use leg drive, not back strain. Short, deliberate steps. Fridge blankets protect the item and the walls.",
+          "At the balcony the challenge is the narrowing opening. The fridge had to be tilted and rotated to clear the slat wall at the top. We worked out the angle on site, confirmed the fridge depth in that position gave us clearance, and moved slowly. No rushing a manoeuvre like that.",
+          "The balustrade to glass half wall at the base gave us 855mm, which was workable. The 820mm at the top was the pinch point, and that is where we took the most care. It cleared. The fridge was placed, levelled, and left ready to connect.",
+        ],
+      },
+      {
+        heading: "What St Heliers access is often like",
+        paragraphs: [
+          "St Heliers sits on the eastern bays. A lot of the housing stock there is built on sloped sections, which means split levels, external stairs, and balcony access routes are common. Streets like Polygon Road and Tuatai Place have properties where a front door is not the obvious or only option.",
+          "If you are moving into or within the eastern bays, it is worth thinking carefully about how large items will actually get inside. The balcony route is more common than people expect, and it changes the job considerably.",
+        ],
+      },
+      {
+        heading: "What to check if you have a similar item",
+        paragraphs: [
+          "Measure the item in all three dimensions, and double-check the manufacturer spec rather than relying on a listing. Heights especially get rounded or mistyped.",
+          "Measure your access route at every pinch point, not just the widest part. Balcony openings often taper. Measure at the bottom, the middle, and the top. Note any fixed obstacles like balustrades, glass panels, or overhanging structure.",
+          "Think about what the item weighs and whether it can be tilted without damage. Fridges generally can be laid on their side or tilted for short periods, but you want to confirm this for your specific model and plan for the item to stand upright again before it is plugged in.",
+          "If you are not sure whether something will fit, ask us before booking. We can often tell you from measurements and photos whether a route is viable, and what crew or gear the job will need.",
+        ],
+      },
+      {
+        heading: "Why two movers was the right call",
+        paragraphs: [
+          "Some people assume a bigger crew means a faster job. On a balcony move, that is not always true. Two people who work together well can navigate a tight space more effectively than four people trying to stay out of each other's way.",
+          "We have completed over 1,500 Auckland moves, and a lot of them have included awkward access situations. You build up a read for what crew size fits what job. This one was a two-person job from the start.",
+        ],
+      },
+      {
+        heading: "Got something that looks difficult to move?",
+        paragraphs: [
+          "If you have a large item and access that makes you nervous, the best thing to do is send us the measurements and a description of the route. We turn quotes around in about 15 minutes during business hours, and we will tell you honestly what the job involves and what it will cost before you commit to anything.",
+          "You can send those details through the quote form on our website. No obligation, no pressure, just a straight answer.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {

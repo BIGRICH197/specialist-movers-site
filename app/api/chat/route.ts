@@ -6,7 +6,7 @@ import {
   type HouseMoveInput,
   type PianoMoveInput,
 } from "@/lib/pricing";
-import { createHubSpotDeal } from "@/lib/hubspot";
+import { createHubSpotDeal, HUBSPOT_OWNERS } from "@/lib/hubspot";
 import { postSlackMessage, slackChannel, slackConfigured } from "@/lib/slack";
 import {
   appendMessage,
@@ -131,7 +131,11 @@ const tools: Anthropic.Tool[] = [
   },
 ];
 
-async function executeTool(name: string, input: Record<string, unknown>): Promise<string> {
+async function executeTool(
+  name: string,
+  input: Record<string, unknown>,
+  conv?: Conversation,
+): Promise<string> {
   if (name === "calculate_house_move") {
     const raw = { ...input } as Record<string, unknown>;
     if (!raw.preferredDate && typeof raw.dayOfWeek === "string") {
@@ -146,6 +150,19 @@ async function executeTool(name: string, input: Record<string, unknown>): Promis
     return JSON.stringify(result);
   }
   if (name === "capture_lead") {
+    // One deal per conversation. The chat re-runs each turn with only the text
+    // transcript, so Joey can't see it already saved a lead — without this guard
+    // it creates a duplicate deal on every later turn.
+    if (conv) {
+      if (conv.leadCaptured) {
+        return JSON.stringify({
+          success: true,
+          message: "Lead already saved earlier in this conversation",
+        });
+      }
+      // Set before the await so a second call in the same turn is skipped too.
+      conv.leadCaptured = true;
+    }
     await createHubSpotDeal({
       name: input.name as string,
       phone: input.phone as string,
@@ -154,6 +171,8 @@ async function executeTool(name: string, input: Record<string, unknown>): Promis
       pickupAddress: (input.pickupAddress as string) || "",
       dropoffAddress: (input.dropoffAddress as string) || "",
       notes: `Joey chatbot lead\n${(input.notes as string) || ""}`,
+      source: "Chat Bot",
+      ownerId: HUBSPOT_OWNERS.danielle,
     });
     return JSON.stringify({ success: true, message: "Lead saved successfully" });
   }
@@ -212,6 +231,7 @@ async function mirrorToSlack(
 async function runJoey(
   messages: Array<{ role: "user" | "assistant"; content: string }>,
   apiKey: string,
+  conv?: Conversation,
 ): Promise<string> {
   const client = new Anthropic({ apiKey });
   let currentMessages: Anthropic.MessageParam[] = messages.map((m) => ({
@@ -219,12 +239,23 @@ async function runJoey(
     content: m.content,
   }));
 
+  // Joey needs to know today's date (NZ time) so "tomorrow" / "the 8th" resolve
+  // to the right day and year — otherwise it guesses and can quote the wrong day.
+  const today = new Date().toLocaleDateString("en-NZ", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "Pacific/Auckland",
+  });
+  const system = `${JOEY_SYSTEM_PROMPT}\n\n## Today's date\nToday is ${today} (New Zealand time). Use this to work out dates like "tomorrow" or "the 8th" correctly, and always assume the current or next upcoming date, never a past one.`;
+
   const MAX_TOOL_ROUNDS = 5;
   for (let round = 0; round < MAX_TOOL_ROUNDS; round++) {
     const response = await client.messages.create({
       model: "claude-sonnet-4-6",
       max_tokens: 1024,
-      system: JOEY_SYSTEM_PROMPT,
+      system,
       tools,
       messages: currentMessages,
     });
@@ -252,6 +283,7 @@ async function runJoey(
             content: await executeTool(
               toolBlock.name,
               toolBlock.input as Record<string, unknown>,
+              conv,
             ),
           })),
         ),
@@ -298,7 +330,7 @@ export async function POST(request: Request) {
       });
     }
 
-    const reply = await runJoey(messages, apiKey);
+    const reply = await runJoey(messages, apiKey, conv);
     appendMessage(conv, "joey", reply);
     await mirrorToSlack(conv, "joey", reply);
     await saveConversation(conv);

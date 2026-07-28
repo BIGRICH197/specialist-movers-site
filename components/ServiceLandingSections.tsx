@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { CleaningBookingForm } from "@/components/CleaningBookingForm";
+import { HardToShiftEnquiryForm } from "@/components/HardToShiftEnquiryForm";
 import { HeroVisual } from "@/components/HeroVisual";
 import { ProcessStepsGrid, type ProcessStep } from "@/components/ProcessStepsGrid";
 import { QuoteForm } from "@/components/QuoteForm";
@@ -156,6 +157,7 @@ type BottomCtaProps = {
   body?: ReactNode;
   defaultJobType: JobType;
   useCleaningForm?: boolean;
+  useHardToShiftForm?: boolean;
   quoteForm?: ReactNode;
 };
 
@@ -168,6 +170,7 @@ export function ServiceBottomCta({
   body,
   defaultJobType,
   useCleaningForm = false,
+  useHardToShiftForm = false,
   quoteForm,
 }: BottomCtaProps) {
   return (
@@ -198,6 +201,8 @@ export function ServiceBottomCta({
         {quoteForm ??
           (useCleaningForm ? (
             <CleaningBookingForm />
+          ) : useHardToShiftForm ? (
+            <HardToShiftEnquiryForm />
           ) : (
             <QuoteForm compact defaultJobType={defaultJobType} />
           ))}

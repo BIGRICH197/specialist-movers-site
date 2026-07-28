@@ -23,6 +23,8 @@ import { PianoPartnerMarquee } from "@/components/PianoPartnerMarquee";
 
 import { CleaningBookingForm } from "@/components/CleaningBookingForm";
 
+import { HardToShiftEnquiryForm } from "@/components/HardToShiftEnquiryForm";
+
 import { QuoteForm } from "@/components/QuoteForm";
 
 import { ServiceContentUpdated } from "@/components/ServiceContentUpdated";
@@ -192,6 +194,10 @@ export function HamiltonServicePage({ config }: Props) {
           config.baseSlug === "cleaning-services" ? (
 
             <CleaningBookingForm />
+
+          ) : config.baseSlug === "hard-to-shift" ? (
+
+            <HardToShiftEnquiryForm />
 
           ) : (
 
@@ -410,6 +416,8 @@ export function HamiltonServicePage({ config }: Props) {
         defaultJobType={config.defaultJobType}
 
         useCleaningForm={config.baseSlug === "cleaning-services"}
+
+        useHardToShiftForm={config.baseSlug === "hard-to-shift"}
 
       />
 

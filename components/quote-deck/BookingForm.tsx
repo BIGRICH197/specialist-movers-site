@@ -77,6 +77,7 @@ export function BookingForm({
   const [termsScrolled, setTermsScrolled] = useState(false);
   const termsRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const [missing, setMissing] = useState<string[]>([]);
 
   // Cleaning T&Cs are shown in addition to the moving terms when the job
   // includes cleaning (cleaning quote, or "Yes Cleaning" selected on the form).
@@ -108,9 +109,45 @@ export function BookingForm({
   const showCleaningSameDay = f.cleaningBooked === "Yes Cleaning";
   const showPackingDetail = f.packing === "Yes packing";
 
+  // Every question is compulsory. Returns the labels of anything left blank so
+  // we can tell the customer exactly what to complete. Conditional questions
+  // (cleaning same-day, what packing) only count when their section is shown.
+  function getMissing(): string[] {
+    const required: Array<[string, string]> = [
+      ["fullName", "Full name"],
+      ["phone", "Phone"],
+      ["email", "Email"],
+      ["pickupAddress", "Pick-up address"],
+      ["dropoffAddress", "Drop-off address"],
+      ["moveDate", "Move date"],
+      ["sizeOfMove", "Size of move"],
+      ["howManyMovers", "Number of movers"],
+      ["typeOfMove", "Type of move"],
+      ["payment", "How would you like to pay"],
+      ["cleaningBooked", "Have you booked cleaning?"],
+      ["packing", "Are we packing for you?"],
+      ["unpacking", "Are we unpacking for you?"],
+      ["fragileItems", "Oversized or fragile items?"],
+      ["furnitureDismantle", "Any furniture to be dismantled?"],
+      ["accessRestrictions", "Any access restrictions?"],
+      ["settlementDay", "Are you moving on settlement day?"],
+    ];
+    const out = required.filter(([k]) => !f[k]?.trim()).map(([, label]) => label);
+    if (showCleaningSameDay && !f.cleaningSameDay?.trim())
+      out.push("Cleaning same day as moving?");
+    if (showPackingDetail && whatPacking.length === 0) out.push("What are we packing?");
+    return out;
+  }
+
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    if (!canSubmit || status === "sending") return;
+    if (status === "sending") return;
+    const gaps = getMissing();
+    if (gaps.length || !canSubmit) {
+      setMissing(gaps);
+      return;
+    }
+    setMissing([]);
     setStatus("sending");
     const fields = {
       ...f,
@@ -202,7 +239,7 @@ export function BookingForm({
           </div>
           <div>
             <label className={labelCls}>How would you like to pay</label>
-            <select className={inputCls} value={f.payment} onChange={(e) => set("payment", e.target.value)}>
+            <select className={inputCls} required value={f.payment} onChange={(e) => set("payment", e.target.value)}>
               <option value="">Select…</option>
               {PAYMENT_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
             </select>
@@ -223,7 +260,7 @@ export function BookingForm({
           {showCleaningSameDay && (
             <div>
               <label className={labelCls}>Cleaning same day as moving?</label>
-              <select className={inputCls} value={f.cleaningSameDay} onChange={(e) => set("cleaningSameDay", e.target.value)}>
+              <select className={inputCls} required value={f.cleaningSameDay} onChange={(e) => set("cleaningSameDay", e.target.value)}>
                 <option value="">Select…</option>
                 {CLEANING_SAMEDAY_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
               </select>
@@ -290,7 +327,7 @@ export function BookingForm({
             <div className="mt-2 flex gap-6 text-sm text-brand-purple">
               {["Yes", "No"].map((o) => (
                 <label key={o} className="flex items-center gap-2">
-                  <input type="radio" name="settlementDay" value={o} checked={f.settlementDay === o} onChange={() => set("settlementDay", o)} />
+                  <input type="radio" name="settlementDay" value={o} required checked={f.settlementDay === o} onChange={() => set("settlementDay", o)} />
                   {o}
                 </label>
               ))}
@@ -361,6 +398,17 @@ export function BookingForm({
             </label>
           </div>
         </div>
+
+        {missing.length > 0 && (
+          <div className="mt-4 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-700">
+            <p className="font-semibold">Please answer these before confirming:</p>
+            <ul className="mt-1 list-disc pl-5">
+              {missing.map((m) => (
+                <li key={m}>{m}</li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {status === "error" && (
           <p className="mt-4 text-sm font-medium text-red-600">

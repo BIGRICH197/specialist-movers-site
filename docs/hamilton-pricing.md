@@ -25,7 +25,7 @@ Use the HIGHER zone if pickup and dropoff are in different zones.
 
 ## House Moves , Hourly Rates
 
-Hourly rates are the SAME across all zones. Only the callout changes by zone. Hamilton rates were brought down to sit only slightly above Auckland (~$0–20: roughly +$15–20 early week, +$10 Fri/Sun, and level with Auckland on Saturday) , locked decision (Richard, 2026-06-18).
+Hourly rates are the SAME across all zones. Only the callout changes by zone. Rates flattened to $150/$190/$250 for all days except the cheaper Tue/Thu (Richard, 2026-07-07). Previously Fri/Sat were $160/$200/$260 and Sun was $155/$195/$255.
 
 | Day       | 2 men | 3 men | 4 men |
 |-----------|-------|-------|-------|
@@ -33,9 +33,9 @@ Hourly rates are the SAME across all zones. Only the callout changes by zone. Ha
 | Thursday  | $145  | $185  | $245  |
 | Monday    | $150  | $190  | $250  |
 | Wednesday | $150  | $190  | $250  |
-| Sunday    | $155  | $195  | $255  |
-| Friday    | $160  | $200  | $260  |
-| Saturday  | $160  | $200  | $260  |
+| Sunday    | $150  | $190  | $250  |
+| Friday    | $150  | $190  | $250  |
+| Saturday  | $150  | $190  | $250  |
 
 Construction rule: 2-man rate is the explicit per-day value; 3-man = 2-man + $40; 4-man = 3-man + $60.
 
