@@ -80,7 +80,8 @@ async function hubspotFetch(path: string, opts: RequestInit = {}) {
 
 async function findOrCreateContact(params: {
   name: string;
-  phone: string;
+  /** Optional: chat leads sometimes only give an email. */
+  phone?: string;
   email?: string;
 }): Promise<string | null> {
   const [firstname, ...rest] = params.name.trim().split(/\s+/);
@@ -103,8 +104,8 @@ async function findOrCreateContact(params: {
   const properties: Record<string, string> = {
     firstname,
     lastname,
-    phone: params.phone,
   };
+  if (params.phone) properties.phone = params.phone;
   if (params.email) properties.email = params.email;
 
   const created = await hubspotFetch("/crm/v3/objects/contacts", {
@@ -116,7 +117,9 @@ async function findOrCreateContact(params: {
 
 export async function createHubSpotDeal(params: {
   name: string;
-  phone: string;
+  /** Optional: a chat lead may leave an email instead of a number. One of
+   *  phone or email is enough — never drop a lead for want of the other. */
+  phone?: string;
   email?: string;
   serviceType: string;
   pickupAddress: string;

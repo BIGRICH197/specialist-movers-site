@@ -114,19 +114,27 @@ const tools: Anthropic.Tool[] = [
   {
     name: "capture_lead",
     description:
-      "Save a customer's contact details as a lead in our system. Call this once you have at least their name and phone number.",
+      "Save a customer's contact details as a lead in our system. Call this as soon as you have their name plus EITHER a phone number or an email address. Never wait for both.",
     input_schema: {
       type: "object" as const,
       properties: {
         name: { type: "string", description: "Customer's full name" },
-        phone: { type: "string", description: "Phone number" },
-        email: { type: "string", description: "Email address (optional)" },
+        phone: {
+          type: "string",
+          description: "Phone number (optional if you have an email instead)",
+        },
+        email: {
+          type: "string",
+          description: "Email address (optional if you have a phone number instead)",
+        },
         serviceType: { type: "string", description: "Type of service they're interested in" },
         pickupAddress: { type: "string", description: "Pickup address if known" },
         dropoffAddress: { type: "string", description: "Drop-off address if known" },
         notes: { type: "string", description: "Any relevant notes about the enquiry" },
       },
-      required: ["name", "phone", "serviceType"],
+      // Only the name is structurally required — a lead with just an email is
+      // still a lead, and the team can work either contact route.
+      required: ["name", "serviceType"],
     },
   },
 ];
@@ -165,7 +173,7 @@ async function executeTool(
     }
     await createHubSpotDeal({
       name: input.name as string,
-      phone: input.phone as string,
+      phone: (input.phone as string) || undefined,
       email: (input.email as string) || undefined,
       serviceType: (input.serviceType as string) || "Website Chat",
       pickupAddress: (input.pickupAddress as string) || "",
