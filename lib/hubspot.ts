@@ -274,6 +274,15 @@ export async function createHubSpotDeal(params: {
   }
 }
 
+/** Move an existing deal to a given stage (e.g. Closed Won). */
+export async function setDealStage(dealId: string, stage: string): Promise<boolean> {
+  const r = await hubspotFetch(`/crm/v3/objects/deals/${dealId}`, {
+    method: "PATCH",
+    body: JSON.stringify({ properties: { dealstage: stage } }),
+  });
+  return Boolean(r?.id);
+}
+
 /** Find an existing deal for a contact by email. Returns the first associated
  *  deal id, or null if the contact/deal isn't found. Used by the book-in flow
  *  to decide whether to create a fresh Closed Won deal. */

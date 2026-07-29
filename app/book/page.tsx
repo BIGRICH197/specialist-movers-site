@@ -25,17 +25,15 @@ export default function BookPage() {
             </span>
           </Link>
 
-          <div className="block rounded-2xl border border-dashed border-brand-purple/25 bg-white/60 p-5">
+          <Link
+            href="/book/piano"
+            className="block rounded-2xl bg-white p-5 shadow-sm transition hover:shadow-md"
+          >
             <span className="font-heading text-lg text-brand-purple">Piano or large item</span>
             <span className="mt-1 block text-sm text-brand-purple/70">
-              Pianos, spa pools, and other specialist items. Online booking is coming
-              shortly, call{" "}
-              <a href="tel:+6492282728" className="font-semibold underline underline-offset-2">
-                (021) 228 2728
-              </a>{" "}
-              to book one in.
+              Pianos, spa pools, and other specialist items.
             </span>
-          </div>
+          </Link>
         </div>
 
         <p className="mt-8 text-center text-sm text-brand-purple/60">
