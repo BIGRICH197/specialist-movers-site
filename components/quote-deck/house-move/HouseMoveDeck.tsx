@@ -11,7 +11,15 @@ import {
 } from "@/components/quote-deck/deck/DeckTypography";
 import { deckHero } from "@/lib/quote-deck/deck-hero";
 import { QuoteTable } from "@/components/quote-deck/house-move/QuoteTable";
-import { formatAddress, hasNotes, usesXeroQuoteTable, type HouseMoveQuote } from "@/lib/quote-deck/house-move-quote";
+import { QuoteCustomise } from "@/components/quote-deck/QuoteCustomise";
+import {
+  formatAddress,
+  hasNotes,
+  quoteAddOnBreakdown,
+  usesXeroQuoteTable,
+  type HouseMoveQuote,
+} from "@/lib/quote-deck/house-move-quote";
+import { getCleaningPriceInclGst } from "@/lib/pricing-data";
 import { sitePhotos } from "@/lib/quote-deck/site-photos";
 
 function formatPickupDelivery(addr: HouseMoveQuote["pickup"]): string {
@@ -52,10 +60,17 @@ function QuoteMoveDetails({ quote }: { quote: HouseMoveQuote }) {
 type Props = {
   quote: HouseMoveQuote;
   quoteRef?: string;
+  /** Bedroom count (from the quote prefill) — lets us price cleaning that was
+   *  not already quoted, for the interactive add-ons. */
+  bedrooms?: number;
 };
 
-export function HouseMoveDeck({ quote, quoteRef }: Props) {
+export function HouseMoveDeck({ quote, quoteRef, bedrooms }: Props) {
   const showNotes = hasNotes(quote);
+  const addOns = quoteAddOnBreakdown(quote);
+  const cleaningPriceInclGst = addOns.cleaningQuoted
+    ? addOns.cleaningInclGst
+    : getCleaningPriceInclGst(bedrooms);
 
   return (
     <div className="proposal-root deck-root bg-white font-sans">
@@ -110,10 +125,20 @@ export function HouseMoveDeck({ quote, quoteRef }: Props) {
                 {quote.validFor ? (
                   <p className="mt-3 text-brand-purple/75">Valid for {quote.validFor}.</p>
                 ) : null}
+                {quoteRef ? (
+                  <QuoteCustomise
+                    quoteRef={quoteRef}
+                    moveInclGst={addOns.moveInclGst}
+                    cleaningQuoted={addOns.cleaningQuoted}
+                    cleaningPriceInclGst={cleaningPriceInclGst}
+                    packingQuoted={addOns.packingQuoted}
+                    packingPriceInclGst={addOns.packingInclGst}
+                  />
+                ) : null}
               </div>
             ) : null}
 
-            <ProposalCoverFooter className="proposal-cover-footer" quoteRef={quoteRef} />
+            <ProposalCoverFooter className="proposal-cover-footer" />
           </div>
         </div>
       </DeckSlide>
