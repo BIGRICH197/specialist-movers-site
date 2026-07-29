@@ -1,6 +1,7 @@
 const HUBSPOT_API_URL = "https://api.hubapi.com";
 const PIPELINE_ID = "997404386";
 const STAGE_NEW = "1526377150"; // "New" stage in pipeline 997404386
+export const STAGE_CLOSED_WON = "1526377155"; // "Closed Won" stage in pipeline 997404386
 
 const OWNER_TAINE = "78086404";
 const OWNER_DANIELLE = "159727645";
@@ -149,6 +150,9 @@ export async function createHubSpotDeal(params: {
   /** Force a specific HubSpot owner id, overriding the branch-based routing
    *  in ownerFor (e.g. chat-bot leads always go to Danielle). */
   ownerId?: string;
+  /** Deal stage id to create at. Defaults to "New"; book-ins pass
+   *  STAGE_CLOSED_WON so a job booked in without a prior deal lands as won. */
+  dealStage?: string;
 }): Promise<{ dealId: string } | { error: string }> {
   try {
     const contactId = await findOrCreateContact({
@@ -164,7 +168,7 @@ export async function createHubSpotDeal(params: {
     const properties: Record<string, string> = {
       dealname: dealName,
       pipeline: PIPELINE_ID,
-      dealstage: STAGE_NEW,
+      dealstage: params.dealStage || STAGE_NEW,
       pick_up_deal: params.pickupAddress,
       drop_off_deal: params.dropoffAddress,
       hubspot_owner_id: params.ownerId || ownerFor(params),
@@ -267,6 +271,36 @@ export async function createHubSpotDeal(params: {
   } catch (err) {
     console.error("HubSpot deal creation failed:", err);
     return { error: String(err) };
+  }
+}
+
+/** Find an existing deal for a contact by email. Returns the first associated
+ *  deal id, or null if the contact/deal isn't found. Used by the book-in flow
+ *  to decide whether to create a fresh Closed Won deal. */
+export async function findDealIdByEmail(email: string): Promise<string | null> {
+  const clean = email.trim();
+  if (!clean) return null;
+  try {
+    const search = await hubspotFetch("/crm/v3/objects/contacts/search", {
+      method: "POST",
+      body: JSON.stringify({
+        filterGroups: [
+          { filters: [{ propertyName: "email", operator: "EQ", value: clean }] },
+        ],
+        properties: ["email"],
+        limit: 1,
+      }),
+    });
+    const contactId = search?.results?.[0]?.id;
+    if (!contactId) return null;
+    const assoc = await hubspotFetch(
+      `/crm/v3/objects/contacts/${contactId}/associations/deals`,
+    );
+    const dealId = assoc?.results?.[0]?.toObjectId || assoc?.results?.[0]?.id;
+    return dealId ? String(dealId) : null;
+  } catch (err) {
+    console.error("findDealIdByEmail failed:", err);
+    return null;
   }
 }
 

@@ -1,5 +1,10 @@
 import { NextResponse } from "next/server";
 import { pingBookings } from "@/lib/quote-notify";
+import {
+  createHubSpotDeal,
+  findDealIdByEmail,
+  STAGE_CLOSED_WON,
+} from "@/lib/hubspot";
 
 export const runtime = "nodejs";
 
@@ -78,9 +83,37 @@ export async function POST(request: Request) {
     .join("\n");
   await pingBookings(summary);
 
+  // Deal handling: most book-ins are an existing deal — find it by email so the
+  // webhook can close THAT one. If there is no deal, create one at Closed Won
+  // (a booked job is won), mirroring the JotForm script.
+  let hubspotDealId: string | undefined;
+  const email = fields.email?.trim();
+  if (email) {
+    try {
+      const existing = await findDealIdByEmail(email);
+      if (existing) {
+        hubspotDealId = existing;
+      } else {
+        const created = await createHubSpotDeal({
+          name: fields.fullName || "",
+          phone: fields.phone || "",
+          email,
+          serviceType: serviceType === "piano" ? "Piano Move" : "House Move",
+          pickupAddress: fields.pickupAddress || "",
+          dropoffAddress: fields.dropoffAddress || "",
+          notes: "Booked in via /book (no quote link).",
+          source: "Booking Form",
+          dealStage: STAGE_CLOSED_WON,
+        });
+        if ("dealId" in created) hubspotDealId = created.dealId;
+      }
+    } catch (err) {
+      console.error("book-in deal handling failed:", err);
+    }
+  }
+
   // Forward to the same booking webhook the hosted-quote flow uses: it builds
-  // the Trello card and moves the matching deal (by email) to Closed Won. No
-  // token/quote/hubspotDealId — this is a fresh book-in.
+  // the Trello card and moves the deal (the one we found/created) to Closed Won.
   const webhook = process.env.QUOTE_BOOKING_WEBHOOK;
   if (webhook) {
     const headers: Record<string, string> = { "Content-Type": "application/json" };
@@ -90,7 +123,7 @@ export async function POST(request: Request) {
       await fetch(webhook, {
         method: "POST",
         headers,
-        body: JSON.stringify({ quoteType: serviceType, booking: fields }),
+        body: JSON.stringify({ quoteType: serviceType, booking: fields, hubspotDealId }),
       });
     } catch (err) {
       console.error("book-in webhook failed:", err);
