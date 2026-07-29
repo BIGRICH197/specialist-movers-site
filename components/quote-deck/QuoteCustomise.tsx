@@ -126,26 +126,31 @@ export function QuoteCustomise({
           </span>
         </label>
 
-        {/* Packing — only when we quoted it */}
-        {packingQuoted ? (
-          <label className={rowCls}>
-            <input
-              type="checkbox"
-              className="mt-1"
-              checked={packingOn}
-              onChange={(e) => setPackingOn(e.target.checked)}
-            />
-            <span className="flex-1">
-              <span className="flex items-center justify-between gap-3 font-semibold">
-                <span>Professional packing</span>
-                <span>{formatNzd(packingPriceInclGst)} incl GST</span>
-              </span>
-              <span className="mt-0.5 block text-xs text-brand-purple/60">
-                We pack everything the day before. Untick if you would rather pack yourself.
+        {/* Packing — firm price if we quoted it, otherwise a request the team
+            confirms (we can't price packing on the spot without a look). */}
+        <label className={rowCls}>
+          <input
+            type="checkbox"
+            className="mt-1"
+            checked={packingOn}
+            onChange={(e) => setPackingOn(e.target.checked)}
+          />
+          <span className="flex-1">
+            <span className="flex items-center justify-between gap-3 font-semibold">
+              <span>Professional packing</span>
+              <span>
+                {packingQuoted
+                  ? `${formatNzd(packingPriceInclGst)} incl GST`
+                  : "Price on request"}
               </span>
             </span>
-          </label>
-        ) : null}
+            <span className="mt-0.5 block text-xs text-brand-purple/60">
+              {packingQuoted
+                ? "We pack everything the day before. Untick if you would rather pack yourself."
+                : "We pack everything the day before. Tick to add it and our team will confirm the price, we may arrange a quick look first."}
+            </span>
+          </span>
+        </label>
 
         {/* Insurance — a request, no price */}
         <label className={rowCls}>

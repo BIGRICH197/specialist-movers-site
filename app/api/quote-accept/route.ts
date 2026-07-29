@@ -3,6 +3,7 @@ import { getQuote, tokenFromRef, setQuoteStatus } from "@/lib/quote-store";
 import { pingBookings, quoteUrl } from "@/lib/quote-notify";
 import {
   quoteTotalInclGst,
+  quoteAddOnBreakdown,
   formatNzd,
 } from "@/lib/quote-deck/house-move-quote";
 
@@ -33,15 +34,26 @@ export async function POST(request: Request) {
   await setQuoteStatus(stored.token, "accepted");
 
   const total = formatNzd(quoteTotalInclGst(stored.quote));
-  // Summarise what the customer chose, so the team sees it at a glance. The
-  // insurance request is the one they most need to action.
-  const addOnLine = [
-    `Cleaning: ${addOns.cleaning ? "yes" : "no"}`,
-    `Packing: ${addOns.packing ? "yes" : "no"}`,
-    addOns.insurance
-      ? ":rotating_light: *Insurance requested* — send them cover options"
-      : "Insurance: no (owner's risk)",
-  ].join("  |  ");
+  // Summarise what the customer chose, so the team sees it at a glance.
+  // Packing/insurance the customer ADDS (that we did not already quote) need
+  // the team to action — flag those loudly.
+  const brk = quoteAddOnBreakdown(stored.quote);
+  const cleaningLine = addOns.cleaning
+    ? brk.cleaningQuoted
+      ? "Cleaning: yes (as quoted)"
+      : "Cleaning: yes (added)"
+    : "Cleaning: no";
+  const packingLine = addOns.packing
+    ? brk.packingQuoted
+      ? "Packing: yes (as quoted)"
+      : ":rotating_light: *Packing requested* — not yet quoted, go view/requote"
+    : brk.packingQuoted
+      ? "Packing: removed by customer"
+      : "Packing: no";
+  const insuranceLine = addOns.insurance
+    ? ":rotating_light: *Insurance requested* — send them cover options"
+    : "Insurance: no (owner's risk)";
+  const addOnLine = [cleaningLine, packingLine, insuranceLine].join("  |  ");
 
   await pingBookings(
     `:white_check_mark: *${stored.quote.clientName}* accepted their quote ` +
