@@ -137,7 +137,7 @@ export function PianoBookingForm() {
           </div>
           <div>
             <label className={labelCls}>Move date</label>
-            <input className={inputCls} required value={f.moveDate} onChange={(e) => set("moveDate", e.target.value)} placeholder="YYYY-MM-DD" />
+            <input className={inputCls} type="date" required value={f.moveDate} onChange={(e) => set("moveDate", e.target.value)} />
           </div>
           <div>
             <label className={labelCls}>Type of piano or item</label>

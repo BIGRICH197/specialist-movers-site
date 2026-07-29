@@ -222,7 +222,7 @@ export function BookingForm({
           </div>
           <div>
             <label className={labelCls}>Move date</label>
-            <input className={inputCls} required value={f.moveDate} onChange={(e) => set("moveDate", e.target.value)} />
+            <input className={inputCls} type={standalone ? "date" : undefined} required value={f.moveDate} onChange={(e) => set("moveDate", e.target.value)} />
           </div>
           <div>
             <label className={labelCls}>Size of move</label>

@@ -22,10 +22,13 @@ const CASH = "69df33c4ce4e7d7490337d22";
 const firstNameOf = (full: string) => (full || "").trim().split(" ")[0] || "";
 
 function isoOf(s: string): string {
-  const m = String(s).match(/(\d{4})-(\d{1,2})-(\d{1,2})/);
-  if (!m) return "";
-  const pad = (n: number, l: number) => String(n).padStart(l, "0");
-  return `${m[1]}-${pad(+m[2], 2)}-${pad(+m[3], 2)}T00:00:00.000Z`;
+  const t = String(s).trim();
+  const pad = (n: number) => String(n).padStart(2, "0");
+  let m = t.match(/(\d{4})-(\d{1,2})-(\d{1,2})/); // YYYY-MM-DD
+  if (m) return `${m[1]}-${pad(+m[2])}-${pad(+m[3])}T00:00:00.000Z`;
+  m = t.match(/^(\d{1,2})[/\-.](\d{1,2})[/\-.](\d{4})$/); // DD/MM/YYYY (NZ)
+  if (m) return `${m[3]}-${pad(+m[2])}-${pad(+m[1])}T00:00:00.000Z`;
+  return "";
 }
 
 async function geocodeSuburb(street: string, hereKey: string): Promise<string> {
