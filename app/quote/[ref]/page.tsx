@@ -84,5 +84,11 @@ export default async function HostedQuotePage({
     return <NotFound />;
   }
 
-  return <HouseMoveDeck quote={stored.quote} quoteRef={params.ref} />;
+  return (
+    <HouseMoveDeck
+      quote={stored.quote}
+      quoteRef={params.ref}
+      bedrooms={stored.prefill?.bedrooms}
+    />
+  );
 }

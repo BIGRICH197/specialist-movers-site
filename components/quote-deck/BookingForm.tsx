@@ -45,10 +45,14 @@ export function BookingForm({
   quoteRef,
   prefill,
   quoteType,
+  standalone = false,
 }: {
-  quoteRef: string;
+  quoteRef?: string;
   prefill: BookingPrefill;
   quoteType?: string;
+  /** When true, this is a direct book-in (no prior quote): submit to
+   *  /api/book-in, which creates the Trello job card + matches the deal. */
+  standalone?: boolean;
 }) {
   const [f, setF] = useState<Record<string, string>>({
     fullName: prefill.fullName ?? "",
@@ -159,10 +163,14 @@ export function BookingForm({
       termsScrolled: "yes",
     };
     try {
-      const res = await fetch("/api/bookings", {
+      const res = await fetch(standalone ? "/api/book-in" : "/api/bookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ref: quoteRef, fields }),
+        body: JSON.stringify(
+          standalone
+            ? { serviceType: "house", fields }
+            : { ref: quoteRef, fields },
+        ),
       });
       const data = (await res.json()) as { ok?: boolean };
       setStatus(data.ok ? "done" : "error");
@@ -214,7 +222,7 @@ export function BookingForm({
           </div>
           <div>
             <label className={labelCls}>Move date</label>
-            <input className={inputCls} required value={f.moveDate} onChange={(e) => set("moveDate", e.target.value)} />
+            <input className={inputCls} type={standalone ? "date" : undefined} required value={f.moveDate} onChange={(e) => set("moveDate", e.target.value)} />
           </div>
           <div>
             <label className={labelCls}>Size of move</label>

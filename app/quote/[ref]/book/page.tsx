@@ -9,7 +9,13 @@ export const metadata = {
   robots: { index: false, follow: false },
 };
 
-export default async function BookPage({ params }: { params: { ref: string } }) {
+export default async function BookPage({
+  params,
+  searchParams,
+}: {
+  params: { ref: string };
+  searchParams?: { clean?: string; pack?: string; ins?: string };
+}) {
   const stored = await getQuote(tokenFromRef(params.ref));
 
   if (!stored) {
@@ -51,8 +57,24 @@ export default async function BookPage({ params }: { params: { ref: string } }) 
     sizeOfMove: pf.sizeOfMove ?? sizeFromBedrooms(pf.bedrooms),
     howManyMovers: moversLabel(pf.movers),
     typeOfMove: pf.typeOfMove ?? "",
-    cleaningBooked: addOns.includes("cleaning") ? "Yes Cleaning" : "",
-    packing: addOns.includes("packing") ? "Yes packing" : "",
+    // The customer's tick choices on the quote page (passed as query params)
+    // win over the quote's original add-on flags.
+    cleaningBooked:
+      searchParams?.clean === "1"
+        ? "Yes Cleaning"
+        : searchParams?.clean === "0"
+          ? "No Cleaning"
+          : addOns.includes("cleaning")
+            ? "Yes Cleaning"
+            : "",
+    packing:
+      searchParams?.pack === "1"
+        ? "Yes packing"
+        : searchParams?.pack === "0"
+          ? "No not packing"
+          : addOns.includes("packing")
+            ? "Yes packing"
+            : "",
   };
 
   return <BookingForm quoteRef={params.ref} prefill={prefill} quoteType={stored.quoteType} />;

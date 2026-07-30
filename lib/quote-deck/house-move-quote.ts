@@ -114,6 +114,53 @@ export function quoteTotalInclGst(quote: HouseMoveQuote): number {
   return quoteSubtotalExclGst(quote) * (1 + GST_RATE);
 }
 
+/** Which add-on a line item belongs to. Prefers the explicit `section` tag,
+ *  falls back to a keyword match on the description. */
+function classifyLineItem(item: QuoteLineItem): "cleaning" | "packing" | "move" {
+  const s = (item.section || "").toLowerCase();
+  if (s.includes("clean")) return "cleaning";
+  if (s.includes("pack")) return "packing";
+  const d = item.description.toLowerCase();
+  if (d.includes("clean")) return "cleaning";
+  if (d.includes("pack")) return "packing";
+  return "move";
+}
+
+export type QuoteAddOnBreakdown = {
+  /** The core move total incl GST (everything that is not cleaning/packing). */
+  moveInclGst: number;
+  /** Cleaning already priced on this quote, incl GST (0 if none quoted). */
+  cleaningInclGst: number;
+  /** True when the quote already includes a cleaning line item. */
+  cleaningQuoted: boolean;
+  /** Packing already priced on this quote, incl GST (0 if none quoted). */
+  packingInclGst: number;
+  /** True when the quote already includes a packing line item. */
+  packingQuoted: boolean;
+};
+
+/** Split a quote's line-item total into move / cleaning / packing (incl GST),
+ *  so the customer can tick add-ons on/off and see the total move live. */
+export function quoteAddOnBreakdown(quote: HouseMoveQuote): QuoteAddOnBreakdown {
+  let move = 0;
+  let cleaning = 0;
+  let packing = 0;
+  for (const item of quote.lineItems) {
+    const cls = classifyLineItem(item);
+    if (cls === "cleaning") cleaning += item.amountExclGst;
+    else if (cls === "packing") packing += item.amountExclGst;
+    else move += item.amountExclGst;
+  }
+  const gst = (n: number) => Math.round(n * (1 + GST_RATE) * 100) / 100;
+  return {
+    moveInclGst: gst(move),
+    cleaningInclGst: gst(cleaning),
+    cleaningQuoted: cleaning > 0,
+    packingInclGst: gst(packing),
+    packingQuoted: packing > 0,
+  };
+}
+
 export function formatAddress(addr: MoveAddress): string {
   const suburbPart = `${addr.suburb}${addr.postcode ? ` ${addr.postcode}` : ""}`;
   if (addr.line1) return [addr.line1, suburbPart].join(", ");

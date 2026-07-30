@@ -200,6 +200,16 @@ export const CLEANING_PRICES: Record<Bedrooms, number> = {
   4: 600,
 };
 
+/** Cleaning price incl. GST for a bedroom count, so a quote add-on toggle can
+ *  price cleaning that was not already quoted. Returns null if we can't (no
+ *  bedroom count), in which case cleaning is treated as a "request". */
+export function getCleaningPriceInclGst(bedrooms?: number): number | null {
+  if (!bedrooms || bedrooms < 1) return null;
+  const b = Math.min(Math.round(bedrooms), 4) as Bedrooms;
+  const ex = CLEANING_PRICES[b];
+  return ex ? Math.round(ex * GST_MULTIPLIER * 100) / 100 : null;
+}
+
 // ── Piano base prices (excl GST) ──
 export const PIANO_BASE: Record<PianoType, number> = {
   upright: 290,
