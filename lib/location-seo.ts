@@ -30,6 +30,78 @@ const pianoProtection =
 
 /** SEO patches keyed by /locations/[slug] */
 export const locationSeoPatches: Record<string, LocationSeoPatch> = {
+  "south-auckland": {
+    metaDescription:
+      "South Auckland movers with real experience across Manukau, Papakura, and beyond. Specialist Movers completes 1,500+ Auckland moves. Get a quote in 15 minutes.",
+    intro:
+      "South Auckland is big, varied, and always busy. From large family homes on wide sections in Papakura to the dense townhouse blocks going up around Manukau, every move here needs a proper plan.",
+    paragraphs: [
+      "South Auckland has some of Auckland's most diverse housing stock. You have older state-era homes with long driveways and detached garages, new multi-storey townhouses with shared accessways, and everything in between. We look at access, truck clearance, and parking before move day so nothing slows us down on the day itself.",
+      "The region is growing fast. New subdivisions around Flat Bush, Takanini, and Paerata are adding thousands of homes, many with narrow shared lanes, coded gates, and limited street parking. We check those details ahead of time and bring the right size truck for the site.",
+      "Our depot is in Wairau Valley on the North Shore. The drive to South Auckland takes about 29 minutes, so this sits in our pricing zone B. The fixed callout is slightly higher than inner suburbs, but the hourly rate is the same across all of Auckland. You see the full price before you confirm.",
+      "We have completed 1,500+ moves across Auckland, including plenty of larger households with big appliances, heavy furniture, and full garages. Our trucks have taillifts and we run crews of two to four depending on the job. For bigger homes we offer a free viewing so we can quote accurately and plan the day properly.",
+    ],
+    highlights: [
+      "Access checks for new-subdivision shared lanes and coded gates",
+      "Tailift trucks suited to large South Auckland family homes",
+      "Crews of two to four matched to the size of the job",
+      "7-day operation, quotes back in about 15 minutes during business hours",
+    ],
+    faqs: [
+      {
+        q: "We are in a new Flat Bush subdivision with a narrow shared driveway and a gate code. Can you still get the truck in?",
+        a: "Yes, this is something we plan for. Before move day we confirm the lane width, any height or weight restrictions, and the gate code. If the large truck cannot get close enough, we set up the carry distance in advance rather than working it out on the day.",
+      },
+      {
+        q: "Our Papakura home has a big garage, a shed, and a lot of heavy gear. How do you handle that?",
+        a: "For larger jobs like this we offer a free viewing beforehand. We walk through the property, note anything heavy or awkward, and make sure we send the right size crew and truck. No surprises on move day.",
+      },
+      {
+        q: "How much more does the callout cost from your North Shore depot to South Auckland?",
+        a: "The drive from our Wairau Valley depot is about 29 minutes, so South Auckland sits in our zone B. The fixed callout is slightly higher than closer suburbs to account for the travel, but the hourly rate is identical across Auckland. You get the full breakdown upfront before you book.",
+      },
+      {
+        q: "We need someone to pack the house the day before. Do you do that in South Auckland?",
+        a: "Yes. We offer a packing service the day before your move anywhere we operate, including South Auckland. It is worth flagging this when you get your quote so we can schedule the pack crew and have the right materials on hand.",
+      },
+    ],
+  },
+  "west-auckland": {
+    metaDescription:
+      "West Auckland movers with dozens of local jobs done. Specialist Movers handles big homes, steep sections, and long driveways across Henderson, Te Atatu, and beyond.",
+    intro:
+      "West Auckland has its own character, big sections, established trees, steep valley roads, and homes that were built to last. We have completed dozens of moves across the west, from Henderson bungalows to Titirangi bush retreats.",
+    paragraphs: [
+      "The Waitakere foothills change how you plan a move. Titirangi and the surrounding bush suburbs have roads that narrow quickly, tight bends, and driveways that drop away from the street. We check access before move day so there are no surprises when the truck arrives.",
+      "Much of the housing stock in Henderson, Glen Eden, and New Lynn is 1960s to 1980s brick and tile. Solid construction, but often with sunken lounges, low doorways, or garages that were not built with a fridge-freezer in mind. Our crew of two to four know how to work those spaces without marking walls or doorframes.",
+      "Te Atatu Peninsula and Te Atatu South have seen a lot of new development alongside older homes. Some streets mix original three-bedroom houses with recent townhouse blocks on shared driveways. We confirm parking and access for both, and we bring the right truck for the job.",
+      "The run from our Wairau Valley depot to West Auckland is about 32 minutes, which puts this area in our pricing zone B. The fixed callout is a little more than inner suburbs, but you see the full price before you confirm anything. Quotes come back in around 15 minutes during business hours.",
+    ],
+    highlights: [
+      "Titirangi and bush-road access checked before move day",
+      "Experience with 1960s to 1980s brick-and-tile homes across Henderson and Glen Eden",
+      "Townhouse and shared-driveway access planning in Te Atatu",
+      "Trucks with taillifts suited to sloped West Auckland sections",
+    ],
+    faqs: [
+      {
+        q: "We are in Titirangi and the road to our house is narrow with one tight corner. Can your truck get up there?",
+        a: "We sort this out before move day, not on the morning. Tell us the road name and describe the corner and we will work out whether the large truck fits or whether a smaller vehicle makes more sense. If we need to shuttle loads from the road, we plan for that time upfront.",
+      },
+      {
+        q: "Our Henderson home has a sunken lounge and some awkward doorways. Is that a problem?",
+        a: "We see this all the time in West Auckland. The crew will walk through with you at the start and agree on the best path for each piece. For larger homes we also offer a free viewing beforehand so nothing catches us off guard.",
+      },
+      {
+        q: "How does pricing work for West Auckland compared to other parts of Auckland?",
+        a: "Hourly rates are the same across all of Auckland. The fixed callout is slightly higher in West Auckland than in inner suburbs because of the travel time from our Wairau Valley depot, around 32 minutes each way. You see both figures in full before you book, so you know the total cost upfront.",
+      },
+      {
+        q: "We are moving into a new townhouse in Te Atatu South with a shared driveway. What do we need to tell you?",
+        a: "Let us know the shared driveway dimensions and whether there is a gate or code. Also check your body corporate or developer rules around move-in times, some new developments have restrictions. We work around those windows and make sure the truck is not blocking neighbours longer than needed.",
+      },
+    ],
+  },
   // ── North Shore (core, near the Glenfield/Wairau Valley depot) ──
   glenfield: {
     metaDescription:
@@ -261,27 +333,37 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   torbay: {
     metaDescription:
-      "Torbay movers for hillside coastal homes. Specialist Movers plans steep driveways, narrow winding streets, and carry distance from our North Shore base. Free quote.",
+      "Torbay movers with dozens of local jobs done. Specialist Movers handles steep driveways, coastal homes, and upsizes from our Wairau Valley depot.",
     intro:
-      "Torbay is steep and coastal, winding streets and sloped driveways that need a proper access plan before move day.",
+      "Torbay sits at the top of the East Coast Bays, and the streets show it. Ridgeline roads, curved driveways, and sections that drop away sharply are just part of the job out here.",
     paragraphs: [
-      "Many Torbay homes sit up or down steep drives on narrow, winding streets where a large truck cannot always reach the door. We scope carry distance and whether a smaller shuttle vehicle is needed at the viewing.",
-      "Torbay is part of our regular upper-Bays schedule from the North Shore depot. Home relocations, pianos, packing, and exit cleans are all covered.",
+      "A lot of Torbay homes were built in the 1970s and 1980s on sections carved into the hillside. That means split-level layouts, internal garages that sit below the living area, and staircases that add time to every load. We factor all of that in before we arrive, not on the day.",
+      "The driveways here can be short but steep, or long and curved with limited space to turn a truck. We check access when you book. If the tailift truck cannot park close enough, we plan the carry distance so nothing gets rushed or damaged getting to the road.",
+      "Torbay has a settled community, lots of families who have been here a long time and are now upsizing, downsizing, or both. Moving a full household that has been in one place for twenty years takes a crew who will work carefully through the contents, not just the furniture. We bring two to four movers depending on what the job needs.",
+      "We are about 17 minutes from Torbay out of our Wairau Valley depot. Torbay sits in our standard callout area, so there is no distance premium on top of the hourly rate. You see the full price before you confirm the booking.",
     ],
     highlights: [
-      "Steep-driveway and narrow-street planning",
-      "Shuttle vehicle for tight access when needed",
-      "Hillside coastal homes",
-      "Piano specialists, upright and grand",
+      "Dozens of Torbay jobs completed, split-levels and all",
+      "Access checked for steep and curved driveways before move day",
+      "17 minutes from our Wairau Valley depot, standard callout zone",
+      "Crews of 2 to 4 matched to the size of the job",
     ],
     faqs: [
       {
-        q: "What if a large truck cannot reach my Torbay home?",
-        a: "We plan for it. on steep or narrow streets we use a smaller shuttle vehicle or work out the carry route at the viewing, so nothing is rushed on the day.",
+        q: "Our driveway slopes steeply and the truck might not fit. What happens?",
+        a: "We sort this before move day, not when we pull up. Tell us about the driveway when you book and we will confirm what the truck can do. If we need to park at the road and carry from there, we plan the time for that upfront so the quote stays accurate.",
       },
       {
-        q: "Do you move hillside homes with lots of steps?",
-        a: "Yes, often. We bring the right crew size and equipment for the steps and tight turns common in Torbay.",
+        q: "We have a split-level home with stairs between the garage and the living area. Does that change the price?",
+        a: "It changes the time, and time is what we price on. When you describe the layout at booking, we build the extra carry into the estimate. No surprises on the day.",
+      },
+      {
+        q: "We have lived here a long time and have a full house to move. Can you help pack as well?",
+        a: "Yes. We can come the day before and pack everything properly, so move day is just loading and transporting. It makes a big difference when there is a lot to go through.",
+      },
+      {
+        q: "How quickly can I get a quote for a Torbay move?",
+        a: "In business hours, usually about 15 minutes after you send through the details. We will ask about the property layout, access, and what you are moving so the quote reflects the actual job.",
       },
     ],
   },
@@ -464,27 +546,37 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   titirangi: {
     metaDescription:
-      "Titirangi movers for bush-clad homes on steep, winding streets. We plan tight access, steep drives, and carry routes before move day. Free quote.",
+      "Titirangi movers who know the bush tracks, steep drives, and character homes. Specialist Movers has completed dozens of jobs in Titirangi. Get a quote in 15 minutes.",
     intro:
-      "Titirangi is bush living, steep winding streets, long native-shaded driveways, and homes tucked into the hillside that need a real access plan.",
+      "Titirangi is unlike anywhere else in Auckland, and moving here shows that quickly. Bush-clad sections, winding roads, and homes tucked well off the street make every job its own puzzle.",
     paragraphs: [
-      "Many Titirangi homes sit down steep drives or up bush steps where a large truck cannot get close. We scope the carry route and whether a smaller shuttle vehicle is needed at the viewing, so nothing is rushed.",
-      "We cover Titirangi and the western bush fringe on our regular schedule. Home relocations, pianos, packing, and exit cleans are all covered, with care for tight, leafy access.",
+      "The Waitakere foothills do not give much away. A lot of Titirangi homes sit at the end of long driveways, behind dense vegetation, or on slopes that look gentle on a map and steep in person. We visit larger homes before move day so nothing surprises us when the truck arrives.",
+      "The housing stock here leans heavily on older character builds, timber baches that grew into family homes, split-levels set into the hillside, and the occasional architect-designed place with unusual room layouts. Furniture that fits through a standard door in Remuera sometimes needs a different plan in a Titirangi cottage.",
+      "We run from our Wairau Valley depot, about 32 minutes to Titirangi. That puts it in our pricing zone B, so the fixed callout is a little higher than closer suburbs. You see the full price before you confirm anything, and the hourly rate stays the same wherever we work in Auckland.",
+      "We have completed dozens of jobs out this way, including some that involved pianos. Titirangi has more musicians per street than most Auckland suburbs, and we are the movers trusted by Steinway dealers and Auckland Town Hall for instrument work. A grand in a split-level home on a bush section is a day's work we plan carefully, not something we figure out on arrival.",
     ],
     highlights: [
-      "Steep drives and bush-step access planned",
-      "Shuttle vehicle for tight sites when needed",
-      "Hillside and bush-clad homes",
-      "Piano specialists, upright and grand",
+      "Dozens of Titirangi jobs completed",
+      "Pre-move viewings for bush-section and character homes",
+      "Piano moves, including grands in split-level and hillside homes",
+      "Full price shown upfront, quotes back in about 15 minutes",
     ],
     faqs: [
       {
-        q: "My Titirangi driveway is steep and narrow, can you still move me?",
-        a: "Yes. we plan for it, using a smaller shuttle vehicle or a planned carry route from the viewing so your gear moves safely.",
+        q: "Our driveway is steep and narrow with overhanging trees. Will your truck make it in?",
+        a: "We check this before move day. For larger homes we offer a free viewing so we can walk the driveway, measure any pinch points, and decide whether the full truck gets close or whether we stage the carry from the road. No surprises on the day.",
       },
       {
-        q: "Do you move pianos in Titirangi's hillside homes?",
-        a: "Yes. we handle uprights and grands on steep, awkward access with piano boards, padding, and the right crew size.",
+        q: "We have a piano in a split-level Titirangi home. Can you move it?",
+        a: "Yes, and it is work we take seriously. We are the movers Steinway dealers and Auckland Town Hall call on for instrument moves. A split-level on a bush section needs a clear plan before anything is lifted, and we make that plan before we arrive.",
+      },
+      {
+        q: "How long does it take your crew to get to Titirangi from your depot?",
+        a: "About 32 minutes from our Wairau Valley depot under normal traffic. We factor that into the start time so your booked hour begins when we reach you, not when we leave the depot.",
+      },
+      {
+        q: "Is Titirangi more expensive to move to or from than central Auckland suburbs?",
+        a: "The hourly rate is the same across all of Auckland. Titirangi sits in our zone B, which means the fixed callout fee is slightly higher than inner suburbs because of the drive from our depot. You see the full breakdown before you book, so there is nothing hidden.",
       },
     ],
   },
@@ -1119,42 +1211,74 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     ],
   },
   morrinsville: {
-    extraParagraphs: [
-      `Morrinsville sees steady demand for home relocations, farm-gate pickups, and piano transport for homes and local retailers. ${pianoProtection}`,
-      `Town-centre villas and rural properties on the outskirts both benefit from a viewing so we send the right truck and crew. ${waikatoInAreaPricing}`,
+    metaDescription:
+      "Moving to or from Morrinsville? Specialist Movers runs from our Hamilton base, about 31 minutes away. Get a quote in 15 minutes. 1,500+ moves completed.",
+    intro:
+      "Morrinsville is a proper Waikato town, dairy country, wide streets, and solid family homes on good-sized sections. We run out from our Hamilton base, roughly 31 minutes, and we come ready for what that kind of property usually involves.",
+    paragraphs: [
+      "Morrinsville homes tend to sit on generous sections with long concrete driveways and detached garages. That sounds easy until you are moving a chest freezer, a ride-on mower, or a full workshop out of a back shed. We account for all of that during the quote, not on the day.",
+      "The town has a lot of older New Zealand bungalows, solid timber, high ceilings, and wide hallways that suit moving furniture well. The challenge is usually the outbuildings and the sheer volume of gear that accumulates on a rural-residential section over the years. We bring a crew of two to four and a truck with a taillift to handle the heavy lifts safely.",
+      "Morrinsville is also a popular spot for families relocating between Hamilton and the Hauraki Plains. That often means moving in two directions at once, clearing a family home here while setting up in town, or the reverse. We can pack the day before if you want to make move day itself as straightforward as possible.",
+      "Because we are based in Hamilton, the fixed callout for Morrinsville sits in our pricing zone B, slightly higher than inner suburbs to reflect the drive out. You see the full cost before you confirm anything. Hourly rates are the same wherever we work.",
+    ],
+    highlights: [
+      "Suits large sections and detached garages common in Morrinsville",
+      "Experienced with Waikato bungalows and their wide-doorway furniture",
+      "Hamilton base means a 31-minute run to your door",
+      "Taillift trucks and crews of two to four for heavy rural-home loads",
     ],
     faqs: [
       {
-        q: "Do you cover rural properties around Morrinsville?",
-        a: "Yes. town and rural Morrinsville properties are serviced from our Hamilton base. We scope driveways, gates, and carrying distance at your viewing.",
+        q: "We have a long driveway and a separate garage full of gear. How do you handle that?",
+        a: "This is pretty standard for Morrinsville properties. We confirm driveway access and turning room before move day, then work through the house and outbuildings in a logical order. Nothing gets left behind because we did not know about it.",
       },
       {
-        q: "How far in advance should I book?",
-        a: "Book two weeks ahead when you can, especially for end-of-month dates. Shorter notice is often possible, contact us for the next available slot.",
+        q: "We are moving from Morrinsville into Hamilton. Can you do both ends in one day?",
+        a: "Usually yes. A lot of our Morrinsville jobs are exactly this, loading here and delivering into town the same day. We plan the timing around both addresses when we do the quote.",
       },
       {
-        q: "Are travel costs included in the quote?",
-        a: "Yes. Morrinsville is in our in-area Waikato pricing from Hamilton. Your quote includes travel; there is no separate callout on the day.",
+        q: "Is the callout fee much higher because you are coming from Hamilton?",
+        a: "It is a little higher than our inner-Hamilton suburbs because of the 31-minute drive, but the hourly rate is the same. You get the full price upfront before you book, so there are no surprises.",
+      },
+      {
+        q: "Do you move farm or lifestyle equipment, not just household furniture?",
+        a: "We focus on household moves. If your property has a lot of large items in sheds or garages, tell us during the quote and we will make sure we have the right crew size and equipment. We do not want to turn up underprepared.",
       },
     ],
   },
   "te-awamutu": {
-    extraParagraphs: [
-      `Te Awamutu moves include home relocations, commercial runs, and regular piano transport for homes and music schools. ${pianoProtection}`,
-      waikatoInAreaPricing,
+    metaDescription:
+      "Te Awamutu movers who know the drive out and the town. Specialist Movers Hamilton covers TA relocations with full-size trucks and experienced crews.",
+    intro:
+      "Te Awamutu is a proper country town, not a suburb that happens to have paddocks nearby. The housing stock, the driveways, and the pace of life here are all a bit different from the city, and we plan accordingly.",
+    paragraphs: [
+      "Most homes in Te Awamutu sit on generous sections with good truck access. That is the easy part. What takes more thought is coordinating a move across 29 minutes of SH3 from our Hamilton base. We schedule your crew and truck so arrival fits your handover time, not ours.",
+      "The town has a strong mix of older brick homes, weatherboard bungalows, and more recently built family houses out toward the newer streets. Older homes sometimes have low eaves, narrow side gates, or heavy furniture that has been in place for decades. We do a proper access check before move day so none of that catches us off guard.",
+      "A lot of Te Awamutu moves involve families upsizing or downsizing within the Waipa district, or relocating to or from Hamilton. Either way, our Hamilton branch handles both ends. One crew, one truck, one job. We run seven days a week so the timing works around your settlement date.",
+      "For larger homes we offer a free viewing beforehand. It lets us give you an accurate quote and spot anything that needs extra hands or gear, a piano, a heavy workbench in the shed, a staircase that looks straightforward but is not. Our quotes come back in about 15 minutes during business hours, so you are not waiting around.",
+    ],
+    highlights: [
+      "29-minute run from our Hamilton base to Te Awamutu",
+      "Experienced with older brick and weatherboard homes on larger sections",
+      "Seven-day operation to fit Waipa district settlement dates",
+      "Free pre-move viewing for bigger homes in Te Awamutu",
     ],
     faqs: [
       {
-        q: "Do you cover rural properties around Te Awamutu?",
-        a: "Yes. we cover Te Awamutu town and surrounding rural roads from Hamilton. A viewing locks in truck access and a fixed price for your move.",
+        q: "How does pricing work for a Te Awamutu move?",
+        a: "Our hourly rate is the same across the region. Because Te Awamutu is about 29 minutes from our Hamilton base, it sits in a slightly higher callout zone than inner-city jobs. You see the full price before you confirm anything, no surprises on the day.",
       },
       {
-        q: "How far in advance should I book?",
-        a: "Two weeks is recommended for peak dates. Call us for shorter-notice moves, we schedule Te Awamutu jobs several times each week.",
+        q: "We are moving from Te Awamutu to Hamilton. Can you handle both ends in one job?",
+        a: "Yes, that is a straightforward run for us. Our Hamilton crew loads up in Te Awamutu and delivers straight to your Hamilton address. One booking covers the whole move.",
       },
       {
-        q: "Are travel costs included?",
-        a: "Yes. Te Awamutu is in-area from Hamilton. Travel is included in your written quote upfront.",
+        q: "Our home has a long driveway and a side gate we need to get furniture through. Is that a problem?",
+        a: "Not if we know about it in advance. Tell us at quote stage and we confirm clearances before move day. If the truck cannot get all the way in, we plan the carry distance rather than work it out on the spot.",
+      },
+      {
+        q: "Can you move a piano from Te Awamutu?",
+        a: "Yes. Piano moving is something we are known for across New Zealand, including work for Steinway dealers and Auckland Town Hall. A residential upright or a grand in a Te Awamutu home is well within what our crews handle regularly.",
       },
     ],
   },
@@ -1180,53 +1304,73 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   huntly: {
     metaDescription:
-      "Huntly movers on the Hamilton to Auckland corridor. We cover town and riverside homes from our Hamilton base, travel quoted upfront. Free quote.",
+      "Moving to or from Huntly? Specialist Movers runs crews out of Hamilton, about 28 minutes away. Honest pricing, real local knowledge, 1,500+ moves completed.",
     intro:
-      "Huntly sits on the Waikato River and the main Hamilton to Auckland route, a regular stop on our corridor runs from the Hamilton base.",
+      "Huntly sits right on the Waikato River, and the housing here tells that story. Older state homes, riverside sections, and a mix of long-term locals and people making a fresh start somewhere more affordable.",
     paragraphs: [
-      "We move Huntly town homes, riverside properties, and rural blocks on the town's edge. Larger moves get a viewing so driveways, access, and volume are clear before we lock your price.",
-      `Being right on the corridor, Huntly is easy to schedule alongside Hamilton and Auckland jobs. Home relocations, pianos, packing, and commercial work are all covered. ${waikatoInAreaPricing}`,
+      "A lot of Huntly homes were built for coal miners and their families, and that era shows. Solid brick and weatherboard houses with narrow hallways, low ceilings in some rooms, and front doors that furniture does not want to go through. We measure up before move day and plan which pieces come out which way.",
+      "The State Highway 1 corridor runs straight through Huntly, which sounds convenient until you realise truck access on some streets off the main road can be tight. We check parking and turning room beforehand so there are no surprises when we arrive with a full truck.",
+      "Huntly is about 28 minutes from our Hamilton base. That distance puts it in our pricing Zone B, so the fixed callout is a little higher than closer suburbs. You see the full cost before you confirm anything, and our hourly rate stays the same wherever in the region we are working.",
+      "People moving in Huntly are often doing a full house clearance, a family home handover, or a downsize. We run crews of two to four depending on the job, and we can handle packing the day before if you want the move itself to go faster. Quotes come back in about 15 minutes during business hours.",
     ],
     highlights: [
-      "On the Hamilton to Auckland corridor",
-      "Town, riverside, and rural blocks",
-      "Travel quoted upfront from Hamilton",
-      "Piano specialists, upright and grand",
+      "Older housing stock with narrow hallways, planned carefully",
+      "Access checks on tighter streets before move day",
+      "28 minutes from our Hamilton base, clear upfront pricing",
+      "Crews of 2 to 4 with trucks fitted with taillifts",
     ],
     faqs: [
       {
-        q: "Is Huntly easy to schedule?",
-        a: "Yes. Huntly is right on our Hamilton to Auckland corridor, so we can often combine it with other jobs and offer flexible dates.",
+        q: "Can you move furniture through the narrow hallways in older Huntly homes?",
+        a: "Yes, it is something we plan for. Older homes in Huntly often have tighter hallways and doorways than a modern build. We confirm measurements before move day so we know which route each piece takes, and we do not end up guessing on the day.",
       },
       {
-        q: "Are travel costs included for Huntly?",
-        a: "Yes. Huntly is in our in-area Waikato pricing from Hamilton, travel is in your written quote, with no surprise callout.",
+        q: "How does pricing work for a Huntly move?",
+        a: "Huntly sits in our Zone B, so the fixed callout is a little higher than suburbs closer to our Hamilton base, reflecting the 28-minute drive each way. The hourly rate is the same as anywhere else we work. You get the full price upfront before you book, no hidden extras.",
+      },
+      {
+        q: "Do you do moves on weekends? I need to hand the keys back on a Saturday.",
+        a: "Yes. We operate seven days a week, so a Saturday handover is not a problem. Book as early as you can because weekends fill up, especially at the end of the month.",
+      },
+      {
+        q: "We have a lot to pack. Can you help with that before the move day?",
+        a: "We offer a packing service the day before the move. Our crew comes through and boxes everything properly so move day is just loading and transport. It is worth asking about when you get your quote.",
       },
     ],
   },
   ngaruawahia: {
     metaDescription:
-      "Ngāruawāhia movers minutes from our Hamilton base. Specialist Movers covers town and rural moves at the river confluence, travel quoted upfront. Free quote.",
+      "Moving to or from Ngaruawahia? Specialist Movers runs crews from our Hamilton base, about 20 minutes away. Honest pricing, no surprises.",
     intro:
-      "Ngāruawāhia sits where the Waikato and Waipā rivers meet, just up the road from our Hamilton base, so it is a quick, low-travel run.",
+      "Ngaruawahia sits at the junction of the Waikato and Waipa rivers, and the town has its own character. Older bungalows, generous sections, and a tight-knit community that is growing steadily with families priced out of Hamilton proper.",
     paragraphs: [
-      "We move town homes, riverside properties, and rural blocks around Ngāruawāhia. A viewing before larger moves keeps driveways, gates, and volume clear in your fixed quote.",
-      `Close to Hamilton, Ngāruawāhia is easy to schedule on short notice. Home relocations, pianos, packing, and commercial work are all covered. ${waikatoInAreaPricing}`,
+      "A lot of the housing stock here is older. That means high stud ceilings, wide hallways, and solid timber furniture that was built to last. It also means the occasional tight corner on a staircase and the odd narrow gate between house and street. We check all of that before we load the truck.",
+      "Ngaruawahia is about 20 minutes from our Hamilton base, which puts it comfortably in our standard callout area. You see the full price before you book, no distance surcharge tucked in at the end. Quotes come back in about 15 minutes during business hours.",
+      "The town has a mix of long-established owner-occupiers and newer families moving in. That means a wide range of moves, a four-bedroom bungalow with a shed full of gear, a smaller unit near the main street, a deceased estate being cleared for sale. We have handled all of those across the 1,500 plus Auckland and Waikato moves we have completed.",
+      "We run seven days a week and carry full insurance. If you have a piano, we are the crew Steinway dealers in the region trust to move them. And if you need packing help the day before, or a clean once the house is empty, we can sort both.",
     ],
     highlights: [
-      "Minutes from our Hamilton base",
-      "Town and rural-block access planned",
-      "Travel quoted upfront",
-      "Piano specialists, upright and grand",
+      "About 20 minutes from our Hamilton base, standard callout zone",
+      "Older bungalows and solid timber furniture handled with care",
+      "Sections and sheds assessed before move day, not on the day",
+      "7-day operation, quotes back in about 15 minutes",
     ],
     faqs: [
       {
-        q: "How close is Ngāruawāhia to your base?",
-        a: "Just up the road from Hamilton, so it is a quick, low-travel run that is easy to schedule, often on shorter notice.",
+        q: "We have a large section with a long driveway. Can the truck get in?",
+        a: "Often yes, but we confirm width, overhead clearance, and turning room before move day. If the truck cannot get all the way in, we plan the carry distance in advance so nothing is improvised on the morning.",
       },
       {
-        q: "Are travel costs included?",
-        a: "Yes. Ngāruawāhia is in-area from Hamilton, travel is built into your written quote with no separate callout.",
+        q: "Our house is an older bungalow with a narrow side gate. Is that a problem?",
+        a: "It is something we plan for, not something that surprises us. We walk the access route, measure gaps if needed, and know how to angle furniture through a tight passage. Older Ngaruawahia homes come with character and we work with it.",
+      },
+      {
+        q: "How does pricing work for a move from Ngaruawahia to Hamilton or further afield?",
+        a: "Hourly rates are the same across our operating area. The fixed callout varies with distance from our depot, and because Ngaruawahia is about 20 minutes out, there is no distance premium worth worrying about. You see the full figure before you confirm anything.",
+      },
+      {
+        q: "Can you help pack up the house the day before the move?",
+        a: "Yes. We offer a packing service the day before your move date. It is a good option for larger Ngaruawahia homes where the shed and garage add a lot of volume. Just mention it when you get your quote and we will include it in the plan.",
       },
     ],
   },
