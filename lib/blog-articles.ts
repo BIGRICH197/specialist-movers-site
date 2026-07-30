@@ -590,6 +590,68 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "hoist-move-newmarket-how-we-did-it": {
+    title: "When the Stairs Are Not an Option: A Hoist Job in Newmarket",
+    sections: [
+      {
+        heading: "The job in plain terms",
+        paragraphs: [
+          "In late July 2026 we moved a commercial fit-out from a Newmarket showroom to a production office and warehouse elsewhere in Auckland. The load included some heavy items, among them safes, that could not go down the stairs without serious risk to the building, the gear, and the crew.",
+          "The solution was a hoist. That word gets used loosely, so here is what it means in practice: we rig a rated lifting system to get items vertically from one level to another, bypassing the stairwell entirely. It is not unusual in inner Auckland. Newmarket, Parnell, and Grey Lynn all have older commercial buildings where stairwells are narrow, tight-cornered, or simply not rated for the weight.",
+        ],
+      },
+      {
+        heading: "Why this job needed four people",
+        paragraphs: [
+          "A hoist move is not a two-person job. You need people at the top, people at the bottom, and someone managing the rig and the load in between. On this job we ran a crew of four.",
+          "The split roughly goes like this: one or two people guide and steady the item as it travels, one person operates the lift, and at least one more is on the receiving end to bring the item in safely once it clears the opening. Everyone has a clear role before anything leaves the floor. If one person is uncertain, we stop and reset. There is no rushing a loaded hoist.",
+        ],
+      },
+      {
+        heading: "Planning before the truck leaves our depot",
+        paragraphs: [
+          "For a job like this, site assessment is not optional. We need to know the weight of each item, the floor-to-floor height, what the anchor points are, whether there is a window or external opening large enough, and what is on the ground below. Safes are a particular case because their weight is not always obvious from the outside. A compact office safe can easily top 200 kg.",
+          "We also need to think about the footpath and any road space at ground level. Newmarket is busy. Depending on the building and the street, you may need a temporary traffic management plan or at minimum a spotter keeping pedestrians clear. We sort all of this before move day, not on the morning.",
+        ],
+      },
+      {
+        heading: "The gear we use",
+        paragraphs: [
+          "Our trucks run taillifts, which handled the ground-level loading at the destination warehouse end of this job. The hoist itself is rated lifting equipment, not improvised rope work. Items are wrapped and secured before they go on the rig. Safes get extra attention because their centre of gravity is not always where you expect it, and a tilting safe mid-air is a problem.",
+          "We carry furniture dollies, load straps, and corner guards as standard. For a commercial job with mixed items including showroom stock, wrapping and padding takes time and we factor that in. Rushing the wrap to save twenty minutes is how things get damaged.",
+        ],
+      },
+      {
+        heading: "How the day went",
+        paragraphs: [
+          "The crew worked methodically through the showroom items first, staging everything on the floor ready to go before the hoist was rigged. That staging step matters. Once you commit to a hoist lift you do not want to be hunting for the next item while the rig is set up.",
+          "The safes went last. Heavier items at the end means the team is not already tired when the hardest lift happens. Every item was checked at the bottom and again at the top before moving it further. The destination warehouse had good vehicle access, so the tailift on the truck made short work of offloading once everything arrived.",
+        ],
+      },
+      {
+        heading: "What can go wrong and how we avoid it",
+        paragraphs: [
+          "The most common problem on hoist jobs is underestimating time. Rigging, lifting, de-rigging, and re-rigging for the next item all take longer than carrying something down stairs would, if stairs were an option. Customers sometimes expect the clock to run at normal pace. It does not, and we are upfront about that.",
+          "The second issue is anchor points. Not every building has a suitable place to fix a hoist without damaging the structure. We check this on the site visit. If the anchor situation is awkward, there are other approaches, including crane hire for very large loads, but that is a different scope and we would say so clearly.",
+        ],
+      },
+      {
+        heading: "What you should do if you have a similar job",
+        paragraphs: [
+          "First, do not try to guess whether stairs will work. Get someone with hoist experience to look at the job before move day. We offer free viewings for larger or complex moves. It costs you nothing and it means there are no surprises on the day.",
+          "Second, know the weight of your heavy items if you can. Safe manufacturers usually list it. If you have bought secondhand and do not have the spec sheet, we can often help identify the model and look it up.",
+          "Third, give yourself a realistic time window. A hoist job in central Auckland with parking and traffic considerations is not a half-day job if there are multiple heavy items. Budget the time properly and the whole thing goes smoothly.",
+        ],
+      },
+      {
+        heading: "Getting a quote",
+        paragraphs: [
+          "If you have a heavy item, an awkward floor, or a commercial space in Auckland that needs clearing, we are worth talking to. We have completed over 1,500 Auckland moves and hoist and crane-assist jobs are a regular part of that work.",
+          "Send us the details through the quote form on our website. In business hours we usually come back to you in about 15 minutes. You see the full price upfront before you commit to anything.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {

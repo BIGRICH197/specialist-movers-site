@@ -309,4 +309,12 @@ export const blogPosts = [
     excerpt:
       "A 900mm-wide fridge, an 820mm balcony gap, one flight of stairs. Here is exactly how our two-person crew planned and completed this St Heliers job.",
   },
+  {
+    slug: "hoist-move-newmarket-how-we-did-it",
+    title: "When the Stairs Are Not an Option: A Hoist Job in Newmarket",
+    seoTitle: "Hoist Movers Auckland: A Real Job Story | Specialist Movers",
+    publishedDate: "2026-07-30",
+    excerpt:
+      "A Newmarket commercial move needed a hoist to shift heavy items safely. Here is exactly how our four-person crew planned and executed it.",
+  },
 ] as const;
