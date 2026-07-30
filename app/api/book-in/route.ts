@@ -7,6 +7,7 @@ import {
   STAGE_CLOSED_WON,
 } from "@/lib/hubspot";
 import { createPianoCard } from "@/lib/piano-card";
+import { saveDirectBooking, attachDealToDirectBooking } from "@/lib/direct-booking";
 
 export const runtime = "nodejs";
 
@@ -90,6 +91,27 @@ export async function POST(request: Request) {
 
   const isPiano = serviceType === "piano";
 
+  // SAVE FIRST. Slack, HubSpot and Trello below are all best-effort — each is
+  // wrapped so a failure can't break the booking — which means none of them can
+  // be the record. Persist to Supabase before any of them, and if that fails,
+  // tell the customer honestly instead of returning ok and losing their move.
+  // The saved row is also what carries the booking to ShiftMate v2, via the
+  // existing publisher.
+  let token: string;
+  try {
+    token = await saveDirectBooking({ serviceType, fields });
+  } catch (err) {
+    console.error("book-in save failed:", err);
+    return NextResponse.json(
+      {
+        ok: false,
+        error:
+          "We could not save your booking. Nothing has been booked — please call us on (021) 228 2728 and we'll sort it straight away.",
+      },
+      { status: 503 },
+    );
+  }
+
   // Tell the team a job has been booked in.
   const summary = [
     `:calendar: *Job booked in* (${serviceType}) — ${fields.fullName || ""}`,
@@ -137,6 +159,10 @@ export async function POST(request: Request) {
       console.error("book-in deal handling failed:", err);
     }
   }
+
+  // Link the deal to the saved booking so the v2 publisher reuses it rather than
+  // creating a second deal for the same job.
+  if (hubspotDealId) await attachDealToDirectBooking(token, hubspotDealId);
 
   // Create the Trello job card. Piano goes through its own card builder (piano
   // list custom fields); house reuses the proven spm-booking webhook.
