@@ -652,6 +652,81 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "how-to-choose-a-moving-company-auckland": {
+    title: "How to Choose a Moving Company in Auckland: the Exact Questions to Ask Before You Book",
+    sections: [
+      {
+        heading: "Why this matters more than most people think",
+        paragraphs: [
+          "Most people spend more time researching a new TV than they do picking a moving company. That is understandable. Moving is already a lot to manage.",
+          "But a bad choice on moving day costs real money and real stress. Furniture gets damaged. The truck turns up two hours late. Suddenly there are charges on the invoice that were never mentioned.",
+          "Auckland has dozens of removalist companies. Some are excellent. Some will let you down. The difference usually shows up in the answers to a handful of simple questions. Ask them before you book, and you will be in a much better position.",
+        ],
+      },
+      {
+        heading: "Hourly rate vs fixed price: what you actually need to know",
+        paragraphs: [
+          "Most Auckland movers charge by the hour. That is normal and fair, but you need to understand exactly what the clock covers.",
+          "Ask: does the hourly rate start when the truck leaves the depot, or when it arrives at my door? Some companies charge travel time both ways. Others only charge from arrival. That gap can be an hour of billable time on a move from, say, Albany down to Onehunga.",
+          "Also ask about the minimum charge. Many companies have a two or three hour minimum. If your move is small, a fixed-price quote might work out cheaper. Ask whether they offer that option.",
+          "At Specialist Movers, hourly rates are the same across Auckland. The fixed callout fee varies with distance from our depot, and you see the full price upfront before you book. No surprises on the invoice.",
+        ],
+      },
+      {
+        heading: "Insurance: the question most people forget to ask",
+        paragraphs: [
+          "Ask this directly: are my belongings covered if something is damaged during the move, and what does that cover actually include?",
+          "New Zealand's consumer law gives you some protection, but basic liability and full replacement value are very different things. A company that does insurance pack-out work for insurers, as we do, understands the difference clearly.",
+          "Ask whether their insurance covers items they did not pack. Many policies exclude self-packed boxes. If you are packing yourself, know that going in.",
+          "Also ask what the claims process looks like. A vague answer is a red flag. A good company can tell you exactly what to do if something goes wrong.",
+        ],
+      },
+      {
+        heading: "Stairs, tight access, and Auckland's tricky properties",
+        paragraphs: [
+          "Auckland is full of properties that make moving harder than it looks on paper. Steep driveways in Ponsonby. Apartment towers in the CBD with one service lift shared between three crews. Split-level homes on the North Shore with steps everywhere.",
+          "Ask: is there an extra charge for stairs, and how do you calculate it? Some companies charge per flight. Others include a certain number of steps in the base rate. Know what you are getting.",
+          "Ask about access for the truck. A standard moving truck needs a reasonable amount of clearance. If your street is narrow or has parking restrictions, ask whether they carry the right equipment to work from a distance. Trucks with taillifts make a big difference on difficult sites.",
+          "For larger or more complex homes, it is worth asking for a free viewing before you confirm. We offer that for bigger moves. It means no surprises on the day.",
+        ],
+      },
+      {
+        heading: "What happens if it rains",
+        paragraphs: [
+          "Auckland gets a lot of rain. Any moving company that acts surprised by this is not well prepared.",
+          "Ask: what do you do to protect furniture and floors in wet weather? Good movers carry blankets, shrink wrap, and floor protection as standard. They do not wait to be asked.",
+          "Ask whether the truck has a taillift and whether it is covered. Loading in the rain from an open truck deck is messy and slow. A taillift with a covered rear makes a real difference.",
+          "You should also ask what happens if you need to reschedule because of severe weather. Understand the policy before your move date arrives.",
+        ],
+      },
+      {
+        heading: "Red flags to watch for",
+        paragraphs: [
+          "No physical address or depot listed anywhere. A reputable Auckland company has a real base of operations.",
+          "Quotes given over the phone in thirty seconds with no questions asked about your property. A proper quote requires knowing how many rooms, what floor, what access is like, and what large items you have.",
+          "Cash-only payment with no written confirmation. Always get the quote and the terms in writing before moving day.",
+          "No Google reviews, or reviews that all appeared within a short window. Check the pattern, not just the star rating. A steady stream of detailed reviews over time is a better sign than fifty generic ones posted in a week.",
+          "Reluctance to answer the questions in this article. A crew that does this job properly has heard these questions before and is happy to answer them.",
+        ],
+      },
+      {
+        heading: "A few more things worth checking",
+        paragraphs: [
+          "Ask how many people will be on the crew. For a standard three-bedroom house, two movers is workable but tight. Three or four movers on the day means the job gets done faster and with less handling risk for your furniture. We run crews of two to four depending on the job.",
+          "Ask whether they operate seven days a week. Weekend availability matters in Auckland because settlement dates and lease handovers do not always fall on a Tuesday.",
+          "Ask how quickly you can get a quote. Waiting days for a number is a sign of how they will communicate on moving day too. In business hours, we get quotes back in around fifteen minutes.",
+        ],
+      },
+      {
+        heading: "Ready to get a straight answer on your move",
+        paragraphs: [
+          "We have completed over 1,500 Auckland moves, from single-bedroom apartments in Grey Lynn to full family homes on the Shore. We are happy to answer every question on this list before you commit to anything.",
+          "If you have a larger home and want us to come and see it first, we offer free viewings. If you just want a fast number, fill in the quote form on our website and we will come back to you quickly.",
+          "No pressure, no vague answers. Just a clear price and a straight conversation about what your move involves.",
+        ],
+      },
+    ],
+  },
   "piano-and-couch-lift-to-balcony-freemans-bay-auckland": {
     title: "How We Got a Piano and a Couch Up to a Freemans Bay Balcony",
     sections: [
@@ -701,6 +776,76 @@ export const blogArticles: Record<string, BlogArticle> = {
           "Tell us the item type and weight if you know it, the balcony height, and what access looks like from the street below. Photos help a lot. We can usually come back to you with a plan and a price in about 15 minutes during business hours.",
           "A free viewing is available for larger or more complex jobs. We would rather spend 20 minutes at the property than have anyone surprised on the day.",
           "Freemans Bay, Grey Lynn, Ponsonby, Parnell, buildings along the waterfront near Westhaven, apartments in the CBD, all of these areas come with access quirks. We have handled them across more than 1,500 Auckland moves. If you have got an awkward item, use the quote form on our website and tell us what you are working with.",
+        ],
+      },
+    ],
+  },
+  "moving-house-with-kids-and-pets-nz": {
+    title: "Moving House with Kids and Pets: How to Keep the Day on Track",
+    sections: [
+      {
+        heading: "The honest truth about moving day with kids and animals",
+        paragraphs: [
+          "Moving day is loud, unpredictable, and full of strangers carrying your couch through the hallway. For kids and pets, that is a lot to take in. The good news is that a bit of planning the week before makes a real difference on the day itself.",
+          "This guide is for Auckland families doing a full home move. It covers what to sort in advance, how to structure the actual moving day, and how to help pets settle once you arrive. There is also a section on school zones, because the timing of your move can affect your kids for years.",
+        ],
+      },
+      {
+        heading: "Two weeks out: decisions that make the day easier",
+        paragraphs: [
+          "Work out where the kids and pets will actually be on moving day. This sounds obvious, but it is the thing families leave too late. If you have a toddler or an anxious dog, having them underfoot while the crew loads a piano is not safe for anyone.",
+          "For younger children, ask a family member or friend to take them for the day. A grandparent in Remuera or a friend in Blockhouse Bay works just as well as paid childcare. The goal is a calm environment for the child and a clear house for the movers.",
+          "For pets, the same logic applies. Dogs especially pick up on the stress of boxes appearing and furniture disappearing. Book a day-stay with a local dog walker or a pet boarding service in advance. For cats, a single quiet room with a closed door, food, water, and their litter box works well. Put a note on the door so nobody opens it by accident.",
+        ],
+      },
+      {
+        heading: "The night before: pack for humans first",
+        paragraphs: [
+          "Pack an overnight bag for each child the same way you would for a short trip. Pyjamas, a change of clothes, their favourite toy, and any comfort item they sleep with. Keep this bag with you, not on the truck.",
+          "Do the same for pets. Pack a bag or box with food, bowls, leads, medication, and bedding. Familiar smells help animals settle faster in a new space. If you use a professional packing service the day before your move, keep the pet and kids bags separate so they do not get packed by accident.",
+          "If your cat or dog has not been in a carrier for a while, bring it out a few days before the move and leave it open in the lounge. Letting them go in and out on their own terms means the carrier does not feel like a trap on moving day.",
+        ],
+      },
+      {
+        heading: "On the day: structure it like a building site",
+        paragraphs: [
+          "Good movers work to a system. You should too. Before the crew arrives, do a final walk-through and close off any rooms that are off-limits, especially if a pet is in there.",
+          "Tell the crew upfront. Something like: the cat is in the laundry, please keep that door closed. Any experienced crew will appreciate the heads-up and work around it without a fuss.",
+          "If your kids are home during the move, give them a specific job. Older children can be in charge of their own boxes. Younger ones can help carry light items to a designated spot. Feeling involved tends to reduce the anxiety of watching their bedroom disappear into a truck.",
+          "Keep snacks and drinks accessible all day, for kids and adults. Hunger makes everything harder. A chilly bin with sandwiches and juice boxes near the front door is not glamorous but it works.",
+        ],
+      },
+      {
+        heading: "Settling pets into a new home",
+        paragraphs: [
+          "Cats are territorial and can take weeks to feel safe in a new home. Start them in one room with their food, litter, and bedding. After a day or two, open the door and let them explore at their own pace. Do not force it.",
+          "Dogs adjust faster but still need routine. Walk them around the new street on the first evening. Stick to their normal feeding and walk times as closely as you can. In Auckland, most suburban areas have good footpaths and parks nearby. Getting them out and sniffing around helps them claim the new territory.",
+          "Check fences and gates before you let a dog into the garden unsupervised. A new property in an area like Titirangi or the Shore might have old fencing you have not inspected closely. It takes five minutes and it matters.",
+          "For smaller pets like rabbits or guinea pigs, keep them inside for the first few days and make sure their enclosure is set up early in the unpacking process. They are often forgotten in the chaos.",
+        ],
+      },
+      {
+        heading: "School zones: why the timing of your move matters",
+        paragraphs: [
+          "In Auckland, living in zone for a school makes a real difference to enrolment. Schools like Westlake Boys, Rangitoto College, and many sought-after primary schools have strict in-zone criteria. Your address on enrolment day is what counts.",
+          "If you are moving to get into a specific zone, talk to the school before you move, not after. Find out exactly what proof of address they need and when they need it. Some schools want a confirmed tenancy or title plus a utility bill. Others are stricter.",
+          "Term timing also matters. Moving mid-term is harder on kids socially than moving at the start of a new school year or at the beginning of Term 1 or Term 3. If you have any flexibility on settlement date, use it. Talk to your real estate agent or property manager about whether a short-term rental gap is possible to line things up.",
+          "Starting at a new school is big for a child. If you can, visit the school with them before the first day. Walk the route from the new house. Small things like knowing where the gates are and where you drop off make the first week easier.",
+        ],
+      },
+      {
+        heading: "The first night in the new house",
+        paragraphs: [
+          "Set up the kids rooms first. Not perfectly, just enough. Beds made, a lamp working, their bag unpacked. A familiar bedroom at the end of a big day helps children feel settled quickly.",
+          "Do not worry about the rest of the house that evening. Leave the kitchen boxes for the morning. Order a pizza, sit on the floor, and let the kids feel like it is an adventure rather than a disruption.",
+          "Pets should stay inside overnight in a new property. Cats especially should not go outside until they have had at least a few days to get used to the new smells indoors.",
+        ],
+      },
+      {
+        heading: "Ready to plan your Auckland move?",
+        paragraphs: [
+          "Across more than 1,500 Auckland moves, we have helped families with complicated logistics, tight timelines, and the full range of things that can go wrong when you are moving a whole household with children and animals in tow.",
+          "We operate seven days a week, so you can book around school drop-off, vet appointments, or whatever your week looks like. For larger homes we offer a free viewing so we can give you an accurate quote, not a rough guess. Send us the details through our website and you will usually have a quote back within 15 minutes during business hours.",
         ],
       },
     ],

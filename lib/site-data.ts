@@ -325,4 +325,20 @@ export const blogPosts = [
     excerpt:
       "A Freemans Bay apartment job that needed a piano moved and a couch lifted to a balcony. Here's exactly how our crew planned and pulled it off.",
   },
+  {
+    slug: "how-to-choose-a-moving-company-auckland",
+    title: "How to Choose a Moving Company in Auckland: the Exact Questions to Ask Before You Book",
+    seoTitle: "How to Choose a Moving Company Auckland | Specialist Movers",
+    publishedDate: "2026-07-30",
+    excerpt:
+      "Not all Auckland removalists are the same. Here are the exact questions to ask before you hand over your keys and your couch.",
+  },
+  {
+    slug: "moving-house-with-kids-and-pets-nz",
+    title: "Moving House with Kids and Pets: How to Keep the Day on Track",
+    seoTitle: "Moving with Kids & Pets NZ | Specialist Movers",
+    publishedDate: "2026-07-30",
+    excerpt:
+      "Practical advice for Auckland families moving house with children and pets. Plan the day, settle animals fast, and time your move around school zones.",
+  },
 ] as const;
