@@ -50,6 +50,21 @@ const PIANO_REQUIRED = [
   "stairs",
 ];
 
+// The piano booking webhook lives next to the house one on the same n8n tenant.
+// PIANO_BOOKING_WEBHOOK wins when set; otherwise derive it from
+// QUOTE_BOOKING_WEBHOOK so adding the house webhook to an environment is enough
+// to light both up.
+function pianoWebhookUrl(): string | undefined {
+  if (process.env.PIANO_BOOKING_WEBHOOK) return process.env.PIANO_BOOKING_WEBHOOK;
+  const house = process.env.QUOTE_BOOKING_WEBHOOK;
+  if (!house) return undefined;
+  try {
+    return new URL("spm-piano-booking-4c81de37a9b2", house).toString();
+  } catch {
+    return undefined;
+  }
+}
+
 function missingFields(serviceType: string, fields: Record<string, string>): string[] {
   if (serviceType === "piano") {
     return PIANO_REQUIRED.filter((k) => !fields[k]?.trim());
@@ -164,9 +179,28 @@ export async function POST(request: Request) {
   // creating a second deal for the same job.
   if (hubspotDealId) await attachDealToDirectBooking(token, hubspotDealId);
 
-  // Create the Trello job card. Piano goes through its own card builder (piano
-  // list custom fields); house reuses the proven spm-booking webhook.
-  if (isPiano) {
+  // Create the Trello job card. Each move type has its own n8n webhook — house
+  // on spm-booking (which also handles hosted-quote bookings), piano on
+  // spm-piano-booking. Both webhooks also send the customer the "we've received
+  // your booking form" acknowledgement, which is why piano no longer builds its
+  // card in-process: an in-process card gets no ack.
+  const webhook = isPiano ? pianoWebhookUrl() : process.env.QUOTE_BOOKING_WEBHOOK;
+  if (webhook) {
+    const headers: Record<string, string> = { "Content-Type": "application/json" };
+    const webhookSecret = process.env.QUOTE_BOOKING_SECRET;
+    if (webhookSecret) headers["X-SPM-Webhook-Secret"] = webhookSecret;
+    try {
+      await fetch(webhook, {
+        method: "POST",
+        headers,
+        body: JSON.stringify({ quoteType: serviceType, booking: fields, hubspotDealId }),
+      });
+    } catch (err) {
+      console.error("book-in webhook failed:", err);
+    }
+  } else if (isPiano) {
+    // No webhook configured — fall back to the old in-process card builder so a
+    // missing env var costs the ack email, never the Trello card.
     try {
       await createPianoCard({
         fullName: fields.fullName,
@@ -182,22 +216,6 @@ export async function POST(request: Request) {
       });
     } catch (err) {
       console.error("piano card create failed:", err);
-    }
-  } else {
-    const webhook = process.env.QUOTE_BOOKING_WEBHOOK;
-    if (webhook) {
-      const headers: Record<string, string> = { "Content-Type": "application/json" };
-      const webhookSecret = process.env.QUOTE_BOOKING_SECRET;
-      if (webhookSecret) headers["X-SPM-Webhook-Secret"] = webhookSecret;
-      try {
-        await fetch(webhook, {
-          method: "POST",
-          headers,
-          body: JSON.stringify({ quoteType: serviceType, booking: fields, hubspotDealId }),
-        });
-      } catch (err) {
-        console.error("book-in webhook failed:", err);
-      }
     }
   }
 
