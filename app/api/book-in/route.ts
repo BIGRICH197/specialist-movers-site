@@ -193,7 +193,9 @@ export async function POST(request: Request) {
       await fetch(webhook, {
         method: "POST",
         headers,
-        body: JSON.stringify({ quoteType: serviceType, booking: fields, hubspotDealId }),
+        // token = the saved direct-booking row; n8n's ShiftMate publish uses it
+        // as its idempotency key, so it must ride along.
+        body: JSON.stringify({ quoteType: serviceType, booking: fields, hubspotDealId, token }),
       });
     } catch (err) {
       console.error("book-in webhook failed:", err);
