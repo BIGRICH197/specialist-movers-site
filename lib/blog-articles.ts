@@ -727,6 +727,83 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "downsizing-retirement-village-auckland": {
+    title: "Moving to a Retirement Village in Auckland: A Plain Guide to Downsizing",
+    sections: [
+      {
+        heading: "The decision to downsize is big. The move itself does not have to be.",
+        paragraphs: [
+          "Most people spend decades filling a family home. Rymans on the North Shore, Summerset villages out in Karaka, Metlifecare spots in Remuera, the options around Auckland are plenty. But every one of those villages has a unit size that is smaller than what you are leaving behind.",
+          "That gap between what you own and what will fit is the real challenge. Getting it right before moving day saves a lot of grief. This guide walks you through the main steps: sorting your belongings, managing dates, handling storage, and making sure your moving crew actually knows what they are walking into.",
+        ],
+      },
+      {
+        heading: "Start with the floor plan, not the feelings",
+        paragraphs: [
+          "Before you decide what comes, get the exact dimensions of your new unit. Most Auckland retirement villages will give you a floor plan. If they will not, measure it yourself on a visit.",
+          "Then go room by room at your current home and ask one question: does this fit, and do I use it? Furniture that works in a large Remuera villa often overwhelms a two-bedroom unit in Orewa. A big dining table, a second sofa, a king bed that barely clears the walls, these are common culprits.",
+          "Write three lists: keep, sell or give away, and unsure. Leave the unsure pile for a second pass a week later. You will find most of the unsure items shift to the second column once you have slept on it.",
+          "Involve family early. Adult children often want certain pieces. Others will be happy to take furniture that would otherwise go to Trade Me or the Salvation Army on Great South Road. Getting family commitments in writing, even just a text, saves arguments later.",
+        ],
+      },
+      {
+        heading: "Settlement dates and the gap nobody warns you about",
+        paragraphs: [
+          "Here is the thing most people do not think about until it is too late. Your sale settles on one date. Your village occupation date is another. Rarely are they the same day.",
+          "In Auckland's property market, a week or two between settlement dates is common. Sometimes it is longer, especially if your village unit needs a small freshen-up before you move in. That gap is real and it needs a plan.",
+          "Talk to your lawyer early about whether a short rent-back from your buyer is possible. Some buyers will allow it for a week or two, particularly in quieter suburbs like Titirangi or Howick where they are not in a rush. It is not guaranteed, but it is worth asking.",
+          "If a rent-back is not possible, you need a short-term option. That might mean staying with family. It might mean a short-stay apartment. Either way, your furniture still needs somewhere to go.",
+        ],
+      },
+      {
+        heading: "Storage: what to look for and what to watch",
+        paragraphs: [
+          "Auckland has plenty of storage options. Kennards and Storage King have sites around the city, and there are smaller local operators in places like Henderson and Penrose. For a gap of one to four weeks, a standard unit is usually enough for the excess furniture from a typical three-bedroom home.",
+          "A few things to check before you book. Make sure the unit is ground floor or the facility has a lift big enough for furniture. Find out if you can access it seven days a week, because moving days do not always fall on a Tuesday. Check that the insurance cover is clear, either through the facility or your own contents policy.",
+          "If you are moving a piano, be especially careful. Pianos need climate-stable storage. A metal shed that bakes in the Auckland summer will damage soundboards and felts. Ask specifically about temperature control before you commit.",
+          "The cleanest approach is a two-stage move. Your moving crew loads everything on day one and takes it to storage. On village move-in day, they reload and deliver only what is going into the unit. It costs more than a single move, but it is far less stressful than trying to sort keep-versus-store while the truck is parked in the driveway.",
+        ],
+      },
+      {
+        heading: "Why a viewing matters more for these moves",
+        paragraphs: [
+          "A viewing is when a mover comes to your home before the job, walks through with you, and works out exactly what is involved. For a standard two-bedroom flat this is often optional. For a downsizing move from a large family home, it is worth doing.",
+          "Here is why. Retirement village access is often tighter than a standard home. Villages like those in Takapuna or Botany have shared driveways, low carports, and strict booking windows for the service lift in apartment blocks. A crew that has not seen the site can lose an hour working out the logistics on the day.",
+          "A viewing also lets you show the mover exactly which items are going and which are not. That clarity is everything. It means the crew is not stopping to ask questions every ten minutes. It means the quote you get reflects the actual job, not a rough estimate.",
+          "We offer free viewings for larger homes. It takes about half an hour and it makes the whole job sharper.",
+        ],
+      },
+      {
+        heading: "On the day: a few things that help",
+        paragraphs: [
+          "Label everything before the crew arrives. A simple system works fine. Green tape for the village, blue tape for storage, red tape for family collection. It sounds basic but it removes every grey-area decision from moving day.",
+          "Keep a small bag with the things you will need for the night separate from everything else. Medications, phone charger, a change of clothes, the kettle. Pack this yourself and keep it in your car.",
+          "If you have a piano coming with you, tell the moving company upfront. Not every crew is set up for this. Specialist Movers is trusted by Steinway dealers and does piano moves regularly, including into village units where the hallway is tight and the carpet is new. It is worth flagging early so the right equipment comes on the truck.",
+          "Finally, let the retirement village know the moving date as far ahead as possible. Many villages have a coordinator who manages move-in bookings. Some have rules about which entrance vehicles can use or what hours are allowed. Getting this confirmed in writing saves trouble on the day.",
+        ],
+      },
+      {
+        heading: "What the whole process looks like end to end",
+        paragraphs: [
+          "Here is a simple timeline that works for most Auckland downsizing moves.",
+          "About eight weeks out: get your village floor plan and measure your furniture. Start your three lists. Talk to family about items they want.",
+          "Six weeks out: confirm your settlement dates with your lawyer. Work out whether you have a gap and how long it is. Book storage if you need it.",
+          "Four weeks out: contact a moving company and arrange a viewing. Lock in your moving dates. Confirm with the village coordinator.",
+          "One week out: finish labelling. Arrange the two-stage move if you are going via storage. Confirm access details with the village.",
+          "The day before: a packing service can do this for you if needed, with a crew coming in to wrap and box everything properly so nothing is rushed on moving day itself.",
+          "Moving day: let the crew do their job. You have done the hard thinking already.",
+        ],
+      },
+      {
+        heading: "Ready to get a clear picture of your move?",
+        paragraphs: [
+          "Downsizing from a family home in Auckland is one of the more involved moves we do, and we have done well over 1,500 Auckland moves to draw on. Every job is different, every village has its own quirks, and every family has a slightly different plan for the furniture that does not make the cut.",
+          "If you have a rough idea of what you are working with, our quotes come back in about 15 minutes during business hours. For larger homes, a free viewing gives you a more accurate price and lets us flag anything worth knowing before moving day arrives.",
+          "Head to our website and fill in the quote form. No pressure, just a straight answer on what your move is likely to involve.",
+        ],
+      },
+    ],
+  },
   "piano-and-couch-lift-to-balcony-freemans-bay-auckland": {
     title: "How We Got a Piano and a Couch Up to a Freemans Bay Balcony",
     sections: [
@@ -846,6 +923,66 @@ export const blogArticles: Record<string, BlogArticle> = {
         paragraphs: [
           "Across more than 1,500 Auckland moves, we have helped families with complicated logistics, tight timelines, and the full range of things that can go wrong when you are moving a whole household with children and animals in tow.",
           "We operate seven days a week, so you can book around school drop-off, vet appointments, or whatever your week looks like. For larger homes we offer a free viewing so we can give you an accurate quote, not a rough guess. Send us the details through our website and you will usually have a quote back within 15 minutes during business hours.",
+        ],
+      },
+    ],
+  },
+  "moving-in-winter-auckland": {
+    title: "Moving in Winter Auckland: Why July to September Might Be Your Best Option",
+    sections: [
+      {
+        heading: "Winter moves get a bad reputation they don't deserve",
+        paragraphs: [
+          "Most people plan their move for summer. Warm weather, school holidays, long evenings. It makes sense on paper. But in Auckland, that thinking drives demand through the roof from November through to February. Trucks are booked weeks out. Move dates are rigid. Prices reflect the pressure.",
+          "July through September is different. Demand is lower, crews have more space in the schedule, and you have real room to negotiate your date. If something changes at settlement or your tenancy needs to shift by a week, that flexibility is worth a lot.",
+          "Auckland winters are mild compared to most of the country. Yes, it rains. But it does not snow on the North Shore or freeze in Epsom. A bit of drizzle is manageable when a crew knows what it is doing.",
+        ],
+      },
+      {
+        heading: "What availability actually looks like in winter",
+        paragraphs: [
+          "During peak summer season, a Saturday in December can fill up fast. In July, you are much more likely to get the exact date you want, including weekends. We operate seven days a week, so Monday to Sunday is all on the table.",
+          "That matters if your settlement date lands on a Wednesday or your lease ends mid-week. In winter you can usually align everything without juggling around someone else's booking.",
+          "Larger homes benefit from a free viewing so we can size the job properly. In quieter months those viewings are easier to schedule quickly, and you get your quote back in about 15 minutes during business hours rather than waiting in a queue.",
+        ],
+      },
+      {
+        heading: "How we keep furniture dry when it rains",
+        paragraphs: [
+          "Rain is the main thing people worry about. Here is what actually happens on a wet Auckland moving day.",
+          "Our trucks have taillifts. That means furniture goes straight from your doorway onto the truck platform without being carried through open air any longer than necessary. The taillift sits flush with the truck, so the path is short and covered by the truck canopy.",
+          "Everything goes into furniture blankets before it moves. Blankets are thick, they absorb surface moisture, and they protect corners and edges regardless of weather. Flat-screen TVs and anything electronic get wrapped in plastic first, then blanketed. Mattresses go into mattress bags. Nothing sits exposed.",
+          "On a heavy rain day we work the doorways hard. One person inside, one at the truck, items moving in a steady rhythm rather than sitting on a wet driveway. The goal is zero dwell time in the open.",
+        ],
+      },
+      {
+        heading: "Preparing your home for a wet-weather move",
+        paragraphs: [
+          "A bit of prep on your end makes a big difference. Lay down old towels or cardboard in your hallway the night before. Movers will be going in and out, and floors get slippery fast on a rainy morning in a Ponsonby villa or a Remuera townhouse with polished timber.",
+          "Put anything small and water-sensitive, documents, chargers, laptops, into a bag you carry yourself. That keeps it with you and out of the truck entirely.",
+          "If you have a long path from your front door to the street, let us know before moving day. On a tight West Auckland site or a Newmarket apartment building with a covered carpark we can often position the truck to shorten the carry. A quick chat beforehand sorts this.",
+        ],
+      },
+      {
+        heading: "The day before: packing can take the pressure off",
+        paragraphs: [
+          "One thing that makes a rainy moving day much calmer is having everything already boxed and ready. Our packing service runs the day before your move. The crew comes in, packs your kitchen, linen, breakables, whatever you need done, and everything is sealed and labelled before the truck arrives.",
+          "On a wet morning, that means the movers are loading boxes and furniture straight away. No scrambling to finish packing while rain comes in through an open door. It keeps the job tight and the floors drier.",
+        ],
+      },
+      {
+        heading: "What about moving into a place that needs cleaning first?",
+        paragraphs: [
+          "Sometimes the property you are leaving needs a thorough clean before you hand the keys back. We offer move-out cleaning, so you are not organising a separate tradesperson on top of everything else.",
+          "In winter this is often easier to schedule because demand for cleaning crews eases off too. Worth factoring in if your tenancy agreement requires the place to be left in a specific condition.",
+        ],
+      },
+      {
+        heading: "Is winter right for every move?",
+        paragraphs: [
+          "Honestly, not always. If you have very small children who need to be out of the house for a long day, a cold wet day is harder to manage. If your new property has a long exposed pathway and no shelter, the crew will manage it but it takes longer.",
+          "For most households though, the combination of better availability, flexible dates, and a professional crew that handles wet weather every week makes July to September a genuinely good window. We have completed well over 1,500 Auckland moves and a solid chunk of those have been in winter. The process is well worn in.",
+          "If you are weighing up dates or want to know how a winter move would work for your specific property, the easiest thing is to get a quote through our website. Fill in the details, and we will come back to you with a clear price and what the day would look like. No pressure, just information.",
         ],
       },
     ],
