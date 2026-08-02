@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getQuote, tokenFromRef, setQuoteStatus } from "@/lib/quote-store";
-import { pingBookings, quoteUrl } from "@/lib/quote-notify";
+import { pingQuotes, quoteUrl } from "@/lib/quote-notify";
 import {
   quoteTotalInclGst,
   quoteAddOnBreakdown,
@@ -55,7 +55,7 @@ export async function POST(request: Request) {
     : "Insurance: no (owner's risk)";
   const addOnLine = [cleaningLine, packingLine, insuranceLine].join("  |  ");
 
-  await pingBookings(
+  await pingQuotes(
     `:white_check_mark: *${stored.quote.clientName}* accepted their quote ` +
       `(${stored.quoteType || "move"}, ${total} incl GST) and is filling out the booking form.\n` +
       `${addOnLine}\n` +

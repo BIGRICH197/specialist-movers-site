@@ -21,7 +21,7 @@ export default function BookPage() {
           >
             <span className="font-heading text-lg text-brand-purple">House move</span>
             <span className="mt-1 block text-sm text-brand-purple/70">
-              Homes, apartments, townhouses and office moves.
+              Homes, apartments, and townhouses.
             </span>
           </Link>
 
@@ -32,6 +32,16 @@ export default function BookPage() {
             <span className="font-heading text-lg text-brand-purple">Piano or large item</span>
             <span className="mt-1 block text-sm text-brand-purple/70">
               Pianos, spa pools, and other specialist items.
+            </span>
+          </Link>
+
+          <Link
+            href="/book/office"
+            className="block rounded-2xl bg-white p-5 shadow-sm transition hover:shadow-md"
+          >
+            <span className="font-heading text-lg text-brand-purple">Office move</span>
+            <span className="mt-1 block text-sm text-brand-purple/70">
+              Offices, commercial and business relocations.
             </span>
           </Link>
         </div>

@@ -15,7 +15,8 @@ export type BookingTermsSection = {
   tail?: string[];
 };
 
-export const BOOKING_TERMS_VERSION = "2026-07-official-4";
+export const BOOKING_TERMS_VERSION = "2026-08-official-5";
+export const COMMERCIAL_TERMS_VERSION = "2026-08-commercial-1";
 
 export const bookingTerms: BookingTermsSection[] = [
   {
@@ -141,9 +142,10 @@ export const bookingTerms: BookingTermsSection[] = [
   {
     heading: "The Contract and Commercial Law Act 2017 - Owner's Risk",
     paragraphs: [
-      "Insurance is not included for household goods and personal effects. Our prices do not include insurance cover. Our transport delivery service is carried at the owner's (customer's) risk with no insurance, as defined by the Contract and Commercial Law Act 2017.",
+      "Your move is a contract for the carriage of goods under the Contract and Commercial Law Act 2017. That Act expressly allows goods to be carried on an owner's risk basis. By accepting these Terms and confirming your booking, you agree that your goods are carried at owner's risk.",
+      "Owner's risk means you carry the risk of loss of or damage to the goods being moved, and Specialist Movers is not liable for that loss or damage, except where we cause it intentionally. Insurance is not included for household goods or personal effects, and our prices do not include insurance cover.",
       "\"All goods are carried at the owner's risk. This means that we (the carrier) will pay no compensation if the goods are lost or damaged, unless we (the carrier) intentionally lose or damage them.\"",
-      "For clarity, this owner's-risk arrangement applies to loss of or damage to the goods we carry. It does not affect any rights you have under the Consumer Guarantees Act 1993 in relation to other matters, for example damage we negligently cause to your property (such as your home, floors or vehicle) while performing the service.",
+      "This owner's risk arrangement applies to loss of or damage to the goods we carry. It does not remove your separate rights under the Consumer Guarantees Act 1993 in relation to the moving service itself, which we will carry out with reasonable care and skill. In particular, owner's risk does not cover damage we negligently cause to your property, such as your home, floors, or vehicle, while performing the service.",
     ],
   },
   {
@@ -164,7 +166,7 @@ export const bookingTerms: BookingTermsSection[] = [
       "Specialist Movers strongly recommends that all customers ensure there is adequate insurance cover in place for private and commercial items and goods.",
       "While every care is taken when transporting private items and goods, accidents can and may happen. For this reason, Specialist Movers advises customers to contact your home and contents insurance provider and ask for specific transit cover for the duration of the move. Most home and contents policies do not specifically cover goods in transit as part of a private move, although transit cover can often be added if arranged in advance. Alternatively, we can arrange insurance on your behalf through our insurance broker.",
       "If you do not wish to take out your own insurance, you acknowledge and accept that you are using our services at owner's risk as defined by the Contract and Commercial Law Act 2017. This means goods are transported at your risk, and Specialist Movers is not liable for loss of or damage to those goods except where we cause it intentionally.",
-      "Nothing in these terms limits your rights under the Consumer Guarantees Act 1993.",
+      "This owner's risk position governs liability for the goods we carry. Separately, the Consumer Guarantees Act 1993 continues to apply to the extent it cannot lawfully be excluded, including our guarantee to carry out the moving service with reasonable care and skill.",
     ],
   },
   {
@@ -325,6 +327,123 @@ export const cleaningTerms: BookingTermsSection[] = [
     heading: "14. Consumer Guarantees Act 1993",
     paragraphs: [
       "Nothing in these Terms limits your rights under the Consumer Guarantees Act 1993.",
+    ],
+  },
+];
+
+// Commercial / office relocation terms. Shown IN PLACE OF the residential moving
+// terms for the office book-in flow, and intended to attach to commercial quotes.
+// These lean on s43(2) CGA (business use) so the CGA is contracted out where
+// lawful — the key difference from the residential terms.
+export const commercialTerms: BookingTermsSection[] = [
+  {
+    heading: "Commercial relocation terms",
+    paragraphs: [
+      "These terms apply to commercial and business relocations carried out by Specialist Movers (KB Logistics Limited) and form part of the quote to which they are attached. They differ from, and prevail over, our residential moving terms for this engagement.",
+    ],
+  },
+  {
+    heading: "1. Application & business use",
+    paragraphs: [
+      "The Client is acquiring these services for the purposes of a business. To the extent permitted by law, and in accordance with section 43 of the Consumer Guarantees Act 1993, the parties agree that the Consumer Guarantees Act 1993 does not apply to this engagement. Nothing in these terms is intended to contract out of any rights that cannot lawfully be excluded.",
+    ],
+  },
+  {
+    heading: "2. Fixed price & scope",
+    paragraphs: [
+      "The price quoted is a fixed price for the labour, truck callouts, access conditions and timeline set out in the quote, based on information supplied by the Client. Materials are charged at the unit rates listed for quantities actually used.",
+    ],
+  },
+  {
+    heading: "3. Variations & additional work",
+    paragraphs: [
+      "Where actual conditions differ materially from those described, including greater volume, additional items or services, access, parking or lift availability not as described, or work outside the listed scope, Specialist Movers may adjust the price. Additional labour beyond the quoted scope is charged at the crew hourly rate set out in your quote, pro-rata. Variations will be agreed in writing where practicable before the additional work is undertaken.",
+    ],
+  },
+  {
+    heading: "4. Delays outside our control",
+    paragraphs: [
+      "All work is carried out on a best-endeavours basis. Specialist Movers is not liable for any loss (direct or indirect, including business interruption) arising from delays caused by factors outside our reasonable control, including but not limited to:",
+    ],
+    bullets: [
+      "Traffic, weather, or road conditions",
+      "Building, landlord or body-corporate access restrictions and approvals",
+      "Lift availability, booking limits, or breakdown",
+      "Security, induction or sign-in procedures",
+      "Parking restrictions or unavailability",
+      "Acts or omissions of third-party contractors, or the Client's site not being ready",
+    ],
+    tail: [
+      "Where such factors extend the job, additional time may be charged in accordance with clause 3.",
+    ],
+  },
+  {
+    heading: "5. Client responsibilities",
+    paragraphs: [
+      "The Client is responsible for arranging and confirming site access, parking, lift bookings, building permits and any certificates of insurance required by the building; for backing up all data before the move; and for disconnecting and reconnecting IT, AV and network equipment unless this is expressly contracted to Specialist Movers. Items that cannot be safely lifted or carried by two movers (recommended maximum 80 kg) must be disclosed before the move so additional resources can be arranged, which may incur an additional charge.",
+    ],
+  },
+  {
+    heading: "6. Goods at owner's risk, insurance & public liability",
+    paragraphs: [
+      "All goods are transported at the owner's risk in accordance with the Contract and Commercial Law Act 2017. The price does not include any insurance or transit cover for the goods. Specialist Movers will pay no compensation if goods are lost or damaged unless we intentionally lose or damage them.",
+      "Accordingly, the Client is required to arrange adequate goods-in-transit or contents insurance for the move, or to request a quote through our insurance broker, before the move proceeds. By proceeding without such cover, the Client acknowledges and accepts that the move is carried out entirely at the owner's risk.",
+      "Specialist Movers holds $2,000,000 public liability insurance. This covers liability for third-party bodily injury or property damage caused by our operations; it does not insure the Client's goods while in transit, which remain at the owner's risk as set out above.",
+    ],
+  },
+  {
+    heading: "7. Electronics, IT & whiteware",
+    paragraphs: [
+      "While reasonable care is taken, Specialist Movers cannot be held responsible for electronic or IT equipment that ceases to work following a move. We recommend the Client back up all data and arrange the handling of servers and other critical or high-value electronics. We are not plumbing or electrical specialists; where requested to connect or disconnect appliances we do so without responsibility for subsequent leaks, faults or failures.",
+    ],
+  },
+  {
+    heading: "8. Furniture, pods & reassembly",
+    paragraphs: [
+      "Workstations and modular furniture are dismantled and reassembled on a best-endeavours basis. Silent pods are dismantled and reassembled by the silent pod company; Specialist Movers move them only.",
+      "Specialist Movers is not liable for failure of fixings or fittings, for pre-existing wear or weakness, or for items not designed to be repeatedly dismantled and reassembled.",
+    ],
+  },
+  {
+    heading: "9. Fragile, pre-packed & client-packed items",
+    paragraphs: [
+      "Packing is undertaken on a best-endeavours basis and does not guarantee against damage or loss. Specialist Movers accepts no liability for breakage, cracking, chipping or internal damage to fragile or delicate items, nor for the contents of sealed cartons or concealed damage not visible at delivery. Items with pre-existing damage, and any items packed by the Client, are transported entirely at the Client's risk.",
+    ],
+  },
+  {
+    heading: "10. Excluded items",
+    paragraphs: [
+      "Cash, important documents, high-value, irreplaceable or sentimental items, and perishable, flammable, hazardous or dangerous goods must not be transported by Specialist Movers and remain the sole responsibility of the Client. If carried at the Client's request, this is done entirely at the Client's risk.",
+    ],
+  },
+  {
+    heading: "11. Health & safety",
+    paragraphs: [
+      "Specialist Movers is SiteWise Gold certified and works to strict health and safety practice. Specialist Movers reserves the right to refuse to handle any item that is unsafe to transport or insufficiently packaged, or to require additional resources for heavy items.",
+    ],
+  },
+  {
+    heading: "12. Notification of damage",
+    paragraphs: [
+      "Any claim that Specialist Movers is responsible for damage must be notified to us in writing within 24 hours of the incident so the circumstances can be assessed. Claims made after this period will not be considered.",
+    ],
+  },
+  {
+    heading: "13. Cancellation",
+    paragraphs: [
+      "Cancellation within five (5) business days of the scheduled start date incurs a fee of 20% of the quoted total. Cancellation within 24 hours of the scheduled start incurs a fee of 50% of the quoted total, reflecting committed crew, trucks and materials.",
+    ],
+  },
+  {
+    heading: "14. Payment",
+    paragraphs: [
+      "A deposit of 50% of the quoted total is payable to confirm and lock in the dates. The balance is due within seven (7) days of completion. Overdue accounts incur a $49 admin fee after 14 days; after 30 days the account may be referred for debt collection, with all recovery costs payable by the Client.",
+    ],
+  },
+  {
+    heading: "15. Limitation of liability",
+    paragraphs: [
+      "To the maximum extent permitted by law, Specialist Movers' total liability arising out of or in connection with this engagement is limited to the value of the services provided, and Specialist Movers is not liable for any indirect or consequential loss, including loss of profit, revenue or business interruption.",
     ],
   },
 ];

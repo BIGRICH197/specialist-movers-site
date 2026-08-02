@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { bookingTerms, cleaningTerms, BOOKING_TERMS_VERSION } from "@/lib/quote-deck/booking-terms";
+import {
+  bookingTerms,
+  cleaningTerms,
+  BOOKING_TERMS_VERSION,
+  type BookingTermsSection,
+} from "@/lib/quote-deck/booking-terms";
 
 // Branded booking form — mirrors the JotForm "House move booking confirmation"
 // fields, prefilled from the quote. On submit it posts to /api/bookings, which
@@ -46,6 +51,11 @@ export function BookingForm({
   prefill,
   quoteType,
   standalone = false,
+  bookServiceType = "house",
+  heading = "Complete your booking",
+  termsSet = bookingTerms,
+  termsVersion = BOOKING_TERMS_VERSION,
+  hiddenFields = [],
 }: {
   quoteRef?: string;
   prefill: BookingPrefill;
@@ -53,6 +63,19 @@ export function BookingForm({
   /** When true, this is a direct book-in (no prior quote): submit to
    *  /api/book-in, which creates the Trello job card + matches the deal. */
   standalone?: boolean;
+  /** Service type sent to /api/book-in when standalone (e.g. "house", "office").
+   *  Both use the same house-style fields; only the deal/card label differs. */
+  bookServiceType?: string;
+  /** Page heading shown at the top of the form. */
+  heading?: string;
+  /** Terms shown in the scroll-to-sign box. Defaults to residential moving terms;
+   *  the office/commercial flow passes commercialTerms. */
+  termsSet?: BookingTermsSection[];
+  /** Version string recorded with the signature for the chosen terms set. */
+  termsVersion?: string;
+  /** Field keys to hide + drop from validation (e.g. office move omits
+   *  sizeOfMove, typeOfMove, payment). */
+  hiddenFields?: string[];
 }) {
   const [f, setF] = useState<Record<string, string>>({
     fullName: prefill.fullName ?? "",
@@ -87,7 +110,7 @@ export function BookingForm({
   // includes cleaning (cleaning quote, or "Yes Cleaning" selected on the form).
   const showCleaning =
     quoteType === "cleaning" || f.cleaningBooked === "Yes Cleaning";
-  const terms = showCleaning ? [...bookingTerms, ...cleaningTerms] : bookingTerms;
+  const terms = showCleaning ? [...termsSet, ...cleaningTerms] : termsSet;
 
   // Re-evaluate the scroll gate whenever the term set changes: reset to
   // "not read" so the customer must scroll the new content, unless it is short
@@ -136,7 +159,10 @@ export function BookingForm({
       ["accessRestrictions", "Any access restrictions?"],
       ["settlementDay", "Are you moving on settlement day?"],
     ];
-    const out = required.filter(([k]) => !f[k]?.trim()).map(([, label]) => label);
+    const out = required
+      .filter(([k]) => !hiddenFields.includes(k))
+      .filter(([k]) => !f[k]?.trim())
+      .map(([, label]) => label);
     if (showCleaningSameDay && !f.cleaningSameDay?.trim())
       out.push("Cleaning same day as moving?");
     if (showPackingDetail && whatPacking.length === 0) out.push("What are we packing?");
@@ -159,7 +185,7 @@ export function BookingForm({
       agreeTerms: "yes",
       termsSignature: signature.trim(),
       termsSignedAt: new Date().toISOString(),
-      termsVersion: BOOKING_TERMS_VERSION,
+      termsVersion: termsVersion,
       termsScrolled: "yes",
     };
     try {
@@ -168,7 +194,7 @@ export function BookingForm({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(
           standalone
-            ? { serviceType: "house", fields }
+            ? { serviceType: bookServiceType, fields }
             : { ref: quoteRef, fields },
         ),
       });
@@ -194,9 +220,10 @@ export function BookingForm({
   return (
     <main className="min-h-screen bg-brand-canvas px-4 py-10 sm:px-6">
       <form onSubmit={submit} className="mx-auto max-w-2xl rounded-2xl bg-white p-6 shadow-sm sm:p-8">
-        <h1 className="font-heading text-2xl text-brand-purple sm:text-3xl">Complete your booking</h1>
+        <h1 className="font-heading text-2xl text-brand-purple sm:text-3xl">{heading}</h1>
         <p className="mt-2 text-sm text-brand-purple/70">
-          A few details to lock in your move. We&apos;ve filled in what we can from your quote.
+          A few details to lock in your move.
+          {!standalone && " We’ve filled in what we can from your quote."}
         </p>
 
         <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
@@ -224,6 +251,7 @@ export function BookingForm({
             <label className={labelCls}>Move date</label>
             <input className={inputCls} type={standalone ? "date" : undefined} required value={f.moveDate} onChange={(e) => set("moveDate", e.target.value)} />
           </div>
+          {!hiddenFields.includes("sizeOfMove") && (
           <div>
             <label className={labelCls}>Size of move</label>
             <select className={inputCls} required value={f.sizeOfMove} onChange={(e) => set("sizeOfMove", e.target.value)}>
@@ -231,6 +259,7 @@ export function BookingForm({
               {SIZE_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
             </select>
           </div>
+          )}
           <div>
             <label className={labelCls}>Number of movers</label>
             <select className={inputCls} required value={f.howManyMovers} onChange={(e) => set("howManyMovers", e.target.value)}>
@@ -238,6 +267,7 @@ export function BookingForm({
               {MOVERS_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
             </select>
           </div>
+          {!hiddenFields.includes("typeOfMove") && (
           <div>
             <label className={labelCls}>Type of move</label>
             <select className={inputCls} required value={f.typeOfMove} onChange={(e) => set("typeOfMove", e.target.value)}>
@@ -245,6 +275,8 @@ export function BookingForm({
               {TYPE_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
             </select>
           </div>
+          )}
+          {!hiddenFields.includes("payment") && (
           <div>
             <label className={labelCls}>How would you like to pay</label>
             <select className={inputCls} required value={f.payment} onChange={(e) => set("payment", e.target.value)}>
@@ -252,6 +284,7 @@ export function BookingForm({
               {PAYMENT_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
             </select>
           </div>
+          )}
 
           <div>
             <label className={labelCls}>

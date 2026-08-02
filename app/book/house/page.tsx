@@ -9,5 +9,5 @@ export const metadata = {
 
 // Direct house-move book-in (no quote link needed) — replaces the JotForm.
 export default function BookHousePage() {
-  return <BookingForm standalone prefill={{}} />;
+  return <BookingForm standalone heading="Book your house move" prefill={{}} />;
 }

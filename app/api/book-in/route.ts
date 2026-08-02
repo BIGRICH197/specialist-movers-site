@@ -65,11 +65,18 @@ function pianoWebhookUrl(): string | undefined {
   }
 }
 
+// Office moves reuse the house fields but drop bedrooms/type/payment.
+const OFFICE_OMIT = ["sizeOfMove", "typeOfMove", "payment"];
+
 function missingFields(serviceType: string, fields: Record<string, string>): string[] {
   if (serviceType === "piano") {
     return PIANO_REQUIRED.filter((k) => !fields[k]?.trim());
   }
-  const out = HOUSE_REQUIRED.filter((k) => !fields[k]?.trim());
+  const required =
+    serviceType === "office"
+      ? HOUSE_REQUIRED.filter((k) => !OFFICE_OMIT.includes(k))
+      : HOUSE_REQUIRED;
+  const out = required.filter((k) => !fields[k]?.trim());
   if (fields.cleaningBooked === "Yes Cleaning" && !fields.cleaningSameDay?.trim())
     out.push("cleaningSameDay");
   if (fields.packing === "Yes packing" && !fields.whatPacking?.trim())
@@ -161,7 +168,11 @@ export async function POST(request: Request) {
           name: fields.fullName || "",
           phone: fields.phone || "",
           email,
-          serviceType: isPiano ? "Piano Move" : "House Move",
+          serviceType: isPiano
+            ? "Piano Move"
+            : serviceType === "office"
+              ? "Office Move"
+              : "House Move",
           pickupAddress: fields.pickupAddress || "",
           dropoffAddress: fields.dropoffAddress || "",
           notes: "Booked in via /book (no quote link).",
