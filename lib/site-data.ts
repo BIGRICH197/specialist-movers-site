@@ -255,11 +255,11 @@ export const blogPosts = [
   },
   {
     slug: "diy-packing-vs-professional-packing-services",
-    title: "Comparing Do-It-Yourself Packing with Expert Packing Services",
-    seoTitle: "DIY vs Professional Packing Auckland | Specialist Movers",
-    publishedDate: "2026-05-13",
+    title: "DIY Packing vs Professional Packers: What Each Really Costs",
+    seoTitle: "DIY vs Professional Packing Auckland: Real Prices | Specialist Movers",
+    publishedDate: "2026-08-03",
     excerpt:
-      "DIY vs professional packing in Auckland: costs, control, stress, and when expert packers are worth it. Compare options before your move day.",
+      "What packing your own house really costs against paying packers, with our actual Auckland prices by bedroom count, and the split most people end up choosing.",
   },
   {
     slug: "how-much-do-movers-cost-in-auckland",
