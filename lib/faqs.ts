@@ -34,7 +34,7 @@ export const faqs: readonly Faq[] = [
   // --- The four the homepage shows -----------------------------------------
   {
     q: "How much does it cost to hire movers in Auckland?",
-    a: "A two-person crew and truck costs $120 per hour plus GST on a Tuesday, our cheapest day, rising to $150 on a Friday. Three movers are $160 to $190. On top of the hourly rate there is a callout fee of $60 to $120 depending on how far you are from our depot, and a flat $25 fuel surcharge. A one-bedroom apartment typically comes to about $300 plus GST; a three-bedroom home about $660 plus GST on a Friday.",
+    a: "A two-person crew and truck costs $120 per hour plus GST on a Tuesday, our cheapest day, rising to $150 on a Friday. Three movers are $160 to $190. On top of the hourly rate there is a callout fee of $60 to $120 depending on how far you are from our depot. A one-bedroom apartment typically comes to about $300 plus GST; a three-bedroom home about $660 plus GST on a Friday.",
   },
   {
     q: "What is the process for booking a move?",
@@ -60,7 +60,7 @@ export const faqs: readonly Faq[] = [
   },
   {
     q: "Are there any hidden costs?",
-    a: "No. Your written quote shows the hourly rate, the callout fee, the $25 fuel surcharge, and any extras like packing or stairs. The one thing that can move is time, because we charge for the hours the job actually takes. That is why we would rather visit a larger home first than guess.",
+    a: "No. Your written quote shows the hourly rate, the callout fee, and any extras like packing or stairs. The one thing that can move is time, because we charge for the hours the job actually takes. That is why we would rather visit a larger home first than guess.",
   },
   {
     q: "Do you charge more for stairs?",

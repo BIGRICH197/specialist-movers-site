@@ -51,7 +51,7 @@ export function GET() {
 
     section("Pricing — Auckland, excluding GST", [
       "House and furniture moving is charged hourly, plus a callout fee that varies",
-      "with distance from the depot, plus a flat $25 fuel surcharge.",
+      "with distance from the depot.",
       "",
       "Two-person crew and truck, per hour:",
       "  Tuesday $120 (cheapest), Thursday $130, Monday and Wednesday $135,",
@@ -77,7 +77,7 @@ export function GET() {
     section("Pricing — Hamilton, excluding GST", [
       "Two-person crew and truck: $140 per hour on Tuesday, $150 every other day.",
       "Three-person crew: $180 Tuesday, $190 other days.",
-      "Callout and the $25 fuel surcharge work the same as Auckland.",
+      "Callout works the same as Auckland.",
     ]),
 
     section("Insurance — the honest position", [

@@ -56,7 +56,7 @@ export function ServiceHeroTrustStack({ subline, trustPills, phone, className }:
       <div className="relative w-full">
         <div
           ref={trustRowRef}
-          className="flex flex-wrap gap-2 text-xs font-semibold text-white/95"
+          className="flex flex-wrap gap-2 text-xs font-semibold text-white/95 xl:pr-[10.75rem]"
         >
           {trustPills.map((label, index) => (
             <span
