@@ -5,7 +5,7 @@ export type FaqItem = { q: string; a: string };
 export const generalServiceFaqs: readonly FaqItem[] = [
   {
     q: "How much does it cost to hire movers in Auckland?",
-    a: "Most local moves start from around $300 excl. GST for smaller jobs. A full home relocation is quoted after a free in-home viewing and depends on volume, distance, crew size, and add-ons like packing or cleaning.",
+    a: "Two movers and a truck are $120 an hour plus GST on a Tuesday and $150 on a Friday, plus a callout fee from $60 by distance. A one-bedroom flat usually lands around $300 to $400 and a three-bedroom house around $700 to $900. On anything three bedrooms or more we come and look first, because volume and access are what actually set the price.",
   },
   {
     q: "What is the process for booking?",
@@ -13,19 +13,19 @@ export const generalServiceFaqs: readonly FaqItem[] = [
   },
   {
     q: "How long will a typical move take?",
-    a: "A standard 2–3 bedroom local move usually takes one day on site. Packing is often scheduled the day before; we confirm hours and crew size when we quote.",
+    a: "A two or three bedroom move is one day on site. A one-bedroom flat is usually three to four hours. If you have booked packing, the packers come the day before, so move day is just loading and driving. We put the hours and the crew size in your written quote rather than leaving it open.",
   },
   {
     q: "How far in advance should I book my move?",
-    a: "Two weeks ahead is ideal, especially for weekends and month-end. We can often help sooner, call (021) 228 2728 and we will check the next available crew.",
+    a: "Two weeks is ideal, and more for a Friday, a Saturday or the end of the month, which fill first. Smaller jobs we can often fit sooner. Call (021) 228 2728 and we will tell you the next crew we have free.",
   },
   {
     q: "Do you provide packing services?",
-    a: "Yes. Professional packing is available the day before your move, priced by bedroom count. We supply cartons, wrap, and a dedicated packing crew.",
+    a: "Yes. Packers come the day before, priced by bedroom count from $1,599 plus GST for a one-bedroom home, with cartons, paper and wrap supplied. Most people have us do the kitchen and the fragile things and handle the rest themselves, which is cheaper and works fine.",
   },
   {
     q: "How do you protect furniture during the move?",
-    a: "Every load uses moving blankets, wrap, and mattress covers as standard. Fragile items are boxed or crated; pianos and high-value pieces get specialist padding and securing.",
+    a: "Blankets, shrink wrap and mattress covers go on every job as standard, not as an extra. Fragile things are boxed or crated. Marble and glass tops travel upright in a padded frame, never flat. Pianos get piano boards and dedicated strapping inside the truck.",
   },
   {
     q: "What areas do you cover?",

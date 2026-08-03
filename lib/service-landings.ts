@@ -132,26 +132,26 @@ const landingOverrides: Record<
       "Specialist Movers carrying a sofa while the client relaxes and reads a magazine",
     heroOverlayCaption: hero.photoTagline,
     heroVariant: "moving",
-    aboutTitle: "About our moving service",
+    aboutTitle: "What actually happens on the day",
     aboutBody:
-      "At Specialist Movers, we go beyond shifting boxes. We plan access, protect furniture, and communicate clearly from quote to handover. Apartments, townhouses, and full homes. Local moves and longer relocations when you need them.",
+      "A crew of two turns up for most homes up to three bedrooms, three or four for bigger houses and anything with a lot of stairs. Blankets and shrink wrap go on before anything leaves the room. Beds and dining tables come apart, and the hardware gets bagged and labelled so the same screws go back in the same bed. A three-bedroom house is a day on site. We do around 80 house and office moves a month, so the order we load in is not something we work out on your driveway.",
     trustHighlights: [
       {
-        title: "Quality crews",
-        text: "Careful handling, SiteWise Gold systems, and hundreds of 5-star reviews.",
+        title: "We look before we quote",
+        text: "Free in-home viewing on three bedrooms and up, because volume and access set the price.",
       },
       {
-        title: "Quick response",
-        text: "Free quote and callback within 15 minutes.",
+        title: "Written, then fixed",
+        text: "You get the number in writing before you book, and it does not move afterwards.",
       },
       {
-        title: "Full service",
-        text: "Packing, unpacking, storage, and hard-to-shift items available.",
+        title: "The hard bits included",
+        text: "Stairs, tight driveways, balcony hoists and pianos. We do not sub them out.",
       },
     ],
-    whyTitle: "Why families choose Specialist Movers",
+    whyTitle: "What a house move costs in Auckland",
     whyBody:
-      "Transparent pricing, no hidden fees, and crews who treat your home like their own. We adapt to tight driveways, multi-level homes, and busy timelines.",
+      "Two movers and a truck cost $120 an hour plus GST on a Tuesday and $150 on a Friday, so the day you pick makes a real difference. Three movers are $160 to $190. On top of the hours there is a callout fee from $60, which rises the further you are from our North Shore depot. A one-bedroom flat is usually three to four hours and lands around $300 to $400. A three-bedroom house is a day, and lands around $700 to $900. We charge for the hours the job takes, which is why we would rather come and look at a bigger home than guess at it.",
     showPianoPartners: false,
     showMovingBanner: true,
     showPianoSubServices: false,

@@ -34,7 +34,7 @@ export const faqs: readonly Faq[] = [
   // --- The four the homepage shows -----------------------------------------
   {
     q: "How much does it cost to hire movers in Auckland?",
-    a: "A two-person crew and truck costs $120 per hour plus GST on a Tuesday, our cheapest day, rising to $150 on a Friday. Three movers are $160 to $190. On top of the hourly rate there is a callout fee of $60 to $120 depending on how far you are from our depot. A one-bedroom apartment typically comes to about $300 plus GST; a three-bedroom home about $660 plus GST on a Friday.",
+    a: "Two movers and a truck cost $120 an hour plus GST on a Tuesday and $150 on a Friday, so the day you pick makes a real difference. Three movers are $160 to $190. On top of the hours there is a callout fee from $60, which rises the further you are from our depot. In practice a one-bedroom flat lands around $300 to $400 and a three-bedroom house around $700 to $900.",
   },
   {
     q: "What is the process for booking a move?",
@@ -52,15 +52,15 @@ export const faqs: readonly Faq[] = [
   // --- Pricing -------------------------------------------------------------
   {
     q: "What is the cheapest day to move house?",
-    a: "Tuesday. A two-person crew is $120 per hour plus GST on a Tuesday against $150 on a Friday, so on a job that runs six hours that is $180 saved for choosing a different day. Thursday at $130 is the next cheapest. Friday, Saturday and Sunday are the dearest and the busiest.",
+    a: "Tuesday, and it is worth planning around. Two movers are $120 an hour plus GST on a Tuesday against $150 on a Friday, so on a six-hour job that is $180 saved for moving a day or two earlier. Thursday at $130 is next cheapest. Friday and the weekend are the dearest and they book out first.",
   },
   {
     q: "What is the callout fee and why is there one?",
-    a: "The callout covers getting the truck and crew to you and back. It is $60 for a two-person crew within about 23km of our depot, $80 out to 45km, and $120 beyond that. Three and four-person crews are $80 to $160 on the same bands. It is quoted upfront, not added at the end.",
+    a: "It covers getting the truck and crew to you and back again, and it goes up with distance from our depot: $60 close in, $80 further out, $120 on the fringe of the region. A bigger crew costs a bit more. It is in your written quote from the start, not added at the end.",
   },
   {
     q: "Are there any hidden costs?",
-    a: "No. Your written quote shows the hourly rate, the callout fee, and any extras like packing or stairs. The one thing that can move is time, because we charge for the hours the job actually takes. That is why we would rather visit a larger home first than guess.",
+    a: "No. The written quote shows the hourly rate, the callout and anything extra like packing. The one thing that can move is time, because we charge for the hours the job actually takes, and a house with more in it than expected takes longer. That is exactly why we would rather come and look at a bigger home than guess at it.",
   },
   {
     q: "Do you charge more for stairs?",

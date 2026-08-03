@@ -10,6 +10,7 @@ import {
   cleaningTerms,
   type BookingTermsSection,
 } from "@/lib/quote-deck/booking-terms";
+import { AuthorityCitations } from "@/components/AuthorityCitations";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Privacy & Terms",
@@ -101,6 +102,7 @@ export default function PoliciesPage() {
           and we will be happy to help.
         </p>
       </div>
+      <AuthorityCitations />
     </div>
   );
 }
