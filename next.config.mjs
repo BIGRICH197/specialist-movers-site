@@ -85,6 +85,31 @@ const nextConfig = {
   async headers() {
     return [
       {
+        // Baseline security headers on every route.
+        //
+        // Deliberately excluded for now:
+        //  - Content-Security-Policy: needs a Report-Only run first. A strict
+        //    policy would break the Trustindex widget, Google Maps address
+        //    autocomplete, and GTM.
+        //  - HSTS includeSubDomains/preload: the header is already set (see
+        //    Vercel), but includeSubDomains forces HTTPS on every subdomain and
+        //    preload is effectively irreversible. Confirm subdomains first.
+        //
+        // Referrer-Policy is strict-origin-when-cross-origin (Chrome's own
+        // default) on purpose. Do NOT tighten to no-referrer: it would strip
+        // this site from referral partners' analytics.
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+          },
+        ],
+      },
+      {
         source: "/llms.txt",
         headers: [
           {
