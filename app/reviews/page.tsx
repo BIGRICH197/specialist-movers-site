@@ -11,10 +11,14 @@ import { ReviewsPageJsonLd } from "@/components/ReviewsPageJsonLd";
 import { SectionReveal } from "@/components/SectionReveal";
 
 import { LazyTrustindexWidget } from "@/components/LazyTrustindexWidget";
+import { ServerReviewsGrid } from "@/components/ServerReviewsGrid";
 
 import { googleReviewsUrl } from "@/lib/homepage-copy";
 import { PageUpdatedStamp } from "@/components/PageUpdatedStamp";
 import { siteContentUpdated } from "@/lib/content-dates";
+
+/** Shared by the rendered grid and the Review JSON-LD so the two can't drift. */
+const SERVER_RENDERED_REVIEW_COUNT = 9;
 
 
 
@@ -31,7 +35,7 @@ export default function ReviewsPage() {
   return (
 
     <div className="bg-brand-white">
-      <ReviewsPageJsonLd />
+      <ReviewsPageJsonLd reviewCount={SERVER_RENDERED_REVIEW_COUNT} />
 
       <PageHero
 
@@ -51,11 +55,14 @@ export default function ReviewsPage() {
 
       <SectionReveal className="relative z-0 mx-auto max-w-7xl overflow-visible py-10 pb-12 container-px sm:py-12 sm:pb-14">
         <PageUpdatedStamp date={siteContentUpdated} className="mb-6 text-center text-white/70" />
+
+        <ServerReviewsGrid count={SERVER_RENDERED_REVIEW_COUNT} className="mb-12" />
+
         <LazyTrustindexWidget layout="full" className="w-full" />
 
         <p className="mt-8 text-center text-sm text-brand-purple/70">
 
-          Reviews are sourced from our{" "}
+          Every review above is a real Google review, sourced from our{" "}
 
           <a
 

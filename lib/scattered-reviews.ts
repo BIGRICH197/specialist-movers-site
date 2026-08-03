@@ -20,6 +20,27 @@ export function pickReviewsForSlot(slot: string, count: number): GoogleReview[] 
   return out;
 }
 
+/**
+ * Substantive reviews for the /reviews page, server-rendered.
+ *
+ * Ranked by rating first, then by how much the reviewer actually wrote, so the
+ * page leads with reviews that say something specific rather than "Great
+ * service." Deterministic: no Date/random, so the build output is stable.
+ */
+export function pickFeaturedReviews(count: number): GoogleReview[] {
+  return [...googleReviews]
+    .sort((a, b) => b.rating - a.rating || b.text.length - a.text.length)
+    .slice(0, Math.max(0, count));
+}
+
+/** "28/09/2025" (NZ order) → "2025-09-28" for schema.org datePublished. */
+export function reviewDateToIso(date: string): string | null {
+  const match = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(date.trim());
+  if (!match) return null;
+  const [, day, month, year] = match;
+  return `${year}-${month}-${day}`;
+}
+
 /** Reviews that mention pianos , for piano pages. */
 export function pickPianoReviews(count: number): GoogleReview[] {
   const piano = googleReviews.filter((r) => /piano/i.test(r.text));
