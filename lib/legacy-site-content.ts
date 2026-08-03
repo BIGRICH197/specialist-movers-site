@@ -185,7 +185,7 @@ export const trustPillars = [
   {
     title: "Fixed prices, quoted before you book",
     body:
-      "A two-person crew and truck is $120 an hour plus GST on a Tuesday and $150 on a Friday, plus a callout fee set by distance and a flat $25 fuel surcharge. You see the whole number in writing before you commit, and for homes of three bedrooms or more we come and look first, because volume and access are what actually drive the price.",
+      "A two-person crew and truck is $120 an hour plus GST on a Tuesday and $150 on a Friday, plus a callout fee set by distance. You see the whole number in writing before you commit, and for homes of three bedrooms or more we come and look first, because volume and access are what actually drive the price.",
   },
 ] as const;
 
