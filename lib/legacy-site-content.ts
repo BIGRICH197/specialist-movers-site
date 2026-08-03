@@ -1,3 +1,4 @@
+import { moveFromPrice } from "@/lib/company-facts";
 /**
  * Verbatim (or near-verbatim) marketing and SEO copy from specialistmovers.co.nz
  * as provided in site exports / live pages , preserved for Google rankings.
@@ -113,7 +114,7 @@ export const statsStrip = {
   items: [
     { label: "SiteWise Gold Certified Contractor", value: "Gold" },
     { label: "Health & Safety Assessment Score", value: "90%+" },
-    { label: "Moves from", value: "$350" },
+    { label: "Moves from", value: moveFromPrice },
     { label: "Service", value: "7 days" },
   ],
 };

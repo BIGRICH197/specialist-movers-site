@@ -253,7 +253,7 @@ export const blogArticles: Record<string, BlogArticle> = {
       {
         heading: "The short answer",
         paragraphs: [
-          "Most Auckland house moves with a professional crew land somewhere between $300 and $1,300 plus GST, depending on how much you own, what day you move, and how awkward the access is. Across the 1,500+ Auckland moves we've done, our average house move invoice comes in a little under $1,200 plus GST.",
+          "Most Auckland house moves with a professional crew land somewhere between $300 and $1,300 plus GST, depending on how much you own, what day you move, and how awkward the access is. Across the 4,000+ moves across Auckland and the Waikato we've done, our average house move invoice comes in a little under $1,200 plus GST.",
           "That's a wide range, so here's exactly how the pricing works, with real numbers. These are our actual 2026 rates, not a lead-generation guess.",
         ],
       },
@@ -448,7 +448,7 @@ export const blogArticles: Record<string, BlogArticle> = {
         heading: "Ready to get a quote?",
         paragraphs: [
           "If you are planning a move in Auckland and want to know what it will cost, you can get a quote through the Specialist Movers website. During business hours, quotes usually come back in about 15 minutes. Hourly rates are the same across Auckland. The fixed callout varies with distance from our depot, and you see the full price upfront before you book.",
-          "We operate seven days a week and have completed over 1,500 Auckland moves. If your home is on the larger side, we are happy to do a free viewing first so you get an accurate quote rather than a guess. Fill in the form on our site and we will be in touch.",
+          "We operate seven days a week and have completed over 4,000 moves across Auckland and the Waikato. If your home is on the larger side, we are happy to do a free viewing first so you get an accurate quote rather than a guess. Fill in the form on our site and we will be in touch.",
         ],
       },
     ],
@@ -578,7 +578,7 @@ export const blogArticles: Record<string, BlogArticle> = {
         heading: "Why two movers was the right call",
         paragraphs: [
           "Some people assume a bigger crew means a faster job. On a balcony move, that is not always true. Two people who work together well can navigate a tight space more effectively than four people trying to stay out of each other's way.",
-          "We have completed over 1,500 Auckland moves, and a lot of them have included awkward access situations. You build up a read for what crew size fits what job. This one was a two-person job from the start.",
+          "We have completed over 4,000 moves across Auckland and the Waikato, and a lot of them have included awkward access situations. You build up a read for what crew size fits what job. This one was a two-person job from the start.",
         ],
       },
       {
@@ -646,7 +646,7 @@ export const blogArticles: Record<string, BlogArticle> = {
       {
         heading: "Getting a quote",
         paragraphs: [
-          "If you have a heavy item, an awkward floor, or a commercial space in Auckland that needs clearing, we are worth talking to. We have completed over 1,500 Auckland moves and hoist and crane-assist jobs are a regular part of that work.",
+          "If you have a heavy item, an awkward floor, or a commercial space in Auckland that needs clearing, we are worth talking to. We have completed over 4,000 moves across Auckland and the Waikato and hoist and crane-assist jobs are a regular part of that work.",
           "Send us the details through the quote form on our website. In business hours we usually come back to you in about 15 minutes. You see the full price upfront before you commit to anything.",
         ],
       },

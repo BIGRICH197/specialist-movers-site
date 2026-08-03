@@ -13,8 +13,8 @@ export type GoogleReview = {
 /** Google Business Profile aggregate rating (from live site schema). */
 export const googleRating = 4.9;
 
-/** Marketing total on Google (align with live Trustindex / GBP). */
-export const googleReviewCount = 331;
+/** Live count from the Google Business Profile, checked 2026-08-03. */
+export const googleReviewCount = 343;
 
 export const googleReviews: GoogleReview[] = [
   {

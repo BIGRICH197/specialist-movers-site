@@ -57,6 +57,12 @@ export function organizationNode({ withRating = false }: { withRating?: boolean 
     "@id": schemaIds.organization,
     name: siteName,
     legalName: businessInfo.legalName,
+    identifier: {
+      "@type": "PropertyValue",
+      propertyID: "NZBN",
+      value: businessInfo.nzbn,
+    },
+    taxID: businessInfo.nzbn,
     description: regions.jsonLdDescription,
     url: siteUrl,
     foundingDate: businessInfo.foundingDate,

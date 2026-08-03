@@ -1,4 +1,5 @@
 import { depots } from "@/lib/depots";
+import { linkedInUrl, nap, nzbnUrl } from "@/lib/company-facts";
 
 /**
  * Verified external profiles for schema `sameAs`.
@@ -13,12 +14,6 @@ import { depots } from "@/lib/depots";
  * vocabulary telling a model which one we are. Two consumer-social links was
  * not enough to build an entity on.
  *
- * Still missing, and each needs a real URL before it can be listed:
- *  - NZBN register entry (needs the number from Richard)
- *  - LinkedIn company page (none found; may not exist yet)
- *  - Wise Move profile (currently attached to specialistpianomovers.co.nz)
- *  - Sirelo profile (host unreachable from here; phone on it is wrong)
- *  - Trustpilot / Neighbourly (no profile)
  */
 const verifiedSameAs = [
   "https://www.instagram.com/specialistmovers/",
@@ -30,12 +25,18 @@ const verifiedSameAs = [
   "https://www.nocowboys.co.nz/businesses/specialist-movers",
   // Sister brand, verified 200 and ours.
   "https://specialistpianomovers.co.nz/",
+  // The two registries the audit called the highest-value additions:
+  // a government record tying the trading name to KB Logistics Limited,
+  // and the company page. Both fetched and confirmed 2026-08-03.
+  nzbnUrl,
+  linkedInUrl,
 ] as const;
 
 /** Shared business facts for JSON-LD, contact, and schema. */
 export const businessInfo = {
   email: "info@specialistmovers.co.nz",
-  legalName: "KB Logistics Limited",
+  legalName: nap.legalName,
+  nzbn: nap.nzbn,
   foundingDate: "2023",
   /** Mon–Sun 9am–7pm (contact page + Joey prompt). */
   openingHours: ["Mo-Su 09:00-19:00"] as const,

@@ -1,3 +1,4 @@
+import { movesCompleted, movesCompletedLabel } from "@/lib/company-facts";
 import { sitePhotos } from "@/lib/site-photos";
 import { houseMovingProcess } from "@/lib/moving-process";
 import { houseProcessIllustrations, milestoneIllustrations } from "@/lib/process-illustrations";
@@ -20,8 +21,8 @@ export const experienceMilestones = {
   backgroundAlt: "Specialist Movers team with trucks at the depot",
   items: [
     {
-      value: "4,000+",
-      label: "Families moved",
+      value: movesCompleted,
+      label: movesCompletedLabel,
       icon: milestoneIllustrations[0].src,
       iconAlt: milestoneIllustrations[0].alt,
     },
