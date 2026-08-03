@@ -159,6 +159,17 @@ const nextConfig = {
         destination: "/blog/the-ultimate-guide-to-house-moving-in-auckland",
         permanent: true,
       },
+      // Both of these 404'd while "furniture movers" was the primary goal term.
+      {
+        source: "/furniture-movers",
+        destination: "/furniture-movers-auckland",
+        permanent: true,
+      },
+      {
+        source: "/furniture-removals-auckland",
+        destination: "/furniture-movers-auckland",
+        permanent: true,
+      },
       {
         source: "/business-relocation-auckland",
         destination: "/commercial-moving-auckland",

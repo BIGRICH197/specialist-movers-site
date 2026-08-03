@@ -49,12 +49,16 @@ function FittedHeroTitle({
   return (
     <div className="-mt-0.5 flex w-full min-w-0 justify-center">
       <ServiceHeroTitleFit
-        as={showSeo ? "div" : "h1"}
+        // Never h1: the desktop hero carries it, and both render.
+        as="div"
         text={text}
         targetWidthPx={photoWidthPx}
         className="font-normal"
       />
-      {showSeo ? <h1 className="sr-only">{seoHeading}</h1> : null}
+      {/* Not an h1 any more: the desktop hero carries the real one and
+          both are in the DOM at once. Kept for screen readers, since the
+          visible mobile title is a marketing line, not the page subject. */}
+      {showSeo ? <span className="sr-only">{seoHeading}</span> : null}
     </div>
   );
 }

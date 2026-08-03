@@ -174,7 +174,9 @@ export function ServiceHeroWithQuote({
               <HeroPhotoFrame
                 heading={heading}
                 headingNowrap={headingNowrap}
-                headingAs="div"
+                // Visible H1. Was "div", which left the mobile sr-only
+                // heading as the page's only h1 (GEO audit H2).
+                headingAs="h1"
                 photo={photo}
               />
             ) : null}

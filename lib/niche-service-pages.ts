@@ -1,9 +1,25 @@
 import { aucklandServiceHref } from "@/lib/legacy-auckland-urls";
+import {
+  furnitureMoversAucklandPage,
+  furnitureMoversHamiltonPage,
+} from "@/lib/furniture-pages";
 import { houseMovingProcess } from "@/lib/moving-process";
 import { sitePhotos } from "@/lib/site-photos";
 import type { JobType } from "@/lib/site-data";
 
 export type NicheFaq = { q: string; a: string };
+
+/**
+ * Item → handling → typical time. A real table of first-party operational
+ * facts is one of the most extractable things a service page can carry, and
+ * nothing on the site had one.
+ */
+export type NicheItemTable = {
+  title: string;
+  intro?: string;
+  rows: readonly { item: string; method: string; time: string }[];
+  footnote?: string;
+};
 
 export type NicheServicePageConfig = {
   path: string;
@@ -29,6 +45,7 @@ export type NicheServicePageConfig = {
   relatedLinks: readonly { label: string; href: string }[];
   faqHeading: string;
   faqs: readonly NicheFaq[];
+  itemTable?: NicheItemTable;
   processTitle?: string;
   breadcrumbs: readonly { label: string; href?: string }[];
   /** HubSpot / form service label */
@@ -322,4 +339,6 @@ export const nicheServicePages = [
   retirementHomeMoversPage,
   retirementHomeMoversHamiltonPage,
   movingToAustraliaPage,
+  furnitureMoversAucklandPage,
+  furnitureMoversHamiltonPage,
 ] as const;

@@ -300,6 +300,19 @@ export function LocationPageTemplate({ location }: Props) {
 
               </Link>
 
+              {" · "}
+
+              {/* Interlinked from every location page: the furniture page is the
+                  exact-match target and needs internal authority behind it. */}
+              <Link
+                href={location.group === "waikato" ? "/furniture-movers-hamilton" : "/furniture-movers-auckland"}
+                className="font-semibold text-brand-purple underline"
+              >
+
+                Furniture movers
+
+              </Link>
+
             </p>
 
           </div>
