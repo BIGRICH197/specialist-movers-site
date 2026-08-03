@@ -242,7 +242,7 @@ export const moveInclusionCategories: readonly MoveInclusionCategory[] = [
     bullets: [
       "SiteWise Gold health and safety systems",
       "Trained crews, not casual labour",
-      "Licensed and insured operations",
+      "Licensed and insured crews",
       "Clear communication from quote to handover",
     ],
   },
@@ -252,7 +252,7 @@ export const moveInclusionCategories: readonly MoveInclusionCategory[] = [
     bullets: [
       "Full packing and unpacking, packers come in the day before",
       "Exit cleaning, fixed-price tenancy cleans",
-      "Full moving insurance, personalised transit cover for your belongings",
+      "Transit cover for your belongings, arranged through our broker on request",
       "Storage, short-term, long-term, in transit, and overnight",
       "Piano, commercial, and hard-to-shift specialist moves",
     ],

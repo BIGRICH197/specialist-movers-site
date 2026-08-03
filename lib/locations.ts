@@ -452,7 +452,7 @@ const towns: Location[] = [
     highlights: [
       "Waikato town coverage",
       "Fixed quotes after viewing",
-      "Licensed and insured",
+      "Licensed and insured crews",
     ],
   },
 ];

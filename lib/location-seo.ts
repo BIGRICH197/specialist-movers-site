@@ -1563,7 +1563,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "A lot of the housing stock here is older. That means high stud ceilings, wide hallways, and solid timber furniture that was built to last. It also means the occasional tight corner on a staircase and the odd narrow gate between house and street. We check all of that before we load the truck.",
       "Ngaruawahia is about 20 minutes from our Hamilton base, which puts it comfortably in our standard callout area. You see the full price before you book, no distance surcharge tucked in at the end. Quotes come back in about 15 minutes during business hours.",
       "The town has a mix of long-established owner-occupiers and newer families moving in. That means a wide range of moves, a four-bedroom bungalow with a shed full of gear, a smaller unit near the main street, a deceased estate being cleared for sale. We have handled all of those across the 1,500 plus Auckland and Waikato moves we have completed.",
-      "We run seven days a week and carry full insurance. If you have a piano, we are the crew Steinway dealers in the region trust to move them. And if you need packing help the day before, or a clean once the house is empty, we can sort both.",
+      "We run seven days a week with licensed, insured crews, and we can arrange transit cover for your belongings if you want it. If you have a piano, we are the crew Steinway dealers in the region trust to move them. And if you need packing help the day before, or a clean once the house is empty, we can sort both.",
     ],
     highlights: [
       "About 20 minutes from our Hamilton base, standard callout zone",

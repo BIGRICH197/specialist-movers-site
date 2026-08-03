@@ -105,8 +105,8 @@ const landingOverrides: Record<
         text: "Free quote and callback within 15 minutes, 7 days a week.",
       },
       {
-        title: "Insured moves",
-        text: "Specialist transport insurance options. Ask us for details.",
+        title: "Insured crew, cover on request",
+        text: "Pianos carry $2,000 cover as standard. More is available, just ask.",
       },
     ],
     whyTitle: "Why choose us for your piano",

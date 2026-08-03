@@ -197,9 +197,9 @@ export const trustPillars = [
       "As one of the leading moving companies in New Zealand, we bring years of experience handling and transporting a wide range of items from furniture to delicate instruments to North Island, South Island and international destinations. Our specialist moving team ensures your items arrive safely and on time.",
   },
   {
-    title: "Guaranteed care and protection",
+    title: "Care, protection, and cover options",
     body:
-      "Specialist Movers provides personalised transit insurance across residential moves, business relocation, and other specialised requests. Our moving insurance ensures that fragile items arrive safely, giving our customers peace of mind. Talk to our team for more information.",
+      "Every crew is licensed and insured, and we carry $2,000,000 public liability. Household goods travel at owner's risk, which is standard across the industry, so we can arrange transit cover for your belongings through our broker if you want it. Ask us and we will explain exactly what it covers before you book.",
   },
   {
     title: "Best Moving Company in Auckland - Trusted Specialist Movers",

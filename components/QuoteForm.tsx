@@ -1055,7 +1055,7 @@ export function QuoteForm({
                   className="h-5 w-5 rounded border-brand-purple/30 text-brand-yellow accent-brand-yellow"
                 />
                 <span className="text-sm text-brand-purple">
-                  Full moving insurance{" "}
+                  Transit cover for my belongings{" "}
                   <span className="text-brand-purple/50">(quoted separately)</span>
                 </span>
               </label>

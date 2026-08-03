@@ -49,7 +49,7 @@ function pianoMetaTitle(slug: string, title: string): string {
 function pianoMetaDescription(slug: string, title: string): string {
   const bySlug: Record<string, string> = {
     "grand-piano":
-      "Grand piano moving in Auckland. Specialist tilt, board, padding, and strapping. Shrink wrap and insured transport. Free quote.",
+      "Grand piano moving in Auckland. Specialist tilt, board, padding, and strapping. Shrink wrap and $2,000 cover as standard. Free quote.",
     "upright-piano":
       "Upright piano movers Auckland. Padded blankets, shrink wrap, and specialist straps. Local and long-distance moves. Free quote.",
     "international-piano":
@@ -70,7 +70,7 @@ export default function PianoSlugPage({ params }: { params: { slug: string } }) 
   return (
     <ServicePageTemplate
       title={service.title}
-      description="Fully insured specialist piano transport with expert handling and communication from pickup to placement."
+      description="Specialist piano transport by an insured crew, with $2,000 cover as standard and more available on request. Expert handling and communication from pickup to placement."
       includedBullets={service.includedBullets}
       whyChooseCopy={service.whyChooseCopy}
       relatedSlugs={service.relatedSlugs}

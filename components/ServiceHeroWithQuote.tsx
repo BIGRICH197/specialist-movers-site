@@ -8,7 +8,7 @@ import { ServiceHeroTrustStack } from "@/components/ServiceHeroTrustStack";
 import { cn } from "@/lib/utils";
 
 const defaultTrustPills = [
-  "Licensed & insured",
+  "Licensed & insured crew",
   "7 days a week",
   regions.serviceAreaBadge,
   "Callback in 15 min",
@@ -78,7 +78,7 @@ export function ServiceHeroWithQuote({
   const pianoTrustPills =
     heroVariant === "piano"
       ? ([
-          "Licensed & insured",
+          "Licensed & insured crew",
           "7 days a week",
           regions.serviceAreaBadge,
           "Piano specialists",

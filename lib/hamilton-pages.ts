@@ -107,8 +107,8 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
         body: "Legs, pedals, and lid prep for grands. Custom dollies and straps for uprights in tight access.",
       },
       {
-        title: "Insured specialists",
-        body: "Specialist transport insurance options. Hundreds of 5-star reviews across the North Island.",
+        title: "Specialists with cover",
+        body: "Pianos carry $2,000 cover as standard, with more available on request. Hundreds of 5-star reviews across the North Island.",
       },
     ],
     includedBullets: [
