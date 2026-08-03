@@ -1,4 +1,7 @@
-import { moveFromPrice } from "@/lib/company-facts";
+import { moveFromPrice, pianoFromPrice } from "@/lib/company-facts";
+import { fromPrice } from "@/lib/pricing-copy";
+
+const hamiltonFromPrice = fromPrice.hamilton;
 /**
  * Verbatim (or near-verbatim) marketing and SEO copy from specialistmovers.co.nz
  * as provided in site exports / live pages , preserved for Google rankings.
@@ -119,11 +122,24 @@ export const statsStrip = {
   ],
 };
 
-/** Piano pages , same SiteWise strip with piano starting price. */
+/** Piano pages , same SiteWise strip with the real piano starting price.
+ *  This said $300 — the house-move floor — while claiming to be the piano
+ *  price. Uprights start at $290. */
 export const pianoStatsStrip = {
   ...statsStrip,
   items: statsStrip.items.map((item) =>
-    item.label === "Moves from" ? { ...item, value: "$300" } : item,
+    item.label === "Moves from"
+      ? { label: "Pianos from", value: pianoFromPrice }
+      : item,
+  ),
+};
+
+/** Hamilton pages. The canonical $300 is the AUCKLAND floor; Hamilton's
+ *  cheapest hourly is $140, so its floor is $340. */
+export const hamiltonStatsStrip = {
+  ...statsStrip,
+  items: statsStrip.items.map((item) =>
+    item.label === "Moves from" ? { ...item, value: hamiltonFromPrice } : item,
   ),
 };
 

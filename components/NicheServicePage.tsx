@@ -40,9 +40,29 @@ function nicheMomentKey(path: string): string {
   return "services/house-moving";
 }
 
+/**
+ * Which service's hero detail, photos and review slots this niche page borrows.
+ *
+ * This used to fall through to "international-moving" for anything that was
+ * not apartment or retirement, which put "Sea freight, sole-use containers,
+ * and air freight explained for your load size" and "packing and export wrap"
+ * on the furniture pages. Not our service on those pages and not true of them.
+ *
+ * Now an explicit map, so a new niche page cannot silently inherit the wrong
+ * service's copy — an unknown path falls back to house-moving, which is the
+ * safe default for a domestic page.
+ */
+const NICHE_SERVICE_BY_PATH: Record<string, string> = {
+  "/apartment-movers-auckland": "house-moving",
+  "/retirement-home-movers-auckland": "house-moving",
+  "/retirement-home-movers-hamilton": "house-moving",
+  "/international-moving/moving-to-australia": "international-moving",
+  "/furniture-movers-auckland": "house-moving",
+  "/furniture-movers-hamilton": "house-moving",
+};
+
 function nicheReviewSlug(path: string): string {
-  if (path.includes("apartment") || path.includes("retirement")) return "house-moving";
-  return "international-moving";
+  return NICHE_SERVICE_BY_PATH[path] ?? "house-moving";
 }
 
 export function NicheServicePage({ config }: Props) {
@@ -51,6 +71,7 @@ export function NicheServicePage({ config }: Props) {
     href: c.href,
   }));
   const reviewSlug = nicheReviewSlug(config.path);
+  const branch = config.path.includes("hamilton") ? "hamilton" : "auckland";
   const processSteps =
     config.processTitle === houseMovingProcess.title
       ? getServiceProcessSteps("house-moving")
@@ -140,7 +161,11 @@ export function NicheServicePage({ config }: Props) {
         </div>
       </SectionReveal>
 
-      <ServiceWhyChooseSection title={config.whyTitle} body={config.whyBody} />
+      <ServiceWhyChooseSection
+        title={config.whyTitle}
+        body={config.whyBody}
+        statsVariant={branch === "hamilton" ? "hamilton" : "default"}
+      />
 
       <SectionReveal className="border-t border-brand-purple/10 bg-brand-white py-12 sm:py-14">
         <div className="mx-auto max-w-7xl container-px">

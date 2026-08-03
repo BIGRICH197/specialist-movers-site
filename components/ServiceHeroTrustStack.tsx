@@ -68,7 +68,9 @@ export function ServiceHeroTrustStack({ subline, trustPills, phone, className }:
             </span>
           ))}
         </div>
-        <GoogleRatingBadge className="pointer-events-auto absolute bottom-0 right-0 z-20 hidden shrink-0 xl:flex" />
+        {/* Nudged 2mm right (Richard, 2026-08-03). Real mm unit rather than a
+            px guess, so it is the distance he actually asked for. */}
+        <GoogleRatingBadge className="pointer-events-auto absolute bottom-0 right-0 z-20 hidden shrink-0 translate-x-[2mm] xl:flex" />
       </div>
     </div>
   );
