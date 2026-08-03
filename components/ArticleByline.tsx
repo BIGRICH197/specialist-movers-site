@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { founderYearsInTrade } from "@/lib/company-facts";
 import { teamLeaders } from "@/lib/team-leaders";
 
 /**
@@ -8,14 +7,14 @@ import { teamLeaders } from "@/lib/team-leaders";
  * audit called it the largest single Expertise deduction, and it directly
  * blocks AI citation because models strongly prefer attributable content.
  *
- * The 15 years lives here and nowhere else. Stated bare next to a 2023
- * founding date it reads as a contradiction; attached to the person who
- * actually has it, it is evidence.
+ * No experience-in-years claim here. The one on the Sirelo and Wise Move
+ * profiles is wrong and needs correcting there. Authority on this page comes
+ * from role and job volume, both of which are true.
  */
 export const bylineAuthors = {
   richard: {
     id: "richard",
-    bio: `Richard has been moving furniture and pianos for ${founderYearsInTrade} years and founded Specialist Movers in 2023. He runs the Auckland and Waikato operations and still quotes the difficult jobs himself.`,
+    bio: "Richard founded Specialist Movers in 2023 and runs the Auckland and Waikato operations. He still quotes the difficult jobs himself, and the business now completes around 180 moves a month.",
   },
   matthew: {
     id: "matthew",

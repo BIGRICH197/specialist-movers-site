@@ -45,13 +45,15 @@ export const pianoFromPrice = "$290";
 export const grandPianoFromPrice = "$550";
 
 /**
- * Founded 2023. The "15 years" on the Sirelo and Wise Move profiles is
- * Richard's own time in the trade, not the company's age, and stated bare next
- * to a 2023 founding date it reads as a contradiction. Attributed to a person
- * it is an E-E-A-T asset, so it lives in the byline bio and nowhere else.
+ * Founded 2023, and that is the only age claim we make about the company.
+ *
+ * The "15 years" on the Sirelo and Wise Move profiles is wrong and should be
+ * corrected there — Richard is 26 and founded the business in 2023. The real
+ * depth is in the crew: staff with 40+ years in the trade, which is what makes
+ * the "over 60 years combined" line on the service pages credible. Naming an
+ * individual needs their consent first, the same as any byline.
  */
 export const foundedYear = "2023";
-export const founderYearsInTrade = 15;
 
 /**
  * NAP. Confirmed against the Google Business Profile 2026-08-03: Google itself
