@@ -341,4 +341,20 @@ export const blogPosts = [
     excerpt:
       "Practical advice for Auckland families moving house with children and pets. Plan the day, settle animals fast, and time your move around school zones.",
   },
+  {
+    slug: "downsizing-retirement-village-auckland",
+    title: "Moving to a Retirement Village in Auckland: A Plain Guide to Downsizing",
+    seoTitle: "Downsizing to a Retirement Village Auckland | Specialist Movers",
+    publishedDate: "2026-08-02",
+    excerpt:
+      "Practical advice on sorting what comes with you, lining up settlement dates, bridging storage, and why a viewing makes retirement moves smoother in Auckland.",
+  },
+  {
+    slug: "moving-in-winter-auckland",
+    title: "Moving in Winter Auckland: Why July to September Might Be Your Best Option",
+    seoTitle: "Winter Moving Auckland: Tips & Benefits | Specialist Movers",
+    publishedDate: "2026-08-02",
+    excerpt:
+      "Thinking about moving in winter in Auckland? July to September has real advantages. Here's what to expect and how we keep your gear dry on rainy days.",
+  },
 ] as const;
