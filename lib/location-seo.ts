@@ -34,7 +34,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     metaDescription:
       "Local movers in Papatoetoe, South Auckland. Specialist Movers handles family homes, units, and townhouses across the suburb. Get a quote in 15 minutes.",
     intro:
-      "Papatoetoe is one of South Auckland's most established suburbs, big family homes on generous sections, a strong mix of cultures, and plenty of furniture that reflects it. We have completed dozens of moves here and know what to expect.",
+      "Papatoetoe is one of South Auckland's most established suburbs, big family homes on generous sections, a strong mix of cultures, and plenty of furniture that reflects it. We have completed more than 30 moves here and know what to expect.",
     paragraphs: [
       "The housing stock in Papatoetoe is largely older brick-and-tile and weatherboard homes, often on wide, flat sections. That sounds easy, but long internal hallways, low eaves over side gates, and detached garages packed with decades of gear are common. We walk the property before we start and plan the carry accordingly.",
       "Papatoetoe also has a lot of newer townhouse and unit development, especially around the Great South Road corridor and near Papatoetoe train station. Shared driveways, limited street parking, and stacked layouts mean access planning matters. We confirm parking and driveway clearance before move day, not on it.",
@@ -74,7 +74,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     paragraphs: [
       "The eastern end of the Bucklands Beach peninsula is mostly large homes on sloping sections with views across the Manukau and Waitemata. Those sites look great from the water but they come with steep driveways, retaining walls, and garages that sit well below or above street level. We walk the site before move day so nothing surprises the crew.",
       "Eastern Beach Road and the streets running off it include a mix of older brick-and-tile family homes and more recent builds. Parking a large truck near the waterfront strips can be tight, especially on weekends when the reserve and beach draw visitors. We book time and space early and co-ordinate with neighbours if a vehicle needs to shift.",
-      "We have completed dozens of moves in this area, so we know the access quirks around Ara Tai Road, the cul-de-sacs near Bucklands Beach Primary, and the longer carries that come with hillside homes. That local knowledge saves time on the day and keeps your quote accurate.",
+      "We have completed regular work in this area, so we know the access quirks around Ara Tai Road, the cul-de-sacs near Bucklands Beach Primary, and the longer carries that come with hillside homes. That local knowledge saves time on the day and keeps your quote accurate.",
       "From our Wairau Valley depot the drive is about 34 minutes, which puts Bucklands Beach in our pricing zone B. The fixed callout is slightly higher than closer suburbs because of travel time. You see the full price before you confirm, and hourly rates are the same as anywhere else in Auckland.",
     ],
     highlights: [
@@ -106,7 +106,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     metaDescription:
       "Specialist Movers handle Manurewa house and piano moves with care. Local crews, taillifts, 7-day bookings. Get a quote in 15 minutes.",
     intro:
-      "Manurewa is a suburb of big family homes on wide sections, older brick-and-tile houses, and a growing number of newer townhouses packed into tighter spots. We have completed dozens of moves here and know how different these streets can be from one block to the next.",
+      "Manurewa is a suburb of big family homes on wide sections, older brick-and-tile houses, and a growing number of newer townhouses packed into tighter spots. We have completed regular work here and know how different these streets can be from one block to the next.",
     paragraphs: [
       "The older housing stock around Manurewa town centre tends to be generous in size but tricky in layout. Long internal hallways, split-level entries, and hefty furniture that was built to last all take planning. Our crews of two to four show up knowing what to expect, not guessing on the day.",
       "Newer townhouse developments closer to Wiri and the Southern Motorway corridor are a different challenge. Shared driveways, tight turning circles, and allocated parking that other residents still use on move day. We check access details before we arrive so the truck goes in the right place the first time.",
@@ -183,7 +183,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Getting a truck to Beachlands takes close to 50 minutes from our Wairau Valley depot. That travel time is factored into the callout for this zone, and you see the full price before you confirm anything. No surprises on the day.",
       "The housing stock out here leans toward generous freehold sections, often with long driveways, established gardens, and garages full of gear that has accumulated over many years. We send crews of two to four and trucks with taillifts, so heavy furniture and large loads get moved properly without improvising on the spot.",
       "Beachlands is the kind of place where people stay a long time, then make one big move when the family has grown or the kids have left home. That often means a full house of furniture, boxes, and the occasional piano. We are NZ's piano moving specialists, trusted by Steinway dealers and Auckland Town Hall, so if there is a piano on the move list, we have handled far more difficult ones.",
-      "We have completed dozens of jobs in Beachlands and the surrounding Maraetai and Pine Harbour area. Seven-day operation means we can often fit around ferry timetables, settlement dates, and the practical reality that weekdays are not always possible when you live this far out.",
+      "We have completed regular work in Beachlands and the surrounding Maraetai and Pine Harbour area. Seven-day operation means we can often fit around ferry timetables, settlement dates, and the practical reality that weekdays are not always possible when you live this far out.",
     ],
     highlights: [
       "About 50 minutes from our Wairau Valley depot, callout priced accordingly",
@@ -214,7 +214,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     metaDescription:
       "Moving in Mairangi Bay? Specialist Movers are 8 minutes from your door. Dozens of local moves completed. Get a quote in 15 minutes.",
     intro:
-      "Mairangi Bay sits quietly between the bays, with a mix of 1970s brick-and-tile family homes, sloped sections, and a growing number of townhouses tucked into former back yards. We know the area well and have completed dozens of moves here.",
+      "Mairangi Bay sits quietly between the bays, with a mix of 1970s brick-and-tile family homes, sloped sections, and a growing number of townhouses tucked into former back yards. We know the area well and have completed a steady run of moves here.",
     paragraphs: [
       "A lot of Mairangi Bay homes were built in the 1970s and 1980s, and they come with a particular set of challenges. Split-level layouts, internal stairs, and long carries from a garage at road level to a living area halfway up the section are common. We plan the carry route before move day, not on it.",
       "The suburb has seen a steady run of downsizes in recent years. Families who bought here decades ago are now moving to smaller places, often taking a few pieces of real furniture with them, including the occasional piano. We are NZ's piano moving specialists, trusted by Steinway dealers and Auckland Town Hall, so a family upright in a Mairangi Bay living room is well within our scope.",
@@ -284,9 +284,9 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   "west-auckland": {
     metaDescription:
-      "West Auckland movers with dozens of local jobs done. Specialist Movers handles big homes, steep sections, and long driveways across Henderson, Te Atatu, and beyond.",
+      "West Auckland movers with close to 300 moves done. Specialist Movers handles big homes, steep sections, and long driveways across Henderson, Te Atatu, and beyond.",
     intro:
-      "West Auckland has its own character, big sections, established trees, steep valley roads, and homes that were built to last. We have completed dozens of moves across the west, from Henderson bungalows to Titirangi bush retreats.",
+      "West Auckland has its own character, big sections, established trees, steep valley roads, and homes that were built to last. We have completed close to 300 moves across the west, from Henderson bungalows to Titirangi bush retreats.",
     paragraphs: [
       "The Waitakere foothills change how you plan a move. Titirangi and the surrounding bush suburbs have roads that narrow quickly, tight bends, and driveways that drop away from the street. We check access before move day so there are no surprises when the truck arrives.",
       "Much of the housing stock in Henderson, Glen Eden, and New Lynn is 1960s to 1980s brick and tile. Solid construction, but often with sunken lounges, low doorways, or garages that were not built with a fridge-freezer in mind. Our crew of two to four know how to work those spaces without marking walls or doorframes.",
@@ -461,9 +461,9 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   albany: {
     metaDescription:
-      "Albany movers with dozens of local jobs done. Specialist Movers handles large family homes, Pinehill townhouses, and everything in between. Get a quote in 15 minutes.",
+      "Albany movers with close to 300 moves done. Specialist Movers handles large family homes, Pinehill townhouses, and everything in between. Get a quote in 15 minutes.",
     intro:
-      "Albany is one of the Shore's biggest and busiest suburbs, large homes on generous sections, multi-storey townhouse blocks, and everything in between. We have completed dozens of moves here and know what each property type asks of a crew.",
+      "Albany is one of the Shore's biggest and busiest suburbs, large homes on generous sections, multi-storey townhouse blocks, and everything in between. We have completed close to 300 moves here and know what each property type asks of a crew.",
     paragraphs: [
       "A lot of Albany homes are two or three storeys with double garages, big living areas, and a full set of furniture to match. Volume is the main challenge here, not terrain. We size the crew and truck to the job so nothing gets left behind or rushed.",
       "Pinehill, Oteha, and the newer townhouse developments around Albany Highway bring a different set of access questions. Shared driveways, narrow lanes, body-corporate parking rules, and lift bookings in taller blocks all need sorting before move day, not on it. We ask those questions at the quote stage.",
@@ -549,7 +549,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   torbay: {
     metaDescription:
-      "Torbay movers with dozens of local jobs done. Specialist Movers handles steep driveways, coastal homes, and upsizes from our Wairau Valley depot.",
+      "Torbay movers with regular work done. Specialist Movers handles steep driveways, coastal homes, and upsizes from our Wairau Valley depot.",
     intro:
       "Torbay sits at the top of the East Coast Bays, and the streets show it. Ridgeline roads, curved driveways, and sections that drop away sharply are just part of the job out here.",
     paragraphs: [
@@ -638,9 +638,9 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   // ── Inner / West ──
   "grey-lynn": {
     metaDescription:
-      "Grey Lynn movers with dozens of local jobs done. Specialist Movers handles villas, steep steps, and tight streets across Grey Lynn. Get a quote in 15 minutes.",
+      "Grey Lynn movers with more than 40 moves done. Specialist Movers handles villas, steep steps, and tight streets across Grey Lynn. Get a quote in 15 minutes.",
     intro:
-      "Grey Lynn is full of character villas on narrow streets, and moving in or out of them takes a bit more thought than a standard house. We have completed dozens of moves here and know what to plan for.",
+      "Grey Lynn is full of character villas on narrow streets, and moving in or out of them takes a bit more thought than a standard house. We have completed more than 40 moves here and know what to plan for.",
     paragraphs: [
       "Most Grey Lynn homes are villas or bungalows built well before cars were a consideration. Front paths are often long, steps are steep, and hallways are narrow. We look at all of this before move day so the crew arrives with the right gear and a clear plan.",
       "Parking on Richmond Road, Williamson Avenue, and the surrounding streets can be tight on a weekday morning. We check what is available, whether a parking restriction applies, and how close we can get the truck. A tailift truck needs room to operate safely, and we sort that out in advance.",
@@ -674,9 +674,9 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   "mount-albert": {
     metaDescription:
-      "Looking for movers in Mount Albert, Auckland? Specialist Movers has completed dozens of jobs here. Local crews, tailift trucks, quotes in 15 minutes.",
+      "Looking for movers in Mount Albert, Auckland? Specialist Movers has completed more than 20 moves here. Local crews, tailift trucks, quotes in 15 minutes.",
     intro:
-      "Mount Albert is a suburb of older bungalows, steep cross-lease sections, and a growing number of townhouse blocks squeezed into former back gardens. We have done dozens of moves here and know what that mix throws at you.",
+      "Mount Albert is a suburb of older bungalows, steep cross-lease sections, and a growing number of townhouse blocks squeezed into former back gardens. We have done more than 20 moves here and know what that mix throws at you.",
     paragraphs: [
       "The older housing stock is the big thing in Mount Albert. Bungalows and character homes from the 1940s through the 1970s sit on sections that were subdivided long before townhouses were the norm. That means tight side access, low carports that a large truck cannot fit under, and front paths that were never designed for furniture. We walk the access before move day on anything that looks tight.",
       "Cross-lease sections are common here. That shared driveway or right-of-way often has a turning circle that suits a car, not a truck. We check the geometry in advance and size the vehicle accordingly. Sometimes a smaller truck and a second run is the right call. We tell you that upfront, not on move day.",
@@ -762,14 +762,14 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   titirangi: {
     metaDescription:
-      "Titirangi movers who know the bush tracks, steep drives, and character homes. Specialist Movers has completed dozens of jobs in Titirangi. Get a quote in 15 minutes.",
+      "Titirangi movers who know the bush tracks, steep drives, and character homes. Specialist Movers has completed more than 30 jobs in Titirangi. Get a quote in 15 minutes.",
     intro:
       "Titirangi is unlike anywhere else in Auckland, and moving here shows that quickly. Bush-clad sections, winding roads, and homes tucked well off the street make every job its own puzzle.",
     paragraphs: [
       "The Waitakere foothills do not give much away. A lot of Titirangi homes sit at the end of long driveways, behind dense vegetation, or on slopes that look gentle on a map and steep in person. We visit larger homes before move day so nothing surprises us when the truck arrives.",
       "The housing stock here leans heavily on older character builds, timber baches that grew into family homes, split-levels set into the hillside, and the occasional architect-designed place with unusual room layouts. Furniture that fits through a standard door in Remuera sometimes needs a different plan in a Titirangi cottage.",
       "We run from our Wairau Valley depot, about 32 minutes to Titirangi. That puts it in our pricing zone B, so the fixed callout is a little higher than closer suburbs. You see the full price before you confirm anything, and the hourly rate stays the same wherever we work in Auckland.",
-      "We have completed dozens of jobs out this way, including some that involved pianos. Titirangi has more musicians per street than most Auckland suburbs, and we are the movers trusted by Steinway dealers and Auckland Town Hall for instrument work. A grand in a split-level home on a bush section is a day's work we plan carefully, not something we figure out on arrival.",
+      "We have completed more than 30 jobs out this way, including some that involved pianos. Titirangi has more musicians per street than most Auckland suburbs, and we are the movers trusted by Steinway dealers and Auckland Town Hall for instrument work. A grand in a split-level home on a bush section is a day's work we plan carefully, not something we figure out on arrival.",
     ],
     highlights: [
       "Dozens of Titirangi jobs completed",
@@ -832,7 +832,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Most of the housing stock in Herne Bay is older, think large two-storey villas and bungalows with high front steps, long hallways, and rooms that were not designed with sofas in mind. We carry furniture through these spaces regularly. Knowing where the tight corners are before move day saves a lot of time on the day.",
       "The streets around the waterfront and the upper ridge can be genuinely tricky for a large truck. Parking is limited on many of the residential streets, and some driveways rise sharply off the road. We check access before we arrive, not when the truck is already blocking the street.",
       "Herne Bay attracts buyers who have accumulated quality pieces over the years, good furniture, artwork, instruments. We are New Zealand's piano moving specialists, trusted by Steinway dealers and Auckland Town Hall, so if you have a grand or upright that needs to come with you, that is well within our usual work.",
-      "Our Wairau Valley depot is about 15 minutes and 12 km from Herne Bay, so we are not travelling across town to reach you. We operate seven days and we have completed dozens of moves in this suburb. The callout to Herne Bay sits in our standard pricing zone, so there is no distance premium on top of your quote.",
+      "Our Wairau Valley depot is about 15 minutes and 12 km from Herne Bay, so we are not travelling across town to reach you. We operate seven days and we have completed regular work in this suburb. The callout to Herne Bay sits in our standard pricing zone, so there is no distance premium on top of your quote.",
     ],
     highlights: [
       "Experienced with Herne Bay villas and their tight hallways and high steps",
@@ -861,11 +861,11 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   parnell: {
     metaDescription:
-      "Moving in Parnell? Specialist Movers has completed dozens of jobs in this historic Auckland suburb. Local crew, taillifted trucks, quotes in 15 minutes.",
+      "Moving in Parnell? Specialist Movers has completed regular work in this historic Auckland suburb. Local crew, taillifted trucks, quotes in 15 minutes.",
     intro:
       "Parnell is one of Auckland's oldest suburbs, and the housing stock shows it. Heritage villas, converted apartments in old buildings, and steep sections that catch movers off guard if they haven't been before.",
     paragraphs: [
-      "We've completed dozens of moves in Parnell. The jobs range from Victorian and Edwardian villas on elevated sections to boutique apartment buildings along the ridge. Access varies a lot from street to street, so we check it before move day, not on the morning of.",
+      "We've completed regular work in Parnell. The jobs range from Victorian and Edwardian villas on elevated sections to boutique apartment buildings along the ridge. Access varies a lot from street to street, so we check it before move day, not on the morning of.",
       "The terrain here is real. Some of Parnell's streets drop away sharply toward the Domain or the waterfront, and a driveway that looks fine on Google Maps can be a different story with a full truck. Our taillifted trucks help, and we size the crew to handle the carry when the vehicle can't get close.",
       "Apartment buildings in Parnell tend to be older conversions rather than purpose-built towers. That often means a smaller lift, or no lift at all, and corridor widths that weren't designed with sofas in mind. We walk through the access before we quote on larger jobs so there are no surprises.",
       "Our depot is in Wairau Valley, about 18 minutes from Parnell. That puts us well within our standard callout area, so there's no distance premium added to your job. You see the full price before you confirm anything.",
@@ -949,9 +949,9 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   "mt-eden": {
     metaDescription:
-      "Moving in Mount Eden? Specialist Movers has completed dozens of jobs across this suburb. Local knowledge, honest pricing, quotes in 15 minutes.",
+      "Moving in Mount Eden? Specialist Movers has completed more than 80 moves across this suburb. Local knowledge, honest pricing, quotes in 15 minutes.",
     intro:
-      "Mount Eden packs a lot into a small area. Steep volcanic terrain, century-old villas, and some of Auckland's tightest driveways. We have completed dozens of moves here and know what to plan for.",
+      "Mount Eden packs a lot into a small area. Steep volcanic terrain, century-old villas, and some of Auckland's tightest driveways. We have completed more than 80 moves here and know what to plan for.",
     paragraphs: [
       "The housing stock is largely pre-1940. Villas and bungalows with high timber floors, narrow hallways, and front doors that face the street at an angle. Getting a sofa or a king bed through those spaces takes patience and the right approach, not brute force. We scope the tight spots before move day so nothing gets held up on the day.",
       "Mount Eden Road and Dominion Road are busy arterials and parking enforcement is active. Side streets off the volcano slopes can be one-lane with no kerb space for a large truck. We check access and arrange parking before we arrive. Our trucks have taillifts, which matters when the street drops away steeply from where we need to load.",
@@ -1011,7 +1011,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   "st-heliers": {
     metaDescription:
-      "Saint Heliers movers with dozens of local jobs done. Specialist Movers handles bungalows, clifftop homes, and steep beach-suburb access with care.",
+      "Saint Heliers movers with more than 40 moves done. Specialist Movers handles bungalows, clifftop homes, and steep beach-suburb access with care.",
     intro:
       "Saint Heliers sits on the edge of the Waitemata, and the homes here reflect that. Older bungalows, character houses on sloped sections, and a suburb where the street layout and sea views often mean tricky access.",
     paragraphs: [
@@ -1050,7 +1050,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     metaDescription:
       "Devonport movers for villas, apartments, and pianos. Careful crews who know the village streets. Specialist Movers North Shore. Free quote in 15 minutes.",
     intro:
-      "Devonport is one of our most-visited suburbs, with dozens of jobs done here. Heritage villas, village streets, and more pianos per square kilometre than almost anywhere in Auckland.",
+      "Devonport is one of our most-visited suburbs, with more than 40 moves done here. Heritage villas, village streets, and more pianos per square kilometre than almost anywhere in Auckland.",
     paragraphs: [
       "Devonport villas are beautiful and unforgiving. Narrow hallways, steep internal stairs, and front steps that have seen a century of feet. We protect floors and door frames as standard and bring crews who have done this exact house before, just on a different street.",
       "Parking is the other Devonport puzzle. Village streets are tight and busy, especially near the ferry. We plan where the truck stands and get any council permissions sorted before the day.",
@@ -1122,7 +1122,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     metaDescription:
       "Stanmore Bay movers on the Whangaparāoa Peninsula. House, piano, and insurance moves from our North Shore depot. Free quote in 15 minutes.",
     intro:
-      "Stanmore Bay is part of our regular run up the Whangaparāoa Peninsula. We have handled dozens of jobs here, from full house moves to single pianos.",
+      "Stanmore Bay is part of our regular run up the Whangaparāoa Peninsula. We have handled more than 20 moves here, from full house moves to single pianos.",
     paragraphs: [
       "The peninsula has one road in and out, so timing matters. We schedule Stanmore Bay moves to miss the Whangaparāoa Road crush, and our depot is about 25 minutes away with a clear run.",
       "Housing here is a real mix. Older baches sit next to new builds, and plenty of homes step down towards the beach. Split levels and downhill carries are normal for us, and we bring the right crew for them.",
@@ -1158,7 +1158,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     metaDescription:
       "Red Beach movers on the Hibiscus Coast. Family house moves, packing, and pianos handled by our North Shore crews. Free quote in 15 minutes.",
     intro:
-      "Red Beach is family-move country, and it is one of our regular Hibiscus Coast stops. We have done dozens of jobs here, most of them three and four bedroom homes.",
+      "Red Beach is family-move country, and it is one of our regular Hibiscus Coast stops. We have done a steady run of moves here, most of them three and four bedroom homes.",
     paragraphs: [
       "A lot of Red Beach moves are growing families going up a bedroom or moving in from other parts of Auckland. Three and four bedroom houses are our bread and butter, and we usually send a three-mover crew so the day stays short.",
       "The newer subdivisions have good truck access, while some of the older streets near the beach are tighter. We check access before move day so the truck is never the surprise.",
@@ -1166,7 +1166,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "We are about 20 minutes up the motorway from our Wairau Valley depot, so morning starts are easy to lock in.",
     ],
     highlights: [
-      "Regular Hibiscus Coast crew, dozens of Red Beach jobs done",
+      "Regular Hibiscus Coast crew, a steady run of Red Beach jobs done",
       "Three and four bedroom family moves are our standard work",
       "Packing service available the day before",
       "About 20 minutes from our depot, easy morning starts",
@@ -1266,7 +1266,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     metaDescription:
       "West Harbour movers, 15 minutes from our depot. Family homes, insurance moves, and packing done properly. Specialist Movers Auckland. Free quote in 15 minutes.",
     intro:
-      "West Harbour sits just across the upper harbour from our depot, about 15 minutes door to door. We have done dozens of jobs here, from family homes to insurance pack-outs.",
+      "West Harbour sits just across the upper harbour from our depot, about 15 minutes door to door. We have done more than 20 moves here, from family homes to insurance pack-outs.",
     paragraphs: [
       "Family homes around the marina and the harbour edge make up most of our West Harbour work. Established streets, decent access, and the odd steep driveway down to a view. We plan crew size around the house, not a formula.",
       "We also do insurance restoration work in the suburb, packing out homes for restoration companies and packing them back when the work is done. Careful inventory and handling is the whole job there, and it shows in how we treat every move.",
