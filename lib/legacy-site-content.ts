@@ -157,9 +157,9 @@ export const googleReviewsUrl =
 /** “Specialist Care…” / insurance / best mover blocks from the homepage. */
 export const trustPillars = [
   {
-    title: "Specialist Care and Expertise",
+    title: "Specialist care and expertise",
     body:
-      "As one of the leading moving companies in New Zealand, we bring years of experience handling and transporting a wide range of items from furniture to delicate instruments to North Island, South Island and international destinations. Our specialist moving team ensures your items arrive safely and on time.",
+      "Founded in 2023, we run around 20 staff and 5 trucks from bases in Wairau Valley and Hamilton, completing roughly 80 house and office moves a month alongside about 100 piano moves. That volume is why the awkward jobs are routine: grand pianos off balconies, spa pools, safes, and marble tops that only travel one way up.",
   },
   {
     title: "Care, protection, and cover options",
@@ -167,9 +167,9 @@ export const trustPillars = [
       "Every crew is licensed and insured, and we carry $2,000,000 public liability. Household goods travel at owner's risk, which is standard across the industry, so we can arrange transit cover for your belongings through our broker if you want it. Ask us and we will explain exactly what it covers before you book.",
   },
   {
-    title: "Best Moving Company in Auckland - Trusted Specialist Movers",
+    title: "Fixed prices, quoted before you book",
     body:
-      "Our team at Specialist Movers takes pride in providing reliable and skilled moving services to our customers at competitive fixed prices with no hidden fees. We are fully trained to handle and transport a wide range of items – from delicate instruments to bulky furniture. Our goal is to provide customer satisfaction by making your move as smooth and hassle-free as possible.",
+      "A two-person crew and truck is $120 an hour plus GST on a Tuesday and $150 on a Friday, plus a callout fee set by distance and a flat $25 fuel surcharge. You see the whole number in writing before you commit, and for homes of three bedrooms or more we come and look first, because volume and access are what actually drive the price.",
   },
 ] as const;
 
