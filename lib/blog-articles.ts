@@ -652,6 +652,59 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "piano-and-couch-lift-to-balcony-freemans-bay-auckland": {
+    title: "How We Got a Piano and a Couch Up to a Freemans Bay Balcony",
+    sections: [
+      {
+        heading: "The job in plain English",
+        paragraphs: [
+          "Freemans Bay sits right on the edge of the city, and a lot of its apartments were built before anyone thought too hard about getting large furniture through stairwells. This job was a good example of that.",
+          "The customer needed a piano relocated and a couch lifted up onto a balcony. Neither item was going up a standard staircase the normal way. That meant we needed to plan the lift before we showed up, not figure it out on the day.",
+        ],
+      },
+      {
+        heading: "Why balcony lifts are genuinely tricky",
+        paragraphs: [
+          "A balcony lift sounds simple until you think through what can go wrong. You need a clear drop zone below, a solid anchor point above, enough crew to guide the item from both ends, and a balcony railing that can take a load passing over it without damage.",
+          "Couches catch wind and twist. A piano, depending on the type, can weigh anywhere from around 150 kilograms for a small upright to several hundred for a grand. The weight is not evenly distributed, which means the lift has to be controlled the whole way up, not just at the start and finish.",
+          "In Freemans Bay specifically, narrow streets and parked cars can limit where you stage the truck. We factor that in during planning, not when we arrive.",
+        ],
+      },
+      {
+        heading: "How we planned it",
+        paragraphs: [
+          "Before the crew left our depot, we knew the access situation at the property. For jobs like this we talk through the route: where the truck parks, how far the item travels on the ground, what the lift angle looks like, and which crew member takes which position.",
+          "For a balcony lift we typically bring a crew of at least three. One person on the ground controls the rigging and steadies the load. At least two people are on or near the balcony to receive and guide the item over the rail. Everyone knows their cue before the item leaves the ground.",
+          "Our trucks carry taillifts as standard, which helps with staging. Getting the item from truck to lift point at the right height saves effort and reduces the risk of anyone straining at an awkward angle.",
+        ],
+      },
+      {
+        heading: "The gear we used",
+        paragraphs: [
+          "For a lift like this we use furniture straps and moving blankets as the first layer of protection. The straps go under the item so we control it from below rather than trying to grip the sides.",
+          "The couch was wrapped before it went anywhere near the air. Balcony posts and railings can leave marks on fabric or timber in a split second if the item shifts. Blankets take the hit instead.",
+          "For the piano, our standard practice is to assess on the spot whether castors come off or stay on. Moving a piano with castors on while it is in the air is asking for trouble. We secure the lid and the fallboard before the item moves at all.",
+        ],
+      },
+      {
+        heading: "How it went on the day",
+        paragraphs: [
+          "The crew worked the couch up first. That gave everyone a chance to check the rigging setup and confirm the balcony railing was solid before the heavier item went up.",
+          "The piano followed. The approach was slow and deliberate. There is no benefit in rushing a piano lift. A controlled, steady rise with constant communication between the ground and balcony crew is what keeps the job clean.",
+          "Both items landed on the balcony without damage to the items or the building. That is the only result that counts.",
+        ],
+      },
+      {
+        heading: "What to know if you have a similar job",
+        paragraphs: [
+          "If you have an item that will not fit through your stairwell or front door, a balcony lift is often the right answer. But it needs to be assessed properly first.",
+          "Tell us the item type and weight if you know it, the balcony height, and what access looks like from the street below. Photos help a lot. We can usually come back to you with a plan and a price in about 15 minutes during business hours.",
+          "A free viewing is available for larger or more complex jobs. We would rather spend 20 minutes at the property than have anyone surprised on the day.",
+          "Freemans Bay, Grey Lynn, Ponsonby, Parnell, buildings along the waterfront near Westhaven, apartments in the CBD, all of these areas come with access quirks. We have handled them across more than 1,500 Auckland moves. If you have got an awkward item, use the quote form on our website and tell us what you are working with.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {

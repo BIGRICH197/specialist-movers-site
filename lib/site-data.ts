@@ -317,4 +317,12 @@ export const blogPosts = [
     excerpt:
       "A Newmarket commercial move needed a hoist to shift heavy items safely. Here is exactly how our four-person crew planned and executed it.",
   },
+  {
+    slug: "piano-and-couch-lift-to-balcony-freemans-bay-auckland",
+    title: "How We Got a Piano and a Couch Up to a Freemans Bay Balcony",
+    seoTitle: "Piano & Couch Balcony Lift, Freemans Bay | Specialist Movers",
+    publishedDate: "2026-08-02",
+    excerpt:
+      "A Freemans Bay apartment job that needed a piano moved and a couch lifted to a balcony. Here's exactly how our crew planned and pulled it off.",
+  },
 ] as const;
