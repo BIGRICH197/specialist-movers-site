@@ -30,6 +30,222 @@ const pianoProtection =
 
 /** SEO patches keyed by /locations/[slug] */
 export const locationSeoPatches: Record<string, LocationSeoPatch> = {
+  papatoetoe: {
+    metaDescription:
+      "Local movers in Papatoetoe, South Auckland. Specialist Movers handles family homes, units, and townhouses across the suburb. Get a quote in 15 minutes.",
+    intro:
+      "Papatoetoe is one of South Auckland's most established suburbs, big family homes on generous sections, a strong mix of cultures, and plenty of furniture that reflects it. We have completed dozens of moves here and know what to expect.",
+    paragraphs: [
+      "The housing stock in Papatoetoe is largely older brick-and-tile and weatherboard homes, often on wide, flat sections. That sounds easy, but long internal hallways, low eaves over side gates, and detached garages packed with decades of gear are common. We walk the property before we start and plan the carry accordingly.",
+      "Papatoetoe also has a lot of newer townhouse and unit development, especially around the Great South Road corridor and near Papatoetoe train station. Shared driveways, limited street parking, and stacked layouts mean access planning matters. We confirm parking and driveway clearance before move day, not on it.",
+      "Our depot is in Wairau Valley on the North Shore, about 27 minutes from Papatoetoe. That puts this suburb in our pricing Zone B, so the fixed callout is slightly higher than for inner suburbs. You see the full price before you confirm, and hourly rates are the same across Auckland.",
+      "South Auckland families often move a lot of furniture, large dining sets, wardrobes, and sometimes a piano. We are NZ's piano moving specialists, trusted by Steinway dealers and Auckland Town Hall, so if you have a piano at your Papatoetoe address, that is covered. Our trucks have taillifts and we run crews of two to four depending on the job.",
+    ],
+    highlights: [
+      "Dozens of Papatoetoe moves completed",
+      "Familiar with older brick-and-tile homes on wide sections",
+      "Access planning for shared townhouse driveways near Great South Road",
+      "Piano moving specialists, full tailift trucks, 7-day availability",
+    ],
+    faqs: [
+      {
+        q: "We have a side gate that leads to the back of the property. Can you get furniture through that way?",
+        a: "This comes up a lot in Papatoetoe. Older homes often have a narrow gate between the house and the fence line. We check the width, any low eaves, and the path surface before we commit to that route. If it works, great. If it does not, we plan the carry through the front instead.",
+      },
+      {
+        q: "Parking on our street near Papatoetoe station is tight. How do you manage the truck?",
+        a: "We scope the street before move day. If kerbside space is limited, we time the truck to arrive early or look at nearby options. We have done enough jobs around the station area to know where the pinch points are.",
+      },
+      {
+        q: "You are based on the North Shore. Does that mean a longer wait or a higher cost for Papatoetoe?",
+        a: "The drive from our Wairau Valley depot is about 27 minutes. Papatoetoe sits in our Zone B, so the fixed callout is slightly higher than for inner suburbs. Hourly rates are identical wherever you are in Auckland. You see the full price before you book, no surprises on the day.",
+      },
+      {
+        q: "We have a large extended-family home with a lot of furniture. Can you handle that scale?",
+        a: "Yes. For bigger Papatoetoe homes we send a crew of up to four and can arrange a packing service the day before if you need it. We also offer free on-site viewings for larger moves so we can price accurately and plan the job properly.",
+      },
+    ],
+  },
+  "bucklands-beach": {
+    metaDescription:
+      "Moving to or from Bucklands Beach? Specialist Movers handles peninsula homes, steep drives, and waterfront access. Auckland movers, quotes in 15 minutes.",
+    intro:
+      "Bucklands Beach sits at the end of a peninsula, and that shapes every move. One main road in and out, a mix of established family homes, waterfront properties, and newer townhouse blocks, all on terrain that asks you to think ahead.",
+    paragraphs: [
+      "The eastern end of the Bucklands Beach peninsula is mostly large homes on sloping sections with views across the Manukau and Waitemata. Those sites look great from the water but they come with steep driveways, retaining walls, and garages that sit well below or above street level. We walk the site before move day so nothing surprises the crew.",
+      "Eastern Beach Road and the streets running off it include a mix of older brick-and-tile family homes and more recent builds. Parking a large truck near the waterfront strips can be tight, especially on weekends when the reserve and beach draw visitors. We book time and space early and co-ordinate with neighbours if a vehicle needs to shift.",
+      "We have completed dozens of moves in this area, so we know the access quirks around Ara Tai Road, the cul-de-sacs near Bucklands Beach Primary, and the longer carries that come with hillside homes. That local knowledge saves time on the day and keeps your quote accurate.",
+      "From our Wairau Valley depot the drive is about 34 minutes, which puts Bucklands Beach in our pricing zone B. The fixed callout is slightly higher than closer suburbs because of travel time. You see the full price before you confirm, and hourly rates are the same as anywhere else in Auckland.",
+    ],
+    highlights: [
+      "Steep-section and hillside-driveway experience on the peninsula",
+      "Waterfront street parking planned well in advance",
+      "Dozens of completed moves around Eastern Beach and Bucklands Beach roads",
+      "Full quote upfront, 34-minute depot run, no hidden extras",
+    ],
+    faqs: [
+      {
+        q: "Our driveway drops steeply from the road and the garage is at the bottom. Can your truck get close enough?",
+        a: "This is common on the peninsula. We confirm gradient, width, and any overhanging trees before move day. Our trucks have taillifts, which help a lot on a slope. If the truck cannot reach the garage door safely, we plan the carry route instead of working it out on the morning.",
+      },
+      {
+        q: "We are moving on a Saturday and parking on Eastern Beach Road is always busy with beach visitors. How do you handle that?",
+        a: "We arrive early and, if needed, coordinate with a neighbour to keep the loading zone clear for the truck. We have done enough weekend moves in this area to know which spots work and which ones cause delays. Sorting it before move day is part of the job.",
+      },
+      {
+        q: "How much more does the callout cost from your depot compared to the North Shore?",
+        a: "Bucklands Beach sits in our pricing zone B because the depot run from Wairau Valley is about 34 minutes. The fixed callout is slightly higher than inner suburbs, but the hourly rate is exactly the same across all of Auckland. You get the full price upfront before you book, so there are no surprises.",
+      },
+      {
+        q: "We have a grand piano in the lounge that overlooks the water. It is on the upper floor with a narrow staircase. Can you move it?",
+        a: "Piano moves are one of the things we are known for across Auckland. We work with Steinway dealers and have moved instruments into and out of Auckland Town Hall. A narrow staircase on a hillside home is something we plan carefully, but it is not a reason to leave a piano behind. Send us the details and we will tell you exactly how we would approach it.",
+      },
+    ],
+  },
+  manurewa: {
+    metaDescription:
+      "Specialist Movers handle Manurewa house and piano moves with care. Local crews, taillifts, 7-day bookings. Get a quote in 15 minutes.",
+    intro:
+      "Manurewa is a suburb of big family homes on wide sections, older brick-and-tile houses, and a growing number of newer townhouses packed into tighter spots. We have completed dozens of moves here and know how different these streets can be from one block to the next.",
+    paragraphs: [
+      "The older housing stock around Manurewa town centre tends to be generous in size but tricky in layout. Long internal hallways, split-level entries, and hefty furniture that was built to last all take planning. Our crews of two to four show up knowing what to expect, not guessing on the day.",
+      "Newer townhouse developments closer to Wiri and the Southern Motorway corridor are a different challenge. Shared driveways, tight turning circles, and allocated parking that other residents still use on move day. We check access details before we arrive so the truck goes in the right place the first time.",
+      "Manurewa has a lot of established families with a lot of stuff accumulated over many years. Big dining suites, upright pianos, ride-on mowers, garage full of gear. We are NZ's piano moving specialists, trusted by Steinway dealers and Auckland Town Hall, so a family upright in a South Auckland living room is well within our range.",
+      "Our depot is in Wairau Valley on the North Shore. The run to Manurewa takes around 33 minutes, which puts this suburb in our pricing zone B. The fixed callout is slightly higher than inner suburbs to account for travel, and you see the full price upfront before you confirm the booking. No surprises on the day.",
+    ],
+    highlights: [
+      "Dozens of Manurewa moves completed, across old brick-and-tile and new townhouses",
+      "Trucks with taillifts handle big furniture on wide-section homes",
+      "Access checked before move day for shared drives and tight townhouse blocks",
+      "Quotes back in about 15 minutes during business hours, 7 days a week",
+    ],
+    faqs: [
+      {
+        q: "We are moving out of a big older home near Great South Road with a lot of heavy furniture. Can you handle that in one day?",
+        a: "Most likely yes. We send the right crew size for the job, two to four movers depending on what you have. For larger homes we offer a free viewing beforehand so we can size the crew and truck accurately and give you a realistic timeframe.",
+      },
+      {
+        q: "Our new townhouse in Wiri has a shared driveway and limited parking. How do you manage that?",
+        a: "We sort this before move day. We ask about the driveway width, turning space, and any parking restrictions. If the full-size truck cannot get close enough, we plan the carry distance in advance rather than working it out on arrival.",
+      },
+      {
+        q: "How does pricing work for Manurewa given you are based on the North Shore?",
+        a: "Hourly rates are the same across Auckland. Because Manurewa is around 33 minutes from our Wairau Valley depot, the fixed callout is slightly higher than closer suburbs to cover travel. You see the full price before you confirm, so there is nothing added later.",
+      },
+      {
+        q: "Can you move our upright piano as part of a house move in Manurewa?",
+        a: "Yes. Piano moving is something we are known for across Auckland, trusted by Steinway dealers and venues like Auckland Town Hall. An upright going in or out of a Manurewa home, including through hallways or down steps, is a normal job for us.",
+      },
+    ],
+  },
+  whangaparaoa: {
+    metaDescription:
+      "Specialist Movers covers Whangaparaoa regularly. Local knowledge of the Peninsula's homes, hills, and tight cul-de-sacs. Get a quote in 15 minutes.",
+    intro:
+      "Whangaparaoa sits at the end of a long peninsula, and that geography shapes every move out here. One road in, one road out, and a mix of established hilltop homes, newer townhouse blocks, and retirement villages that each need their own approach.",
+    paragraphs: [
+      "The Peninsula Road is the only way on and off, so timing matters. We factor in peak-hour congestion and school runs when we schedule jobs out here. A good start time makes the difference between a smooth day and a slow one.",
+      "The housing stock is varied. You have large brick-and-tile family homes on the higher ridges with ocean views and steep driveways, alongside compact townhouses and units closer to Gulf Harbour and Stanmore Bay. We check access, gradient, and parking for each address before move day, not on the morning itself.",
+      "Retirement villages and downsizes are a regular part of our work on the Peninsula. Smaller volumes, careful handling, and a crew that is patient and straightforward. We bring the same team size and the same gear regardless of how big the job is.",
+      "Our Wairau Valley depot is about 32 minutes away, which puts Whangaparaoa in our pricing zone B. The fixed callout is a little higher than inner suburbs to cover the drive, but hourly rates are the same across Auckland. You see the full price before you confirm anything.",
+    ],
+    highlights: [
+      "Dozens of Peninsula moves completed",
+      "Depot to Whangaparaoa in about 32 minutes",
+      "Access checks for steep ridge driveways and Gulf Harbour townhouses",
+      "7-day availability, quotes back in about 15 minutes",
+    ],
+    faqs: [
+      {
+        q: "Does the distance to Whangaparaoa affect what I pay?",
+        a: "Yes, a little. Whangaparaoa is in our zone B, so the fixed callout is slightly higher than it would be for an inner-suburb job. Hourly rates are the same. You get the full breakdown upfront before you book, so there are no surprises on the day.",
+      },
+      {
+        q: "Our driveway runs steeply down from the road and the truck might not fit. What happens?",
+        a: "We sort this before move day, not when we arrive. Send us the address and we assess clearance, gradient, and turning room. If the truck cannot get close, we plan a staged carry or position it on the road and work from there. Our trucks have taillifts, which helps a lot on uneven ground.",
+      },
+      {
+        q: "We are moving into a retirement village in Whangaparaoa. Do you handle those kinds of moves?",
+        a: "Yes, and we do them regularly on the Peninsula. Village moves often have rules around lift bookings, time windows, and which entrance to use. We follow up with the site coordinator beforehand so the crew knows what to expect when they arrive.",
+      },
+      {
+        q: "Traffic on Peninsula Road can be bad. How do you plan around that?",
+        a: "We pick start times that avoid the worst of it, usually an earlier run out so we are on the Peninsula before school drop-off and the morning commute builds up. We will talk through timing with you when you book.",
+      },
+    ],
+  },
+  beachlands: {
+    metaDescription:
+      "Specialist Movers completes regular moves in Beachlands. Local knowledge, full-size trucks with taillifts, and upfront pricing. Get a quote in 15 minutes.",
+    intro:
+      "Beachlands sits at the end of a long run out from the city, and the moves here reflect that. Big sections, relaxed coastal streets, and households that have often been in place for years.",
+    paragraphs: [
+      "Getting a truck to Beachlands takes close to 50 minutes from our Wairau Valley depot. That travel time is factored into the callout for this zone, and you see the full price before you confirm anything. No surprises on the day.",
+      "The housing stock out here leans toward generous freehold sections, often with long driveways, established gardens, and garages full of gear that has accumulated over many years. We send crews of two to four and trucks with taillifts, so heavy furniture and large loads get moved properly without improvising on the spot.",
+      "Beachlands is the kind of place where people stay a long time, then make one big move when the family has grown or the kids have left home. That often means a full house of furniture, boxes, and the occasional piano. We are NZ's piano moving specialists, trusted by Steinway dealers and Auckland Town Hall, so if there is a piano on the move list, we have handled far more difficult ones.",
+      "We have completed dozens of jobs in Beachlands and the surrounding Maraetai and Pine Harbour area. Seven-day operation means we can often fit around ferry timetables, settlement dates, and the practical reality that weekdays are not always possible when you live this far out.",
+    ],
+    highlights: [
+      "About 50 minutes from our Wairau Valley depot, callout priced accordingly",
+      "Experience with large freehold sections and long established driveways",
+      "Piano moves to and from the Beachlands and Maraetai area handled regularly",
+      "Dozens of completed moves across the Beachlands and Pine Harbour corridor",
+    ],
+    faqs: [
+      {
+        q: "How does pricing work for a move to or from Beachlands?",
+        a: "Beachlands sits in our outer service zone. The callout fee reflects the roughly 50-minute run from our Wairau Valley depot. Hourly rates are the same as anywhere in Auckland. You get a full price upfront before you book, so there is nothing to work out on move day.",
+      },
+      {
+        q: "Our driveway is long and has a tight turn near the garage. Will your truck manage it?",
+        a: "Quite possibly yes. We confirm driveway width, surface, overhead clearance, and turning room before move day. If the full-size truck cannot get to the door safely, we plan the carry in advance. We do not leave that decision until the crew arrives.",
+      },
+      {
+        q: "We are moving a piano out of our Beachlands home. Can you handle that?",
+        a: "Yes. Piano moving is one of the things we are known for across Auckland. We are trusted by Steinway dealers and have moved instruments into Auckland Town Hall. Long driveways and gravel paths are not a problem if we know about them ahead of time.",
+      },
+      {
+        q: "We have a big family home and are not sure how to plan the move. Where do we start?",
+        a: "Book a free viewing. For larger homes we come out, walk through the property, and give you an accurate quote and a clear plan. That is especially useful in Beachlands where the travel time makes it worth getting the logistics right before move day.",
+      },
+    ],
+  },
+  "mairangi-bay": {
+    metaDescription:
+      "Moving in Mairangi Bay? Specialist Movers are 8 minutes from your door. Dozens of local moves completed. Get a quote in 15 minutes.",
+    intro:
+      "Mairangi Bay sits quietly between the bays, with a mix of 1970s brick-and-tile family homes, sloped sections, and a growing number of townhouses tucked into former back yards. We know the area well and have completed dozens of moves here.",
+    paragraphs: [
+      "A lot of Mairangi Bay homes were built in the 1970s and 1980s, and they come with a particular set of challenges. Split-level layouts, internal stairs, and long carries from a garage at road level to a living area halfway up the section are common. We plan the carry route before move day, not on it.",
+      "The suburb has seen a steady run of downsizes in recent years. Families who bought here decades ago are now moving to smaller places, often taking a few pieces of real furniture with them, including the occasional piano. We are NZ's piano moving specialists, trusted by Steinway dealers and Auckland Town Hall, so a family upright in a Mairangi Bay living room is well within our scope.",
+      "Our Wairau Valley depot is about 8 minutes from Mairangi Bay, so crews arrive on time and we are not charging you for a long drive. The callout sits in our standard pricing zone, which means no distance premium on top of your hourly rate. You see the full price before you book.",
+      "Parking along the main residential streets here can be tighter than it looks, especially on the blocks closest to the beach and the reserve. We check parking options and truck access when we do the quote, and for larger homes we offer a free in-person viewing so nothing catches us on the day.",
+    ],
+    highlights: [
+      "8 minutes from our Wairau Valley depot",
+      "Dozens of Mairangi Bay moves completed",
+      "Experienced with split-level 70s and 80s homes",
+      "Standard callout zone, no distance premium",
+    ],
+    faqs: [
+      {
+        q: "Our section slopes a lot and the garage is at road level. How do you handle the carry?",
+        a: "This layout comes up regularly in Mairangi Bay. We walk the carry path when we quote, work out where the tailift can park, and bring the right crew size. A longer carry on a slope is not a problem, it just goes into the planning.",
+      },
+      {
+        q: "We are downsizing from a large family home here. Can you help with packing too?",
+        a: "Yes. We offer a full packing service the day before the move. A crew comes in, packs everything properly, and labels it by room. It takes a lot of the load off, especially when you are sorting through years of accumulated gear at the same time.",
+      },
+      {
+        q: "Is parking the truck usually straightforward in Mairangi Bay?",
+        a: "Most streets are fine, but some of the blocks near the beach and the reserve get tight. We check the specific address when we quote. If the street needs a parking plan, we sort it before move day so there are no surprises.",
+      },
+      {
+        q: "How quickly can you get a quote back to me?",
+        a: "In business hours, usually about 15 minutes. Give us the details of your home, what needs moving, and your move date, and we will come back to you with a full price. No guessing, no hidden costs added later.",
+      },
+    ],
+  },
   "south-auckland": {
     metaDescription:
       "South Auckland movers with real experience across Manukau, Papakura, and beyond. Specialist Movers completes 1,500+ Auckland moves. Get a quote in 15 minutes.",
