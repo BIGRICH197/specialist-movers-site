@@ -8,7 +8,7 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { ReviewSidebarColumn } from "@/components/ReviewSidebarColumn";
 import { ScatteredReviews } from "@/components/ScatteredReviews";
 import { SectionReveal } from "@/components/SectionReveal";
-import { contactCta, googleReviewsUrl, pianoStatsStrip, statsStrip } from "@/lib/homepage-copy";
+import { contactCta, googleReviewsUrl, hamiltonStatsStrip, pianoStatsStrip, statsStrip } from "@/lib/homepage-copy";
 import { sitePhotos } from "@/lib/site-photos";
 import type { FaqItem } from "@/lib/service-faqs";
 import { formatHeadingText } from "@/lib/heading-ampersand";
@@ -20,7 +20,7 @@ type WhyChooseProps = {
   body: string;
   showStats?: boolean;
   /** Piano service pages show moves from $300, not $350. */
-  statsVariant?: "default" | "piano";
+  statsVariant?: "default" | "piano" | "hamilton";
 };
 
 /** Full purple band: why choose copy + homepage stats strip. */
@@ -30,7 +30,12 @@ export function ServiceWhyChooseSection({
   showStats = true,
   statsVariant = "default",
 }: WhyChooseProps) {
-  const statsItems = statsVariant === "piano" ? pianoStatsStrip.items : statsStrip.items;
+  const statsItems =
+    statsVariant === "piano"
+      ? pianoStatsStrip.items
+      : statsVariant === "hamilton"
+        ? hamiltonStatsStrip.items
+        : statsStrip.items;
 
   return (
     <SectionReveal className="border-t border-brand-purple/15 bg-brand-purple py-12 text-white sm:py-14">
