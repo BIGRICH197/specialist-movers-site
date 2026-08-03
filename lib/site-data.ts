@@ -262,14 +262,6 @@ export const blogPosts = [
       "DIY vs professional packing in Auckland: costs, control, stress, and when expert packers are worth it. Compare options before your move day.",
   },
   {
-    slug: "stress-free-moving-in-auckland-expert-tips-from-specialist-movers",
-    title: "Stress-Free Moving in Auckland: Expert Tips from Specialist Movers",
-    seoTitle: "Stress-Free Moving Auckland Tips | Specialist Movers",
-    publishedDate: "2026-06-03",
-    excerpt:
-      "Expert tips for a smoother Auckland move. Planning, packing, access, and communication from Specialist Movers crews who do this every day.",
-  },
-  {
     slug: "how-much-do-movers-cost-in-auckland",
     title: "How Much Do Movers Cost in Auckland? Real 2026 Numbers",
     seoTitle: "Moving Costs Auckland 2026: Real Prices | Specialist Movers",

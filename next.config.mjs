@@ -144,6 +144,21 @@ const nextConfig = {
   async redirects() {
     return [
       ...legacyAucklandCanonicalRedirects(),
+      // "Te Atatū" used to slugify to "te-atat" (the macron strip ate the
+      // trailing vowel). That URL indexed and self-canonicalised, so it keeps
+      // its 301 even though nothing generates it any more.
+      {
+        source: "/locations/te-atat",
+        destination: "/locations/te-atatu",
+        permanent: true,
+      },
+      // ~200-word stub with a broken step sequence (two "Step 4"s, no Step 6)
+      // and no content under any heading. The Ultimate Guide covers the topic.
+      {
+        source: "/blog/stress-free-moving-in-auckland-expert-tips-from-specialist-movers",
+        destination: "/blog/the-ultimate-guide-to-house-moving-in-auckland",
+        permanent: true,
+      },
       {
         source: "/business-relocation-auckland",
         destination: "/commercial-moving-auckland",
@@ -170,9 +185,10 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // Was pointing at the stub, which now redirects on to the guide.
+        // Sent straight there so this stays a single hop.
         source: "/stress-free-moving-in-auckland-expert-tips-from-specialist-movers",
-        destination:
-          "/blog/stress-free-moving-in-auckland-expert-tips-from-specialist-movers",
+        destination: "/blog/the-ultimate-guide-to-house-moving-in-auckland",
         permanent: true,
       },
       {
@@ -198,8 +214,7 @@ const nextConfig = {
       },
       {
         source: "/seasonal-moving-in-auckland-tips-for-summer-and-winter-moves",
-        destination:
-          "/blog/stress-free-moving-in-auckland-expert-tips-from-specialist-movers",
+        destination: "/blog/the-ultimate-guide-to-house-moving-in-auckland",
         permanent: true,
       },
       {

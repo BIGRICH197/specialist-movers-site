@@ -50,7 +50,7 @@ export const INDEXED_LOCATION_SLUGS = new Set<string>([
   // Inner / West
   "grey-lynn",
   "mount-albert",
-  "te-atat", // Te Atatū Peninsula
+  "te-atatu", // Te Atatū Peninsula
   "hobsonville",
   "titirangi",
   "point-chevalier",
