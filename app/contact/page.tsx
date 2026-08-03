@@ -13,6 +13,8 @@ import { PageUpdatedStamp } from "@/components/PageUpdatedStamp";
 import { siteContentUpdated } from "@/lib/content-dates";
 import { regions } from "@/lib/regions";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
+import { DepotMap } from "@/components/DepotMap";
+import { businessInfo } from "@/lib/business-info";
 
 export const metadata: Metadata = buildPageMetadata({
   title: { absolute: seoAbsoluteTitles.contact },
@@ -68,7 +70,21 @@ export default function ContactPage() {
             <p className="mt-6 text-sm text-brand-purple/75">
               <strong className="text-brand-purple">Hours:</strong> Mon–Sun, 9am–7pm
             </p>
+            {/* H7: neither the legal entity nor a street address appeared
+                anywhere on the site. Table stakes for a business asking people
+                to hand over an entire household. */}
+            <p className="mt-3 text-sm text-brand-purple/75">
+              <strong className="text-brand-purple">Auckland depot:</strong>{" "}
+              {businessInfo.aucklandAddress.streetAddress},{" "}
+              {businessInfo.aucklandAddress.addressLocality}, Auckland{" "}
+              {businessInfo.aucklandAddress.postalCode}
+            </p>
+            <p className="mt-1 text-sm text-brand-purple/75">
+              <strong className="text-brand-purple">Hamilton depot:</strong> Hamilton, Waikato
+            </p>
           </div>
+
+          <DepotMap depot="auckland" />
 
           <div>
             <h2 className="font-heading text-xl text-brand-purple">Service areas</h2>
