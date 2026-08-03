@@ -11,7 +11,7 @@ import { rootOpenGraph, rootTwitter } from "@/lib/seo";
 import { siteUrl } from "@/lib/site-config";
 
 const inter = localFont({
-  src: "./fonts/Inter_18pt-Light.ttf",
+  src: "./fonts/Inter_18pt-Light.woff2",
   variable: "--font-inter",
   display: "swap",
 });
@@ -53,6 +53,13 @@ const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en-NZ" className={`${inter.variable} ${termina.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://cdn.trustindex.io" crossOrigin="" />
+        <link rel="preconnect" href="https://lh3.googleusercontent.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://cdn.trustindex.io" />
+        <link rel="dns-prefetch" href="https://lh3.googleusercontent.com" />
+        <link rel="dns-prefetch" href="https://www.google.com" />
+      </head>
       {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
       <body className="min-h-screen bg-brand-canvas font-sans text-brand-purple">
         <LocalBusinessJsonLd />

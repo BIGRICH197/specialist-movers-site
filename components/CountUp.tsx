@@ -36,9 +36,12 @@ export function CountUp({ value, className = "" }: Props) {
     const start = performance.now();
 
     const tick = (now: number) => {
-      const progress = Math.min(1, (now - start) / durationMs);
+      // Clamp BOTH ends. Without the lower bound a headless renderer with a
+      // different performance.now() origin drives progress negative, which is
+      // how a scrape captured "-24,540+ families" (audit M14).
+      const progress = Math.max(0, Math.min(1, (now - start) / durationMs));
       const eased = 1 - (1 - progress) ** 3;
-      setDisplay(formatStatValue(target * eased, decimals, suffix));
+      setDisplay(formatStatValue(Math.max(0, target * eased), decimals, suffix));
       if (progress < 1) {
         frame = requestAnimationFrame(tick);
       } else {
