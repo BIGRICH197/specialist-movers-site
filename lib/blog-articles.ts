@@ -127,97 +127,74 @@ export const blogArticles: Record<string, BlogArticle> = {
   },
 
   "diy-packing-vs-professional-packing-services": {
-    title: "Comparing Do-It-Yourself Packing with Expert Packing Services",
+    title: "DIY Packing vs Professional Packers: What Each Really Costs",
     sections: [
       {
-        heading: "Advantages of DIY Packing",
+        heading: "The honest answer: most people should do both",
         paragraphs: [
-          "You love your belongings, and you want to pack them by yourself. Doing the packing yourself gives you a greater feeling of mastery and satisfaction. And there are a few more advantages:",
-          "Saving Money with Do-It-Yourself Packaging: Doing it yourself saves money compared to hiring movers. All you have to do is gather the necessary packing materials and set aside some time.",
-          "Complete Command of Your Property: Everything is structured according to your preferences, which you choose in advance. Prefer to keep your board games and books in separate sections? Try it out.",
-          "Customisation: There are usually particular instructions for the care of sentimental objects, such as family heirlooms, when you give them to someone. You could feel more at ease if you packed them by yourself.",
+          "Packing your own house saves real money. Paying us to do it saves real time and takes the worst job off your list. Almost nobody needs all of one or none of the other.",
+          "What most of our customers land on is a split. They pack their own clothes, books, linen and the garage over a couple of weekends, and we come in the day before to do the kitchen, the glassware and anything breakable. That is the part that takes the longest, causes the most damage when it goes wrong, and is the least satisfying to do yourself at 11pm.",
         ],
       },
       {
-        heading: "Disadvantages of DIY Packing",
+        heading: "What packing your own house actually costs",
         paragraphs: [
-          "It takes a lot of effort to pack a whole home. Depending on your schedule, it can last a few days or a few weeks. Common disadvantages include:",
-          "Increased Danger of Injury: Unless special precautions are taken, fragile items may not survive the journey intact. No one has a pleasant experience when they open a carton of broken dishes.",
-          "Overwhelmed by Stress: Trying to do everything you normally do, plus pack, can be overwhelming. When every closet and drawer needs attention, you can feel overwhelmed.",
+          "Not nothing. Cartons, tape, bubble wrap and paper for a three-bedroom house runs to a couple of hundred dollars if you buy decent ones, and supermarket boxes will let you down under weight. Add two or three weekends of your own time.",
+          "The bigger cost is the one people do not budget for: the fridge that got packed last and had to be emptied on move morning, or the box of plates that went in with newspaper between them instead of paper and arrived as a bag of pieces. We see both most months.",
         ],
       },
       {
-        heading: "Advantages of Professional Packing Services",
+        heading: "What we charge to pack it for you",
         paragraphs: [
-          "Hiring professional movers and packers in Auckland is like taking a shortcut compared to doing it yourself. To make things easier for you, movers and packers in Auckland, for example, provide specialist services.",
-          "Maximising Efficiency: Teams that pack items are taught to work quickly. They are able to do tasks that may take you days in only hours.",
-          "Expert Handling: When it comes to packing, experts know just what to do with products that are delicate, heavy, or unusually shaped. Preventing damage while in transit is achieved by doing this.",
-          "Easy and Relaxing Experience: Envision yourself getting a cup of coffee and letting someone else deal with the mayhem. Hiring movers allows you to concentrate on other aspects of the moving process.",
+          "Three packers, labour and all materials, the day before your move:",
+          "One bedroom $1,599 plus GST. Two bedrooms $1,770. Three bedrooms $1,962. Four bedrooms $2,486.",
+          "That is the whole house, boxed and labelled by room, ready to load. Nothing left to do the night before except make the bed you are about to take apart.",
         ],
       },
       {
-        heading: "Disadvantages of Professional Packing Services",
+        heading: "Or just the parts you do not want to do",
         paragraphs: [
-          "Just like the DIY approach, hiring professionals also comes with a number of drawbacks, such as",
-          "Greater Expenses: Services of high quality are not cheap. If you are on a limited budget, this might be a turnoff.",
-          "Reduced Control: Letting go is putting your faith in other people to take care of your belongings. The majority of businesses are trustworthy, yet it's still nerve-wracking.",
-          "Timeline Disruptions: You must communicate with the service provider to arrange their services, which may not always be convenient for you.",
+          "Partial packing is priced by room rather than by house, so if you only want the kitchen done, you only pay for the kitchen. If you want something more specific than that, our packers are $180 an hour for a team of three plus an $80 callout, and you point them at whatever you like.",
+          "The kitchen is the room to hand over if you only hand over one. It is the most breakable, the most fiddly, and the one that eats a whole evening.",
         ],
       },
       {
-        heading: "Cost Comparison: Do-It-Yourself vs. Expert Packing",
+        heading: "Where DIY packing usually goes wrong",
         paragraphs: [
-          "The choice to hire a professional packer or do it yourself is usually driven by budget. We can do the math.",
-          "You'll need to buy boxes, tape, bubble wrap, and other packaging materials if you want to do it yourself. Although these expenses might mount up, they're usually less than what you'd pay for expert help. But remember to include the time and work you put in. We all know that time is money.",
-          "Professional packing services come with predefined costing. For instance, in Auckland, movers and packers provide packages that are tailored to your home's size and the intricacy of the transfer. Although more expensive, many may find that the ease and decreased worry are worth it.",
+          "Boxes packed too heavy to lift. A full carton of books weighs more than you think, and a box that cannot be carried safely gets dragged, which is how corners split and floors get marked.",
+          "Plates packed flat. They travel on their edges, standing up like records, with paper between each one. Flat plates crack under the weight of the plates above them.",
+          "Nothing labelled. Every box that arrives unmarked is a box someone has to open to find the kettle. Write the room on the top and one side, because you will only see one of those when it is stacked.",
+          "Half-packed on the day. This is the one that costs money rather than crockery, because we are charged by the hour and a crew standing around while you finish the wardrobe is an hour on your invoice.",
         ],
       },
       {
-        heading: "What Is Your Deadline?",
+        heading: "Things we would rather you did not pack yourself",
         paragraphs: [
-          "If you have ample time prior to your move, you may even have the ability to pack all of your items yourself. However, if time is an issue, hiring a professional moving service can ensure everything goes smoothly and gets completed quickly.",
+          "Anything you would be upset to lose. Not because we do not trust you, but because breakables need the right paper, the right box and the right amount of it, and that is a skill rather than an effort.",
+          "Televisions and monitors, unless you kept the original box. They need corner protection and to travel upright.",
+          "Marble, glass tabletops and mirrors. These travel on their edges in a padded frame, never flat, and we bring the frame.",
+          "Paint, gas bottles, fuel and anything aerosol. We cannot carry those, so they need to go in your own car or be disposed of before the day. Worth checking the shed early rather than on move morning.",
         ],
       },
       {
-        heading: "Unique Care for Precious and Dangerous Goods",
+        heading: "If you are packing yourself, do it in this order",
         paragraphs: [
-          "Take additional precautions while handling delicate objects. Home improvement projects might be a good option if you have faith in your skills to keep these things safe. If you don't want to risk damaging your possessions, experts can help.",
-          "A hybrid strategy offers a nice middle ground. Do your own packing for the easier things and get the experts for the more fragile ones. This way, you may be sure that important parts are in good hands while still having control.",
+          "Start with the rooms you barely use, four weeks out. The spare room, the linen cupboard, the garage. Nothing in those is needed before you move.",
+          "Do the books and the ornaments next, then clothes out of season. Keep the boxes small and heavy things low.",
+          "Leave the kitchen, the bathroom and one set of bedding until the last two days. Pack a single box that travels in your car with the kettle, mugs, teabags, phone chargers, toilet paper and a change of clothes. Label it so nobody puts it on the truck.",
+          "Get everything sealed and stacked by a wall the night before. Not because we mind, but because a crew that can start loading at 8am finishes earlier, and you are paying for the hours.",
         ],
       },
       {
-        heading: "Which Professional Packing Service Should You Hire?",
+        heading: "So which one should you pick?",
         paragraphs: [
-          "Choosing a trustworthy organisation is crucial if you want to pursue professional work. Learn as much as you can by reading reviews, getting recommendations, and asking plenty of questions. If you're looking for a dependable service, choose one of the several solutions offered by Auckland's movers and packers.",
-        ],
-      },
-      {
-        heading: "Tips for DIY Enthusiasts on Packing Efficiently",
-        paragraphs: [
-          "If you're thinking about doing it yourself, here are some pointers to help you out:",
-          "Clear Your Clutter Before You Go: Get rid of something you aren't using. The less your load, the easier it is to carry.",
-          "Make a Note of Everything: Put labels on each container so you can see what's inside. You won't have to deal with the hassle of searching for necessities later on if you do this.",
-          "Assemble Each Room: You can keep the process reasonable and orderly by tackling one place at a time.",
-          "Get High-Quality Materials: Invest in strong boxes and packaging supplies. Invest in them to safeguard your possessions.",
-          "Get Some Help: Family and friends can help ease the burden. In addition, pizza-themed packing parties are a great way to make a memory out of a task.",
-        ],
-      },
-      {
-        heading: "When Expert Help Is Necessary",
-        paragraphs: [
-          "Sometimes you just need an expert's opinion. The pros should be hired if the distance is great, the deadline is short, or if the objects to be moved are delicate or valuable. Having a worry-free life may be priceless at times.",
-        ],
-      },
-      {
-        heading: "Conclusion",
-        paragraphs: [
-          "In the end, your money, schedule, and personal preferences will determine whether you should hire a professional or do it yourself. No one solution will work in every situation. Evaluate your options and go with the one that makes the most sense given your current circumstances.",
-          "Although moving day packing is never simple, having a plan may make a world of difference. The goal is the same either way: arrive at your new place with boxes unpacked in the right rooms, not chaos in the hallway.",
+          "Pack it yourself if you have three or four spare weekends, a straightforward household, and you would rather spend the money on the move than the packing.",
+          "Get us to do it if you are working full time, moving at the end of the month, downsizing after decades in one house, or you have a kitchen full of things you would not want to replace. Also if you simply do not want to, which is a perfectly good reason.",
+          "And if you are not sure, ask us for a viewing. We will walk the house with you, tell you what we would pack and what you could handle, and price both so you can see the difference rather than guess at it.",
         ],
       },
     ],
   },
-
   "stress-free-moving-in-auckland-expert-tips-from-specialist-movers": {
     title: "Stress-Free Moving in Auckland: Expert Tips from Specialist Movers",
     sections: [

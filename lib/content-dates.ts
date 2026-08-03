@@ -15,6 +15,7 @@ export const siteContentUpdatedIso = "2026-06-13";
  */
 const routeContentDates: Record<string, string> = {
   "/blog/how-much-do-movers-cost-in-auckland": "2026-07-20",
+  "/blog/diy-packing-vs-professional-packing-services": "2026-08-03",
   "/blog/planning-an-office-move-in-auckland": "2026-07-20",
   "/blog/hoist-move-newmarket-how-we-did-it": "2026-07-28",
   "/locations/mt-eden": "2026-07-29",
