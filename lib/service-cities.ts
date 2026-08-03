@@ -247,7 +247,7 @@ function buildParagraphs(
       return [
         "We move apartments, townhouses, and family homes across Auckland with clear communication and careful crews. Free in-home viewings help us give accurate fixed-price quotes when you need them.",
         `Our ${c.depot} keeps North Shore, central, east, west, and south Auckland jobs on regular routes. Packing, storage, and piano moves can be added to your plan.`,
-        "Licensed, insured, and SiteWise Gold. Hundreds of 5-star Google reviews from Auckland families.",
+        "Licensed and insured crews, SiteWise Gold. Hundreds of 5-star Google reviews from Auckland families.",
       ];
     }
     return [
@@ -439,7 +439,7 @@ export function getServiceCityConfig(
       ? []
       : [
           `${c.name} crews from our ${c.depot}`,
-          "Licensed and insured",
+          "Licensed and insured crews",
           "Free quote, 15-minute callback",
           city === "auckland"
             ? "Piano, house, office, and commercial specialists"

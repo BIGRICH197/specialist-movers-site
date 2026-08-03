@@ -4,6 +4,7 @@ import { ServiceJsonLd } from "@/components/ServiceJsonLd";
 import { ServiceTrustindexBand } from "@/components/ServiceTrustindexBand";
 import { HardToShiftGallerySection } from "@/components/HardToShiftGallerySection";
 import { HeroVisual } from "@/components/HeroVisual";
+import { InsuranceExplainer } from "@/components/InsuranceExplainer";
 import { CleaningBookingForm } from "@/components/CleaningBookingForm";
 import { HardToShiftEnquiryForm } from "@/components/HardToShiftEnquiryForm";
 import { QuoteForm } from "@/components/QuoteForm";
@@ -269,6 +270,8 @@ export function ServicePageTemplate({
         reviewSlot={`${reviewSlot}-faq`}
         piano={heroVariant === "piano"}
       />
+
+      <InsuranceExplainer piano={heroVariant === "piano"} />
 
       <ServiceBottomCta
         defaultJobType={defaultJobType}

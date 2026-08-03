@@ -54,7 +54,7 @@ export const moveInclusionCategories: readonly MoveInclusionCategory[] = [
     bullets: [
       "SiteWise Gold health and safety systems",
       "Trained crews, not casual labour",
-      "Licensed and insured operations",
+      "Licensed and insured crews",
       "Clear communication from quote to handover",
     ],
   },
@@ -85,7 +85,7 @@ export const popularAddOns: readonly PopularAddOn[] = [
   },
   {
     id: "insurance",
-    label: "Full moving insurance, personalised transit cover for your belongings",
+    label: "Transit cover for your belongings, arranged through our broker on request",
     matchTerms: ["insurance", "transit cover", "transit insurance"],
   },
   {

@@ -50,7 +50,7 @@ const item = {
 };
 
 const trustPills = [
-  "Licensed & insured",
+  "Licensed & insured crew",
   "7 days a week",
   regions.serviceAreaBadge,
   "Piano specialists",

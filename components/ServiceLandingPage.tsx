@@ -25,6 +25,7 @@ import { faqsForService } from "@/lib/service-faqs";
 import { pianoFaqs } from "@/lib/piano-faqs";
 import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
 import { getDistinctAboutPhoto } from "@/lib/site-photos";
+import { InsuranceExplainer } from "@/components/InsuranceExplainer";
 import { PianoExpertiseSection } from "@/components/PianoExpertiseSection";
 import { PianoGallerySection } from "@/components/PianoGallerySection";
 import { regions } from "@/lib/regions";
@@ -103,7 +104,7 @@ export function ServiceLandingPage({ config }: Props) {
         }
         quote={<QuoteForm defaultJobType={config.defaultJobType} />}
         trustPills={[
-          "Licensed & insured",
+          "Licensed & insured crew",
           "7 days a week",
           regions.serviceAreaBadge,
           "Callback in 15 min",
@@ -255,6 +256,8 @@ export function ServiceLandingPage({ config }: Props) {
         reviewSlot={`service-${config.slug}-faq`}
         piano={config.slug === "piano-movers"}
       />
+
+      <InsuranceExplainer piano={config.slug === "piano-movers"} />
 
       <ServiceBottomCta defaultJobType={config.defaultJobType} />
     </div>
