@@ -169,7 +169,9 @@ export function HomeHero({
                 />
               </motion.div>
             )}
-            <h1 className="sr-only">{MOBILE_HOME_SEO_H1}</h1>
+            {/* Not an h1: the desktop hero above carries it and both are
+                in the DOM. Kept for screen readers on mobile. */}
+            <span className="sr-only">{MOBILE_HOME_SEO_H1}</span>
             <motion.div variants={reduced ? undefined : item} transition={t} className="lg:hidden">
               {heroVisual}
             </motion.div>
@@ -185,7 +187,8 @@ export function HomeHero({
                 heading={hero.h1}
                 eyebrowLabel={hero.eyebrow}
                 photo={desktopHeroVisual}
-                headingAs="div"
+                // Visible H1. The homepage's only h1 was the mobile sr-only one.
+                headingAs="h1"
               />
             </motion.div>
             {hero.h1Sub ? (

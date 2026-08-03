@@ -160,6 +160,50 @@ export function NicheServicePage({ config }: Props) {
         </div>
       </SectionReveal>
 
+      {config.itemTable ? (
+        <SectionReveal className="border-t border-brand-purple/10 bg-brand-canvas py-12 sm:py-14">
+          <div className="mx-auto max-w-7xl container-px">
+            <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
+              {config.itemTable.title}
+            </h2>
+            {config.itemTable.intro ? (
+              <p className="mt-3 max-w-3xl text-base leading-relaxed text-brand-purple/80">
+                {config.itemTable.intro}
+              </p>
+            ) : null}
+            {/* Wide content scrolls in its own container so the page body never
+                scrolls sideways on mobile. */}
+            <div className="mt-6 overflow-x-auto rounded-2xl border border-brand-purple/15 bg-white shadow-sm">
+              <table className="w-full min-w-[36rem] border-collapse text-left text-sm">
+                <thead>
+                  <tr className="border-b border-brand-purple/15 bg-brand-purple/[0.04]">
+                    <th scope="col" className="px-4 py-3 font-heading text-brand-purple">Item</th>
+                    <th scope="col" className="px-4 py-3 font-heading text-brand-purple">How we move it</th>
+                    <th scope="col" className="px-4 py-3 font-heading text-brand-purple">Typical time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {config.itemTable.rows.map((row) => (
+                    <tr key={row.item} className="border-b border-brand-purple/10 last:border-0">
+                      <th scope="row" className="px-4 py-3 font-semibold text-brand-purple">
+                        {row.item}
+                      </th>
+                      <td className="px-4 py-3 text-brand-purple/85">{row.method}</td>
+                      <td className="whitespace-nowrap px-4 py-3 text-brand-purple/85">{row.time}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            {config.itemTable.footnote ? (
+              <p className="mt-4 max-w-3xl text-sm text-brand-purple/70">
+                {config.itemTable.footnote}
+              </p>
+            ) : null}
+          </div>
+        </SectionReveal>
+      ) : null}
+
       {config.processTitle ? (
         <ServiceProcessSection
           title={config.processTitle}

@@ -20,7 +20,7 @@ export type ServiceHeroSlug = (typeof serviceHeroSlugs)[number];
 const serviceHeroH1: Record<ServiceHeroCity, Record<ServiceHeroSlug, string>> = {
   Auckland: {
     "piano-movers": "Piano movers Auckland",
-    "house-moving": "Auckland Moving Company",
+    "house-moving": "House Movers Auckland",
     "office-moving": "Office movers Auckland",
     "commercial-moving": "Commercial movers Auckland",
     "packing-services": "Packing services Auckland",
@@ -33,7 +33,7 @@ const serviceHeroH1: Record<ServiceHeroCity, Record<ServiceHeroSlug, string>> = 
   },
   Hamilton: {
     "piano-movers": "Piano movers Hamilton",
-    "house-moving": "Hamilton Moving Company",
+    "house-moving": "House Movers Hamilton",
     "office-moving": "Office movers Hamilton",
     "commercial-moving": "Commercial movers Hamilton",
     "packing-services": "Packing services Hamilton",

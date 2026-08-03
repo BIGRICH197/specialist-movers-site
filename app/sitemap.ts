@@ -29,6 +29,8 @@ const staticRoutes = [
   "/policies",
   "/locations",
   "/apartment-movers-auckland",
+  "/furniture-movers-auckland",
+  "/furniture-movers-hamilton",
   "/retirement-home-movers-auckland",
   "/retirement-home-movers-hamilton",
   "/international-moving/moving-to-australia",

@@ -125,7 +125,7 @@ const landingOverrides: Record<
     eyebrow: "Trusted Auckland movers",
     h1: getServiceHeroH1("house-moving", "Auckland"),
     lead:
-      "Relocating your Auckland home should feel manageable, not overwhelming. Our Wairau Valley crews handle apartments, townhouses, and family homes across the city with clear communication, careful handling, and free in-home viewings when you need a fixed price.",
+      "We move the contents of a house: furniture, appliances, and belongings. If you need a physical building relocated, that is a house relocation company, not us. Our crews handle apartments, townhouses, and family homes across Auckland with clear communication, careful handling, and free in-home viewings when you need a fixed price.",
     subline: "Moves starting from $300. Free quote. We call back within 15 minutes.",
     heroGagPhoto: sitePhotos.homeHero,
     heroGagAlt:
