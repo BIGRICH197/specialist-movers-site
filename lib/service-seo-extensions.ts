@@ -96,7 +96,7 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
     faqs: [
       {
         q: "How fast can you provide a WINZ quote?",
-        a: "Yes, we aim to return written quotes within one business day. Call (021) 228 2728 if your application deadline is sooner.",
+        a: "We aim to return written quotes within one business day. Call (021) 228 2728 if your application deadline is sooner.",
       },
       ...generalServiceFaqs.slice(1, 6),
     ],

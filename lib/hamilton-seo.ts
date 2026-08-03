@@ -11,7 +11,7 @@ import {
 
 const hamiltonCoverageFaq: FaqItem = {
   q: "What areas do you cover from Hamilton?",
-  a: "Yes. daily coverage across Hamilton city, Cambridge, Morrinsville, Te Awamutu, Matamata, and wider Waikato towns. Auckland corridor moves are quoted with travel included upfront.",
+  a: "Daily coverage across Hamilton city, Cambridge, Morrinsville, Te Awamutu, Matamata, and wider Waikato towns. Auckland corridor moves are quoted with travel included upfront.",
 };
 
 const hamiltonBookingFaq: FaqItem = {
