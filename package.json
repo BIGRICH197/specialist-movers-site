@@ -17,7 +17,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "preview:mobile": "node scripts/mobile-preview.mjs"
+    "preview:mobile": "node scripts/mobile-preview.mjs",
+    "postbuild": "node scripts/indexnow-ping.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.63.0",
