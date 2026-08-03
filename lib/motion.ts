@@ -88,6 +88,10 @@ export function formatStatValue(
   decimals: number,
   suffix: string,
 ): string {
+  // These are count-up milestones; a negative is always a bug, never data.
+  // Guarded here as well as at the call site because the audit caught these
+  // rendering as "-24,540+" in a scrape.
+  n = Math.max(0, n);
   const formatted =
     decimals > 0
       ? n.toLocaleString("en-NZ", {
