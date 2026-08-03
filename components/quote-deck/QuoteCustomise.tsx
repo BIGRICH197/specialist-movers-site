@@ -96,12 +96,9 @@ export function QuoteCustomise({
 
   return (
     <div className="proposal-card mt-4 rounded-2xl border border-brand-purple/15 bg-brand-canvas/40 p-4 text-brand-purple sm:p-5">
-      <h3 className="font-heading text-lg">Customise your quote</h3>
-      <p className="mt-1 text-sm text-brand-purple/70">
-        Add or remove options, then accept to book.
-      </p>
+      <p className="text-sm font-semibold text-brand-purple">Add or remove options</p>
 
-      <div className="mt-4 space-y-2.5">
+      <div className="mt-3 space-y-2.5">
         {/* Cleaning — always available */}
         <label className={rowCls}>
           <input

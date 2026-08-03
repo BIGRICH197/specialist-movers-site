@@ -1,6 +1,5 @@
 import { HeroVisual } from "@/components/quote-deck/HeroVisual";
 import { ProposalCoverFooter } from "@/components/quote-deck/house-move/ProposalCoverFooter";
-import { ProposalPopularAddOns } from "@/components/quote-deck/house-move/ProposalPopularAddOns";
 import { ProposalWhatsIncludedCompact } from "@/components/quote-deck/house-move/ProposalWhatsIncludedCompact";
 import { DeckBrandLogo } from "@/components/quote-deck/deck/DeckBrandLogo";
 import { DeckSlide } from "@/components/quote-deck/deck/DeckSlide";
@@ -101,7 +100,6 @@ export function HouseMoveDeck({ quote, quoteRef, bedrooms }: Props) {
 
             <div className="proposal-cover-left">
               <ProposalWhatsIncludedCompact className="proposal-cover-included" />
-              <ProposalPopularAddOns quote={quote} className="proposal-cover-addons" />
             </div>
 
             <HeroVisual
