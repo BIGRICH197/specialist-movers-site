@@ -9,7 +9,7 @@ export const generalServiceFaqs: readonly FaqItem[] = [
   },
   {
     q: "What is the process for booking?",
-    a: "Yes, we start with a free viewing or clear phone quote. Once we have seen access, volume, and timing, you receive a written price and we lock your move date.",
+    a: "We start with a free viewing or clear phone quote. Once we have seen access, volume, and timing, you receive a written price and we lock your move date.",
   },
   {
     q: "How long will a typical move take?",
@@ -52,7 +52,7 @@ export const officeServiceFaqs: readonly FaqItem[] = [
   },
   {
     q: "How do you plan lift access and building rules?",
-    a: "Yes, we confirm lift bookings, loading zones, and body corporate rules before move day. Share building contact details when you quote so nothing is left to chance.",
+    a: "We confirm lift bookings, loading zones, and body corporate rules before move day. Share building contact details when you quote so nothing is left to chance.",
   },
   {
     q: "How far in advance should I book an office move?",
@@ -60,7 +60,7 @@ export const officeServiceFaqs: readonly FaqItem[] = [
   },
   {
     q: "What is included in an office move quote?",
-    a: "Yes, labour, truck, blankets, and standard wrap are included. Packing, storage, and specialist item handling are itemised separately when you need them.",
+    a: "Labour, truck, blankets, and standard wrap are included. Packing, storage, and specialist item handling are itemised separately when you need them.",
   },
   {
     q: "Do you cover Auckland and Hamilton offices?",
@@ -79,7 +79,7 @@ export const commercialServiceFaqs: readonly FaqItem[] = [
   },
   {
     q: "What commercial work do you handle?",
-    a: "Yes, kitchen installs, shop fit-outs, staging, printer and vending machine deliveries, and tenant relocations. We bring the dollies, straps, and crew size the job needs.",
+    a: "Kitchen installs, shop fit-outs, staging, printer and vending machine deliveries, and tenant relocations. We bring the dollies, straps, and crew size the job needs.",
   },
   {
     q: "Are your crews SiteWise certified?",
@@ -99,7 +99,7 @@ export const commercialServiceFaqs: readonly FaqItem[] = [
   },
   {
     q: "How do you protect fixtures and cabinetry in transit?",
-    a: "Yes. Blankets, wrap, and custom dollies are standard. Fragile joinery and glass are padded and strapped inside the truck before we leave site.",
+    a: "Blankets, wrap, and custom dollies are standard. Fragile joinery and glass are padded and strapped inside the truck before we leave site.",
   },
   {
     q: "What is included in a commercial quote?",
@@ -110,7 +110,7 @@ export const commercialServiceFaqs: readonly FaqItem[] = [
 export const pianoServiceFaqsExtra: readonly FaqItem[] = [
   {
     q: "How is my piano protected during transport?",
-    a: "Yes, every piano move includes padded blankets, shrink wrap, and securing straps. Grands are tilted and padded on a piano board; uprights are wrapped and strapped inside the truck.",
+    a: "Every piano move includes padded blankets, shrink wrap, and securing straps. Grands are tilted and padded on a piano board; uprights are wrapped and strapped inside the truck.",
   },
   {
     q: "How much does piano moving cost in Auckland?",
@@ -125,7 +125,7 @@ export const grandPianoFaqs: readonly FaqItem[] = [
   },
   {
     q: "How is a grand piano protected during transport?",
-    a: "Yes. Legs and pedals are removed when needed, the body is padded and tilted onto a piano board, then shrink wrapped and strapped inside our piano truck.",
+    a: "Legs and pedals are removed when needed, the body is padded and tilted onto a piano board, then shrink wrapped and strapped inside our piano truck.",
   },
   {
     q: "How many movers do you send for a grand piano?",
@@ -160,7 +160,7 @@ export const uprightPianoFaqs: readonly FaqItem[] = [
   },
   {
     q: "How is an upright piano protected during transport?",
-    a: "Yes. Quilted blankets, shrink wrap, and securing straps are applied before the piano leaves your home. It is moved on specialist dollies and strapped upright inside the truck.",
+    a: "Quilted blankets, shrink wrap, and securing straps are applied before the piano leaves your home. It is moved on specialist dollies and strapped upright inside the truck.",
   },
   {
     q: "Can you move an upright through a narrow hallway or stairwell?",
@@ -195,7 +195,7 @@ export const packingServiceFaqs: readonly FaqItem[] = [
   },
   {
     q: "What is included in your packing service?",
-    a: "Yes, cartons, paper, wrap, and a team of packers. We pack kitchens, fragile items, and wardrobes; partial packs are available for breakables only.",
+    a: "Cartons, paper, wrap, and a team of packers. We pack kitchens, fragile items, and wardrobes; partial packs are available for breakables only.",
   },
   ...generalServiceFaqs.slice(2, 6),
 ];
@@ -207,7 +207,7 @@ export const cleaningServiceFaqs: readonly FaqItem[] = [
   },
   {
     q: "What is included in an exit clean?",
-    a: "Yes, kitchen, bathrooms, floors, and living areas to tenancy inspection standard. Oven, windows, and garages can be added when you book.",
+    a: "Kitchen, bathrooms, floors, and living areas to tenancy inspection standard. Oven, windows, and garages can be added when you book.",
   },
   ...generalServiceFaqs.slice(3, 7),
 ];

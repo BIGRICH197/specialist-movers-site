@@ -143,44 +143,8 @@ export const siteWideBullets = [
 ];
 
 /** General FAQs , specialistmovers.co.nz/faq/ */
-export const faqs = [
-  {
-    q: "How much does it cost to hire movers in Auckland?",
-    a: "Costs vary depending on distance, the volume of items, and additional services like storage services. We offer affordable pricing with a focus on cost-effective solutions.",
-  },
-  {
-    q: "What is the process for booking?",
-    a: "We always like to come for a free viewing first. Once we meet you and take a look, we will provide you with an accurate quote and timeline for your move.",
-  },
-  {
-    q: "How long will it take?",
-    a: "This can vary a lot depending on the size of your move. We know you want to minimise downtime. We usually say 1 day for packing, 1 day for moving and unpacking, but we will make this clear when quoting.",
-  },
-  {
-    q: "How far in advance should I book my move?",
-    a: "It's best to schedule at least two weeks in advance, especially if you're booking during peak times.",
-  },
-  {
-    q: "Do you provide packing services?",
-    a: "Yes, we offer packing service options, including packing materials and careful handling by our expert team.",
-  },
-  {
-    q: "How many movers will you bring?",
-    a: "When navigating stairwells and elevators with desks and boardroom tables, we always like to bring at least 4 movers, but we have more available depending on the size of your move.",
-  },
-  {
-    q: "Do you offer furniture disassembly and reassembly services?",
-    a: "Absolutely. Our two movers can handle heavy lifting, disassembly, and reassembly as part of our specialist moving services.",
-  },
-  {
-    q: "How do you protect my furniture during the move?",
-    a: "We use high-quality packing materials, including wraps and covers, and our professional movers ensure that every item is safely transported.",
-  },
-  {
-    q: "Can you move our IT equipment?",
-    a: "Yes we can. It's always worth checking with your IT team or service provider. Often we end up moving computer screens but the IT department will move and set up the servers and server room.",
-  },
-];
+/* FAQs moved to lib/faqs.ts — the legacy set had no facts in any answer
+   and was scoring 37/100 on /faq while feeding FAQPage JSON-LD. */
 
 export const contactCta =
   "Not sure what you need for your upcoming move? Fill out the form below with your moving date and requirements. We will get back to you with a clear recommendation, a fair quote, and our next available booking.";

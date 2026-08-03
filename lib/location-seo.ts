@@ -1546,7 +1546,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "Do you do moves on weekends? I need to hand the keys back on a Saturday.",
-        a: "Yes. We operate seven days a week, so a Saturday handover is not a problem. Book as early as you can because weekends fill up, especially at the end of the month.",
+        a: "We operate seven days a week, so a Saturday handover is not a problem. Book as early as you can because weekends fill up, especially at the end of the month.",
       },
       {
         q: "We have a lot to pack. Can you help with that before the move day?",
@@ -1632,7 +1632,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "How is furniture protected on longer routes?",
-        a: "Yes. blankets, wrap, and strapping are standard on every load. Items are secured inside the truck for the full journey; pianos and fragile pieces get extra padding.",
+        a: "Blankets, wrap, and strapping are standard on every load. Items are secured inside the truck for the full journey; pianos and fragile pieces get extra padding.",
       },
       {
         q: "Are travel costs included upfront?",
@@ -1656,7 +1656,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "How is furniture protected on longer routes?",
-        a: "Yes. furniture is blanket-wrapped and strapped for the full drive. Fragile and high-value items are boxed or extra-padded before loading.",
+        a: "Furniture is blanket-wrapped and strapped for the full drive. Fragile and high-value items are boxed or extra-padded before loading.",
       },
       {
         q: "Are travel costs included in the quote?",
@@ -1680,7 +1680,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "How is furniture protected on longer routes?",
-        a: "Yes. standard blanket wrap and truck strapping apply on every Taupo run. Pianos and fragile items receive specialist padding.",
+        a: "Standard blanket wrap and truck strapping apply on every Taupo run. Pianos and fragile items receive specialist padding.",
       },
       {
         q: "Are travel costs included?",
@@ -1704,7 +1704,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "How is furniture protected on the drive?",
-        a: "Yes. blankets, wrap, and internal truck strapping are standard. Coastal humidity is managed with proper wrap so items arrive dry and secure.",
+        a: "Blankets, wrap, and internal truck strapping are standard. Coastal humidity is managed with proper wrap so items arrive dry and secure.",
       },
       {
         q: "Are travel costs included upfront?",
@@ -1724,11 +1724,11 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "What is included in a long-distance quote?",
-        a: "Yes. labour, truck, travel, standard wrapping, and unload are included. Packing, storage, piano specialist handling, and insurance are itemised when you need them.",
+        a: "Labour, truck, travel, standard wrapping, and unload are included. Packing, storage, piano specialist handling, and insurance are itemised when you need them.",
       },
       {
         q: "How is a piano protected on a long route to Wellington?",
-        a: "Yes. pianos are blanket-wrapped, shrink-wrapped, and strapped on boards inside the truck. Grands are tilted and padded; uprights are secured upright for the full journey.",
+        a: "Pianos are blanket-wrapped, shrink-wrapped, and strapped on boards inside the truck. Grands are tilted and padded; uprights are secured upright for the full journey.",
       },
       {
         q: "Do you do return trips from Wellington?",
@@ -1752,11 +1752,11 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "What is included in a Napier move quote?",
-        a: "Yes. crew, truck, travel, and standard furniture protection are included. Packing, storage, and specialist piano handling are added when required.",
+        a: "Crew, truck, travel, and standard furniture protection are included. Packing, storage, and specialist piano handling are added when required.",
       },
       {
         q: "How is a piano protected on the Napier route?",
-        a: "Yes. padded blankets, shrink wrap, and piano boards are standard. The piano is secured inside the truck for the full Hawke's Bay drive.",
+        a: "Padded blankets, shrink wrap, and piano boards are standard. The piano is secured inside the truck for the full Hawke's Bay drive.",
       },
       {
         q: "How far in advance should I book?",
@@ -1780,11 +1780,11 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "What is included in a Hastings move quote?",
-        a: "Yes. labour, truck, travel, and blanket wrap are included in your written price. Add-ons like packing or storage are listed separately.",
+        a: "Labour, truck, travel, and blanket wrap are included in your written price. Add-ons like packing or storage are listed separately.",
       },
       {
         q: "How is furniture protected on longer routes?",
-        a: "Yes. furniture is wrapped and strapped for the full drive. Pianos and fragile items get specialist padding and securing.",
+        a: "Furniture is wrapped and strapped for the full drive. Pianos and fragile items get specialist padding and securing.",
       },
       {
         q: "How far in advance should I book?",
@@ -1808,11 +1808,11 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "What is included in a long-distance quote?",
-        a: "Yes. crew, truck, travel, and standard protection are included. Specialist piano handling, packing, and insurance are itemised when needed.",
+        a: "Crew, truck, travel, and standard protection are included. Specialist piano handling, packing, and insurance are itemised when needed.",
       },
       {
         q: "How is a piano protected on the route?",
-        a: "Yes. blankets, shrink wrap, and piano boards are used on every piano move. The instrument is secured inside the truck for the full journey.",
+        a: "Blankets, shrink wrap, and piano boards are used on every piano move. The instrument is secured inside the truck for the full journey.",
       },
       {
         q: "How far in advance should I book?",

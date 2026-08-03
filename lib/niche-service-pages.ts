@@ -108,7 +108,7 @@ export const apartmentMoversPage: NicheServicePageConfig = {
     },
     {
       q: "How do you protect furniture in tight apartment access?",
-      a: "Yes. blankets, wrap, and careful carry paths are planned before move day. We measure tight turns and stairwells when we quote.",
+      a: "Blankets, wrap, and careful carry paths are planned before move day. We measure tight turns and stairwells when we quote.",
     },
   ],
   processTitle: houseMovingProcess.title,
@@ -193,7 +193,7 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
     },
     {
       q: "What areas do you cover for retirement home moves?",
-      a: "Yes. Auckland suburbs and Hamilton/Waikato daily. Regional routes to family elsewhere in the North Island are quoted upfront.",
+      a: "Auckland suburbs and Hamilton/Waikato daily. Regional routes to family elsewhere in the North Island are quoted upfront.",
     },
   ],
   processTitle: houseMovingProcess.title,

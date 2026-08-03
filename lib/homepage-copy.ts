@@ -5,7 +5,6 @@
 export {
   aboutPage,
   contactCta,
-  faqs,
   googleReviewsUrl,
   hero,
   homeMeta,
@@ -23,3 +22,5 @@ export {
 } from "./legacy-site-content";
 
 export { experienceMilestones, homeProcessVisual } from "./homepage-sections";
+
+export { faqs } from "./faqs";

@@ -30,7 +30,7 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
       },
       {
         q: "What is included in a local move quote?",
-        a: "Yes. crew labour, truck, blankets, and standard local travel are included. Packing, cleaning, and storage are quoted separately when you need them.",
+        a: "Crew labour, truck, blankets, and standard local travel are included. Packing, cleaning, and storage are quoted separately when you need them.",
       },
       generalServiceFaqs[3],
       generalServiceFaqs[4],
@@ -56,7 +56,7 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
       },
       {
         q: "How is furniture protected on longer routes?",
-        a: "Yes. blankets, wrap, and internal truck strapping are standard on every regional load.",
+        a: "Blankets, wrap, and internal truck strapping are standard on every regional load.",
       },
       {
         q: "Are travel costs included upfront?",
@@ -81,11 +81,11 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
       },
       {
         q: "What is included in an international move quote?",
-        a: "Yes. labour, packing coordination, and transport to port or freight handover are itemised. Storage in transit can be added when dates do not align.",
+        a: "Labour, packing coordination, and transport to port or freight handover are itemised. Storage in transit can be added when dates do not align.",
       },
       {
         q: "How is a piano protected on an international route?",
-        a: "Yes. export wrap, crating when required, and specialist handling through to freight handover.",
+        a: "Export wrap, crating when required, and specialist handling through to freight handover.",
       },
       generalServiceFaqs[3],
       generalServiceFaqs[4],
@@ -106,7 +106,7 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
       },
       {
         q: "What is included in storage?",
-        a: "Yes. careful pickup, wrapping on intake, secure holding, and delivery to your new address when ready.",
+        a: "Careful pickup, wrapping on intake, secure holding, and delivery to your new address when ready.",
       },
       generalServiceFaqs[3],
       generalServiceFaqs[6],
@@ -156,7 +156,7 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
     faqs: [
       {
         q: "When is storage in transit used?",
-        a: "Yes. when a regional or long-distance move cannot finish in one day, goods are secured between legs rather than left unattended.",
+        a: "When a regional or long-distance move cannot finish in one day, goods are secured between legs rather than left unattended.",
       },
       {
         q: "Is storage in transit included in the quote?",
@@ -178,7 +178,7 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
     faqs: [
       {
         q: "When do you use overnight storage?",
-        a: "Yes. when a move spans two days or building rules limit single-day access, your goods are secured overnight between crew shifts.",
+        a: "When a move spans two days or building rules limit single-day access, your goods are secured overnight between crew shifts.",
       },
       {
         q: "Is overnight storage included in my quote?",
@@ -204,7 +204,7 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
       },
       {
         q: "How is my piano protected in storage?",
-        a: "Yes. padded blankets, shrink wrap, and climate-aware handling. Collection and return delivery use the same specialist crew.",
+        a: "Padded blankets, shrink wrap, and climate-aware handling. Collection and return delivery use the same specialist crew.",
       },
       generalServiceFaqs[3],
       generalServiceFaqs[6],
