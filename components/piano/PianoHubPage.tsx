@@ -15,6 +15,8 @@ import { SitePhoto } from "@/components/SitePhoto";
 import { contactCta, googleReviewsUrl, pianoStatsStrip } from "@/lib/homepage-copy";
 import { sectionRevealDirection } from "@/lib/motion";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { ServiceJsonLd } from "@/components/ServiceJsonLd";
 import { pianoMovingProcess } from "@/lib/moving-process";
 import { pianoFaqs } from "@/lib/piano-faqs";
 import { formatHeadingText } from "@/lib/heading-ampersand";
@@ -37,6 +39,21 @@ export function PianoHubPage() {
   return (
     <div className="bg-brand-canvas">
       <FaqPageJsonLd items={hubFaqs} />
+      {/* L1: this was the only major service page with neither. BreadcrumbList
+          is one of only two rich results actually available to us. */}
+      <BreadcrumbJsonLd
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Piano Movers", href: "/piano-movers" },
+        ]}
+      />
+      <ServiceJsonLd
+        name="Piano Moving"
+        description="Specialist piano moving across Auckland, Hamilton and the Waikato. Uprights, baby grands and concert grands, with $2,000 cover as standard."
+        path="/piano-movers"
+        serviceType="Piano moving"
+        includeRating={false}
+      />
       <ServiceHeroWithQuote
         heroVariant="piano"
         heading={pianoHubHero.h1}
