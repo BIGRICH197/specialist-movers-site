@@ -126,7 +126,7 @@ const landingOverrides: Record<
     h1: getServiceHeroH1("house-moving", "Auckland"),
     lead:
       "Relocating your Auckland home should feel manageable, not overwhelming. Our Wairau Valley crews handle apartments, townhouses, and family homes across the city with clear communication, careful handling, and free in-home viewings when you need a fixed price.",
-    subline: "Moves starting from $350. Free quote. We call back within 15 minutes.",
+    subline: "Moves starting from $300. Free quote. We call back within 15 minutes.",
     heroGagPhoto: sitePhotos.homeHero,
     heroGagAlt:
       "Specialist Movers carrying a sofa while the client relaxes and reads a magazine",

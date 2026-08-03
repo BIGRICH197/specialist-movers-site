@@ -6,6 +6,7 @@ import { brandAssets } from "@/lib/brand-assets";
 import { getServiceNavRows, serviceNavClusterLinks } from "@/lib/service-nav";
 import { pianoServices } from "@/lib/site-data";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
+import { nap, nzbnUrl } from "@/lib/company-facts";
 
 export function SiteFooter() {
   const serviceRows = getServiceNavRows();
@@ -142,6 +143,21 @@ export function SiteFooter() {
       </div>
       <div className="mx-auto mt-10 max-w-7xl border-t border-white/20 pt-6 text-center text-xs text-white/70 container-px">
         © {new Date().getFullYear()} Specialist Movers Auckland & Hamilton. All rights reserved.
+        {/* H7: neither the legal entity, the NZBN, nor a street address
+            appeared anywhere on the site. Table stakes for a business asking
+            people to hand over an entire household. */}
+        <span className="mt-2 block text-brand-white/60">
+          {nap.tradingName} is a trading name of {nap.legalName}. NZBN{" "}
+          <a
+            href={nzbnUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-2 hover:text-brand-white"
+          >
+            {nap.nzbn}
+          </a>
+          . {nap.streetAddress}, {nap.suburb}, {nap.city} {nap.postcode}.
+        </span>
       </div>
     </footer>
   );

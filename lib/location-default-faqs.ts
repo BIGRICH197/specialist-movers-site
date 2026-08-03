@@ -19,7 +19,7 @@ export function getDefaultLocationFaqs(location: Location): LocationFaq[] {
   return [
     {
       q: `How much does it cost to move house in ${place}?`,
-      a: `Most ${location.name} home relocations are quoted after a free viewing so stairs, parking, and volume are clear upfront. Smaller local loads often start from around $350 excl. GST. ${travel} Call ${phoneDisplay} for a same-day quote.`,
+      a: `Most ${location.name} home relocations are quoted after a free viewing so stairs, parking, and volume are clear upfront. Smaller local loads often start from around $300 excl. GST. ${travel} Call ${phoneDisplay} for a same-day quote.`,
     },
     {
       q: `Do you cover all of ${location.name}?`,

@@ -26,7 +26,7 @@ export const houseProcessIllustrations = [
 
 /** Volume stats band , cartoon icons from the live homepage. */
 export const milestoneIllustrations = [
-  { src: `/illustrations/milestones/families.png?${v}`, alt: "Families moved" },
+  { src: `/illustrations/milestones/families.png?${v}`, alt: "Moves completed" },
   { src: `/illustrations/milestones/pianos.png?${v}`, alt: "Pianos moved" },
   { src: `/illustrations/milestones/spa-pools.png?${v}`, alt: "Spa pools moved" },
   { src: `/illustrations/milestones/commercial.png?${v}`, alt: "Commercial moves" },

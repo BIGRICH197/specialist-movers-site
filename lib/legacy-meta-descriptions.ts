@@ -19,7 +19,7 @@ export const legacyMetaDescriptions = {
   "international-moving":
     "International movers in Auckland for overseas relocations. Sea and air freight, customs coordination, and door-to-door service. Free quote.",
   "loading-unloading":
-    "Professional loading and unloading crews in Auckland from $350. Blankets and straps included, hourly pricing, 7 days a week. Call (021) 228 2728.",
+    "Professional loading and unloading crews in Auckland from $300. Blankets and straps included, hourly pricing, 7 days a week. Call (021) 228 2728.",
   "winz-quotes":
     "Written moving quotes for WINZ and housing assistance applications in Auckland. Itemised pricing, site visits when needed, and fast turnaround. Call (021) 228 2728.",
   "piano-movers-auckland":

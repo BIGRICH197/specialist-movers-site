@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
+import { RatingJsonLd } from "@/components/RatingJsonLd";
 import { buildPageMetadata } from "@/lib/seo";
 import { regions } from "@/lib/regions";
 import {
@@ -65,6 +66,7 @@ export default function HomePage() {
   return (
     <div className="bg-brand-canvas">
       <FaqPageJsonLd items={homeFaqs} />
+      <RatingJsonLd />
       <HomeHero
         hero={{
           eyebrow: hero.eyebrow,

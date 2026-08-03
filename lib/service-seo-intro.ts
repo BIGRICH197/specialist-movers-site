@@ -9,7 +9,7 @@ export const serviceSeoIntroBySlug: Record<string, string> = {
   "international-moving":
     "International and inter-island moves from Auckland and Hamilton, quoted in writing before we pack or ship. Licensed crews with 60+ years combined experience coordinate North Island, South Island, and overseas relocations.",
   "loading-unloading":
-    "Load-only and unload-only crews across Auckland from $350 excl. GST for smaller jobs. Licensed movers with blankets and straps, ideal when you are driving but need help with the heavy lifting.",
+    "Load-only and unload-only crews across Auckland from $300 excl. GST for smaller jobs. Licensed movers with blankets and straps, ideal when you are driving but need help with the heavy lifting.",
   "grand-piano":
     "Grand piano moving in Auckland and Hamilton from $550 excl. GST locally. Trusted by Steinway and Auckland music retailers, minimum three trained movers with piano boards, shrink wrap, and padded blankets on every job.",
   "upright-piano":

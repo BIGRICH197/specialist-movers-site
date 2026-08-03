@@ -248,14 +248,14 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   "south-auckland": {
     metaDescription:
-      "South Auckland movers with real experience across Manukau, Papakura, and beyond. Specialist Movers completes 1,500+ Auckland moves. Get a quote in 15 minutes.",
+      "South Auckland movers with real experience across Manukau, Papakura, and beyond. Specialist Movers completes 4,000+ moves across Auckland and the Waikato. Get a quote in 15 minutes.",
     intro:
       "South Auckland is big, varied, and always busy. From large family homes on wide sections in Papakura to the dense townhouse blocks going up around Manukau, every move here needs a proper plan.",
     paragraphs: [
       "South Auckland has some of Auckland's most diverse housing stock. You have older state-era homes with long driveways and detached garages, new multi-storey townhouses with shared accessways, and everything in between. We look at access, truck clearance, and parking before move day so nothing slows us down on the day itself.",
       "The region is growing fast. New subdivisions around Flat Bush, Takanini, and Paerata are adding thousands of homes, many with narrow shared lanes, coded gates, and limited street parking. We check those details ahead of time and bring the right size truck for the site.",
       "Our depot is in Wairau Valley on the North Shore. The drive to South Auckland takes about 29 minutes, so this sits in our pricing zone B. The fixed callout is slightly higher than inner suburbs, but the hourly rate is the same across all of Auckland. You see the full price before you confirm.",
-      "We have completed 1,500+ moves across Auckland, including plenty of larger households with big appliances, heavy furniture, and full garages. Our trucks have taillifts and we run crews of two to four depending on the job. For bigger homes we offer a free viewing so we can quote accurately and plan the day properly.",
+      "We have completed 4,000+ moves across Auckland and the Waikato, including plenty of larger households with big appliances, heavy furniture, and full garages. Our trucks have taillifts and we run crews of two to four depending on the job. For bigger homes we offer a free viewing so we can quote accurately and plan the day properly.",
     ],
     highlights: [
       "Access checks for new-subdivision shared lanes and coded gates",
@@ -1428,7 +1428,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   morrinsville: {
     metaDescription:
-      "Moving to or from Morrinsville? Specialist Movers runs from our Hamilton base, about 31 minutes away. Get a quote in 15 minutes. 1,500+ moves completed.",
+      "Moving to or from Morrinsville? Specialist Movers runs from our Hamilton base, about 31 minutes away. Get a quote in 15 minutes. 4,000+ moves completed.",
     intro:
       "Morrinsville is a proper Waikato town, dairy country, wide streets, and solid family homes on good-sized sections. We run out from our Hamilton base, roughly 31 minutes, and we come ready for what that kind of property usually involves.",
     paragraphs: [
@@ -1520,7 +1520,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   huntly: {
     metaDescription:
-      "Moving to or from Huntly? Specialist Movers runs crews out of Hamilton, about 28 minutes away. Honest pricing, real local knowledge, 1,500+ moves completed.",
+      "Moving to or from Huntly? Specialist Movers runs crews out of Hamilton, about 28 minutes away. Honest pricing, real local knowledge, 4,000+ moves completed.",
     intro:
       "Huntly sits right on the Waikato River, and the housing here tells that story. Older state homes, riverside sections, and a mix of long-term locals and people making a fresh start somewhere more affordable.",
     paragraphs: [
@@ -1562,7 +1562,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     paragraphs: [
       "A lot of the housing stock here is older. That means high stud ceilings, wide hallways, and solid timber furniture that was built to last. It also means the occasional tight corner on a staircase and the odd narrow gate between house and street. We check all of that before we load the truck.",
       "Ngaruawahia is about 20 minutes from our Hamilton base, which puts it comfortably in our standard callout area. You see the full price before you book, no distance surcharge tucked in at the end. Quotes come back in about 15 minutes during business hours.",
-      "The town has a mix of long-established owner-occupiers and newer families moving in. That means a wide range of moves, a four-bedroom bungalow with a shed full of gear, a smaller unit near the main street, a deceased estate being cleared for sale. We have handled all of those across the 1,500 plus Auckland and Waikato moves we have completed.",
+      "The town has a mix of long-established owner-occupiers and newer families moving in. That means a wide range of moves, a four-bedroom bungalow with a shed full of gear, a smaller unit near the main street, a deceased estate being cleared for sale. We have handled all of those across the 4,000 plus moves across Auckland and the Waikato we have completed.",
       "We run seven days a week with licensed, insured crews, and we can arrange transit cover for your belongings if you want it. If you have a piano, we are the crew Steinway dealers in the region trust to move them. And if you need packing help the day before, or a clean once the house is empty, we can sort both.",
     ],
     highlights: [

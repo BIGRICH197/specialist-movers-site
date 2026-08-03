@@ -32,7 +32,7 @@ const hamiltonQuoteFaq: FaqItem = {
 const hamiltonHouseFaqs: readonly FaqItem[] = [
   {
     q: "How much does it cost to move house in Hamilton?",
-    a: "Most local Hamilton home relocations start from around $350 excl. GST for smaller loads. Full home moves are fixed after a free viewing, volume, stairs, and travel drive the final price.",
+    a: "Most local Hamilton home relocations start from around $300 excl. GST for smaller loads. Full home moves are fixed after a free viewing, volume, stairs, and travel drive the final price.",
   },
   hamiltonCoverageFaq,
   hamiltonBookingFaq,
@@ -84,7 +84,7 @@ const hamiltonCleaningFaqs: readonly FaqItem[] = [
 const defaultHamiltonFaqs: readonly FaqItem[] = [
   {
     q: "How much does this service cost in Hamilton?",
-    a: "Pricing depends on scope, access, and travel. Most local jobs start from around $350 excl. GST, we confirm a written price before you book.",
+    a: "Pricing depends on scope, access, and travel. Most local jobs start from around $300 excl. GST, we confirm a written price before you book.",
   },
   hamiltonCoverageFaq,
   hamiltonBookingFaq,

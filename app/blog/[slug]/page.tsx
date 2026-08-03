@@ -3,13 +3,15 @@ import { buildPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
+import { ArticleByline } from "@/components/ArticleByline";
+import { schemaIds } from "@/lib/schema-graph";
+import { linkedInUrl } from "@/lib/company-facts";
 import { PageHero } from "@/components/PageHero";
 import { PagePhotoMomentStrip } from "@/components/PagePhotoMomentStrip";
 import { PageUpdatedStamp } from "@/components/PageUpdatedStamp";
-import { brandAssets } from "@/lib/brand-assets";
 import { getBlogArticle } from "@/lib/blog-articles";
 import { blogPosts } from "@/lib/site-data";
-import { siteName, siteUrl } from "@/lib/site-config";
+import { siteUrl } from "@/lib/site-config";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -50,18 +52,16 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
     author: {
       "@type": "Person",
+      "@id": `${siteUrl}/about#richard`,
       name: "Richard Boote",
       jobTitle: "Owner & General Manager",
-      url: "https://www.linkedin.com/in/richard-boote-531b7a1b4/",
+      worksFor: { "@id": schemaIds.organization },
+      sameAs: [
+        "https://www.linkedin.com/in/richard-boote-531b7a1b4/",
+        linkedInUrl,
+      ],
     },
-    publisher: {
-      "@type": "Organization",
-      name: siteName,
-      logo: {
-        "@type": "ImageObject",
-        url: `${siteUrl}${brandAssets.logomarkPurple}`,
-      },
-    },
+    publisher: { "@id": schemaIds.organization },
   };
 
   return (
@@ -89,6 +89,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           })}
           className="mb-8"
         />
+        <ArticleByline className="mb-10" />
         <div className="space-y-10">
           {article.sections.map((section) => (
             <section key={section.heading}>
