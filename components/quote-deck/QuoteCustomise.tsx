@@ -1,14 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { formatNzd } from "@/lib/quote-deck/house-move-quote";
 
-// Interactive add-ons, in the same purple panel style as before, shown ABOVE
-// the quote. The customer ticks/unticks cleaning (always) and packing (only if
-// we quoted it), and can request insurance. The total updates live. If they do
-// NOT request insurance, they confirm owner's risk before accepting. Selections
-// flow to /api/quote-accept (Slack) and into the booking form via query params.
+// Interactive add-ons + accept flow around a hosted quote. The add-ons live in a
+// purple panel ABOVE the quote (tick cleaning/packing/insurance). The quote price
+// breakdown is passed as children. The total + owner's-risk + Accept button sit
+// BELOW the quote. Selections flow to /api/quote-accept (Slack) and into the
+// booking form via query params.
 
 type Props = {
   quoteRef: string;
@@ -17,6 +17,8 @@ type Props = {
   cleaningPriceInclGst: number | null;
   packingQuoted: boolean;
   packingPriceInclGst: number;
+  /** The quote price breakdown — rendered between the add-ons and the checkout. */
+  children: ReactNode;
 };
 
 function Tick({ on }: { on: boolean }) {
@@ -44,6 +46,7 @@ export function QuoteCustomise({
   cleaningPriceInclGst,
   packingQuoted,
   packingPriceInclGst,
+  children,
 }: Props) {
   const router = useRouter();
   const [cleaningOn, setCleaningOn] = useState(cleaningQuoted);
@@ -102,117 +105,118 @@ export function QuoteCustomise({
   const rowCls = "flex cursor-pointer items-start gap-2.5 text-xs leading-relaxed sm:text-sm";
 
   return (
-    <div className="proposal-purple-panel proposal-addons-panel mb-4 px-4 py-4 sm:px-5 sm:py-5">
-      <h3 className="font-heading text-xs font-bold text-brand-yellow sm:text-sm">Add-ons</h3>
-      <p className="mt-1 text-[10px] text-white/60 sm:text-xs">Tick to add to your move</p>
+    <>
+      {/* ── Add-ons (purple panel, ABOVE the quote) ── */}
+      <div className="proposal-purple-panel proposal-addons-panel mb-4 px-4 py-4 sm:px-5 sm:py-5">
+        <h3 className="font-heading text-xs font-bold text-brand-yellow sm:text-sm">Add-ons</h3>
+        <p className="mt-1 text-[10px] text-white/60 sm:text-xs">Tick to add to your move</p>
 
-      <ul className="proposal-addon-list mt-2.5 space-y-2.5">
-        {/* Exit cleaning — always available */}
-        <li>
-          <label className={rowCls} onClick={() => setCleaningOn((v) => !v)}>
-            <Tick on={cleaningOn} />
-            <span className="flex-1">
-              <span className="flex items-center justify-between gap-3">
-                <span className={cleaningOn ? "text-white" : "text-white/75"}>Exit cleaning</span>
-                <span className={cleaningOn ? "text-white" : "text-white/75"}>
-                  {cleaningHasPrice ? `${formatNzd(cleaningPriceInclGst!)} incl GST` : "Price on request"}
+        <ul className="proposal-addon-list mt-2.5 space-y-2.5">
+          <li>
+            <label className={rowCls} onClick={() => setCleaningOn((v) => !v)}>
+              <Tick on={cleaningOn} />
+              <span className="flex-1">
+                <span className="flex items-center justify-between gap-3">
+                  <span className={cleaningOn ? "text-white" : "text-white/75"}>Exit cleaning</span>
+                  <span className={cleaningOn ? "text-white" : "text-white/75"}>
+                    {cleaningHasPrice ? `${formatNzd(cleaningPriceInclGst!)} incl GST` : "Price on request"}
+                  </span>
+                </span>
+                <span className="mt-0.5 block text-[10px] text-white/55 sm:text-xs">
+                  A professional end-of-tenancy clean, fixed price.
+                  {!cleaningHasPrice ? " Our team will confirm the price." : ""}
                 </span>
               </span>
-              <span className="mt-0.5 block text-[10px] text-white/55 sm:text-xs">
-                A professional end-of-tenancy clean, fixed price.
-                {!cleaningHasPrice ? " Our team will confirm the price." : ""}
-              </span>
-            </span>
-          </label>
-        </li>
+            </label>
+          </li>
 
-        {/* Professional packing */}
-        <li>
-          <label className={rowCls} onClick={() => setPackingOn((v) => !v)}>
-            <Tick on={packingOn} />
-            <span className="flex-1">
-              <span className="flex items-center justify-between gap-3">
-                <span className={packingOn ? "text-white" : "text-white/75"}>Full packing, packers come in the day before</span>
-                <span className={packingOn ? "text-white" : "text-white/75"}>
-                  {packingQuoted ? `${formatNzd(packingPriceInclGst)} incl GST` : "Price on request"}
+          <li>
+            <label className={rowCls} onClick={() => setPackingOn((v) => !v)}>
+              <Tick on={packingOn} />
+              <span className="flex-1">
+                <span className="flex items-center justify-between gap-3">
+                  <span className={packingOn ? "text-white" : "text-white/75"}>Full packing, packers come in the day before</span>
+                  <span className={packingOn ? "text-white" : "text-white/75"}>
+                    {packingQuoted ? `${formatNzd(packingPriceInclGst)} incl GST` : "Price on request"}
+                  </span>
+                </span>
+                <span className="mt-0.5 block text-[10px] text-white/55 sm:text-xs">
+                  {packingQuoted
+                    ? "Untick if you would rather pack yourself."
+                    : "Tick to add it and our team will confirm the price."}
                 </span>
               </span>
-              <span className="mt-0.5 block text-[10px] text-white/55 sm:text-xs">
-                {packingQuoted
-                  ? "Untick if you would rather pack yourself."
-                  : "Tick to add it and our team will confirm the price."}
-              </span>
-            </span>
-          </label>
-        </li>
+            </label>
+          </li>
 
-        {/* Insurance — a request, no price */}
-        <li>
-          <label className={rowCls} onClick={() => setInsuranceOn((v) => !v)}>
-            <Tick on={insuranceOn} />
-            <span className="flex-1">
-              <span className={insuranceOn ? "text-white" : "text-white/75"}>
-                Request insurance cover
+          <li>
+            <label className={rowCls} onClick={() => setInsuranceOn((v) => !v)}>
+              <Tick on={insuranceOn} />
+              <span className="flex-1">
+                <span className={insuranceOn ? "text-white" : "text-white/75"}>Request insurance cover</span>
+                <span className="mt-0.5 block text-[10px] text-white/55 sm:text-xs">
+                  Our team will send you insurance options. Your move is otherwise carried at owner&apos;s risk.
+                </span>
               </span>
-              <span className="mt-0.5 block text-[10px] text-white/55 sm:text-xs">
-                Our team will send you insurance options. Your move is otherwise carried at owner&apos;s risk.
-              </span>
-            </span>
-          </label>
-        </li>
-      </ul>
-
-      {/* Owner's-risk acknowledgement when insurance is not requested */}
-      {!insuranceOn ? (
-        <label className="mt-3 flex cursor-pointer items-start gap-2.5 rounded-lg border border-brand-yellow/50 bg-white/10 px-3 py-2.5 text-[10px] text-white sm:text-xs">
-          <input
-            type="checkbox"
-            className="mt-0.5 accent-brand-yellow"
-            checked={ownerRisk}
-            onChange={(e) => setOwnerRisk(e.target.checked)}
-          />
-          <span>
-            I understand my goods are moved at owner&apos;s risk under the Contract and Commercial
-            Law Act 2017, unless I arrange separate insurance cover.
-          </span>
-        </label>
-      ) : null}
-
-      <div className="mt-3 flex items-center justify-between border-t border-white/20 pt-3">
-        <span className="text-xs text-white/70 sm:text-sm">Your total</span>
-        <span className="font-heading text-lg text-white sm:text-xl">{formatNzd(liveTotal)} incl GST</span>
+            </label>
+          </li>
+        </ul>
       </div>
 
-      <div className="mt-3 flex flex-col items-stretch gap-2">
-        <button
-          type="button"
-          onClick={accept}
-          disabled={accepting || !canAccept}
-          className="w-full rounded-full bg-brand-yellow px-6 py-3 text-sm font-bold text-brand-purple shadow-lg transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-50 sm:text-base"
-        >
-          {accepting ? "One moment…" : "Accept & continue to booking"}
-        </button>
-        {!canAccept ? (
-          <p className="text-center text-[10px] font-medium text-white/60 sm:text-xs">
-            Tick insurance, or confirm owner&apos;s risk above, to continue.
-          </p>
+      {/* ── The quote price breakdown ── */}
+      {children}
+
+      {/* ── Checkout (total + owner's-risk + Accept, BELOW the quote) ── */}
+      <div className="mt-4 rounded-2xl border border-brand-purple/15 bg-brand-canvas/40 p-4 text-brand-purple sm:p-5">
+        {!insuranceOn ? (
+          <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-brand-yellow/40 bg-brand-yellow/10 px-4 py-3 text-sm">
+            <input
+              type="checkbox"
+              className="mt-1"
+              checked={ownerRisk}
+              onChange={(e) => setOwnerRisk(e.target.checked)}
+            />
+            <span>
+              I understand my goods are moved at owner&apos;s risk under the Contract and Commercial
+              Law Act 2017, unless I arrange separate insurance cover.
+            </span>
+          </label>
         ) : null}
 
-        {callState === "done" ? (
-          <p className="text-center text-xs font-medium text-white sm:text-sm">
-            Thanks, we&apos;ll call you shortly.
-          </p>
-        ) : (
+        <div className="mt-3 flex items-center justify-between border-t border-brand-purple/10 pt-3 first:mt-0 first:border-0 first:pt-0">
+          <span className="text-sm text-brand-purple/70">Your total</span>
+          <span className="font-heading text-xl">{formatNzd(liveTotal)} incl GST</span>
+        </div>
+
+        <div className="mt-4 flex flex-col items-stretch gap-2">
           <button
             type="button"
-            onClick={requestCall}
-            disabled={callState === "sending"}
-            className="text-xs font-semibold text-white underline-offset-4 hover:underline disabled:opacity-60 sm:text-sm"
+            onClick={accept}
+            disabled={accepting || !canAccept}
+            className="w-full rounded-full bg-brand-purple px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-brand-purple/90 disabled:cursor-not-allowed disabled:opacity-50"
           >
-            {callState === "sending" ? "Sending…" : "Or request a call back"}
+            {accepting ? "One moment…" : "Accept & continue to booking"}
           </button>
-        )}
+          {!canAccept ? (
+            <p className="text-center text-xs font-medium text-brand-purple/60">
+              Tick insurance, or confirm owner&apos;s risk above, to continue.
+            </p>
+          ) : null}
+
+          {callState === "done" ? (
+            <p className="text-center text-sm font-medium text-brand-purple">Thanks, we&apos;ll call you shortly.</p>
+          ) : (
+            <button
+              type="button"
+              onClick={requestCall}
+              disabled={callState === "sending"}
+              className="text-sm font-semibold text-brand-purple underline-offset-4 hover:underline disabled:opacity-60"
+            >
+              {callState === "sending" ? "Sending…" : "Or request a call back"}
+            </button>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

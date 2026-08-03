@@ -115,24 +115,34 @@ export function HouseMoveDeck({ quote, quoteRef, bedrooms }: Props) {
           <div className="proposal-print-sheet proposal-print-sheet--quote">
             {quote.lineItems.length > 0 ? (
               <div id="quote" className="proposal-quote-block text-sm font-normal text-brand-purple">
-                {quoteRef ? (
-                  <QuoteCustomise
-                    quoteRef={quoteRef}
-                    moveInclGst={addOns.moveInclGst}
-                    cleaningQuoted={addOns.cleaningQuoted}
-                    cleaningPriceInclGst={cleaningPriceInclGst}
-                    packingQuoted={addOns.packingQuoted}
-                    packingPriceInclGst={addOns.packingInclGst}
-                  />
-                ) : null}
-                <h2 className="text-sm font-normal">
-                  {usesXeroQuoteTable(quote) ? "Price estimate" : "Cost of your move"}
-                </h2>
-                <QuoteMoveDetails quote={quote} />
-                <QuoteTable quote={quote} />
-                {quote.validFor ? (
-                  <p className="mt-3 text-brand-purple/75">Valid for {quote.validFor}.</p>
-                ) : null}
+                {(() => {
+                  const quoteBody = (
+                    <>
+                      <h2 className="text-sm font-normal">
+                        {usesXeroQuoteTable(quote) ? "Price estimate" : "Cost of your move"}
+                      </h2>
+                      <QuoteMoveDetails quote={quote} />
+                      <QuoteTable quote={quote} />
+                      {quote.validFor ? (
+                        <p className="mt-3 text-brand-purple/75">Valid for {quote.validFor}.</p>
+                      ) : null}
+                    </>
+                  );
+                  return quoteRef ? (
+                    <QuoteCustomise
+                      quoteRef={quoteRef}
+                      moveInclGst={addOns.moveInclGst}
+                      cleaningQuoted={addOns.cleaningQuoted}
+                      cleaningPriceInclGst={cleaningPriceInclGst}
+                      packingQuoted={addOns.packingQuoted}
+                      packingPriceInclGst={addOns.packingInclGst}
+                    >
+                      {quoteBody}
+                    </QuoteCustomise>
+                  ) : (
+                    quoteBody
+                  );
+                })()}
               </div>
             ) : null}
 
