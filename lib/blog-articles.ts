@@ -269,7 +269,7 @@ export const blogArticles: Record<string, BlogArticle> = {
         heading: "Our 2026 rates",
         paragraphs: [
           "A two-person crew with a truck starts at $120 per hour plus GST on a Tuesday, our cheapest day. Midweek days sit around $130 to $135, and Friday, the most popular day of the week, is $150. A three-person crew runs $40 to $50 an hour more than two.",
-          "The callout fee depends on how far you are from our Glenfield depot. Close-in Auckland (roughly within 23 kilometres) is $60 for a two-person crew. The outer suburbs, like the Hibiscus Coast or Pukekohe, are $80, and the fringe of the region is $120. The hourly rate itself is the same across all of Auckland; only the callout changes with distance.",
+          "The callout fee depends on how far you are from our Wairau Valley depot. Close-in Auckland (roughly within 23 kilometres) is $60 for a two-person crew. The outer suburbs, like the Hibiscus Coast or Pukekohe, are $80, and the fringe of the region is $120. The hourly rate itself is the same across all of Auckland; only the callout changes with distance.",
           "Everything is plus GST, and we tell you the day rate and the callout before you book, so the structure you're quoted is the structure you're invoiced on.",
         ],
       },

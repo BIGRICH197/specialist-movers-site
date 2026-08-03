@@ -16,14 +16,38 @@ function LogoMarqueeRow({ duplicate }: { duplicate?: boolean }) {
           <span className="text-brand-purple/35" aria-hidden>
             ·
           </span>
-          <Image
-            src={partner.src}
-            alt={duplicate ? "" : `${partner.name} logo`}
-            width={partner.width}
-            height={partner.height}
-            className="ml-3 h-9 w-auto max-w-[8.5rem] object-contain object-center sm:h-11 sm:max-w-[10rem]"
-            unoptimized
-          />
+          {/* H10: these logos were image alt text with no links anywhere on the
+              site, so "trusted by Auckland music retailers" was unverifiable to
+              a crawler. Linked where we could confirm the URL loads; the
+              duplicate marquee track stays unlinked so nothing is announced
+              twice to a screen reader. */}
+          {partner.href && !duplicate ? (
+            <a
+              href={partner.href}
+              target="_blank"
+              rel="noopener"
+              className="ml-3 inline-flex"
+              title={`${partner.name} , a retailer we move pianos for`}
+            >
+              <Image
+                src={partner.src}
+                alt={`${partner.name} logo`}
+                width={partner.width}
+                height={partner.height}
+                className="h-9 w-auto max-w-[8.5rem] object-contain object-center sm:h-11 sm:max-w-[10rem]"
+                unoptimized
+              />
+            </a>
+          ) : (
+            <Image
+              src={partner.src}
+              alt={duplicate ? "" : `${partner.name} logo`}
+              width={partner.width}
+              height={partner.height}
+              className="ml-3 h-9 w-auto max-w-[8.5rem] object-contain object-center sm:h-11 sm:max-w-[10rem]"
+              unoptimized
+            />
+          )}
         </li>
       ))}
     </ul>

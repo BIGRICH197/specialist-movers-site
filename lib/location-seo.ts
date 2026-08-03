@@ -352,12 +352,12 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Birkenhead moves mean hills, character villas, and narrow harbour-side streets, we scope steep drives and parking before move day.",
     paragraphs: [
       "From Highbury's older villas and bungalows to the steep streets above Little Shoal Bay, Birkenhead access is often tight: narrow frontages, sloped driveways, and limited on-street parking. We plan truck placement and carry routes at the viewing.",
-      "Our Glenfield depot is just up the road, so Birkenhead is a regular run. Home relocations, pianos, packing, and exit cleans are all covered.",
+      "Our Wairau Valley depot is just up the road, so Birkenhead is a regular run. Home relocations, pianos, packing, and exit cleans are all covered.",
     ],
     highlights: [
       "Hillside villa and character-home access",
       "Narrow-street parking planned in advance",
-      "Close to our Glenfield depot",
+      "Close to our Wairau Valley depot",
       "Piano specialists, upright and grand",
     ],
     faqs: [
@@ -378,12 +378,12 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Northcote runs from character villas on the Point to the redeveloped town-centre townhouses, we plan access for both.",
     paragraphs: [
       "Northcote Point's pre-war villas have steep steps and narrow hallways, while the regenerated town centre brings new townhouses with shared lanes and parking limits. We confirm the access type at your viewing so the quote fits the property.",
-      "We are minutes away in Glenfield, so Northcote is a frequent run for home relocations, pianos, and packing, with easy motorway access for moves over the bridge.",
+      "We are minutes away in Wairau Valley, so Northcote is a frequent run for home relocations, pianos, and packing, with easy motorway access for moves over the bridge.",
     ],
     highlights: [
       "Villas on the Point and new townhouses",
       "Shared-lane and parking access planned",
-      "Quick run from our Glenfield depot",
+      "Quick run from our Wairau Valley depot",
       "Piano specialists, upright and grand",
     ],
     faqs: [
@@ -399,15 +399,15 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   hillcrest: {
     metaDescription:
-      "Hillcrest movers for family homes and units near our Glenfield depot. Specialist Movers handles cross-lease driveways and unit access across Hillcrest. Free quote.",
+      "Hillcrest movers for family homes and units near our Wairau Valley depot. Specialist Movers handles cross-lease driveways and unit access across Hillcrest. Free quote.",
     intro:
-      "Hillcrest is a quick run from our Glenfield depot, established family homes, units, and cross-leases we move every week.",
+      "Hillcrest is a quick run from our Wairau Valley depot, established family homes, units, and cross-leases we move every week.",
     paragraphs: [
       "Much of Hillcrest is 1960s to 80s homes and brick units down shared driveways, where parking and carry distance matter most. We scope the driveway and door access so the crew works efficiently.",
       "Close to base, Hillcrest moves are easy to schedule, often on shorter notice. Home relocations, piano, packing, and office moves are all covered.",
     ],
     highlights: [
-      "Minutes from our Glenfield depot",
+      "Minutes from our Wairau Valley depot",
       "Cross-lease and unit access sorted",
       "Often available on shorter notice",
       "Piano specialists, upright and grand",
@@ -415,7 +415,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     faqs: [
       {
         q: "How soon can you move me in Hillcrest?",
-        a: "Hillcrest is minutes from our Glenfield depot, so it is easy to schedule, often on shorter notice. Contact us for the next available crew.",
+        a: "Hillcrest is minutes from our Wairau Valley depot, so it is easy to schedule, often on shorter notice. Contact us for the next available crew.",
       },
       {
         q: "Do you move brick-and-tile units?",

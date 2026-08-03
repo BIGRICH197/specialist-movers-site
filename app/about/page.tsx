@@ -17,6 +17,7 @@ import { ExperienceMilestonesBand } from "@/components/ExperienceMilestonesBand"
 import { experienceMilestones } from "@/lib/homepage-sections";
 import { regions } from "@/lib/regions";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
+import { AuthorityCitations } from "@/components/AuthorityCitations";
 
 export const metadata: Metadata = buildPageMetadata({
   title: { absolute: seoAbsoluteTitles.about },
@@ -91,6 +92,7 @@ export default function AboutPage() {
         </p>
         <CoverageMap />
       </SectionReveal>
+      <AuthorityCitations />
     </div>
   );
 }
