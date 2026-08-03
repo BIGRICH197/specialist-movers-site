@@ -4,11 +4,21 @@ import { suburbMetaDescription } from "@/lib/meta-keyword-copy";
 const sharedServices =
   "Home relocations, piano transport, packing, office and commercial work, exit cleans, and hard-to-shift items.";
 
+/**
+ * Slugify a place name, transliterating macrons rather than dropping them.
+ *
+ * Without the NFD pass "Te Atatū" collapsed to "te-atat" — the final
+ * [^a-z0-9-] strip ate the combining macron and the vowel with it. That slug
+ * shipped, indexed, and self-canonicalised, and nobody searches "te atat".
+ * Māngere and Ōtara only escaped because they were entered unmacronised.
+ */
 export function slugifyLocationName(name: string): string {
   return name
     .toLowerCase()
     .replace(/['']/g, "")
     .replace(/\./g, "")
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
     .replace(/\s+/g, "-")
     .replace(/[^a-z0-9-]/g, "");
 }

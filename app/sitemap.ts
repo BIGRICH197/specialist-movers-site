@@ -13,6 +13,7 @@ import { listHamiltonPaths } from "@/lib/hamilton-pages";
 import { legacyPathForServiceSlug } from "@/lib/legacy-auckland-urls";
 import { blogPosts, pianoServices, services } from "@/lib/site-data";
 import { siteUrl } from "@/lib/site-config";
+import { routeLastModified } from "@/lib/content-dates";
 
 const staticRoutes = [
   "",
@@ -34,24 +35,23 @@ const staticRoutes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
   const entries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${siteUrl}${route}`,
-    lastModified: now,
+    lastModified: routeLastModified(route || "/"),
     changeFrequency: route === "" ? "weekly" : "weekly",
     priority: route === "" ? 1 : route === "/piano-movers" ? 0.9 : 0.7,
   }));
 
   entries.push({
     url: `${siteUrl}${whatsIncludedPage.path}`,
-    lastModified: now,
+    lastModified: routeLastModified(whatsIncludedPage.path),
     changeFrequency: "monthly",
     priority: 0.8,
   });
 
   entries.push({
     url: `${siteUrl}${movingDistanceHub.path}`,
-    lastModified: now,
+    lastModified: routeLastModified(movingDistanceHub.path),
     changeFrequency: "weekly",
     priority: 0.8,
   });
@@ -59,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const item of movingDistanceServices) {
     entries.push({
       url: `${siteUrl}${clusterItemPath(movingDistanceHub.path, item)}`,
-      lastModified: now,
+      lastModified: routeLastModified(clusterItemPath(movingDistanceHub.path, item)),
       changeFrequency: "weekly",
       priority: 0.75,
     });
@@ -67,7 +67,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   entries.push({
     url: `${siteUrl}${storageHub.path}`,
-    lastModified: now,
+    lastModified: routeLastModified(storageHub.path),
     changeFrequency: "weekly",
     priority: 0.75,
   });
@@ -76,7 +76,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const path = item.href ?? `${storageHub.path}/${item.slug}`;
     entries.push({
       url: `${siteUrl}${path}`,
-      lastModified: now,
+      lastModified: routeLastModified(path),
       changeFrequency: "monthly",
       priority: 0.7,
     });
@@ -87,7 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const legacyPath = legacyPathForServiceSlug(service.slug);
     entries.push({
       url: `${siteUrl}${legacyPath ?? `/services/${service.slug}`}`,
-      lastModified: now,
+      lastModified: routeLastModified(legacyPath ?? `/services/${service.slug}`),
       changeFrequency: "weekly",
       priority: 0.75,
     });
@@ -96,7 +96,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const piano of pianoServices) {
     entries.push({
       url: `${siteUrl}/piano-movers/${piano.slug}`,
-      lastModified: now,
+      lastModified: routeLastModified(`/piano-movers/${piano.slug}`),
       changeFrequency: "monthly",
       priority: 0.65,
     });
@@ -105,7 +105,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const path of listHamiltonPaths()) {
     entries.push({
       url: `${siteUrl}${path}`,
-      lastModified: now,
+      lastModified: routeLastModified(path),
       changeFrequency: "weekly",
       priority: 0.85,
     });
@@ -115,7 +115,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (!isIndexedLocation(slug)) continue;
     entries.push({
       url: `${siteUrl}/locations/${slug}`,
-      lastModified: now,
+      lastModified: routeLastModified(`/locations/${slug}`),
       changeFrequency: "monthly",
       priority: 0.7,
     });
@@ -124,7 +124,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const post of blogPosts) {
     entries.push({
       url: `${siteUrl}/blog/${post.slug}`,
-      lastModified: now,
+      lastModified: routeLastModified(`/blog/${post.slug}`, post.publishedDate),
       changeFrequency: "monthly",
       priority: 0.5,
     });

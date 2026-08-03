@@ -708,7 +708,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
     ],
   },
-  "te-atat": {
+  "te-atatu": {
     metaDescription:
       "Te Atatū Peninsula movers for harbour-edge homes and new builds. Specialist Movers plans peninsula access and parking with easy motorway links. Free quote.",
     intro:
