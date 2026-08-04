@@ -61,7 +61,7 @@ export const apartmentMoversPage: NicheServicePageConfig = {
   h1: "Apartment movers Auckland",
   lead:
     "Moving apartments means narrow stairways, lifts, building rules, and furniture that has to fit. Our crews plan access before move day so your relocation stays smooth, not stressful.",
-  subline: "Free quote. We call back within 15 minutes. 7 days a week.",
+  subline: "Free quote. We usually call back within 15 minutes. 7 days a week.",
   defaultJobType: "Home Move",
   heroPhoto: sitePhotos.homeHero,
   heroPhotoAlt: "Specialist Movers crew moving furniture in an Auckland apartment",

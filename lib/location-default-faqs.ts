@@ -41,7 +41,7 @@ export function getDefaultLocationExtraParagraphs(location: Location): string[] 
   return [
     `Specialist Movers is a New Zealand-owned company founded in 2023 with Auckland and Hamilton bases. ${location.name} customers get SiteWise Gold safety systems, licensed crews, and the same communication standards as our premium Auckland work.`,
     `We quote home relocations, office moves, piano transport, packing, exit cleans, and hard-to-shift items across ${location.name}. Packers come in the day before your move when you add packing, and fixed-price exit cleaning can align with handover.`,
-    `Ready to move in ${location.name}? Call ${phoneDisplay} or use the form on this page. Callback is guaranteed within 15 minutes from our ${depot} team.`,
+    `Ready to move in ${location.name}? Call ${phoneDisplay} or use the form on this page. Callback is usually within 15 minutes from our ${depot} team.`,
   ];
 }
 

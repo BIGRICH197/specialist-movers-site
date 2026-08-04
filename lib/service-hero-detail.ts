@@ -43,7 +43,7 @@ export function getServiceHeroOverlayCaption(slug: string): string {
 
 const defaultDetail: readonly string[] = [
   "We scope access, volume, and timing before we quote, no surprises on move day.",
-  "Written price confirmed upfront. Call back within 15 minutes, seven days a week.",
+  "Written price confirmed upfront. We usually call back within 15 minutes, seven days a week.",
   "Auckland and Hamilton bases with crews across the Waikato daily.",
 ];
 
