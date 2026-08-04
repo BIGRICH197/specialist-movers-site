@@ -43,3 +43,6 @@ build.log
 
 .env*
 .vercel
+
+# Stray Lighthouse/PSI exports
+*.report.html
