@@ -5,7 +5,7 @@ export const legacyMetaDescriptions = {
   home:
     "Professional movers in Auckland and beyond. House, office, piano, and packing services from $120/hr. Quoted upfront, 7 days a week. Free quote.",
   "house-moving":
-    "Auckland house movers with full packing service. Specialist Movers handles wrapping, loading, transport, and delivery. Free quote and callback in 15 minutes.",
+    "Auckland home and house moving with full packing service. Specialist Movers handles wrapping, loading, transport, and delivery. Free quote and callback in 15 minutes.",
   "office-moving":
     "Office movers in Auckland for desks, IT equipment, and full fit-outs. After-hours moves, SiteWise Gold certified. Minimal downtime. Free quote.",
   "commercial-moving":
@@ -45,7 +45,7 @@ export const legacyMetaDescriptions = {
   storage:
     "Moving storage in Auckland for every situation - short-term, long-term, overnight, in transit, and piano storage. Secure holding. Free quote.",
   "house-moving-hamilton":
-    "Hamilton house movers for flats, family homes, and lifestyle blocks. Viewing-first quotes, packing, piano, and storage. Waikato base. Free quote.",
+    "Hamilton home moving for flats, family homes, and lifestyle blocks. Viewing-first quotes, packing, piano, and storage. Waikato base. Free quote.",
   "location-hamilton":
     "Hamilton movers for house, office, and piano relocations. Local Waikato base covering Hamilton and surrounding areas. Free quote within 15 minutes.",
 } as const;

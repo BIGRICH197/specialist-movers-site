@@ -16,11 +16,15 @@ export const serviceHeroSlugs = [
 
 export type ServiceHeroSlug = (typeof serviceHeroSlugs)[number];
 
-/** Visible H1 on service heroes — `{service} {city}` pattern (matches house & piano). */
+/** Visible H1 on service heroes — `{service} {city}` pattern (matches piano).
+ *  House pages deliberately say "Moving Company", NOT "house movers":
+ *  Richard moved them off that term on purpose (7927154) and it is a brand
+ *  decision, not an SEO one. In NZ "house movers" reads as building
+ *  relocation. Do not change these back on an audit's say-so. */
 const serviceHeroH1: Record<ServiceHeroCity, Record<ServiceHeroSlug, string>> = {
   Auckland: {
     "piano-movers": "Piano movers Auckland",
-    "house-moving": "House Movers Auckland",
+    "house-moving": "Auckland Moving Company",
     "office-moving": "Office movers Auckland",
     "commercial-moving": "Commercial movers Auckland",
     "packing-services": "Packing services Auckland",
@@ -33,7 +37,7 @@ const serviceHeroH1: Record<ServiceHeroCity, Record<ServiceHeroSlug, string>> = 
   },
   Hamilton: {
     "piano-movers": "Piano movers Hamilton",
-    "house-moving": "House Movers Hamilton",
+    "house-moving": "Hamilton Moving Company",
     "office-moving": "Office movers Hamilton",
     "commercial-moving": "Commercial movers Hamilton",
     "packing-services": "Packing services Hamilton",
