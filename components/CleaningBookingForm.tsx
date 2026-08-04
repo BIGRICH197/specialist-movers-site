@@ -219,7 +219,7 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
 
         <p className="mt-4 text-sm leading-relaxed text-brand-purple/70">
           Thanks{form.name ? ` ${form.name.split(" ")[0]}` : ""}! We&apos;ll call you
-          within <strong>15 minutes</strong> to confirm your clean.
+          usually within <strong>15 minutes</strong> to confirm your clean.
         </p>
 
         <div className="mt-4 space-y-2">

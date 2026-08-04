@@ -29,7 +29,7 @@ export const furnitureMoversAucklandPage: NicheServicePageConfig = {
   h1: "Furniture movers Auckland",
   lead:
     "One heavy item or a whole houseful. We move furniture across Auckland seven days a week, with crews who plan the stairs and the tight corners before the truck arrives.",
-  subline: "Free quote. We call back within 15 minutes. 7 days a week.",
+  subline: "Free quote. We usually call back within 15 minutes. 7 days a week.",
   defaultJobType: "Home Move",
   heroPhoto: sitePhotos.houseMove,
   heroPhotoAlt:
@@ -207,7 +207,7 @@ export const furnitureMoversHamiltonPage: NicheServicePageConfig = {
   h1: "Furniture movers Hamilton",
   lead:
     "One heavy item or a whole houseful, moved across Hamilton and the Waikato by crews who plan access before the truck turns up.",
-  subline: "Free quote. We call back within 15 minutes. 7 days a week.",
+  subline: "Free quote. We usually call back within 15 minutes. 7 days a week.",
   defaultJobType: "Home Move",
   heroPhoto: sitePhotos.houseMove,
   heroPhotoAlt:

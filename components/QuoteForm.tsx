@@ -343,7 +343,7 @@ export function QuoteForm({
         <Header
           tag="Call back"
           title="Request a call back"
-          subtitle="Leave your details and we will call you within 15 minutes, seven days a week."
+          subtitle="Leave your details and we will usually call you back within 15 minutes, seven days a week."
         />
         {f.callbackSent ? (
           <p className="rounded-xl border-2 border-brand-yellow/60 bg-brand-yellow/20 p-4 text-sm font-semibold text-brand-purple">
@@ -519,7 +519,7 @@ export function QuoteForm({
         <Header
           tag="General enquiry"
           title="Tell us about your job"
-          subtitle="Commercial moves, fit-outs, and specialist work. We will reply within 15 minutes."
+          subtitle="Commercial moves, fit-outs, and specialist work. We usually reply within 15 minutes."
         />
 
         {startMode === "choose" ? (
@@ -966,7 +966,7 @@ export function QuoteForm({
           title="Your details"
           subtitle={
             isOffice || !showInstantPrice
-              ? "We will call you within 15 minutes with a tailored quote."
+              ? "We will usually call you back within 15 minutes with a tailored quote."
               : "Enter your contact info and we'll calculate your price."
           }
         />

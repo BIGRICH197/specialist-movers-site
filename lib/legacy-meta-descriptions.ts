@@ -33,7 +33,7 @@ export const legacyMetaDescriptions = {
   about:
     "Founded in 2023, Specialist Movers grew from weekend piano moves to trusted Auckland home and office crews. Meet Richard, Matthew, and the team behind the move.",
   contact:
-    "Get a free quote from Specialist Movers in Auckland or Hamilton. Call (021) 228 2728 or fill out the form - callback guaranteed within 15 minutes.",
+    "Get a free quote from Specialist Movers in Auckland or Hamilton. Call (021) 228 2728 or fill out the form - callback usually within 15 minutes.",
   faq:
     "Moving and cleaning FAQs from Specialist Movers Auckland. Answers on quotes, packing, piano moves, and booking. Read before you move.",
   reviews:
