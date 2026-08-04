@@ -4,12 +4,14 @@ import { cn } from "@/lib/utils";
 
 type Props = {
   className?: string;
+  /** Pre-formatted date override. Omit to show the site-wide baseline. */
+  date?: string;
 };
 
-export function ServiceContentUpdated({ className }: Props) {
+export function ServiceContentUpdated({ className, date }: Props) {
   return (
     <PageUpdatedStamp
-      date={siteContentUpdated}
+      date={date ?? siteContentUpdated}
       className={cn("text-sm text-brand-purple/55", className)}
     />
   );

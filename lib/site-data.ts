@@ -45,7 +45,7 @@ export const services = [
     description: serviceBlurbs["office-moving"].excerpt,
     defaultJobType: "Office Move" as const,
     includedBullets: [
-      "Office and workplace relocations , desks, chairs, filing, and meeting rooms",
+      "Office furniture moved and rebuilt: workstations, task chairs, filing, compactus, and boardroom tables",
       "IT equipment and fragile items handled with care",
       "After-hours and weekend moves to reduce downtime",
       "Lift access, loading zones, and building rules planned in advance",

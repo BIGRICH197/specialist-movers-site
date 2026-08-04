@@ -1,16 +1,26 @@
 import type { ProcessStep } from "@/components/ProcessStepsGrid";
-import { houseMovingProcess, pianoMovingProcess } from "@/lib/moving-process";
+import {
+  houseMovingProcess,
+  pianoMovingProcess,
+  workplaceMovingProcess,
+} from "@/lib/moving-process";
 import {
   generalServiceFaqs,
   grandPianoFaqs,
   packingServiceFaqs,
   cleaningServiceFaqs,
   uprightPianoFaqs,
+  officeServiceFaqs,
+  commercialServiceFaqs,
   type FaqItem,
 } from "@/lib/service-faqs";
 
 export type ServiceSeoExtension = {
   bodyParagraphs: readonly string[];
+  /** Heading above bodyParagraphs on landing-layout pages. Written per service
+   *  rather than derived from the H1, which produced "How office movers
+   *  auckland actually works". */
+  bodyTitle?: string;
   faqs: readonly FaqItem[];
   processTitle: string;
   processSteps: readonly ProcessStep[];
@@ -24,6 +34,91 @@ const pianoProcessSteps = pianoMovingProcess.steps;
 const defaultProcess = houseMovingProcess.steps;
 
 export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> = {
+  /**
+   * Office and commercial were the only two services on the site with no
+   * bodyParagraphs at all, which left them the thinnest pages we run: roughly
+   * 165 words of unique prose each against 342 for house moving.
+   *
+   * They are also the biggest search opportunity we have. Non-brand GSC, 90
+   * days to 2026-08-02: office and commercial queries pull 18,021 impressions
+   * at average position 23.5, ahead of residential's 15,211, with 57 queries
+   * already inside position 20. Unlike residential, where a three-slot map
+   * pack takes the click before anyone reaches an organic result, B2B buyers
+   * read and compare, so depth on the page is the thing that moves it.
+   *
+   * Three high-volume terms appeared nowhere on either page before this:
+   * "removalists" (1,764 impressions, position 15.7), "office furniture"
+   * (~884 across three variants) and "corporate relocation" (173). They are
+   * worked in below as the words a buyer would actually use, not as keywords.
+   */
+  "office-moving": {
+    bodyTitle: "What an office move actually involves",
+    bodyParagraphs: [
+      "The expensive part of an office move is almost never the moving. It is the hours your team cannot work. That is why most of the office relocations we run happen on a Friday evening or across a weekend, so people leave one building on Friday and sit down at a working desk on Monday. We would rather quote you for after-hours crew than watch thirty people wait on a lift.",
+      "Workstations come apart, and every screw, bracket, cable and power adaptor for a desk goes into a bag that is labelled for that desk. Monitors travel wrapped. That one habit is the difference between an office that works on Monday morning and a fortnight of people hunting for the right cable, and it is the main reason clients ask for us again rather than the cheapest office removalists they can find.",
+      "Office furniture is its own problem. Task chairs, compactus units, four-drawer filing cabinets, boardroom tables that will not go round a corner in one piece, server racks that need to stay upright. We scope the awkward ones before quoting, not on the day. If a boardroom table came in before the walls went up, we will tell you that at the viewing rather than discover it at 6pm on a Friday.",
+      "Building logistics get sorted before move day, not during it. Lift bookings, dock times, loading zone permits, after-hours building access, security sign-in, and the certificate of insurance most building managers ask for. We are SiteWise Gold certified with a 90%+ score, which is what gets a crew onto managed and construction sites where a lot of movers simply cannot go.",
+      "We run corporate relocations and single-floor moves the same way: one person owns the plan from walkthrough to handover, so you are not repeating yourself to a different crew each day. Auckland from our Wairau Valley depot, Hamilton and the Waikato from our Hamilton base.",
+    ],
+    faqs: officeServiceFaqs,
+    processTitle: workplaceMovingProcess.title,
+    processSteps: [
+      {
+        title: "Walkthrough of both sites",
+        body: "We look at the space you are leaving and the one you are going to. Lift sizes, dock access, door widths, and what actually needs to move rather than what should have been thrown out.",
+      },
+      {
+        title: "Written plan and quote",
+        body: "Crew size, truck count, timing, and the after-hours or weekend window if you need one. Fixed in writing before you commit.",
+      },
+      {
+        title: "Access booked in advance",
+        body: "Lifts, loading zones, dock times, security sign-in and building manager requirements confirmed ahead of the day, along with the certificate of insurance if the building wants one.",
+      },
+      {
+        title: "Move and set down",
+        body: "Desks broken down with hardware bagged per desk, IT wrapped, everything set down where your floor plan says it goes rather than stacked in a corridor.",
+      },
+      {
+        title: "Monday morning works",
+        body: "Desks rebuilt, chairs at desks, boxes in the right rooms. We walk the floor with you before we leave.",
+      },
+    ],
+  },
+  "commercial-moving": {
+    bodyTitle: "How commercial work is different",
+    bodyParagraphs: [
+      "Commercial work is a different job to moving a house, and the thing that matters most is hitting a window. A retail fit out has a date the doors open. An install slot in a managed building might be four hours on a Tuesday morning. A cabinetry run has a kitchen going in behind it. We quote against the window, and if we do not think it is achievable we say so at the quote rather than on the day.",
+      "SiteWise Gold with a 90%+ health and safety score is the practical difference on this work. Managed buildings, construction sites and a lot of larger clients will not let a crew through the gate without prequalification, and plenty of movers simply do not hold it. It is also why we get repeat scheduled work rather than one-off jobs.",
+      "The gear is the other half. Stair climbers, machine skates, and crane or hoist lifts when the stairwell is not an option. We move cabinetry and joinery runs, shop and hospitality fit outs, staging and event gear, printers and copiers, vending and gaming machines, gym equipment, safes, kilns, and equipment that arrived on a pallet and now has to get up two floors. Fixtures are protected in transit with blankets, shrink wrap or purpose-made covers depending on the finish.",
+      "A business relocation is usually more than furniture. Stock, records, plant, and the things nobody remembers until the last week. We phase larger jobs so you keep trading through the move rather than shutting for a week, which for most businesses is the real cost.",
+      "Auckland from Wairau Valley and the Waikato from our Hamilton base, seven days a week. If you have regular runs rather than a single job, we can schedule them and you deal with the same crew each time.",
+    ],
+    faqs: commercialServiceFaqs,
+    processTitle: workplaceMovingProcess.title,
+    processSteps: [
+      {
+        title: "Tell us the window",
+        body: "Access times, install date, trading hours, and any site inductions. This is what the plan is built around.",
+      },
+      {
+        title: "Site scope",
+        body: "We look at both ends: floor loadings, lift and stair access, dock height, and what gear the job actually needs.",
+      },
+      {
+        title: "Prequalification sorted",
+        body: "SiteWise documentation, insurance certificates, and site inductions handled before the day so nobody is turned away at the gate.",
+      },
+      {
+        title: "Delivered to the window",
+        body: "Crew and gear sized to hit the slot. Fixtures protected, positioned where the fit out team needs them.",
+      },
+      {
+        title: "Sign off",
+        body: "Walk the job with you, confirm nothing is outstanding, and book the next run if it is recurring work.",
+      },
+    ],
+  },
   "packing-services": {
     bodyParagraphs: [
       "Our packing crew arrives the day before your move with cartons, paper, and wrap. Kitchens, fragile items, and wardrobes are packed room by room so load day is faster and safer.",

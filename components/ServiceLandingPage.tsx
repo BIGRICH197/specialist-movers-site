@@ -21,7 +21,10 @@ import {
   ServiceRelatedLinksSection,
   ServiceWhyChooseSection,
 } from "@/components/ServiceLandingSections";
+import { contentUpdatedLabelFor } from "@/lib/content-dates";
+import { legacyPathForServiceSlug } from "@/lib/legacy-auckland-urls";
 import { faqsForService } from "@/lib/service-faqs";
+import { getServiceSeoExtension } from "@/lib/service-seo-extensions";
 import { pianoFaqs } from "@/lib/piano-faqs";
 import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
 import { getDistinctAboutPhoto } from "@/lib/site-photos";
@@ -49,6 +52,10 @@ type Props = {
 export function ServiceLandingPage({ config }: Props) {
   const landingFaqs =
     config.slug === "piano-movers" ? [...pianoFaqs] : faqsForService(config.slug);
+  const seoExtension = getServiceSeoExtension(config.slug);
+  const contentUpdated = contentUpdatedLabelFor(
+    legacyPathForServiceSlug(config.slug) ?? config.path,
+  );
   const processTitle = config.processTitle ?? "How we run your move";
   const processSteps = getServiceProcessSteps(config.slug);
 
@@ -141,7 +148,7 @@ export function ServiceLandingPage({ config }: Props) {
         <div className="mx-auto max-w-7xl container-px">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-10">
             <div className="min-w-0">
-              <ServiceContentUpdated className="mb-4" />
+              <ServiceContentUpdated className="mb-4" date={contentUpdated} />
               <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
                 {config.aboutTitle}
               </h2>
@@ -185,6 +192,32 @@ export function ServiceLandingPage({ config }: Props) {
           </div>
         </div>
       </SectionReveal>
+
+      {/* Long-form prose from lib/service-seo-extensions.ts. Every service
+          rendered by ServicePageTemplate already had this slot; the four
+          landing slugs short-circuit to this component before the extension is
+          read, which is why office and commercial were the thinnest pages on
+          the site at ~165 words of unique copy. Optional, so a landing with no
+          extension renders exactly as before. */}
+      {seoExtension?.bodyParagraphs?.length ? (
+        <SectionReveal className="border-t border-brand-purple/10 bg-brand-white py-12 sm:py-14">
+          <div className="mx-auto max-w-3xl container-px">
+            <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
+              {seoExtension.bodyTitle ?? "What to expect"}
+            </h2>
+            <div className="mt-5 space-y-4">
+              {seoExtension.bodyParagraphs.map((paragraph) => (
+                <p
+                  key={paragraph.slice(0, 48)}
+                  className="text-base leading-relaxed text-brand-purple/85"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </div>
+        </SectionReveal>
+      ) : null}
 
       {config.slug === "piano-movers" ? (
         <>
