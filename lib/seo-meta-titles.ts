@@ -8,12 +8,12 @@ export const seoAbsoluteTitles = {
   pianoHamilton: "Piano Movers Hamilton & Waikato | Specialist Movers",
   locationHamilton:
     "Movers Hamilton - Hamilton Moving Company | Specialist Movers",
-  houseMovingHamilton: "House Movers & Removals Hamilton | Specialist Movers",
+  houseMovingHamilton: "House Moving & Packing Hamilton | Specialist Movers",
   packingAuckland: "Packing and Unpacking Movers Auckland | Specialist Movers",
   internationalPiano:
     "International Piano Shipping Auckland | Specialist Movers",
   officeAuckland: "Office Movers Auckland | Specialist Movers",
-  houseMovingAuckland: "House Movers & Removals Auckland | Specialist Movers",
+  houseMovingAuckland: "House Moving & Packing Auckland | Specialist Movers",
   commercialAuckland: "Commercial Movers Auckland | Specialist Movers",
   apartmentAuckland: "Apartment Movers Auckland | Specialist Movers",
   internationalAuckland: "International Movers Auckland | Specialist Movers",
