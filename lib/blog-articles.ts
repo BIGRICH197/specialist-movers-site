@@ -350,7 +350,7 @@ export const blogArticles: Record<string, BlogArticle> = {
       {
         heading: "How we run commercial moves",
         paragraphs: [
-          "Specialist Movers runs regular commercial work for dozens of Auckland businesses, from office relocations to weekly runs for cabinetry and fit-out companies, alongside the 1,500+ household moves we've completed across Auckland. Commercial gear gets blanket-wrapped as standard, crews are sized to the job, and you get one contact who owns the plan from quote to final box.",
+          "Specialist Movers runs regular commercial work for dozens of Auckland businesses, from office relocations to weekly runs for cabinetry and fit-out companies, alongside the 4,000+ moves we've completed across Auckland and the Waikato. Commercial gear gets blanket-wrapped as standard, crews are sized to the job, and you get one contact who owns the plan from quote to final box.",
           "If you're planning an office move anywhere in Auckland, tell us your team size, both addresses and your ideal date through our office moving page, and we'll come back with a plan and a price. The earlier we see the job, the smoother your Monday morning.",
         ],
       },
@@ -697,7 +697,7 @@ export const blogArticles: Record<string, BlogArticle> = {
       {
         heading: "Ready to get a straight answer on your move",
         paragraphs: [
-          "We have completed over 1,500 Auckland moves, from single-bedroom apartments in Grey Lynn to full family homes on the Shore. We are happy to answer every question on this list before you commit to anything.",
+          "We have completed over 4,000 moves across Auckland and the Waikato, from single-bedroom apartments in Grey Lynn to full family homes on the Shore. We are happy to answer every question on this list before you commit to anything.",
           "If you have a larger home and want us to come and see it first, we offer free viewings. If you just want a fast number, fill in the quote form on our website and we will come back to you quickly.",
           "No pressure, no vague answers. Just a clear price and a straight conversation about what your move involves.",
         ],
@@ -774,7 +774,7 @@ export const blogArticles: Record<string, BlogArticle> = {
       {
         heading: "Ready to get a clear picture of your move?",
         paragraphs: [
-          "Downsizing from a family home in Auckland is one of the more involved moves we do, and we have done well over 1,500 Auckland moves to draw on. Every job is different, every village has its own quirks, and every family has a slightly different plan for the furniture that does not make the cut.",
+          "Downsizing from a family home in Auckland is one of the more involved moves we do, and we have done well over 4,000 moves across Auckland and the Waikato to draw on. Every job is different, every village has its own quirks, and every family has a slightly different plan for the furniture that does not make the cut.",
           "If you have a rough idea of what you are working with, our quotes come back in about 15 minutes during business hours. For larger homes, a free viewing gives you a more accurate price and lets us flag anything worth knowing before moving day arrives.",
           "Head to our website and fill in the quote form. No pressure, just a straight answer on what your move is likely to involve.",
         ],
@@ -829,7 +829,7 @@ export const blogArticles: Record<string, BlogArticle> = {
           "If you have an item that will not fit through your stairwell or front door, a balcony lift is often the right answer. But it needs to be assessed properly first.",
           "Tell us the item type and weight if you know it, the balcony height, and what access looks like from the street below. Photos help a lot. We can usually come back to you with a plan and a price in about 15 minutes during business hours.",
           "A free viewing is available for larger or more complex jobs. We would rather spend 20 minutes at the property than have anyone surprised on the day.",
-          "Freemans Bay, Grey Lynn, Ponsonby, Parnell, buildings along the waterfront near Westhaven, apartments in the CBD, all of these areas come with access quirks. We have handled them across more than 1,500 Auckland moves. If you have got an awkward item, use the quote form on our website and tell us what you are working with.",
+          "Freemans Bay, Grey Lynn, Ponsonby, Parnell, buildings along the waterfront near Westhaven, apartments in the CBD, all of these areas come with access quirks. We have handled them across more than 4,000 moves. If you have got an awkward item, use the quote form on our website and tell us what you are working with.",
         ],
       },
     ],
@@ -898,7 +898,7 @@ export const blogArticles: Record<string, BlogArticle> = {
       {
         heading: "Ready to plan your Auckland move?",
         paragraphs: [
-          "Across more than 1,500 Auckland moves, we have helped families with complicated logistics, tight timelines, and the full range of things that can go wrong when you are moving a whole household with children and animals in tow.",
+          "Across more than 4,000 moves, we have helped families with complicated logistics, tight timelines, and the full range of things that can go wrong when you are moving a whole household with children and animals in tow.",
           "We operate seven days a week, so you can book around school drop-off, vet appointments, or whatever your week looks like. For larger homes we offer a free viewing so we can give you an accurate quote, not a rough guess. Send us the details through our website and you will usually have a quote back within 15 minutes during business hours.",
         ],
       },
@@ -958,7 +958,7 @@ export const blogArticles: Record<string, BlogArticle> = {
         heading: "Is winter right for every move?",
         paragraphs: [
           "Honestly, not always. If you have very small children who need to be out of the house for a long day, a cold wet day is harder to manage. If your new property has a long exposed pathway and no shelter, the crew will manage it but it takes longer.",
-          "For most households though, the combination of better availability, flexible dates, and a professional crew that handles wet weather every week makes July to September a genuinely good window. We have completed well over 1,500 Auckland moves and a solid chunk of those have been in winter. The process is well worn in.",
+          "For most households though, the combination of better availability, flexible dates, and a professional crew that handles wet weather every week makes July to September a genuinely good window. We have completed well over 4,000 moves and a solid chunk of those have been in winter. The process is well worn in.",
           "If you are weighing up dates or want to know how a winter move would work for your specific property, the easiest thing is to get a quote through our website. Fill in the details, and we will come back to you with a clear price and what the day would look like. No pressure, just information.",
         ],
       },
