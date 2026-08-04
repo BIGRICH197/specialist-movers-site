@@ -25,7 +25,7 @@ export const generalServiceFaqs: readonly FaqItem[] = [
   },
   {
     q: "How do you protect furniture during the move?",
-    a: "Blankets, shrink wrap and mattress covers go on every job as standard, not as an extra. Fragile things are boxed or crated. Marble and glass tops travel upright in a padded frame, never flat. Pianos get piano boards and dedicated strapping inside the truck.",
+    a: "Furniture is protected before it moves, with blankets, shrink wrap or mattress covers depending on the item. That is included, not an extra. Fragile things are boxed or crated. Marble and glass tops travel upright in a padded frame, never flat. Pianos get piano boards and dedicated strapping inside the truck.",
   },
   {
     q: "What areas do you cover?",
