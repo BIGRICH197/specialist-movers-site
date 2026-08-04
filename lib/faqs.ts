@@ -78,7 +78,7 @@ export const faqs: readonly Faq[] = [
   // --- What is included ----------------------------------------------------
   {
     q: "What is included in the hourly rate?",
-    a: "The crew, the truck, moving blankets, shrink wrap, and mattress covers. Local travel is in the day rate. Disassembly and reassembly of beds and tables is included in the time. Packing, cleaning, storage, and specialist piano handling are quoted separately so you only pay for what you use.",
+    a: "The crew, the truck, and the protective materials the job needs, whether that is blankets, shrink wrap or mattress covers. Local travel is in the day rate. Disassembly and reassembly of beds and tables is included in the time. Packing, cleaning, storage, and specialist piano handling are quoted separately so you only pay for what you use.",
   },
   {
     q: "Do you provide packing services?",
@@ -104,7 +104,7 @@ export const faqs: readonly Faq[] = [
   // --- Handling and protection --------------------------------------------
   {
     q: "How do you protect furniture during the move?",
-    a: "Moving blankets, shrink wrap, and mattress covers go on every job as standard, not as an upsell. Fragile items are boxed or crated. Pianos and high-value pieces get specialist padding, piano boards, and dedicated strapping inside the truck. Marble and glass tops travel vertically in a padded frame, never flat.",
+    a: "Furniture is protected before it leaves the room, with blankets, shrink wrap or mattress covers depending on what the item needs. That is included, not an upsell. Fragile items are boxed or crated. Pianos and high-value pieces get specialist padding, piano boards, and dedicated strapping inside the truck. Marble and glass tops travel vertically in a padded frame, never flat.",
   },
   {
     q: "What happens if something gets damaged?",

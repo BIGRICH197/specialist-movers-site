@@ -48,7 +48,7 @@ export const furnitureMoversAucklandPage: NicheServicePageConfig = {
     },
     {
       title: "Wrapped as standard",
-      text: "Moving blankets, shrink wrap, and mattress covers on every job, not as an upsell.",
+      text: "Blankets, shrink wrap or mattress covers, whatever the item needs. Included, not an upsell.",
     },
     {
       title: "Apart and back together",
@@ -62,7 +62,7 @@ export const furnitureMoversAucklandPage: NicheServicePageConfig = {
     "Single-item moves, part-loads, and full household relocations",
     "Heavy and awkward pieces: spa pools, safes, pool tables, marble tops",
     "Disassembly and reassembly of beds, tables, and modular furniture",
-    "Moving blankets, shrink wrap, and mattress covers as standard",
+    "Furniture protected with blankets, shrink wrap or mattress covers as the item needs",
     "Stairs, balcony hoists, and tight-access carries planned before the day",
     "Storage between settlement dates when the timing does not line up",
   ],
@@ -90,7 +90,7 @@ export const furnitureMoversAucklandPage: NicheServicePageConfig = {
     },
     {
       q: "Do you wrap furniture, or should I?",
-      a: "We do. Moving blankets, shrink wrap, and mattress covers come on every job as standard rather than as an extra. If you want everything boxed as well, our packers can come in the day before.",
+      a: "We do, and it is included rather than an extra. The crew picks the right protection for each item, so that is blankets, shrink wrap or a mattress cover depending on what it is. If you want everything boxed as well, our packers can come in the day before.",
     },
     {
       q: "Can you take apart a bed or a dining table?",
@@ -119,7 +119,7 @@ export const furnitureMoversAucklandPage: NicheServicePageConfig = {
   itemTable: {
     title: "How long each item takes, and how we handle it",
     intro:
-      "Times are for two movers with normal access, measured on our own jobs. Stairs, long carries, and tight doorways add to them, which is why we ask about both ends before quoting.",
+      "How we usually handle each one, and how long it takes two movers with normal access. The crew adjusts on the day to suit the item and the access. Stairs, long carries, and tight doorways add to them, which is why we ask about both ends before quoting.",
     rows: [
       {
         item: "Three-seater sofa",
@@ -229,7 +229,7 @@ export const furnitureMoversHamiltonPage: NicheServicePageConfig = {
     },
     {
       title: "Wrapped before it moves",
-      text: "Blankets, shrink wrap and mattress covers on every job, not as an extra.",
+      text: "Blankets, shrink wrap or mattress covers, whatever the item needs. Included, not an extra.",
     },
   ],
   whyTitle: "What furniture moving costs in Hamilton",
@@ -239,7 +239,7 @@ export const furnitureMoversHamiltonPage: NicheServicePageConfig = {
     "Single-item moves, part-loads, and full household relocations",
     "Heavy and awkward pieces: spa pools, safes, pool tables, marble tops",
     "Disassembly and reassembly of beds, tables, and modular furniture",
-    "Moving blankets, shrink wrap, and mattress covers as standard",
+    "Furniture protected with blankets, shrink wrap or mattress covers as the item needs",
     "Cambridge, Te Awamutu, Huntly, Ngāruawāhia, Morrinsville, and Matamata",
     "Hamilton to Auckland runs when you are moving between the two",
   ],
@@ -279,7 +279,7 @@ export const furnitureMoversHamiltonPage: NicheServicePageConfig = {
   itemTable: {
     title: "How long each item takes, and how we handle it",
     intro:
-      "Times are for two movers with normal access, measured on our own jobs. Stairs, long carries, and tight doorways add to them, so we ask about both ends before quoting.",
+      "How we usually handle each one, and how long it takes two movers with normal access. The crew adjusts on the day to suit the item and the access. Stairs, long carries, and tight doorways add to them, so we ask about both ends before quoting.",
     rows: [
       {
         item: "Three-seater sofa",
