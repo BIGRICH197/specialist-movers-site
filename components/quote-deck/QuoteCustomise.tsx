@@ -124,7 +124,16 @@ export function QuoteCustomise({
                 </span>
                 <span className="mt-0.5 block text-[10px] text-white/55 sm:text-xs">
                   A professional end-of-tenancy clean, fixed price.
-                  {!cleaningHasPrice ? " Our team will confirm the price." : ""}
+                  {!cleaningHasPrice ? " Our team will confirm the price." : ""}{" "}
+                  <a
+                    href="/cleaning-schedule"
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="font-semibold text-brand-yellow underline underline-offset-2"
+                  >
+                    View the cleaning schedule →
+                  </a>
                 </span>
               </span>
             </label>
