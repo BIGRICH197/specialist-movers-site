@@ -168,7 +168,7 @@ const landingOverrides: Record<
     eyebrow: "Auckland office relocation specialists",
     h1: getServiceHeroH1("office-moving", "Auckland"),
     lead:
-      "Office and workplace moves across Auckland CBD fringe, inner suburbs, and business parks. We plan lifts, loading zones, and after-hours access so desks, IT, and files move with minimal downtime.",
+      "Office relocations across the Auckland CBD fringe, inner suburbs, and business parks. Weekend and after-hours moves, hardware bagged and labelled per desk, and lifts and loading zones booked before the day, so your team sits down at a working desk on Monday.",
     subline: "Office move quotes tailored to your space. Callback within 15 minutes.",
     heroGagPhoto: sitePhotos.officeMove,
     heroGagAlt: "Specialist Movers crew carrying office boxes while a client relaxes inside",
@@ -176,24 +176,24 @@ const landingOverrides: Record<
     heroVariant: "moving",
     aboutTitle: "About our office moving service",
     aboutBody:
-      "We relocate offices and workplaces across Auckland and the Waikato, from single-floor moves to multi-site projects. Building access, parking, and lift bookings are sorted before move day. Packing and IT-sensitive items can be included.",
+      "We relocate offices and workplaces across Auckland and the Waikato, from a single floor to a multi-site corporate relocation. Office furniture is the part people underestimate: workstations, task chairs, compactus units, filing, server racks, and boardroom tables that will not go round a corner in one piece. We scope the awkward items at the viewing rather than discovering them on the day. Packing and IT-sensitive gear can be included.",
     trustHighlights: [
       {
         title: "Less downtime",
-        text: "Weekend and after-hours moves when you need them.",
+        text: "Weekend and after-hours moves, so Monday morning works.",
       },
       {
-        title: "Quick response",
-        text: "Quote and callback within 15 minutes.",
+        title: "Bagged per desk",
+        text: "Every screw, bracket and cable labelled to its own desk.",
       },
       {
-        title: "Planned access",
-        text: "Lifts, docks, and building rules handled up front.",
+        title: "SiteWise Gold",
+        text: "90%+ score, which gets us onto managed and secure sites.",
       },
     ],
     whyTitle: "Why offices choose Specialist Movers",
     whyBody:
-      "Clear timelines, careful crews, and one point of contact from walkthrough to handover. We have moved law firms, clinics, agencies, and corporate floors.",
+      "One person owns the plan from walkthrough to handover, so you are not repeating yourself to a different crew each day. We have moved law firms, clinics, agencies, and corporate floors, and we would rather quote you honestly for an after-hours crew than watch your team wait on a lift.",
     showPianoPartners: false,
     showMovingBanner: true,
     showPianoSubServices: false,
@@ -210,7 +210,7 @@ const landingOverrides: Record<
     eyebrow: "Auckland commercial moving specialists",
     h1: getServiceHeroH1("commercial-moving", "Auckland"),
     lead:
-      "Kitchen installs, shop fit outs, staging, printer runs, vending machines, and heavy equipment across Auckland. We move commercial work with clear timelines, SiteWise Gold systems, and the right gear.",
+      "Kitchen installs, shop fit outs, staging, printer runs, vending machines, and heavy equipment across Auckland. Commercial work runs to a window, so we quote against yours, and we say up front if we do not think it is achievable.",
     subline: "Commercial quotes tailored to your job. Callback within 15 minutes.",
     heroGagPhoto: sitePhotos.commercialTeam,
     heroGagAlt:
@@ -223,15 +223,15 @@ const landingOverrides: Record<
     showAboutSideImage: true,
     aboutTitle: "About our commercial moving team",
     aboutBody:
-      "We work with retailers, fit out teams, and businesses that cannot afford downtime. Our crews coordinate access, protect fixtures, and deliver on schedule, from a single heavy item to full fit out deliveries.",
+      "We work with retailers, fit out teams, and businesses that cannot afford to shut. Crews coordinate site access, protect fixtures, and deliver to the slot, from a single heavy item to a full fit out run. A business relocation is usually more than furniture, so we phase the bigger ones and you keep trading through the move.",
     trustHighlights: [
       {
         title: "Fit out ready",
-        text: "Kitchens, staging, printers, vending machines, and specialist gear.",
+        text: "Cabinetry, staging, printers, vending machines, and specialist gear.",
       },
       {
-        title: "Quick response",
-        text: "Quote and callback within 15 minutes. Mon to Sun.",
+        title: "SiteWise Gold",
+        text: "90%+ score, so managed and construction sites let us through the gate.",
       },
       {
         title: "Two bases",
@@ -240,7 +240,7 @@ const landingOverrides: Record<
     ],
     whyTitle: "Why businesses use Specialist Movers",
     whyBody:
-      "Professional crews, proven safety systems, and communication you can rely on. We plan the job properly so your team can keep trading.",
+      "Proven safety systems, the right gear for awkward loads, and crews who turn up when they said they would. We plan the job around your trading hours rather than ours, and if the work is recurring you deal with the same crew each time.",
     showPianoPartners: false,
     showMovingBanner: true,
     showPianoSubServices: false,
@@ -267,11 +267,11 @@ export function getServiceLandingConfig(
     includedBullets: service.includedBullets,
     relatedSlugs: service.relatedSlugs,
     heroPhoto,
-    heroPhotoAlt: `${overrides.h1} , Specialist Movers`,
+    heroPhotoAlt: `${overrides.h1}, Specialist Movers`,
     heroGagPhoto: overrides.heroGagPhoto ?? heroPhoto,
-    heroGagAlt: overrides.heroGagAlt ?? `${overrides.h1} , Specialist Movers`,
+    heroGagAlt: overrides.heroGagAlt ?? `${overrides.h1}, Specialist Movers`,
     aboutSidePhoto: overrides.aboutSidePhoto ?? heroPhoto,
     aboutSidePhotoAlt:
-      overrides.aboutSidePhotoAlt ?? `${overrides.h1} , Specialist Movers`,
+      overrides.aboutSidePhotoAlt ?? `${overrides.h1}, Specialist Movers`,
   };
 }

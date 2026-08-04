@@ -14,6 +14,8 @@ export const siteContentUpdatedIso = "2026-06-13";
  * baseline, which is still honest and still stable between builds.
  */
 const routeContentDates: Record<string, string> = {
+  "/office-movers-auckland": "2026-08-04",
+  "/commercial-moving-auckland": "2026-08-04",
   "/blog/how-much-do-movers-cost-in-auckland": "2026-07-20",
   "/blog/diy-packing-vs-professional-packing-services": "2026-08-03",
   "/blog/planning-an-office-move-in-auckland": "2026-07-20",
@@ -37,6 +39,16 @@ const routeContentDates: Record<string, string> = {
 export function routeLastModified(path: string, fallbackIso?: string): Date {
   const iso = routeContentDates[path] ?? fallbackIso ?? siteContentUpdatedIso;
   return new Date(`${iso}T00:00:00.000Z`);
+}
+
+/**
+ * Human-readable "Updated" label for a route, falling back to the site
+ * baseline. Keeps the visible stamp in step with the sitemap lastmod above, so
+ * a page we genuinely rewrote today does not still claim June.
+ */
+export function contentUpdatedLabelFor(path: string): string {
+  const iso = routeContentDates[path];
+  return iso ? formatContentUpdatedDate(iso) : siteContentUpdated;
 }
 
 export function formatContentUpdatedDate(isoDate: string): string {
