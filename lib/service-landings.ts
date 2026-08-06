@@ -151,7 +151,7 @@ const landingOverrides: Record<
     ],
     whyTitle: "What a house move costs in Auckland",
     whyBody:
-      "Two movers and a truck cost $120 an hour plus GST on a Tuesday and $150 on a Friday, so the day you pick makes a real difference. Three movers are $160 to $190. On top of the hours there is a callout fee from $60, which rises the further you are from our North Shore depot. A one-bedroom flat is usually three to four hours and lands around $300 to $400. A three-bedroom house is a day, and lands around $700 to $900. We charge for the hours the job takes, which is why we would rather come and look at a bigger home than guess at it.",
+      "The day you pick moves the price more than anything else you control. Two movers and a truck are $120 an hour plus GST on a Tuesday and $150 on a Friday, and three movers run $160 to $190. On top of the hours there is a callout fee from $60 that rises with distance from our North Shore depot. Because we charge for the hours the job actually takes rather than a guessed flat rate, on a bigger home we would rather come and look than be wrong in either direction.",
     showPianoPartners: false,
     showMovingBanner: true,
     showPianoSubServices: false,
@@ -168,7 +168,7 @@ const landingOverrides: Record<
     eyebrow: "Auckland office relocation specialists",
     h1: getServiceHeroH1("office-moving", "Auckland"),
     lead:
-      "Office relocations across the Auckland CBD fringe, inner suburbs, and business parks. Weekend and after-hours moves, hardware bagged and labelled per desk, and lifts and loading zones booked before the day, so your team sits down at a working desk on Monday.",
+      "Office relocations across the Auckland CBD fringe, inner suburbs, and business parks. Weekend and after-hours moves, with lifts and loading zones booked before the day, so your team sits down at a working desk on Monday.",
     subline: "Office move quotes tailored to your space. Callback within 15 minutes.",
     heroGagPhoto: sitePhotos.officeMove,
     heroGagAlt: "Specialist Movers crew carrying office boxes while a client relaxes inside",
@@ -176,15 +176,15 @@ const landingOverrides: Record<
     heroVariant: "moving",
     aboutTitle: "About our office moving service",
     aboutBody:
-      "We relocate offices and workplaces across Auckland and the Waikato, from a single floor to a multi-site corporate relocation. Office furniture is the part people underestimate: workstations, task chairs, compactus units, filing, server racks, and boardroom tables that will not go round a corner in one piece. We scope the awkward items at the viewing rather than discovering them on the day. Packing and IT-sensitive gear can be included.",
+      "We relocate offices and workplaces across Auckland and the Waikato, from a single floor to a multi-site corporate relocation. Law firms, clinics, agencies and whole corporate floors. Packing and IT-sensitive gear can be included, and the awkward items get scoped at the viewing rather than discovered on the day.",
     trustHighlights: [
       {
         title: "Less downtime",
         text: "Weekend and after-hours moves, so Monday morning works.",
       },
       {
-        title: "Bagged per desk",
-        text: "Every screw, bracket and cable labelled to its own desk.",
+        title: "Planned access",
+        text: "Lifts, docks and building rules sorted before the day.",
       },
       {
         title: "SiteWise Gold",
@@ -193,7 +193,7 @@ const landingOverrides: Record<
     ],
     whyTitle: "Why offices choose Specialist Movers",
     whyBody:
-      "One person owns the plan from walkthrough to handover, so you are not repeating yourself to a different crew each day. We have moved law firms, clinics, agencies, and corporate floors, and we would rather quote you honestly for an after-hours crew than watch your team wait on a lift.",
+      "We have moved law firms, clinics, agencies and corporate floors. Access, timing and crew size are agreed in writing before the day, so nobody is working it out in a stairwell on the Saturday morning.",
     showPianoPartners: false,
     showMovingBanner: true,
     showPianoSubServices: false,

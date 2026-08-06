@@ -54,10 +54,9 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
   "office-moving": {
     bodyTitle: "What an office move actually involves",
     bodyParagraphs: [
-      "Weekend and after-hours office moves are available, and for most offices that is the cheaper way to do it. The crew costs more outside business hours. The hours your team cannot work usually cost more again.",
-      "Desks, monitors, filing and meeting-room furniture are wrapped and secured. Tell us about servers or specialist gear when you ask for a quote so we can plan padding and carry paths before the day rather than on it.",
-      "Small offices up to about ten staff are usually quoted from around $800 plus GST. Medium and large floors get a site visit first, because access and volume set the price more than the furniture count does. A single floor often completes in a day; larger or multi-site work may run to two.",
-      "Lift bookings, loading zones and body corporate rules are confirmed before move day. We supply insurance details to building managers routinely, though it takes a day to turn around, so ask early. We hold SiteWise Gold certification with a 90%+ health and safety score, which is what gets a crew onto managed and construction sites. Two to three weeks notice is ideal for multi-floor or CBD moves.",
+      "The expensive part of an office move is rarely the moving. It is the hours your team cannot work. An after-hours or weekend crew costs more per hour and usually still comes out cheaper once you count the salaries sitting idle, which is why we would rather quote you for the Saturday than watch a floor of people queue for one lift.",
+      "Office furniture is the part people underestimate. Compactus units, four-drawer filing, server racks that need to stay upright, boardroom tables that went in before the walls did and will not come out in one piece. Those are the items that turn a one-day move into two, so on medium and large floors we would rather come and look than take your word for the desk count.",
+      "One thing worth knowing early: building managers usually want our insurance details before they will let a crew in, and that takes a day to turn around. We hold SiteWise Gold certification with a 90%+ health and safety score, which is what gets a crew onto managed and construction sites at all.",
     ],
     faqs: officeServiceFaqs,
     processTitle: workplaceMovingProcess.title,
@@ -87,11 +86,9 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
   "commercial-moving": {
     bodyTitle: "How commercial work is different",
     bodyParagraphs: [
-      "Commercial work runs to a window. A shop fit out has a date the doors open, and an install slot in a managed building might be a few hours on a weekday morning. We confirm arrival time, access and handover points in writing before the day.",
-      "SiteWise Gold with a 90%+ health and safety score matters on retail, construction and managed sites, where prequalification decides whether a crew gets through the gate at all.",
-      "Kitchen installs, shop fit outs, staging, printer and vending machine deliveries, and tenant relocations. Beyond that we regularly take the awkward end of the work: spa pools, pool tables, safes, marble tops, kilns and machinery, with balcony hoists and crane lifts when the stairwell is not an option.",
-      "Blankets, wrap and custom dollies are standard, and fragile joinery and glass are padded and strapped inside the truck before we leave site. Crew labour, truck, standard protection and local travel are included in the price, with extra crew, stairs or specialist gear confirmed in writing upfront.",
-      "Auckland from Wairau Valley and the Waikato from our Hamilton base. One to two weeks notice suits fit outs and multi-item runs, and there is often next-day capacity for urgent printer or equipment deliveries.",
+      "Commercial work runs to a window rather than a day. A shop fit out has a date the doors open. An install slot in a managed building might be a few hours on a weekday morning, and if you miss it you wait for the next one. We plan the crew and the gear around your window, not ours.",
+      "Prequalification is the other difference. On retail, construction and managed sites, paperwork decides whether a crew gets through the gate before anyone lifts anything, and plenty of movers cannot produce it. Ours is in order, which is why we get booked for the jobs that need it.",
+      "Past the standard fit out work, we take the awkward end: spa pools, pool tables, safes, marble tops, kilns and machinery, with balcony hoists and crane lifts when the stairwell is not an option. If you are not sure whether something is movable, send photos of both ends and we will tell you what it needs.",
     ],
     faqs: commercialServiceFaqs,
     processTitle: workplaceMovingProcess.title,
