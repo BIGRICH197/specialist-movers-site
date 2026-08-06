@@ -108,11 +108,11 @@ export const faqs: readonly Faq[] = [
   },
   {
     q: "What happens if something gets damaged?",
-    a: "Tell us straight away and we will work it out with you. We hold public liability cover and full carrier's liability for damage we cause to your property. Cover for your own belongings during the move can be arranged through our team, just ask when you book. Pianos carry $2,000 of cover as standard.",
+    a: "Tell us straight away and we will work it out with you. We hold $2,000,000 of public liability cover and full carrier's liability for damage we cause to your property. Cover for your own belongings during the move can be arranged through our team, just ask when you book. Pianos carry $2,000 of cover as standard.",
   },
   {
     q: "Are you insured?",
-    a: "Our crews are licensed and insured. We hold public liability cover and full carrier's liability. Cover for your own belongings during the move can be arranged through our team, so tell us when you book and we will sort it.",
+    a: "Our crews are licensed and insured. We hold $2,000,000 of public liability cover and full carrier's liability. Cover for your own belongings during the move can be arranged through our team, so tell us when you book and we will sort it.",
   },
   {
     q: "What will not fit through the door?",

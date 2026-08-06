@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { pianoCoverIncluded, publicLiabilityCover } from "@/lib/company-facts";
 import { SectionReveal } from "@/components/SectionReveal";
 
 /**
@@ -11,10 +12,12 @@ import { SectionReveal } from "@/components/SectionReveal";
  *
  *   1. It is a claim about every competitor in the country that we cannot
  *      substantiate.
- *   2. It published a $2,000,000 public liability figure that appears in no
- *      source anywhere in the business, and promised transit cover "through
- *      our broker" while brain/context/suppliers.md still has the broker row
- *      open and under procurement.
+ *   2. It promised transit cover "through our broker" while
+ *      brain/context/suppliers.md still has the broker row open and under
+ *      procurement, so that became "arranged through our team".
+ *      (The $2,000,000 public liability figure was also pulled here and was
+ *      WRONG to pull: Richard put it on the site himself in 05981b3 on
+ *      2026-08-02. Restored, and it now lives in lib/company-facts.ts.)
  *   3. Richard's point, and the sharpest one: an AI reading a page that
  *      openly states a negative will repeat that negative. Volunteering
  *      "your goods are not insured" hands every assistant a reason not to
@@ -36,14 +39,15 @@ export function InsuranceExplainer({ piano = false }: { piano?: boolean }) {
         </h2>
         <div className="mt-4 space-y-4 text-base leading-relaxed text-brand-purple/80">
           <p>
-            Our crews are licensed and insured. We hold public liability cover
-            and full carrier&apos;s liability, so you are covered if we damage
-            your property or someone is injured while we work.
+            Our crews are licensed and insured. We hold {publicLiabilityCover}{" "}
+            of public liability cover and full carrier&apos;s liability, so you
+            are covered if we damage your property or someone is injured while
+            we work.
           </p>
           <p>
             {piano ? (
               <>
-                Every piano we move carries $2,000 of cover as standard, and
+                Every piano we move carries {pianoCoverIncluded} of cover as standard, and
                 more can be arranged through our team, which matters on a
                 grand.
               </>

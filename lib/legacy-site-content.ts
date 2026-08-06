@@ -180,7 +180,7 @@ export const trustPillars = [
   {
     title: "Care, protection, and cover options",
     body:
-      "Every crew is licensed and insured, and we hold public liability cover and full carrier's liability. Cover for your own belongings during the move can be arranged through our team, just ask when you book.",
+      "Every crew is licensed and insured, and we hold $2,000,000 of public liability cover and full carrier's liability. Cover for your own belongings during the move can be arranged through our team, just ask when you book.",
   },
   {
     title: "Fixed prices, quoted before you book",
