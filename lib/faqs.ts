@@ -108,11 +108,11 @@ export const faqs: readonly Faq[] = [
   },
   {
     q: "What happens if something gets damaged?",
-    a: "Tell us straight away and we will work it out with you. On the insurance side we carry $2,000,000 public liability, which covers damage we cause to your property. Your household goods travel at owner's risk, which is standard across the industry, so if you want them covered we can arrange transit cover through our broker before the move. Pianos carry $2,000 of cover as standard.",
+    a: "Tell us straight away and we will work it out with you. We hold public liability cover and full carrier's liability for damage we cause to your property. Cover for your own belongings during the move can be arranged through our team, just ask when you book. Pianos carry $2,000 of cover as standard.",
   },
   {
     q: "Are you insured?",
-    a: "Our crews are licensed and insured, and we carry $2,000,000 public liability. That is separate from cover on your belongings: no insurer in New Zealand includes household goods in a moving quote, so like every mover we carry them at owner's risk unless you arrange transit cover. Ask us and we will explain exactly what is and is not covered before you book.",
+    a: "Our crews are licensed and insured. We hold public liability cover and full carrier's liability. Cover for your own belongings during the move can be arranged through our team, so tell us when you book and we will sort it.",
   },
   {
     q: "What will not fit through the door?",
