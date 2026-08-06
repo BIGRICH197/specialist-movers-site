@@ -119,7 +119,7 @@ export const furnitureMoversAucklandPage: NicheServicePageConfig = {
   itemTable: {
     title: "How long each item takes, and how we handle it",
     intro:
-      "How we usually handle each one, and how long it takes two movers with normal access. The crew adjusts on the day to suit the item and the access. Stairs, long carries, and tight doorways add to them, which is why we ask about both ends before quoting.",
+      "How we usually handle each item, and roughly how long it takes two movers with normal access. Stairs, long carries and tight doorways all add time, which is why we ask about both ends before quoting.",
     rows: [
       {
         item: "Three-seater sofa",
@@ -279,7 +279,7 @@ export const furnitureMoversHamiltonPage: NicheServicePageConfig = {
   itemTable: {
     title: "How long each item takes, and how we handle it",
     intro:
-      "How we usually handle each one, and how long it takes two movers with normal access. The crew adjusts on the day to suit the item and the access. Stairs, long carries, and tight doorways add to them, so we ask about both ends before quoting.",
+      "How we usually handle each item, and roughly how long it takes two movers with normal access. Stairs, long carries and tight doorways all add time, so we ask about both ends before quoting.",
     rows: [
       {
         item: "Three-seater sofa",

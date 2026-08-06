@@ -173,7 +173,7 @@ export const pagePhotoMoments: Record<string, PagePhotoMoment> = {
     captionPlacement: "beside",
     showCta: true,
     defaultJobType: "Home Move",
-    body: "Home relocations with real care, packing, heavy furniture, stairs, and clear communication from quote to handover.",
+    body: "Whole-home moves, packing the day before, and the heavy awkward pieces other crews leave until last.",
   },
   "services/piano-movers": {
     ...premiumServicePhotoLayout,
