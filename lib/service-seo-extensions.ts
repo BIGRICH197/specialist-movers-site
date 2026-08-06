@@ -54,11 +54,10 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
   "office-moving": {
     bodyTitle: "What an office move actually involves",
     bodyParagraphs: [
-      "The expensive part of an office move is almost never the moving. It is the hours your team cannot work. That is why most of the office relocations we run happen on a Friday evening or across a weekend, so people leave one building on Friday and sit down at a working desk on Monday. We would rather quote you for after-hours crew than watch thirty people wait on a lift.",
-      "Workstations come apart, and every screw, bracket, cable and power adaptor for a desk goes into a bag that is labelled for that desk. Monitors travel wrapped. That one habit is the difference between an office that works on Monday morning and a fortnight of people hunting for the right cable, and it is the main reason clients ask for us again rather than the cheapest office removalists they can find.",
-      "Office furniture is its own problem. Task chairs, compactus units, four-drawer filing cabinets, boardroom tables that will not go round a corner in one piece, server racks that need to stay upright. We scope the awkward ones before quoting, not on the day. If a boardroom table came in before the walls went up, we will tell you that at the viewing rather than discover it at 6pm on a Friday.",
-      "Building logistics get sorted before move day, not during it. Lift bookings, dock times, loading zone permits, after-hours building access, security sign-in, and the certificate of insurance most building managers ask for. We are SiteWise Gold certified with a 90%+ score, which is what gets a crew onto managed and construction sites where a lot of movers simply cannot go.",
-      "We run corporate relocations and single-floor moves the same way: one person owns the plan from walkthrough to handover, so you are not repeating yourself to a different crew each day. Auckland from our Wairau Valley depot, Hamilton and the Waikato from our Hamilton base.",
+      "Weekend and after-hours office moves are available, and for most offices that is the cheaper way to do it. The crew costs more outside business hours. The hours your team cannot work usually cost more again.",
+      "Desks, monitors, filing and meeting-room furniture are wrapped and secured. Tell us about servers or specialist gear when you ask for a quote so we can plan padding and carry paths before the day rather than on it.",
+      "Small offices up to about ten staff are usually quoted from around $800 plus GST. Medium and large floors get a site visit first, because access and volume set the price more than the furniture count does. A single floor often completes in a day; larger or multi-site work may run to two.",
+      "Lift bookings, loading zones and body corporate rules are confirmed before move day. We supply insurance details to building managers routinely, though it takes a day to turn around, so ask early. We hold SiteWise Gold certification with a 90%+ health and safety score, which is what gets a crew onto managed and construction sites. Two to three weeks notice is ideal for multi-floor or CBD moves.",
     ],
     faqs: officeServiceFaqs,
     processTitle: workplaceMovingProcess.title,
@@ -77,22 +76,22 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
       },
       {
         title: "Move and set down",
-        body: "Desks broken down with hardware bagged per desk, IT wrapped, everything set down where your floor plan says it goes rather than stacked in a corridor.",
+        body: "Desks broken down with the hardware bagged and labelled, IT wrapped, and everything set down where your floor plan says it goes rather than stacked in a corridor.",
       },
       {
-        title: "Monday morning works",
-        body: "Desks rebuilt, chairs at desks, boxes in the right rooms. We walk the floor with you before we leave.",
+        title: "Set back up",
+        body: "Desks rebuilt and boxes in the right rooms, then a walk through the floor with you before we leave."
       },
     ],
   },
   "commercial-moving": {
     bodyTitle: "How commercial work is different",
     bodyParagraphs: [
-      "Commercial work is a different job to moving a house, and the thing that matters most is hitting a window. A retail fit out has a date the doors open. An install slot in a managed building might be four hours on a Tuesday morning. A cabinetry run has a kitchen going in behind it. We quote against the window, and if we do not think it is achievable we say so at the quote rather than on the day.",
-      "SiteWise Gold with a 90%+ health and safety score is the practical difference on this work. Managed buildings, construction sites and a lot of larger clients will not let a crew through the gate without prequalification, and plenty of movers simply do not hold it. It is also why we get repeat scheduled work rather than one-off jobs.",
-      "The gear is the other half. Stair climbers, machine skates, and crane or hoist lifts when the stairwell is not an option. We move cabinetry and joinery runs, shop and hospitality fit outs, staging and event gear, printers and copiers, vending and gaming machines, gym equipment, safes, kilns, and equipment that arrived on a pallet and now has to get up two floors. Fixtures are protected in transit with blankets, shrink wrap or purpose-made covers depending on the finish.",
-      "A business relocation is usually more than furniture. Stock, records, plant, and the things nobody remembers until the last week. We phase larger jobs so you keep trading through the move rather than shutting for a week, which for most businesses is the real cost.",
-      "Auckland from Wairau Valley and the Waikato from our Hamilton base, seven days a week. If you have regular runs rather than a single job, we can schedule them and you deal with the same crew each time.",
+      "Commercial work runs to a window. A shop fit out has a date the doors open, and an install slot in a managed building might be a few hours on a weekday morning. We confirm arrival time, access and handover points in writing before the day.",
+      "SiteWise Gold with a 90%+ health and safety score matters on retail, construction and managed sites, where prequalification decides whether a crew gets through the gate at all.",
+      "Kitchen installs, shop fit outs, staging, printer and vending machine deliveries, and tenant relocations. Beyond that we regularly take the awkward end of the work: spa pools, pool tables, safes, marble tops, kilns and machinery, with balcony hoists and crane lifts when the stairwell is not an option.",
+      "Blankets, wrap and custom dollies are standard, and fragile joinery and glass are padded and strapped inside the truck before we leave site. Crew labour, truck, standard protection and local travel are included in the price, with extra crew, stairs or specialist gear confirmed in writing upfront.",
+      "Auckland from Wairau Valley and the Waikato from our Hamilton base. One to two weeks notice suits fit outs and multi-item runs, and there is often next-day capacity for urgent printer or equipment deliveries.",
     ],
     faqs: commercialServiceFaqs,
     processTitle: workplaceMovingProcess.title,

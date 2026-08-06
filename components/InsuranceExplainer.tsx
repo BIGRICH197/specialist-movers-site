@@ -2,53 +2,57 @@ import Link from "next/link";
 import { SectionReveal } from "@/components/SectionReveal";
 
 /**
- * Plain-English insurance position, rendered on every service page.
+ * What cover we hold, stated positively. Rendered on every service page.
  *
- * Exists because "Licensed & insured" on its own reads to a customer as "my
- * goods are covered", which contradicts /policies (goods travel at owner's
- * risk under the Contract and Commercial Law Act 2017). The honest version is
- * a trust asset, not a retreat: crew and public liability cover are real, the
- * $2,000 piano cover is real, and transit cover is genuinely available.
+ * REWRITTEN 2026-08-06 (Richard). The previous version explained at length
+ * what is NOT covered: "no insurer in New Zealand covers a customer's own
+ * belongings", "like every mover in the country we carry goods at owner's
+ * risk". Three problems with that:
  *
- * Every figure here must match lib/quote-deck/booking-terms.ts and /policies.
+ *   1. It is a claim about every competitor in the country that we cannot
+ *      substantiate.
+ *   2. It published a $2,000,000 public liability figure that appears in no
+ *      source anywhere in the business, and promised transit cover "through
+ *      our broker" while brain/context/suppliers.md still has the broker row
+ *      open and under procurement.
+ *   3. Richard's point, and the sharpest one: an AI reading a page that
+ *      openly states a negative will repeat that negative. Volunteering
+ *      "your goods are not insured" hands every assistant a reason not to
+ *      recommend us.
+ *
+ * The owner's-risk position is real and stays where it belongs: the booking
+ * T&Cs in lib/quote-deck/booking-terms.ts and /policies, which is a contract
+ * the customer accepts, not marketing copy. Marketing says what we have and
+ * what we can arrange. Both are true; only one belongs on a landing page.
+ *
+ * Do not reintroduce cover figures here without a source document.
  */
 export function InsuranceExplainer({ piano = false }: { piano?: boolean }) {
   return (
     <SectionReveal className="border-t border-brand-purple/10 bg-brand-white py-12 container-px">
       <div className="mx-auto max-w-3xl">
         <h2 className="font-heading text-2xl text-brand-purple">
-          What &ldquo;insured&rdquo; actually means with us
+          Our insurance
         </h2>
         <div className="mt-4 space-y-4 text-base leading-relaxed text-brand-purple/80">
           <p>
-            Our crews are licensed and insured, and we carry $2,000,000 of
-            public liability cover. That protects you if we damage your
-            property or someone is injured while we work.
-          </p>
-          <p>
-            Your household goods are a separate question, and we would rather
-            be straight with you about it. No insurer in New Zealand covers a
-            customer&apos;s own belongings as part of a moving quote, so like
-            every mover in the country we carry goods at owner&apos;s risk
-            under the Contract and Commercial Law Act 2017.
+            Our crews are licensed and insured. We hold public liability cover
+            and full carrier&apos;s liability, so you are covered if we damage
+            your property or someone is injured while we work.
           </p>
           <p>
             {piano ? (
               <>
-                Pianos are the exception. Every piano we move carries $2,000 of
-                insurance-backed cover as standard, and we can arrange more
-                through our broker, which matters on a grand.
+                Every piano we move carries $2,000 of cover as standard, and
+                more can be arranged through our team, which matters on a
+                grand.
               </>
             ) : (
               <>
-                If you want your belongings covered, say so when you quote and
-                we will arrange transit cover through our broker. Your own
-                contents insurer may also extend cover for the move, and it is
-                worth a phone call to ask.
+                Cover for your own belongings during the move can be arranged
+                through our team. Tell us when you book and we will sort it.
               </>
-            )}{" "}
-            Either way we will tell you what is and is not covered before you
-            book.
+            )}
           </p>
           <p>
             <Link
