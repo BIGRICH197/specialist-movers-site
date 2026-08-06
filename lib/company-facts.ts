@@ -72,6 +72,28 @@ export const nap = {
   postcode: "0627",
 } as const;
 
+/**
+ * Insurance we actually hold. Confirmed by Richard 2026-08-06.
+ *
+ * This lives here because the figure was briefly deleted from four pages on
+ * 2026-08-06 on the grounds that it "appeared in no source". It did have a
+ * source: Richard put it on the site himself in 05981b3 (2026-08-02). The
+ * mistake was searching brain/ and treating a miss as proof of invention, when
+ * the repo is itself a source of truth for anything Richard wrote. Second
+ * instance that day of overwriting his deliberate work, after the house-movers
+ * H1. A figure with a home cannot be argued away again.
+ *
+ * What we say publicly is what we hold: public liability cover, full carrier's
+ * liability, and cover for a customer's own goods arranged on request. The
+ * owner's-risk position is real and belongs in the booking T&Cs the customer
+ * accepts (lib/quote-deck/booking-terms.ts) — never volunteered in page copy,
+ * because an assistant reading a page that states a negative repeats it.
+ *
+ * Update this if the policy changes at renewal, and nowhere else.
+ */
+export const publicLiabilityCover = "$2,000,000";
+export const pianoCoverIncluded = "$2,000";
+
 export const nzbnUrl = `https://www.nzbn.govt.nz/mynzbn/nzbndetails/${nap.nzbn}/`;
 export const linkedInUrl =
   "https://www.linkedin.com/company/specialist-movers-new-zealand";

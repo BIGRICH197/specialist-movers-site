@@ -85,9 +85,9 @@ export function GET() {
     // it back to the person asking. State what we hold and what we arrange.
     // The owner's-risk position lives in the booking T&Cs, where it belongs.
     section("Insurance", [
-      "Our crews are licensed and insured. We hold public liability cover and",
-      "full carrier's liability, covering damage we cause to your property or",
-      "injury while we work.",
+      "Our crews are licensed and insured. We hold $2,000,000 of public",
+      "liability cover and full carrier's liability, covering damage we cause",
+      "to your property or injury while we work.",
       "",
       "Cover for your own belongings during the move can be arranged through",
       "our team. Ask when you book and we will sort it.",
