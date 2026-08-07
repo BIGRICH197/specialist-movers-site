@@ -55,6 +55,7 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
     bodyTitle: "What an office move actually involves",
     bodyParagraphs: [
       "The expensive part of an office move is rarely the moving. It is the hours your team cannot work. An after-hours or weekend crew costs more per hour and usually still comes out cheaper once you count the salaries sitting idle, which is why we would rather quote you for the Saturday than watch a floor of people queue for one lift.",
+      "Workstations come apart, and the screws, brackets and cables for each desk go into a bag labelled for that desk, so the right hardware goes back into the right desk at the other end. It is the same habit our crews use on beds and dining tables at a house move.",
       "Office furniture is the part people underestimate. Compactus units, four-drawer filing, server racks that need to stay upright, boardroom tables that went in before the walls did and will not come out in one piece. Those are the items that turn a one-day move into two, so on medium and large floors we would rather come and look than take your word for the desk count.",
       "One thing worth knowing early: building managers usually want our insurance details before they will let a crew in, and that takes a day to turn around. We hold SiteWise Gold certification with a 90%+ health and safety score, which is what gets a crew onto managed and construction sites at all.",
     ],
