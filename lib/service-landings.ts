@@ -134,7 +134,7 @@ const landingOverrides: Record<
     heroVariant: "moving",
     aboutTitle: "What actually happens on the day",
     aboutBody:
-      "A crew of two turns up for most homes up to three bedrooms, three or four for bigger houses and anything with a lot of stairs. Nothing goes out the door bare. Beds and dining tables come apart, and the hardware gets bagged and labelled so the same screws go back in the same bed. A three-bedroom house is a day on site. We do around 80 house and office moves a month, so the order we load in is not something we work out on your driveway.",
+      "A crew of two turns up for most homes up to three bedrooms, three or four for bigger houses and anything with a lot of stairs. Furniture gets wrapped before it leaves the room. Beds and dining tables come apart, and the hardware gets bagged and labelled so the same screws go back in the same bed. A three-bedroom house is a day on site. We do around 80 house and office moves a month, so the order we load in is not something we work out on your driveway.",
     trustHighlights: [
       {
         title: "We look before we quote",
@@ -183,8 +183,8 @@ const landingOverrides: Record<
         text: "Weekend and after-hours moves, so Monday morning works.",
       },
       {
-        title: "Planned access",
-        text: "Lifts, docks and building rules sorted before the day.",
+        title: "Bagged per desk",
+        text: "Screws, brackets and cables labelled to their own desk.",
       },
       {
         title: "SiteWise Gold",
