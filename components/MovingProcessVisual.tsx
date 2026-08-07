@@ -34,14 +34,16 @@ export function MovingProcessVisual({
 }: Props) {
   const reduced = useReducedMotion() ?? false;
   const isIllustration = variant === "illustration";
-  const { ref, inView } = useRevealInView<HTMLOListElement>();
-  const active = reduced || inView;
+  const { ref, inView, hydrated } = useRevealInView<HTMLOListElement>();
+  // Pre-hydration must resolve to the shown state so the SSR HTML is not
+  // opacity:0 — see the LCP note in use-reveal-in-view.ts.
+  const active = !hydrated || reduced || inView;
 
   return (
     <motion.ol
       ref={ref}
       className={`m-0 flex list-none flex-col gap-10 p-0 lg:flex-row lg:items-start lg:justify-center lg:gap-4 xl:gap-6 ${className}`}
-      initial="hidden"
+      initial={false}
       animate={active ? "show" : "hidden"}
       variants={
         reduced

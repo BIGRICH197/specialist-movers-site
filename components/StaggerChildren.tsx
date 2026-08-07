@@ -19,14 +19,16 @@ type Props = {
  */
 export function StaggerChildren({ children, className = "" }: Props) {
   const reduced = useReducedMotion() ?? false;
-  const { ref, inView } = useRevealInView<HTMLDivElement>();
-  const active = reduced || inView;
+  const { ref, inView, hydrated } = useRevealInView<HTMLDivElement>();
+  // Pre-hydration must resolve to the shown state so the SSR HTML is not
+  // opacity:0 — see the LCP note in use-reveal-in-view.ts.
+  const active = !hydrated || reduced || inView;
 
   return (
     <motion.div
       ref={ref}
       className={className}
-      initial="hidden"
+      initial={false}
       animate={active ? "show" : "hidden"}
       variants={
         reduced

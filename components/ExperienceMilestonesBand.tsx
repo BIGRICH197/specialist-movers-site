@@ -17,8 +17,10 @@ type Props = {
  */
 export function ExperienceMilestonesBand({ data, className = "" }: Props) {
   const reduced = useReducedMotion() ?? false;
-  const { ref: revealRef, inView } = useRevealInView<HTMLDivElement>();
-  const active = reduced || inView;
+  const { ref: revealRef, inView, hydrated } = useRevealInView<HTMLDivElement>();
+  // Pre-hydration must resolve to the shown state so the SSR HTML is not
+  // opacity:0 — see the LCP note in use-reveal-in-view.ts.
+  const active = !hydrated || reduced || inView;
 
   const bg = data.backgroundImage;
 
@@ -41,7 +43,7 @@ export function ExperienceMilestonesBand({ data, className = "" }: Props) {
             hidden: { opacity: 0, y: motionOffset.y * 0.5 },
             visible: { opacity: 1, y: 0, transition: revealSpring },
           }}
-          initial="hidden"
+          initial={false}
           animate={active ? "visible" : "hidden"}
         >
           {data.title}
@@ -49,7 +51,7 @@ export function ExperienceMilestonesBand({ data, className = "" }: Props) {
 
         <motion.ul
           className="mt-8 grid list-none gap-8 p-0 sm:grid-cols-2 sm:gap-6 lg:mt-10 lg:grid-cols-4 lg:gap-6"
-          initial="hidden"
+          initial={false}
           animate={active ? "show" : "hidden"}
           variants={
             reduced
