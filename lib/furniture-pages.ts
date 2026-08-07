@@ -234,7 +234,7 @@ export const furnitureMoversHamiltonPage: NicheServicePageConfig = {
   ],
   whyTitle: "What furniture moving costs in Hamilton",
   whyBody:
-    "Two movers and a truck cost $150 an hour plus GST, or $140 if you can move on a Tuesday. Three movers are $190. On top of the hours there is a callout fee, which starts at $60 and goes up the further you are from Hamilton. A single heavy item is usually done inside two hours. A three-bedroom house is a day, and lands somewhere around $750 to $950. We charge for the hours the job takes, so on anything bigger than a townhouse we would rather come and look than guess. Whatever we quote, you get in writing, and it does not move afterwards.",
+    "Moving on a Tuesday saves you $10 an hour, which on a full day is worth knowing before you pick a date. Two movers and a truck are $140 plus GST on a Tuesday and $150 otherwise, with three movers at $190. The callout starts at $60 and climbs with distance from Hamilton. We charge for the hours the job actually takes, so on anything bigger than a townhouse we would rather come and look than guess. Whatever we quote you get in writing, and it does not move afterwards.",
   includedBullets: [
     "Single-item moves, part-loads, and full household relocations",
     "Heavy and awkward pieces: spa pools, safes, pool tables, marble tops",

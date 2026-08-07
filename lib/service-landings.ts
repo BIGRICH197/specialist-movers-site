@@ -134,11 +134,11 @@ const landingOverrides: Record<
     heroVariant: "moving",
     aboutTitle: "What actually happens on the day",
     aboutBody:
-      "A crew of two turns up for most homes up to three bedrooms, three or four for bigger houses and anything with a lot of stairs. Furniture is wrapped before it leaves the room, with blankets, shrink wrap or covers to suit the item. Beds and dining tables come apart, and the hardware gets bagged and labelled so the same screws go back in the same bed. A three-bedroom house is a day on site. We do around 80 house and office moves a month, so the order we load in is not something we work out on your driveway.",
+      "A crew of two turns up for most homes up to three bedrooms, three or four for bigger houses and anything with a lot of stairs. Nothing goes out the door bare. Beds and dining tables come apart, and the hardware gets bagged and labelled so the same screws go back in the same bed. A three-bedroom house is a day on site. We do around 80 house and office moves a month, so the order we load in is not something we work out on your driveway.",
     trustHighlights: [
       {
         title: "We look before we quote",
-        text: "Free in-home viewing on three bedrooms and up, because volume and access set the price.",
+        text: "We come and look at anything three bedrooms or more, so the number is real before you book.",
       },
       {
         title: "Written, then fixed",
@@ -176,7 +176,7 @@ const landingOverrides: Record<
     heroVariant: "moving",
     aboutTitle: "About our office moving service",
     aboutBody:
-      "We relocate offices and workplaces across Auckland and the Waikato, from a single floor to a multi-site corporate relocation. Law firms, clinics, agencies and whole corporate floors. Packing and IT-sensitive gear can be included, and the awkward items get scoped at the viewing rather than discovered on the day.",
+      "We relocate offices and workplaces across Auckland and the Waikato, from a single floor to a multi-site corporate relocation. Packing and IT-sensitive gear can be included, and the awkward items get scoped at the viewing rather than discovered on the day.",
     trustHighlights: [
       {
         title: "Less downtime",
