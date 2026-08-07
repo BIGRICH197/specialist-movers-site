@@ -18,7 +18,8 @@
     "start": "next start",
     "lint": "next lint",
     "preview:mobile": "node scripts/mobile-preview.mjs",
-    "postbuild": "node scripts/indexnow-ping.mjs"
+    "postbuild": "node scripts/indexnow-ping.mjs",
+    "check:copy": "node scripts/check-repeated-copy.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.63.0",
