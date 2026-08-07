@@ -66,6 +66,36 @@ function legacyAucklandCanonicalRedirects() {
   }));
 }
 
+/**
+ * Report-Only CSP. Never blocks anything — the browser evaluates the policy and
+ * reports violations to the console, so we can find every host the site really
+ * needs before switching to enforcement.
+ *
+ * Built from the hosts referenced in app/, components/ and lib/, plus what the
+ * Lighthouse run on 2026-08-07 observed at runtime (GTM, GA, Trustindex,
+ * Google Maps autocomplete, Google avatars).
+ *
+ * 'unsafe-inline' and 'unsafe-eval' in script-src are required by Next 14's
+ * inline hydration bootstrap. Removing them needs nonces, which is a separate
+ * job — don't drop them just because a scanner complains.
+ *
+ * Before enforcing: run this for a week, collect the violation reports, and
+ * fold any missing hosts in. Enforcing this as-is is untested.
+ */
+const cspReportOnly = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "frame-ancestors 'self'",
+  "form-action 'self'",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://cdn.trustindex.io https://maps.googleapis.com https://va.vercel-scripts.com",
+  "style-src 'self' 'unsafe-inline' https://cdn.trustindex.io",
+  "img-src 'self' data: blob: https://lh3.googleusercontent.com https://cdn.trustindex.io https://www.googletagmanager.com https://www.google-analytics.com https://maps.gstatic.com https://maps.googleapis.com https://www.google.com https://www.google.co.nz",
+  "font-src 'self' data:",
+  "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://cdn.trustindex.io https://maps.googleapis.com https://va.vercel-scripts.com",
+  "frame-src 'self' https://www.googletagmanager.com https://td.doubleclick.net https://www.google.com",
+].join("; ");
+
 const nextConfig = {
   compress: true,
   images: {
@@ -87,10 +117,15 @@ const nextConfig = {
       {
         // Baseline security headers on every route.
         //
-        // Deliberately excluded for now:
-        //  - Content-Security-Policy: needs a Report-Only run first. A strict
-        //    policy would break the Trustindex widget, Google Maps address
-        //    autocomplete, and GTM.
+        // CSP now ships in Report-Only mode (see cspReportOnly above) — the
+        // documented prerequisite before enforcement. It cannot break anything.
+        //
+        // Still deliberately excluded:
+        //  - Content-Security-Policy in ENFORCEMENT mode: needs a week of
+        //    Report-Only violation data first. Enforcing untested would break
+        //    the Trustindex widget, Google Maps address autocomplete, and GTM.
+        //    Lighthouse only credits enforced CSP, so Best Practices stays at
+        //    77 until then. That is the correct trade.
         //  - HSTS includeSubDomains/preload: the header is already set (see
         //    Vercel), but includeSubDomains forces HTTPS on every subdomain and
         //    preload is effectively irreversible. Confirm subdomains first.
@@ -98,6 +133,9 @@ const nextConfig = {
         // Referrer-Policy is strict-origin-when-cross-origin (Chrome's own
         // default) on purpose. Do NOT tighten to no-referrer: it would strip
         // this site from referral partners' analytics.
+        //
+        // COOP is same-origin-allow-popups, not same-origin: the latter breaks
+        // OAuth/share popups and Google Maps auth windows.
         source: "/:path*",
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },
@@ -106,6 +144,14 @@ const nextConfig = {
           {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+          },
+          {
+            key: "Cross-Origin-Opener-Policy",
+            value: "same-origin-allow-popups",
+          },
+          {
+            key: "Content-Security-Policy-Report-Only",
+            value: cspReportOnly,
           },
         ],
       },

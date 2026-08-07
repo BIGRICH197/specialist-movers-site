@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { AttributionTracker } from "@/components/AttributionTracker";
@@ -54,8 +55,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en-NZ" className={`${inter.variable} ${termina.variable}`}>
       <head>
-        <link rel="preconnect" href="https://cdn.trustindex.io" crossOrigin="" />
-        <link rel="preconnect" href="https://lh3.googleusercontent.com" crossOrigin="" />
+        {/*
+          preconnect to cdn.trustindex.io and lh3.googleusercontent.com was
+          removed 2026-08-07: Lighthouse reported both as "Unused preconnect"
+          because neither origin is requested during initial load — the review
+          widget and its avatars are injected later. An unused preconnect costs
+          a wasted connection. dns-prefetch is kept: it is far cheaper and still
+          warms resolution for when those requests do happen.
+        */}
         <link rel="dns-prefetch" href="https://cdn.trustindex.io" />
         <link rel="dns-prefetch" href="https://lh3.googleusercontent.com" />
         <link rel="dns-prefetch" href="https://www.google.com" />
@@ -65,6 +72,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <LocalBusinessJsonLd />
         <AttributionTracker />
         <SiteChrome>{children}</SiteChrome>
+        <Analytics />
       </body>
     </html>
   );
