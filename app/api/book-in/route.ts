@@ -8,6 +8,7 @@ import {
 } from "@/lib/hubspot";
 import { createPianoCard } from "@/lib/piano-card";
 import { saveDirectBooking, attachDealToDirectBooking } from "@/lib/direct-booking";
+import { markLatestQuoteBookedByEmail } from "@/lib/quote-store";
 
 export const runtime = "nodejs";
 
@@ -151,6 +152,18 @@ export async function POST(request: Request) {
     .filter(Boolean)
     .join("\n");
   await pingBookings(summary);
+
+  // If this person already had a hosted quote, mark it booked so the admin
+  // quotes list stays accurate (the /book flow has no quote token of its own).
+  // Best-effort — a miss here must never fail the booking.
+  const bookerEmail = fields.email?.trim();
+  if (bookerEmail) {
+    try {
+      await markLatestQuoteBookedByEmail(bookerEmail);
+    } catch (err) {
+      console.error("book-in quote-link failed:", err);
+    }
+  }
 
   // Deal handling: most book-ins are an existing deal — find it by email and
   // move it to Closed Won. If there is no deal, create one at Closed Won (a

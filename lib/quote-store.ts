@@ -166,6 +166,28 @@ export async function setQuoteStatus(
   });
 }
 
+/**
+ * Mark the most recent still-open quote for an email as booked. Used by the
+ * direct /book flow (and old JotForm), which has no quote token but often
+ * belongs to someone we already sent a hosted quote — so their quote would
+ * otherwise sit at "sent"/"accepted" forever. Case-insensitive email match,
+ * most-recent only (never over-marks older duplicate quotes). No-op on KV.
+ * Returns the token it booked, or null if there was no open quote to link.
+ */
+export async function markLatestQuoteBookedByEmail(
+  email: string,
+): Promise<string | null> {
+  const e = email.trim();
+  if (!e || !supabaseConfigured()) return null;
+  const rows = await sb<{ token: string }[]>(
+    `quotes?email=ilike.${encodeURIComponent(e)}&status=neq.booked&select=token&order=created_at.desc&limit=1`,
+  );
+  const token = rows?.[0]?.token;
+  if (!token) return null;
+  await setQuoteStatus(token, "booked");
+  return token;
+}
+
 /** List recent quotes for the portal. Empty array on the KV fallback (KV can't list). */
 export async function listQuotes(limit = 200): Promise<QuoteListItem[]> {
   if (!supabaseConfigured()) return [];
