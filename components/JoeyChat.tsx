@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { MessageCircle, X, Send, Loader2 } from "lucide-react";
+import Image from "next/image";
+import { X, Send, Loader2, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Message {
@@ -12,6 +13,15 @@ interface Message {
 const GREETING = "Hey! How can I help you today?";
 
 const ONLINE_PILL_KEY = "joey-online-dismissed";
+
+// Avatar shown on the launcher bubble and in the chat header. A real face reads
+// as "a real person is here now", which lifts engagement over a generic icon.
+const AVATAR_SRC = "/richard-online.png";
+const AVATAR_ALT = "Richard from Specialist Movers, online now";
+
+// Office line — same number the site uses everywhere as the call-to-action.
+const CALL_TEL = "+64212282728";
+const CALL_DISPLAY = "(021) 228 2728";
 
 export function JoeyChat() {
   const [isOpen, setIsOpen] = useState(false);
@@ -231,19 +241,40 @@ export function JoeyChat() {
           }}
         >
           <div className="flex shrink-0 items-center gap-3 bg-brand-purple px-4 py-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-yellow text-brand-purple">
-              <MessageCircle className="h-5 w-5" />
+            <div className="relative shrink-0">
+              <span className="block h-10 w-10 overflow-hidden rounded-full border-2 border-white/70">
+                <Image
+                  src={AVATAR_SRC}
+                  alt={AVATAR_ALT}
+                  width={88}
+                  height={88}
+                  unoptimized
+                  loading="eager"
+                  className="h-full w-full object-cover"
+                />
+              </span>
+              <span
+                className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5"
+                aria-hidden
+              >
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                <span className="relative inline-flex h-3.5 w-3.5 rounded-full bg-emerald-400 ring-2 ring-brand-purple" />
+              </span>
             </div>
             <div className="min-w-0 flex-1">
               <p className="text-sm font-bold text-white">Joey</p>
               <p className="mt-0.5 flex items-center gap-1.5 text-xs text-white/85">
-                <span className="relative flex h-2 w-2 shrink-0" aria-hidden>
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-                </span>
                 <span>We&apos;re online now</span>
               </p>
             </div>
+            <a
+              href={`tel:${CALL_TEL}`}
+              className="flex h-9 shrink-0 items-center gap-1.5 rounded-full bg-emerald-500 pl-2.5 pr-3 text-xs font-bold text-white shadow-sm transition hover:bg-emerald-600"
+              aria-label={`Call us now on ${CALL_DISPLAY}`}
+            >
+              <Phone className="h-3.5 w-3.5" />
+              Call now
+            </a>
             <button
               onClick={() => setIsOpen(false)}
               className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white/70 transition hover:bg-white/10 hover:text-white"
@@ -337,10 +368,24 @@ export function JoeyChat() {
           ) : null}
           <button
             onClick={() => setIsOpen(true)}
-            className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-purple text-white shadow-[0_8px_24px_-4px_rgba(151,57,176,0.5)] transition hover:scale-105 hover:shadow-[0_12px_32px_-4px_rgba(151,57,176,0.6)] active:scale-95"
-            aria-label="Chat with Joey"
+            className="relative h-16 w-16 rounded-full shadow-[0_8px_24px_-4px_rgba(151,57,176,0.5)] transition hover:scale-105 hover:shadow-[0_12px_32px_-4px_rgba(151,57,176,0.6)] active:scale-95"
+            aria-label="Chat with us, we're online now"
           >
-            <MessageCircle className="h-6 w-6" />
+            <span className="block h-16 w-16 overflow-hidden rounded-full border-2 border-brand-purple">
+              <Image
+                src={AVATAR_SRC}
+                alt={AVATAR_ALT}
+                width={88}
+                height={88}
+                unoptimized
+                priority
+                className="h-full w-full object-cover"
+              />
+            </span>
+            <span className="absolute -bottom-0.5 -right-0.5 flex h-5 w-5" aria-hidden>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+              <span className="relative inline-flex h-5 w-5 rounded-full bg-emerald-500 ring-2 ring-white" />
+            </span>
           </button>
         </div>
       ) : null}
