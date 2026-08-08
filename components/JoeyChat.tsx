@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { X, Send, Loader2, Phone } from "lucide-react";
+import { X, Send, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Message {
@@ -10,7 +10,7 @@ interface Message {
   content: string;
 }
 
-const GREETING = "Hey! How can I help you today?";
+const GREETING = "Hey";
 
 const ONLINE_PILL_KEY = "joey-online-dismissed";
 
@@ -26,9 +26,10 @@ const CALL_DISPLAY = "(021) 228 2728";
 export function JoeyChat() {
   const [isOpen, setIsOpen] = useState(false);
   const [onlinePillVisible, setOnlinePillVisible] = useState(true);
-  const [messages, setMessages] = useState<Message[]>([
-    { role: "assistant", content: GREETING },
-  ]);
+  // Chat starts empty; the greeting is "typed" on first open (see effect below).
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [greetingTyping, setGreetingTyping] = useState(false);
+  const greetingShownRef = useRef(false);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [keyboardOffset, setKeyboardOffset] = useState(0);
@@ -60,10 +61,24 @@ export function JoeyChat() {
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [messages, greetingTyping, isLoading]);
 
   useEffect(() => {
     if (isOpen) inputRef.current?.focus();
+  }, [isOpen]);
+
+  // First time the chat opens, show a typing indicator for a beat, then drop in
+  // the greeting — so it feels like a person typing "Hey" rather than a canned
+  // message already sitting there.
+  useEffect(() => {
+    if (!isOpen || greetingShownRef.current) return;
+    greetingShownRef.current = true;
+    setGreetingTyping(true);
+    const t = setTimeout(() => {
+      setMessages((prev) => [...prev, { role: "assistant", content: GREETING }]);
+      setGreetingTyping(false);
+    }, 1200);
+    return () => clearTimeout(t);
   }, [isOpen]);
 
   useEffect(() => {
@@ -305,10 +320,12 @@ export function JoeyChat() {
                 </div>
               </div>
             ))}
-            {isLoading ? (
+            {isLoading || greetingTyping ? (
               <div className="flex justify-start">
-                <div className="rounded-2xl rounded-bl-md bg-brand-purple/[0.06] px-4 py-2.5">
-                  <Loader2 className="h-4 w-4 animate-spin text-brand-purple/50" />
+                <div className="flex items-center gap-1 rounded-2xl rounded-bl-md bg-brand-purple/[0.06] px-4 py-3">
+                  <span className="h-2 w-2 animate-bounce rounded-full bg-brand-purple/40 [animation-delay:-0.3s]" />
+                  <span className="h-2 w-2 animate-bounce rounded-full bg-brand-purple/40 [animation-delay:-0.15s]" />
+                  <span className="h-2 w-2 animate-bounce rounded-full bg-brand-purple/40" />
                 </div>
               </div>
             ) : null}
