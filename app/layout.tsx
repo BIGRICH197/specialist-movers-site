@@ -66,6 +66,20 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <link rel="dns-prefetch" href="https://cdn.trustindex.io" />
         <link rel="dns-prefetch" href="https://lh3.googleusercontent.com" />
         <link rel="dns-prefetch" href="https://www.google.com" />
+        {/*
+          public/llms.txt and /llms-full.txt were already being served but
+          nothing pointed at them, so the audit reported "no llms.txt
+          reference found". These links make them discoverable rather than
+          guessable. llmstxt.org is still an emerging convention, so this is
+          cheap insurance, not a guarantee of pickup.
+        */}
+        <link rel="llms" href="/llms.txt" />
+        <link
+          rel="alternate"
+          type="text/plain"
+          href="/llms-full.txt"
+          title="llms-full.txt"
+        />
       </head>
       {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
       <body className="min-h-screen bg-brand-canvas font-sans text-brand-purple">
