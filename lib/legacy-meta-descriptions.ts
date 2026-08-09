@@ -44,13 +44,13 @@ export const legacyMetaDescriptions = {
   reviews:
     "Hundreds of 5-star Google reviews for Auckland home, piano and commercial moves. See what our customers say.",
   services:
-    "House, commercial, international and piano moves from our Auckland and Hamilton bases. Packing and storage too.",
+    "House, commercial, international and piano moves from our Auckland and Hamilton bases. Packing and storage. Free quote.",
   policies:
     "Specialist Movers privacy policy. How we protect your personal information under NZ privacy standards. Read our policy here.",
   storage:
-    "Moving storage in Auckland - short-term, long-term, overnight, in transit and piano storage. Secure holding.",
+    "Moving storage in Auckland - short-term, long-term, overnight, in transit and piano. Secure holding. Free quote.",
   "house-moving-hamilton":
-    "Hamilton home moving for flats, family homes and lifestyle blocks. Packing, piano and storage. Waikato base.",
+    "Hamilton home moving for flats, family homes and lifestyle blocks. Packing, piano and storage. Free quote.",
   "location-hamilton":
     "Hamilton movers for house, office and piano relocations. Waikato base covering Hamilton and surrounds. Free quote.",
 } as const;
