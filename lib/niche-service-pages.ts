@@ -170,15 +170,15 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
       text: "Cherished belongings handled with care from start to finish.",
     },
   ],
-  whyTitle: "Why families trust Specialist Movers",
+  whyTitle: "Why Auckland families trust Specialist Movers",
   whyBody:
-    "Personalised service, skilled movers, and one point of contact. We adapt to health needs, access limits, and facility rules so you can focus on settling in.",
+    "One point of contact from the first phone call to the last box. Auckland villages each run their own way: booked lift windows in the apartment-style complexes, gatehouse sign-in, contractor inductions, and a delivery bay you have to share. We confirm all of it with the village before move day so nobody is standing in a corridor waiting on a key.",
   includedBullets: [
-    "Retirement village, rest-home, and downsizing moves",
-    "Full pack and move service available",
-    "Furniture placement in your new room or unit",
-    "Local and longer-distance options",
-    "In-home assessment for accurate fixed pricing",
+    "Retirement village, rest-home, and downsizing moves across Auckland",
+    "Full pack and move service, with packers in the day before",
+    "Furniture placement in the new unit, beds made up and reassembled",
+    "Short-term storage for whatever will not fit the new floor plan",
+    "In-home assessment so the quote matches the real job",
   ],
   relatedLinks: [
     { label: "Moving house", href: aucklandServiceHref("house-moving") },
@@ -209,8 +209,12 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
       a: "Two to three weeks ahead helps secure your preferred date, especially around month-end. We can often help sooner for smaller loads.",
     },
     {
-      q: "What areas do you cover for retirement home moves?",
-      a: "Auckland suburbs and Hamilton/Waikato daily. Regional routes to family elsewhere in the North Island are quoted upfront.",
+      q: "What areas of Auckland do you cover?",
+      a: "Every village and rest home in the Auckland region, run out of our North Shore depot. The callout fee rises with distance, so a Takapuna move and a Pukekohe one are not priced the same, and we tell you which zone you are in before you commit. Downsizing out of Auckland entirely to be nearer family is common, and our Hamilton branch covers the Waikato end of that from its own depot.",
+    },
+    {
+      q: "What happens to the furniture that will not fit the new unit?",
+      a: "This is the hardest part of downsizing and it is worth deciding before move day, not on the driveway. We can drop items to family members on the same run, or put them into short-term storage while everyone decides. Tell us at the quote stage so the truck and the route are planned around it.",
     },
   ],
   processTitle: houseMovingProcess.title,
@@ -222,6 +226,25 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
   serviceLabel: "Retirement Home Move",
 };
 
+/**
+ * Hamilton retirement moving.
+ *
+ * This page used to spread the Auckland config and override six fields, which
+ * left both URLs shipping the same FAQs, the same bullets, the same why-copy
+ * and the same related links , and those links pointed at Auckland service
+ * pages from a Hamilton page. Two near-identical pages compete with each other
+ * rather than adding reach, and the FaqPageJsonLd block was byte-identical on
+ * both.
+ *
+ * Everything a reader actually reads is now written for the Waikato. It still
+ * spreads the Auckland config for the structural fields (job type, process,
+ * form label) so a new field cannot be silently forgotten here , but if you
+ * add prose to the Auckland page, write the Hamilton version too rather than
+ * letting it inherit.
+ *
+ * Town names below are the real Zone B and Zone C lists from
+ * hamilton-pricing-data.ts, not an invented service area.
+ */
 export const retirementHomeMoversHamiltonPage: NicheServicePageConfig = {
   ...retirementHomeMoversPage,
   path: "/retirement-home-movers-hamilton",
@@ -231,16 +254,74 @@ export const retirementHomeMoversHamiltonPage: NicheServicePageConfig = {
   eyebrow: "Hamilton and Waikato retirement village moves",
   h1: "Retirement home movers Hamilton",
   lead:
-    "Moving to a retirement home or village in Hamilton or the Waikato is a big change. Our Hamilton base team plans every step with patience and care, including full pack-and-move options and in-home visits.",
+    "Moving into a village or rest home in Hamilton or the wider Waikato is a big change, and it is rarely just a move. Our Hamilton crews work to the village's timetable, not ours, so the day stays calm for everyone involved.",
+  subline: "Waikato crews. In-home visits. Callback within 15 minutes.",
+  heroPhoto: sitePhotos.houseMove,
+  heroPhotoAlt:
+    "Specialist Movers crew carrying wrapped furniture on a Hamilton retirement village move",
+  aboutSidePhoto: sitePhotos.packing,
+  aboutSidePhotoAlt:
+    "Specialist Movers packer wrapping china and glassware for a Waikato downsizing move",
+  heroOverlayCaption: "Their timetable. Our problem.",
+  aboutTitle: "A Waikato crew, not a truck sent down from Auckland",
   aboutBody:
-    "We work with clients, families, and facility coordinators across Hamilton, Cambridge, and nearby towns. Our relocation consultants reduce stress with clear timelines, careful packing, and respectful crews.",
+    "We are based in Hamilton, so a village move here is a local job rather than a two-hour drive before the first box is lifted. Our crews work across Hamilton and out through Cambridge, Te Awamutu, Morrinsville, Ngaruawahia, Huntly, and Raglan, with Matamata, Otorohanga, Te Kuiti, and Putaruru on the wider zone. We deal with clients, adult children, and village coordinators, often all three on the same move, and we keep one person across the whole thing so nobody has to repeat the story.",
   trustHighlights: [
     {
       title: "Waikato based",
-      text: "Hamilton depot with crews who know local villages and rest homes.",
+      text: "Hamilton depot with crews who know the local villages and rest homes.",
     },
-    retirementHomeMoversPage.trustHighlights[1],
-    retirementHomeMoversPage.trustHighlights[2],
+    {
+      title: "Built around the village",
+      text: "Move-in windows, gate access, and contractor sign-in confirmed before the day.",
+    },
+    {
+      title: "Downsizing, handled",
+      text: "What fits goes in. The rest goes to family or into storage, decided beforehand.",
+    },
+  ],
+  whyTitle: "Moving a parent into a Waikato village",
+  whyBody:
+    "Most of these moves are not from across town. They are a parent coming down from Auckland to be near family in Cambridge, or leaving a lifestyle block outside Morrinsville for a unit in Hamilton. We run both an Auckland and a Hamilton branch, so a move between the two is one company and one quote rather than a handover between strangers. Families organising it from another city are the norm here, not the exception.",
+  includedBullets: [
+    "Village, rest-home, and downsizing moves across Hamilton and the Waikato",
+    "Auckland to Waikato moves handled end to end by our own crews",
+    "Full pack and move, including the kitchen and the china cabinet",
+    "Unpacking and furniture placement so the first night is liveable",
+    "Storage in Hamilton for anything that will not fit the new unit",
+  ],
+  relatedLinks: [
+    { label: "Moving house Hamilton", href: "/services/house-moving-hamilton" },
+    { label: "Packing services Hamilton", href: "/services/packing-services-hamilton" },
+    { label: "Storage Hamilton", href: "/services/storage-hamilton" },
+    { label: "Furniture movers Hamilton", href: "/furniture-movers-hamilton" },
+  ],
+  faqHeading: "Waikato retirement moving questions",
+  faqs: [
+    {
+      q: "Which Waikato towns do you cover?",
+      a: "Hamilton is our base. Cambridge, Te Awamutu, Huntly, Morrinsville, Ngaruawahia, and Raglan are standard callout areas, and Matamata, Otorohanga, Te Kuiti, and Putaruru sit on the wider zone. The callout fee changes with distance and we tell you which zone you are in when we quote.",
+    },
+    {
+      q: "Can you move someone from Auckland into a Waikato village?",
+      a: "Yes, and it is one of the most common moves we do. We run branches in both Auckland and Hamilton, so it is handled by our own crews on both ends rather than passed to a partner. One quote, one point of contact, and no second company to chase.",
+    },
+    {
+      q: "Our village gave us a move-in window. Can you work to it?",
+      a: "That is the normal way these moves run. Villages usually set a date and a time slot, and often a contractor sign-in and a single loading bay shared with everyone else moving that week. Send us what the village has given you and we build the day around it.",
+    },
+    {
+      q: "The unit is much smaller than the house. What happens to the rest?",
+      a: "Decide it before move day rather than on the driveway. We can drop items to family in the Waikato on the same run, and we have storage in Hamilton for the things nobody is ready to part with yet. Tell us at the quote stage so the truck and the route allow for it.",
+    },
+    {
+      q: "We live overseas or in another city. Can we organise it remotely?",
+      a: "Yes. A lot of Waikato village moves are arranged by adult children who are not in the country. We can do the in-home assessment with your parent present, send the quote to you, and keep you both updated. One person stays across the move from start to finish.",
+    },
+    {
+      q: "How much notice do you need?",
+      a: "Two to three weeks secures your preferred date, and month-end fills first. Village move-in dates are often set well ahead, so book as soon as you have the date. Smaller loads we can often help with sooner.",
+    },
   ],
   breadcrumbs: [
     { label: "Home", href: "/" },
