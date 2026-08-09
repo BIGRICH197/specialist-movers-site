@@ -8,7 +8,7 @@ import { seoAbsoluteTitles } from "@/lib/seo-meta-titles";
 export const metadata: Metadata = buildPageMetadata({
   title: { absolute: seoAbsoluteTitles.pianoHamilton },
   description:
-    "Hamilton piano moving for upright and grand pianos. Waikato base, Auckland routes, storage and international crating. Free quote within 15 minutes.",
+    "Hamilton piano moving for uprights and grands. Waikato base, storage and international crating. Free quote.",
   path: "/piano-movers/hamilton",
 });
 
