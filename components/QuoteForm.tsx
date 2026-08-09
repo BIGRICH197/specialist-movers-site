@@ -130,7 +130,9 @@ export function QuoteForm({
   initialMode,
 }: QuoteFormProps) {
   const formUid = useId().replace(/:/g, "");
-  const addressId = (suffix: string) => `${formUid}-${suffix}`;
+  // Scopes every control id to this form instance so multiple QuoteForms on one
+  // page (e.g. inline hero form + "in a rush?" callback) never collide.
+  const fieldId = (suffix: string) => `${formUid}-${suffix}`;
   const startMode = initialMode ?? defaultModeFromJob(defaultJobType, defaultJobTypes);
   const [f, setF] = useState<FormState>({ ...initial, mode: startMode });
   const [step, setStep] = useState(
@@ -353,12 +355,20 @@ export function QuoteForm({
         ) : (
           <div className="space-y-3">
             <input
+              id={fieldId("callback-name")}
+              name="name"
+              aria-label="Your name"
+              autoComplete="name"
               placeholder="Your name"
               value={f.name}
               onChange={(e) => set("name", e.target.value)}
               className={field}
             />
             <input
+              id={fieldId("callback-phone")}
+              name="phone"
+              aria-label="Phone number"
+              autoComplete="tel"
               placeholder="Phone number"
               type="tel"
               inputMode="tel"
@@ -471,12 +481,20 @@ export function QuoteForm({
           ) : (
             <div className="space-y-3">
               <input
+                id={fieldId("rush-callback-name")}
+                name="name"
+                aria-label="Your name"
+                autoComplete="name"
                 placeholder="Your name"
                 value={f.name}
                 onChange={(e) => set("name", e.target.value)}
                 className={field}
               />
               <input
+                id={fieldId("rush-callback-phone")}
+                name="phone"
+                aria-label="Phone number"
+                autoComplete="tel"
                 placeholder="Phone number"
                 type="tel"
                 inputMode="tel"
@@ -533,8 +551,13 @@ export function QuoteForm({
 
         <div className="space-y-4">
           <div className="space-y-1.5">
-            <label className={label}>Name *</label>
+            <label htmlFor={fieldId("commercial-name")} className={label}>
+              Name *
+            </label>
             <input
+              id={fieldId("commercial-name")}
+              name="name"
+              autoComplete="name"
               placeholder="Your name"
               value={f.name}
               onChange={(e) => set("name", e.target.value)}
@@ -542,8 +565,13 @@ export function QuoteForm({
             />
           </div>
           <div className="space-y-1.5">
-            <label className={label}>Phone number *</label>
+            <label htmlFor={fieldId("commercial-phone")} className={label}>
+              Phone number *
+            </label>
             <input
+              id={fieldId("commercial-phone")}
+              name="phone"
+              autoComplete="tel"
               type="tel"
               inputMode="tel"
               placeholder="021..."
@@ -553,8 +581,13 @@ export function QuoteForm({
             />
           </div>
           <div className="space-y-1.5">
-            <label className={label}>Email *</label>
+            <label htmlFor={fieldId("commercial-email")} className={label}>
+              Email *
+            </label>
             <input
+              id={fieldId("commercial-email")}
+              name="email"
+              autoComplete="email"
               type="email"
               placeholder="you@company.com"
               value={f.email}
@@ -563,8 +596,12 @@ export function QuoteForm({
             />
           </div>
           <div className="space-y-1.5">
-            <label className={label}>Job description *</label>
+            <label htmlFor={fieldId("commercial-message")} className={label}>
+              Job description *
+            </label>
             <textarea
+              id={fieldId("commercial-message")}
+              name="message"
               rows={5}
               placeholder="What are you moving? Sites, dates, access, anything we should know."
               value={f.message}
@@ -635,8 +672,12 @@ export function QuoteForm({
           {f.mode === "office" && (
             <>
               <div className="relative z-30 space-y-1.5">
-                <label className={label}>Office size</label>
+                <label htmlFor={fieldId("office-size")} className={label}>
+                  Office size
+                </label>
                 <select
+                  id={fieldId("office-size")}
+                  name="officeSize"
                   value={f.officeSize}
                   onChange={(e) => set("officeSize", e.target.value)}
                   className={selectField}
@@ -649,11 +690,11 @@ export function QuoteForm({
               </div>
 
               <div className="space-y-1.5">
-                <label htmlFor="office-pickup" className={label}>
+                <label htmlFor={fieldId("office-pickup")} className={label}>
                   Current office address
                 </label>
                 <AddressAutocomplete
-                  id={addressId("office-pickup")}
+                  id={fieldId("office-pickup")}
                   value={f.pickupAddress}
                   onChange={updatePickupAddress}
                   onPlaceSelect={setPickupParsed}
@@ -665,8 +706,14 @@ export function QuoteForm({
                 />
               </div>
               <div className="space-y-1.5">
-                <label className={label}>Access at current site</label>
-                <div className="flex gap-2">
+                <span id={fieldId("office-pickup-access")} className={label}>
+                  Access at current site
+                </span>
+                <div
+                  role="group"
+                  aria-labelledby={fieldId("office-pickup-access")}
+                  className="flex gap-2"
+                >
                   <ToggleBtn
                     active={f.pickupAccess === "easy"}
                     onClick={() => set("pickupAccess", "easy")}
@@ -683,11 +730,11 @@ export function QuoteForm({
               </div>
 
               <div className="space-y-1.5">
-                <label htmlFor="office-dropoff" className={label}>
+                <label htmlFor={fieldId("office-dropoff")} className={label}>
                   New office address
                 </label>
                 <AddressAutocomplete
-                  id={addressId("office-dropoff")}
+                  id={fieldId("office-dropoff")}
                   value={f.dropoffAddress}
                   onChange={updateDropoffAddress}
                   onPlaceSelect={setDropoffParsed}
@@ -700,8 +747,14 @@ export function QuoteForm({
               </div>
               <RouteBranchHint {...routeHintProps} instantQuote={false} />
               <div className="space-y-1.5">
-                <label className={label}>Access at new site</label>
-                <div className="flex gap-2">
+                <span id={fieldId("office-dropoff-access")} className={label}>
+                  Access at new site
+                </span>
+                <div
+                  role="group"
+                  aria-labelledby={fieldId("office-dropoff-access")}
+                  className="flex gap-2"
+                >
                   <ToggleBtn
                     active={f.dropoffAccess === "easy"}
                     onClick={() => set("dropoffAccess", "easy")}
@@ -718,8 +771,12 @@ export function QuoteForm({
               </div>
 
               <div className="min-w-0 max-w-full space-y-1.5">
-                <label className={label}>Preferred move date</label>
+                <label htmlFor={fieldId("office-date")} className={label}>
+                  Preferred move date
+                </label>
                 <input
+                  id={fieldId("office-date")}
+                  name="preferredDate"
                   type="date"
                   value={f.preferredDate}
                   onChange={(e) => set("preferredDate", e.target.value)}
@@ -728,8 +785,12 @@ export function QuoteForm({
               </div>
 
               <div className="space-y-1.5">
-                <label className={label}>What are we moving? (optional)</label>
+                <label htmlFor={fieldId("office-message")} className={label}>
+                  What are we moving? (optional)
+                </label>
                 <textarea
+                  id={fieldId("office-message")}
+                  name="message"
                   rows={2}
                   placeholder="Desks, IT, meeting room, filing, after-hours, etc."
                   value={f.message}
@@ -743,8 +804,12 @@ export function QuoteForm({
           {f.mode === "house" && (
             <>
               <div className="space-y-1.5">
-                <label className={label}>Bedrooms</label>
+                <label htmlFor={fieldId("bedrooms")} className={label}>
+                  Bedrooms
+                </label>
                 <select
+                  id={fieldId("bedrooms")}
+                  name="bedrooms"
                   value={f.bedrooms}
                   onChange={(e) => set("bedrooms", Number(e.target.value))}
                   className={selectField}
@@ -769,11 +834,11 @@ export function QuoteForm({
               </div>
 
               <div className="space-y-1.5">
-                <label htmlFor="house-pickup" className={label}>
+                <label htmlFor={fieldId("house-pickup")} className={label}>
                   Pickup address
                 </label>
                 <AddressAutocomplete
-                  id={addressId("house-pickup")}
+                  id={fieldId("house-pickup")}
                   value={f.pickupAddress}
                   onChange={updatePickupAddress}
                   onPlaceSelect={setPickupParsed}
@@ -784,8 +849,14 @@ export function QuoteForm({
                 />
               </div>
               <div className="space-y-1.5">
-                <label className={label}>Pickup access</label>
-                <div className="flex gap-2">
+                <span id={fieldId("house-pickup-access")} className={label}>
+                  Pickup access
+                </span>
+                <div
+                  role="group"
+                  aria-labelledby={fieldId("house-pickup-access")}
+                  className="flex gap-2"
+                >
                   <ToggleBtn
                     active={f.pickupAccess === "easy"}
                     onClick={() => set("pickupAccess", "easy")}
@@ -802,11 +873,11 @@ export function QuoteForm({
               </div>
 
               <div className="space-y-1.5">
-                <label htmlFor="house-dropoff" className={label}>
+                <label htmlFor={fieldId("house-dropoff")} className={label}>
                   Drop-off address
                 </label>
                 <AddressAutocomplete
-                  id={addressId("house-dropoff")}
+                  id={fieldId("house-dropoff")}
                   value={f.dropoffAddress}
                   onChange={updateDropoffAddress}
                   onPlaceSelect={setDropoffParsed}
@@ -818,8 +889,14 @@ export function QuoteForm({
               </div>
               <RouteBranchHint {...routeHintProps} />
               <div className="space-y-1.5">
-                <label className={label}>Drop-off access</label>
-                <div className="flex gap-2">
+                <span id={fieldId("house-dropoff-access")} className={label}>
+                  Drop-off access
+                </span>
+                <div
+                  role="group"
+                  aria-labelledby={fieldId("house-dropoff-access")}
+                  className="flex gap-2"
+                >
                   <ToggleBtn
                     active={f.dropoffAccess === "easy"}
                     onClick={() => set("dropoffAccess", "easy")}
@@ -836,8 +913,12 @@ export function QuoteForm({
               </div>
 
               <div className="min-w-0 max-w-full space-y-1.5">
-                <label className={label}>Preferred move date</label>
+                <label htmlFor={fieldId("house-date")} className={label}>
+                  Preferred move date
+                </label>
                 <input
+                  id={fieldId("house-date")}
+                  name="preferredDate"
                   type="date"
                   value={f.preferredDate}
                   onChange={(e) => set("preferredDate", e.target.value)}
@@ -850,8 +931,14 @@ export function QuoteForm({
           {f.mode === "piano" && (
             <>
               <div className="space-y-1.5">
-                <label className={label}>Piano type</label>
-                <div className="flex gap-2">
+                <span id={fieldId("piano-type")} className={label}>
+                  Piano type
+                </span>
+                <div
+                  role="group"
+                  aria-labelledby={fieldId("piano-type")}
+                  className="flex gap-2"
+                >
                   <ToggleBtn
                     active={f.pianoType === "upright"}
                     onClick={() => set("pianoType", "upright")}
@@ -868,11 +955,11 @@ export function QuoteForm({
               </div>
 
               <div className="space-y-1.5">
-                <label htmlFor="piano-pickup" className={label}>
+                <label htmlFor={fieldId("piano-pickup")} className={label}>
                   Pickup address
                 </label>
                 <AddressAutocomplete
-                  id={addressId("piano-pickup")}
+                  id={fieldId("piano-pickup")}
                   value={f.pickupAddress}
                   onChange={updatePickupAddress}
                   onPlaceSelect={setPickupParsed}
@@ -883,8 +970,12 @@ export function QuoteForm({
                 />
               </div>
               <div className="space-y-1.5">
-                <label className={label}>Stairs at pickup</label>
+                <label htmlFor={fieldId("piano-pickup-stairs")} className={label}>
+                  Stairs at pickup
+                </label>
                 <select
+                  id={fieldId("piano-pickup-stairs")}
+                  name="pickupStairs"
                   value={f.pickupStairs}
                   onChange={(e) => set("pickupStairs", Number(e.target.value))}
                   className={selectField}
@@ -897,11 +988,11 @@ export function QuoteForm({
               </div>
 
               <div className="space-y-1.5">
-                <label htmlFor="piano-dropoff" className={label}>
+                <label htmlFor={fieldId("piano-dropoff")} className={label}>
                   Drop-off address
                 </label>
                 <AddressAutocomplete
-                  id={addressId("piano-dropoff")}
+                  id={fieldId("piano-dropoff")}
                   value={f.dropoffAddress}
                   onChange={updateDropoffAddress}
                   onPlaceSelect={setDropoffParsed}
@@ -913,8 +1004,12 @@ export function QuoteForm({
               </div>
               <RouteBranchHint {...routeHintProps} />
               <div className="space-y-1.5">
-                <label className={label}>Stairs at drop-off</label>
+                <label htmlFor={fieldId("piano-dropoff-stairs")} className={label}>
+                  Stairs at drop-off
+                </label>
                 <select
+                  id={fieldId("piano-dropoff-stairs")}
+                  name="dropoffStairs"
                   value={f.dropoffStairs}
                   onChange={(e) => set("dropoffStairs", Number(e.target.value))}
                   className={selectField}
@@ -975,8 +1070,13 @@ export function QuoteForm({
 
         <div className="space-y-4">
           <div className="space-y-1.5">
-            <label className={label}>Full name *</label>
+            <label htmlFor={fieldId("quote-name")} className={label}>
+              Full name *
+            </label>
             <input
+              id={fieldId("quote-name")}
+              name="name"
+              autoComplete="name"
               placeholder="Your name"
               value={f.name}
               onChange={(e) => set("name", e.target.value)}
@@ -984,8 +1084,13 @@ export function QuoteForm({
             />
           </div>
           <div className="space-y-1.5">
-            <label className={label}>Phone number *</label>
+            <label htmlFor={fieldId("quote-phone")} className={label}>
+              Phone number *
+            </label>
             <input
+              id={fieldId("quote-phone")}
+              name="phone"
+              autoComplete="tel"
               type="tel"
               inputMode="tel"
               placeholder="021..."
@@ -995,8 +1100,13 @@ export function QuoteForm({
             />
           </div>
           <div className="space-y-1.5">
-            <label className={label}>Email (optional)</label>
+            <label htmlFor={fieldId("quote-email")} className={label}>
+              Email (optional)
+            </label>
             <input
+              id={fieldId("quote-email")}
+              name="email"
+              autoComplete="email"
               type="email"
               placeholder="you@example.com"
               value={f.email}
@@ -1006,8 +1116,12 @@ export function QuoteForm({
           </div>
 
           <div className="space-y-1.5">
-            <label className={label}>Message (optional)</label>
+            <label htmlFor={fieldId("quote-message")} className={label}>
+              Message (optional)
+            </label>
             <textarea
+              id={fieldId("quote-message")}
+              name="message"
               rows={3}
               placeholder="Any notes that help us quote accurately (oversized items, stairs, tight access, timing, etc.)"
               value={f.message}
