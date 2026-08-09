@@ -77,7 +77,9 @@ const cleaningTypeLabels: Record<string, string> = {
 };
 
 export function CleaningBookingForm({ className = "" }: { className?: string }) {
-  const addressFieldId = `${useId().replace(/:/g, "")}-cleaning-address`;
+  const uid = useId().replace(/:/g, "");
+  const fieldId = (suffix: string) => `${uid}-${suffix}`;
+  const addressFieldId = fieldId("cleaning-address");
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<FormState>(initial);
   const [pricing, setPricing] = useState<PricingResult | null>(null);
@@ -256,8 +258,10 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
 
         <div className="space-y-4">
           <div className="space-y-1.5">
-            <label className={label}>Full name *</label>
-            <input
+            <label htmlFor={fieldId("clean-name")} className={label}>
+              Full name *
+            </label>
+            <input id={fieldId("clean-name")}
               value={form.name}
               onChange={(e) => set("name", e.target.value)}
               className={field}
@@ -266,8 +270,10 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
             />
           </div>
           <div className="space-y-1.5">
-            <label className={label}>Phone number *</label>
-            <input
+            <label htmlFor={fieldId("clean-phone")} className={label}>
+              Phone number *
+            </label>
+            <input id={fieldId("clean-phone")}
               type="tel"
               value={form.phone}
               onChange={(e) => set("phone", e.target.value)}
@@ -277,8 +283,10 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
             />
           </div>
           <div className="space-y-1.5">
-            <label className={label}>Email (optional)</label>
-            <input
+            <label htmlFor={fieldId("clean-email")} className={label}>
+              Email (optional)
+            </label>
+            <input id={fieldId("clean-email")}
               type="email"
               value={form.email}
               onChange={(e) => set("email", e.target.value)}
@@ -329,8 +337,10 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
 
         <div className="space-y-4">
           <div className="space-y-1.5">
-            <label className={label}>Type of clean</label>
-            <select
+            <label htmlFor={fieldId("clean-type")} className={label}>
+              Type of clean
+            </label>
+            <select id={fieldId("clean-type")}
               value={form.cleaningType}
               onChange={(e) => set("cleaningType", e.target.value)}
               className={selectField}
@@ -356,8 +366,10 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
             />
           </div>
           <div className="min-w-0 max-w-full space-y-1.5">
-            <label className={label}>Preferred clean date</label>
-            <input
+            <label htmlFor={fieldId("clean-date")} className={label}>
+              Preferred clean date
+            </label>
+            <input id={fieldId("clean-date")}
               type="date"
               value={form.preferredDate}
               onChange={(e) => set("preferredDate", e.target.value)}
@@ -365,8 +377,10 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
             />
           </div>
           <div className="space-y-1.5">
-            <label className={label}>Notes (optional)</label>
-            <textarea
+            <label htmlFor={fieldId("clean-notes")} className={label}>
+              Notes (optional)
+            </label>
+            <textarea id={fieldId("clean-notes")}
               rows={3}
               value={form.message}
               onChange={(e) => set("message", e.target.value)}
@@ -403,8 +417,10 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
       <div className="space-y-4">
         <div className="grid grid-cols-2 gap-3">
           <div className="space-y-1.5">
-            <label className={label}>Bedrooms</label>
-            <select
+            <label htmlFor={fieldId("clean-bedrooms")} className={label}>
+              Bedrooms
+            </label>
+            <select id={fieldId("clean-bedrooms")}
               value={form.bedrooms}
               onChange={(e) => onBedroomsChange(Number(e.target.value))}
               className={selectField}
@@ -417,8 +433,10 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
             </select>
           </div>
           <div className="space-y-1.5">
-            <label className={label}>Bathrooms</label>
-            <select
+            <label htmlFor={fieldId("clean-bathrooms")} className={label}>
+              Bathrooms
+            </label>
+            <select id={fieldId("clean-bathrooms")}
               value={form.bathrooms}
               onChange={(e) => set("bathrooms", Number(e.target.value))}
               className={selectField}
@@ -433,8 +451,10 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
         </div>
 
         <div className="space-y-1.5">
-          <label className={label}>Living rooms</label>
-          <select
+          <label htmlFor={fieldId("clean-living")} className={label}>
+            Living rooms
+          </label>
+          <select id={fieldId("clean-living")}
             value={form.extraLivingRooms}
             onChange={(e) => set("extraLivingRooms", Number(e.target.value))}
             className={selectField}

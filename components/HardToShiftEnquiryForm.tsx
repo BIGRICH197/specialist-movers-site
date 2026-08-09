@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { getAttribution } from "@/lib/attribution";
 import { regions } from "@/lib/regions";
@@ -21,6 +21,12 @@ const primaryBtn =
  * what needs moving. Same card chrome as QuoteForm.
  */
 export function HardToShiftEnquiryForm({ className = "" }: Props) {
+  // This form renders from ServicePageTemplate, ServiceLandingSections and
+  // HamiltonServicePage, so a page can mount it more than once. Static ids
+  // produced duplicate #hts-* ids and broke every label association after the
+  // first instance.
+  const uid = useId().replace(/:/g, "");
+  const fieldId = (suffix: string) => `${uid}-${suffix}`;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pickupAddress, setPickupAddress] = useState("");
@@ -99,11 +105,13 @@ export function HardToShiftEnquiryForm({ className = "" }: Props) {
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-1.5">
-            <label className={label} htmlFor="hts-name">
+            <label className={label} htmlFor={fieldId("hts-name")}>
               Full name *
             </label>
             <input
-              id="hts-name"
+              id={fieldId("hts-name")}
+              name="name"
+              autoComplete="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -112,11 +120,13 @@ export function HardToShiftEnquiryForm({ className = "" }: Props) {
             />
           </div>
           <div className="space-y-1.5">
-            <label className={label} htmlFor="hts-email">
+            <label className={label} htmlFor={fieldId("hts-email")}>
               Email *
             </label>
             <input
-              id="hts-email"
+              id={fieldId("hts-email")}
+              name="email"
+              autoComplete="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -126,11 +136,11 @@ export function HardToShiftEnquiryForm({ className = "" }: Props) {
             />
           </div>
           <div className="space-y-1.5 sm:col-span-2">
-            <label className={label} htmlFor="hts-from">
+            <label className={label} htmlFor={fieldId("hts-from")}>
               From (pickup) *
             </label>
             <input
-              id="hts-from"
+              id={fieldId("hts-from")}
               value={pickupAddress}
               onChange={(e) => setPickupAddress(e.target.value)}
               required
@@ -139,11 +149,11 @@ export function HardToShiftEnquiryForm({ className = "" }: Props) {
             />
           </div>
           <div className="space-y-1.5 sm:col-span-2">
-            <label className={label} htmlFor="hts-to">
+            <label className={label} htmlFor={fieldId("hts-to")}>
               To (drop-off) *
             </label>
             <input
-              id="hts-to"
+              id={fieldId("hts-to")}
               value={dropoffAddress}
               onChange={(e) => setDropoffAddress(e.target.value)}
               required
@@ -152,11 +162,11 @@ export function HardToShiftEnquiryForm({ className = "" }: Props) {
             />
           </div>
           <div className="space-y-1.5 sm:col-span-2">
-            <label className={label} htmlFor="hts-message">
+            <label className={label} htmlFor={fieldId("hts-message")}>
               What are we shifting? *
             </label>
             <textarea
-              id="hts-message"
+              id={fieldId("hts-message")}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               required

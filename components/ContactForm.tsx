@@ -64,6 +64,7 @@ export function ContactForm() {
           </label>
           <input
             id="cf-name"
+            autoComplete="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
@@ -77,6 +78,7 @@ export function ContactForm() {
           </label>
           <input
             id="cf-email"
+            autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -91,6 +93,7 @@ export function ContactForm() {
           </label>
           <input
             id="cf-phone"
+            autoComplete="tel"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             required
