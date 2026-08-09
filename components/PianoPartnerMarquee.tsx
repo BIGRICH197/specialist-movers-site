@@ -35,7 +35,7 @@ function LogoMarqueeRow({ duplicate }: { duplicate?: boolean }) {
                 width={partner.width}
                 height={partner.height}
                 className="h-9 w-auto max-w-[8.5rem] object-contain object-center sm:h-11 sm:max-w-[10rem]"
-                unoptimized
+                sizes={PARTNER_SIZES}
               />
             </a>
           ) : (
@@ -45,7 +45,7 @@ function LogoMarqueeRow({ duplicate }: { duplicate?: boolean }) {
               width={partner.width}
               height={partner.height}
               className="ml-3 h-9 w-auto max-w-[8.5rem] object-contain object-center sm:h-11 sm:max-w-[10rem]"
-              unoptimized
+              sizes={PARTNER_SIZES}
             />
           )}
         </li>
@@ -57,6 +57,16 @@ function LogoMarqueeRow({ duplicate }: { duplicate?: boolean }) {
 /**
  * Retailer logos in the same moving bar style as homepage MovingBanners.
  */
+/**
+ * Widest the logo box ever gets: max-w-[10rem] at the sm: breakpoint.
+ *
+ * These are photographic-weight PNGs (25 KB to 145 KB each, 568 KB across the
+ * eight of them) rendering into a 36-44px tall box. They were marked
+ * `unoptimized`, so every visitor downloaded the full-resolution originals to
+ * show them at thumbnail size.
+ */
+const PARTNER_SIZES = "160px";
+
 export function PianoPartnerMarquee({
   variant = "default",
 }: {

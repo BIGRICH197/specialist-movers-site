@@ -83,6 +83,7 @@ export function NicheServicePage({ config }: Props) {
         name={config.h1}
         description={config.lead}
         path={config.path}
+        areaServed={config.areaServed}
       />
       <FaqPageJsonLd items={config.faqs} />
       <BreadcrumbJsonLd items={crumbs} />

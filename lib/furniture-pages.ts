@@ -1,4 +1,5 @@
 import { aucklandServiceHref } from "@/lib/legacy-auckland-urls";
+import { AUCKLAND_ONLY, WAIKATO_ONLY } from "@/lib/service-areas";
 import type { NicheServicePageConfig } from "@/lib/niche-service-pages";
 import { sitePhotos } from "@/lib/site-photos";
 
@@ -22,9 +23,10 @@ import { sitePhotos } from "@/lib/site-photos";
  */
 export const furnitureMoversAucklandPage: NicheServicePageConfig = {
   path: "/furniture-movers-auckland",
+  areaServed: AUCKLAND_ONLY,
   metaTitle: "Furniture Movers Auckland | Specialist Movers",
   metaDescription:
-    "Furniture movers in Auckland for a single item or a full house. Real hourly rates, trained crews, and the people Steinway dealers trust with a grand piano.",
+    "Furniture movers in Auckland for one item or a full house. Real hourly rates, and crews Steinway dealers trust. Free quote.",
   eyebrow: "Auckland furniture moving specialists",
   h1: "Furniture movers Auckland",
   lead:
@@ -101,7 +103,7 @@ export const furnitureMoversAucklandPage: NicheServicePageConfig = {
       a: "It happens more often than you would think, usually with sofas and wardrobes in older Auckland villas. We check the carry path at both addresses before move day, and when nothing fits we hoist over a balcony or through a window. We have done that with a grand piano, so a couch is manageable.",
     },
     {
-      q: "How much notice do you need?",
+      q: "How much notice do you need in Auckland?",
       a: "Two weeks is ideal for weekends and month-end. Single items and smaller jobs we can often fit sooner, so call (021) 228 2728 and we will check the next available crew.",
     },
     {
@@ -200,9 +202,10 @@ export const furnitureMoversAucklandPage: NicheServicePageConfig = {
  */
 export const furnitureMoversHamiltonPage: NicheServicePageConfig = {
   path: "/furniture-movers-hamilton",
+  areaServed: WAIKATO_ONLY,
   metaTitle: "Furniture Movers Hamilton | Specialist Movers",
   metaDescription:
-    "Furniture movers in Hamilton and the Waikato for a single item or a full house. Real hourly rates, trained crews, and careful handling on the awkward pieces.",
+    "Furniture movers in Hamilton and the Waikato, one item or a full house. Real hourly rates, careful crews. Free quote.",
   eyebrow: "Hamilton furniture moving specialists",
   h1: "Furniture movers Hamilton",
   lead:
@@ -256,7 +259,7 @@ export const furnitureMoversHamiltonPage: NicheServicePageConfig = {
       a: "A two-person crew and truck is $140 per hour plus GST on a Tuesday and $150 on any other day, plus a callout fee from $60 depending on distance from our Hamilton base. A single heavy item is usually one to two hours; a three-bedroom house is normally a full day.",
     },
     {
-      q: "Will you move just one item?",
+      q: "Will you move just one item in the Waikato?",
       a: "Yes. Single-item jobs are a regular part of our week in Hamilton, from a couch up a staircase to a piano across town.",
     },
     {
@@ -264,7 +267,7 @@ export const furnitureMoversHamiltonPage: NicheServicePageConfig = {
       a: "Cambridge, Te Awamutu, Huntly, Ngāruawāhia, Morrinsville, Matamata, Raglan, Tokoroa, and the towns between them. Travel is quoted upfront, not added afterwards.",
     },
     {
-      q: "Do you move heavy or awkward things like spa pools and safes?",
+      q: "Can you move a spa pool or a safe in the Waikato?",
       a: "Yes. Spa pools, safes, pool tables, and marble tops are regular work. Send photos of both ends when you ask for a quote and we will tell you what the job needs.",
     },
     {
@@ -272,7 +275,7 @@ export const furnitureMoversHamiltonPage: NicheServicePageConfig = {
       a: "Yes. That corridor is a weekly route for us and we have depots at both ends, so it is quoted as a normal job rather than a long-distance special.",
     },
     {
-      q: "How much notice do you need?",
+      q: "How much notice do you need in the Waikato?",
       a: "Two weeks is ideal for weekends and month-end. Smaller jobs we can often fit sooner, so call (021) 228 2728 and we will check crew availability.",
     },
   ],

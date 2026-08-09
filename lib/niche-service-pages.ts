@@ -4,6 +4,7 @@ import {
   furnitureMoversHamiltonPage,
 } from "@/lib/furniture-pages";
 import { houseMovingProcess } from "@/lib/moving-process";
+import { AUCKLAND_ONLY, WAIKATO_ONLY, type ServiceArea } from "@/lib/service-areas";
 import { sitePhotos } from "@/lib/site-photos";
 import type { JobType } from "@/lib/site-data";
 
@@ -50,13 +51,21 @@ export type NicheServicePageConfig = {
   breadcrumbs: readonly { label: string; href?: string }[];
   /** HubSpot / form service label */
   serviceLabel: string;
+  /**
+   * Service schema areaServed. Omit and ServiceJsonLd falls back to its
+   * default of Auckland + Hamilton + Waikato, which is right for a page that
+   * genuinely serves all three and wrong for a geo-split pair: two pages whose
+   * visible copy is deliberately Auckland-only and Waikato-only should not
+   * emit identically-scoped Service entities.
+   */
+  areaServed?: ServiceArea[];
 };
 
 export const apartmentMoversPage: NicheServicePageConfig = {
   path: "/apartment-movers-auckland",
   metaTitle: "Apartment Movers Auckland | Specialist Movers",
   metaDescription:
-    "Apartment movers in Auckland covering lifts, loading zones, and access codes. Specialist Movers plans every detail before move day. Free quote.",
+    "Apartment movers Auckland. Lifts, loading zones, and access codes planned before move day. Free quote.",
   eyebrow: "Auckland apartment moving specialists",
   h1: "Apartment movers Auckland",
   lead:
@@ -141,7 +150,7 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
   path: "/retirement-home-movers-auckland",
   metaTitle: "Retirement Home Movers Auckland | Specialist Movers",
   metaDescription:
-    "Retirement home movers Auckland. Patient, careful village and rest-home relocations with full pack-and-move options. Specialist Movers. Free quote.",
+    "Retirement village and rest-home movers in Auckland. Patient crews, full pack-and-move options. Free quote.",
   eyebrow: "Auckland retirement village and rest-home moves",
   h1: "Retirement home movers Auckland",
   lead:
@@ -180,11 +189,14 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
     "Short-term storage for whatever will not fit the new floor plan",
     "In-home assessment so the quote matches the real job",
   ],
+  areaServed: AUCKLAND_ONLY,
   relatedLinks: [
     { label: "Moving house", href: aucklandServiceHref("house-moving") },
     { label: "Packing services", href: aucklandServiceHref("packing-services") },
     { label: "Apartment movers", href: "/apartment-movers-auckland" },
-    { label: "Storage", href: "/services/storage" },
+    // Both pages' FAQ copy discusses the other region's leg of the move, so
+    // the reciprocal link is earned rather than decorative.
+    { label: "Retirement home movers Hamilton", href: "/retirement-home-movers-hamilton" },
   ],
   faqHeading: "Retirement home moving questions",
   faqs: [
@@ -210,18 +222,18 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
     },
     {
       q: "What areas of Auckland do you cover?",
-      a: "Every village and rest home in the Auckland region, run out of our North Shore depot. The callout fee rises with distance, so a Takapuna move and a Pukekohe one are not priced the same, and we tell you which zone you are in before you commit. Downsizing out of Auckland entirely to be nearer family is common, and our Hamilton branch covers the Waikato end of that from its own depot.",
+      a: "Every village and rest home in the Auckland region, run out of our North Shore depot. The callout fee rises with distance, so a Takapuna move and a Pukekohe one are not priced the same. If the move is out to the Waikato, our Hamilton branch covers that end from its own depot.",
     },
     {
       q: "What happens to the furniture that will not fit the new unit?",
-      a: "This is the hardest part of downsizing and it is worth deciding before move day, not on the driveway. We can drop items to family members on the same run, or put them into short-term storage while everyone decides. Tell us at the quote stage so the truck and the route are planned around it.",
+      a: "Worth deciding before move day rather than on the driveway. We can drop items to family on the same run, or put them into short-term storage while everyone decides. Tell us at the quote stage so the truck and the route allow for it.",
     },
   ],
   processTitle: houseMovingProcess.title,
   breadcrumbs: [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
-    { label: "Retirement home movers" },
+    { label: "Retirement home movers Auckland" },
   ],
   serviceLabel: "Retirement Home Move",
 };
@@ -250,8 +262,8 @@ export const retirementHomeMoversHamiltonPage: NicheServicePageConfig = {
   path: "/retirement-home-movers-hamilton",
   metaTitle: "Retirement Home Movers Hamilton | Specialist Movers",
   metaDescription:
-    "Compassionate retirement home movers in Hamilton and the Waikato. Full pack and move, in-home visits, and stress-free transitions. Free quote.",
-  eyebrow: "Hamilton and Waikato retirement village moves",
+    "Retirement village and rest-home movers in Hamilton and the Waikato. Full pack and move, in-home visits. Free quote.",
+  eyebrow: "Hamilton and Waikato retirement village and rest-home moves",
   h1: "Retirement home movers Hamilton",
   lead:
     "Moving into a village or rest home in Hamilton or the wider Waikato is a big change, and it is rarely just a move. Our Hamilton crews work to the village's timetable, not ours, so the day stays calm for everyone involved.",
@@ -290,16 +302,17 @@ export const retirementHomeMoversHamiltonPage: NicheServicePageConfig = {
     "Unpacking and furniture placement so the first night is liveable",
     "Storage in Hamilton for anything that will not fit the new unit",
   ],
+  areaServed: WAIKATO_ONLY,
   relatedLinks: [
     { label: "Moving house Hamilton", href: "/services/house-moving-hamilton" },
     { label: "Packing services Hamilton", href: "/services/packing-services-hamilton" },
     { label: "Storage Hamilton", href: "/services/storage-hamilton" },
-    { label: "Furniture movers Hamilton", href: "/furniture-movers-hamilton" },
+    { label: "Retirement home movers Auckland", href: "/retirement-home-movers-auckland" },
   ],
   faqHeading: "Waikato retirement moving questions",
   faqs: [
     {
-      q: "Which Waikato towns do you cover?",
+      q: "Which Waikato towns do you cover for village and rest-home moves?",
       a: "Hamilton is our base. Cambridge, Te Awamutu, Huntly, Morrinsville, Ngaruawahia, and Raglan are standard callout areas, and Matamata, Otorohanga, Te Kuiti, and Putaruru sit on the wider zone. The callout fee changes with distance and we tell you which zone you are in when we quote.",
     },
     {
@@ -319,7 +332,7 @@ export const retirementHomeMoversHamiltonPage: NicheServicePageConfig = {
       a: "Yes. A lot of Waikato village moves are arranged by adult children who are not in the country. We can do the in-home assessment with your parent present, send the quote to you, and keep you both updated. One person stays across the move from start to finish.",
     },
     {
-      q: "How much notice do you need?",
+      q: "How far ahead should we book a village move?",
       a: "Two to three weeks secures your preferred date, and month-end fills first. Village move-in dates are often set well ahead, so book as soon as you have the date. Smaller loads we can often help with sooner.",
     },
   ],
@@ -334,7 +347,7 @@ export const movingToAustraliaPage: NicheServicePageConfig = {
   path: "/international-moving/moving-to-australia",
   metaTitle: "Moving to Australia from NZ | Specialist Movers",
   metaDescription:
-    "International movers NZ to Australia. Sea and air freight, customs support, and door-to-door service. Free moving quote from Specialist Movers.",
+    "International movers NZ to Australia. Sea and air freight, customs support, door to door. Free quote.",
   eyebrow: "New Zealand to Australia international moving",
   h1: "Moving to Australia from New Zealand",
   lead:

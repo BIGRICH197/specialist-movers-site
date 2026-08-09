@@ -23,7 +23,6 @@ export function BrandLogo({ variant, onNavigate }: Props) {
           height={80}
           className="h-9 w-auto max-w-[min(58vw,12.5rem)] shrink-0 object-contain object-left sm:h-11 sm:max-w-[14rem]"
           sizes="(max-width: 640px) 200px, 224px"
-          unoptimized
           priority
         />
       </Link>

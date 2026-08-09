@@ -99,6 +99,25 @@ const cspReportOnly = [
 const nextConfig = {
   compress: true,
   images: {
+    // Next's default is ["image/webp"] only. AVIF typically lands 20-30%
+    // under WebP at the same visual quality, and every browser we target
+    // supports it. The optimizer tries formats in order and falls back to
+    // WebP, then the original, so older clients are unaffected.
+    //
+    // This is what PageSpeed's "increasing the image compression factor"
+    // note on the hero photo was asking for. Dropping `quality` below the
+    // default 75 was the other option and was rejected: the hero is the LCP
+    // element and the most-looked-at photo on the site, so trading visible
+    // quality for a few KiB there is the wrong side of the deal.
+    formats: ["image/avif", "image/webp"],
+    // No minimumCacheTTL override here, deliberately. The worry with moving
+    // static logos onto the optimizer is that /_next/image responses fall back
+    // to Next's 60s default while raw files get a year from the headers() rule
+    // below. That does not happen on this site: the optimizer inherits the
+    // upstream Cache-Control, and the headers() rule already stamps
+    // `max-age=31536000, immutable` on files with an extension. Verified on a
+    // production build — an optimized response comes back with
+    // `max-age=31536000`, so a floor lower than that would be dead config.
     remotePatterns: [
       {
         protocol: "https",

@@ -16,6 +16,12 @@ const ONLINE_PILL_KEY = "joey-online-dismissed";
 
 // Avatar shown on the launcher bubble and in the chat header. A real face reads
 // as "a real person is here now", which lifts engagement over a generic icon.
+//
+// Both <Image>s below deliberately do NOT set `unoptimized`. They used to, which
+// shipped the raw 10.9 KiB PNG to every visitor at full size regardless of the
+// 40px / 64px slot it lands in. Letting the optimizer handle it serves AVIF at
+// the right width instead. `unoptimized` is still correct for the brand SVGs
+// (Next does not optimize SVG without dangerouslyAllowSVG) — just not for this.
 const AVATAR_SRC = "/richard-online.png";
 const AVATAR_ALT = "Richard from Specialist Movers, online now";
 
@@ -263,7 +269,7 @@ export function JoeyChat() {
                   alt={AVATAR_ALT}
                   width={88}
                   height={88}
-                  unoptimized
+                  sizes="40px"
                   loading="eager"
                   className="h-full w-full object-cover"
                 />
@@ -394,7 +400,7 @@ export function JoeyChat() {
                 alt={AVATAR_ALT}
                 width={88}
                 height={88}
-                unoptimized
+                sizes="64px"
                 priority
                 className="h-full w-full object-cover"
               />

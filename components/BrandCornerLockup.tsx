@@ -5,6 +5,21 @@ import { cn } from "@/lib/utils";
 /** SPECIALIST cap baseline from top of wordmark (SVG 27.77/50.64, nudged up to match nav optically). */
 const SPECIALIST_BASELINE_RATIO = 0.62;
 
+/**
+ * The wordmark renders at ~218 CSS px wide (height is a clamp, width auto).
+ *
+ * The logomark beside it is an SVG and keeps `unoptimized`, because Next will
+ * not optimize SVG without dangerouslyAllowSVG. The wordmark is a PNG and had
+ * inherited the same prop, which meant the full 502x102 source shipped as-is.
+ * Dropping `unoptimized` on the PNG lets the optimizer emit AVIF.
+ *
+ * Note the format is where the saving actually comes from. PageSpeed reads the
+ * 502x102 source against a 218x44 box and calls it oversized, but that is a
+ * DPR-1 reading: a 2x screen genuinely wants ~436px of pixel data, so 502 is
+ * about right and there is no meaningful width to give back.
+ */
+const WORDMARK_SIZES = "220px";
+
 type Props = {
   className?: string;
   /** Circle diameter */
@@ -60,7 +75,7 @@ export function BrandCornerLockup({
           alt="Specialist Movers"
           width={502}
           height={102}
-          unoptimized
+          sizes={WORDMARK_SIZES}
           priority
           className="pointer-events-none h-[var(--wm-h)] w-auto shrink-0 select-none"
         />
@@ -93,7 +108,7 @@ export function BrandCornerLockup({
           alt="Specialist Movers"
           width={502}
           height={102}
-          unoptimized
+          sizes={WORDMARK_SIZES}
           priority
           className="pointer-events-none absolute top-[calc(2.125rem-var(--wm-h)*var(--specialist-baseline))] select-none lg:top-[calc(2.5rem-var(--wm-h)*var(--specialist-baseline))] xl:top-[calc(2.625rem-var(--wm-h)*var(--specialist-baseline))]"
           style={{
@@ -109,7 +124,7 @@ export function BrandCornerLockup({
           alt="Specialist Movers"
           width={502}
           height={102}
-          unoptimized
+          sizes={WORDMARK_SIZES}
           priority
           className="pointer-events-none absolute top-[0.3cm] select-none"
           style={{
