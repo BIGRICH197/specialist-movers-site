@@ -1370,6 +1370,210 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+
+  /**
+   * Scoped to single items and part loads, NOT whole houses. That boundary is
+   * the only reason this can coexist with how-much-do-movers-cost-in-auckland,
+   * which prices by bedroom count and says nothing about single items. Do not
+   * add bedroom-count pricing here, and do not add single-item pricing there.
+   * The per-item timings come from lib/furniture-pages.ts and should be changed
+   * in both places together.
+   */
+  "how-much-do-furniture-movers-cost-in-auckland": {
+    title: "How Much Do Furniture Movers Cost in Auckland? Real 2026 Numbers",
+    sections: [
+      {
+        heading: "The short answer",
+        image: {
+          src: "/photos/source/batch-p126-p127/P1260739.jpg",
+          alt: "Specialist Movers crew carrying a sofa while the client reads",
+        },
+        paragraphs: [
+          "Moving a single piece of furniture across Auckland is generally quoted between $150 and $350 plus GST. A bed that needs taking apart and putting back together runs higher, and a marble-topped table higher again.",
+          "You will also find quotes at $69 and quotes at $550 for what sounds like the same job. That spread is real and it is not random. It is the difference between one person with a van and two insured movers with blankets, straps and a trolley, and it is worth knowing which one you are buying.",
+          "If you are moving a whole house rather than a few items, the pricing works differently and we have written that up separately.",
+        ],
+        table: {
+          caption: "Published Auckland market ranges, 2026. Single item, standard access at both ends.",
+          columns: ["Item", "Auckland market range"],
+          rows: [
+            ["Sofa or couch", "$180 to $400 plus GST"],
+            ["Fridge or freezer", "$180 to $350 plus GST"],
+            ["Bed, including disassembly", "$300 to $550 plus GST"],
+            ["Trade Me or Marketplace pickup", "$150 to $450 plus GST"],
+          ],
+        },
+        link: {
+          href: "/blog/how-much-do-movers-cost-in-auckland",
+          label: "Moving a whole house? Here is what that costs",
+        },
+      },
+      {
+        heading: "Why one item costs more than you would expect",
+        image: {
+          src: "/photos/source/batch-p125/P1250461.jpg",
+          alt: "Specialist Movers crew carrying blanket-wrapped furniture",
+        },
+        paragraphs: [
+          "A three-seater sofa takes two movers about twenty to forty minutes to wrap, carry and place. People do the arithmetic on that at an hourly rate and expect to pay forty dollars.",
+          "The number is higher because the truck still has to get to you and back, and two people still have to be booked for a slot that could have held a bigger job. Our callout fee is $60 for close-in Auckland, $80 for the outer suburbs and $120 for the fringe of the region, calculated from our Wairau Valley depot, and that applies whether the truck carries one item or forty.",
+          "So the floor on any furniture job is the callout plus the minimum crew time, not the literal minutes your sofa spends in the air. Every mover works this way. The ones advertising $69 are either very close to you, doing it single-handed, or both.",
+        ],
+      },
+      {
+        heading: "How long each item actually takes",
+        image: {
+          src: "/photos/hard-to-shift/crew-guide-lift.jpg",
+          alt: "Two Specialist Movers guiding a heavy item through a doorway",
+        },
+        paragraphs: [
+          "These are our own timings for two movers with normal access at both ends. Multiply by the hourly rate and add the callout and you have the shape of your quote before you ever speak to us.",
+          "Our two-person crew starts at $120 per hour plus GST on a Tuesday, our quietest day. Midweek sits around $130 to $135, and Friday is $150.",
+        ],
+        table: {
+          caption: "Two movers, normal access. Stairs, long carries and tight doorways all add time.",
+          columns: ["Item", "How we handle it", "Time"],
+          rows: [
+            ["Three-seater sofa", "Blanket-wrapped, shrink wrapped, carried on its end", "20 to 40 min"],
+            ["Bed and mattress", "Frame apart, mattress in a cover, rebuilt at the other end", "30 to 45 min"],
+            ["Fridge or freezer", "Emptied and defrosted first, strapped upright to a trolley", "20 to 30 min"],
+            ["Wardrobe or tallboy", "Emptied, doors taped, wrapped, walked on a flat trolley", "20 to 40 min"],
+            ["Dining table, timber", "Legs removed, top wrapped and carried on edge", "30 to 45 min"],
+            ["Dining table, marble or glass", "Top travels vertically in a padded frame, never flat", "45 to 90 min"],
+            ["Pool table, slate", "Slate beds separated, carried individually, relevelled", "2 to 4 hrs"],
+          ],
+        },
+      },
+      {
+        heading: "Combining items is where the money is",
+        image: {
+          src: "/photos/source/batch-p125/P1250366.jpg",
+          alt: "Specialist Movers truck loaded with wrapped furniture",
+        },
+        paragraphs: [
+          "This is the part nobody writes down, and it is the single most useful thing on this page.",
+          "The callout is fixed. Once the truck is at your door and two people are standing in your lounge, each extra item costs only the time it takes. So the cost per item falls sharply the more you move at once.",
+          "Work it through on a Tuesday. One sofa on its own is a callout plus the minimum booking. Add a bed and a fridge to the same visit and you have added roughly an hour of crew time, which is $120 plus GST, spread across three items instead of one.",
+          "The practical version: if you are moving a sofa this month and a bed next month, move both now. And if you are buying two things off Trade Me from opposite sides of Auckland, ask whether they can go on one run rather than two.",
+          "The same logic is why a part load of six or eight pieces is far better value per item than three separate single-item jobs, even though the invoice is bigger.",
+        ],
+      },
+      {
+        heading: "What it is made of matters more than how big it is",
+        image: {
+          src: "/photos/blog/marble-dining-table.jpg",
+          alt: "A marble-topped dining table in a modern dining room",
+          credit: "Furkan Tumer / Pexels",
+        },
+        paragraphs: [
+          "Two dining tables of identical dimensions can be an hour apart, and the difference is the top.",
+          "A timber table is thirty to forty-five minutes. Legs off, top wrapped, carried on edge. A marble or glass top is forty-five to ninety minutes, because the top has to travel vertically in a padded frame and never flat. Stone cracks across its own weight if it is laid down and the surface underneath is not perfectly even, and a marble top laid flat in a truck over a speed bump is a common and expensive way to find that out.",
+          "The same goes for anything with a stone, glass or mirrored surface, and for older furniture with joints that have loosened over the decades. Veneer and chipboard flat-pack is its own problem: it frequently does not survive being taken apart and rebuilt, so we would rather carry it assembled if the doorways allow.",
+          "Tell us what the thing is made of when you ask for a quote, not just how big it is. It is the detail most likely to change the number.",
+        ],
+      },
+      {
+        heading: "Stairs, lifts and the walk from the truck",
+        image: {
+          src: "/photos/hard-to-shift/balcony-hero.jpg",
+          alt: "Specialist Movers crew lifting furniture to a balcony",
+        },
+        paragraphs: [
+          "Access is the single biggest reason a furniture job costs more than the quote suggested. On a one-item job it matters proportionally more, because there is less other work for the extra time to hide inside.",
+          "Stairs add roughly half an hour to an hour per end. An apartment lift that has to be booked can add more than the stairs would have, and a lift that is out of service turns a forty-minute job into a two-hour one.",
+          "Where the truck can park matters more than people think. Ten metres of extra carry is nothing once. On a part load of twenty pieces it is the difference between a two-hour job and a three-hour one.",
+          "If the item will not fit through a door, the job becomes a balcony lift and the price structure changes entirely. Measure the narrowest point on the route rather than the widest, and measure the item at its widest. If those two numbers are close, send us photos before you book.",
+        ],
+      },
+      {
+        heading: "Disassembly, and who is doing it",
+        paragraphs: [
+          "Beds, modular wardrobes and most large dining tables come apart. That work is billed as time, so whether we do it or you do it changes the number.",
+          "If you take the bed apart before we arrive and keep the fittings in a labelled bag taped to the frame, you have saved yourself the better part of half an hour at each end. If we arrive to a made bed and no tools out, you are paying our hourly rate to do something you could have done on Sunday.",
+          "The exception is anything you are not confident you can rebuild. A bed frame reassembled wrong is worse than a bed frame we took apart ourselves.",
+        ],
+      },
+      {
+        heading: "Trade Me and Marketplace pickups",
+        paragraphs: [
+          "A large share of single-item furniture jobs in Auckland are online purchases, and they carry a specific risk: you have usually not seen the item, and the seller has usually not measured it.",
+          "Ask the seller for the width at its widest point and a photo of the doorway it currently sits behind. If it got in, it can get out, but only by the route it came in by, and that route is not always the one the seller assumes.",
+          "Confirm the pickup window before you book us. The most common way a Trade Me delivery becomes expensive is a crew arriving at a house where nobody is home, because that time is still billable.",
+          "Also ask whether the seller will help load. They are often willing, and it is not something either of us should assume.",
+        ],
+      },
+      {
+        heading: "The $69 quote, and what it is not",
+        paragraphs: [
+          "There is a real market at the bottom of the range, and for some jobs it is the right call. A flat-pack bookshelf going three suburbs with ground-floor access at both ends does not need an insured two-person crew.",
+          "What that price does not usually include: a second person, furniture blankets, a trolley, straps, or cover if the thing gets dropped. Ask what happens if it is damaged, and if the answer is vague, that is the answer.",
+          "The judgement is simple enough. Compare the quote to what the item is worth. Nobody should pay us to move a $90 bookshelf. A $3,000 sofa through a doorway with 20 mm to spare is a different conversation.",
+          "A quote given in thirty seconds with no questions asked is a red flag rather than a bargain. A proper quote requires knowing what the item is, what floor it is on, and what the access is like at both ends.",
+        ],
+      },
+      {
+        heading: "Insurance",
+        paragraphs: [
+          "Ask what the cover actually is, and what the excess is. Basic liability and full replacement value are very different things.",
+          "For a single valuable item this matters more than it does on a house move, because there is no averaging out. If the one thing on the truck is the one thing that gets damaged, the cover on that item is the whole conversation.",
+          "Ask specifically about items you packed or wrapped yourself. Many policies exclude them.",
+        ],
+      },
+      {
+        heading: "How to bring the number down",
+        image: {
+          src: "/photos/source/batch-p126-p127/P1260453.jpg",
+          alt: "Specialist Movers crew wrapping and preparing items",
+        },
+        paragraphs: [
+          "Move everything in one visit rather than spreading it over months. The callout is the fixed cost and you only want to pay it once.",
+          "Book midweek. A Tuesday is the same crew doing the same work for up to $30 an hour less than a Friday.",
+          "Take the bed apart yourself and bag the fittings, if you are confident you can rebuild it.",
+          "Empty the wardrobe, the drawers and the fridge before we arrive, and defrost the fridge the night before. A full wardrobe is a two-person lift that should have been a one-person trolley job.",
+          "Clear the route. Rugs up, doors hooked open, cars off the driveway.",
+          "Park as close as you can at both ends, and if you are in an apartment, book the lift.",
+        ],
+      },
+      {
+        heading: "Get an actual number for your furniture",
+        image: {
+          src: "/photos/source/batch-p125/P1250836.jpg",
+          alt: "Specialist Movers crew positioning furniture in a room",
+        },
+        paragraphs: [
+          "Send us a list of the items, both suburbs, the floor at each end, and what the tricky ones are made of. Photos of anything with a tight doorway save more time than a description does.",
+          "We come back with a real figure, usually within 15 minutes during business hours.",
+          "No obligation, and the number we quote is the pricing structure we invoice on.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "What does it cost to move just one piece of furniture in Auckland?",
+        a: "Generally $150 to $350 plus GST across the Auckland market for a single item with standard access. The floor is set by the callout fee plus minimum crew time rather than by how long your item takes, which is why one sofa does not cost a third of what three items cost.",
+      },
+      {
+        q: "Is it cheaper to move several items at once?",
+        a: "Substantially, per item. The callout is a fixed cost paid once, so every additional piece only costs the time it takes to carry. Moving a sofa, a bed and a fridge in one visit is far cheaper than three separate jobs, and it is the easiest saving available on this whole page.",
+      },
+      {
+        q: "Why does a marble dining table cost more than a wooden one the same size?",
+        a: "Because it takes about twice as long. A timber top is 30 to 45 minutes, legs off and carried on edge. A marble or glass top is 45 to 90 minutes, because it has to travel vertically in a padded frame and never flat. Stone can crack under its own weight if it is laid down.",
+      },
+      {
+        q: "Do I need to take my bed apart before the movers arrive?",
+        a: "You do not have to, but it saves you money if you do, because the disassembly and rebuild is billed as time. Keep the fittings in a labelled bag taped to the frame. If you are not confident you can rebuild it correctly, leave it to us.",
+      },
+      {
+        q: "Can you pick up something I bought on Trade Me?",
+        a: "Yes, and it is one of the more common jobs we do. Get the seller to confirm the width at the widest point and the pickup window before you book. A crew arriving at a house where nobody is home is still billable time.",
+      },
+      {
+        q: "Should I use a cheap single-item service instead?",
+        a: "For a flat-pack bookshelf going a few suburbs with easy access, quite possibly. For anything valuable, fragile, or going through a tight doorway, compare the quote against what the item is worth and ask what cover comes with it. A vague answer about damage is itself the answer.",
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {

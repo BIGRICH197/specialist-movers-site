@@ -365,4 +365,12 @@ export const blogPosts = [
     excerpt:
       "Auckland office move costs by desk count, the three ways movers price commercial jobs, and the downtime cost that never appears on the invoice. With our real rates.",
   },
+  {
+    slug: "how-much-do-furniture-movers-cost-in-auckland",
+    title: "How Much Do Furniture Movers Cost in Auckland? Real 2026 Numbers",
+    seoTitle: "Furniture Moving Cost Auckland: Real 2026 Prices | Specialist Movers",
+    publishedDate: "2026-08-10",
+    excerpt:
+      "What it costs to move a sofa, bed, fridge or a Trade Me pickup in Auckland, how long each item actually takes, and why moving several at once costs far less per item.",
+  },
 ] as const;
