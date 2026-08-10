@@ -18,6 +18,7 @@ const navLink =
   "shrink-0 whitespace-nowrap rounded-lg px-2.5 py-2 text-xs font-medium text-brand-yellow transition-colors hover:bg-white/10 xl:px-3 xl:text-sm";
 
 const moreLinks = [
+  { href: "/pricing", label: "Pricing" },
   { href: "/why-us", label: "Why Us" },
   { href: "/about", label: "About" },
   { href: "/faq", label: "FAQ" },
