@@ -33,7 +33,7 @@ const serviceHeroH1: Record<ServiceHeroCity, Record<ServiceHeroSlug, string>> = 
     "international-moving": "International movers Auckland",
     "loading-unloading": "Loading and unloading Auckland",
     "winz-quotes": "WINZ moving quotes Auckland",
-    storage: "Moving storage Auckland",
+    storage: "Moving and storage Auckland",
   },
   Hamilton: {
     "piano-movers": "Piano movers Hamilton",
@@ -46,14 +46,14 @@ const serviceHeroH1: Record<ServiceHeroCity, Record<ServiceHeroSlug, string>> = 
     "international-moving": "International movers Hamilton",
     "loading-unloading": "Loading and unloading Hamilton",
     "winz-quotes": "WINZ moving quotes Hamilton",
-    storage: "Moving storage Hamilton",
+    storage: "Moving and storage Hamilton",
   },
 };
 
 /** Cluster hub pages (not a HamiltonBaseSlug service slug). */
 const hubHeroH1: Record<string, string> = {
   "moving-hub": "Moving services Auckland",
-  "storage-hub": "Moving storage Auckland",
+  "storage-hub": "Moving and storage Auckland",
 };
 
 export function getServiceHeroH1(
