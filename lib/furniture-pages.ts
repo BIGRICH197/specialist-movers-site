@@ -24,13 +24,13 @@ import { sitePhotos } from "@/lib/site-photos";
 export const furnitureMoversAucklandPage: NicheServicePageConfig = {
   path: "/furniture-movers-auckland",
   areaServed: AUCKLAND_ONLY,
-  metaTitle: "Furniture Movers Auckland | Specialist Movers",
+  metaTitle: "Furniture Removals Auckland | Specialist Movers",
   metaDescription:
-    "Furniture movers in Auckland for one item or a full house. Real hourly rates, and crews Steinway dealers trust. Free quote.",
-  eyebrow: "Auckland furniture moving specialists",
-  h1: "Furniture movers Auckland",
+    "Furniture removals in Auckland for one item or a full house. Removalists with real hourly rates, and crews Steinway dealers trust. Free quote.",
+  eyebrow: "Auckland furniture removalists",
+  h1: "Furniture removals Auckland",
   lead:
-    "One heavy item or a whole houseful. We move furniture across Auckland seven days a week, with crews who plan the stairs and the tight corners before the truck arrives.",
+    "One heavy item or a whole houseful. We handle furniture removals across Auckland seven days a week, with removalists who plan the stairs and the tight corners before the truck arrives.",
   subline: "Free quote. We usually call back within 15 minutes. 7 days a week.",
   defaultJobType: "Home Move",
   heroPhoto: sitePhotos.houseMove,
@@ -57,7 +57,7 @@ export const furnitureMoversAucklandPage: NicheServicePageConfig = {
       text: "Beds, dining tables, and modular units come apart and go back together.",
     },
   ],
-  whyTitle: "What furniture moving costs in Auckland",
+  whyTitle: "What furniture removals cost in Auckland",
   whyBody:
     "Two movers and a truck cost $120 an hour plus GST on a Tuesday and $150 on a Friday, so the day you pick makes a real difference. Three movers are $160 to $190. On top of the hours there is a callout fee from $60, which rises the further you are from our North Shore depot. One awkward item is usually done inside two hours. A three-bedroom house is a day, and lands somewhere around $700 to $900. We charge for the hours the job takes, so on anything bigger than a townhouse we would rather come and look than guess. Whatever we quote, you get in writing, and it does not move afterwards.",
   includedBullets: [
@@ -79,7 +79,7 @@ export const furnitureMoversAucklandPage: NicheServicePageConfig = {
   faqHeading: "Furniture moving questions",
   faqs: [
     {
-      q: "How much do furniture movers cost in Auckland?",
+      q: "How much do furniture removalists cost in Auckland?",
       a: "A two-person crew and truck is $120 per hour plus GST on a Tuesday and $150 on a Friday, plus a callout fee from $60 depending on distance from our depot. A single heavy item is usually one to two hours. A three-bedroom house is normally a full day.",
     },
     {
@@ -110,7 +110,7 @@ export const furnitureMoversAucklandPage: NicheServicePageConfig = {
       // Real sub-cluster: "office furniture movers auckland" alone drew 595
       // impressions in 90 days, landing on the office page with nothing
       // written for it.
-      q: "Do you move office furniture as well as household?",
+      q: "Do you do office furniture removals as well as household?",
       a: "Yes, and it is a big part of our week. Desks and workstations come apart with the hardware bagged and labelled per desk, so they go back together the same way. We handle filing, boardroom tables, and server gear, and we work after hours or at weekends when a business cannot lose a working day. Building access, lift bookings, and loading zones are confirmed before the day.",
     },
     {
