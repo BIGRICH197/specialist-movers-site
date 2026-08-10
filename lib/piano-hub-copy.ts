@@ -12,7 +12,7 @@ export const pianoHubHero = {
   h1Sub: "Auckland and Hamilton moving specialists.",
   lead:
     "We move uprights, baby grands, and grands with dedicated piano trucks and crews who do this every day. Choose your city below, or request a quote and we will confirm the right depot and crew.",
-  subline: "Piano moves from $300. Free quote. Callback within 15 minutes.",
+  subline: "Piano moves from $300 + GST. Free quote. Callback within 15 minutes.",
   photoTagline: "You play. We move.",
 };
 
