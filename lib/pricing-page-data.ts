@@ -89,7 +89,9 @@ function groupDayRates(
     bySignature.set(signature, { days: [day], two, three });
   }
 
-  return [...bySignature.values()]
+  // Array.from, not [...map.values()] — tsconfig sets no `target`, so it
+  // defaults to ES5 and spreading a Map iterator needs downlevelIteration.
+  return Array.from(bySignature.values())
     .sort((a, b) => a.two - b.two || a.three - b.three)
     .map((group) => ({
       label: group.days.map((day) => DAY_LABEL[day]).join(" / "),
