@@ -55,6 +55,11 @@ export const serviceBlurbs: Record<
   string,
   { title: string; excerpt: string }
 > = {
+  "furniture-movers": {
+    title: "Furniture Removals Auckland",
+    excerpt:
+      "Furniture removals across Auckland for one heavy item or a full household. Removalists who wrap as standard, take beds and tables apart, and plan stairs and tight access before the truck arrives.",
+  },
   "house-moving": {
     title: "Moving House & Packing Auckland",
     excerpt:
@@ -261,6 +266,8 @@ export const whyUsPage = {
 
 /** Service-page “why choose us” blocks , aligned with specialistmovers.co.nz service themes. */
 export const serviceWhyChooseCopy: Record<string, string> = {
+  "furniture-movers":
+    "Most furniture is straightforward. The pieces that are not, a marble dining table, a spa pool, a safe, a wardrobe that will not turn on the landing, are the ones that decide whether a move goes well. We move grand pianos for Auckland's Steinway dealers every week, so the awkward end of furniture removals is simply what we do. Single items are welcome, wrapping is included rather than an upsell, and whatever we quote you get in writing.",
   "house-moving":
     "Our team at Specialist Movers takes pride in providing reliable and skilled moving services to our customers at competitive fixed prices with no hidden fees. We are fully trained to handle and transport a wide range of items – from delicate instruments to bulky furniture. Our goal is to provide customer satisfaction by making your move as smooth and hassle-free as possible.",
   "office-moving":

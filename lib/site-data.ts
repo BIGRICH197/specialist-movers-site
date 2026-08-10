@@ -17,6 +17,20 @@ export const phoneDisplay = "(021) 228 2728";
 
 export const services = [
   {
+    slug: "furniture-movers",
+    title: serviceBlurbs["furniture-movers"].title,
+    description: serviceBlurbs["furniture-movers"].excerpt,
+    defaultJobType: "Home Move" as const,
+    includedBullets: [
+      "Single-item moves, part-loads, and full household furniture removals",
+      "Heavy and awkward pieces: spa pools, safes, pool tables, marble tops",
+      "Disassembly and reassembly of beds, tables, and modular furniture",
+      "Blankets, shrink wrap or mattress covers included, not charged as an extra",
+    ],
+    whyChooseCopy: serviceWhyChooseCopy["furniture-movers"],
+    relatedSlugs: ["house-moving", "hard-to-shift", "packing-services"],
+  },
+  {
     slug: "house-moving",
     title: serviceBlurbs["house-moving"].title,
     description: serviceBlurbs["house-moving"].excerpt,
