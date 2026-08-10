@@ -304,7 +304,12 @@ export function HamiltonServicePage({ config }: Props) {
       <ServiceWhyChooseSection
         title="Why choose us in Hamilton"
         body={config.whyChooseCopy}
-        statsVariant={isPiano ? "piano" : "default"}
+        // "default" is the Auckland strip, so these pages advertised the $300
+        // Auckland floor. Hamilton's cheapest hourly is $140, so its floor is
+        // $340 -- the same mismatch pricing-copy.ts records fixing once already
+        // on furniture-movers-hamilton, which reaches the strip via a different
+        // component and was therefore never wrong here.
+        statsVariant={isPiano ? "piano" : "hamilton"}
       />
 
 
