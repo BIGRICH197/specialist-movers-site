@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
+import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
 import { ArticleByline } from "@/components/ArticleByline";
 import { schemaIds } from "@/lib/schema-graph";
 import { linkedInUrl } from "@/lib/company-facts";
@@ -93,6 +95,26 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         <div className="space-y-10">
           {article.sections.map((section) => (
             <section key={section.heading}>
+              {section.image ? (
+                <figure className="mb-6">
+                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl">
+                    <Image
+                      src={section.image.src}
+                      alt={section.image.alt}
+                      fill
+                      className="object-cover"
+                      /* Article column is max-w-3xl, so the image never renders
+                         wider than 768px on any viewport. */
+                      sizes="(max-width: 768px) 100vw, 768px"
+                    />
+                  </div>
+                  {section.image.credit ? (
+                    <figcaption className="mt-2 text-xs text-brand-purple/60">
+                      Photo: {section.image.credit}
+                    </figcaption>
+                  ) : null}
+                </figure>
+              ) : null}
               <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
                 {section.heading}
               </h2>
@@ -104,6 +126,27 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             </section>
           ))}
         </div>
+
+        {article.faqs?.length ? (
+          <section className="mt-12">
+            <FaqPageJsonLd items={article.faqs} />
+            <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
+              Common questions
+            </h2>
+            <dl className="mt-6 space-y-6">
+              {article.faqs.map((faq) => (
+                <div key={faq.q}>
+                  <dt className="font-heading text-lg text-brand-purple">
+                    {faq.q}
+                  </dt>
+                  <dd className="mt-2 text-base leading-relaxed text-brand-purple/85">
+                    {faq.a}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        ) : null}
 
         <div className="mt-12 rounded-2xl border border-brand-purple/15 bg-brand-purple/[0.04] p-6">
           <p className="font-heading text-lg text-brand-purple">Get a quote</p>

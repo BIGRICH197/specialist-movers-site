@@ -349,4 +349,12 @@ export const blogPosts = [
     excerpt:
       "Thinking about moving in winter in Auckland? July to September has real advantages. Here's what to expect and how we keep your gear dry on rainy days.",
   },
+  {
+    slug: "how-much-does-it-cost-to-move-a-piano-in-auckland",
+    title: "How Much Does It Cost to Move a Piano in Auckland? Real 2026 Numbers",
+    seoTitle: "Piano Moving Cost Auckland: Real 2026 Prices | Specialist Movers",
+    publishedDate: "2026-08-10",
+    excerpt:
+      "What moving a piano actually costs in Auckland, how movers charge for it, and the access details that change the number. Upright, grand and digital, with real rates.",
+  },
 ] as const;

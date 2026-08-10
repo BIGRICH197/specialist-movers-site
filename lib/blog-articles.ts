@@ -4,7 +4,22 @@
 
 export type BlogArticle = {
   title: string;
-  sections: { heading: string; paragraphs: string[] }[];
+  sections: {
+    heading: string;
+    paragraphs: string[];
+    /**
+     * Optional photo rendered above the heading. Own photography beats stock on
+     * these pages, so reach for lib/site-photos.ts before anything licensed.
+     */
+    image?: { src: string; alt: string; credit?: string };
+  }[];
+  /**
+   * Optional Q&A block rendered after the sections and emitted as FAQPage
+   * schema. Keep questions unique across the site: a sweep in August 2026 found
+   * 54 questions appearing on more than one page, which splits the signal
+   * instead of compounding it.
+   */
+  faqs?: { q: string; a: string }[];
 };
 
 export const blogArticles: Record<string, BlogArticle> = {
@@ -961,6 +976,179 @@ export const blogArticles: Record<string, BlogArticle> = {
           "For most households though, the combination of better availability, flexible dates, and a professional crew that handles wet weather every week makes July to September a genuinely good window. We have completed well over 4,000 moves and a solid chunk of those have been in winter. The process is well worn in.",
           "If you are weighing up dates or want to know how a winter move would work for your specific property, the easiest thing is to get a quote through our website. Fill in the details, and we will come back to you with a clear price and what the day would look like. No pressure, just information.",
         ],
+      },
+    ],
+  },
+
+  /**
+   * TODO (Richard): "The short answer" quotes published Auckland market ranges
+   * rather than our own piano pricing, because piano rates are not written down
+   * anywhere I could source them. Every other figure on this page is ours and is
+   * taken from how-much-do-movers-cost-in-auckland. Replace the market ranges
+   * with our real piano numbers when you have them, and the page gets
+   * meaningfully stronger: the pages currently winning this query in AI search
+   * all state explicit prices.
+   */
+  "how-much-does-it-cost-to-move-a-piano-in-auckland": {
+    title: "How Much Does It Cost to Move a Piano in Auckland? Real 2026 Numbers",
+    sections: [
+      {
+        heading: "The short answer",
+        image: {
+          src: "/photos/source/batch-p125/P1250409-cropped.jpg",
+          alt: "Specialist Movers crew loading a wrapped piano into the truck",
+        },
+        paragraphs: [
+          "Across the Auckland market, a local upright piano move is generally quoted between $200 and $500, and a grand between $400 and $1,000. Long-distance piano transport around New Zealand runs between $800 and $2,000.",
+          "Those are ranges, and your piano has a price. It comes down to four things: the instrument, the access at both ends, the distance from our Wairau Valley depot, and whether anything has to go up rather than through.",
+          "An upright is over 200 kg of unevenly balanced weight sitting on castors that were never meant to roll anywhere. That is the whole reason this costs what it does.",
+        ],
+      },
+      {
+        heading: "How piano movers actually charge",
+        image: {
+          src: "/photos/hard-to-shift/crew-piano-dolly.jpg",
+          alt: "Two movers walking a wrapped upright piano on a dolly",
+        },
+        paragraphs: [
+          "Almost nobody explains this part, so here it is in plain terms.",
+          "Most Auckland movers charge an hourly rate for the crew and truck, plus a one-off callout fee that covers getting the truck to you and back to base. Our clock runs from arrival at your pickup address to the last item off the truck at the other end.",
+          "Two things move the hourly rate. Crew size, and the day of the week. A two-person crew with a truck starts at $120 per hour plus GST on a Tuesday, our quietest day. Midweek sits around $130 to $135. Friday, the most popular moving day in Auckland, is $150. A three-person crew runs $40 to $50 an hour more than two.",
+          "The question worth asking any mover: does the clock start when the truck leaves the depot, or when it arrives at your door? On an Albany to Onehunga job that gap can be an hour of billable time. Ours starts at your door.",
+          "Some companies quote pianos as a fixed price instead. Neither approach is wrong. What matters is that you know which one you are being given, and what happens to the number if the job runs long.",
+        ],
+      },
+      {
+        heading: "Upright, grand, or digital",
+        image: {
+          src: "/photos/blog/grand-piano-concert-hall.jpg",
+          alt: "A grand piano on a concert hall stage",
+          credit: "Julia Barrantes / Pexels",
+        },
+        paragraphs: [
+          "The instrument is the biggest single factor, and not only because of weight.",
+          "An upright is top-heavy. The mass sits high and towards the back, which is why an upright that feels stable in your lounge will try to tip the moment it goes onto a ramp. Uprights stay upright, always, and they get strapped to a board before they go anywhere.",
+          "A grand is heavier and more awkward, and it usually comes apart. The lyre, legs and pedal assembly come off, the body goes onto a padded skid on its side, and it travels that way. That work takes time at both ends, which is the real reason a grand costs more than an upright rather than the extra weight alone.",
+          "A digital piano or stage keyboard is a different job entirely. Two people, no board, no dismantling. The Auckland market quotes those around $90 to $150. If that is what you have, say so when you ask for a quote, because you should not be paying piano rates for it.",
+        ],
+      },
+      {
+        heading: "Distance, and what the callout actually covers",
+        paragraphs: [
+          "Our hourly rate is the same across Auckland. Only the callout changes with distance, calculated from the Wairau Valley depot.",
+          "Close-in Auckland, roughly within 23 kilometres, is $60 for a two-person crew. Outer suburbs like the Hibiscus Coast or Pukekohe are $80. The fringe of the region is $120. Everything is plus GST.",
+          "Going out of the region is a different quote. Auckland to Hamilton, or anything further down the line, gets priced as a transport job rather than an hourly one, because most of the cost is road time rather than handling.",
+        ],
+      },
+      {
+        heading: "Stairs, and the access nobody mentions until the day",
+        image: {
+          src: "/photos/source/batch-p125/P1250551.jpg",
+          alt: "Specialist Movers crew handling a wrapped piano inside a home",
+        },
+        paragraphs: [
+          "Access is the single biggest reason a piano move costs more than people expected.",
+          "The market rate for stairs sits around $50 to $100 per flight, and that is a fair reflection of the time involved. A flight of stairs with an upright is not one carry. It is a controlled descent with one person taking the weight below and one guiding above, short deliberate steps, leg drive, and a stop at every landing to reset.",
+          "Long carries from the truck do the same thing to a bill. Ten metres of extra distance sounds like nothing until you have covered it with 200 kg between two people. Narrow driveways, tight garage entries and apartment lifts that need booking all convert directly into billable time.",
+          "Tell us the truth about the access when you ask for the quote. A steep driveway mentioned upfront gets you an accurate number. The same driveway discovered on the morning gets you an awkward conversation while the clock runs.",
+        ],
+      },
+      {
+        heading: "When the stairs are not an option",
+        image: {
+          src: "/photos/hard-to-shift/crane-piano-hero.jpg",
+          alt: "A piano lifted by crane on a Specialist Movers job",
+        },
+        paragraphs: [
+          "Some pianos do not go up the stairs at all. When that happens the job becomes a lift, either over a balcony or by crane, and the price structure changes with it. The Auckland market quotes hoist and crane work between $300 and $1,000 depending on the rig and the building.",
+          "We did a Freemans Bay apartment in August 2026 with a piano and a couch, neither of which was going up the stairwell. Crew of three: one on the ground controlling the rigging and steadying the load, two at the balcony receiving. Many Freemans Bay apartments were built before anyone thought hard about getting large furniture through a stairwell, and the narrow streets limit where the truck can sit.",
+          "The detail worth stealing: we sent the couch up first. Same rigging, same railing, far less valuable. Once we knew the setup held, the piano followed.",
+          "Straps go under the item so the load is controlled from below rather than gripped at the sides. A piano's weight is not evenly distributed, so the lift stays slow the whole way. There is no benefit in rushing a piano lift.",
+          "Not every building has a suitable anchor point. Some balcony and stair routes are not viable at all, and a very large load needs a crane and a different scope. Ask before you book rather than after.",
+        ],
+      },
+      {
+        heading: "Measure the pinch points before anyone quotes you",
+        paragraphs: [
+          "This is the one thing almost nobody does, and it is the most common reason a quote turns out to be wrong.",
+          "Measure the narrowest part of the route, not the widest. Openings taper. On a St Heliers job earlier this year we had a balcony opening that measured 855 mm at the bottom and 820 mm at the top, where a slat wall cut into the clearance. The bottom measurement would have told us the job was fine. It was not.",
+          "Measure bottom, middle and top of every doorway, gate and stair turn on the route. Send us the numbers and a few photos.",
+          "Check the manufacturer's specification for the instrument rather than trusting a listing. On that same job the brief listed a fridge height of 17170 mm, which is obviously a typo for 1717 mm. We caught it before the truck was dispatched. A wrong number at the planning stage costs everyone time on the day.",
+        ],
+      },
+      {
+        heading: "Storage, if the dates do not line up",
+        image: {
+          src: "/photos/source/batch-p125/P1250887.jpg",
+          alt: "An upright piano positioned in a home after a move",
+        },
+        paragraphs: [
+          "Settlement dates move. If your piano needs somewhere to sit between houses, the Auckland market prices piano storage around $60 to $100 a month.",
+          "Ask one specific question before you agree to any of it: is the space temperature stable?",
+          "A piano is wood, felt and steel under tension. A metal shed baking through an Auckland summer and cooling overnight will move the soundboard and wreck the felts, and you will not find out until it is tuned. Self-storage units are frequently exactly that shed. Ask about temperature control by name, and if the answer is vague, treat the vagueness as the answer.",
+        ],
+      },
+      {
+        heading: "Insurance",
+        paragraphs: [
+          "Basic liability and full replacement value are different things, and the gap between them is usually where the argument happens.",
+          "Ask what the cover actually is for the piano specifically, not the load in general. Ask what the excess is. If you are moving a valuable instrument, ask whether it needs to be declared separately, because on most policies it does.",
+          "Additional insurance in the New Zealand market runs around $10 to $15 per $1,000 of declared value. That is cheap against a soundboard.",
+        ],
+      },
+      {
+        heading: "Tuning afterwards",
+        image: {
+          src: "/photos/piano-gallery/piano-tuning.jpg",
+          alt: "A piano being tuned after a move",
+        },
+        paragraphs: [
+          "Budget for a tune after the move. Not because we dropped it, but because pianos go out of tune when the humidity and temperature around them change, and a new house is a new climate.",
+          "Let it acclimatise first. Two weeks in the new room is the usual advice before you book the tuner. Tuning it the day after the move mostly wastes the tuning.",
+        ],
+      },
+      {
+        heading: "How to keep a piano move cheap",
+        paragraphs: [
+          "Book midweek if your dates allow. A Tuesday or Thursday is the same crew doing the same work for up to $30 an hour less than a Friday.",
+          "Clear the route before we arrive. Rugs up, doors off their catches, cars off the driveway, and a path from the piano to the truck that nobody has to negotiate around.",
+          "Get the measurements to us early. Most of the cost of a difficult piano move is the improvising, and improvising is what happens when the planning did not.",
+          "Tell us it is a piano when you first make contact. Not every crew is set up for one, and a general moving crew that discovers a piano on the morning is a bad day for everyone.",
+        ],
+      },
+      {
+        heading: "Get an actual number for your piano",
+        paragraphs: [
+          "Send us the type of piano, both suburbs, the floor at each end, and the narrowest measurement on the route. Photos of the doorways and stairs help more than anything else you can send.",
+          "We come back with a real figure, usually within 15 minutes during business hours. For larger or more complicated jobs we will come and look at it for free, though not every piano move needs that.",
+          "No obligation, and the number we quote is the pricing structure we invoice on.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Do you really need a professional piano mover?",
+        a: "For a digital piano, no. For an upright or a grand, yes, and not because of the weight. It is the balance. An upright pivots around a high centre of mass, and once it starts to go over, two people cannot stop it. The damage is usually to the person, then the floor, then the piano.",
+      },
+      {
+        q: "Why does moving a piano cost more than moving a couch?",
+        a: "A couch can be dragged, tipped, and stood on its end. A piano cannot. It needs a board, straps, a controlled route and a crew who have done it before. You are paying for the time and the technique, not the kilograms.",
+      },
+      {
+        q: "Can you move a piano up or down stairs?",
+        a: "Usually. Send us the number of steps, whether there is a turn or a landing, and the width at the narrowest point. If the answer is that the stairs will not work, we will tell you before you book rather than on the day.",
+      },
+      {
+        q: "How far ahead should I book a piano move?",
+        a: "A week is comfortable. End of month and Fridays go first, and if your piano needs a hoist or a crane we need longer to organise the rig and, in some spots, the footpath.",
+      },
+      {
+        q: "Do you store pianos between houses?",
+        a: "Yes, and in a space we control rather than a unit we rent. Ask us about temperature specifically when you enquire, because a piano left in an uninsulated shed over an Auckland summer will need more than a tune afterwards.",
+      },
+      {
+        q: "Will my piano need tuning after the move?",
+        a: "Almost certainly, because the humidity and temperature in the new room will be different. Give it a couple of weeks to acclimatise first, then book the tuner.",
       },
     ],
   },
