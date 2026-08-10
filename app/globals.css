@@ -198,12 +198,28 @@ span.heading-punct {
   }
 }
 
-/* Team photo band, background stays fixed while page scrolls (live site parallax) */
+/*
+ * Team photo band, background stays fixed while page scrolls (live site parallax).
+ *
+ * The image comes in as two custom properties set by ExperienceMilestonesBand,
+ * both pointing at the Next image optimiser. A CSS background cannot go through
+ * next/image, so before this it loaded the untouched 4.7 MB source JPEG on every
+ * device -- Lighthouse never flagged it because the band is below the fold, so
+ * it costs no LCP, just the visitor's mobile data.
+ */
 .parallax-section-bg {
+  background-image: var(--parallax-bg-sm);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+/* Phones get the narrow crop; nothing above 768px ever downloads it */
+@media (min-width: 769px) {
+  .parallax-section-bg {
+    background-image: var(--parallax-bg-lg);
+  }
 }
 
 /* Fixed attachment is disabled on small screens (iOS) and reduced-motion */

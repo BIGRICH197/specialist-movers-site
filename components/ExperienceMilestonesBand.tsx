@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import type { CSSProperties } from "react";
 import { CountUp } from "@/components/CountUp";
 import { ProcessIllustration } from "@/components/ProcessIllustration";
 import type { experienceMilestones } from "@/lib/homepage-sections";
@@ -11,6 +12,21 @@ type Props = {
   data: typeof experienceMilestones;
   className?: string;
 };
+
+/**
+ * A CSS background cannot go through next/image, so the optimiser URL is built
+ * by hand. Widths have to be values Next actually serves -- anything off the
+ * deviceSizes list makes the optimiser reject the request.
+ *
+ * q=60 rather than the default 75: next.config.mjs deliberately keeps the hero
+ * photo at full quality because it is the LCP element and the most-looked-at
+ * image on the site. Neither applies here -- this one sits under a 45-65% black
+ * gradient, below the fold. Raise it if the band ever loses that overlay.
+ */
+function optimisedBackground(src: string, width: number): string {
+  if (!src.startsWith("/")) return src;
+  return `/_next/image?url=${encodeURIComponent(src)}&w=${width}&q=60`;
+}
 
 /**
  * Volume stats , fixed background photo (scrolls behind text), animated count-up figures.
@@ -29,7 +45,14 @@ export function ExperienceMilestonesBand({ data, className = "" }: Props) {
       className={`relative border-t border-brand-purple/15 py-12 sm:py-16 ${
         bg ? "parallax-section-bg" : "bg-brand-purple"
       } ${className}`}
-      style={bg ? { backgroundImage: `url(${bg})` } : undefined}
+      style={
+        bg
+          ? ({
+              "--parallax-bg-sm": `url('${optimisedBackground(bg, 828)}')`,
+              "--parallax-bg-lg": `url('${optimisedBackground(bg, 1920)}')`,
+            } as CSSProperties)
+          : undefined
+      }
     >
       <div
         className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/45 via-black/55 to-black/65"
