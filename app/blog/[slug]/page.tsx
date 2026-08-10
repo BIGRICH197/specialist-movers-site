@@ -123,6 +123,57 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                   <p key={`${section.heading}-${i}`}>{p}</p>
                 ))}
               </div>
+              {section.table ? (
+                <div className="mt-6 overflow-x-auto">
+                  <table className="w-full min-w-[28rem] border-collapse text-left text-sm">
+                    {section.table.caption ? (
+                      <caption className="caption-bottom pt-3 text-left text-xs text-brand-purple/60">
+                        {section.table.caption}
+                      </caption>
+                    ) : null}
+                    <thead>
+                      <tr className="border-b border-brand-purple/20">
+                        {section.table.columns.map((col) => (
+                          <th
+                            key={col}
+                            scope="col"
+                            className="py-2 pr-4 font-heading text-sm font-bold text-brand-purple"
+                          >
+                            {col}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {section.table.rows.map((row) => (
+                        <tr
+                          key={row.join("|")}
+                          className="border-b border-brand-purple/10"
+                        >
+                          {row.map((cell, i) => (
+                            <td
+                              key={`${row[0]}-${i}`}
+                              className="py-2 pr-4 align-top text-brand-purple/85 tabular-nums"
+                            >
+                              {cell}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : null}
+              {section.link ? (
+                <p className="mt-4">
+                  <Link
+                    href={section.link.href}
+                    className="font-heading text-base font-bold text-brand-purple underline decoration-brand-yellow decoration-2 underline-offset-4"
+                  >
+                    {section.link.label}
+                  </Link>
+                </p>
+              ) : null}
             </section>
           ))}
         </div>

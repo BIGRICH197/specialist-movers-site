@@ -357,4 +357,12 @@ export const blogPosts = [
     excerpt:
       "What moving a piano actually costs in Auckland, how movers charge for it, and the access details that change the number. Upright, grand and digital, with real rates.",
   },
+  {
+    slug: "how-much-does-it-cost-to-move-an-office-in-auckland",
+    title: "How Much Does It Cost to Move an Office in Auckland? Real 2026 Numbers",
+    seoTitle: "Office Move Cost Auckland: Real 2026 Prices | Specialist Movers",
+    publishedDate: "2026-08-10",
+    excerpt:
+      "Auckland office move costs by desk count, the three ways movers price commercial jobs, and the downtime cost that never appears on the invoice. With our real rates.",
+  },
 ] as const;

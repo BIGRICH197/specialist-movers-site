@@ -12,6 +12,19 @@ export type BlogArticle = {
      * these pages, so reach for lib/site-photos.ts before anything licensed.
      */
     image?: { src: string; alt: string; credit?: string };
+    /**
+     * Optional table, rendered after the paragraphs. Worth reaching for on
+     * "how much does X cost" pages: every competitor ranking for those queries
+     * leads with a price table, and Google pulls tables into snippets far more
+     * readily than it pulls prose ranges.
+     */
+    table?: { caption?: string; columns: string[]; rows: string[][] };
+    /**
+     * Optional internal link rendered after the paragraphs. Paragraphs render as
+     * plain text, so this is the only way a section can hand a reader (or a
+     * crawler) off to the page that goes deeper on its subject.
+     */
+    link?: { href: string; label: string };
   }[];
   /**
    * Optional Q&A block rendered after the sections and emitted as FAQPage
@@ -334,9 +347,12 @@ export const blogArticles: Record<string, BlogArticle> = {
         heading: "What an office move costs in Auckland",
         paragraphs: [
           "Commercial moves are priced the same transparent way as our house moves: an hourly rate for the crew and truck plus a callout fee, with the crew sized to the job. A small office of six to ten desks is usually a few hours for a crew; a full floor is a planned evening-and-weekend operation with a bigger team.",
-          "For freight-style jobs, like moving stock, storage or a fit-out, we also offer per-cubic-metre pricing at $90 per cubic metre plus GST with a five-cubic-metre minimum, or $110 per cubic metre for after-hours work before 6am or after 5pm.",
           "After-hours and weekend moves cost slightly more per hour but are almost always cheaper overall, because the alternative is your whole team being paid to not work while the office is in boxes around them.",
         ],
+        link: {
+          href: "/blog/how-much-does-it-cost-to-move-an-office-in-auckland",
+          label: "Full cost breakdown: what an office move costs in Auckland",
+        },
       },
       {
         heading: "The stuff everyone forgets",
@@ -1001,7 +1017,7 @@ export const blogArticles: Record<string, BlogArticle> = {
         paragraphs: [
           "Across the Auckland market, a local upright piano move is generally quoted between $200 and $500, and a grand between $400 and $1,000. Long-distance piano transport around New Zealand runs between $800 and $2,000.",
           "Those are ranges, and your piano has a price. It comes down to four things: the instrument, the access at both ends, the distance from our Wairau Valley depot, and whether anything has to go up rather than through.",
-          "An upright is over 200 kg of unevenly balanced weight sitting on castors that were never meant to roll anywhere. That is the whole reason this costs what it does.",
+          "An upright runs from around 150 kg for a small one to several hundred for a grand, and none of that weight is evenly distributed. It sits on castors that were never meant to roll anywhere. That is the whole reason this costs what it does.",
         ],
       },
       {
@@ -1049,7 +1065,7 @@ export const blogArticles: Record<string, BlogArticle> = {
         paragraphs: [
           "Access is the single biggest reason a piano move costs more than people expected.",
           "The market rate for stairs sits around $50 to $100 per flight, and that is a fair reflection of the time involved. A flight of stairs with an upright is not one carry. It is a controlled descent with one person taking the weight below and one guiding above, short deliberate steps, leg drive, and a stop at every landing to reset.",
-          "Long carries from the truck do the same thing to a bill. Ten metres of extra distance sounds like nothing until you have covered it with 200 kg between two people. Narrow driveways, tight garage entries and apartment lifts that need booking all convert directly into billable time.",
+          "Long carries from the truck do the same thing to a bill. Ten metres of extra distance sounds like nothing until you have covered it with an upright between two people. Narrow driveways, tight garage entries and apartment lifts that need booking all convert directly into billable time.",
           "Tell us the truth about the access when you ask for the quote. A steep driveway mentioned upfront gets you an accurate number. The same driveway discovered on the morning gets you an awkward conversation while the clock runs.",
         ],
       },
@@ -1149,6 +1165,208 @@ export const blogArticles: Record<string, BlogArticle> = {
       {
         q: "Will my piano need tuning after the move?",
         a: "Almost certainly, because the humidity and temperature in the new room will be different. Give it a couple of weeks to acclimatise first, then book the tuner.",
+      },
+    ],
+  },
+
+  /**
+   * Deliberately split from office-move-auckland-planning-guide by intent: that
+   * page answers "how do we plan this", this one answers "what will it cost".
+   * The per-cubic-metre rates used to sit on both; they now live here only, and
+   * the planning guide links across instead. Keep it that way. Two pages
+   * carrying the same prices split the signal rather than compounding it.
+   */
+  "how-much-does-it-cost-to-move-an-office-in-auckland": {
+    title: "How Much Does It Cost to Move an Office in Auckland? Real 2026 Numbers",
+    sections: [
+      {
+        heading: "The short answer",
+        image: {
+          src: "/photos/source/batch-p126-p127/P1260879.jpg",
+          alt: "Specialist Movers crew carrying office boxes through glass doors",
+        },
+        paragraphs: [
+          "Across the Auckland market, a small office of one to five desks is generally quoted between $800 and $2,500 plus GST, and a twenty-desk office between $2,500 and $7,000 plus GST. Above fifty desks nobody quotes off a list, and neither do we.",
+          "Those bands are wide because an office move is priced on volume and access rather than on headcount. Two companies with the same number of staff can be a factor of three apart, and usually the difference is the building rather than the furniture.",
+        ],
+        table: {
+          caption: "Published Auckland market ranges, 2026. Our own quote depends on volume and access.",
+          columns: ["Office size", "Auckland market range"],
+          rows: [
+            ["1 to 5 desks", "$800 to $2,500 plus GST"],
+            ["6 to 20 desks", "$2,500 to $7,000 plus GST"],
+            ["21 to 50 desks", "$6,500 to $15,000 plus GST"],
+            ["50+ desks", "Quoted on inspection"],
+          ],
+        },
+      },
+      {
+        heading: "The three ways an office move gets priced",
+        image: {
+          src: "/photos/source/batch-p125/P1250386.jpg",
+          alt: "Specialist Movers truck loaded for a commercial job",
+        },
+        paragraphs: [
+          "Most guides describe two pricing models. There are three, and knowing which one you are being offered tells you more than the number does.",
+          "Hourly. A rate for the crew and truck, plus a one-off callout fee. Best for smaller offices and anything where the scope is genuinely uncertain, because you only pay for the time the job actually takes.",
+          "Fixed price. One number for the whole job, quoted after someone has walked the site. Best when you need budget certainty or a purchase order, and the trade-off is that the number carries a margin for the unknowns.",
+          "Per cubic metre. Priced on volume rather than time. This is the one almost nobody explains, and it is often the cheapest of the three for stock, storage and fit-out work, where the load is bulky and predictable and the handling is straightforward.",
+          "The wrong model costs you real money. A warehouse of palletised stock quoted hourly is expensive. A tight CBD office with a lift booking quoted per cubic metre is a number that will not survive the day.",
+        ],
+      },
+      {
+        heading: "Our rates, and what the clock covers",
+        image: {
+          src: "/photos/source/batch-p125/P1250366.jpg",
+          alt: "Specialist Movers truck on site at a commercial job",
+        },
+        paragraphs: [
+          "Commercial jobs are priced the same transparent way as our house moves. An hourly rate for the crew and truck plus a callout fee, with the crew sized to the job.",
+          "A two-person crew with a truck starts at $120 per hour plus GST on a Tuesday. Midweek sits around $130 to $135, and Friday is $150. A three-person crew runs $40 to $50 an hour more than two. The callout depends on distance from our Wairau Valley depot: $60 for close-in Auckland, $80 for outer suburbs, $120 for the fringe of the region.",
+          "For freight-style work, like stock, storage or a fit-out, we price per cubic metre instead: $90 per cubic metre plus GST with a five cubic metre minimum, or $110 per cubic metre for after-hours work before 6am or after 5pm.",
+          "The clock runs from arrival at your pickup address to the last item off the truck at the other end. Worth asking any mover whether theirs starts at the depot instead, because on a cross-town job that gap is an hour of billable time.",
+        ],
+      },
+      {
+        heading: "What actually drives the number",
+        paragraphs: [
+          "Volume, not headcount. Ten people in a paperless studio with laptops and a few desks is a different job from ten people in a firm that has kept every file since 2009. Count the storage, not the staff.",
+          "Furniture that has to come apart. Workstation pods, height-adjustable desks and modular partitioning all dismantle and rebuild, and that is where the hours go. A pod system that came flat-packed will go back flat-packed, and it takes as long as it took the first time.",
+          "Whether anyone has thrown anything out. Offices accumulate. The single biggest lever you control is deciding what does not come, and deciding it before we quote rather than on the day.",
+        ],
+      },
+      {
+        heading: "IT, and the things that do not just go in a box",
+        image: {
+          src: "/photos/blog/server-racks.jpg",
+          alt: "Server racks in a comms room",
+          credit: "panumas nikhomkhai / Pexels",
+        },
+        paragraphs: [
+          "Desktops, monitors and docks move like any other fragile item, and they travel better in their original boxes if you still have them. Most people do not, so they get wrapped.",
+          "Anything rack-mounted is a different conversation. Servers, switches and the comms cabinet need someone who owns the decommissioning and recommissioning, and that person is usually your IT provider rather than your mover. Get their availability confirmed before you lock a moving date, because a Saturday move with no one able to bring the network up until Tuesday is an expensive weekend.",
+          "The cabling at the new site is not a moving cost, but it lands in the same budget and it has the longest lead time of anything on the list. Order it early.",
+        ],
+      },
+      {
+        heading: "The building is usually the problem",
+        image: {
+          src: "/photos/source/batch-p125/P1250030.jpg",
+          alt: "Specialist Movers team and trucks at the Wairau Valley depot",
+        },
+        paragraphs: [
+          "Access is the single biggest reason a commercial move costs more than the quote suggested it would, and in the CBD it is nearly always the lift.",
+          "A goods lift that has to be booked, padded and operated by building management turns a continuous job into a queued one. If the lift is shared and you did not book it, you are waiting behind someone else's furniture. Ask your building manager for the loading dock rules and the lift booking process before you ask anyone for a quote.",
+          "We moved a commercial fit-out out of a Newmarket showroom in late July 2026 where the stairs were not an option at all. The load included safes that could not go down the stairwell without real risk to the building and the crew, so it went out on a rated hoist with a crew of four: one operating the lift, one or two steadying the load in transit, one receiving at the top.",
+          "Two details from that job are worth copying. We staged everything on the floor before the rig went up, because once you commit to a hoist lift you do not want to be hunting for the next item. And the safes went last, so nobody was doing the hardest lift already tired.",
+          "Ground level needed planning too. Newmarket is busy, so that meant a temporary traffic management plan, or at minimum a spotter keeping the footpath clear. That is a cost, and it is one that appears on inner-city jobs more often than people expect.",
+        ],
+      },
+      {
+        heading: "After hours costs more per hour and less overall",
+        paragraphs: [
+          "Evening and weekend work carries a premium. Ours is the difference between $90 and $110 per cubic metre on freight-style jobs, and a higher hourly rate on crewed ones.",
+          "It is still usually the cheaper option, and the arithmetic is not close. A twenty-person team that cannot work on Monday morning costs you twenty people's wages plus whatever those people would have billed. The premium on the moving invoice is a rounding error against that.",
+          "The exception is a genuinely small office that can move on a Friday afternoon and be working by Monday anyway. If that is you, do not pay a premium you do not need.",
+        ],
+      },
+      {
+        heading: "The cost that never appears on the mover's invoice",
+        image: {
+          src: "/photos/source/batch-p125/P1250510.jpg",
+          alt: "Specialist Movers crew working through an office relocation",
+        },
+        paragraphs: [
+          "Every guide to office moving costs, including the ones currently ranking for this question, prices the truck and stops there. For most businesses the truck is not the biggest number.",
+          "Downtime is. Add up the hours your team is packing instead of working, the hours they are unpacking instead of working, and the hours they are waiting for the network. On a twenty-person office that number reaches the moving invoice quickly and frequently passes it.",
+          "This is why the cheapest-looking quote is often not the cheapest move. A crew that takes two days because it was under-resourced has cost you a day of everyone's time, and that does not show up anywhere you would think to look for it.",
+          "It is also the argument for professional packing on a commercial job even if you would not bother at home. Your staff packing their own desks is not free labour. It is your most expensive labour doing unskilled work badly.",
+        ],
+      },
+      {
+        heading: "Make-good, and what your lease actually says",
+        paragraphs: [
+          "Most commercial leases require you to return the space to the condition you took it in. That means partitions out, cabling removed, walls made good, and the place professionally cleaned.",
+          "This is a separate trade from moving and it is regularly the largest single line in an office move budget. Read the clause early. If your fit-out involved building anything, unbuilding it is on you.",
+          "Move-out cleaning we can handle. Structural make-good is a builder, and you want that quoted long before your last day.",
+        ],
+      },
+      {
+        heading: "When the dates do not line up",
+        paragraphs: [
+          "Office leases rarely hand over cleanly. The old one ends, the new fit-out runs a fortnight late, and you have a floor of furniture and no floor to put it on. This is common enough that it belongs in the budget rather than in the surprises.",
+          "Storage in transit is priced per cubic metre in the same way as the freight-style work above, so the volume you already had measured for the move is the volume you are storing. Getting that number early means you can price the contingency before you need it rather than at the point where you have no options.",
+          "Two things make the stored-then-delivered version cheaper. Decide what is going straight to the new site and what is going to storage before move day, and label it that way, so nothing gets handled twice. And keep the things you will need first at the front, because a container packed in the wrong order costs an hour to unpack and repack at the other end.",
+          "If the gap is long enough that it is worth asking whether some of the furniture should just be sold, ask it. Paying to store desks you will replace in the new fit-out is a cost with nothing at the end of it.",
+        ],
+      },
+      {
+        heading: "Insurance",
+        paragraphs: [
+          "Ask what the cover is, what the excess is, and specifically whether it covers items your own staff packed. Many policies exclude self-packed boxes, which matters more on an office move than a house move because your staff will pack most of it.",
+          "Ask separately about the IT equipment. On some policies it is capped well below what a comms cabinet is worth.",
+          "A vague answer about the claims process is itself the answer.",
+        ],
+      },
+      {
+        heading: "How to get a quote that holds",
+        image: {
+          src: "/photos/source/batch-p126-p127/P1260017.jpg",
+          alt: "Specialist Movers crew loading office furniture",
+        },
+        paragraphs: [
+          "For anything above a handful of desks, have someone walk the site. Both sites. A quote given over the phone for a commercial job is a guess, and a quote given in thirty seconds with no questions asked is a red flag rather than a bargain.",
+          "Have these ready before you call: desk count, how many storage units and filing cabinets, what is in the comms room, the floor at each end, whether there is a goods lift and whether it needs booking, and your loading dock access times.",
+          "Then ask what happens if the job runs long, and whether the rate changes after a certain hour. The answer to that question is where quotes diverge from invoices.",
+        ],
+      },
+      {
+        heading: "How to bring the number down",
+        paragraphs: [
+          "Purge before you quote, not after. Every archive box you do not move is money you do not spend twice, once on handling and once on the space it takes at the other end.",
+          "Book the lift and the dock at both ends yourself, early. Nothing on this list saves more time.",
+          "Have the new floor plan finished and the desks numbered before move day. Furniture that arrives with nowhere to go gets put down twice.",
+          "Move midweek if the business can absorb it. A Tuesday is the same crew doing the same work for up to $30 an hour less than a Friday.",
+          "Get your IT provider booked for the same window as the move rather than the week after.",
+        ],
+      },
+      {
+        heading: "Get an actual number for your office",
+        image: {
+          src: "/photos/source/batch-p125/P1250977.jpg",
+          alt: "Specialist Movers crew handling storage crates",
+        },
+        paragraphs: [
+          "Send us your desk count, both addresses, the floor at each end, and whether either building has a goods lift. Photos of the comms room and any storage areas help more than a description does.",
+          "We come back with a real figure, usually within 15 minutes during business hours. For anything above a small office we will come and look at both sites for free, because that is the only way a commercial quote is worth anything.",
+          "No obligation, and the number we quote is the pricing structure we invoice on.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "What is the average hourly rate for office movers in Auckland?",
+        a: "Across the Auckland market, small commercial jobs are generally quoted between $150 and $250 plus GST per hour for two to three movers and a truck. Ours starts at $120 plus GST for a two-person crew on a Tuesday, with a three-person crew $40 to $50 an hour more, plus a callout fee based on distance from our Wairau Valley depot.",
+      },
+      {
+        q: "What does it cost to move a small office of five people?",
+        a: "The Auckland market range for one to five desks is roughly $800 to $2,500 plus GST. Where you land inside that depends far more on the buildings than the desk count: ground floor with a loading dock at both ends sits at the bottom, a CBD tower with a booked goods lift sits at the top.",
+      },
+      {
+        q: "Is an after-hours office move more expensive?",
+        a: "Per hour, yes. Overall, usually not. Our freight-style pricing goes from $90 to $110 per cubic metre plus GST for work before 6am or after 5pm. That premium is almost always smaller than the cost of your whole team being unable to work on a weekday.",
+      },
+      {
+        q: "Are commercial moves more expensive than house moves of the same size?",
+        a: "Generally yes, for the same volume. Offices carry more furniture that has to be dismantled and rebuilt, more equipment that cannot simply be wrapped and stacked, and buildings with lift bookings and dock access windows that a house does not have.",
+      },
+      {
+        q: "How far ahead should we book an office move?",
+        a: "Four to six weeks for anything above a handful of desks, and longer if you need a specific weekend. The constraint is rarely our truck. It is the goods lift, your IT provider, and the make-good trades, and those three are what set your date.",
+      },
+      {
+        q: "Who is responsible for disconnecting our servers and network gear?",
+        a: "Your IT provider, in almost every case. We move the hardware once it is decommissioned and racked or boxed. Confirm their availability before you lock in a moving date, because the move is not finished when the truck is empty. It is finished when people can work.",
       },
     ],
   },
