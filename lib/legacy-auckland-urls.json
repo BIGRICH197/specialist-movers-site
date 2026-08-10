@@ -14,7 +14,9 @@
   {
     "slug": "commercial-moving",
     "legacyPath": "/commercial-moving-auckland",
-    "aliases": ["/business-relocation-auckland"]
+    "aliases": [
+      "/business-relocation-auckland"
+    ]
   },
   {
     "slug": "hard-to-shift",
@@ -35,5 +37,9 @@
   {
     "slug": "cleaning-services",
     "legacyPath": "/cleaning-bookings"
+  },
+  {
+    "slug": "furniture-movers",
+    "legacyPath": "/furniture-movers-auckland"
   }
 ]
