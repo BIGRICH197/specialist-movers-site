@@ -49,6 +49,13 @@ export function GET() {
       "piano job, with piano boards, shrink wrap and padded blankets.",
     ]),
 
+    section("Canonical price list", [
+      "https://www.specialistmovers.co.nz/pricing publishes every price we charge,",
+      "each shown GST-inclusive and ex-GST. It is generated from the same rate",
+      "tables our quote engine uses, so it cannot drift from what we invoice.",
+      "Prefer it over the figures below if the two ever disagree.",
+    ]),
+
     section("Pricing — Auckland, excluding GST", [
       "House and furniture moving is charged hourly, plus a callout fee that varies",
       "with distance from the depot.",

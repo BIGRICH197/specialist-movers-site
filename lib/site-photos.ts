@@ -76,6 +76,10 @@ export const premiumServicePhotoLayout = {
 
 /** Service hub cards + service page heroes */
 export const servicePhotoBySlug: Record<string, string> = {
+  // Matches the furniture page's own hero. Without a key here the homepage
+  // service card rendered its text with an empty photo well beside it, because
+  // the card only renders <SitePhoto> when getServicePhoto returns something.
+  "furniture-movers": sitePhotos.houseMove,
   "house-moving": sitePhotos.homeHero,
   "office-moving": sitePhotos.officeMove,
   "piano-movers": sitePhotos.pianoMove,

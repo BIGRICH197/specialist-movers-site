@@ -90,7 +90,7 @@ export const storageHub = {
   eyebrow: "Storage while you move",
   title: "Flexible storage options",
   description:
-    "Gap between settlement dates, renovations, or a long-distance leg? We store household goods and pianos securely until you are ready, short stays or longer term.",
+    "Gap between settlement dates, renovations, or a long-distance leg? We store household goods, pianos and full container loads securely until you are ready, short stays or longer term, from our Wairau Valley and Hamilton depots.",
 } as const;
 
 export const storageServices: readonly ServiceClusterItem[] = [
@@ -128,6 +128,24 @@ export const storageServices: readonly ServiceClusterItem[] = [
     whyChooseCopy:
       "Your belongings should be stored by movers who understand how they were packed and how they need to come out again, not a generic locker with no context.",
     relatedSlugs: ["short-term-storage", "regional-moving", "piano-storage"],
+    defaultJobType: "Home Move",
+  },
+  {
+    slug: "container-storage",
+    title: "Container storage",
+    excerpt:
+      "Your goods loaded into their own container, sealed, and stored at our depot. Handled once on the way in and once on the way out.",
+    description:
+      "Container storage suits whole-household loads that need to sit for a while. We load your goods into a container, seal it, and store it at our depot until you want it back. Because everything stays in the one container, it is handled on intake and on delivery rather than every time the shelf around it moves.",
+    includedBullets: [
+      "Loaded, wrapped, and inventoried by the same crew doing your move",
+      "Sealed container stored at our Wairau Valley or Hamilton depot",
+      "Fewer handling steps than shelf storage, so less to go wrong",
+      "Quoted by container and duration, with delivery back on your date",
+    ],
+    whyChooseCopy:
+      "The less your furniture is handled, the less chance it gets marked. A container is loaded once and opened once, which is why we suggest it for longer stays and whole-house loads rather than part loads.",
+    relatedSlugs: ["long-term-storage", "short-term-storage", "house-moving"],
     defaultJobType: "Home Move",
   },
   {

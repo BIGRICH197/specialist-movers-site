@@ -23,6 +23,7 @@ const staticRoutes = [
   "/reviews",
   "/faq",
   "/pricing",
+  "/movers-near-me",
   "/about",
   "/why-us",
   "/blog",
