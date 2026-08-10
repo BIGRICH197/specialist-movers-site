@@ -38,7 +38,7 @@ export function SectionReveal({
 }) {
   const reduced = useReducedMotion() ?? false;
   const narrow = useNarrowViewport();
-  const { ref, inView } = useRevealInView<HTMLElement>();
+  const { ref, inView, hydrated } = useRevealInView<HTMLElement>();
   const variants = revealVariants(narrow ? "up" : direction);
 
   return (
@@ -47,8 +47,12 @@ export function SectionReveal({
       id={id}
       className={className}
       variants={variants}
-      initial="hidden"
-      animate={reduced || inView ? "visible" : "hidden"}
+      // initial={false} renders straight at the `animate` state with no mount
+      // animation, so the server emits no opacity:0. Before hydration `animate`
+      // resolves to "visible" — see the LCP note in use-reveal-in-view.ts. Do
+      // NOT put initial="hidden" back: that is what made LCP 17.7s on /about.
+      initial={false}
+      animate={!hydrated || reduced || inView ? "visible" : "hidden"}
     >
       {children}
     </motion.section>
