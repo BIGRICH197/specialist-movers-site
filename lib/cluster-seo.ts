@@ -148,6 +148,41 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
       { title: "Delivery", body: "Return to your address when you are ready." },
     ],
   },
+  "container-storage": {
+    bodyParagraphs: [
+      "Container storage is the option we suggest when a whole household needs to sit somewhere for weeks or months. Your goods are loaded into a container, sealed, and stored at our depot, then delivered back when your date is confirmed. The container is opened on intake and on delivery and not in between, so there is far less handling than shelf storage where your items get moved every time something around them does.",
+      "It suits settlement gaps that turned into months, renovations, overseas postings, and the storage leg of an international move. For a part load or a handful of boxes, short-term storage is usually the cheaper answer, and we will tell you that rather than sell you a container you do not need.",
+      regionalPricing,
+    ],
+    faqs: [
+      {
+        q: "How much does container storage cost in Auckland?",
+        a: "It is quoted by how many containers your goods fill and how long you need them, so we work it out once we know what is going in. Storage is not charged hourly like the move itself. Ask for a quote and you get the figure in writing before anything is collected.",
+      },
+      {
+        q: "What size container will my house need?",
+        a: "As a rough guide a one to two bedroom household usually fits one container and a three bedroom house often needs more than one. We confirm it at the viewing rather than guessing, because volume depends on furniture as much as bedroom count.",
+      },
+      {
+        q: "Can I access my goods while they are in a container?",
+        a: "Container storage is designed to stay sealed, so it is not the right choice if you need to pull things out regularly. Tell us upfront if you will need access and we will look at short-term storage instead, where your goods are reachable.",
+      },
+      {
+        q: "Where are the containers kept?",
+        a: "At our own depots, Wairau Valley in Auckland and our Hamilton base, not a third-party yard we have no control over.",
+      },
+      generalServiceFaqs[3],
+      generalServiceFaqs[6],
+    ],
+    processTitle: "Container storage process",
+    processSteps: [
+      { title: "Viewing and quote", body: "We confirm volume, container count, and how long you need it." },
+      { title: "Load and seal", body: "Wrapped, inventoried, and loaded into your container." },
+      { title: "Stored at our depot", body: "Sealed and held at Wairau Valley or Hamilton." },
+      { title: "Delivered back", body: "Unloaded into your new place on your confirmed date." },
+    ],
+  },
+
   "storage-in-transit": {
     bodyParagraphs: [
       "Storage in transit keeps your load accounted for between pickup, overnight holding, and final delivery on regional routes.",

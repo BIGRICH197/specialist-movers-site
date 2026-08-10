@@ -108,6 +108,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/movers-near-me" className="hover:text-brand-yellow">
+                Movers near me
+              </Link>
+            </li>
+            <li>
               <Link href="/faq" className="hover:text-brand-yellow">
                 FAQ
               </Link>
