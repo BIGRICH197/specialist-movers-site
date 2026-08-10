@@ -31,6 +31,11 @@ export const INDEXED_LOCATION_SLUGS = new Set<string>([
   "west-auckland",
   "east-auckland",
   // North Shore (core, near depot)
+  // wairau-valley is the depot itself. Written out in full rather than from
+  // suburbCopy(), so it clears the bar above: ~980 words, its own FAQs, and 19%
+  // five-gram overlap with a sibling suburb page against the ~40%+ typical of
+  // the templated ones.
+  "wairau-valley",
   "glenfield",
   "devonport",
   "birkenhead",

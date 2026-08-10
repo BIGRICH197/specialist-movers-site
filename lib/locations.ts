@@ -188,6 +188,64 @@ const suburbs: Location[] = [
       "North Shore",
     ),
   },
+  /**
+   * Wairau Valley is deliberately NOT built from suburbCopy(). That helper
+   * writes "From our Wairau Valley depot we run {name} jobs often", which is
+   * nonsense on this page, and its generic paragraphs are the reason so many
+   * location pages read alike. This is the one suburb where we have something
+   * true to say that no other location page can say, so it is written out in
+   * full: five paragraphs and its own FAQs, which is what it takes to stop
+   * applyLocationDefaults appending the templated versions.
+   */
+  {
+    slug: "wairau-valley",
+    name: "Wairau Valley",
+    kind: "suburb",
+    group: "auckland",
+    parentSlug: "north-shore",
+    searchTerms: ["wairau", "wairau road", "wairau park"],
+    metaTitle: "Movers Wairau Valley",
+    metaDescription:
+      "Our Auckland depot is in Wairau Valley, so it is the shortest callout in the city. Commercial moves, storage, piano transport and North Shore homes.",
+    intro:
+      "Wairau Valley is where our trucks live. Our Auckland depot is here, which makes it the shortest callout fee in the city and the easiest address in Auckland for us to get to.",
+    paragraphs: [
+      "Being based here changes one number on your quote and not the others. Our hourly rate is the same everywhere in Auckland. Only the callout fee moves with distance from the depot, and at $60 plus GST for close-in Auckland, Wairau Valley sits at the bottom of that scale rather than the top.",
+      "It also means a viewing is easy to arrange. For a job five minutes from the yard we can usually come and look the same week rather than fitting you into a run across town.",
+      "Worth being straight about what is here, though. Wairau Valley is mostly light industrial and bulk retail rather than housing, so most of our local work is commercial: trade suppliers, showrooms, offices in the business park, and warehouse or stock moves priced per cubic metre rather than by the hour.",
+      "Storage sits here too. If your settlement dates do not line up, the goods do not travel any further than the depot they were already heading past, which is usually the cheapest version of a storage-in-transit job we can offer.",
+      "For homes, the residential streets we work in most are the ones either side of the valley: Glenfield, Hillcrest, Takapuna and Milford. Those are ordinary North Shore house moves, and the Wairau Valley depot is the reason we can be there early without a long run first.",
+      "Piano work runs out of the same yard under our Specialist Piano Movers team. Uprights, grands, and the awkward ones with a flight of stairs at one end, which on the Shore is most of them.",
+    ],
+    highlights: [
+      "Our Auckland depot is here, so this is the shortest callout in the city",
+      "Commercial and warehouse moves, priced per cubic metre where that suits",
+      "Storage at the depot for settlement gaps",
+      "Piano specialists in the same yard, upright and grand",
+    ],
+    faqs: [
+      {
+        q: "Are you actually based in Wairau Valley?",
+        a: "Yes. The Auckland depot is here, and every callout fee we quote across the region is calculated from it. When another mover says they cover the North Shore, it is worth asking where their trucks actually start the day, because that distance ends up on your invoice one way or another.",
+      },
+      {
+        q: "Is it cheaper to hire movers based in Wairau Valley?",
+        a: "For the callout, yes. Close-in Auckland is $60 plus GST, the outer suburbs are $80 and the fringe of the region is $120, all measured from here. The hourly rate does not change with your address, so being close to the depot saves you the callout difference rather than the whole job. We would rather say that plainly than imply a discount that is not there.",
+      },
+      {
+        q: "Do you move businesses in the Wairau Valley business park?",
+        a: "Regularly, and it is most of what we do in this postcode. Showrooms, trade suppliers, offices and warehouse stock. Bulk stock and fit-out work is usually priced per cubic metre rather than hourly, at $90 plus GST per cubic metre with a five cubic metre minimum, or $110 for work before 6am or after 5pm so you are not shut during trading hours.",
+      },
+      {
+        q: "Can you move a piano with stairs near Wairau Valley?",
+        a: "Yes, and the piano team works from this depot. Tell us the number of steps, whether there is a turn or a landing, and the narrowest width on the route. If the stairs will not work, a balcony or hoist lift usually will, and we would rather tell you which before you book than on the morning.",
+      },
+      {
+        q: "Can we store things at your depot between houses?",
+        a: "Yes. Storage is at the same Wairau Valley site, so goods coming off a North Shore job are not driven across town to a locker chain and back again. Ask about it at the quote stage rather than on move day, because it changes the truck and the route.",
+      },
+    ],
+  },
   {
     slug: "albany",
     name: "Albany",
