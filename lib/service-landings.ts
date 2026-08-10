@@ -82,7 +82,7 @@ const landingOverrides: Record<
     h1: getServiceHeroH1("piano-movers", "Auckland"),
     lead:
       "Looking for reliable piano movers in Auckland? Specialist Piano Movers handles local moves, runs to Hamilton and the Waikato, and coordinates international shipping when you need it. Upright, baby grand, and grand pianos with shrink wrap, piano boards, and crews who do this every day.",
-    subline: "Piano moves from $300. Free quote. Callback within 15 minutes.",
+    subline: "Piano moves from $300 + GST. Free quote. Callback within 15 minutes.",
     heroGagPhoto: sitePhotos.pianoAbout,
     heroGagAlt: "Specialist Piano Movers team with a wrapped piano beside the company truck",
     heroOverlayCaption: "You play. We move.",
@@ -126,7 +126,7 @@ const landingOverrides: Record<
     h1: getServiceHeroH1("house-moving", "Auckland"),
     lead:
       "Apartments, townhouses and family homes across Auckland, seven days a week. Two movers and a truck for most homes up to three bedrooms, blankets and hardware bagged so beds go back together the way they came apart, and a free in-home viewing on three bedrooms and up so the price is fixed before you book.",
-    subline: "Moves starting from $300. Free quote. We usually call back within 15 minutes.",
+    subline: "Moves starting from $300 + GST. Free quote. We usually call back within 15 minutes.",
     heroGagPhoto: sitePhotos.homeHero,
     heroGagAlt:
       "Specialist Movers carrying a sofa while the client relaxes and reads a magazine",

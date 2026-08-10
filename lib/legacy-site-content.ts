@@ -117,12 +117,19 @@ export const movingProcess = {
   steps: houseMovingProcess.steps,
 };
 
+/**
+ * Shared because pianoStatsStrip and hamiltonStatsStrip below select this
+ * row by string equality -- inlining the label lets the two drift apart and
+ * silently drop the row.
+ */
+const MOVES_FROM_LABEL = "Moves from (excl. GST)";
+
 export const statsStrip = {
   title: "Over 60 Years of Combined Moving Industry Experience",
   items: [
     { label: "SiteWise Gold Certified Contractor", value: "Gold" },
     { label: "Health & Safety Assessment Score", value: "90%+" },
-    { label: "Moves from", value: moveFromPrice },
+    { label: MOVES_FROM_LABEL, value: moveFromPrice },
     { label: "Service", value: "7 days" },
   ],
 };
@@ -133,8 +140,8 @@ export const statsStrip = {
 export const pianoStatsStrip = {
   ...statsStrip,
   items: statsStrip.items.map((item) =>
-    item.label === "Moves from"
-      ? { label: "Pianos from", value: pianoFromPrice }
+    item.label === MOVES_FROM_LABEL
+      ? { label: "Pianos from (excl. GST)", value: pianoFromPrice }
       : item,
   ),
 };
@@ -144,7 +151,7 @@ export const pianoStatsStrip = {
 export const hamiltonStatsStrip = {
   ...statsStrip,
   items: statsStrip.items.map((item) =>
-    item.label === "Moves from" ? { ...item, value: hamiltonFromPrice } : item,
+    item.label === MOVES_FROM_LABEL ? { ...item, value: hamiltonFromPrice } : item,
   ),
 };
 
