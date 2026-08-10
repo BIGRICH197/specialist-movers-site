@@ -39,6 +39,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: rootOpenGraph,
   twitter: rootTwitter,
+  verification: {
+    other: {
+      "msvalidate.01": "2E4ABAAC12BF5DE4D4554933FB7B09F4",
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
