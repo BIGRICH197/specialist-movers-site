@@ -150,7 +150,7 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
   path: "/retirement-home-movers-auckland",
   metaTitle: "Retirement Home Movers Auckland | Specialist Movers",
   metaDescription:
-    "Retirement village and rest-home movers in Auckland. Patient crews, full pack-and-move options. Free quote.",
+    "Movers for Auckland retirement villages and rest homes, including Ryman, Metlifecare and Summerset. Patient crews, full pack and move, free in-home visit.",
   eyebrow: "Auckland retirement village and rest-home moves",
   h1: "Retirement home movers Auckland",
   lead:
@@ -164,19 +164,19 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
   heroOverlayCaption: "We listen first. Then we move.",
   aboutTitle: "Moves tailored for seniors and families",
   aboutBody:
-    "We work with clients, families, and facility coordinators across Auckland. Our relocation consultants reduce stress with clear timelines, careful packing, and respectful crews. We are happy to visit in person so your quote matches the real job.",
+    "We work with clients, families, and facility coordinators across Auckland, and we move into the big operators regularly: Ryman on the North Shore, Metlifecare around Remuera and the eastern suburbs, Summerset out through Karaka and the south. We are not affiliated with any village operator and none of them endorse us. We just do these moves most weeks and know how the buildings work.",
   trustHighlights: [
     {
-      title: "Specialist approach",
-      text: "Experienced in retirement home and village relocations across Auckland.",
+      title: "Villas and apartments",
+      text: "A ground-floor villa and a third-floor village apartment are different jobs. We ask which before quoting.",
     },
     {
       title: "Full service",
       text: "Packing, transport, unpacking, and placement in your new room or unit.",
     },
     {
-      title: "Peace of mind",
-      text: "Cherished belongings handled with care from start to finish.",
+      title: "We deal with the village",
+      text: "Lift windows, gatehouse sign-in and the loading bay, sorted before the day rather than on it.",
     },
   ],
   whyTitle: "Why Auckland families trust Specialist Movers",
@@ -201,24 +201,24 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
   faqHeading: "Retirement home moving questions",
   faqs: [
     {
-      q: "Can you pack everything for us?",
-      a: "Yes. Our full pack and move service covers packing, transport, and unpacking so your family has less to coordinate.",
+      q: "Do you move into Ryman, Metlifecare and Summerset villages?",
+      a: "Yes, and into the smaller operators and standalone rest homes too. To be clear about it: we are not an approved or preferred supplier for any village operator, because no such arrangement exists to be part of. Villages let you choose your own mover. What we bring is having done these moves most weeks, so we already know to ask about the lift window and the loading bay rather than finding out on the morning.",
     },
     {
-      q: "Will someone visit our home before quoting?",
-      a: "We are happy to visit in person, especially for larger homes or complex access. That helps us give an accurate fixed price.",
+      q: "Is a village apartment different from a villa?",
+      a: "Quite different, and it is the first thing we ask. A ground-floor villa with a door you can park near is a straightforward job. A third-floor apartment usually means a booked lift, a shared loading bay, a sign-in at the gatehouse and sometimes a contractor induction before anyone lifts anything. The second one takes longer and needs the village organised in advance, so the quote is not the same.",
     },
     {
-      q: "How do you protect fragile and sentimental items?",
-      a: "We use proper materials and careful handling. Tell us about special items when you book so we plan extra protection.",
+      q: "We are organising this for our parents. What should we be asking a mover?",
+      a: "Ask whether they will come and look before quoting, and be wary of anyone who gives a number in thirty seconds without asking what floor the unit is on. Ask for the quote itemised rather than as one figure. Ask who your point of contact is on the day. And ask what happens to the furniture that does not fit, because that decision arrives whether or not anyone planned for it. A mover who answers those four straight is usually the right one.",
     },
     {
-      q: "How do we get started?",
-      a: "Call us or use the quote form. We will discuss your move date, facility access, and services you need, then confirm pricing.",
+      q: "Can you tell us what will actually fit in the new unit?",
+      a: "Ask the village for the floor plan with dimensions, and we will walk through it with you at the viewing. It is the single most useful thing you can do before move day, because deciding on the driveway is how furniture ends up in storage nobody planned for. Most people find the lounge fits and the bedroom does not.",
     },
     {
       q: "How far in advance should we book?",
-      a: "Two to three weeks ahead helps secure your preferred date, especially around month-end. We can often help sooner for smaller loads.",
+      a: "Three to four weeks for a village move, which is longer than we ask for a house. The constraint is usually not our truck. It is the village lift window, which in the apartment-style complexes can be booked out a fortnight ahead, and settlement on the home you are leaving. Smaller loads and rest-home moves we can often do sooner.",
     },
     {
       q: "What areas of Auckland do you cover?",
