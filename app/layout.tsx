@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { AttributionTracker } from "@/components/AttributionTracker";
+import { DeferredGoogleTagManager } from "@/components/DeferredGoogleTagManager";
 import { SiteChrome } from "@/components/SiteChrome";
 import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { brandAssets } from "@/lib/brand-assets";
@@ -86,7 +86,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         */}
         <link rel="llms" href="/llms.txt" />
       </head>
-      {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
+      {gtmId ? <DeferredGoogleTagManager gtmId={gtmId} /> : null}
       <body className="min-h-screen bg-brand-canvas font-sans text-brand-purple">
         <LocalBusinessJsonLd />
         <AttributionTracker />
