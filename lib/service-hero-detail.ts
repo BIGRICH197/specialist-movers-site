@@ -94,9 +94,9 @@ export const serviceHeroDetailBySlug: Record<string, readonly string[]> = {
     "Hourly pricing with a clear minimum call-out and crew size for your access.",
   ],
   "winz-quotes": [
-    "Written quotes suitable for moving assistance applications.",
-    "We visit when needed so volume and access are accurate on your paperwork.",
-    "Fast follow-up, tell us your deadline when you request the quote.",
+    "Written itemised quotes for a Moving Costs Grant application.",
+    "Rate, crew size, callout and hours listed separately, so a case manager can see what the money is for.",
+    "Tell us your application deadline and we work to that one.",
   ],
   storage: [
     "Short and long-term storage when settlement dates or renovations do not align.",

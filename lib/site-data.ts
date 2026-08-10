@@ -161,7 +161,7 @@ export const services = [
     description: serviceBlurbs["winz-quotes"].excerpt,
     defaultJobType: "Home Move" as const,
     includedBullets: [
-      "Written quote for moving assistance applications",
+      "Written itemised quote for a Moving Costs Grant application",
       "Clear scope and prompt follow-up",
       "Simple communication so you get the details you need",
     ],

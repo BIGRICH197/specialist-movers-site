@@ -103,7 +103,7 @@ export const serviceBlurbs: Record<
   "winz-quotes": {
     title: "WINZ Quotes",
     excerpt:
-      "Need a written quote for moving assistance? Contact us with your move details and we will respond with a clear scope and pricing you can use for your application.",
+      "Applying for a Moving Costs Grant? Send us your move details and we will come back with a written itemised quote you can attach to your Work and Income application.",
   },
 };
 
@@ -280,5 +280,5 @@ export const serviceWhyChooseCopy: Record<string, string> = {
   "loading-unloading":
     "Some customers need experienced movers for hire to assist with transportation and heavy lifting. At Specialist Movers, we adapt our services to suit your needs with efficient, well-organised service and careful handling.",
   "winz-quotes":
-    "If you are applying for moving assistance, you need a clear written quote fast. We focus on prompt follow-up and straightforward communication so you have the details you need for your application.",
+    "If you are applying for a Moving Costs Grant, you need one written quote with real numbers on it, and you usually need it by a date somebody else set. We itemise the rate, the crew, the callout and the hours so a case manager can see what the money is for, and we work to your deadline rather than ours.",
 };

@@ -26,7 +26,7 @@ export const legacyMetaDescriptions = {
   "loading-unloading":
     "Loading and unloading crews in Auckland from $300. Blankets and straps included, hourly rates, 7 days a week.",
   "winz-quotes":
-    "Written moving quotes for WINZ and housing assistance in Auckland. Itemised pricing, fast turnaround. Call (021) 228 2728.",
+    "Need a moving quote for a Work and Income Moving Costs Grant? Written and itemised, usually back within 15 minutes. Auckland and Waikato.",
   "piano-movers-auckland":
     "Auckland piano movers for uprights and grands. Trusted by North Shore and central Auckland music stores. Free quote.",
   "piano-movers":

@@ -179,25 +179,63 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
       { title: "Sign-off", body: "Walk through with the team leader before we leave." },
     ],
   },
+  /**
+   * Every fact about the grant here is taken from workandincome.govt.nz
+   * (Moving Costs Grant) and check.msd.govt.nz, checked August 2026.
+   *
+   * Do not add "WINZ approved mover", "registered WINZ supplier" or any
+   * equivalent, however well those phrases search. Work and Income does not
+   * approve, register, accredit or list moving companies, and its own page says
+   * only that you need "proof of your moving costs, like a quote from the
+   * moving company". Competitors do make the claim. Repeating it would be a
+   * false representation of official approval, which is a Fair Trading Act
+   * problem before it is an SEO one. The page ranks for the phrase by
+   * correcting it instead.
+   *
+   * Deliberately no dollar amounts or grant limits: those change, and a stale
+   * number on this page would be worse than no number. Point people at Work and
+   * Income for current figures.
+   */
   "winz-quotes": {
     bodyParagraphs: [
-      "WINZ and housing assistance applications need a clear written quote fast. We provide itemised pricing and respond promptly so you have paperwork ready.",
-      "Home relocation, packing, and cleaning quotes are available, tell us your deadline when you call.",
-      "We visit when needed so volume, access, and distance are accurate on your application, not guessed over the phone.",
+      "The payment most people mean by a WINZ moving quote is the Moving Costs Grant. Work and Income asks for \"proof of your moving costs, like a quote from the moving company\", so what you need from us is one written quote with real numbers on it.",
+      "There is no such thing as a WINZ approved mover. Work and Income does not approve, register or accredit moving companies, and it does not keep a list of them. Any mover advertising that status is describing something that does not exist. What matters is that the quote is itemised, on letterhead, and detailed enough for a case manager to see what the money is for.",
+      "Our quotes are written, itemised and dated, with the hourly rate, the crew size, the callout fee and the estimated hours set out separately. That is the format that gets approved without a second conversation.",
+      "Tell us your application deadline when you get in touch. If you have a date with your case manager, say so, and we will work to it rather than to our usual turnaround.",
+      "We quote home moves, packing and move-out cleaning the same way, across Auckland and the Waikato. If your application covers more than the truck, ask and we will itemise the rest of it too.",
     ],
     faqs: [
       {
-        q: "How fast can you provide a WINZ quote?",
-        a: "We aim to return written quotes within one business day. Call (021) 228 2728 if your application deadline is sooner.",
+        q: "How do I get a moving quote for Work and Income?",
+        a: "Send us the pickup and delivery addresses, the number of bedrooms, the floor at each end, and your deadline. We come back with a written itemised quote, usually within 15 minutes during business hours and always within one business day. You then attach it to your Moving Costs Grant application. Call (021) 228 2728 if your deadline is sooner than that.",
       },
-      ...generalServiceFaqs.slice(1, 6),
+      {
+        q: "Are you a WINZ approved mover?",
+        a: "Nobody is. Work and Income does not approve, register or accredit moving companies, so there is no list to be on and no status to hold. Its own guidance asks only for proof of your moving costs, like a quote from the moving company. We give you a written itemised quote that meets that, which is all the application actually needs.",
+      },
+      {
+        q: "How many quotes does Work and Income need?",
+        a: "Work and Income's published guidance asks for proof of your moving costs, like a quote from the moving company, and does not state a number. Your case manager may ask for more than one, so check with them rather than assuming. Getting ours costs you nothing either way.",
+      },
+      {
+        q: "Can I get a WINZ moving quote online?",
+        a: "Yes. Use the quote form on this page or call us, and the written quote comes back by email ready to attach to your application. We only need to visit in person for larger or more complex homes, and we will tell you upfront if yours is one.",
+      },
+      {
+        q: "Do you do WINZ quotes for South Auckland?",
+        a: "Yes, across all of Auckland including Manukau, Papakura and Otara, and across the Waikato from our Hamilton base. Our hourly rate is the same everywhere in Auckland. Only the callout fee changes with distance from our Wairau Valley depot, and it is on the quote so your case manager can see it.",
+      },
+      {
+        q: "What happens if my application is delayed or declined?",
+        a: "The quote stays valid and there is no obligation on you. We do not ask for a deposit to hold a quote and we do not book a truck until you tell us the funding is confirmed. If the date moves, tell us and we will requote for the new one.",
+      },
     ],
-    processTitle: "Quote process",
+    processTitle: "How the quote fits your application",
     processSteps: [
-      { title: "Tell us your deadline", body: "Share WINZ paperwork requirements and dates needed." },
-      { title: "Viewing or phone scope", body: "We confirm volume and access for an accurate written price." },
-      { title: "Written quote", body: "Itemised quote suitable for your application." },
-      { title: "Book when approved", body: "Lock your move date once assistance is confirmed." },
+      { title: "Tell us the deadline", body: "Your case manager's date matters more to us than ours." },
+      { title: "Scope it properly", body: "Bedrooms, access and distance, by phone or a free viewing." },
+      { title: "Written itemised quote", body: "Rate, crew, callout and hours listed separately, on letterhead." },
+      { title: "Book once funding is confirmed", body: "No deposit, no obligation, and we requote if the date moves." },
     ],
   },
   "grand-piano": {
