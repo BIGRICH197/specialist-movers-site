@@ -103,6 +103,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/pricing" className="hover:text-brand-yellow">
+                Pricing
+              </Link>
+            </li>
+            <li>
               <Link href="/faq" className="hover:text-brand-yellow">
                 FAQ
               </Link>

@@ -22,6 +22,7 @@ const staticRoutes = [
   "/piano-movers/auckland",
   "/reviews",
   "/faq",
+  "/pricing",
   "/about",
   "/why-us",
   "/blog",
