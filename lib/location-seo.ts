@@ -30,6 +30,78 @@ const pianoProtection =
 
 /** SEO patches keyed by /locations/[slug] */
 export const locationSeoPatches: Record<string, LocationSeoPatch> = {
+  milford: {
+    metaDescription:
+      "Looking for movers in Milford, Auckland? Specialist Movers is 8 minutes from your door. Dozens of moves done here. Licensed and insured crew.",
+    intro:
+      "Milford sits right on our doorstep, about 8 minutes from our Wairau Valley depot. It is a suburb of established family homes, apartment blocks along the estuary, and a surprisingly mixed bag of access challenges once you get off the main streets.",
+    paragraphs: [
+      "Milford's residential streets run from generous 1970s and 1980s family homes on flat sections near the mall, through to tighter cross-lease properties and multi-unit developments closer to the beach reserve. The mix keeps us on our toes, and we have done dozens of moves here, so we know which driveways look fine on a map and which ones need a rethink before the truck arrives.",
+      "The apartment buildings along Milford's waterfront edge are a regular part of our work in this area. Lifts help, but they are not always large enough for a three-seater sofa or a double-door fridge. We check lift dimensions and lobby access before move day so there are no surprises when we show up.",
+      "Milford Road itself is busy through school hours and on weekends, and the carpark around the mall can back things up mid-morning. We factor that into start times for jobs in this part of the suburb, especially if we are working near the beach end of the road where street parking is limited.",
+      "Cover for your belongings during the move can be arranged through our team. Our crew are licensed and insured, and we use blankets, shrink wrap, or mattress covers depending on what each item needs. If you have a piano, we are the team Auckland's Steinway dealers trust with theirs.",
+    ],
+    highlights: [
+      "8 minutes from our Wairau Valley depot",
+      "Dozens of Milford moves completed",
+      "Waterfront apartment access checked before move day",
+      "7-day operation, no weekend premium surprise",
+    ],
+    faqs: [
+      {
+        q: "The building I'm moving into has a small lift. Will that be a problem?",
+        a: "It can be, depending on what you are moving. We ask for the lift dimensions when you book, and if something will not fit, we plan the stairwell route before move day rather than working it out on the spot.",
+      },
+      {
+        q: "How does pricing work for a Milford move?",
+        a: "Milford falls within our standard callout area, so there is no distance premium on top of the hourly rate. You see the full price before you confirm the booking, nothing added on the day.",
+      },
+      {
+        q: "We are moving out of a cross-lease property with shared driveway access. Is that an issue?",
+        a: "Not usually. We confirm truck size, turning space, and any shared-access restrictions before move day. If the big truck will not fit comfortably, we adjust the plan rather than improvise when we arrive.",
+      },
+      {
+        q: "Can you move us on a Saturday or Sunday?",
+        a: "Yes. We operate seven days. Milford being close to our depot means we can often fit weekend jobs into the schedule at short notice, though booking ahead always gives you more choice of start time.",
+      },
+    ],
+  },
+  ellerslie: {
+    metaDescription:
+      "Looking for movers in Ellerslie, Auckland? Specialist Movers know the streets, townhouses, and character homes here. Get a quote in about 15 minutes.",
+    intro:
+      "Ellerslie sits in a comfortable spot between the motorway and the racecourse, and the housing here tells that story well. Solid 1960s and 70s brick-and-tile homes, a growing number of townhouse developments, and some steep cross-lease driveways that keep us on our toes.",
+    paragraphs: [
+      "We have completed dozens of jobs in Ellerslie, so we know where the tight access lives. The streets close to Ellerslie Racecourse tend to be generous and easy to park a truck on, but some of the newer townhouse clusters off Minto Road and Ladies Mile have shared driveways that need a plan before move day, not an improvisation on the morning.",
+      "The brick-and-tile homes from the 60s and 70s are common here, and they often come with original internal stairs and narrow hallways that a standard carry can handle fine. What slows things down is underestimating them. We scope the layout before we quote so there are no surprises when the furniture meets the doorframe.",
+      "Ellerslie is about 18 minutes from our Wairau Valley depot, so crews arrive fresh and on time. It sits in our standard callout area, which means the fixed callout portion of your price reflects that short run, and you see the full price before you book.",
+      "Townhouse living in Ellerslie often means lift access or shared stairwells in newer blocks, and body corporate rules about move-in times that vary by building. If you are moving into or out of one of the newer developments along the Great South Road corridor, let us know when you enquire and we will check what is needed.",
+    ],
+    highlights: [
+      "Dozens of Ellerslie jobs completed",
+      "18 minutes from our Wairau Valley depot",
+      "Familiar with townhouse access and shared driveways",
+      "Full price shown upfront before you confirm",
+    ],
+    faqs: [
+      {
+        q: "We are moving into a newer townhouse complex in Ellerslie. Do you know how to handle shared driveways and tight access?",
+        a: "Yes, this comes up regularly here. Tell us the address and building name when you enquire and we will check the driveway width, turning room, and any body corporate restrictions on move times before we confirm your booking.",
+      },
+      {
+        q: "Our Ellerslie home has the original narrow hallway and an internal staircase. Is that a problem?",
+        a: "Not usually. Older brick-and-tile homes in this area are something we move in and out of regularly. We ask about hallway width and stair layout at the quoting stage so the crew knows what to expect and comes with the right number of people.",
+      },
+      {
+        q: "How does pricing work for an Ellerslie move?",
+        a: "You pay an hourly rate plus a fixed callout. Ellerslie is in our standard callout area, so there is no distance premium on top of the base rate. You see the complete price before you confirm, with nothing added on the day.",
+      },
+      {
+        q: "Can you move on a weekend? We need to be out before the rental rolls over on a Saturday.",
+        a: "Yes, we operate seven days. Weekend slots fill up faster than weekdays, so it is worth getting your quote in early if you have a fixed date. We usually come back with a quote in about 15 minutes during business hours.",
+      },
+    ],
+  },
   papatoetoe: {
     metaDescription:
       "Local movers in Papatoetoe, South Auckland. Specialist Movers handles family homes, units, and townhouses across the suburb. Get a quote in 15 minutes.",
