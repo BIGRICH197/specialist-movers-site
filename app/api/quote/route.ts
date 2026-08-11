@@ -17,6 +17,7 @@ import {
   classifyTrafficSource,
 } from "@/lib/traffic-source";
 import type { AccessDifficulty, Bedrooms, PianoType } from "@/lib/pricing-data";
+import { isDialable, PHONE_ERROR } from "@/lib/phone";
 
 function parseRooms(value: number | undefined): Bedrooms {
   const rooms = value ?? 2;
@@ -134,6 +135,9 @@ export async function POST(request: Request) {
         { status: 400 },
       );
     }
+    if (!isDialable(body.phone)) {
+      return NextResponse.json({ ok: false, error: PHONE_ERROR }, { status: 400 });
+    }
 
     await createHubSpotDeal({
       name: body.name,
@@ -162,6 +166,9 @@ export async function POST(request: Request) {
         { ok: false, error: "Name, phone, and email required" },
         { status: 400 },
       );
+    }
+    if (!isDialable(body.phone)) {
+      return NextResponse.json({ ok: false, error: PHONE_ERROR }, { status: 400 });
     }
 
     await createHubSpotDeal({
@@ -199,10 +206,15 @@ export async function POST(request: Request) {
         { status: 400 },
       );
     }
+    // Hard-to-shift jobs are quoted on a phone call, never automatically — a
+    // lead with no number is a lead we cannot work (Taine, 2026-08-11).
+    if (!isDialable(body.phone)) {
+      return NextResponse.json({ ok: false, error: PHONE_ERROR }, { status: 400 });
+    }
 
     await createHubSpotDeal({
       name: body.name,
-      phone: body.phone?.trim() || "Via website",
+      phone: body.phone.trim(),
       email: body.email,
       serviceType: "Hard to Shift",
       pickupAddress: body.pickupAddress.trim(),
@@ -223,6 +235,10 @@ export async function POST(request: Request) {
       { ok: false, error: "Name and phone required" },
       { status: 400 },
     );
+  }
+
+  if (!isDialable(body.phone)) {
+    return NextResponse.json({ ok: false, error: PHONE_ERROR }, { status: 400 });
   }
 
   if (body.mode === "callback") {

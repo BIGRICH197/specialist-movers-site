@@ -17,8 +17,15 @@ const primaryBtn =
   "group mt-6 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-brand-yellow px-6 text-base font-bold text-brand-purple shadow-[0_8px_24px_-4px_rgba(243,208,42,0.65)] ring-2 ring-brand-yellow ring-offset-2 ring-offset-white transition hover:brightness-[1.03] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:brightness-100";
 
 /**
- * Simple enquiry form for hard-to-shift jobs: name, email, from/to, and
+ * Simple enquiry form for hard-to-shift jobs: name, phone, email, from/to, and
  * what needs moving. Same card chrome as QuoteForm.
+ *
+ * Phone is required. It was missing from this form entirely until 2026-08-11,
+ * so every hard-to-shift lead reached HubSpot with no number — the API route
+ * papered over the gap with the literal string "Via website", which meant the
+ * field looked populated while being unusable. Taine flagged three in a row
+ * (deals 340303418057, 340254804717, 339863119592), all jobs that need a
+ * conversation before they can be quoted.
  */
 export function HardToShiftEnquiryForm({ className = "" }: Props) {
   // This form renders from ServicePageTemplate, ServiceLandingSections and
@@ -28,6 +35,7 @@ export function HardToShiftEnquiryForm({ className = "" }: Props) {
   const uid = useId().replace(/:/g, "");
   const fieldId = (suffix: string) => `${uid}-${suffix}`;
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [pickupAddress, setPickupAddress] = useState("");
   const [dropoffAddress, setDropoffAddress] = useState("");
@@ -70,6 +78,7 @@ export function HardToShiftEnquiryForm({ className = "" }: Props) {
               body: JSON.stringify({
                 mode: "hard-to-shift",
                 name,
+                phone,
                 email,
                 pickupAddress,
                 dropoffAddress,
@@ -132,6 +141,23 @@ export function HardToShiftEnquiryForm({ className = "" }: Props) {
               required
               type="email"
               placeholder="you@example.com"
+              className={field}
+            />
+          </div>
+          <div className="space-y-1.5 sm:col-span-2">
+            <label className={label} htmlFor={fieldId("hts-phone")}>
+              Phone *
+            </label>
+            <input
+              id={fieldId("hts-phone")}
+              name="phone"
+              autoComplete="tel"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+              type="tel"
+              inputMode="tel"
+              placeholder="021..."
               className={field}
             />
           </div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { bookingTerms, BOOKING_TERMS_VERSION } from "@/lib/quote-deck/booking-terms";
+import { isDialable, PHONE_ERROR } from "@/lib/phone";
 
 // Direct piano / large-item book-in form (no quote link needed) — replaces the
 // piano JotForm. Submits to /api/book-in, which creates the Trello job card and
@@ -66,7 +67,11 @@ export function PianoBookingForm() {
       ["dropoffAddress", "Drop-off address"],
       ["stairs", "Are there stairs?"],
     ];
-    return required.filter(([k]) => !f[k]?.trim()).map(([, label]) => label);
+    const out = required.filter(([k]) => !f[k]?.trim()).map(([, label]) => label);
+    // A filled-in Phone box is not the same as a phone number — see
+    // lib/phone.ts for the surname-in-the-phone-field failures this catches.
+    if (f.phone?.trim() && !isDialable(f.phone)) out.push(PHONE_ERROR);
+    return out;
   }
 
   async function submit(e: React.FormEvent) {

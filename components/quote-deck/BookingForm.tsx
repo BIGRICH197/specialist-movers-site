@@ -7,6 +7,7 @@ import {
   BOOKING_TERMS_VERSION,
   type BookingTermsSection,
 } from "@/lib/quote-deck/booking-terms";
+import { isDialable, PHONE_ERROR } from "@/lib/phone";
 
 // Branded booking form — mirrors the JotForm "House move booking confirmation"
 // fields, prefilled from the quote. On submit it posts to /api/bookings, which
@@ -166,6 +167,11 @@ export function BookingForm({
     if (showCleaningSameDay && !f.cleaningSameDay?.trim())
       out.push("Cleaning same day as moving?");
     if (showPackingDetail && whatPacking.length === 0) out.push("What are we packing?");
+    // A filled-in Phone box is not the same as a phone number. Full name and
+    // Phone sit side by side in this grid, and a surname in the phone field
+    // reached ShiftMate four times before this check existed (2026-08-11) —
+    // see lib/phone.ts.
+    if (f.phone?.trim() && !isDialable(f.phone)) out.push(PHONE_ERROR);
     return out;
   }
 
