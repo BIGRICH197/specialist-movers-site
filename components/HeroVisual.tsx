@@ -83,13 +83,15 @@ export function HeroVisual({
             }
           : {})}
       >
+        {/* quality 82 matches SitePhoto, so a photo reused by both the hero and
+            a service card resolves to one /_next/image URL instead of two. */}
         <div className="absolute inset-0 z-0">
           <Image
             src={photoSrc}
             alt={hasHoverSwap ? "" : (photoAlt ?? "Specialist Movers team at work")}
             fill
             priority={priority}
-            quality={priority ? 85 : 78}
+            quality={priority ? 82 : 78}
             sizes="(max-width: 1024px) 100vw, 560px"
             className={`object-cover ${
               hasHoverSwap

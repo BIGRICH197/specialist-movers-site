@@ -11,6 +11,9 @@ import { regions } from "@/lib/regions";
 import { rootOpenGraph, rootTwitter } from "@/lib/seo";
 import { siteUrl } from "@/lib/site-config";
 
+// Not preloaded: the LCP element is the hero image, and three high-priority font
+// preloads (57KB) were contending with it. `swap` plus next/font's generated
+// size-adjust fallback metrics keep text visible and CLS at 0 meanwhile.
 const inter = localFont({
   src: [
     { path: "./fonts/Inter_18pt-Light.woff2", weight: "300", style: "normal" },
@@ -18,6 +21,7 @@ const inter = localFont({
   ],
   variable: "--font-inter",
   display: "swap",
+  preload: false,
 });
 
 const termina = localFont({
