@@ -15,7 +15,7 @@ import { isMobileLogoLockupPath } from "@/lib/mobile-logo-lockup-path";
 import { scrollToInstantQuote } from "@/lib/scroll-to-quote";
 
 const navLink =
-  "shrink-0 whitespace-nowrap rounded-lg px-2.5 py-2 text-xs font-semibold text-brand-yellow transition-colors hover:bg-white/10 xl:px-3 xl:text-sm";
+  "shrink-0 whitespace-nowrap rounded-lg px-2.5 py-2 font-heading text-xs text-brand-yellow transition-colors hover:bg-white/10 xl:px-3 xl:text-sm";
 
 const moreLinks = [
   { href: "/pricing", label: "Pricing" },
@@ -268,7 +268,7 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMoreOpen(false)}
-                className="block rounded-xl px-3 py-2.5 text-sm font-semibold text-brand-yellow transition-colors hover:bg-white/10"
+                className="block rounded-xl px-3 py-2.5 font-heading text-sm text-brand-yellow transition-colors hover:bg-white/10"
               >
                 {item.label}
               </Link>
