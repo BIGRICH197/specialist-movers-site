@@ -11,9 +11,9 @@ import { regions } from "@/lib/regions";
 import { rootOpenGraph, rootTwitter } from "@/lib/seo";
 import { siteUrl } from "@/lib/site-config";
 
-// Not preloaded: the LCP element is the hero image, and three high-priority font
-// preloads (57KB) were contending with it. `swap` plus next/font's generated
-// size-adjust fallback metrics keep text visible and CLS at 0 meanwhile.
+// Keep `preload` on. Dropping it does not take these off the critical path — the
+// fonts just get discovered from the stylesheet instead, which chains them behind
+// it (document -> CSS -> font, 462ms critical path) and is measurably worse.
 const inter = localFont({
   src: [
     { path: "./fonts/Inter_18pt-Light.woff2", weight: "300", style: "normal" },
@@ -21,7 +21,6 @@ const inter = localFont({
   ],
   variable: "--font-inter",
   display: "swap",
-  preload: false,
 });
 
 const termina = localFont({
