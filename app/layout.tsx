@@ -12,7 +12,10 @@ import { rootOpenGraph, rootTwitter } from "@/lib/seo";
 import { siteUrl } from "@/lib/site-config";
 
 const inter = localFont({
-  src: "./fonts/Inter_18pt-Light.woff2",
+  src: [
+    { path: "./fonts/Inter_18pt-Light.woff2", weight: "300", style: "normal" },
+    { path: "./fonts/Inter_18pt-SemiBold.woff2", weight: "600", style: "normal" },
+  ],
   variable: "--font-inter",
   display: "swap",
 });
