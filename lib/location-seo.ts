@@ -30,6 +30,114 @@ const pianoProtection =
 
 /** SEO patches keyed by /locations/[slug] */
 export const locationSeoPatches: Record<string, LocationSeoPatch> = {
+  helensville: {
+    metaDescription:
+      "Moving to or from Helensville? Specialist Movers are Auckland movers with regular experience on the Kaipara roads. Get a quote in about 15 minutes.",
+    intro:
+      "Helensville sits at the northern edge of greater Auckland, where the Kaipara Harbour meets rural Rodney. The homes out here range from older township cottages on compact sections to lifestyle blocks along the valley roads, and the moves reflect that mix.",
+    paragraphs: [
+      "We make the run from our Wairau Valley depot to Helensville regularly. It is about 38 minutes each way, and we have completed dozens of jobs in and around the town, so the roads and the neighbourhood feel familiar.",
+      "A fair number of Helensville moves involve lifestyle properties on the fringes of town. Long driveways, sheds, and rural outbuildings add time and planning to a job. We scope access and loading points before move day so nothing comes as a surprise when the truck arrives.",
+      "The older bungalows and villas closer to the town centre often have narrow side access and established gardens that make manoeuvring tight. Our crew sizes range from two to four movers depending on what the job calls for, and trucks come with taillifts to handle heavy items without steps being a problem.",
+      "Helensville is also a starting point for a lot of longer moves. People relocating from the Kaipara area into Auckland, or heading further north through Wellsford and beyond, often use us as their Auckland-based crew. We operate seven days and can work around early starts if a long-haul move needs them.",
+    ],
+    highlights: [
+      "Regular runs to Helensville and the surrounding Kaipara roads",
+      "Experience with lifestyle block access and rural driveways",
+      "Crew sizes matched to the job, two to four movers",
+      "Seven-day operation for flexible move dates",
+    ],
+    faqs: [
+      {
+        q: "How does pricing work for a Helensville move?",
+        a: "Helensville sits in our Zone B. The hourly rate is the same as anywhere in Auckland, and the fixed callout is a little higher than inner suburbs to account for the travel from our Wairau Valley depot. You see the full price before you book, with nothing added on the day.",
+      },
+      {
+        q: "We are on a lifestyle block outside town. Can your truck get down a gravel driveway?",
+        a: "Often yes. We confirm driveway width, surface, overhead clearance, and turning room before move day. If the big truck cannot get all the way in, we work out the carry plan in advance rather than figuring it out on the morning.",
+      },
+      {
+        q: "We have a lot of shed and garage contents on top of the house. How do you handle that?",
+        a: "Shed and outbuilding contents are part of the job brief we go through when you enquire. Knowing what is there helps us quote accurately and send the right crew. It is worth listing the big or awkward items, things like ride-ons, workbenches, or large machinery, when you get in touch.",
+      },
+      {
+        q: "Are your crews insured on a job this far from the city?",
+        a: "Yes. Our licensed and insured crew operates across all of greater Auckland regardless of distance. Cover for your own belongings can be arranged through our team before move day.",
+      },
+    ],
+  },
+  "mission-bay": {
+    metaDescription:
+      "Moving in Mission Bay? Specialist Movers are Auckland movers who know the bays, the hills, and the tricky beach-side access. Get a quote in about 15 minutes.",
+    intro:
+      "Mission Bay sits right on the waterfront, and the moves here come with a particular set of challenges: steep residential streets rising sharply from the esplanade, older character homes with narrow side access, and a suburb that draws both long-term families and buyers coming in fresh from the rest of Auckland.",
+    paragraphs: [
+      "The streets above the waterfront climb quickly. Homes on Goldie Street, Marau Crescent, and the roads running up toward Kohimarama can have short steep driveways and limited room for a truck to manoeuvre. We look at access before move day so nothing slows us down when the time comes.",
+      "A lot of Mission Bay's housing stock is older, bungalows and villas with internal staircases that were not built with sofas in mind. Tight hallways and stairwells are something we plan for rather than figure out on the spot. Blankets, shrink wrap, or mattress covers are used depending on what each item needs.",
+      "The esplanade and Tamaki Drive get busy on weekends and during summer, and parking near the beach-side properties can be genuinely difficult. We factor road conditions and parking into the plan early, especially for flats and units close to the waterfront strip.",
+      "Our crew is licensed and insured, and we operate seven days a week. If you want cover arranged for your own belongings, our team can point you in the right direction. Quotes come back in about 15 minutes during business hours.",
+    ],
+    highlights: [
+      "Steep residential streets above the esplanade, scoped before move day",
+      "Character villas and bungalows with tricky internal access",
+      "Tamaki Drive parking and traffic planned for in advance",
+      "7-day availability, licensed and insured crew",
+    ],
+    faqs: [
+      {
+        q: "Can your truck get up the steep driveways in the streets above Mission Bay beach?",
+        a: "Most of the time yes, but we always check first. We confirm driveway grade, width, and turning room before move day. If the full-size truck cannot get close enough safely, we plan the carry distance rather than work it out on the day.",
+      },
+      {
+        q: "How far are you from Mission Bay and what does the callout cost?",
+        a: "Our depot is in Wairau Valley, about 26 minutes from Mission Bay. It sits in our standard callout area, so there is no distance premium added to your quote. You see the full price upfront before you confirm anything.",
+      },
+      {
+        q: "We have a villa with a narrow hallway and a tight staircase. Have you dealt with that before?",
+        a: "Regularly. Older Mission Bay villas are some of the trickier homes we move in, and tight stairwells are a known feature. We plan the route for bulky items before we start, and protection is chosen based on what each piece needs.",
+      },
+      {
+        q: "Is parking near the Tamaki Drive apartments usually a problem?",
+        a: "It can be, particularly on weekends when the esplanade is busy. We factor that into the timing and approach. For properties with very limited street access, we talk through the best window to load or unload before we book the job in.",
+      },
+    ],
+  },
+  otahuhu: {
+    metaDescription:
+      "Moving in Otahuhu? Specialist Movers is about 26 minutes from our Wairau Valley depot and works here regularly. Get a quote in around 15 minutes.",
+    intro:
+      "Otahuhu is one of South Auckland's oldest town centres, and the housing stock tells that story. Compact sections, older bungalows on narrow lots, and a busy commercial strip that runs right through the middle of it all.",
+    paragraphs: [
+      "The streets close to the Great South Road corridor are tight. Older bungalows sit close to the boundary, driveways are short, and parked cars narrow things down further on move day. We check access before we arrive so the crew is not working out a plan on the footpath.",
+      "Otahuhu has a strong Pacific and South Asian community, and households here often move a lot of furniture built for large families. Big dining suites, large display cabinets, multi-piece bedroom sets. We plan load order and carry routes before anything comes off a shelf.",
+      "The suburb also has a fair amount of older rental stock and a growing number of smaller units added to existing sections. Cross-lease titles and shared right-of-way access can limit where a truck stops. We confirm these details at the quoting stage, not on the morning of the move.",
+      "We are based in Wairau Valley and reach Otahuhu in about 26 minutes. It sits in pricing zone B, so the fixed callout is a little higher than inner suburbs, and you see the full price before you confirm the booking. We work here regularly, seven days a week.",
+    ],
+    highlights: [
+      "Familiar with narrow lots and short driveways near Great South Road",
+      "Access confirmed before move day, not on arrival",
+      "7-day availability including weekends",
+      "Upfront pricing, no surprises on the day",
+    ],
+    faqs: [
+      {
+        q: "My place is on a shared right-of-way and the entrance is narrow. Is that a problem?",
+        a: "Not usually, but we need to know about it. Tell us at the quoting stage and we will confirm truck size, turning room, and whether we need to adjust the stop point. Planning it in advance is much simpler than sorting it out when the truck arrives.",
+      },
+      {
+        q: "I have a large display cabinet and a heavy dining suite. Can you move those safely?",
+        a: "Yes. Large furniture is a regular part of what we do. We plan the carry route and load order ahead of time, and the crew uses blankets, shrink wrap, or mattress covers depending on what each item needs.",
+      },
+      {
+        q: "How does pricing work for Otahuhu?",
+        a: "Our hourly rates are the same across Auckland. Otahuhu sits in pricing zone B, so the fixed callout is slightly higher than inner suburbs because of the drive from our Wairau Valley depot. You see the full price before you book, with nothing added on the day.",
+      },
+      {
+        q: "Can you move us on a weekend? We cannot take time off work.",
+        a: "Yes, we operate seven days a week. Weekend bookings in Otahuhu are common, and we treat them the same as any weekday job. Request a quote online or call us and we usually come back to you in around 15 minutes during business hours.",
+      },
+    ],
+  },
   milford: {
     metaDescription:
       "Looking for movers in Milford, Auckland? Specialist Movers is 8 minutes from your door. Dozens of moves done here. Licensed and insured crew.",
@@ -1785,30 +1893,38 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     ],
   },
   wellington: {
-    extraParagraphs: [
-      `Long-distance moves to Wellington are planned in stages, viewing or detailed inventory, written quote, confirmed dates, then load, travel, and unload with the same crew lead throughout.`,
-      `Piano transport on long routes uses padded blankets, shrink wrap, piano boards, and dedicated securing inside the truck. Transit insurance options are available, ask when you quote. ${longDistancePricing}`,
+    metaDescription:
+      "Moving to or from Wellington? Specialist Movers runs crews from Hamilton to Wellington, with dozens of jobs completed here. Licensed and insured movers.",
+    intro:
+      "Wellington is not the easiest city to move in, and that is exactly what keeps us on our toes. Steep streets, older character homes, and tight inner-city access mean every job here needs a bit of thought before the truck rolls.",
+    paragraphs: [
+      "Wellington's terrain is well known. Many of the city's most sought-after suburbs sit on hillsides, with narrow roads, stepped entrances, and properties where a truck can get close but not quite close enough. We scope access before move day so there are no surprises on the morning.",
+      "The housing stock here is varied in a way that matters for movers. You have grand older villas in Thorndon and Kelburn, compact apartments in Te Aro, and townhouses climbing the bays towards Seatoun and Eastbourne. Each type comes with its own access challenges, and we plan accordingly.",
+      "Wellington is also a city of movers in the literal sense. The public service, universities, and the arts sector mean a steady churn of households coming and going. We have completed dozens of jobs here, and we know that timing matters, leases and work start dates align on a fixed day whether the weather cooperates or not.",
+      "We operate seven days, which suits Wellington's pace. Our crew is licensed and insured, and cover for your own belongings can be arranged through our team before move day.",
+    ],
+    highlights: [
+      "Dozens of Wellington jobs completed",
+      "Experience with hilly streets and stepped entrances",
+      "Seven-day operation including weekends",
+      "Access scoped before move day, not on the morning",
     ],
     faqs: [
       {
-        q: "How long does a move to Wellington take?",
-        a: "Most Wellington routes are two days, load day, overnight travel, and unload the next day. We confirm timing and crew plan in your written quote.",
+        q: "How far is the drive from your base to Wellington?",
+        a: "We run crews from our Hamilton base. Wellington is about 42 minutes away, and that travel time is reflected in the callout for this service area. You see the full price before you confirm anything.",
       },
       {
-        q: "What is included in a long-distance quote?",
-        a: "Labour, truck, travel, standard wrapping, and unload are included. Packing, storage, piano specialist handling, and insurance are itemised when you need them.",
+        q: "My Wellington property has a steep driveway and steps down to the front door. Can you manage that?",
+        a: "Yes, and it is common here. We ask about access when you book, so we can plan the carry distance, crew size, and timing properly. That information shapes the job, and we want it early.",
       },
       {
-        q: "How is a piano protected on a long route to Wellington?",
-        a: "Pianos are blanket-wrapped, shrink-wrapped, and strapped on boards inside the truck. Grands are tilted and padded; uprights are secured upright for the full journey.",
+        q: "I am moving into a Te Aro apartment with an elevator. Do I need to arrange anything?",
+        a: "Book the service elevator with your building manager and let us know the booking window. We work within whatever time slot you have secured, and we will confirm the lift dimensions if you are moving anything bulky.",
       },
       {
-        q: "Do you do return trips from Wellington?",
-        a: "Yes. return loads and backhaul dates are often available. Call with your dates and we will match a return trip where possible.",
-      },
-      {
-        q: "How far in advance should I book a Wellington move?",
-        a: "Four weeks ahead is ideal for long-distance routes. Two weeks minimum for month-end, call early to secure your preferred dates.",
+        q: "Do you move pianos in Wellington?",
+        a: "We do. Wellington has a strong music community and we are trusted by Steinway dealers and Auckland Town Hall for piano moves. Steep sites and narrow halls are familiar territory. Just tell us the piano type and what the access looks like at both ends.",
       },
     ],
   },
@@ -1869,30 +1985,38 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     ],
   },
   "palmerston-north": {
-    extraParagraphs: [
-      `Palmerston North sits on our lower North Island corridor from Hamilton, home, office, piano, and commercial moves with travel quoted upfront. ${pianoProtection}`,
-      longDistancePricing,
+    metaDescription:
+      "Moving in Palmerston North? Specialist Movers runs from our Hamilton base, about 42 minutes away. Insured crew, upfront pricing, no surprises.",
+    intro:
+      "Palmerston North is a city built around its grid, flat streets, big older homes, and a university population that keeps the rental market moving year-round. We travel down from our Hamilton base to cover moves here.",
+    paragraphs: [
+      "The housing stock in Palmy is predominantly post-war brick and weatherboard, often on generous sections with long driveways and separate garages. These homes tend to have large rooms, which means heavy furniture and beds that need careful angling through doorways and hallways. We plan for that before the truck arrives.",
+      "The university draws a constant flow of students, staff, and research workers in and out of the city. Whether it is a flat in Awapuni or a family home near Hokowhitu Lagoon, we treat every move the same: a fixed quote, a confirmed crew, and clear communication in the days leading up to move day.",
+      "Palmerston North sits in Pricing Zone C, our outer service area. The callout reflects the roughly 42-minute drive from our Hamilton base. You see the full cost upfront when you book, so there are no surprises on the day.",
+      "Our crew carries public liability and carrier's liability, and cover for your own belongings can be arranged through our team. We operate seven days a week, and for larger homes we offer a free viewing so nothing on the quote is guesswork.",
+    ],
+    highlights: [
+      "Flat city grid, older homes with large rooms and long driveways",
+      "University-area flats and family homes in Hokowhitu and Awapuni",
+      "Zone C pricing, full cost shown before you book",
+      "Seven-day operation, free viewing for larger Palmy homes",
     ],
     faqs: [
       {
-        q: "How long does a move to Palmerston North take?",
-        a: "Most Palmerston North routes are two days, load day, travel, and unload. Timing is confirmed in your written quote.",
+        q: "How far do you travel to reach Palmerston North?",
+        a: "Our Hamilton base is about 42 minutes from Palmerston North. That distance is factored into the Zone C callout, which you see as a fixed line on your quote before you confirm anything.",
       },
       {
-        q: "What is included in a long-distance quote?",
-        a: "Crew, truck, travel, and standard protection are included. Specialist piano handling, packing, and insurance are itemised when needed.",
+        q: "We have a heavy piano in our home on College Street. Can you move it safely?",
+        a: "Yes. Piano moving is a core part of what we do. We are trusted by Auckland's Steinway dealers and Auckland Town Hall, and we apply the same care to every piano regardless of where it is going. We will check access and stair situations before move day.",
       },
       {
-        q: "How is a piano protected on the route?",
-        a: "Blankets, shrink wrap, and piano boards are used on every piano move. The instrument is secured inside the truck for the full journey.",
+        q: "Our rental in Roslyn needs a clean before handover. Do you offer that?",
+        a: "We do offer move-out cleaning. It is worth mentioning when you get your quote so we can include it and schedule it alongside the move.",
       },
       {
-        q: "How far in advance should I book?",
-        a: "Three weeks ahead is recommended for Manawatu routes. Call for availability on shorter notice.",
-      },
-      {
-        q: "Do you do return trips from Palmerston North?",
-        a: "Yes. return loads and backhaul dates are often available on lower North Island routes. Call with your dates and we will match a return trip where possible.",
+        q: "Can you pack us up the day before the truck arrives?",
+        a: "Yes. We offer a packing service the day before your move. It keeps move day shorter and means your belongings are packed by the same team that loads the truck.",
       },
     ],
   },
