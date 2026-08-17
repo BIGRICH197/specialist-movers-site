@@ -107,7 +107,7 @@ const faqs = [
   },
   {
     q: "How much does packing cost?",
-    a: `Full packing starts from $${fixedPriceRows[0].packing.incl.toLocaleString("en-NZ")} incl GST for a one-bedroom home and from $${fixedPriceRows[3].packing.incl.toLocaleString("en-NZ")} for four bedrooms or more. Packing is an estimate rather than a fixed price, because what it costs depends on how much there is to pack, and on the day we bill the hours actually worked. Our price cap promise protects you either way: if the job runs more than 2 hours over the quoted estimate, the extra time is free. Exit cleaning is different: it is a fixed price from the start, $${cleaningRows[0].price.incl} to $${cleaningRows[cleaningRows.length - 1].price.incl} incl GST by bedrooms and bathrooms.`,
+    a: `A typical full pack works out around $${fixedPriceRows[0].packing.incl.toLocaleString("en-NZ")} incl GST for a one-bedroom home and around $${fixedPriceRows[3].packing.incl.toLocaleString("en-NZ")} for four bedrooms or more, but packing is an estimate rather than a fixed price — it depends entirely on how much there is to pack, and yours could be less. We confirm the estimate with a free viewing (or from photos if a viewing does not suit) and bill the hours actually worked on the day. Our price cap promise protects you either way: if the job runs more than 2 hours over the quoted estimate, the extra time is free. Exit cleaning is different: it is a fixed price from the start, $${cleaningRows[0].price.incl} to $${cleaningRows[cleaningRows.length - 1].price.incl} incl GST by bedrooms and bathrooms.`,
   },
   {
     q: "How much does it cost to move a piano?",
@@ -129,18 +129,24 @@ const faqs = [
  * reading this should never have to guess which side of GST a number sits on.
  */
 /**
- * `kind` decides how firm the published number is. "from" emits minPrice rather
- * than price, which is the honest signal for packing: the figure is a starting
- * point until we have seen the home, so an assistant should quote it as a floor
- * rather than as the price.
+ * `kind` decides how firm the published number is. "estimate" is for packing:
+ * the figure is a typical job, not a floor or a fixed price — the real number
+ * can be lower or higher and is confirmed with a free viewing (or photos), so
+ * the offer carries a description saying exactly that.
  */
-function buildOffer(name: string, price: number, kind: "hourly" | "fixed" | "from") {
+function buildOffer(name: string, price: number, kind: "hourly" | "fixed" | "estimate") {
   return {
     "@type": "Offer",
     name,
+    ...(kind === "estimate"
+      ? {
+          description:
+            "Typical estimate, not a fixed price — depends on how much there is to pack and may be less. Confirmed with a free viewing or from photos. Billed on hours actually worked, with a price cap promise: more than 2 hours over the quoted estimate is free.",
+        }
+      : {}),
     priceSpecification: {
       "@type": "UnitPriceSpecification",
-      ...(kind === "from" ? { minPrice: price } : { price }),
+      price,
       priceCurrency: "NZD",
       valueAddedTaxIncluded: true,
       ...(kind === "hourly" ? { unitCode: "HUR", unitText: "per hour" } : {}),
@@ -177,7 +183,7 @@ const pricingSchema = {
         buildOffer(`Hamilton — 2 movers and a truck, ${row.label}`, row.twoMovers.incl, "hourly"),
       ),
       ...fixedPriceRows.map((row) =>
-        buildOffer(`Full packing from — ${row.label}`, row.packing.incl, "from"),
+        buildOffer(`Full packing, typical estimate — ${row.label}`, row.packing.incl, "estimate"),
       ),
       ...cleaningRows.map((row) =>
         buildOffer(`Exit cleaning — ${row.label}`, row.price.incl, "fixed"),
@@ -317,17 +323,19 @@ export default function PricingPage() {
         <section className="mt-12">
           <SectionHeading id="packing-cleaning">Packing and exit cleaning</SectionHeading>
           <p className="mt-3 text-sm leading-relaxed text-brand-purple/85">
-            Packing is an estimate: the figures below are where it starts, and on the day we bill the
-            hours actually worked. It is covered by our price cap promise, so if the job runs more than
-            2 hours over the quoted estimate, the extra time is free. Exit cleaning is different: a
-            fixed price from the start, set by bedrooms and bathrooms, and you can book it off the
-            table below.
+            Packing is an estimate, not a fixed price: the figures below are typical for each house
+            size, and yours could be less — it all depends on how much there is to pack. We confirm
+            your estimate with a free viewing, or from photos if a viewing does not suit, and on the
+            day we bill the hours actually worked. Either way our price cap promise protects you: if
+            the job runs more than 2 hours over the quoted estimate, the extra time is free. Exit
+            cleaning is different: a fixed price from the start, set by bedrooms and bathrooms, and
+            you can book it off the table below.
           </p>
           <TableShell>
             <thead>
               <tr>
                 <th className={th}>House size</th>
-                <th className={th}>Full packing (from)</th>
+                <th className={th}>Full packing (typical estimate)</th>
               </tr>
             </thead>
             <tbody>
@@ -335,7 +343,7 @@ export default function PricingPage() {
                 <tr key={row.label}>
                   <td className={td}>{row.label}</td>
                   <td className={td}>
-                    <span className="text-brand-purple/60">from </span>
+                    <span className="text-brand-purple/60">est. </span>
                     <Money value={row.packing} />
                   </td>
                 </tr>
