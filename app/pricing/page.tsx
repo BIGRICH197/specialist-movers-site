@@ -549,8 +549,9 @@ export default function PricingPage() {
             </li>
             <li>
               Estimates are based on what you tell us about the home and access. If the job on the day
-              is materially different from what was described, the hours will reflect the actual job.
-              Our price cap promise still applies either way.
+              is materially different from what we were told, the hours will reflect the actual job,
+              and the price cap promise may not apply. Tell us everything up front and the cap protects
+              you in full.
             </li>
           </ul>
         </section>
