@@ -58,17 +58,21 @@ export const CALLOUT_FEES: Record<CrewSize, number> = {
 };
 
 // ── Tier 2: fixed rates (excl GST) ──
+// Hourly matches Tier 3 and Hamilton: one out-of-town rate, set as $180 and
+// $220 INCLUDING GST, which is how it is sold. These are those numbers with
+// the GST taken back out, so the retail figure lands exactly on $180 / $220.
+// Only the callout separates the tiers now, which is the distance charge.
 export const TIER_2_RATES: Record<CrewSize, { hourly: number; callout: number }> =
   {
-    "2M": { hourly: 160, callout: 80 },
-    "3M": { hourly: 200, callout: 100 },
+    "2M": { hourly: 156.52, callout: 80 },
+    "3M": { hourly: 191.3, callout: 100 },
   };
 
 // ── Tier 3: fixed rates (excl GST) ──
 export const TIER_3_RATES: Record<CrewSize, { hourly: number; callout: number }> =
   {
-    "2M": { hourly: 160, callout: 90 },
-    "3M": { hourly: 190, callout: 90 },
+    "2M": { hourly: 156.52, callout: 90 },
+    "3M": { hourly: 191.3, callout: 90 },
   };
 
 // ── Suburb tier lists (lowercase for matching) ──

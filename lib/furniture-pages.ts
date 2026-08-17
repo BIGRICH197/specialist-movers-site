@@ -237,7 +237,7 @@ export const furnitureMoversHamiltonPage: NicheServicePageConfig = {
   ],
   whyTitle: "What furniture moving costs in Hamilton",
   whyBody:
-    "Moving on a Tuesday saves you $10 an hour, which on a full day is worth knowing before you pick a date. Two movers and a truck are $140 plus GST on a Tuesday and $150 otherwise, with three movers at $190. The callout starts at $60 and climbs with distance from Hamilton. We charge for the hours the job actually takes, so on anything bigger than a townhouse we would rather come and look than guess. Whatever we quote you get in writing, and it does not move afterwards.",
+    "Two movers and a truck are $180 an hour including GST, with three movers at $220, and the rate is the same whatever day you pick. The callout starts at $60 plus GST and climbs with distance from Hamilton. We charge for the hours the job actually takes, so on anything bigger than a townhouse we would rather come and look than guess. Whatever we quote you get in writing, and it does not move afterwards.",
   includedBullets: [
     "Single-item moves, part-loads, and full household relocations",
     "Heavy and awkward pieces: spa pools, safes, pool tables, marble tops",
@@ -256,7 +256,7 @@ export const furnitureMoversHamiltonPage: NicheServicePageConfig = {
   faqs: [
     {
       q: "How much do furniture movers cost in Hamilton?",
-      a: "A two-person crew and truck is $140 per hour plus GST on a Tuesday and $150 on any other day, plus a callout fee from $60 depending on distance from our Hamilton base. A single heavy item is usually one to two hours; a three-bedroom house is normally a full day.",
+      a: "A two-person crew and truck is $180 per hour including GST, the same rate every day of the week, plus a callout fee from $60 plus GST depending on distance from our Hamilton base. A three-person crew is $220 an hour including GST. A single heavy item is usually one to two hours; a three-bedroom house is normally a full day.",
     },
     {
       q: "Will you move just one item in the Waikato?",

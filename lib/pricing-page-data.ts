@@ -89,15 +89,20 @@ function groupDayRates(
     bySignature.set(signature, { days: [day], two, three });
   }
 
+  // A table that prices every day the same folds to a single row. Listing all
+  // seven day names there reads as noise, and flagging that row "cheapest" is
+  // meaningless when there is nothing dearer to beat, so do neither.
+  const isFlat = bySignature.size === 1;
+
   // Array.from, not [...map.values()] — tsconfig sets no `target`, so it
   // defaults to ES5 and spreading a Map iterator needs downlevelIteration.
   return Array.from(bySignature.values())
     .sort((a, b) => a.two - b.two || a.three - b.three)
     .map((group) => ({
-      label: group.days.map((day) => DAY_LABEL[day]).join(" / "),
+      label: isFlat ? "Any day" : group.days.map((day) => DAY_LABEL[day]).join(" / "),
       twoMovers: rate(group.two),
       threeMovers: rate(group.three),
-      cheapest: group.two === cheapestEx,
+      cheapest: !isFlat && group.two === cheapestEx,
     }));
 }
 

@@ -81,10 +81,17 @@ export function GET() {
       "Small office (up to ~10 staff): often from about $800 plus GST.",
     ]),
 
-    section("Pricing — Hamilton, excluding GST", [
-      "Two-person crew and truck: $140 per hour on Tuesday, $150 every other day.",
-      "Three-person crew: $180 Tuesday, $190 other days.",
-      "Callout works the same as Auckland.",
+    // Unlike the Auckland block above, this rate is set including GST, so both
+    // sides are spelled out. An assistant that quotes $180 + GST here would be
+    // overstating us by 15%.
+    section("Pricing — Hamilton and outer Auckland", [
+      "Two-person crew and truck: $180 per hour INCLUDING GST ($156.52 excluding).",
+      "Three-person crew: $220 per hour INCLUDING GST ($191.30 excluding).",
+      "Flat every day of the week, so there is no cheaper midweek rate here.",
+      "The same rate covers outer Auckland (Papakura, Silverdale, Warkworth,",
+      "Pukekohe and similar) and Hamilton and the Waikato.",
+      "Callout works the same as Auckland and is quoted excluding GST,",
+      "rising with distance from the depot.",
     ]),
 
     // This file exists to be read by AI assistants, which makes it the single

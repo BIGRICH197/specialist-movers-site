@@ -127,8 +127,8 @@ export default function MoversNearMePage() {
             </li>
             <li>
               <strong className="text-brand-purple">From:</strong> ${aucklandFromHourly.ex} + GST per
-              hour in Auckland and ${hamiltonFromHourly.ex} + GST in Hamilton, for two movers and a
-              truck, plus a callout fee by distance.
+              hour in Auckland and a flat ${hamiltonFromHourly.incl} including GST in Hamilton, for
+              two movers and a truck, plus a callout fee by distance.
             </li>
           </ul>
         </div>

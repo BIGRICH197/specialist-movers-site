@@ -42,14 +42,23 @@ const breadcrumbs = [{ label: "Home", href: "/" }, { label: "Pricing" }];
  * one without the other is how a published rate ends up feeling like a bait
  * and switch at invoice time.
  */
+/**
+ * Whole dollars stay whole; anything with cents shows both of them. The
+ * out-of-town rates are set incl GST, so their ex-GST side is $156.52 and
+ * $191.30, and the default formatter would print that second one as "191.3".
+ */
+function money(value: number): string {
+  return value.toLocaleString("en-NZ", {
+    minimumFractionDigits: Number.isInteger(value) ? 0 : 2,
+    maximumFractionDigits: 2,
+  });
+}
+
 function Money({ value, className }: { value: Rate; className?: string }) {
   return (
     <span className={className}>
-      <span className="font-semibold text-brand-purple">${value.incl.toLocaleString("en-NZ")}</span>
-      <span className="whitespace-nowrap text-brand-purple/60">
-        {" "}
-        / ${value.ex.toLocaleString("en-NZ")} ex
-      </span>
+      <span className="font-semibold text-brand-purple">${money(value.incl)}</span>
+      <span className="whitespace-nowrap text-brand-purple/60"> / ${money(value.ex)} ex</span>
     </span>
   );
 }
@@ -207,8 +216,9 @@ export default function PricingPage() {
               <Money value={aucklandCallout.twoMovers} />.
             </li>
             <li>
-              <strong className="text-brand-purple">Hamilton:</strong> two movers and a truck from{" "}
-              <Money value={hamiltonFromHourly} /> per hour.
+              <strong className="text-brand-purple">Hamilton and outer Auckland:</strong> two movers
+              and a truck at a flat <Money value={hamiltonFromHourly} /> per hour, every day of the
+              week.
             </li>
             <li>
               <strong className="text-brand-purple">Smallest job:</strong> {fromPrice.auckland} + GST in
@@ -371,7 +381,8 @@ export default function PricingPage() {
         <section className="mt-12">
           <SectionHeading id="hamilton">Hamilton and Waikato rates</SectionHeading>
           <p className="mt-3 text-sm leading-relaxed text-brand-purple/85">
-            Hamilton runs flatter than Auckland, with only Tuesday and Thursday discounted.
+            One flat hourly rate, every day of the week, matching outer Auckland. What changes in
+            Hamilton is the callout, which follows the zone you are in.
           </p>
           <TableShell>
             <thead>
@@ -414,9 +425,10 @@ export default function PricingPage() {
         </section>
 
         <section className="mt-12">
-          <SectionHeading id="outer-auckland">Outer Auckland</SectionHeading>
+          <SectionHeading id="outer-auckland">Outer Auckland and Hamilton</SectionHeading>
           <p className="mt-3 text-sm leading-relaxed text-brand-purple/85">
-            Flat hourly with no cheap day, because the travel is the same whatever day you move.
+            Flat hourly with no cheap day, because the travel is the same whatever day you move. The
+            same rate covers Hamilton and the Waikato.
           </p>
           <TableShell>
             <thead>

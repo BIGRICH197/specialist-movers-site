@@ -1,17 +1,26 @@
 import type { CrewSize, DayOfWeek } from "./pricing-data";
 
-/** Hamilton house hourly rates (excl GST) , same across zones; callout varies by zone. */
+/**
+ * Hamilton house hourly rates (excl GST) , same across zones; callout varies by zone.
+ *
+ * Flat across every day, and the same rate as the outer Auckland tiers: $180
+ * and $220 INCLUDING GST, stored here with the GST taken back out so the
+ * retail figure lands exactly on those numbers. Out-of-town travel costs us
+ * the same whatever day it is, so there is no midweek discount to give. The
+ * table stays keyed by day because the shape is shared with Auckland, which
+ * does still price Tuesday cheaper.
+ */
 export const HAMILTON_TIER_1_RATES: Record<
   DayOfWeek,
   Record<CrewSize, number>
 > = {
-  tue: { "2M": 140, "3M": 180 },
-  thu: { "2M": 145, "3M": 185 },
-  mon: { "2M": 150, "3M": 190 },
-  wed: { "2M": 150, "3M": 190 },
-  sun: { "2M": 150, "3M": 190 },
-  fri: { "2M": 150, "3M": 190 },
-  sat: { "2M": 150, "3M": 190 },
+  tue: { "2M": 156.52, "3M": 191.3 },
+  thu: { "2M": 156.52, "3M": 191.3 },
+  mon: { "2M": 156.52, "3M": 191.3 },
+  wed: { "2M": 156.52, "3M": 191.3 },
+  sun: { "2M": 156.52, "3M": 191.3 },
+  fri: { "2M": 156.52, "3M": 191.3 },
+  sat: { "2M": 156.52, "3M": 191.3 },
 };
 
 export type HamiltonZone = "A" | "B" | "C";
