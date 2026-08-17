@@ -538,20 +538,19 @@ export default function PricingPage() {
           <SectionHeading id="fine-print">The fine print</SectionHeading>
           <ul className="mt-4 space-y-3 text-sm leading-relaxed text-brand-purple/80">
             <li>
-              Rates on this page are reviewed from time to time and may change without notice. The
-              price that applies to your move is the one in your written quote, and a written quote
-              holds for 14 days.
+              Every job is quoted individually, and we reserve the right to price a specific job at a
+              different rate from the ones published here. Difficult access, high-risk items or short
+              notice can carry a higher rate. Your rate is always given up front, and the rate on your
+              quote is the rate that applies.
             </li>
             <li>
-              Bookings made within 48 hours of the move may carry a 10% short-notice fee. Fitting a
-              job in at short notice means reshuffling crews and trucks, and the fee covers that. We
-              will always tell you before you confirm, never on the invoice.
+              Rates on this page are reviewed from time to time and may change without notice. A
+              written quote holds for 14 days.
             </li>
             <li>
               Estimates are based on what you tell us about the home and access. If the job on the day
               is materially different from what we were told, the hours will reflect the actual job,
-              and the price cap promise may not apply. Tell us everything up front and the cap protects
-              you in full.
+              and the price cap promise may not apply.
             </li>
           </ul>
         </section>
