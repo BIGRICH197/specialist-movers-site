@@ -107,7 +107,7 @@ const faqs = [
   },
   {
     q: "How much does packing cost?",
-    a: `A typical full pack works out around $${fixedPriceRows[0].packing.incl.toLocaleString("en-NZ")} incl GST for a one-bedroom home and around $${fixedPriceRows[3].packing.incl.toLocaleString("en-NZ")} for four bedrooms or more, but packing is an estimate rather than a fixed price — it depends entirely on how much there is to pack, and yours could be less. We confirm the estimate with a free viewing (or from photos if a viewing does not suit) and bill the hours actually worked on the day. Our price cap promise protects you either way: if the job runs more than 2 hours over the quoted estimate, the extra time is free. Exit cleaning is different: it is a fixed price from the start, $${cleaningRows[0].price.incl} to $${cleaningRows[cleaningRows.length - 1].price.incl} incl GST by bedrooms and bathrooms.`,
+    a: `A typical full pack works out around $${fixedPriceRows[0].packing.incl.toLocaleString("en-NZ")} incl GST for a one-bedroom home and around $${fixedPriceRows[3].packing.incl.toLocaleString("en-NZ")} for four bedrooms or more, but packing is an estimate rather than a fixed price. It depends entirely on how much there is to pack, and yours could be less. We confirm the estimate with a free viewing (or from photos if a viewing does not suit) and bill the hours actually worked on the day. Our price cap promise protects you either way: if the job runs more than 2 hours over the quoted estimate, the extra time is free. Exit cleaning is different: it is a fixed price from the start, $${cleaningRows[0].price.incl} to $${cleaningRows[cleaningRows.length - 1].price.incl} incl GST by bedrooms and bathrooms.`,
   },
   {
     q: "How much does it cost to move a piano?",
@@ -141,7 +141,7 @@ function buildOffer(name: string, price: number, kind: "hourly" | "fixed" | "est
     ...(kind === "estimate"
       ? {
           description:
-            "Typical estimate, not a fixed price — depends on how much there is to pack and may be less. Confirmed with a free viewing or from photos. Billed on hours actually worked, with a price cap promise: more than 2 hours over the quoted estimate is free.",
+            "Typical estimate, not a fixed price. Depends on how much there is to pack and may be less. Confirmed with a free viewing or from photos. Billed on hours actually worked, with a price cap promise: more than 2 hours over the quoted estimate is free.",
         }
       : {}),
     priceSpecification: {
@@ -324,7 +324,7 @@ export default function PricingPage() {
           <SectionHeading id="packing-cleaning">Packing and exit cleaning</SectionHeading>
           <p className="mt-3 text-sm leading-relaxed text-brand-purple/85">
             Packing is an estimate, not a fixed price: the figures below are typical for each house
-            size, and yours could be less — it all depends on how much there is to pack. We confirm
+            size, and yours could be less. It all depends on how much there is to pack. We confirm
             your estimate with a free viewing, or from photos if a viewing does not suit, and on the
             day we bill the hours actually worked. Either way our price cap promise protects you: if
             the job runs more than 2 hours over the quoted estimate, the extra time is free. Exit
@@ -532,6 +532,27 @@ export default function PricingPage() {
               </div>
             ))}
           </dl>
+        </section>
+
+        <section className="mt-12">
+          <SectionHeading id="fine-print">The fine print</SectionHeading>
+          <ul className="mt-4 space-y-3 text-sm leading-relaxed text-brand-purple/80">
+            <li>
+              Rates on this page are reviewed from time to time and may change without notice. The
+              price that applies to your move is the one in your written quote, and a written quote
+              holds for 14 days.
+            </li>
+            <li>
+              Bookings made within 48 hours of the move may carry a 10% short-notice fee. Fitting a
+              job in at short notice means reshuffling crews and trucks, and the fee covers that. We
+              will always tell you before you confirm, never on the invoice.
+            </li>
+            <li>
+              Estimates are based on what you tell us about the home and access. If the job on the day
+              is materially different from what was described, the hours will reflect the actual job.
+              Our price cap promise still applies either way.
+            </li>
+          </ul>
         </section>
 
         <section className="mt-12 rounded-2xl border border-brand-purple/15 bg-brand-canvas p-6 sm:p-8">
