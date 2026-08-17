@@ -18,7 +18,7 @@ import {
   usesXeroQuoteTable,
   type HouseMoveQuote,
 } from "@/lib/quote-deck/house-move-quote";
-import { getCleaningPriceInclGst } from "@/lib/pricing-data";
+import { getCleaningQuoteInclGst } from "@/lib/cleaning-pricing";
 import { sitePhotos } from "@/lib/quote-deck/site-photos";
 
 function formatPickupDelivery(addr: HouseMoveQuote["pickup"]): string {
@@ -59,17 +59,18 @@ function QuoteMoveDetails({ quote }: { quote: HouseMoveQuote }) {
 type Props = {
   quote: HouseMoveQuote;
   quoteRef?: string;
-  /** Bedroom count (from the quote prefill) — lets us price cleaning that was
-   *  not already quoted, for the interactive add-ons. */
+  /** Bedroom + bathroom counts (from the quote prefill) — cleaning is a fixed
+   *  price by bedrooms AND bathrooms, so both feed the interactive add-on. */
   bedrooms?: number;
+  bathrooms?: number;
 };
 
-export function HouseMoveDeck({ quote, quoteRef, bedrooms }: Props) {
+export function HouseMoveDeck({ quote, quoteRef, bedrooms, bathrooms }: Props) {
   const showNotes = hasNotes(quote);
   const addOns = quoteAddOnBreakdown(quote);
   const cleaningPriceInclGst = addOns.cleaningQuoted
     ? addOns.cleaningInclGst
-    : getCleaningPriceInclGst(bedrooms);
+    : getCleaningQuoteInclGst(bedrooms, bathrooms);
 
   return (
     <div className="proposal-root deck-root bg-white font-sans">

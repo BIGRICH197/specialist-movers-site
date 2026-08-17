@@ -73,7 +73,12 @@ export function QuoteCustomise({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ref: quoteRef,
-          addOns: { cleaning: cleaningOn, packing: packingOn && packingQuoted, insurance: insuranceOn },
+          addOns: {
+            cleaning: cleaningOn,
+            packing: packingOn,
+            insurance: insuranceOn,
+            cleaningPriced: cleaningHasPrice,
+          },
         }),
       });
     } catch {
@@ -81,7 +86,7 @@ export function QuoteCustomise({
     }
     const qs = new URLSearchParams({
       clean: cleaningOn ? "1" : "0",
-      pack: packingOn && packingQuoted ? "1" : "0",
+      pack: packingOn ? "1" : "0",
       ins: insuranceOn ? "1" : "0",
     }).toString();
     router.push(`/quote/${quoteRef}/book?${qs}`);

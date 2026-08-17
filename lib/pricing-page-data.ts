@@ -15,6 +15,10 @@ import {
   type HamiltonZone,
 } from "@/lib/hamilton-pricing-data";
 import {
+  cleaningPropertyOptions,
+  getCleaningBasePriceExclGst,
+} from "@/lib/cleaning-pricing";
+import {
   BEDROOM_CREW,
   CALLOUT_FEES,
   CLEANING_PRICES,
@@ -161,6 +165,16 @@ export const fixedPriceRows: FixedPriceRow[] = BEDROOM_ORDER.map((bedrooms) => (
   label: bedroomLabel(bedrooms),
   packing: rate(PACKING_PRICES[bedrooms]),
   cleaning: rate(CLEANING_PRICES[bedrooms]),
+}));
+
+/** Exit cleaning is a fixed price by bedrooms AND bathrooms, not bedrooms alone.
+ *  Sourced from the same bed×bath grid the quote form uses (the discounted quote
+ *  price where one is set), so the page and the quote never disagree. */
+export type CleaningRow = { label: string; price: Rate };
+
+export const cleaningRows: CleaningRow[] = cleaningPropertyOptions.map((o) => ({
+  label: o.label,
+  price: rate(getCleaningBasePriceExclGst(o.id) as number),
 }));
 
 export type PianoRow = { label: string; from: Rate };

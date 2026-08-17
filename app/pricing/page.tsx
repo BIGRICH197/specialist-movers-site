@@ -11,6 +11,7 @@ import {
   aucklandCallout,
   aucklandDayRates,
   aucklandFromHourly,
+  cleaningRows,
   fixedPriceRows,
   hamiltonCallouts,
   hamiltonDayRates,
@@ -106,7 +107,7 @@ const faqs = [
   },
   {
     q: "How much does packing cost?",
-    a: `Full packing starts from $${fixedPriceRows[0].packing.incl.toLocaleString("en-NZ")} incl GST for a one-bedroom home and from $${fixedPriceRows[3].packing.incl.toLocaleString("en-NZ")} for four bedrooms or more. Those are starting figures rather than the final number, because what it costs depends on how much there is to pack. We confirm your packing price in writing after a quick look at the home, and once it is quoted it does not move. Exit cleaning is different: it is a fixed price from the start, $${fixedPriceRows[0].cleaning.incl} to $${fixedPriceRows[3].cleaning.incl} incl GST by house size.`,
+    a: `Full packing starts from $${fixedPriceRows[0].packing.incl.toLocaleString("en-NZ")} incl GST for a one-bedroom home and from $${fixedPriceRows[3].packing.incl.toLocaleString("en-NZ")} for four bedrooms or more. Packing is an estimate rather than a fixed price, because what it costs depends on how much there is to pack, and on the day we bill the hours actually worked. Our price cap promise protects you either way: if the job runs more than 2 hours over the quoted estimate, the extra time is free. Exit cleaning is different: it is a fixed price from the start, $${cleaningRows[0].price.incl} to $${cleaningRows[cleaningRows.length - 1].price.incl} incl GST by bedrooms and bathrooms.`,
   },
   {
     q: "How much does it cost to move a piano?",
@@ -114,7 +115,7 @@ const faqs = [
   },
   {
     q: "Are these prices a fixed quote?",
-    a: "These are our standard rates, and they are what your written quote is built from. Hourly work is billed on the hours actually worked, so the final figure depends on how the day runs. Exit cleaning and piano moves are fixed prices confirmed in writing before we start. Packing is fixed too, but only once we have seen the home: the figures on this page are where it starts, and we confirm the real number in your written quote.",
+    a: "These are our standard rates, and they are what your written quote is built from. Hourly work and packing are billed on the hours actually worked, so the final figure depends on how the day runs. Exit cleaning and piano moves are fixed prices confirmed in writing before we start. Every quote is backed by our price cap promise: if the job runs more than 2 hours over the quoted estimate, the extra time is free.",
   },
   {
     q: "Do you charge more for stairs or difficult access?",
@@ -178,8 +179,8 @@ const pricingSchema = {
       ...fixedPriceRows.map((row) =>
         buildOffer(`Full packing from — ${row.label}`, row.packing.incl, "from"),
       ),
-      ...fixedPriceRows.map((row) =>
-        buildOffer(`Exit cleaning — ${row.label}`, row.cleaning.incl, "fixed"),
+      ...cleaningRows.map((row) =>
+        buildOffer(`Exit cleaning — ${row.label}`, row.price.incl, "fixed"),
       ),
       ...pianoRows.map((row) => buildOffer(`${row.label} move`, row.from.incl, "fixed")),
     ],
@@ -236,9 +237,10 @@ export default function PricingPage() {
           </ul>
           <p className="mt-5 text-sm leading-relaxed text-brand-purple/70">
             Every price on this page shows the retail figure first and the ex-GST figure beside it.
-            Hourly work is billed on the hours actually worked; exit cleaning and piano moves are fixed
-            prices confirmed in writing before we start. Packing figures are a starting point, and we
-            confirm the fixed price after a quick look at your home.
+            Hourly work and packing are billed on the hours actually worked; exit cleaning and piano
+            moves are fixed prices confirmed in writing before we start. Every quote is backed by our
+            price cap promise: if the job runs more than 2 hours over the quoted estimate, the extra
+            time is free.
           </p>
         </div>
 
@@ -315,17 +317,17 @@ export default function PricingPage() {
         <section className="mt-12">
           <SectionHeading id="packing-cleaning">Packing and exit cleaning</SectionHeading>
           <p className="mt-3 text-sm leading-relaxed text-brand-purple/85">
-            Neither is hourly, so the number does not move if the day runs long. Exit cleaning is a
-            fixed price by house size, and you can book it off this table. Packing depends on how much
-            there is to pack, so the figures below are where it starts: we confirm your fixed packing
-            price in writing after a quick look at the home.
+            Packing is an estimate: the figures below are where it starts, and on the day we bill the
+            hours actually worked. It is covered by our price cap promise, so if the job runs more than
+            2 hours over the quoted estimate, the extra time is free. Exit cleaning is different: a
+            fixed price from the start, set by bedrooms and bathrooms, and you can book it off the
+            table below.
           </p>
           <TableShell>
             <thead>
               <tr>
                 <th className={th}>House size</th>
                 <th className={th}>Full packing (from)</th>
-                <th className={th}>Exit clean (fixed)</th>
               </tr>
             </thead>
             <tbody>
@@ -336,8 +338,25 @@ export default function PricingPage() {
                     <span className="text-brand-purple/60">from </span>
                     <Money value={row.packing} />
                   </td>
+                </tr>
+              ))}
+            </tbody>
+          </TableShell>
+
+          <h3 className="mt-8 font-heading text-lg text-brand-purple">Exit cleaning (fixed)</h3>
+          <TableShell>
+            <thead>
+              <tr>
+                <th className={th}>Property size</th>
+                <th className={th}>Exit clean (fixed)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cleaningRows.map((row) => (
+                <tr key={row.label}>
+                  <td className={td}>{row.label}</td>
                   <td className={td}>
-                    <Money value={row.cleaning} />
+                    <Money value={row.price} />
                   </td>
                 </tr>
               ))}

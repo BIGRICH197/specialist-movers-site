@@ -60,6 +60,31 @@ export function propertySizeFromRooms(
   return getCleaningPropertyOption(id) ? id : null;
 }
 
+/** Resolve a bedroom + bathroom count to the exit-clean quote price incl GST, for
+ *  the quote add-on toggle. Bedrooms clamp to 1..5; bathrooms snap to the nearest
+ *  option we price for that bedroom count (defaulting to the baseline when the
+ *  bathroom count is unknown). Returns null only when the bedroom count is
+ *  missing, in which case cleaning falls back to a "request". */
+export function getCleaningQuoteInclGst(
+  bedrooms?: number,
+  bathrooms?: number
+): number | null {
+  if (!bedrooms || bedrooms < 1) return null;
+  const bed = Math.min(Math.max(Math.round(bedrooms), 1), 5);
+  const baths = bathroomsForBedrooms(bed);
+  if (!baths.length) return null;
+  const want = bathrooms && bathrooms >= 1 ? Math.round(bathrooms) : baths[0];
+  const bath = baths.reduce(
+    (best, b) => (Math.abs(b - want) < Math.abs(best - want) ? b : best),
+    baths[0]
+  );
+  const id = propertySizeFromRooms(bed, bath);
+  if (!id) return null;
+  const ex = getCleaningBasePriceExclGst(id);
+  if (ex == null) return null;
+  return Math.round(ex * GST_MULTIPLIER * 100) / 100;
+}
+
 export type CleaningQuoteResult = {
   propertySize: CleaningPropertySize;
   propertyLabel: string;

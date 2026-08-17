@@ -13,7 +13,14 @@ export const runtime = "nodejs";
 // Slack; the client is then sent to the booking form. Does NOT move the deal /
 // create the card — that happens when the booking form is submitted (n8n).
 
-type AddOns = { cleaning?: boolean; packing?: boolean; insurance?: boolean };
+type AddOns = {
+  cleaning?: boolean;
+  packing?: boolean;
+  insurance?: boolean;
+  /** Whether the cleaning tick had a price on the page (bed×bath known). When
+   *  false the team must quote the clean — flag it loudly. */
+  cleaningPriced?: boolean;
+};
 
 export async function POST(request: Request) {
   let ref = "";
@@ -41,7 +48,9 @@ export async function POST(request: Request) {
   const cleaningLine = addOns.cleaning
     ? brk.cleaningQuoted
       ? "Cleaning: yes (as quoted)"
-      : "Cleaning: yes (added)"
+      : addOns.cleaningPriced === false
+        ? ":rotating_light: *Cleaning requested* — no bed/bath count on this quote, price it for them"
+        : "Cleaning: yes (added, fixed price shown)"
     : "Cleaning: no";
   const packingLine = addOns.packing
     ? brk.packingQuoted

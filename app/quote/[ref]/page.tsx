@@ -89,6 +89,7 @@ export default async function HostedQuotePage({
       quote={stored.quote}
       quoteRef={params.ref}
       bedrooms={stored.prefill?.bedrooms}
+      bathrooms={stored.prefill?.bathrooms}
     />
   );
 }

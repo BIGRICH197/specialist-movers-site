@@ -21,8 +21,11 @@ export type QuoteStatus = "sent" | "accepted" | "callback" | "booked";
 export type QuotePrefill = {
   email?: string;
   phone?: string;
-  /** Bedroom count from HubSpot — maps to the booking "Size of move" dropdown. */
+  /** Bedroom count — maps to the booking "Size of move" dropdown and, with
+   *  bathrooms, prices the exit-clean add-on (fixed by bed × bath). */
   bedrooms?: number;
+  /** Bathroom count — with bedrooms, picks the exit-clean fixed-price tier. */
+  bathrooms?: number;
   sizeOfMove?: string;
   typeOfMove?: string;
   /** Mover count from the quote (e.g. "3" or "3 MOVERS") — prefills "Number of movers". */
