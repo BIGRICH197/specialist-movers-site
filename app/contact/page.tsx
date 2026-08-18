@@ -59,10 +59,10 @@ export default function ContactPage() {
                     Email
                   </p>
                   <a
-                    href="mailto:info@specialistmovers.co.nz"
+                    href={`mailto:${businessInfo.email}`}
                     className="font-semibold text-brand-purple hover:underline"
                   >
-                    info@specialistmovers.co.nz
+                    {businessInfo.email}
                   </a>
                 </div>
               </li>

@@ -34,7 +34,7 @@ const verifiedSameAs = [
 
 /** Shared business facts for JSON-LD, contact, and schema. */
 export const businessInfo = {
-  email: "info@specialistmovers.co.nz",
+  email: "richard@specialistmovers.co.nz",
   legalName: nap.legalName,
   nzbn: nap.nzbn,
   foundingDate: "2023",

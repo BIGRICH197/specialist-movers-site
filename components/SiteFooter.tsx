@@ -7,6 +7,7 @@ import { getServiceNavRows, serviceNavClusterLinks } from "@/lib/service-nav";
 import { pianoServices } from "@/lib/site-data";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 import { nap, nzbnUrl } from "@/lib/company-facts";
+import { businessInfo } from "@/lib/business-info";
 
 export function SiteFooter() {
   const serviceRows = getServiceNavRows();
@@ -143,9 +144,18 @@ export function SiteFooter() {
               </Link>
             </li>
           </ul>
-          <p className="mt-4 text-sm">
+          <p className="mt-4 font-heading text-brand-yellow">Contact us</p>
+          <p className="mt-2 text-sm">
             <a href={`tel:${phoneNumber}`} className="text-brand-yellow hover:underline">
               {phoneDisplay}
+            </a>
+          </p>
+          <p className="text-sm">
+            <a
+              href={`mailto:${businessInfo.email}`}
+              className="break-all text-brand-yellow hover:underline"
+            >
+              {businessInfo.email}
             </a>
           </p>
           <p className="text-sm text-white/85">Mon–Sun, 9am–7pm</p>
