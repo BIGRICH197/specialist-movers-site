@@ -18,6 +18,11 @@
  * DAVID.md in the automation repo).
  */
 export const INDEXED_LOCATION_SLUGS = new Set<string>([
+  "helensville",
+  "mission-bay",
+  "otahuhu",
+  "palmerston-north",
+  "wellington",
   "milford",
   "ellerslie",
   "papatoetoe",
