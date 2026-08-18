@@ -387,4 +387,12 @@ export const blogPosts = [
     excerpt:
       "What it costs to move a sofa, bed, fridge or a Trade Me pickup in Auckland, how long each item actually takes, and why moving several at once costs far less per item.",
   },
+  {
+    slug: "crane-lift-beach-haven-how-we-did-it",
+    title: "Crane Lift in Beach Haven: How We Got the Furniture In",
+    seoTitle: "Crane Lift Movers Auckland | Specialist Movers",
+    publishedDate: "2026-08-16",
+    excerpt:
+      "No stairs wide enough, no hallway that works. Here is how our Auckland crane lift crew got a large piece into a Beach Haven home in August 2026.",
+  },
 ] as const;

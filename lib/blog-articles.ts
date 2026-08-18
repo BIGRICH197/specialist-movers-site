@@ -1574,6 +1574,74 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "crane-lift-beach-haven-how-we-did-it": {
+    title: "Crane Lift in Beach Haven: How We Got the Furniture In",
+    sections: [
+      {
+        heading: "When the front door is not the answer",
+        paragraphs: [
+          "Some jobs are straightforward. Load the truck, drive across Auckland, carry things in through the front door. Done.",
+          "This one was not that job.",
+          "In August 2026 we were called to a property in Beach Haven, on the North Shore, to deliver a large piece of furniture. The access inside the home ruled out the usual route. The stairwell was too tight, the turns too sharp. Trying to force it through would have meant damage to the item or the walls, probably both.",
+          "The answer was a crane lift: bring the item up the outside of the building and in through an upper-level opening. It is a technique we use when the building itself is the obstacle.",
+        ],
+      },
+      {
+        heading: "Planning before the truck leaves",
+        paragraphs: [
+          "A crane lift does not just happen on the day. The planning starts well before the crew arrives.",
+          "We needed to know the weight and dimensions of the item, the height of the lift, what the landing point looked like, and whether there was clear space on the ground for the crane to operate safely. Beach Haven sits close to the Waitemata Harbour and the properties there can have steep sections and limited flat ground, so site assessment matters.",
+          "On a job like this we also have to think about the neighbours and the street. A crane takes up room. We work out timing so the disruption is as short as possible.",
+        ],
+      },
+      {
+        heading: "The crew and the kit",
+        paragraphs: [
+          "Two movers handled this job. That might sound lean for a crane lift, but the crew size fits the task: one person manages the item as it rises, the other guides it in at the landing point and makes sure nothing shifts during the swing.",
+          "The crane does the heavy work. Our role is control, not brute force. Furniture gets protected with blankets or shrink wrap depending on what the surface needs, because a scratch at the top of a lift is just as bad as one on the ground.",
+          "We carry full public liability cover and our crews are insured. For customers who want cover arranged for their own belongings, we can help sort that through our team before the job.",
+        ],
+      },
+      {
+        heading: "How the lift went",
+        paragraphs: [
+          "The team was on site in Beach Haven early. That is deliberate. A crane lift in a residential street goes better before the morning traffic builds, and it gives us time to set up without rushing.",
+          "The item came off the truck, was prepared for the lift, and went up. The landing was controlled. Once it was inside, the crew positioned it and made sure nothing in the room had been disturbed in the process.",
+          "From truck to in-room, the operation ran to plan. That is what good preparation looks like.",
+        ],
+      },
+      {
+        heading: "What makes Beach Haven tricky for deliveries",
+        paragraphs: [
+          "The North Shore has some of Auckland's most varied terrain. Beach Haven in particular has a mix of older homes on sections that were not designed with large furniture in mind, steep driveways, and properties where the upper floors are the main living area.",
+          "If you are buying or moving something large in this part of Auckland, it is worth thinking about access before the truck arrives. A sofa that fits in the shop does not always fit around a 1960s stairwell. The earlier you flag the access question, the more options you have.",
+        ],
+      },
+      {
+        heading: "What to do if you think you have a crane job",
+        paragraphs: [
+          "First, measure. Doorways, hallway widths, stairwell widths at the tightest point, and ceiling heights on any turns. Take photos if you can.",
+          "Second, check the outside. Is there enough flat ground for a crane to park and operate? Are there power lines nearby? In some Auckland suburbs the lines run close to the house, which affects how a crane can approach.",
+          "Third, call early. Crane lifts need more lead time than a standard move. The crane itself has to be booked, the site has to be assessed, and any permits for street access may need arranging.",
+          "We have done balcony hoists and crane lifts across Auckland, and we know what to look for. If you are not sure whether your job needs one, describe the item and the access to us and we will give you an honest answer.",
+        ],
+      },
+      {
+        heading: "Specialist gear for items that need it",
+        paragraphs: [
+          "Crane lifts are one end of the spectrum. We also handle items that are heavy, fragile, or oddly shaped in other ways. We are trusted by Auckland's Steinway dealers and Auckland Town Hall for piano moves, which gives you a sense of the care we bring to anything that cannot just be rolled up a ramp.",
+          "Not every hard job is a crane job. Sometimes it is about packing, sometimes about the angle of approach, sometimes about choosing the right moment in the day. The point is that the technique comes from the item and the site, not from a default setting.",
+        ],
+      },
+      {
+        heading: "Get a quote for your job",
+        paragraphs: [
+          "If you have a piece that will not go through the door, or you are not sure how you will get it in at all, we are worth talking to. We quote back in around 15 minutes during business hours, and for larger or more complex jobs we can come and look at the site first.",
+          "You can request a quote through our website. Tell us what the item is, where it is going, and what the access looks like, and we will take it from there.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {
