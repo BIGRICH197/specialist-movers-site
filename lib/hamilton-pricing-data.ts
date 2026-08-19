@@ -3,24 +3,27 @@ import type { CrewSize, DayOfWeek } from "./pricing-data";
 /**
  * Hamilton house hourly rates (excl GST) , same across zones; callout varies by zone.
  *
- * Flat across every day, and the same rate as the outer Auckland tiers: $180
- * and $220 INCLUDING GST, stored here with the GST taken back out so the
- * retail figure lands exactly on those numbers. Out-of-town travel costs us
- * the same whatever day it is, so there is no midweek discount to give. The
- * table stays keyed by day because the shape is shared with Auckland, which
- * does still price Tuesday cheaper.
+ * Flat across every day. Out-of-town travel costs us the same whatever day it
+ * is, so there is no midweek discount to give. The table stays keyed by day
+ * because the shape is shared with Auckland.
+ *
+ * 2026-08-19 (Richard): these were $156.52 and $191.30, from reading $180 and
+ * $220 as GST-inclusive and dividing the GST back out. Two errors in one: the
+ * quoted figures are excl GST, and a Hamilton move is not the out-of-town
+ * rate. Hamilton is $150 + GST for two movers; $180 + GST is what an
+ * out-of-town job costs, which is the tier 2 / tier 3 table in pricing-data.
  */
 export const HAMILTON_TIER_1_RATES: Record<
   DayOfWeek,
   Record<CrewSize, number>
 > = {
-  tue: { "2M": 156.52, "3M": 191.3 },
-  thu: { "2M": 156.52, "3M": 191.3 },
-  mon: { "2M": 156.52, "3M": 191.3 },
-  wed: { "2M": 156.52, "3M": 191.3 },
-  sun: { "2M": 156.52, "3M": 191.3 },
-  fri: { "2M": 156.52, "3M": 191.3 },
-  sat: { "2M": 156.52, "3M": 191.3 },
+  tue: { "2M": 150, "3M": 190 },
+  thu: { "2M": 150, "3M": 190 },
+  mon: { "2M": 150, "3M": 190 },
+  wed: { "2M": 150, "3M": 190 },
+  sun: { "2M": 150, "3M": 190 },
+  fri: { "2M": 150, "3M": 190 },
+  sat: { "2M": 150, "3M": 190 },
 };
 
 export type HamiltonZone = "A" | "B" | "C";

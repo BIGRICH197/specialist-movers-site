@@ -89,14 +89,18 @@ function TableShell({ children }: { children: React.ReactNode }) {
 const th = "border-b border-brand-purple/15 px-4 py-3 font-heading text-xs uppercase tracking-wider text-brand-purple/70";
 const td = "border-b border-brand-purple/10 px-4 py-3 text-brand-purple/85";
 
+/** Friday, the one day the two-mover rate still steps up. */
+const dearestTwoMoverIncl =
+  aucklandDayRates[aucklandDayRates.length - 1].twoMovers.incl;
+
 const faqs = [
   {
     q: "How much do movers cost in Auckland?",
-    a: `Two movers and a truck cost from $${aucklandFromHourly.incl} an hour including GST ($${aucklandFromHourly.ex} + GST) on our cheapest day, plus a one-off callout fee of $${aucklandCallout.twoMovers.incl} incl GST. A typical three-bedroom move works out around ${typicalThreeBed.auckland} + GST all in. The hourly rate changes by day of the week, so midweek moves cost less than Friday or Saturday.`,
+    a: `Two movers and a truck cost $${aucklandFromHourly.incl} an hour including GST ($${aucklandFromHourly.ex} + GST) any day except Friday, which is $${dearestTwoMoverIncl} incl GST. There is a one-off callout fee of $${aucklandCallout.twoMovers.incl} incl GST on top. A typical three-bedroom move works out around ${typicalThreeBed.auckland} + GST all in.`,
   },
   {
-    q: "What is the cheapest day to move house in Auckland?",
-    a: `Tuesday. Two movers and a truck are $${aucklandFromHourly.incl} an hour incl GST on a Tuesday against $${aucklandDayRates[aucklandDayRates.length - 1].twoMovers.incl} on our dearest day, so shifting a midweek-flexible move to Tuesday is the single easiest way to lower the bill.`,
+    q: "Is it cheaper to move on a particular day in Auckland?",
+    a: `Not for a two-mover crew any more. Two movers and a truck are $${aucklandFromHourly.incl} an hour incl GST every day except Friday, which is $${dearestTwoMoverIncl}. If you want a third mover, the day still matters: that rate does move through the week, so a midweek booking costs less than a Friday or a weekend.`,
   },
   {
     q: "How long does it take to move a three-bedroom house?",
@@ -237,9 +241,9 @@ export default function PricingPage() {
               {typicalThreeBed.auckland} + GST in Auckland, {typicalThreeBed.hamilton} + GST in Hamilton.
             </li>
             <li>
-              <strong className="text-brand-purple">Cheapest day:</strong> Tuesday, at{" "}
-              <Money value={aucklandFromHourly} /> an hour against{" "}
-              <Money value={dearest.twoMovers} /> on our dearest day.
+              <strong className="text-brand-purple">Two movers, Auckland:</strong>{" "}
+              <Money value={aucklandFromHourly} /> an hour any day except Friday, which is{" "}
+              <Money value={dearest.twoMovers} />.
             </li>
           </ul>
           <p className="mt-5 text-sm leading-relaxed text-brand-purple/70">
@@ -254,8 +258,8 @@ export default function PricingPage() {
         <section className="mt-12">
           <SectionHeading id="auckland-hourly">Auckland hourly rates</SectionHeading>
           <p className="mt-3 text-sm leading-relaxed text-brand-purple/85">
-            The rate depends on the day. Tuesday is our cheapest day and Friday our dearest, so a move
-            you can shift midweek costs less for exactly the same crew and truck.
+            Two movers and a truck is one rate every day except Friday. A third mover still prices by
+            the day, so if you need the bigger crew there is money in moving midweek.
           </p>
           <TableShell>
             <thead>
@@ -436,8 +440,9 @@ export default function PricingPage() {
         <section className="mt-12">
           <SectionHeading id="hamilton">Hamilton and Waikato rates</SectionHeading>
           <p className="mt-3 text-sm leading-relaxed text-brand-purple/85">
-            One flat hourly rate, every day of the week, matching outer Auckland. What changes in
-            Hamilton is the callout, which follows the zone you are in.
+            One flat hourly rate, every day of the week. What changes in Hamilton is the callout,
+            which follows the zone you are in. A job that leaves the Waikato is priced as out of
+            town, on the tiers below.
           </p>
           <TableShell>
             <thead>
@@ -482,8 +487,9 @@ export default function PricingPage() {
         <section className="mt-12">
           <SectionHeading id="outer-auckland">Outer Auckland and Hamilton</SectionHeading>
           <p className="mt-3 text-sm leading-relaxed text-brand-purple/85">
-            Flat hourly with no cheap day, because the travel is the same whatever day you move. The
-            same rate covers Hamilton and the Waikato.
+            Flat hourly with no cheap day, because the travel is the same whatever day you move.
+            This is the rate for a job that leaves town, from either base, and it is dearer than a
+            move inside Auckland or inside Hamilton.
           </p>
           <TableShell>
             <thead>

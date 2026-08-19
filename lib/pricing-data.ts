@@ -41,14 +41,17 @@ export const MOVE_HOURS: Record<Bedrooms, { base: number; perHardEnd: number }> 
 };
 
 // ── Tier 1: day-of-week hourly rates (excl GST) ──
+// 2026-08-19 (Richard): Auckland 2-mover flattened to $140 every day, Friday
+// still $150. The midweek discounts (Tue $120, Thu $130, Mon/Wed $135) are
+// gone — one number is easier to quote and it matches the trade card.
 export const TIER_1_RATES: Record<DayOfWeek, Record<CrewSize, number>> = {
-  tue: { "2M": 120, "3M": 160 },
-  wed: { "2M": 135, "3M": 175 },
-  thu: { "2M": 130, "3M": 170 },
+  tue: { "2M": 140, "3M": 160 },
+  wed: { "2M": 140, "3M": 175 },
+  thu: { "2M": 140, "3M": 170 },
   fri: { "2M": 150, "3M": 190 },
   sat: { "2M": 140, "3M": 190 },
   sun: { "2M": 140, "3M": 185 },
-  mon: { "2M": 135, "3M": 175 },
+  mon: { "2M": 140, "3M": 175 },
 };
 
 // ── Callout fees by crew (excl GST) ──
@@ -58,21 +61,21 @@ export const CALLOUT_FEES: Record<CrewSize, number> = {
 };
 
 // ── Tier 2: fixed rates (excl GST) ──
-// Hourly matches Tier 3 and Hamilton: one out-of-town rate, set as $180 and
-// $220 INCLUDING GST, which is how it is sold. These are those numbers with
-// the GST taken back out, so the retail figure lands exactly on $180 / $220.
-// Only the callout separates the tiers now, which is the distance charge.
+// One out-of-town rate, $180 and $220 EXCL GST (Richard, 2026-08-19). These
+// were stored as 156.52 / 191.30 — the same figures read as GST-inclusive and
+// divided back out, which undercharged the out-of-town job by 15%. Only the
+// callout separates the tiers now, which is the distance charge.
 export const TIER_2_RATES: Record<CrewSize, { hourly: number; callout: number }> =
   {
-    "2M": { hourly: 156.52, callout: 80 },
-    "3M": { hourly: 191.3, callout: 100 },
+    "2M": { hourly: 180, callout: 80 },
+    "3M": { hourly: 220, callout: 100 },
   };
 
 // ── Tier 3: fixed rates (excl GST) ──
 export const TIER_3_RATES: Record<CrewSize, { hourly: number; callout: number }> =
   {
-    "2M": { hourly: 156.52, callout: 90 },
-    "3M": { hourly: 191.3, callout: 90 },
+    "2M": { hourly: 180, callout: 90 },
+    "3M": { hourly: 220, callout: 90 },
   };
 
 // ── Suburb tier lists (lowercase for matching) ──

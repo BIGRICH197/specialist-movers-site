@@ -98,6 +98,15 @@ function groupDayRates(
   // meaningless when there is nothing dearer to beat, so do neither.
   const isFlat = bySignature.size === 1;
 
+  // "Cheapest" only means something if exactly one row holds the low rate.
+  // Auckland's two-mover column went flat-except-Friday on 2026-08-19, which
+  // left five separate rows tied at $140 — every one of them would have worn a
+  // "Cheapest" badge, which tells a reader nothing and looks like a mistake.
+  const cheapestGroups = Array.from(bySignature.values()).filter(
+    (group) => group.two === cheapestEx,
+  ).length;
+  const hasUniqueCheapest = cheapestGroups === 1;
+
   // Array.from, not [...map.values()] — tsconfig sets no `target`, so it
   // defaults to ES5 and spreading a Map iterator needs downlevelIteration.
   return Array.from(bySignature.values())
@@ -106,7 +115,7 @@ function groupDayRates(
       label: isFlat ? "Any day" : group.days.map((day) => DAY_LABEL[day]).join(" / "),
       twoMovers: rate(group.two),
       threeMovers: rate(group.three),
-      cheapest: !isFlat && group.two === cheapestEx,
+      cheapest: !isFlat && hasUniqueCheapest && group.two === cheapestEx,
     }));
 }
 
