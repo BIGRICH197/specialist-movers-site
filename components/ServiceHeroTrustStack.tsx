@@ -17,24 +17,39 @@ type Props = {
  */
 export function ServiceHeroTrustStack({ subline, trustPills, phone, className }: Props) {
   const trustRowRef = useRef<HTMLDivElement>(null);
-  const lastPillRef = useRef<HTMLSpanElement>(null);
   const [pillMaxWidth, setPillMaxWidth] = useState<number>();
 
   useLayoutEffect(() => {
     const row = trustRowRef.current;
-    const lastPill = lastPillRef.current;
-    if (!row || !lastPill) return;
+    if (!row) return;
 
     const sync = () => {
+      const pills = Array.from(row.children);
+      if (!pills.length) return;
       const rowLeft = row.getBoundingClientRect().left;
-      const lastRight = lastPill.getBoundingClientRect().right;
-      setPillMaxWidth(Math.ceil(lastRight - rowLeft));
+      /*
+       * Measure the widest pill row, not the last pill. The pills wrap, and
+       * once they do the last one sits alone on the final line — capping to
+       * its right edge collapsed the price pill to that single pill's width
+       * (123px instead of 433px on /piano-movers at 1600px). On a single
+       * line the last pill is still the rightmost, so this is unchanged
+       * where the row does not wrap.
+       */
+      const widestRight = Math.max(
+        ...pills.map((pill) => pill.getBoundingClientRect().right),
+      );
+      setPillMaxWidth(Math.ceil(widestRight - rowLeft));
     };
     sync();
 
+    /*
+     * Observe each pill as well as the row. A late webfont can change pill
+     * widths without changing the row box, which would otherwise leave the
+     * cap stale.
+     */
     const observer = new ResizeObserver(sync);
     observer.observe(row);
-    observer.observe(lastPill);
+    Array.from(row.children).forEach((pill) => observer.observe(pill));
     return () => observer.disconnect();
   }, [trustPills]);
 
@@ -58,10 +73,9 @@ export function ServiceHeroTrustStack({ subline, trustPills, phone, className }:
           ref={trustRowRef}
           className="flex flex-wrap gap-2 text-xs font-semibold text-white/95 xl:pr-[10.75rem]"
         >
-          {trustPills.map((label, index) => (
+          {trustPills.map((label) => (
             <span
               key={label}
-              ref={index === trustPills.length - 1 ? lastPillRef : undefined}
               className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5"
             >
               {label}
