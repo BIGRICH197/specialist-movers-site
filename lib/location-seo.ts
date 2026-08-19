@@ -527,7 +527,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   birkenhead: {
     metaDescription:
-      "Birkenhead movers for hillside villas and harbour-edge homes. Specialist Movers plans narrow streets, steep drives, and tight parking from our nearby Glenfield depot. Free quote.",
+      "Birkenhead movers for hillside villas and harbour-edge homes. Specialist Movers plans narrow streets, steep drives, and tight parking from our Wairau Valley depot. Free quote.",
     intro:
       "Birkenhead moves mean hills, character villas, and narrow harbour-side streets, we scope steep drives and parking before move day.",
     paragraphs: [
@@ -553,7 +553,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   northcote: {
     metaDescription:
-      "Northcote movers for villas, units, and the regenerated town centre. Specialist Movers covers Northcote Point to Onepoto from our nearby Glenfield base. Free quote.",
+      "Northcote movers for villas, units, and the regenerated town centre. Specialist Movers covers Northcote Point to Onepoto from our Wairau Valley base. Free quote.",
     intro:
       "Northcote runs from character villas on the Point to the redeveloped town-centre townhouses, we plan access for both.",
     paragraphs: [
