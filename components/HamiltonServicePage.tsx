@@ -11,6 +11,8 @@ import { ServiceJsonLd } from "@/components/ServiceJsonLd";
 import { ServiceTrustindexBand } from "@/components/ServiceTrustindexBand";
 
 import { HardToShiftGallerySection } from "@/components/HardToShiftGallerySection";
+
+import { WhatWeMoveSection } from "@/components/WhatWeMoveSection";
 import { HeroVisual } from "@/components/HeroVisual";
 
 import { NumberedInfoGrid } from "@/components/NumberedInfoGrid";
@@ -300,6 +302,10 @@ export function HamiltonServicePage({ config }: Props) {
 
 
       {config.baseSlug === "hard-to-shift" ? <HardToShiftGallerySection /> : null}
+
+      {config.baseSlug === "hard-to-shift" || config.baseSlug === "commercial-moving" ? (
+        <WhatWeMoveSection page={config.baseSlug} region="Waikato" />
+      ) : null}
 
       <ServiceWhyChooseSection
         title="Why choose us in Hamilton"

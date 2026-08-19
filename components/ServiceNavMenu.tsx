@@ -7,6 +7,7 @@ import {
   serviceNavCompanyLinks,
   serviceNavInternationalExtras,
   serviceNavPianoExtras,
+  whatWeMoveNavLink,
   type ServiceNavRow,
 } from "@/lib/service-nav";
 
@@ -120,7 +121,16 @@ export function ServiceNavMenu({ onNavigate }: Props) {
         </div>
 
         <div className="space-y-5 text-sm text-white/85">
-          <ul className="space-y-2">
+          <p className="pb-4">
+            <Link
+              href={whatWeMoveNavLink.href}
+              onClick={onNavigate}
+              className="font-semibold text-brand-yellow transition-colors hover:text-white"
+            >
+              {whatWeMoveNavLink.label}
+            </Link>
+          </p>
+          <ul className="space-y-2 border-t border-white/10 pt-4">
             {serviceNavPianoExtras.map((link) => (
               <li key={link.href}>
                 <Link

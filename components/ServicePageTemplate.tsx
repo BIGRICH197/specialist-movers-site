@@ -3,6 +3,7 @@ import { FaqPageJsonLd } from "@/components/FaqPageJsonLd";
 import { ServiceJsonLd } from "@/components/ServiceJsonLd";
 import { ServiceTrustindexBand } from "@/components/ServiceTrustindexBand";
 import { HardToShiftGallerySection } from "@/components/HardToShiftGallerySection";
+import { WhatWeMoveSection } from "@/components/WhatWeMoveSection";
 import { HeroVisual } from "@/components/HeroVisual";
 import { InsuranceExplainer } from "@/components/InsuranceExplainer";
 import { CleaningBookingForm } from "@/components/CleaningBookingForm";
@@ -215,6 +216,10 @@ export function ServicePageTemplate({
       ) : null}
 
       {hamiltonBaseSlug === "hard-to-shift" ? <HardToShiftGallerySection /> : null}
+
+      {hamiltonBaseSlug === "hard-to-shift" ? (
+        <WhatWeMoveSection page="hard-to-shift" region="Auckland" />
+      ) : null}
 
       <ServiceWhyChooseSection
         title="Why choose us for this service"

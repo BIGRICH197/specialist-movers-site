@@ -30,6 +30,7 @@ import { getServiceProcessSteps } from "@/lib/process-steps-with-images";
 import { getDistinctAboutPhoto } from "@/lib/site-photos";
 import { InsuranceExplainer } from "@/components/InsuranceExplainer";
 import { PianoExpertiseSection } from "@/components/PianoExpertiseSection";
+import { WhatWeMoveSection } from "@/components/WhatWeMoveSection";
 import { PianoGallerySection } from "@/components/PianoGallerySection";
 import { regions } from "@/lib/regions";
 import { resolveServiceLink } from "@/lib/service-links";
@@ -224,6 +225,10 @@ export function ServiceLandingPage({ config }: Props) {
           <PianoExpertiseSection />
           <PianoGallerySection />
         </>
+      ) : null}
+
+      {config.slug === "commercial-moving" ? (
+        <WhatWeMoveSection page="commercial-moving" region="Auckland" />
       ) : null}
 
       <ServiceWhyChooseSection

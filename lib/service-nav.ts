@@ -2,6 +2,7 @@ import type { HamiltonBaseSlug } from "@/lib/hamilton-pages";
 import { movingDistanceHub, storageHub } from "@/lib/service-clusters";
 import { serviceAucklandHref, serviceHamiltonHref } from "@/lib/service-links";
 import { services } from "@/lib/site-data";
+import { WHAT_WE_MOVE_ANCHOR } from "@/lib/what-we-move";
 
 export type ServiceNavLink = {
   label: string;
@@ -164,7 +165,19 @@ export const serviceNavInternationalExtras: readonly ServiceNavLink[] = [
 ] as const;
 
 /** Cluster / guide pages, footer and secondary nav. */
+/**
+ * The trade-card lists — what we move, what we do, who for. They live as a
+ * section on the hard-to-shift page rather than a page of their own, so the
+ * nav points at the anchor. Someone who cannot tell whether we take their
+ * item should not have to read a service page to find out.
+ */
+export const whatWeMoveNavLink: ServiceNavLink = {
+  label: "What we move",
+  href: `${serviceAucklandHref("hard-to-shift")}#${WHAT_WE_MOVE_ANCHOR}`,
+};
+
 export const serviceNavClusterLinks: readonly ServiceNavLink[] = [
+  whatWeMoveNavLink,
   { label: "What's included", href: "/services/whats-included" },
   { label: movingDistanceHub.title, href: movingDistanceHub.path },
   { label: "Storage options", href: storageHub.path },
