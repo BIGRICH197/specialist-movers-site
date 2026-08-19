@@ -111,12 +111,31 @@ function groupDayRates(
   // defaults to ES5 and spreading a Map iterator needs downlevelIteration.
   return Array.from(bySignature.values())
     .sort((a, b) => a.two - b.two || a.three - b.three)
-    .map((group) => ({
-      label: isFlat ? "Any day" : group.days.map((day) => DAY_LABEL[day]).join(" / "),
-      twoMovers: rate(group.two),
-      threeMovers: rate(group.three),
-      cheapest: !isFlat && hasUniqueCheapest && group.two === cheapestEx,
-    }));
+    .map((group) => {
+      /*
+       * One rate covering every day but one is how Auckland prices since
+       * 2026-08-19. Naming the six days reads as noise — "Monday / Tuesday /
+       * Wednesday / Thursday / Saturday / Sunday" — when the fact the reader
+       * needs is simply that Friday is the exception.
+       */
+      const allButOne = group.days.length === DAY_ORDER.length - 1;
+      const exceptDay = allButOne
+        ? DAY_ORDER.find((day) => !group.days.includes(day))
+        : undefined;
+
+      return {
+        label: isFlat
+          ? "Any day"
+          : exceptDay
+            ? `Any day except ${DAY_LABEL[exceptDay]}`
+            : group.days.map((day) => DAY_LABEL[day]).join(" / "),
+        twoMovers: rate(group.two),
+        threeMovers: rate(group.three),
+        // A row labelled "except Friday" already says it is the cheaper one.
+        cheapest:
+          !isFlat && !exceptDay && hasUniqueCheapest && group.two === cheapestEx,
+      };
+    });
 }
 
 export const aucklandDayRates = groupDayRates(TIER_1_RATES);

@@ -100,7 +100,7 @@ const faqs = [
   },
   {
     q: "Is it cheaper to move on a particular day in Auckland?",
-    a: `Not for a two-mover crew any more. Two movers and a truck are $${aucklandFromHourly.incl} an hour incl GST every day except Friday, which is $${dearestTwoMoverIncl}. If you want a third mover, the day still matters: that rate does move through the week, so a midweek booking costs less than a Friday or a weekend.`,
+    a: `Only Friday differs. Two movers and a truck are $${aucklandFromHourly.incl} an hour incl GST every day of the week except Friday, which is $${dearestTwoMoverIncl}. Bigger crews follow the same shape: a third mover adds $40 an hour and a fourth adds $60, on whichever day you move.`,
   },
   {
     q: "How long does it take to move a three-bedroom house?",
@@ -258,8 +258,9 @@ export default function PricingPage() {
         <section className="mt-12">
           <SectionHeading id="auckland-hourly">Auckland hourly rates</SectionHeading>
           <p className="mt-3 text-sm leading-relaxed text-brand-purple/85">
-            Two movers and a truck is one rate every day except Friday. A third mover still prices by
-            the day, so if you need the bigger crew there is money in moving midweek.
+            One rate every day except Friday, whatever size the crew. A third mover adds $40 an hour
+            and a fourth adds $60, so the price moves with the crew you need rather than the day you
+            pick.
           </p>
           <TableShell>
             <thead>
