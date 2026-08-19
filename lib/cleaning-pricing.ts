@@ -6,8 +6,11 @@ export type CleaningPropertySize =
   | "2-2"
   | "3-1"
   | "3-2"
+  | "4-1"
   | "4-2"
   | "4-3"
+  | "5-1"
+  | "5-2"
   | "5-3";
 
 export type CleaningPropertyOption = {
@@ -26,8 +29,17 @@ export const cleaningPropertyOptions: readonly CleaningPropertyOption[] = [
   { id: "2-2", label: "2 bedrooms, 2 bathrooms", option1: 420, option2: 400 },
   { id: "3-1", label: "3 bedrooms, 1 bathroom", option1: 450, option2: 450 },
   { id: "3-2", label: "3 bedrooms, 2 bathrooms", option1: 520, option2: 500 },
+  // 4-1, 5-1 and 5-2 added 2026-08-19. The grid only ever priced the typical
+  // diagonal, so an under-bathroomed house — a four-bedroom villa with one
+  // bathroom, say — snapped up to the next priced bathroom count and was
+  // quoted for bathrooms it does not have. Derived from the grid's own steps:
+  // one bathroom fewer is -$70, and one-bathroom rows carry no option 2
+  // discount (1-1, 2-1 and 3-1 all price both columns the same).
+  { id: "4-1", label: "4 bedrooms, 1 bathroom", option1: 530, option2: 530 },
   { id: "4-2", label: "4 bedrooms, 2 bathrooms", option1: 600, option2: 590 },
   { id: "4-3", label: "4 bedrooms, 3 bathrooms", option1: 700, option2: 650 },
+  { id: "5-1", label: "5 bedrooms, 1 bathroom", option1: 590, option2: 590 },
+  { id: "5-2", label: "5 bedrooms, 2 bathrooms", option1: 660, option2: 640 },
   { id: "5-3", label: "5 bedrooms, 3 bathrooms", option1: 730, option2: null },
 ] as const;
 
