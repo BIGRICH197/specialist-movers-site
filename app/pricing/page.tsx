@@ -18,6 +18,7 @@ import {
   hamiltonFromHourly,
   jobDurations,
   outerTiers,
+  pianoCraneRows,
   pianoRows,
   pianoStairsPerFlight,
   type Rate,
@@ -387,6 +388,33 @@ export default function PricingPage() {
             </thead>
             <tbody>
               {pianoRows.map((row) => (
+                <tr key={row.label}>
+                  <td className={td}>{row.label}</td>
+                  <td className={td}>
+                    <Money value={row.from} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </TableShell>
+          <h3 className="mt-8 font-heading text-lg text-brand-purple">
+            Crane lifts, where there are no stairs
+          </h3>
+          <p className="mt-3 text-sm leading-relaxed text-brand-purple/85">
+            Second-floor apartments and balconies with no stair access are a hiab
+            lift rather than a carry. That is a fixed job price, not the
+            per-flight stairs charge, because it is a different job: crane truck,
+            a spotter, and the street held while the piano is in the air.
+          </p>
+          <TableShell>
+            <thead>
+              <tr>
+                <th className={th}>Crane lift to a second floor</th>
+                <th className={th}>From</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pianoCraneRows.map((row) => (
                 <tr key={row.label}>
                   <td className={td}>{row.label}</td>
                   <td className={td}>
