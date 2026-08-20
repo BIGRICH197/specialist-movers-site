@@ -58,6 +58,23 @@ export function getCleaningBasePriceExclGst(
   return option.option2 ?? option.option1;
 }
 
+/**
+ * Bathroom count assumed when the customer has not told us. Explicit, because
+ * this used to fall out of "the first priced combination for that bedroom
+ * count" — which only ever landed on the typical house because the cheaper
+ * combinations did not exist. Adding 4-1, 5-1 and 5-2 on 2026-08-19 silently
+ * dropped the unknown-bathroom quote for a four-bedroom from $590 to $530 and
+ * a five-bedroom from $730 to $590. These values restore what was quoted
+ * before those rows were added.
+ */
+const DEFAULT_BATHROOMS: Record<number, number> = {
+  1: 1,
+  2: 1,
+  3: 1,
+  4: 2,
+  5: 3,
+};
+
 export function bathroomsForBedrooms(bedrooms: number): number[] {
   return cleaningPropertyOptions
     .filter((o) => o.id.startsWith(`${bedrooms}-`))
@@ -85,7 +102,10 @@ export function getCleaningQuoteInclGst(
   const bed = Math.min(Math.max(Math.round(bedrooms), 1), 5);
   const baths = bathroomsForBedrooms(bed);
   if (!baths.length) return null;
-  const want = bathrooms && bathrooms >= 1 ? Math.round(bathrooms) : baths[0];
+  const want =
+    bathrooms && bathrooms >= 1
+      ? Math.round(bathrooms)
+      : (DEFAULT_BATHROOMS[bed] ?? baths[0]);
   const bath = baths.reduce(
     (best, b) => (Math.abs(b - want) < Math.abs(best - want) ? b : best),
     baths[0]
