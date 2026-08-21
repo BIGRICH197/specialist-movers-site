@@ -5,9 +5,16 @@ export const STAGE_CLOSED_WON = "1526377155"; // "Closed Won" stage in pipeline 
 
 const OWNER_TAINE = "78086404";
 const OWNER_DANIELLE = "159727645";
+const OWNER_RICHARD = "78086361";
 
 // Exported so callers (e.g. the chat bot) can force a specific owner.
-export const HUBSPOT_OWNERS = { taine: OWNER_TAINE, danielle: OWNER_DANIELLE };
+// Matthew has no HubSpot seat, so no owner id exists for him yet — a
+// "dealing with Matthew" booking keeps the branch-routed owner.
+export const HUBSPOT_OWNERS = {
+  taine: OWNER_TAINE,
+  danielle: OWNER_DANIELLE,
+  richard: OWNER_RICHARD,
+};
 
 // Every deal is born owned: Hamilton leads go to Danielle, everything else
 // to Taine. The pricing engine's branch is checked first — it recognises
@@ -311,6 +318,17 @@ export async function createHubSpotDeal(params: {
     console.error("HubSpot deal creation failed:", err);
     return { error: String(err) };
   }
+}
+
+/** Re-own an existing deal — used when the booking form says who the customer
+ *  has been dealing with. That answer is ground truth for whose sale it is, so
+ *  it overrides the branch-routed owner. */
+export async function setDealOwner(dealId: string, ownerId: string): Promise<boolean> {
+  const r = await hubspotFetch(`/crm/v3/objects/deals/${dealId}`, {
+    method: "PATCH",
+    body: JSON.stringify({ properties: { hubspot_owner_id: ownerId } }),
+  });
+  return Boolean(r?.id);
 }
 
 /** Move an existing deal to a given stage (e.g. Closed Won). */

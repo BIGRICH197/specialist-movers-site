@@ -4,9 +4,11 @@ import {
   createHubSpotDeal,
   findDealIdByEmail,
   findOrCreateContact,
+  setDealOwner,
   setDealStage,
   STAGE_CLOSED_WON,
 } from "@/lib/hubspot";
+import { bookedByOwnerId, normalizeBookedBy } from "@/lib/booked-by";
 import { isDialable, PHONE_ERROR } from "@/lib/phone";
 import { createPianoCard } from "@/lib/piano-card";
 import { saveDirectBooking, attachDealToDirectBooking } from "@/lib/direct-booking";
@@ -154,6 +156,9 @@ export async function POST(request: Request) {
     isPiano && fields.stairs ? `Stairs: ${fields.stairs}` : "",
     !isPiano && fields.sizeOfMove ? `Size: ${fields.sizeOfMove}` : "",
     !isPiano && fields.howManyMovers ? `Movers: ${fields.howManyMovers}` : "",
+    normalizeBookedBy(fields.bookedBy)
+      ? `Dealing with: ${normalizeBookedBy(fields.bookedBy)}`
+      : "",
     fields.pickupAddress ? `From: ${fields.pickupAddress}` : "",
     fields.dropoffAddress ? `To: ${fields.dropoffAddress}` : "",
     "_Direct book-in (no quote link) — Trello card created, deal matched by email or created won._",
@@ -179,11 +184,17 @@ export async function POST(request: Request) {
   // booked job is won), mirroring the JotForm script.
   let hubspotDealId: string | undefined;
   const email = fields.email?.trim();
+  // "Who have you been dealing with?" -> deal owner. An explicit answer is
+  // ground truth for whose sale this is, so it overrides the branch-routed
+  // owner on an existing deal. Matthew (no HubSpot seat) resolves to
+  // undefined and leaves ownership alone.
+  const bookedByOwner = bookedByOwnerId(fields.bookedBy);
   if (email) {
     try {
       const existing = await findDealIdByEmail(email);
       if (existing) {
         await setDealStage(existing, STAGE_CLOSED_WON);
+        if (bookedByOwner) await setDealOwner(existing, bookedByOwner);
         hubspotDealId = existing;
         // The booking form just collected a name and phone — fold them into
         // the contact. Before this, an email-only contact stayed phoneless
@@ -208,6 +219,7 @@ export async function POST(request: Request) {
           notes: "Booked in via /book (no quote link).",
           source: "Booking Form",
           dealStage: STAGE_CLOSED_WON,
+          ownerId: bookedByOwner,
         });
         if ("dealId" in created) hubspotDealId = created.dealId;
       }

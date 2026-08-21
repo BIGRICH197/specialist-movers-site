@@ -8,6 +8,7 @@ import {
   type BookingTermsSection,
 } from "@/lib/quote-deck/booking-terms";
 import { isDialable, PHONE_ERROR } from "@/lib/phone";
+import { BOOKED_BY_OPTIONS } from "@/lib/booked-by";
 
 // Branded booking form — mirrors the JotForm "House move booking confirmation"
 // fields, prefilled from the quote. On submit it posts to /api/bookings, which
@@ -82,6 +83,7 @@ export function BookingForm({
     fullName: prefill.fullName ?? "",
     email: prefill.email ?? "",
     phone: prefill.phone ?? "",
+    bookedBy: "",
     pickupAddress: prefill.pickupAddress ?? "",
     dropoffAddress: prefill.dropoffAddress ?? "",
     moveDate: prefill.moveDate ?? "",
@@ -145,6 +147,7 @@ export function BookingForm({
       ["fullName", "Full name"],
       ["phone", "Phone"],
       ["email", "Email"],
+      ["bookedBy", "Who have you been dealing with?"],
       ["pickupAddress", "Pick-up address"],
       ["dropoffAddress", "Drop-off address"],
       ["moveDate", "Move date"],
@@ -245,6 +248,15 @@ export function BookingForm({
             <label className={labelCls}>Email</label>
             <input className={inputCls} type="email" required value={f.email} onChange={(e) => set("email", e.target.value)} />
           </div>
+          {!hiddenFields.includes("bookedBy") && (
+          <div className="sm:col-span-2">
+            <label className={labelCls}>Who have you been dealing with?</label>
+            <select className={inputCls} required value={f.bookedBy} onChange={(e) => set("bookedBy", e.target.value)}>
+              <option value="">Select…</option>
+              {BOOKED_BY_OPTIONS.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
+            </select>
+          </div>
+          )}
           <div className="sm:col-span-2">
             <label className={labelCls}>Pick-up address</label>
             <input className={inputCls} required value={f.pickupAddress} onChange={(e) => set("pickupAddress", e.target.value)} />
