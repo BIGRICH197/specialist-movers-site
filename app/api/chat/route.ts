@@ -7,6 +7,8 @@ import {
   type PianoMoveInput,
 } from "@/lib/pricing";
 import { createHubSpotDeal, HUBSPOT_OWNERS } from "@/lib/hubspot";
+import { isDialable } from "@/lib/phone";
+import { isEmailish } from "@/lib/email";
 import { postSlackMessage, slackChannel, slackConfigured } from "@/lib/slack";
 import {
   appendMessage,
@@ -133,7 +135,9 @@ const tools: Anthropic.Tool[] = [
         notes: { type: "string", description: "Any relevant notes about the enquiry" },
       },
       // Only the name is structurally required — a lead with just an email is
-      // still a lead, and the team can work either contact route.
+      // still a lead, and the team can work either contact route. The tool
+      // itself rejects a save with neither a dialable phone nor a valid email,
+      // so collect at least one before calling.
       required: ["name", "serviceType"],
     },
   },
@@ -158,6 +162,22 @@ async function executeTool(
     return JSON.stringify(result);
   }
   if (name === "capture_lead") {
+    // A lead the team cannot reach is not a lead. Validate BEFORE the
+    // duplicate guard so a bad first attempt doesn't lock out the corrected
+    // retry — the error message goes back to Joey, who re-asks the customer.
+    const phone = ((input.phone as string) || "").trim();
+    const email = ((input.email as string) || "").trim();
+    const phoneOk = phone !== "" && isDialable(phone);
+    const emailOk = email !== "" && isEmailish(email);
+    if (!phoneOk && !emailOk) {
+      return JSON.stringify({
+        success: false,
+        message:
+          phone || email
+            ? "Those contact details don't look reachable (phone not dialable / email malformed). Double-check them with the customer and call this tool again."
+            : "A phone number or email is needed before the lead can be saved. Ask the customer for one, then call this tool again.",
+      });
+    }
     // One deal per conversation. The chat re-runs each turn with only the text
     // transcript, so Joey can't see it already saved a lead — without this guard
     // it creates a duplicate deal on every later turn.
@@ -171,14 +191,22 @@ async function executeTool(
       // Set before the await so a second call in the same turn is skipped too.
       conv.leadCaptured = true;
     }
+    // A phone that failed validation still goes into the note as typed —
+    // never discard what the customer said — but not into the phone field.
+    const badDetail = [
+      phone && !phoneOk ? `Phone as typed (NOT dialable): ${phone}` : "",
+      email && !emailOk ? `Email as typed (malformed): ${email}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n");
     await createHubSpotDeal({
       name: input.name as string,
-      phone: (input.phone as string) || undefined,
-      email: (input.email as string) || undefined,
+      phone: phoneOk ? phone : undefined,
+      email: emailOk ? email : undefined,
       serviceType: (input.serviceType as string) || "Website Chat",
       pickupAddress: (input.pickupAddress as string) || "",
       dropoffAddress: (input.dropoffAddress as string) || "",
-      notes: `Joey chatbot lead\n${(input.notes as string) || ""}`,
+      notes: `Joey chatbot lead\n${(input.notes as string) || ""}${badDetail ? `\n${badDetail}` : ""}`,
       source: "Chat Bot",
       ownerId: HUBSPOT_OWNERS.danielle,
     });

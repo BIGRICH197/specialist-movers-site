@@ -22,6 +22,8 @@ import {
   shortAddress,
 } from "@/lib/quote-display";
 import { getAttribution } from "@/lib/attribution";
+import { isDialable, PHONE_ERROR } from "@/lib/phone";
+import { isEmailish, EMAIL_ERROR } from "@/lib/email";
 import { resolveQuoteRoute } from "@/lib/quote-route";
 import { regions } from "@/lib/regions";
 import type { JobType } from "@/lib/site-data";
@@ -190,9 +192,13 @@ export function QuoteForm({
       set("error", "Please enter your name and phone number.");
       return;
     }
+    if (!isDialable(f.phone)) {
+      set("error", PHONE_ERROR);
+      return;
+    }
     set("loading", true);
     try {
-      await fetch("/api/quote", {
+      const res = await fetch("/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -204,9 +210,16 @@ export function QuoteForm({
           attribution: getAttribution(),
         }),
       });
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: "quote_submit", form_type: "callback" });
-      set("callbackSent", true);
+      // Read the verdict — showing "we'll call you" after a rejected submit
+      // means the customer waits for a call that is never coming.
+      const data = (await res.json()) as { ok?: boolean; error?: string };
+      if (data.ok) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "quote_submit", form_type: "callback" });
+        set("callbackSent", true);
+      } else {
+        set("error", data.error || "Something went wrong. Please try again.");
+      }
     } catch {
       set("error", "Something went wrong. Please try again.");
     }
@@ -228,6 +241,14 @@ export function QuoteForm({
     }
     if (!f.message.trim()) {
       set("error", "Please tell us about your job.");
+      return;
+    }
+    if (!isDialable(f.phone)) {
+      set("error", PHONE_ERROR);
+      return;
+    }
+    if (!isEmailish(f.email)) {
+      set("error", EMAIL_ERROR);
       return;
     }
     set("loading", true);
@@ -268,6 +289,16 @@ export function QuoteForm({
   async function submitQuote() {
     if (!f.name.trim() || !f.phone.trim()) {
       set("error", "Please enter your name and phone number.");
+      return;
+    }
+    if (!isDialable(f.phone)) {
+      set("error", PHONE_ERROR);
+      return;
+    }
+    // Email became required on 2026-08-21: quotes and follow-ups are sent by
+    // email, and phone-only leads were reaching the team unanswerable.
+    if (!isEmailish(f.email)) {
+      set("error", EMAIL_ERROR);
       return;
     }
     if (!f.pickupAddress.trim() || !f.dropoffAddress.trim()) {
@@ -1050,7 +1081,9 @@ export function QuoteForm({
 
   // Step 2 , Contact + add-ons
   if (step === 2) {
-    const canCalculate = Boolean(f.name.trim() && f.phone.trim());
+    const canCalculate = Boolean(
+      f.name.trim() && f.phone.trim() && f.email.trim(),
+    );
     const isOffice = f.mode === "office";
     const showInstantPrice =
       !isOffice && f.mode !== "commercial" && routeResolution.canInstantQuote;
@@ -1101,7 +1134,7 @@ export function QuoteForm({
           </div>
           <div className="space-y-1.5">
             <label htmlFor={fieldId("quote-email")} className={label}>
-              Email (optional)
+              Email *
             </label>
             <input
               id={fieldId("quote-email")}
@@ -1201,7 +1234,7 @@ export function QuoteForm({
 
         {!canCalculate && (
           <p className="mt-2 text-xs text-brand-purple/60">
-            Name and phone are required
+            Name, phone, and email are required
             {isOffice || !showInstantPrice ? "" : " to calculate your price"}.
           </p>
         )}

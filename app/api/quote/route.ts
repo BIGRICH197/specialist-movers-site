@@ -18,6 +18,7 @@ import {
 } from "@/lib/traffic-source";
 import type { AccessDifficulty, Bedrooms, PianoType } from "@/lib/pricing-data";
 import { isDialable, PHONE_ERROR } from "@/lib/phone";
+import { isEmailish, EMAIL_ERROR } from "@/lib/email";
 
 function parseRooms(value: number | undefined): Bedrooms {
   const rooms = value ?? 2;
@@ -138,6 +139,9 @@ export async function POST(request: Request) {
     if (!isDialable(body.phone)) {
       return NextResponse.json({ ok: false, error: PHONE_ERROR }, { status: 400 });
     }
+    if (!isEmailish(body.email)) {
+      return NextResponse.json({ ok: false, error: EMAIL_ERROR }, { status: 400 });
+    }
 
     await createHubSpotDeal({
       name: body.name,
@@ -169,6 +173,9 @@ export async function POST(request: Request) {
     }
     if (!isDialable(body.phone)) {
       return NextResponse.json({ ok: false, error: PHONE_ERROR }, { status: 400 });
+    }
+    if (!isEmailish(body.email)) {
+      return NextResponse.json({ ok: false, error: EMAIL_ERROR }, { status: 400 });
     }
 
     await createHubSpotDeal({
@@ -211,6 +218,9 @@ export async function POST(request: Request) {
     if (!isDialable(body.phone)) {
       return NextResponse.json({ ok: false, error: PHONE_ERROR }, { status: 400 });
     }
+    if (!isEmailish(body.email)) {
+      return NextResponse.json({ ok: false, error: EMAIL_ERROR }, { status: 400 });
+    }
 
     await createHubSpotDeal({
       name: body.name,
@@ -239,6 +249,18 @@ export async function POST(request: Request) {
 
   if (!isDialable(body.phone)) {
     return NextResponse.json({ ok: false, error: PHONE_ERROR }, { status: 400 });
+  }
+
+  // Quote modes (house/piano/office) require an email — quotes and follow-ups
+  // travel by email, and phone-only leads were reaching the team unanswerable.
+  // Callback stays phone-only (its whole point is a phone call), but an email
+  // that IS supplied must at least look sendable.
+  if (body.mode === "callback") {
+    if (body.email?.trim() && !isEmailish(body.email)) {
+      return NextResponse.json({ ok: false, error: EMAIL_ERROR }, { status: 400 });
+    }
+  } else if (!isEmailish(body.email)) {
+    return NextResponse.json({ ok: false, error: EMAIL_ERROR }, { status: 400 });
   }
 
   if (body.mode === "callback") {

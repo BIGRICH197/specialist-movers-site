@@ -3,9 +3,11 @@ import { pingBookings } from "@/lib/quote-notify";
 import {
   createHubSpotDeal,
   findDealIdByEmail,
+  findOrCreateContact,
   setDealStage,
   STAGE_CLOSED_WON,
 } from "@/lib/hubspot";
+import { isDialable, PHONE_ERROR } from "@/lib/phone";
 import { createPianoCard } from "@/lib/piano-card";
 import { saveDirectBooking, attachDealToDirectBooking } from "@/lib/direct-booking";
 import { markLatestQuoteBookedByEmail } from "@/lib/quote-store";
@@ -112,6 +114,13 @@ export async function POST(request: Request) {
     );
   }
 
+  // Presence is not enough — the crew must be able to RING this number on the
+  // day. The booking forms validate client-side; this is the backstop for
+  // direct POSTs and anything that skips the form JS.
+  if (!isDialable(fields.phone)) {
+    return NextResponse.json({ ok: false, error: PHONE_ERROR }, { status: 400 });
+  }
+
   const isPiano = serviceType === "piano";
 
   // SAVE FIRST. Slack, HubSpot and Trello below are all best-effort — each is
@@ -176,6 +185,14 @@ export async function POST(request: Request) {
       if (existing) {
         await setDealStage(existing, STAGE_CLOSED_WON);
         hubspotDealId = existing;
+        // The booking form just collected a name and phone — fold them into
+        // the contact. Before this, an email-only contact stayed phoneless
+        // even after the customer typed their number into the booking form.
+        await findOrCreateContact({
+          name: fields.fullName || "",
+          phone: fields.phone,
+          email,
+        });
       } else {
         const created = await createHubSpotDeal({
           name: fields.fullName || "",

@@ -79,7 +79,7 @@ async function hubspotFetch(path: string, opts: RequestInit = {}) {
   return res.json();
 }
 
-async function findOrCreateContact(params: {
+export async function findOrCreateContact(params: {
   name: string;
   /** Optional: chat leads sometimes only give an email. */
   phone?: string;
@@ -96,9 +96,32 @@ async function findOrCreateContact(params: {
         filterGroups: [
           { filters: [{ propertyName: "email", operator: "EQ", value: params.email }] },
         ],
+        properties: ["phone", "firstname", "lastname"],
       }),
     });
-    if (search?.results?.length > 0) return search.results[0].id;
+    if (search?.results?.length > 0) {
+      const existing = search.results[0];
+      // Fold the fresh submission into the contact instead of returning it
+      // untouched. Booking-form contacts were reaching the team with no phone
+      // and no name because the contact pre-existed (email-only, created by
+      // an earlier touch) and the newly typed details were dropped here —
+      // e.g. contact 536854994619 / deal 343017670390 on 2026-08-18.
+      const patch: Record<string, string> = {};
+      if (params.phone?.trim()) patch.phone = params.phone.trim();
+      if (firstname && !existing.properties?.firstname) {
+        patch.firstname = firstname;
+      }
+      if (lastname && !existing.properties?.lastname) {
+        patch.lastname = lastname;
+      }
+      if (Object.keys(patch).length) {
+        await hubspotFetch(`/crm/v3/objects/contacts/${existing.id}`, {
+          method: "PATCH",
+          body: JSON.stringify({ properties: patch }),
+        });
+      }
+      return existing.id;
+    }
   }
 
   // Create new contact
@@ -246,11 +269,24 @@ export async function createHubSpotDeal(params: {
       );
     }
 
-    // Add automation note
-    if (params.notes) {
+    // Add automation note. The note ALWAYS carries the contact details as
+    // typed: the contact create above is best-effort, and when it fails the
+    // deal is born with no associated contact — deal 342495418044 (2026-08-16,
+    // a paid-ads lead) lost its phone number entirely that way. The note is
+    // the backstop record.
+    const contactLine = [
+      `Contact: ${fullName}`,
+      params.phone?.trim() ? `Phone: ${params.phone.trim()}` : "",
+      params.email?.trim() ? `Email: ${params.email.trim()}` : "",
+      contactId ? "" : "(HubSpot contact could not be created/associated)",
+    ]
+      .filter(Boolean)
+      .join(" | ");
+    {
+      const detail = params.notes ? `${contactLine}\n\n${params.notes}` : contactLine;
       const noteBody = params.attributionNote
-        ? `${params.notes}\n\nAttribution:\n${params.attributionNote}`
-        : params.notes;
+        ? `${detail}\n\nAttribution:\n${params.attributionNote}`
+        : detail;
       await hubspotFetch("/crm/v3/objects/notes", {
         method: "POST",
         body: JSON.stringify({

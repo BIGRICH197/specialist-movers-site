@@ -4,6 +4,8 @@ import {
   type CleaningPropertySize,
 } from "@/lib/cleaning-pricing";
 import { createHubSpotDeal } from "@/lib/hubspot";
+import { isDialable, PHONE_ERROR } from "@/lib/phone";
+import { isEmailish, EMAIL_ERROR } from "@/lib/email";
 import { detectQuoteBranch } from "@/lib/pricing";
 import type { Attribution } from "@/lib/attribution";
 import {
@@ -41,6 +43,12 @@ export async function POST(request: Request) {
       { ok: false, error: "Name, phone, and property address are required" },
       { status: 400 },
     );
+  }
+  if (!isDialable(body.phone)) {
+    return NextResponse.json({ ok: false, error: PHONE_ERROR }, { status: 400 });
+  }
+  if (body.email?.trim() && !isEmailish(body.email)) {
+    return NextResponse.json({ ok: false, error: EMAIL_ERROR }, { status: 400 });
   }
 
   const extraLivingRooms = Math.min(2, Math.max(0, Math.floor(body.extraLivingRooms ?? 0)));
