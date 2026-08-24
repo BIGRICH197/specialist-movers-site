@@ -1642,6 +1642,133 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "moving-truck-hamilton": {
+    title: "Getting a Moving Truck in Hamilton: What the Job Actually Looks Like",
+    sections: [
+      {
+        heading: "If You've Searched \"Moving Truck Hamilton\", Here's What You Actually Need",
+        paragraphs: [
+          "Most people searching for a moving truck in Hamilton are not looking to hire a truck and drive it themselves. They want a truck that turns up with people who know what they are doing. That is what we provide from our Hamilton base.",
+          "We are Specialist Movers. We have two bases, one in Auckland and one in Hamilton, and the Hamilton operation covers the wider Waikato including Cambridge, Te Awamutu, Morrinsville, Matamata, Huntly, Ngaruawahia and Raglan. So if you are moving within Hamilton, out to the surrounding towns, or between Hamilton and Auckland, we have the truck and the crew.",
+        ],
+      },
+      {
+        heading: "What a Hamilton Move Actually Involves",
+        paragraphs: [
+          "Hamilton is a mix of older bungalows in Dinsdale and Frankton, bigger family homes out toward Rototuna and Flagstaff, and a lot of townhouses and apartments closer to the CBD and the university. Each of those has different loading conditions.",
+          "A Rototuna family home with a long flat driveway and a double garage is a different job from a Te Awamutu house with a steep section and a timber deck. A flat in the CBD might have a lift, or it might have stairs that narrow at the top. None of this is a problem. It just affects how long the job takes and how the crew approaches it.",
+          "Crew size for most Hamilton moves is two to four people. Trucks have taillifts. For items that need extra care, such as a piano or a large piece of furniture in a tight space, the crew uses blankets, shrink wrap or mattress covers depending on what the item needs.",
+        ],
+      },
+      {
+        heading: "How Pricing Works for a Moving Truck in Hamilton",
+        paragraphs: [
+          "We do not hide the numbers. Hourly rates are the same across Hamilton and Auckland. The fixed callout varies with distance from our depot, and you see the full price before you book, not after.",
+          "The things that move the price up or down are: how long the job takes, how many crew members are needed, and whether there are access complications at either end. A straightforward same-city move in Hamilton is usually quoted and done the same week.",
+          "We do not charge extra for weekends. We operate seven days.",
+        ],
+      },
+      {
+        heading: "How We Quote It",
+        paragraphs: [
+          "Send us a message or fill in the quote form on the website. In business hours, we usually come back to you in about 15 minutes. For larger homes we can arrange a free viewing so the quote is accurate.",
+          "The information that helps us most: the addresses at both ends, a rough list of the larger items (beds, sofas, appliances, anything fragile or heavy), and whether there are stairs or tricky access at either property. With that, we can give you a price that holds.",
+        ],
+      },
+      {
+        heading: "What People Get Wrong Before Moving Day",
+        paragraphs: [
+          "The most common issue we see is underestimating volume. A three-bedroom house in Huntly looks manageable until someone adds up the garage, the garden shed and the linen cupboard. If the quote is based on two hours and the job runs to four, that changes the day for everyone.",
+          "The second thing people get wrong is access. Parking a moving truck on Anglesea Street or near the lake in the CBD takes a bit of planning. If you know there are restrictions at your address, tell us early. We sort it, but we need the heads-up.",
+          "The third is timing. Moving out of a rental on the last day of the month, at the same time half of Hamilton is doing the same thing, puts pressure on availability. Booking a week or two out gives you more choice of days and crew.",
+        ],
+      },
+      {
+        heading: "Waikato Moves Beyond the City",
+        paragraphs: [
+          "A lot of what we do in the Waikato is not strictly a Hamilton-to-Hamilton job. Cambridge and Te Awamutu are busy, and Matamata and Morrinsville are growing faster than people expect. Raglan is a different situation because of the road and the sections, and we know that stretch well.",
+          "If you are moving between any of these towns, or between Hamilton and Auckland, the quote process is the same. We do the Hamilton to Auckland run regularly and the distance is factored into the price upfront.",
+        ],
+      },
+      {
+        heading: "Insurance and Peace of Mind",
+        paragraphs: [
+          "Our crews are licensed and insured. We carry public liability and carrier's liability. If you want cover arranged for your own belongings during the move, we can sort that through our team before the job starts.",
+        ],
+      },
+      {
+        heading: "Ready to Sort Your Moving Truck in Hamilton?",
+        paragraphs: [
+          "You now know what the job involves, how the pricing works, and what to watch out for. The next step is straightforward. Use the quote form on our website, give us the basics of the move, and we will come back to you quickly with a price.",
+          "We have done 4,000+ moves across Auckland and the Waikato. Hamilton is not an add-on for us. It is half of what we do.",
+        ],
+      },
+    ],
+  },
+  "what-professional-packers-do-auckland": {
+    title: "Inside a Day-Before Pack: What the Crew Does, Room by Room",
+    sections: [
+      {
+        heading: "The day before is its own job",
+        paragraphs: [
+          "Most people think of moving day as the main event. But if you book a packing service, the day before is when a lot of the real work happens. A crew comes to your home, brings all the materials, and works through your rooms systematically while you get on with other things.",
+          "When moving day arrives, the truck team can load straight away. Nothing needs wrapping on the footpath. Nothing gets forgotten in a drawer because someone ran out of time the night before.",
+        ],
+      },
+      {
+        heading: "What the packers bring with them",
+        paragraphs: [
+          "The crew arrives with boxes in several sizes, butcher's paper, bubble wrap, packing tape, mattress covers, and furniture blankets. They do not show up expecting you to have supplies ready.",
+          "Fragile items get wrapped individually before going into a box. That might be bubble wrap for something with an odd shape, or paper for everyday crockery. The crew decides based on what is in front of them, not a fixed formula. Boxes are labelled with the room they are going to, which makes unloading at the other end much faster.",
+        ],
+      },
+      {
+        heading: "How the rooms get worked through",
+        paragraphs: [
+          "The crew usually starts with the rooms you use least: spare bedrooms, the garage, any storage areas. That way the kitchen and main living spaces stay functional as long as possible.",
+          "Kitchens take the most time. Lots of small, breakable things packed together, and cupboards that always have more in them than you expect. Plates get packed on their edge, not flat. Glasses are individually wrapped. Pots and bulkier items go into larger boxes with paper to stop them shifting.",
+          "Bedrooms go quickly by comparison. Clothes in drawers can often stay in the drawers if the furniture is being moved that way. Wardrobes get emptied into wardrobe boxes where hanging items can travel upright, which saves a lot of ironing at the other end.",
+          "Artwork, mirrors, and anything with a glass face gets wrapped and packed upright in purpose-sized boxes or between blankets. The crew treats these as a separate category rather than tucking them in with general items.",
+        ],
+      },
+      {
+        heading: "What you should pack yourself",
+        paragraphs: [
+          "Some things belong in your hands, not in a packer's box. Passports, birth certificates, wills, financial documents, and any paperwork you might need in the next few days should travel with you.",
+          "The same goes for jewellery, cash, and anything small and high-value. Not because packers are untrustworthy, but because a small bag in your car is simply the safest place for things that cannot be replaced.",
+          "Pack an essentials box yourself the night before. Include a change of clothes, phone chargers, medication, a few basics from the kitchen, toilet paper, and whatever the kids or pets will need in the first few hours. Label it clearly and keep it separate so it goes into the house first, not onto the truck last.",
+        ],
+      },
+      {
+        heading: "Things to talk through before the crew starts",
+        paragraphs: [
+          "Walk through the house with the lead packer before they begin. Point out anything fragile or unusual. If something needs special attention, say so at the start rather than after it has been packed.",
+          "Let them know which items are not moving. It sounds obvious, but packers work efficiently and a box of things destined for the op shop can end up on the truck if nobody flags it. A sticky note on furniture that is being left behind is a simple way to avoid that.",
+          "If you have a dedicated spot at the new place for certain items, mention it. Labelling boxes for a specific room rather than just 'kitchen' or 'lounge' saves everyone a lot of shuffling at the other end.",
+        ],
+      },
+      {
+        heading: "Packing and moving on the same day: when it works, when it doesn't",
+        paragraphs: [
+          "Some jobs do combine packing and moving on the same day. A smaller flat with a later truck time can work fine. But for a three-bedroom house in Remuera or a full family home in Botany, trying to pack and load on the same morning usually just means a longer, more stressful day for everyone.",
+          "The day-before model works well because it separates two very different tasks. Packing requires patience and care. Loading and transport requires speed and muscle. Mixing them at the same time, under time pressure, is where things tend to go wrong.",
+        ],
+      },
+      {
+        heading: "Insurance and your belongings",
+        paragraphs: [
+          "Our crews are licensed and insured. If you want cover for your own goods in transit, that can be arranged through our team before the job. Ask when you book and we will walk you through the options.",
+        ],
+      },
+      {
+        heading: "Getting a quote",
+        paragraphs: [
+          "Packing is priced alongside your move, so the easiest thing to do is mention it when you first get in touch. For larger homes we offer free viewings so we can give you an accurate picture of what the pack will involve.",
+          "Quotes usually come back within about 15 minutes during business hours. If you want to know what a day-before pack would look like for your place, head to the quote form on our website and tell us a bit about the job.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {
