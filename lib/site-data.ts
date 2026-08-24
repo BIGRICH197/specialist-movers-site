@@ -395,4 +395,20 @@ export const blogPosts = [
     excerpt:
       "No stairs wide enough, no hallway that works. Here is how our Auckland crane lift crew got a large piece into a Beach Haven home in August 2026.",
   },
+  {
+    slug: "moving-truck-hamilton",
+    title: "Getting a Moving Truck in Hamilton: What the Job Actually Looks Like",
+    seoTitle: "Moving Truck Hamilton | Specialist Movers",
+    publishedDate: "2026-08-24",
+    excerpt:
+      "Need a moving truck in Hamilton? Here's what the job involves, how we quote it, and the mistakes people make before moving day in the Waikato.",
+  },
+  {
+    slug: "what-professional-packers-do-auckland",
+    title: "Inside a Day-Before Pack: What the Crew Does, Room by Room",
+    seoTitle: "Professional Packers Auckland | Specialist Movers",
+    publishedDate: "2026-08-24",
+    excerpt:
+      "Wondering what professional packers actually do? Here's how a day-before pack works room by room, what materials are used, and what you should handle yourself.",
+  },
 ] as const;
