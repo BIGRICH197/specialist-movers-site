@@ -1642,6 +1642,255 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "moving-truck-hamilton": {
+    title: "Looking for a Moving Truck in Hamilton? Here's What You Actually Need to Know",
+    sections: [
+      {
+        heading: "If you searched 'moving truck hamilton', you probably need more than just a truck",
+        paragraphs: [
+          "Most people typing 'moving truck hamilton' into Google are trying to figure out how to get their stuff from one place to another without anything going wrong. That is fair enough. But a truck on its own does not move anything. You need people who know how to load it properly, drive it safely, and get your furniture in through the door at the other end.",
+          "Specialist Movers runs a real Hamilton base. We are not an Auckland company that occasionally sends a truck south. Our crews work the Waikato regularly, covering Hamilton, Cambridge, Te Awamutu, Morrinsville, Matamata, Huntly, Ngaruawahia and Raglan.",
+        ],
+      },
+      {
+        heading: "What a Hamilton move actually involves",
+        paragraphs: [
+          "Hamilton has its own character. Properties in Flagstaff and Rototuna tend to be newer, with wider driveways and open-plan layouts. Closer to the river in Fairfield or Nawton, you get older homes, sometimes narrow access, the occasional steep section. The job changes depending on where you are going from and to.",
+          "Our trucks have taillifts, which matters when you are dealing with heavy furniture and no one wants to carry a fridge down a steep driveway by hand. Crew size runs from two to four movers depending on what the job involves. We can also help with packing the day before if you want that handled properly rather than scrambling on moving morning.",
+        ],
+      },
+      {
+        heading: "How pricing works, without the guesswork",
+        paragraphs: [
+          "We do not print dollar figures on this page because every job is different and we would rather give you an honest quote than a number that does not fit your situation. What we can tell you is that hourly rates are the same across Hamilton. The fixed callout fee varies depending on how far the job is from our depot, and you see the full price before you confirm anything.",
+          "For most straightforward Hamilton moves, a quote takes about 15 minutes in business hours. For larger homes, we offer a free viewing so we can give you an accurate number rather than a rough guess.",
+        ],
+      },
+      {
+        heading: "What people get wrong when booking a moving truck in Hamilton",
+        paragraphs: [
+          "The most common mistake is underestimating how long a move takes. People picture the truck pulling up, everything going in, and being done by lunch. Then they realise the wardrobe has to come apart, or the couch will not fit through the hall the way it came in.",
+          "The second mistake is booking too late. Hamilton move dates book out quickly around the end of the month when leases turn over. If your move date is firm, get your quote sorted early. We run seven days a week, which gives you more flexibility than many people expect.",
+        ],
+      },
+      {
+        heading: "Moving within Hamilton versus moving to or from Auckland",
+        paragraphs: [
+          "A move entirely within Hamilton, say from Chartwell to Beerescourt, is straightforward to quote. The distance is short and the time is mostly about how much you have.",
+          "Moving between Hamilton and Auckland is a longer job. The drive between the two cities adds real time to the day, and that affects how the job is priced. Our crews do this run regularly, and we have bases in both cities, which makes the logistics simpler than going with someone who only operates from one end.",
+        ],
+      },
+      {
+        heading: "Insurance and your belongings",
+        paragraphs: [
+          "Our crews are licensed and insured. If you want cover arranged for your own belongings during the move, that can be sorted through our team before the job goes ahead. Just ask when you get in touch.",
+        ],
+      },
+      {
+        heading: "Ready to get a quote?",
+        paragraphs: [
+          "If you are looking at a moving truck in Hamilton and want to know what it will actually cost for your specific job, the quickest way is to get a quote through our website. Fill in the details and we will usually come back to you within about 15 minutes in business hours. No pressure, just a clear number so you can make a decision.",
+        ],
+      },
+    ],
+  },
+  "removalists-auckland": {
+    title: "Looking for Removalists in Auckland? Here's What You Actually Need to Know",
+    sections: [
+      {
+        heading: "You searched for removalists. That's us.",
+        paragraphs: [
+          "Removalists is the word a lot of New Zealanders use when they mean a moving company. You need a crew with a truck who will show up, load your stuff carefully, and get it to the new place in one piece. That's what we do. Specialist Movers is an Auckland-based moving company with a second base in Hamilton, and we've completed 4,000+ moves across Auckland and the Waikato.",
+          "This article covers what removalist work actually involves here in Auckland, what shapes the price, how we quote, and the things people wish they'd known earlier.",
+        ],
+      },
+      {
+        heading: "What removalist work actually involves in Auckland",
+        paragraphs: [
+          "A standard move in Auckland means a crew of two to four people, a truck with a tailtift, and a job that can run a few hours or most of a day depending on how much you own and how far you're going.",
+          "Auckland's geography makes things interesting. Moving from a flat in Grey Lynn to a house in Howick is a very different run to moving within the same suburb on the Shore. Traffic on the motorway between jobs, steep driveways in Titirangi or Remuera, apartment buildings in the CBD with strict booking windows for the service lift, narrow streets in Ponsonby. All of it matters, and experienced removalists plan for it.",
+          "For larger moves, we offer a free viewing beforehand so we can walk the property, see what's going in the truck, and give you an accurate quote rather than a guess.",
+        ],
+      },
+      {
+        heading: "What affects the price (without us quoting a number here)",
+        paragraphs: [
+          "No dollar figures here, but here's what actually moves the needle on a removalist quote in Auckland.",
+          "Distance from our depot in Wairau Valley, on the North Shore, is part of the callout. The hourly rate is the same across Auckland. A longer drive to reach you adds a modest fixed amount, and you see that figure before you confirm anything.",
+          "Other factors: how many rooms, whether there are stairs or a lift, how big the truck needs to be, and whether you want packing help the day before. Add-ons like move-out cleaning can be bundled in. Nothing is hidden. You get the full price upfront before you book.",
+        ],
+      },
+      {
+        heading: "How we quote",
+        paragraphs: [
+          "Send us a message or call during business hours and we usually come back to you within about 15 minutes with a quote. For smaller moves a quick description of what you have and where you're going is enough. For a bigger home we'd rather come and have a look so the number we give you is solid.",
+          "We operate seven days a week, so if you're moving on a Saturday or Sunday that's fine.",
+        ],
+      },
+      {
+        heading: "What people get wrong before moving day",
+        paragraphs: [
+          "Booking too late is the most common one. Auckland removalists get booked out quickly at the end of the month, at school term changes, and over summer. If your settlement date or tenancy end is fixed, lock in your movers as soon as you know the date.",
+          "Underestimating the job is the second one. People focus on the furniture and forget about the garage, the attic, the stuff in the hallway cupboard, the garden tools. When the quote is based on a two-bedroom flat and the truck arrives to find a double garage of boxes too, the job runs over.",
+          "A third one: assuming all removalists are the same. Ask whether they carry public liability and whether the crew is insured. We carry both, and we can point you toward arranging cover for your own belongings if you want it.",
+        ],
+      },
+      {
+        heading: "A note on insurance",
+        paragraphs: [
+          "Our crews are licensed and insured. We carry public liability and carrier's liability. If you want cover arranged for your own goods during the move, ask our team and we can help sort that out before moving day.",
+        ],
+      },
+      {
+        heading: "Auckland-specific things worth knowing",
+        paragraphs: [
+          "If you're moving into or out of an apartment in the Auckland CBD, Newmarket, or Parnell, most buildings require you to book the service lift in advance. Do that as soon as you have your moving date, because buildings often only allow one move at a time.",
+          "If your property has a long driveway, a tight gate, or an unusual access situation, mention it when you enquire. Our team can advise on the right truck size or whether a smaller shuttle vehicle makes more sense.",
+          "For piano moves specifically, we're the removalists Auckland's Steinway dealers trust, and we've moved instruments into Auckland Town Hall. Not every moving company will take a piano on. We do, regularly.",
+        ],
+      },
+      {
+        heading: "Ready to get a quote?",
+        paragraphs: [
+          "If you're searching for removalists in Auckland and you want a straight answer on price and availability, the quickest way is to fill in the quote form on our website. Tell us your suburb, your destination, and roughly what's going. We'll come back to you with a full price, no surprises, and no pressure to book on the spot.",
+        ],
+      },
+    ],
+  },
+  "moving-company-hamilton": {
+    title: "Looking for a Moving Company in Hamilton? Here's What to Know Before You Book",
+    sections: [
+      {
+        heading: "Finding the Right Moving Company in Hamilton",
+        paragraphs: [
+          "If you've searched 'moving company Hamilton' and landed here, you're in the right place. Specialist Movers runs a base in Hamilton and does moves across the wider Waikato every day of the week.",
+          "We're not an Auckland company that sends a truck south when things are quiet. Hamilton is a real base for us, with work running through Cambridge, Te Awamutu, Morrinsville, Matamata, Huntly, Ngaruawahia and Raglan as well as in the city itself.",
+        ],
+      },
+      {
+        heading: "What a Hamilton Move Actually Involves",
+        paragraphs: [
+          "Hamilton has its own quirks. Suburbs like Flagstaff and Rototuna have newer homes with good access, but steep driveways turn up more than people expect. Parts of Frankton and Melville have older villas with narrow hallways and steps at the front door.",
+          "River Road properties near the Waikato River often have sloped sections. Te Rore and the rural edges around Ngaruawahia need longer drive times factored in.",
+          "The crew size we send depends on what you're moving and the access at both ends. We use trucks with taillifts, so the heavy lifting off the truck is covered regardless of how remote the drop-off is.",
+          "For larger homes, we offer a free viewing so there are no surprises on the day. That conversation takes about 20 minutes and you leave knowing exactly what's planned.",
+        ],
+      },
+      {
+        heading: "How Pricing Works for Hamilton Moves",
+        paragraphs: [
+          "We won't print a dollar figure here because every move is different. What we can tell you is how the price is built so you know what to ask about.",
+          "Hourly rates are the same across Hamilton regardless of which suburb you're in. The fixed callout covers travel from our depot and varies with distance. You see the full price before you book, not after the truck arrives.",
+          "Moves between Hamilton suburbs are usually quoted as a fixed job. Long-distance moves between Hamilton and Auckland are quoted on distance, crew size and estimated time. Either way, the quote is in writing before anything is confirmed.",
+        ],
+      },
+      {
+        heading: "How We Quote It",
+        paragraphs: [
+          "You can send a quote request through our website any time. In business hours, we usually come back to you within about 15 minutes.",
+          "We'll ask about your address, the number of bedrooms, whether you have stairs or a lift, and anything that needs careful handling. From that we can give you a firm quote, not a rough ballpark that doubles on the day.",
+          "If the job is a larger home or you have items that need special attention, we'll suggest a free viewing. That's not a sales call. It's a practical look so the crew knows what they're walking into.",
+        ],
+      },
+      {
+        heading: "What People Get Wrong When Booking a Moving Company in Hamilton",
+        paragraphs: [
+          "The most common mistake is booking a truck and driver without checking whether the crew actually handles the furniture. Some listings in Hamilton are hire-a-truck services. You drive, you carry. Make sure you know what you're paying for.",
+          "Second is underestimating access. A property on a steep section or a section at the end of a long gravel driveway takes more time than a flat suburban street. Mention it upfront and it gets factored into the quote. Don't mention it and the crew still gets the job done, but the time runs longer than expected.",
+          "Third is leaving packing to the last minute. If boxes aren't closed and ready when the crew arrives, the clock still runs. We offer a packing service the day before for people who want that sorted properly.",
+        ],
+      },
+      {
+        heading: "Insurance and Your Belongings",
+        paragraphs: [
+          "Our crews are licensed and insured. We carry public liability and carrier's liability.",
+          "Cover for your own belongings during a move can be arranged through our team before the job. Ask about it when you get your quote and we'll walk you through the options.",
+        ],
+      },
+      {
+        heading: "We Work Seven Days",
+        paragraphs: [
+          "We run seven days a week in Hamilton. Weekend moves are common and we quote them the same way as weekday jobs. If your settlement date falls on a Saturday or your landlord needs the keys back on a Sunday, that's not a problem.",
+          "We've done 4,000+ moves across Auckland and the Waikato. Hamilton is not a side job for us.",
+        ],
+      },
+      {
+        heading: "Ready to Get a Quote?",
+        paragraphs: [
+          "If you're in Hamilton or anywhere in the Waikato and you want a straight answer on what your move will cost, the easiest thing to do is fill out the quote form on our website.",
+          "Tell us your suburbs, your rough household size and any access details you know about. We'll come back to you quickly with a written price and you can take it from there. No obligation, no pressure.",
+        ],
+      },
+    ],
+  },
+  "what-professional-packers-actually-do-auckland": {
+    title: "What Professional Packers Actually Do: A Room-by-Room Guide",
+    sections: [
+      {
+        heading: "The day-before pack: what it actually looks like",
+        paragraphs: [
+          "If you've booked a packing service, our crew arrives the day before your move. That gap matters. It means moving day is just about loading and driving, not scrambling to wrap the last shelf of dishes at 7am.",
+          "The crew brings boxes, packing paper, bubble wrap, tape, and labels. You don't need to supply anything. They work through the home room by room, and they label every box with its contents and destination room so unloading at the other end makes sense.",
+        ],
+      },
+      {
+        heading: "Kitchen: the room that takes the longest",
+        paragraphs: [
+          "The kitchen is almost always the biggest job. Plates, glasses, small appliances, pantry items, pots and pans, the stuff wedged at the back of deep cupboards since you moved in.",
+          "Fragile items get wrapped individually in packing paper before going into boxes. Glasses get extra attention. Heavy items like cast iron go into smaller boxes so the box can actually be lifted safely. Oils, sauces and anything that could leak get bagged before packing.",
+          "If you have a coffee machine or blender you use every morning, put it aside before the crew arrives. Anything you need between pack day and unpacking belongs in your essentials box, which we'll cover at the end.",
+        ],
+      },
+      {
+        heading: "Bedrooms and living areas",
+        paragraphs: [
+          "Clothes in drawers can often stay in the drawers, depending on the furniture and how the chest is being transported. The crew will let you know. Hanging clothes go into wardrobe boxes so they arrive without creases.",
+          "Books are heavy, so they go into smaller boxes and mixed with lighter items where possible. Artwork and mirrors get wrapped in paper and corner-protected. Ornaments, photo frames and anything breakable on shelves gets the same individual wrap treatment as the kitchen crockery.",
+          "Living room flat-pack furniture that needs disassembly before the move? The crew can handle that too. Tell us at booking so we allow the right amount of time.",
+        ],
+      },
+      {
+        heading: "Bathrooms and laundry",
+        paragraphs: [
+          "Bathrooms are quick but have their own quirks. Liquids, lotions and toiletries all need to be sealed or bagged before packing so nothing leaks onto linen or clothing. Half-used bottles are the main culprit.",
+          "Laundry items like detergent and cleaning products usually travel in open crates rather than closed boxes, both for ventilation and so they're easy to grab on arrival. Let the crew know if any items are near-empty and you'd rather leave them behind.",
+        ],
+      },
+      {
+        heading: "What to pack yourself before the crew arrives",
+        paragraphs: [
+          "There are three categories you should always handle yourself, and doing this the night before makes the whole day smoother.",
+          "First, documents. Passports, birth certificates, insurance papers, lease agreements, school records. Put these in a bag or folder that travels in your car, not the truck.",
+          "Second, valuables. Jewellery, cash, small collectibles, anything irreplaceable. Same rule: your car, not the truck.",
+          "Third, your essentials box. Pack this yourself and mark it clearly. It should hold whatever your household needs for the first night and morning in the new place: phone chargers, a change of clothes, kids' comfort items, coffee, pet food, a couple of plates and mugs, any medications. When you arrive tired at a new address in Remuera or Hobsonville or wherever you're heading, you'll be glad you did this.",
+        ],
+      },
+      {
+        heading: "Materials: what actually gets used and why",
+        paragraphs: [
+          "Double-walled boxes are used for heavy or fragile loads. Single-wall boxes suit lighter items like linen and soft toys. Using the right box for the load means fewer crushed corners and easier stacking in the truck.",
+          "Packing paper is the workhorse. Bubble wrap is saved for genuinely fragile things where paper alone isn't enough. Blankets and shrink wrap are used on furniture depending on what the item needs. Mattress covers keep beds clean in transit.",
+          "Everything gets labelled with the room it's going to, not just where it came from. That detail saves a lot of confusion when you're unloading.",
+        ],
+      },
+      {
+        heading: "A few practical things to sort before pack day",
+        paragraphs: [
+          "Clear a path through the home. The crew needs to move between rooms without shuffling around furniture.",
+          "Defrost the freezer the night before pack day, or two nights before if it's a big one. A wet freezer on move morning slows everything down.",
+          "If you have valuables in a storage unit elsewhere in Auckland, it's worth consolidating to one location before pack day so nothing gets missed.",
+          "Tell us about anything unusual: a collection of fragile ceramics, a large mirror, an awkward loft space. We'd rather know in advance than work it out on the day.",
+        ],
+      },
+      {
+        heading: "Ready to book a packing service?",
+        paragraphs: [
+          "Our packing service runs the day before your move and is available across Auckland and the Waikato. It works alongside a full move booking, and you can ask about it when you get your quote.",
+          "Quotes come back in about 15 minutes during business hours. For larger homes we offer a free viewing so nothing gets underestimated. If you want to know exactly what's involved for your place, get in touch through our website and we'll go from there.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {
