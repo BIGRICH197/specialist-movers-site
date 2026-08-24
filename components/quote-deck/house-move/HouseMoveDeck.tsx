@@ -132,7 +132,6 @@ export function HouseMoveDeck({ quote, quoteRef, bedrooms, bathrooms }: Props) {
                     <QuoteCustomise
                       quoteRef={quoteRef}
                       quote={quote}
-                      moveInclGst={addOns.moveInclGst}
                       cleaningQuoted={addOns.cleaningQuoted}
                       cleaningPriceInclGst={cleaningPriceInclGst}
                       packingQuoted={addOns.packingQuoted}

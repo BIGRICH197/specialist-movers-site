@@ -116,7 +116,7 @@ export function quoteTotalInclGst(quote: HouseMoveQuote): number {
 
 /** Which add-on a line item belongs to. Prefers the explicit `section` tag,
  *  falls back to a keyword match on the description. */
-function classifyLineItem(item: QuoteLineItem): "cleaning" | "packing" | "move" {
+export function classifyLineItem(item: QuoteLineItem): "cleaning" | "packing" | "move" {
   const s = (item.section || "").toLowerCase();
   if (s.includes("clean")) return "cleaning";
   if (s.includes("pack")) return "packing";

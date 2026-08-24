@@ -3,8 +3,10 @@
 import { useState, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import {
+  classifyLineItem,
   formatNzd,
   quoteHasSections,
+  quoteTotalInclGst,
   type HouseMoveQuote,
 } from "@/lib/quote-deck/house-move-quote";
 import { QuoteTable } from "@/components/quote-deck/house-move/QuoteTable";
@@ -20,7 +22,6 @@ import { QuoteTable } from "@/components/quote-deck/house-move/QuoteTable";
 type Props = {
   quoteRef: string;
   quote: HouseMoveQuote;
-  moveInclGst: number;
   cleaningQuoted: boolean;
   cleaningPriceInclGst: number | null;
   packingQuoted: boolean;
@@ -52,7 +53,6 @@ function Tick({ on }: { on: boolean }) {
 export function QuoteCustomise({
   quoteRef,
   quote,
-  moveInclGst,
   cleaningQuoted,
   cleaningPriceInclGst,
   packingQuoted,
@@ -69,34 +69,41 @@ export function QuoteCustomise({
   const [callState, setCallState] = useState<"idle" | "sending" | "done">("idle");
 
   const cleaningHasPrice = cleaningPriceInclGst != null;
-  const liveTotal =
-    moveInclGst +
-    (cleaningOn && cleaningHasPrice ? cleaningPriceInclGst! : 0) +
-    (packingOn && packingQuoted ? packingPriceInclGst : 0);
 
-  // Ticking cleaning that was NOT already quoted appends a real line item to the
-  // quote table, so the customer sees it inside the breakdown with subtotal, GST
-  // and total recalculated (not just bolted onto the checkout figure).
-  const addCleaningLine = cleaningOn && !cleaningQuoted && cleaningHasPrice;
-  const displayQuote: HouseMoveQuote = addCleaningLine
-    ? {
-        ...quote,
-        lineItems: [
-          ...quote.lineItems,
-          {
-            description: "Exit Cleaning (fixed price)",
-            amountExclGst: Math.round((cleaningPriceInclGst! / 1.15) * 100) / 100,
-            ...(quoteHasSections(quote) ? { section: "Cleaning" } : {}),
-            ...(quote.quoteTable === "xero"
-              ? {
-                  quantity: 1,
-                  unitPriceExclGst: Math.round((cleaningPriceInclGst! / 1.15) * 100) / 100,
-                }
-              : {}),
-          },
-        ],
-      }
-    : quote;
+  // The table always mirrors the ticks, in both directions:
+  //   untick something already quoted -> its line items drop out of the table
+  //   tick cleaning we had not quoted  -> a real cleaning line is appended
+  // Either way the subtotal, GST and total recalculate from the rows shown, so
+  // the breakdown can never disagree with the "Your total" below it.
+  const exGst = (incl: number) => Math.round((incl / 1.15) * 100) / 100;
+
+  const displayQuote: HouseMoveQuote = (() => {
+    let lineItems = quote.lineItems.filter((item) => {
+      const cls = classifyLineItem(item);
+      if (cls === "cleaning" && !cleaningOn) return false;
+      if (cls === "packing" && !packingOn) return false;
+      return true;
+    });
+
+    if (cleaningOn && !cleaningQuoted && cleaningHasPrice) {
+      lineItems = [
+        ...lineItems,
+        {
+          description: "End of Tenancy Clean",
+          amountExclGst: exGst(cleaningPriceInclGst!),
+          ...(quoteHasSections(quote) ? { section: "Cleaning" } : {}),
+          ...(quote.quoteTable === "xero"
+            ? { quantity: 1, unitPriceExclGst: exGst(cleaningPriceInclGst!) }
+            : {}),
+        },
+      ];
+    }
+
+    return lineItems === quote.lineItems ? quote : { ...quote, lineItems };
+  })();
+
+  // One source of truth: the total is the rows the customer can actually see.
+  const liveTotal = quoteTotalInclGst(displayQuote);
 
   const canAccept = insuranceOn || ownerRisk;
 
