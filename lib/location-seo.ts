@@ -30,6 +30,186 @@ const pianoProtection =
 
 /** SEO patches keyed by /locations/[slug] */
 export const locationSeoPatches: Record<string, LocationSeoPatch> = {
+  wellsford: {
+    metaDescription:
+      "Moving to or from Wellsford? Specialist Movers sends an insured crew north regularly. Get a quote back in about 15 minutes. Auckland movers you can rely on.",
+    intro:
+      "Wellsford sits at the top of the Auckland region, just before State Highway 1 narrows into Northland proper. It is a working town with a mix of older bungalows, rural-residential sections, and homes that have seen a lifetime of accumulated gear.",
+    paragraphs: [
+      "The housing stock around Wellsford tends toward older timber homes on generous sections, often with sheds, sleepouts, and carports added over the years. That means more to shift, more awkward shapes, and access that needs thinking through before the truck leaves the depot.",
+      "We send crew north from our Wairau Valley depot, and Wellsford is about 47 minutes up the road. It sits in our outer service area, so the callout reflects that drive, and you see the full price before you confirm anything.",
+      "State Highway 1 through town carries a lot of freight traffic, and timing matters on a move day. We factor that in when we plan the run north so the truck is not sitting behind logging trucks at the wrong time of day.",
+      "We move regularly in Wellsford, so the crew knows the area. If you have a long driveway, a tricky gate, or a sleepout to clear on top of the main house, let us know when you enquire and we will plan accordingly rather than improvise on the day.",
+    ],
+    highlights: [
+      "Regular work in Wellsford and the surrounding Rodney countryside",
+      "About 47 minutes from our Wairau Valley depot, outer service area",
+      "Experienced with older timber homes, sheds, and rural-residential sections",
+      "Quotes back in about 15 minutes during business hours",
+    ],
+    faqs: [
+      {
+        q: "Do you move to and from Wellsford regularly, or is it a one-off trip?",
+        a: "We work in Wellsford regularly. It is part of our outer service area and the crew knows the run up State Highway 1 well.",
+      },
+      {
+        q: "My property has a long driveway and a shed to clear as well as the house. Is that a problem?",
+        a: "Not at all, but tell us upfront. We confirm access, turning room, and the full scope before move day so nothing catches the crew by surprise when they arrive.",
+      },
+      {
+        q: "How does pricing work for a move this far north?",
+        a: "Hourly rates are the same across Auckland. The callout for Wellsford reflects the drive from our Wairau Valley depot, and you see the full price before you book, with no surprises on the day.",
+      },
+      {
+        q: "Are your crew insured for a job out in Wellsford?",
+        a: "Yes. Our crew are licensed and insured. Cover for your own belongings can be arranged through our team if you need it.",
+      },
+    ],
+  },
+  warkworth: {
+    metaDescription:
+      "Moving to or from Warkworth? Specialist Movers send an insured crew from Wairau Valley for homes, lifestyle blocks and rural properties across the Rodney district.",
+    intro:
+      "Warkworth is the gateway to Rodney, and the moves here reflect that. River-side sections, older township homes on tight streets, and a growing ring of lifestyle blocks stretching out toward Matakana, Snells Beach and beyond.",
+    paragraphs: [
+      "The Mahurangi River runs right through town, and some of the most character-filled properties sit close to its banks. Access can be tight, driveways sometimes slope toward the water, and the old timber homes in the township centre reward a careful crew who know how to read a site before the truck arrives.",
+      "Out past the township, the lifestyle block moves are a different job altogether. Long driveways, gate codes, grass paddocks where there is no hard stand for a truck, and households that have accumulated a lot over years of rural living. We plan access before move day so nothing catches us by surprise.",
+      "Warkworth is about 36 minutes from our Wairau Valley depot. That puts it in our outer service area, so the fixed callout reflects the distance, and you see the full price before you commit to anything. Hourly rates are the same as anywhere else in Auckland.",
+      "We have completed dozens of jobs in and around Warkworth, including moves out to Matakana Road, down toward Snells Beach, and into the newer subdivisions on the town's southern edge. The area keeps growing, and we are out this way regularly.",
+    ],
+    highlights: [
+      "Lifestyle block and rural property moves handled",
+      "Riverbank and character township homes, tight access managed",
+      "Pricing shown upfront, no surprises on the day",
+      "Regular run to Matakana, Snells Beach and surrounding Rodney areas",
+    ],
+    faqs: [
+      {
+        q: "We are on a lifestyle block north of Warkworth. The driveway is long and has a low-hanging tree. Can you still get to us?",
+        a: "Yes, but we check access before we turn up. Tell us about the driveway length, any gates, and overhead clearance when you book. If the large truck cannot get close enough, we plan a staged carry from the road rather than working it out on the day.",
+      },
+      {
+        q: "How does pricing work for a move from Warkworth into central Auckland?",
+        a: "Hourly rates are the same across Auckland. Warkworth is in our outer service area, so the fixed callout is higher than it would be for a closer suburb, and the drive time between locations is charged at our standard hourly rate. You see the full breakdown before you book.",
+      },
+      {
+        q: "We have a big old villa in the Warkworth township with narrow side access and a steep back section. Is that a problem?",
+        a: "Older Rodney township homes are exactly the kind of job we have done out this way. We look at access, stair count and turning room before move day. If something needs a different approach, we sort that in the planning, not at the front gate.",
+      },
+      {
+        q: "Do you move people out to Matakana or Snells Beach from Warkworth, or just in and out of the town itself?",
+        a: "We cover the wider Warkworth area, including Matakana, Snells Beach and other Rodney addresses. Just include your full addresses when you get a quote so we can confirm the route and give you an accurate price.",
+      },
+    ],
+  },
+  manukau: {
+    metaDescription:
+      "Looking for movers in Manukau? Specialist Movers has completed dozens of jobs across Manukau's mix of townhouses, family homes and apartment blocks. Get a quote today.",
+    intro:
+      "Manukau is one of South Auckland's busiest moving destinations, and the housing stock is as varied as the people who live here. Newer townhouse developments sit alongside established brick family homes, and the Manukau CBD itself has seen a wave of apartment and mixed-use buildings go up in recent years.",
+    paragraphs: [
+      "A lot of the newer builds around Manukau Central and the surrounds are multi-storey townhouses on compact sections. Shared driveways, tight turning circles, and restricted parking near the front door are common. We sort out access details before move day, not on the morning.",
+      "The older residential streets east and west of the centre tend to have bigger sections and more traditional homes. These moves often mean larger volumes, more furniture to protect, and longer carries from house to truck. Our crews are sized to the job, usually two to four movers depending on what you have.",
+      "Because our depot is in Wairau Valley, Manukau sits in pricing zone B. The fixed callout is a little higher than inner suburbs, and you see the full price before you book. Hourly rates are the same across Auckland.",
+      "We operate seven days, which works well for Manukau given how many families here are coordinating around school zones, rental tenancy dates, and settlement days. If you want someone to look over a larger home before quoting, we offer free viewings.",
+    ],
+    highlights: [
+      "Dozens of jobs completed across Manukau",
+      "Comfortable with townhouse-access and shared driveways",
+      "Seven-day availability to suit settlement and tenancy dates",
+      "Free viewings for larger Manukau homes",
+    ],
+    faqs: [
+      {
+        q: "We are in one of the new townhouse developments near Manukau Central. Parking is tight. How do you manage that?",
+        a: "This comes up a lot in Manukau's newer builds. We confirm parking, driveway width, and turning room before move day so the crew arrives with a plan. If the street is restricted, we work around it.",
+      },
+      {
+        q: "How far away is your depot, and does that affect the price?",
+        a: "Our depot is in Wairau Valley, roughly 35 minutes from Manukau. That puts Manukau in pricing zone B, so the fixed callout is slightly higher than inner suburbs. The hourly rate is the same as anywhere else in Auckland, and you see the full price before you confirm.",
+      },
+      {
+        q: "Are your crews insured?",
+        a: "Yes, our crews are licensed and insured. If you want cover arranged for your own belongings during the move, we can talk through that option when you book.",
+      },
+      {
+        q: "We have a large four-bedroom home in Manukau. Can you give us an accurate quote without just guessing?",
+        a: "For larger homes we offer a free viewing before we quote. That means the price reflects what is actually there, not a rough estimate over the phone. Quotes in business hours usually come back in about 15 minutes.",
+      },
+    ],
+  },
+  papakura: {
+    metaDescription:
+      "Looking for movers in Papakura? Specialist Movers has completed dozens of jobs here. Licensed and insured crew, 7 days a week. Get a quote in 15 minutes.",
+    intro:
+      "Papakura sits at the southern edge of Auckland, where the motorway splits toward the coast and the Hunua Ranges. It is a town with real range, older state-house streets, newer subdivisions pushing out toward Drury, and established family homes on sections that give you room to breathe.",
+    paragraphs: [
+      "A lot of Papakura moves involve larger family homes. Wide hallways and big lounge suites are common, and so are sleepouts, double garages, and garden sheds with decades of tools inside. We plan for that volume before the truck leaves our Wairau Valley depot.",
+      "The newer subdivisions around Papakura and the Drury fringe have brought terrace housing and compact townhouses alongside the older quarter-acre blocks. Parking access on these tighter streets is worth thinking about early. We check it before move day so there are no surprises on the morning.",
+      "Papakura has a strong community of families who have been here a long time, and that often means pianos, large display cabinets, and furniture that has been in the house for years. We are trusted by Auckland's Steinway dealers and Auckland Town Hall for piano work, and that care carries through to every heavy or awkward piece we handle.",
+      "Our crew carries blankets, shrink wrap, or mattress covers depending on what the item needs. For larger Papakura homes we offer a free viewing beforehand so we can walk the property, spot any tricky corners, and give you an accurate quote rather than a guess.",
+    ],
+    highlights: [
+      "Dozens of completed moves in Papakura",
+      "Experience with older state-house streets and newer Drury-fringe subdivisions",
+      "Piano and heavy furniture specialists, trusted by Auckland's Steinway dealers",
+      "Free in-home viewings for larger properties",
+    ],
+    faqs: [
+      {
+        q: "How far is Papakura from your depot, and does that affect my price?",
+        a: "We are based in Wairau Valley, about 43 minutes from Papakura. That puts Papakura in our Zone B pricing, so the fixed callout is a little higher than inner suburbs. Your full price is shown before you confirm the booking, with nothing added on the day.",
+      },
+      {
+        q: "We have a sleepout and a double garage to clear as well as the main house. Can you handle the whole lot?",
+        a: "Yes. Extra buildings are common in Papakura and we factor them into the job plan from the start. A free viewing works well for larger properties like this, so we can walk everything and give you a quote that covers the full picture.",
+      },
+      {
+        q: "We are moving into one of the newer townhouses near Drury. Will a full-size truck fit on the street?",
+        a: "Newer subdivisions can be tight. We check street width, parking restrictions, and access before move day. If a full-size truck is going to cause problems, we know before we arrive, not after.",
+      },
+      {
+        q: "Are your crew insured for a job this far south?",
+        a: "Yes. Our licensed and insured crew works right across Auckland, including Papakura and beyond. Cover for your own belongings can be arranged through our team if you need it.",
+      },
+    ],
+  },
+  pakuranga: {
+    metaDescription:
+      "Looking for movers in Pakuranga? Specialist Movers has completed dozens of jobs here. Licensed and insured crew, upfront pricing, 7 days a week.",
+    intro:
+      "Pakuranga is a well-established part of east Auckland, and the housing stock here keeps our crews on their toes. Generous 1970s and 80s homes on sloped sections, retirement villages, and a growing number of townhouses all sitting within a short run of the motorway.",
+    paragraphs: [
+      "A lot of the homes in Pakuranga were built across two or three levels, with split-level layouts and internal garages sitting below the main living floor. That means furniture often travels up a flight of stairs before it even reaches the front door. We plan the carry before move day, not on it.",
+      "Pakuranga has a strong retirement and downsizing market. Couples leaving large family homes for something smaller, often within the same area, along the Howick corridor or closer to Highland Park. That kind of move calls for care with items that have been in the same house for decades, and patience when decisions get made on the day.",
+      "The motorway access via the South-Eastern Highway is one of Pakuranga's strengths, but peak-hour pinch points around the interchange can add time. Our crew leaves Wairau Valley with that in mind, and we build realistic windows into the schedule rather than tight arrival promises we cannot keep.",
+      "We have completed dozens of jobs in Pakuranga, ranging from full household moves to single-item lifts. That local experience means we know the streets, the parking constraints on narrow cul-de-sacs off Ti Rakau Drive, and which streets need a smaller vehicle to get close.",
+    ],
+    highlights: [
+      "Split-level and multi-storey homes handled regularly",
+      "Downsizing and retirement moves in the Pakuranga and Howick corridor",
+      "Wairau Valley depot, about 29 minutes away",
+      "Dozens of completed jobs across the area",
+    ],
+    faqs: [
+      {
+        q: "We are in a retirement village with restricted vehicle access. Can you still help?",
+        a: "Yes. We confirm access, height restrictions, and any time windows the village requires before move day. If the full-size truck cannot get to the door, we adjust the carry plan so nothing is improvised on the morning.",
+      },
+      {
+        q: "Our home has a split-level layout with stairs between the garage and the living area. How do you manage that?",
+        a: "It is a common layout in Pakuranga and we factor it in from the start. We talk through the floor plan when you book, and the crew comes prepared for the carry rather than working it out when they arrive.",
+      },
+      {
+        q: "How does pricing work for a Pakuranga job?",
+        a: "Our hourly rates are the same across Auckland. The fixed callout reflects travel from our Wairau Valley depot, so Pakuranga sits in a slightly higher callout zone than inner suburbs. You see the full price before you confirm, and there are no surprises added on the day.",
+      },
+      {
+        q: "Do you move on weekends? We need a Saturday.",
+        a: "We operate seven days a week, including Saturdays and Sundays. Weekend slots fill up, so it is worth getting in touch early, especially if your settlement date lands on a weekend.",
+      },
+    ],
+  },
   helensville: {
     metaDescription:
       "Moving to or from Helensville? Specialist Movers are Auckland movers with regular experience on the Kaipara roads. Get a quote in about 15 minutes.",
