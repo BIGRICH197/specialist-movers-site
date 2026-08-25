@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { bookingTerms, BOOKING_TERMS_VERSION } from "@/lib/quote-deck/booking-terms";
 import { isDialable, PHONE_ERROR } from "@/lib/phone";
+import { BOOKED_BY_OPTIONS } from "@/lib/booked-by";
 
 // Direct piano / large-item book-in form (no quote link needed) — replaces the
 // piano JotForm. Submits to /api/book-in, which creates the Trello job card and
@@ -26,6 +27,7 @@ export function PianoBookingForm() {
     fullName: "",
     email: "",
     phone: "",
+    bookedBy: "",
     dropoffPhone: "",
     moveDate: "",
     pianoType: "",
@@ -61,6 +63,7 @@ export function PianoBookingForm() {
       ["fullName", "Full name"],
       ["phone", "Phone"],
       ["email", "Email"],
+      ["bookedBy", "Who have you been dealing with?"],
       ["moveDate", "Move date"],
       ["pianoType", "Type of piano or item"],
       ["pickupAddress", "Pick-up address"],
@@ -139,6 +142,13 @@ export function PianoBookingForm() {
           <div className="sm:col-span-2">
             <label className={labelCls}>Email</label>
             <input className={inputCls} type="email" required value={f.email} onChange={(e) => set("email", e.target.value)} />
+          </div>
+          <div className="sm:col-span-2">
+            <label className={labelCls}>Who have you been dealing with?</label>
+            <select className={inputCls} required value={f.bookedBy} onChange={(e) => set("bookedBy", e.target.value)}>
+              <option value="">Select&hellip;</option>
+              {BOOKED_BY_OPTIONS.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
+            </select>
           </div>
           <div>
             <label className={labelCls}>Move date</label>

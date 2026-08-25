@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { getQuote, tokenFromRef, setQuoteStatus } from "@/lib/quote-store";
 import { saveBooking } from "@/lib/booking-store";
 import { pingBookings, quoteUrl } from "@/lib/quote-notify";
+import { setDealOwner } from "@/lib/hubspot";
+import { bookedByOwnerId } from "@/lib/booked-by";
 
 export const runtime = "nodejs";
 
@@ -91,6 +93,19 @@ export async function POST(request: Request) {
     .filter(Boolean)
     .join("\n");
   await pingBookings(summary);
+
+  // "Who have you been dealing with?" -> deal owner, same as the direct
+  // book-in path. On a hosted quote the deal already exists, so this is the
+  // moment the customer's own answer can correct whatever routing guessed.
+  // Best-effort: never fail a booking over an attribution field.
+  const bookedByOwner = bookedByOwnerId(fields.bookedBy);
+  if (bookedByOwner && stored.hubspotDealId) {
+    try {
+      await setDealOwner(stored.hubspotDealId, bookedByOwner);
+    } catch (err) {
+      console.error("booking deal-owner stamp failed:", err);
+    }
+  }
 
   // Hand off to n8n (Closed Won + Trello) when the webhook is configured.
   const webhook = process.env.QUOTE_BOOKING_WEBHOOK;
