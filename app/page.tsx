@@ -9,6 +9,7 @@ import {
   Home,
   Package,
   Piano,
+  Sofa,
   Sparkles,
   Truck,
 } from "lucide-react";
@@ -59,7 +60,19 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function HomePage() {
   const homeServices = services.slice(0, 6);
-  const icons = [Home, Building2, Piano, Package, Truck, Sparkles];
+  // Keyed by slug, not position. This was a positional array, so adding a
+  // service at the top of `services` silently shifted every icon down one:
+  // Moving House showed an office block, Office showed a piano. Photos were
+  // already slug-keyed, which is why only the icons went wrong.
+  const iconBySlug: Record<string, typeof Home> = {
+    "furniture-movers": Sofa,
+    "house-moving": Home,
+    "office-moving": Building2,
+    "piano-movers": Piano,
+    "commercial-moving": Truck,
+    "packing-services": Package,
+    "hard-to-shift": Sparkles,
+  };
 
   const homeFaqs = faqs.slice(0, 4);
 
@@ -104,8 +117,8 @@ export default function HomePage() {
           {servicesIntro.body}
         </p>
         <StaggerChildren className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {homeServices.map((service, idx) => {
-            const Icon = icons[idx];
+          {homeServices.map((service) => {
+            const Icon = iconBySlug[service.slug] ?? Package;
             const blurb = serviceBlurbs[service.slug];
             return (
               <StaggerItem key={service.slug}>

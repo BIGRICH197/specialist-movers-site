@@ -51,6 +51,24 @@ function buildServiceNavRow(base: HamiltonBaseSlug): ServiceNavRow {
   };
 }
 
+/** Furniture removals, Auckland + Hamilton. Bespoke pages like retirement
+ *  movers, so hand-built rather than derived from a HamiltonBaseSlug.
+ *  Added 2026-08-11: the pages existed and were reachable from nowhere in the
+ *  menu, which is what PR #41 was trying to fix when it instead replaced the
+ *  Auckland page with a generic template. */
+export const furnitureRemovalsNavRow: ServiceNavRow = {
+  key: "furniture-removals",
+  label: "Furniture removals",
+  auckland: {
+    label: "Auckland",
+    href: "/furniture-movers-auckland",
+  },
+  hamilton: {
+    label: "Hamilton",
+    href: "/furniture-movers-hamilton",
+  },
+};
+
 /** Retirement moves, Auckland + Hamilton city pages (not a paired HamiltonBaseSlug). */
 export const retirementHomeMoversNavRow: ServiceNavRow = {
   key: "retirement-home-movers",
@@ -89,6 +107,7 @@ function buildLeftNavRows(): ServiceNavRow[] {
   for (const slug of serviceNavMenuLeftSlugs) {
     rows.push(buildServiceNavRow(slug));
     if (slug === "house-moving") {
+      rows.push(furnitureRemovalsNavRow);
       rows.push(retirementHomeMoversNavRow);
     }
   }

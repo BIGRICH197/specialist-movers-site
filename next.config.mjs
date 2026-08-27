@@ -226,6 +226,11 @@ const nextConfig = {
       },
       // Both of these 404'd while "furniture movers" was the primary goal term.
       {
+        source: "/services/furniture-movers",
+        destination: "/furniture-movers-auckland",
+        permanent: true,
+      },
+      {
         source: "/furniture-movers",
         destination: "/furniture-movers-auckland",
         permanent: true,
