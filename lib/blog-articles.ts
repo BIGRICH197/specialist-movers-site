@@ -1769,6 +1769,79 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "auckland-office-relocation-building-access-guide": {
+    title: "Before the Truck Arrives: Building Access, Lifts and Loading Docks in an Auckland Office Move",
+    sections: [
+      {
+        heading: "The Move Day Is the Easy Part",
+        paragraphs: [
+          "Most office moves that go wrong do not go wrong because of the movers. They go wrong because no one confirmed the freight lift booking, or the loading dock turns out to be shared with three other tenants, or the security desk was not told to expect a crew at 6 am.",
+          "The physical moving part, getting furniture from one floor to another, is straightforward when the access is sorted. It is the coordination beforehand that decides whether your team is working at their new desks by Monday morning or waiting on a footpath in the rain.",
+          "This guide is for the person in your business who ends up coordinating the move. You do not need to have done this before. You just need to ask the right questions early enough to act on the answers.",
+        ],
+      },
+      {
+        heading: "What to Ask Your Building Manager Before Anything Else",
+        paragraphs: [
+          "Start with your building manager at least four weeks out, not one. The questions that matter most are: Can you book the freight lift exclusively, and for how long? Is the loading dock first-come first-served, or does it require a booking? What are the approved hours for contractor access, and who authorises after-hours work?",
+          "Get the answers in writing. A verbal yes from a facilities manager means nothing when a different security guard is on at 5:30 am on move day.",
+          "Also ask about the specifics of the lift itself. What are the internal dimensions? What is the weight rating? Some older buildings in the CBD have freight lifts that look large but have a weight limit that rules out moving a full server rack or a heavy boardroom table in a single trip. Knowing this early lets your movers plan the order of work rather than discover the constraint mid-job.",
+          "Find out whether the building requires a certificate of currency from your movers. Most managed commercial buildings in Auckland do, and some have a minimum liability cover requirement. A moving company that works regularly on commercial jobs will have this ready. If they hesitate, that tells you something.",
+        ],
+      },
+      {
+        heading: "Common Access Problems in the CBD",
+        paragraphs: [
+          "Auckland's CBD presents a specific set of constraints. Loading dock windows are often narrow, frequently shared between multiple tenants, and booked out fast if you are moving at month-end when leases turn over. On streets like Shortland, Fort and Wyndham, there is no realistic option to park a large truck for an extended period without a proper dock or a timed permit.",
+          "Auckland Transport issues temporary traffic management permits for some moves that require extended kerbside loading. This is not something you sort on the morning. Apply well in advance and factor the cost into your move budget.",
+          "High-rise buildings with a single freight lift and high tenancy turnover are the most common source of delays. If your building fits that description, book the lift for longer than you think you need. An extra hour of lift time costs less than overtime for a crew waiting on the ground floor.",
+        ],
+      },
+      {
+        heading: "North Shore Access: Different Problems, Same Principle",
+        paragraphs: [
+          "Commercial buildings on the North Shore, particularly along Taharoto Road in Takapuna and in the Smales Farm precinct, tend to have more generous loading areas than the CBD, but they come with their own quirks.",
+          "Shared campus environments like Smales Farm often have security protocols that require vehicles to be pre-registered. Turn up unannounced with a truck and you may wait while someone tracks down the right person to authorise access. In business parks around Albany and Northcote, access roads are sometimes weight-restricted, which matters for a fully loaded furniture truck.",
+          "The principle is the same wherever you are moving from or to. Contact the building manager early, confirm everything in writing, and share those confirmations with your moving company before the job starts.",
+        ],
+      },
+      {
+        heading: "After-Hours Work: When It Makes Sense and What It Requires",
+        paragraphs: [
+          "Many Auckland businesses choose to move after hours or over a weekend to avoid disrupting their own operations and those of neighbouring tenants. This is sensible, but it adds a layer of coordination that catches people out.",
+          "After-hours access usually requires formal approval from building management, sometimes days in advance. Security firms need to be briefed. Some buildings charge a facilities fee for after-hours lift use. Find out before you book, because these costs belong in your move budget.",
+          "If your building has card-access-only entry after a certain time, make sure someone with the right access level is physically present for the duration of the job. A crew that arrives to find a locked loading dock and no one to let them in is not a problem the movers can solve from the footpath.",
+          "Commercial movers who do after-hours and weekend work regularly will already know these questions to ask. When you are talking to your movers, ask them directly what information they need from you about after-hours access. Their answer will tell you whether they have done this before.",
+        ],
+      },
+      {
+        heading: "Why Sequencing Matters More Than the Date",
+        paragraphs: [
+          "The single biggest driver of how smoothly an office move runs is the order in which things happen, not which day it falls on.",
+          "Your IT team needs to move servers and infrastructure either first or last, depending on your setup. Workstations that need to be reassembled and connected before staff arrive need to move before the chairs and filing cabinets, not after. If your new space needs any fitout work completed before furniture goes in, that fitout needs a hard finish date, not a rough estimate.",
+          "Map this out as a sequence, not just a calendar. Write down what has to happen before each other thing can happen. Then add a buffer at each dependency point. When step three slips, steps four through eight slip with it. The businesses that move cleanly are the ones that thought about dependencies, not just dates.",
+          "Talk this through with your moving company early. A commercial mover who is used to coordinating around IT, fitout teams and building access will have questions and suggestions that help. If they just ask for the address and a date, keep asking questions yourself.",
+        ],
+      },
+      {
+        heading: "A Practical Pre-Move Checklist",
+        paragraphs: [
+          "Four or more weeks out: contact both building managers (old and new premises), confirm freight lift availability and loading dock bookings, ask about contractor access hours and any certificate of currency requirements, and start your sequence plan.",
+          "Two weeks out: confirm everything in writing, share access details with your moving company, check whether after-hours security needs to be briefed, and confirm IT and fitout timelines against your move sequence.",
+          "One week out: reconfirm the freight lift booking, make sure the right people have after-hours access cards if needed, brief your own staff on the plan and what they need to have packed or cleared before the crew arrives.",
+          "The day before: confirm your moving company has the building manager's contact number and the loading dock details. Make sure someone from your team will be on-site for the duration of the job. Have a backup contact for building access in case the primary person is unavailable.",
+        ],
+      },
+      {
+        heading: "Getting the Right Movers for a Commercial Job",
+        paragraphs: [
+          "Not every moving company is set up for commercial work. Managed buildings, construction sites and commercial precincts often require movers to hold SiteWise Gold certification. Specialist Movers holds SiteWise Gold with a 90-plus percent score, which is what gets a crew through the gate at those sites.",
+          "We work after hours and on weekends, and we have done 4,000-plus moves across Auckland and the Waikato, including commercial relocations in the CBD and across the North Shore. We know what building managers are going to ask, which means fewer surprises on the day.",
+          "If you are planning a commercial move and want to talk through the access and sequencing before you commit to a date, get in touch through our website. Tell us what you are working with and we will come back to you with a clear picture of what is involved.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {
