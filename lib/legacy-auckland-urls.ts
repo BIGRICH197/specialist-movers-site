@@ -20,6 +20,10 @@ export function legacyPathForServiceSlug(slug: string): string | null {
 /** Canonical Auckland href, WordPress path when mapped, else /services/{slug}. */
 export function aucklandServiceHref(slug: string): string {
   if (slug === "piano-movers") return "/piano-movers";
+  // Bespoke page, not a legacy WordPress URL, so it is not in the JSON. Without
+  // this the homepage tile would link to /services/furniture-movers and bounce
+  // through a redirect, which is a needless hop in internal navigation.
+  if (slug === "furniture-movers") return "/furniture-movers-auckland";
   return legacyPathForServiceSlug(slug) ?? `/services/${slug}`;
 }
 
