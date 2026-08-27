@@ -411,4 +411,12 @@ export const blogPosts = [
     excerpt:
       "Wondering what professional packers actually do? Here's how a day-before pack works room by room, what materials are used, and what you should handle yourself.",
   },
+  {
+    slug: "auckland-office-relocation-building-access-guide",
+    title: "Before the Truck Arrives: Building Access, Lifts and Loading Docks in an Auckland Office Move",
+    seoTitle: "Office Relocation Auckland: Access & Logistics Guide | Specialist Movers",
+    publishedDate: "2026-08-27",
+    excerpt:
+      "A practical checklist for Auckland office managers on freight lifts, loading dock bookings, after-hours access and why sequencing makes or breaks a commercial move.",
+  },
 ] as const;
