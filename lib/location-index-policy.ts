@@ -18,6 +18,7 @@
  * DAVID.md in the automation repo).
  */
 export const INDEXED_LOCATION_SLUGS = new Set<string>([
+  "waiuku",
   "wellsford",
   "warkworth",
   "manukau",
