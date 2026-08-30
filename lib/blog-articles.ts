@@ -1895,6 +1895,134 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "moving-furniture-from-new-zealand-to-australia": {
+    title: "Shipping Your Furniture to Australia: What Actually Happens and Who You Need",
+    sections: [
+      {
+        heading: "This is not a domestic move with a longer drive",
+        paragraphs: [
+          "A lot of people planning a trans-Tasman move start by ringing a local moving company. That makes sense. You moved locally last time, it went well, and now you want the same team to handle Australia. The problem is that international freight is a completely different industry, with different regulations, different paperwork, and different companies doing the work.",
+          "A domestic move in Auckland involves a truck, a crew, and a destination address. A move to Sydney or Melbourne involves sea freight, a container booking, MPI biosecurity inspections, Australian border force customs clearance, and at least two separate legs of transport on either side of the water. No single local moving company operates all of that. Anyone who tells you otherwise is either partnering with an international forwarder behind the scenes, or has misunderstood what you need.",
+        ],
+      },
+      {
+        heading: "The two main roles: forwarder and furniture mover",
+        paragraphs: [
+          "An international freight forwarder is the company that manages the shipping itself. They book the container or groupage space on a vessel, handle the MPI export documentation on the New Zealand side, coordinate with Australian customs brokers on the other side, and arrange delivery to your new address once the container clears port. Companies like Crown Relocations, Grace Removals, and Allied Pickfords operate as full-service international movers. They cover both ends.",
+          "A local moving company, which is what Specialist Movers is, handles the physical work in Auckland. That means packing your belongings, wrapping your furniture, loading it into a container at your property or at a depot, and making sure everything is correctly prepared for the forwarder to take over. On the Australia side, a different local crew handles the delivery. The forwarder coordinates all of it. The local movers do the hands-on work at each end.",
+          "Understanding this split saves you from booking the wrong company and wondering why they cannot give you a price for the whole job.",
+        ],
+      },
+      {
+        heading: "Container versus groupage: the choice that affects your budget most",
+        paragraphs: [
+          "If you are shipping the contents of a full three or four bedroom home, you will likely fill a 20-foot container and ship it exclusively. Your goods go in, the doors seal, and nothing else is added. Faster transit, simpler handling.",
+          "Most people relocating from Auckland to Sydney or Melbourne are not moving a whole house. They are taking a bedroom set, a couch, some boxes, and a few things they cannot replace. For a partial load, groupage freight makes more sense. Your goods share container space with other customers' shipments, which keeps the cost proportional to what you are actually sending. The trade-off is that the container waits until it is economically viable to sail, so transit times are less predictable.",
+          "Your international forwarder will advise which option suits your volume. Get that conversation early, because the decision affects how and when you need to pack.",
+        ],
+      },
+      {
+        heading: "MPI biosecurity: the step people forget until it causes a delay",
+        paragraphs: [
+          "Before your goods leave New Zealand, they are subject to Ministry for Primary Industries inspection. Australia has strict biosecurity rules, and New Zealand has export requirements that feed into them. Certain items, particularly wooden furniture, outdoor gear, garden equipment, and anything with soil residue, may need cleaning, treatment, or documentation before they can ship.",
+          "Your forwarder will walk you through the specific requirements for what you are sending. The practical point for packing is this: if you are using a local crew to load your container, they need to know which items have been cleared and how. Good communication between your forwarder and your Auckland movers avoids problems at the inspection stage.",
+          "Items that fail inspection can cause the whole container to be held. It is not a paperwork formality. It is a real checkpoint with real consequences for your timeline.",
+        ],
+      },
+      {
+        heading: "What Specialist Movers can do for a trans-Tasman move",
+        paragraphs: [
+          "We are Auckland movers. We are not an international freight forwarder, and we will not pretend to be one.",
+          "What we can do is handle the Auckland end of the job properly. If your forwarder needs a container packed and loaded at your Remuera or Hobsonville home, we can do that. If you need your furniture carefully wrapped and prepared before it goes into storage ahead of a container booking, we can do that too. Packing for an international move requires more care than a local job, because the goods are going onto a vessel and spending weeks at sea. We take that seriously.",
+          "We can also help with the parts of the move that happen entirely on New Zealand soil. If you are vacating a rental and need a clean, or moving some furniture into short-term storage while you wait for your shipping date, those are services we offer. What we cannot give you is a price for the sea freight, the customs clearance, or the Sydney delivery. For that, you need a forwarder.",
+        ],
+      },
+      {
+        heading: "How to avoid the most common mistake",
+        paragraphs: [
+          "The mistake we see most often is someone searching for moving company prices, getting a quote from a local crew, and assuming that covers the whole job. It does not. Local movers quote for local work. The sea freight, the biosecurity compliance, the customs entry in Australia, and the final delivery from the port to your new home are separate costs arranged by a separate company.",
+          "The right sequence is: contact an international freight forwarder first, get a full quote for the international leg, then ask them who they recommend for the Auckland packing and loading. Most forwarders have preferred local partners. If you already have a local mover you trust, ask your forwarder whether they can work with them. Usually the answer is yes.",
+          "Do not sign anything with a local moving company that implies they are managing the whole trans-Tasman move unless you have seen documentation that they are operating as or through a licensed international freight forwarder.",
+        ],
+      },
+      {
+        heading: "A few practical points for Auckland people moving to Sydney or Melbourne",
+        paragraphs: [
+          "The Auckland to Sydney and Auckland to Melbourne routes are the busiest trans-Tasman freight lanes, so there are regular sailings and your forwarder will have good options. That said, sailings do not leave every day, and container availability can tighten around Christmas and at the end of the New Zealand financial year when a lot of businesses are also moving stock.",
+          "Give yourself more lead time than you think you need. Four to six weeks from first forwarder contact to container on the water is a reasonable expectation for a straightforward residential move, but that assumes clean biosecurity paperwork and no complications with your booking.",
+          "If you are leaving behind a property in Auckland, a move-out clean is something we can handle on the same day as the final pack. It is one fewer thing to organise from the other side of the Tasman.",
+        ],
+      },
+      {
+        heading: "Where Specialist Movers fits in",
+        paragraphs: [
+          "We have completed 4,000+ moves across Auckland and the Waikato. International freight forwarding is not what we do, and we would rather be straight with you than take a booking we cannot deliver on.",
+          "If you are in the planning stages of a move to Australia and you need the Auckland end handled well, whether that is a full pack, furniture protection, container loading, or clearing out a property before you go, we are glad to help with that piece. Our crew is licensed and insured, and cover for your belongings during the international leg can be arranged through your forwarder or through our team.",
+          "If you want to talk through what the Auckland side of your move looks like, get in touch through our website. We will come back to you quickly, and we will tell you honestly what we can and cannot do.",
+        ],
+      },
+    ],
+  },
+  "business-relocation-auckland-no-lost-working-day": {
+    title: "Monday Morning Ready: How Auckland Businesses Relocate Without Losing a Working Day",
+    sections: [
+      {
+        heading: "The real goal is Monday morning, not move day",
+        paragraphs: [
+          "Most business relocations go wrong before the truck arrives. The furniture gets moved fine. What kills productivity is a monitor with no stand, a phone system that rings at the old address, or a server that nobody thought to shut down cleanly. Staff arrive Monday and spend the morning hunting for their chair.",
+          "If you are an operations lead or a business owner, your measure of success is not a smooth move day. It is whether your team can do their job at 8 a.m. the following Monday. Everything in a relocation plan should work backwards from that moment.",
+        ],
+      },
+      {
+        heading: "Sequence IT first, furniture second",
+        paragraphs: [
+          "This is the rule that experienced operations managers learn once, usually the hard way. IT infrastructure drives the sequence of everything else. Before you book a truck, confirm with your IT team or provider exactly what needs to happen at the old site and in what order, and what needs to be live at the new site before anyone sits down.",
+          "Patching, switching, and server racking takes time at the destination. If your IT provider needs Saturday to commission the server room, your furniture move needs to be complete by Friday evening. That is not a request you can make Friday afternoon. It is a decision that sets your whole move schedule, and it needs to be made at least two weeks out.",
+          "Workstations are the handover point between IT and the movers. Decide in advance whether IT strips desks before the crew arrives or whether the movers pack monitors and cables under instruction. Whoever does it, every cable run needs to be photographed at the old desk so setup at the new one is straightforward. This takes about ten minutes per workstation and saves an hour of guesswork on Monday.",
+        ],
+      },
+      {
+        heading: "After-hours and weekend crews: what actually works in Auckland",
+        paragraphs: [
+          "Most Auckland commercial buildings have loading dock and lift access windows. If you are moving out of a multi-tenancy building in the CBD, Newmarket, or the Viaduct precinct, your building manager will tell you those windows are tightly controlled. Friday evening from 6 p.m. and Saturday are the slots most building managers prefer for a full office clearance, because it keeps corridors clear during the working week.",
+          "We work seven days, including evenings, specifically because business moves rarely fit a Tuesday morning. If your building only has one freight lift and another tenant is using it Wednesday, that is not a problem you can solve on Wednesday. Weekend crews are the practical answer, and they are not a premium service, they are just how commercial moves get done without your staff having to step around packing boxes.",
+          "One thing worth confirming with your new building early: are there any days the loading dock is booked out, and does the freight lift need a building staff member present? Some buildings in the Auckland CBD require that. Finding out on move day costs you hours.",
+        ],
+      },
+      {
+        heading: "The decisions that matter most in the week before move day",
+        paragraphs: [
+          "The week before the move is when most downtime is created or prevented. Here is where to spend your attention.",
+          "Floor plans first. If every workstation has a number on the plan and every chair has a label, the crew can place furniture without asking. If the plan does not exist, the crew asks, the operations lead answers, and the afternoon disappears. Print the floor plan. Tape a copy at the entrance to each room at the new site.",
+          "Talk to your staff. People who know their desk is moving on Saturday and their login will be tested Monday morning arrive Monday prepared. People who find out on the day arrive unsettled. A five-minute team meeting on Thursday is worth more than any amount of careful packing.",
+          "Confirm parking and access for the truck. A standard moving truck needs a reasonable run at a loading bay. If you are moving into a site on a narrow street in Ponsonby or Grey Lynn, the crew needs to know that before 7 a.m. on Saturday, not at 7:01. Check with your building manager and pass that information to whoever is coordinating the move.",
+        ],
+      },
+      {
+        heading: "What to pack the day before, and what to leave for the crew",
+        paragraphs: [
+          "Loose personal items, desk contents, and anything stored in pedestals should be packed by staff before they leave Friday. This is not about saving money on packing time. It is about staff having their own things in order and not spending Monday morning unpacking someone else's filing.",
+          "Furniture, large equipment, and anything awkward is better left to the crew. Attempting to flat-pack your own workstations the night before a move, without the right tools or experience, usually results in something that cannot be reassembled cleanly. The crew handles this regularly and it is quicker to let them do it.",
+          "If you have a packing service booked for the day before the move, communicate clearly which areas are in scope. A crew arriving at your Takapuna office to pack the storeroom does not automatically know to leave the IT server rack alone unless you have told them.",
+        ],
+      },
+      {
+        heading: "SiteWise certification and managed sites",
+        paragraphs: [
+          "Some Auckland relocations involve new builds or sites still under construction management, particularly around the Wynyard Quarter, Commercial Bay tenancies, or suburban business parks that were recently developed. Those sites often require contractors to hold a SiteWise certification before they can work on the premises.",
+          "Our crews hold SiteWise Gold certification with a 90-plus percent score. That score is what gets a moving crew admitted to managed and construction sites without delays at the gate. If your new premises has a site manager, it is worth asking about contractor requirements early, and confirming your movers can meet them.",
+        ],
+      },
+      {
+        heading: "A simple checklist for the final week",
+        paragraphs: [
+          "Floor plan finalised and printed for each room at the new site. Labels on every workstation, pedestal, and filing cabinet. IT provider briefed on the furniture sequence and confirmed for Saturday commissioning. Building manager at both sites contacted about dock and lift access windows. Staff briefed on their role before Friday close. Parking access confirmed and passed to the moving crew.",
+          "None of this is complicated. What makes it difficult is doing it on Thursday instead of the Monday before. The moves that finish with everyone functional on Monday morning are almost always the ones where the operations lead made these calls with a full week to spare.",
+          "If you are still working out the sequence and want a second set of eyes on the logistics, we are happy to talk it through. A quote through our website usually comes back within about 15 minutes during business hours, and the conversation before booking is free.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {

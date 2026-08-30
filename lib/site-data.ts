@@ -427,4 +427,20 @@ export const blogPosts = [
     excerpt:
       "A large couch, a second-floor balcony in Freemans Bay, and no clear path through the building. Here is how we planned and ran the hoist.",
   },
+  {
+    slug: "moving-furniture-from-new-zealand-to-australia",
+    title: "Shipping Your Furniture to Australia: What Actually Happens and Who You Need",
+    seoTitle: "Moving Furniture NZ to Australia | Specialist Movers",
+    publishedDate: "2026-08-30",
+    excerpt:
+      "Thinking of shifting your furniture from Auckland to Sydney or Melbourne? Here's what the process really involves and who should be doing what.",
+  },
+  {
+    slug: "business-relocation-auckland-no-lost-working-day",
+    title: "Monday Morning Ready: How Auckland Businesses Relocate Without Losing a Working Day",
+    seoTitle: "Business Relocation Auckland | Specialist Movers",
+    publishedDate: "2026-08-30",
+    excerpt:
+      "A practical guide for Auckland operations leads. Cover IT sequencing, after-hours crews, and the decisions in the week before move day that protect Monday morning.",
+  },
 ] as const;
