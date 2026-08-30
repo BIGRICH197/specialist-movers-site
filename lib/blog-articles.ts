@@ -1842,6 +1842,59 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "balcony-hoist-couch-freemans-bay": {
+    title: "Down from the Second Floor: A Freemans Bay Balcony Hoist Job",
+    sections: [
+      {
+        heading: "The job in plain terms",
+        paragraphs: [
+          "In August 2026 we were called to a Freemans Bay apartment to move a couch down from a second-level balcony. The building sits in one of those older pockets of Freemans Bay where the internal stairwells are narrow and the corners are tight. Getting a full-size couch down through the building was not a realistic option. That left the balcony as the exit point, and that meant a hoist.",
+        ],
+      },
+      {
+        heading: "Why the stairs were not the answer",
+        paragraphs: [
+          "Before we commit to a hoist, we look hard at every ground-level route. Staircases, landings, door widths, the angle at the bottom of the stairs, whether a couch can be stood on its end without the ceiling killing the clearance. On this job the internal path did not work. The couch was not going to make the turns without damage to the item or the walls, and forcing it was not something we were willing to do.",
+          "Once we ruled out the stairs, the balcony hoist became the plan, not a fallback. That shift in thinking matters. You plan a hoist the same way you plan any other lift: assess the weight, the anchor points, the drop zone on the ground, and who stands where.",
+        ],
+      },
+      {
+        heading: "Planning the lift",
+        paragraphs: [
+          "The balcony was on the second level, so the vertical drop was manageable, but we still needed a clear path from the balcony rail to the ground and enough flat space below to receive the couch safely. Freemans Bay streets can be tight, and foot traffic and parked cars are part of the picture. We plan for that before the truck arrives.",
+          "The crew size and the rigging setup are decided before the day. On a job like this, having the right number of hands matters more than working fast. One person manages the load on the balcony, others control the descent and guide the couch clear of the building face.",
+        ],
+      },
+      {
+        heading: "On the day",
+        paragraphs: [
+          "The hoist itself, once the setup is right, is the straightforward part. The couch came down from the balcony under control and was loaded directly onto the truck. Total time at the property was what you would expect for a job with this kind of access challenge: longer than a standard ground-floor pickup, but well within the window we had planned for.",
+          "We use blankets, shrink wrap or mattress covers depending on what an item needs during a hoist. A couch coming down the outside of a building picks up more risk than one carried through a hallway, so protection matters.",
+        ],
+      },
+      {
+        heading: "What makes a hoist job different from a standard move",
+        paragraphs: [
+          "The planning window is longer. We need to see the site, or get accurate measurements and photos, before we can give you a confident quote. A balcony hoist that turns out to need a crane lift is a different job to one that only needs rigging and rope.",
+          "Access to the ground-level drop zone sometimes needs to be arranged in advance, especially in apartment complexes or on narrow Auckland streets. If your building has a body corporate, it is worth checking whether they need notice before a hoist is run off the balcony. We have done this enough times to know which questions to ask, and we will prompt you if we think something needs sorting before the day.",
+        ],
+      },
+      {
+        heading: "If you have something that will not fit through the stairwell",
+        paragraphs: [
+          "The first step is to tell us the item, the floor it is on, and what the internal path looks like. A few photos of the staircase, the landing, and the balcony go a long way. From there we can usually tell you whether a hoist is needed, or whether there is a ground-level option we can work with.",
+          "Large sofas, sectional lounges, and awkward bedroom furniture are the most common items we hoist in Auckland apartments. The buildings around Freemans Bay, Ponsonby, Grey Lynn, and the CBD waterfront are full of them, because the apartments were built before furniture got as large as it is now.",
+          "Our crew are licensed and insured. Cover for your own belongings during a hoist can be arranged through our team before the job. We will talk you through the options when you get in touch.",
+        ],
+      },
+      {
+        heading: "Getting a quote",
+        paragraphs: [
+          "If you have a similar job coming up, the best thing to do is send us the details through the website. Quotes for hoist work come back quickly in business hours. We will let you know what we need to see before we can confirm the approach, and we will give you the full price before you book so there are no surprises on the day.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {

@@ -419,4 +419,12 @@ export const blogPosts = [
     excerpt:
       "A practical checklist for Auckland office managers on freight lifts, loading dock bookings, after-hours access and why sequencing makes or breaks a commercial move.",
   },
+  {
+    slug: "balcony-hoist-couch-freemans-bay",
+    title: "Down from the Second Floor: A Freemans Bay Balcony Hoist Job",
+    seoTitle: "Balcony Hoist Movers Auckland | Specialist Movers",
+    publishedDate: "2026-08-30",
+    excerpt:
+      "A large couch, a second-floor balcony in Freemans Bay, and no clear path through the building. Here is how we planned and ran the hoist.",
+  },
 ] as const;
