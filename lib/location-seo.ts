@@ -30,6 +30,42 @@ const pianoProtection =
 
 /** SEO patches keyed by /locations/[slug] */
 export const locationSeoPatches: Record<string, LocationSeoPatch> = {
+  waiuku: {
+    metaDescription:
+      "Moving to or from Waiuku? Specialist Movers sends an insured crew to this Franklin coast town. Get a quote back in about 15 minutes.",
+    intro:
+      "Waiuku sits on the Manukau Harbour's southern shore, at the end of the road in Franklin. It is quiet, it is green, and the moves here have their own character.",
+    paragraphs: [
+      "Most of the housing stock in Waiuku is older, with a good number of sturdy bungalows and weatherboard homes on generous sections. Big furniture, broad hallways, and mature gardens that make access interesting. We plan around all of it before the truck leaves.",
+      "The town is genuinely at the end of the line. There is one main route in along State Highway 22, and if you are heading to or from central Auckland, that road carries everything. Our crew drives about 64 minutes from our Wairau Valley depot, so we build that into the schedule and arrive ready to work.",
+      "A lot of Waiuku households have garages, sleepouts, and sheds alongside the main home. That extra volume adds up fast. If you want help sorting what gets packed and what moves as-is, our packing service the day before can take that off your plate.",
+      "We are a licensed and insured crew, operating seven days a week. For moves in and out of Waiuku, your full price is clear before you book. If you want cover arranged for your own belongings, our team can point you in the right direction.",
+    ],
+    highlights: [
+      "Waiuku bungalows and large-section homes handled well",
+      "Single State Highway 22 access factored into every schedule",
+      "Sheds, sleepouts, and garages covered alongside the main load",
+      "Seven-day availability, full price shown upfront",
+    ],
+    faqs: [
+      {
+        q: "How far does your team travel to reach Waiuku?",
+        a: "About 64 minutes from our Wairau Valley depot. We schedule the run so your crew arrives with time in hand, not already tired from the road.",
+      },
+      {
+        q: "Our place has a long driveway and the road out front is narrow. Will the truck manage?",
+        a: "We check access before move day. If the full-size truck cannot get close enough, we plan the carry from a safe stopping point rather than working it out on the morning.",
+      },
+      {
+        q: "We have a large shed as well as the house. Does that change the quote?",
+        a: "It can, yes, and we would rather know upfront. Tell us about the shed when you enquire and we will build it into the estimate. Quotes come back in about 15 minutes in business hours.",
+      },
+      {
+        q: "What does the pricing look like for a move this far out?",
+        a: "Hourly rates are the same across Auckland. Waiuku sits in our outer service area, so the fixed callout reflects the distance from our depot. You see the full breakdown before you confirm anything.",
+      },
+    ],
+  },
   wellsford: {
     metaDescription:
       "Moving to or from Wellsford? Specialist Movers sends an insured crew north regularly. Get a quote back in about 15 minutes. Auckland movers you can rely on.",
