@@ -34,8 +34,8 @@ export const joineryDeliveryPage: NicheServicePageConfig = {
   metaTitle: "Kitchen, Cabinetry & Joinery Delivery Auckland | Specialist Movers",
   metaDescription:
     "Workshop to site delivery for Auckland kitchen and joinery makers. Blanket wrapped, install windows met, SiteWise Gold for managed and construction sites.",
-  eyebrow: "For Auckland cabinetmakers and joiners",
-  h1: "Kitchen and joinery delivery",
+  eyebrow: "For Auckland Cabinetmakers and Joiners",
+  h1: "Kitchen, Cabinetry and Joinery Delivery",
   lead:
     "Workshop to site, across Auckland and the Waikato. Finished cabinetry travels blanket wrapped and strapped, arrives in the window your installers are booked for, and gets carried in rather than left on the driveway.",
   subline: "Trade rates. Recurring runs scheduled. Callback within 15 minutes.",
@@ -46,7 +46,7 @@ export const joineryDeliveryPage: NicheServicePageConfig = {
   aboutSidePhoto: sitePhotos.commercialTeam,
   aboutSidePhotoAlt: "Specialist Movers crew in uniform beside the company truck",
   heroOverlayCaption: "You build it. We get it there intact.",
-  aboutTitle: "We already do this every week",
+  aboutTitle: "We Already Do This Every Week",
   aboutBody:
     "A dozen Auckland cabinetmakers and kitchen companies use us on repeat, several of them dozens of jobs deep, and it is the quietest part of our business. Joinery is not furniture. It arrives finished, unpackaged, and usually irreplaceable in the sense that a scuff means a remake rather than a touch up, so it gets wrapped before it moves rather than after someone notices a mark.",
   trustHighlights: [
@@ -63,7 +63,7 @@ export const joineryDeliveryPage: NicheServicePageConfig = {
       text: "Installers are waiting or they are not. We plan the run around your slot.",
     },
   ],
-  whyTitle: "What it costs",
+  whyTitle: "What It Costs",
   whyBody:
     "Two movers and a truck are $140 an hour plus GST with a $60 callout, and three movers are $180 plus an $80 callout. Most single kitchen runs sit inside a couple of hours. If you have regular work rather than one delivery, tell us and we will schedule it, which means the same crew each week and no re-explaining how your workshop loading bay works.",
   includedBullets: [
@@ -79,7 +79,7 @@ export const joineryDeliveryPage: NicheServicePageConfig = {
     { label: "Hard to shift items", href: "/hard-to-shift-items" },
     { label: "Loading and unloading", href: "/loading-and-unloading" },
   ],
-  faqHeading: "Joinery delivery questions",
+  faqHeading: "Cabinetry and Joinery Questions",
   faqs: [
     {
       q: "Do you handle stone and engineered benchtops?",
@@ -109,7 +109,7 @@ export const joineryDeliveryPage: NicheServicePageConfig = {
   breadcrumbs: [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
-    { label: "Kitchen and joinery delivery" },
+    { label: "Kitchen, Cabinetry and Joinery Delivery" },
   ],
   serviceLabel: "Commercial Move",
 };

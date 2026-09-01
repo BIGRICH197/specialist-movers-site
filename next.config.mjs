@@ -229,6 +229,11 @@ const nextConfig = {
         // Short enough to say on a phone or write on the back of a card. The
         // page's job is to be handed to a joinery firm, not to be found in
         // search, so the memorable URL matters more than the keyword one.
+        source: "/cabinetry",
+        destination: "/kitchen-and-joinery-delivery",
+        permanent: false,
+      },
+      {
         source: "/joinery",
         destination: "/kitchen-and-joinery-delivery",
         permanent: false,

@@ -37,6 +37,11 @@ type Props = {
 
 function nicheMomentKey(path: string): string {
   if (path.includes("australia")) return "services/international-moving";
+  // Trade page. Falling through to house-moving put "Whole-home moves, packing
+  // the day before" on a page selling workshop-to-site delivery to
+  // cabinetmakers, which is the same default-fallthrough fault that put sea
+  // freight copy on the furniture pages.
+  if (path === "/kitchen-and-joinery-delivery") return "services/commercial-moving";
   return "services/house-moving";
 }
 
