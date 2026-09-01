@@ -36,6 +36,7 @@ const staticRoutes = [
   "/retirement-home-movers-auckland",
   "/retirement-home-movers-hamilton",
   "/international-moving/moving-to-australia",
+  "/kitchen-and-joinery-delivery",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
