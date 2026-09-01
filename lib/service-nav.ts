@@ -56,6 +56,18 @@ function buildServiceNavRow(base: HamiltonBaseSlug): ServiceNavRow {
  *  Added 2026-08-11: the pages existed and were reachable from nowhere in the
  *  menu, which is what PR #41 was trying to fix when it instead replaced the
  *  Auckland page with a generic template. */
+/** Kitchen, cabinetry and joinery delivery. Trade only, so no Hamilton split:
+ *  the cabinetmakers we run for are Auckland workshops. */
+export const joineryNavRow: ServiceNavRow = {
+  key: "kitchen-joinery",
+  label: "Kitchen and cabinetry delivery",
+  auckland: {
+    label: "Auckland",
+    href: "/kitchen-and-joinery-delivery",
+  },
+  hamilton: null,
+};
+
 export const furnitureRemovalsNavRow: ServiceNavRow = {
   key: "furniture-removals",
   label: "Furniture removals",
@@ -108,6 +120,7 @@ function buildLeftNavRows(): ServiceNavRow[] {
     rows.push(buildServiceNavRow(slug));
     if (slug === "house-moving") {
       rows.push(furnitureRemovalsNavRow);
+      rows.push(joineryNavRow);
       rows.push(retirementHomeMoversNavRow);
     }
   }
