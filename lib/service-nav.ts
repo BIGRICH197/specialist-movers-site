@@ -60,7 +60,7 @@ function buildServiceNavRow(base: HamiltonBaseSlug): ServiceNavRow {
  *  the cabinetmakers we run for are Auckland workshops. */
 export const joineryNavRow: ServiceNavRow = {
   key: "kitchen-joinery",
-  label: "Kitchen and cabinetry delivery",
+  label: "Kitchen cabinetry delivery",
   auckland: {
     label: "Auckland",
     href: "/kitchen-and-joinery-delivery",

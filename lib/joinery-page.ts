@@ -31,11 +31,11 @@ import { sitePhotos } from "@/lib/site-photos";
  */
 export const joineryDeliveryPage: NicheServicePageConfig = {
   path: "/kitchen-and-joinery-delivery",
-  metaTitle: "Kitchen, Cabinetry & Joinery Delivery Auckland | Specialist Movers",
+  metaTitle: "Kitchen Cabinetry & Joinery Delivery Auckland | Specialist Movers",
   metaDescription:
     "Workshop to site delivery for Auckland kitchen and joinery makers. Blanket wrapped, install windows met, SiteWise Gold for managed and construction sites.",
   eyebrow: "For Auckland Cabinetmakers and Joiners",
-  h1: "Kitchen, Cabinetry and Joinery Delivery",
+  h1: "Kitchen Cabinetry and Joinery Delivery",
   lead:
     "Workshop to site, across Auckland and the Waikato. Finished cabinetry travels blanket wrapped and strapped, arrives in the window your installers are booked for, and gets carried in rather than left on the driveway.",
   subline: "Trade rates. Recurring runs scheduled. Callback within 15 minutes.",
@@ -79,7 +79,7 @@ export const joineryDeliveryPage: NicheServicePageConfig = {
     { label: "Hard to shift items", href: "/hard-to-shift-items" },
     { label: "Loading and unloading", href: "/loading-and-unloading" },
   ],
-  faqHeading: "Cabinetry and Joinery Questions",
+  faqHeading: "Kitchen Cabinetry Questions",
   faqs: [
     {
       q: "Do you handle stone and engineered benchtops?",
@@ -109,7 +109,7 @@ export const joineryDeliveryPage: NicheServicePageConfig = {
   breadcrumbs: [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
-    { label: "Kitchen, Cabinetry and Joinery Delivery" },
+    { label: "Kitchen Cabinetry and Joinery Delivery" },
   ],
   serviceLabel: "Commercial Move",
 };
