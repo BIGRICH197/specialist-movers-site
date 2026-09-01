@@ -65,7 +65,7 @@ export const joineryDeliveryPage: NicheServicePageConfig = {
   ],
   whyTitle: "What It Costs",
   whyBody:
-    "Two movers and a truck are $140 an hour plus GST with a $60 callout, and three movers are $180 plus an $80 callout. Most single kitchen runs sit inside a couple of hours. If you have regular work rather than one delivery, tell us and we will schedule it, which means the same crew each week and no re-explaining how your workshop loading bay works.",
+    "Two movers and a truck are $140 an hour plus GST with a $60 callout. Three movers are $180 plus $80, and four are $240 plus $100 for a full defit or a big install day. Most single kitchen runs sit inside a couple of hours. For regular work or a larger one-off we will fix a price instead, so there is no clock ticking, and anything outside Auckland we come and look at first and then fix a price on that. If you have a weekly run rather than one delivery, tell us and we will schedule it, which means the same crew each week and no re-explaining how your workshop loading bay works.",
   includedBullets: [
     "Workshop to site delivery for kitchens, vanities, wardrobes and commercial joinery",
     "Benchtops, splashbacks and stone tops carried on edge and strapped upright",
@@ -73,6 +73,8 @@ export const joineryDeliveryPage: NicheServicePageConfig = {
     "Carried to the room, not left at the door or on the drive",
     "Recurring weekly or fortnightly runs scheduled with the same crew",
     "SiteWise Gold prequalification for managed and construction sites",
+    "Six trucks from 15 to 40 cubic metres, taillift on every one",
+    "Public liability certificate on request for site access",
   ],
   relatedLinks: [
     { label: "Commercial moving Auckland", href: "/commercial-moving-auckland" },
@@ -102,8 +104,12 @@ export const joineryDeliveryPage: NicheServicePageConfig = {
       a: "Yes, and it is most of the cabinetry work we do. Recurring runs are scheduled ahead so you get the same crew, who already know your workshop and your usual sites.",
     },
     {
+      q: "Do you deliver outside Auckland?",
+      a: "Yes, and we have a Hamilton base as well as the Wairau Valley one. For anything out of town we would rather look at the run first and then fix a price on it, so you are not paying for a driver sitting in traffic.",
+    },
+    {
       q: "What does it cost?",
-      a: "Two movers and a truck are $140 an hour plus GST with a $60 callout, three movers $180 with an $80 callout. Most single kitchen deliveries are inside a couple of hours. You get the number in writing before we load.",
+      a: "Two movers and a truck are $140 an hour plus GST with a $60 callout, three movers $180 with an $80 callout, and four movers $240 with a $100 callout. Most single kitchen deliveries are inside a couple of hours. Regular runs and bigger jobs can be fixed-price instead. You get the number in writing before we load.",
     },
   ],
   breadcrumbs: [
