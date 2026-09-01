@@ -17,6 +17,7 @@ export {
   statsStrip,
   hamiltonStatsStrip,
   pianoStatsStrip,
+  tradeStatsStrip,
   trustPillars,
   whyChooseShort,
   whyUsPage,

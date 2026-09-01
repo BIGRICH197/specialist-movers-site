@@ -167,7 +167,13 @@ export function NicheServicePage({ config }: Props) {
       <ServiceWhyChooseSection
         title={config.whyTitle}
         body={config.whyBody}
-        statsVariant={branch === "hamilton" ? "hamilton" : "default"}
+        statsVariant={
+          config.path === "/kitchen-and-joinery-delivery"
+            ? "trade"
+            : branch === "hamilton"
+              ? "hamilton"
+              : "default"
+        }
       />
 
       <SectionReveal className="border-t border-brand-purple/10 bg-brand-white py-12 sm:py-14">

@@ -155,6 +155,19 @@ export const hamiltonStatsStrip = {
   ),
 };
 
+/** Trade pages (kitchen and joinery delivery). The $300 house-move floor is
+ *  the wrong number to show a cabinetmaker: they buy crew hours for a delivery
+ *  run, not a whole-home move, and the consumer figure undercuts the hourly
+ *  trade framing sitting a few paragraphs below it. */
+export const tradeStatsStrip = {
+  ...statsStrip,
+  items: statsStrip.items.map((item) =>
+    item.label === MOVES_FROM_LABEL
+      ? { label: "Two movers, per hour (excl. GST)", value: "$140" }
+      : item,
+  ),
+};
+
 /** Homepage purple band , SiteWise stats + numbered detail cards (not the volume stats band). */
 export const siteWiseHomeSection = {
   title: "SiteWise Gold & health and safety",
