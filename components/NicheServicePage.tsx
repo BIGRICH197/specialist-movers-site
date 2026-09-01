@@ -59,6 +59,8 @@ const NICHE_SERVICE_BY_PATH: Record<string, string> = {
   "/international-moving/moving-to-australia": "international-moving",
   "/furniture-movers-auckland": "house-moving",
   "/furniture-movers-hamilton": "house-moving",
+  // Trade page: it must pull commercial reviews, not house-move ones.
+  "/kitchen-and-joinery-delivery": "commercial-moving",
 };
 
 function nicheReviewSlug(path: string): string {
