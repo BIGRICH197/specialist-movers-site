@@ -8,7 +8,8 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { ReviewSidebarColumn } from "@/components/ReviewSidebarColumn";
 import { ScatteredReviews } from "@/components/ScatteredReviews";
 import { SectionReveal } from "@/components/SectionReveal";
-import { contactCta, googleReviewsUrl, hamiltonStatsStrip, pianoStatsStrip, statsStrip } from "@/lib/homepage-copy";
+import { contactCta, googleReviewsUrl, hamiltonStatsStrip,
+  tradeStatsStrip, pianoStatsStrip, statsStrip } from "@/lib/homepage-copy";
 import { sitePhotos } from "@/lib/site-photos";
 import type { FaqItem } from "@/lib/service-faqs";
 import { formatHeadingText } from "@/lib/heading-ampersand";
@@ -20,7 +21,7 @@ type WhyChooseProps = {
   body: string;
   showStats?: boolean;
   /** Piano service pages show moves from $300, not $350. */
-  statsVariant?: "default" | "piano" | "hamilton";
+  statsVariant?: "default" | "piano" | "hamilton" | "trade";
 };
 
 /** Full purple band: why choose copy + homepage stats strip. */
@@ -31,7 +32,9 @@ export function ServiceWhyChooseSection({
   statsVariant = "default",
 }: WhyChooseProps) {
   const statsItems =
-    statsVariant === "piano"
+    statsVariant === "trade"
+      ? tradeStatsStrip.items
+      : statsVariant === "piano"
       ? pianoStatsStrip.items
       : statsVariant === "hamilton"
         ? hamiltonStatsStrip.items

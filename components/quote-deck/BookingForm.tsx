@@ -26,6 +26,11 @@ export type BookingPrefill = {
   typeOfMove?: string;
   cleaningBooked?: string;
   packing?: string;
+  /** Carried from the quote page's add-on ticks, not asked again here — the
+   *  customer already answered insurance vs owner's risk before they could
+   *  accept. It rides along in the submitted fields so the team notification
+   *  can say what they chose. Empty on a direct book-in, which never asks. */
+  insurance?: string;
 };
 
 const SIZE_OPTIONS = ["Single Item", "1 Bedroom", "2 Bedroom", "3 Bedroom", "4 Bedroom+", "Office Move"];
@@ -93,6 +98,7 @@ export function BookingForm({
     payment: "",
     cleaningBooked: prefill.cleaningBooked ?? "",
     cleaningSameDay: "",
+    insurance: prefill.insurance ?? "",
     packing: prefill.packing ?? "",
     unpacking: "",
     packingNotes: "",

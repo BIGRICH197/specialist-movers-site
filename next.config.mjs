@@ -226,6 +226,19 @@ const nextConfig = {
       },
       // Both of these 404'd while "furniture movers" was the primary goal term.
       {
+        // Short enough to say on a phone or write on the back of a card. The
+        // page's job is to be handed to a joinery firm, not to be found in
+        // search, so the memorable URL matters more than the keyword one.
+        source: "/joinery",
+        destination: "/kitchen-and-joinery-delivery",
+        permanent: false,
+      },
+      {
+        source: "/kitchen",
+        destination: "/kitchen-and-joinery-delivery",
+        permanent: false,
+      },
+      {
         source: "/services/furniture-movers",
         destination: "/furniture-movers-auckland",
         permanent: true,

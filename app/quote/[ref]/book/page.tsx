@@ -75,6 +75,17 @@ export default async function BookPage({
           : addOns.includes("packing")
             ? "Yes packing"
             : "",
+    // `ins` was declared here and then dropped on the floor: the customer's
+    // insurance answer reached this page and went no further, so a request for
+    // cover never made it into the booking record or the team's ping. Carry it
+    // like the other two. It is not re-asked on the form — accepting the quote
+    // already required choosing cover or owner's risk.
+    insurance:
+      searchParams?.ins === "1"
+        ? "Yes insurance"
+        : searchParams?.ins === "0"
+          ? "No (owner's risk)"
+          : "",
   };
 
   return <BookingForm quoteRef={params.ref} prefill={prefill} quoteType={stored.quoteType} />;
