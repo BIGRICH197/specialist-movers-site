@@ -9,6 +9,7 @@ import {
 } from "@/lib/quote-deck/booking-terms";
 import { isDialable, PHONE_ERROR } from "@/lib/phone";
 import { BOOKED_BY_OPTIONS } from "@/lib/booked-by";
+import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 
 // Branded booking form — mirrors the JotForm "House move booking confirmation"
 // fields, prefilled from the quote. On submit it posts to /api/bookings, which
@@ -107,6 +108,10 @@ export function BookingForm({
     accessRestrictions: "",
     settlementDay: "",
   });
+  // Locked only when the QUOTE supplied a crew size. A quote that carried none
+  // (cleaning, or an older record) still has to be answerable, and `standalone`
+  // is the direct /book flow, which has no quote to be bound by at all.
+  const moversLocked = !standalone && !!prefill.howManyMovers?.trim();
   const [whatPacking, setWhatPacking] = useState<string[]>([]);
   const [agree, setAgree] = useState(false);
   const [signature, setSignature] = useState("");
@@ -284,12 +289,41 @@ export function BookingForm({
             </select>
           </div>
           )}
+          {/* Number of movers is LOCKED when the quote set it (Richard,
+              2026-09-01). Crew size is our operational call, not the customer's:
+              the price, the truck and the roster are all built on it. Chris
+              Williams was quoted 3, quietly changed the dropdown to 2, and the
+              job had already gone to the contractor as a 3-man job.
+
+              Locked, not hidden — they still see what they are getting, and a
+              phone number to change it, because a dead end just loses the
+              booking. Left editable when the quote carried no figure (a cleaning
+              quote, or an older one), so nobody is stuck with a blank they can't
+              fill. The value is submitted from React state, so `disabled` costs
+              nothing here. */}
           <div>
             <label className={labelCls}>Number of movers</label>
-            <select className={inputCls} required value={f.howManyMovers} onChange={(e) => set("howManyMovers", e.target.value)}>
-              <option value="">Select…</option>
-              {MOVERS_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
-            </select>
+            {moversLocked ? (
+              <>
+                <div
+                  className={`${inputCls} flex items-center justify-between bg-brand-purple/5 text-brand-purple/80`}
+                  aria-readonly="true"
+                >
+                  <span>{f.howManyMovers}</span>
+                  <span className="text-xs uppercase tracking-wide text-brand-purple/50">as quoted</span>
+                </div>
+                <p className="mt-1 text-xs text-brand-purple/60">
+                  This is the crew your price is based on. Need a different number? Call us on{" "}
+                  <a className="underline" href={`tel:${phoneNumber}`}>{phoneDisplay}</a> and we&rsquo;ll
+                  requote it.
+                </p>
+              </>
+            ) : (
+              <select className={inputCls} required value={f.howManyMovers} onChange={(e) => set("howManyMovers", e.target.value)}>
+                <option value="">Select…</option>
+                {MOVERS_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
+              </select>
+            )}
           </div>
           {!hiddenFields.includes("typeOfMove") && (
           <div>
