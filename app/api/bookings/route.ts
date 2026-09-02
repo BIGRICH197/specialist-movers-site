@@ -123,6 +123,13 @@ export async function POST(request: Request) {
           xeroQuoteId: stored.xeroQuoteId,
           hubspotDealId: stored.hubspotDealId,
           quote: stored.quote,
+          // What the booking form was PREFILLED with, so the team notification
+          // can tell a customer's deliberate change from a blank they filled in
+          // themselves. Chris Williams was quoted 3 movers, the form offered
+          // "3 MOVERS", and he submitted 2 — the office saw only the 2 and read
+          // it as a glitch. It is the customer changing the job, and it changes
+          // the price, so it has to be visible as a change (Richard, 2026-09-01).
+          prefill: stored.prefill ?? null,
           booking: fields,
         }),
       });
