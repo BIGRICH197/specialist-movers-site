@@ -16,10 +16,18 @@ export const HUBSPOT_OWNERS = {
   richard: OWNER_RICHARD,
 };
 
+// Owner cover (Richard 2026-09-03): Taine is away, so the Auckland desk's new
+// leads go to Danielle as well — every new website lead is hers for now. The
+// master switch lives on the mini PC in `owner_cover.json` (specialist-movers
+// repo), which also re-owns any New-stage lead stamped wrong here within ~30
+// min; this constant just gets it right at creation. WHEN TAINE IS BACK, revert
+// BOTH: set "active": false there, and put OWNER_TAINE back here.
+const OWNER_AUCKLAND_DESK = OWNER_DANIELLE;
+
 // Every deal is born owned: Hamilton leads go to Danielle, everything else
-// to Taine. The pricing engine's branch is checked first — it recognises
-// Hamilton suburbs the text signals miss, and the mini PC backstop never
-// overrides an owner once set, so a wrong stamp here would stick.
+// to the Auckland desk. The pricing engine's branch is checked first — it
+// recognises Hamilton suburbs the text signals miss, and the mini PC backstop
+// never overrides an owner once set, so a wrong stamp here would stick.
 function ownerFor(params: {
   branch?: "auckland" | "hamilton" | "manual";
   sourcePage?: string;
@@ -30,7 +38,7 @@ function ownerFor(params: {
   const page = params.sourcePage || params.landingPage || "";
   if (page.toLowerCase().includes("hamilton")) return OWNER_DANIELLE;
   if (/\bhamilton\b/i.test(params.pickupAddress)) return OWNER_DANIELLE;
-  return OWNER_TAINE;
+  return OWNER_AUCKLAND_DESK;
 }
 
 // job_source is a dropdown — only these values are accepted by HubSpot.
