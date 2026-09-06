@@ -30,6 +30,78 @@ const pianoProtection =
 
 /** SEO patches keyed by /locations/[slug] */
 export const locationSeoPatches: Record<string, LocationSeoPatch> = {
+  pukekohe: {
+    metaDescription:
+      "Moving in Pukekohe? Specialist Movers sends insured crews to Franklin's main town regularly. Get a quote back in about 15 minutes.",
+    intro:
+      "Pukekohe sits on the hill above the Franklin plains, a proper town with its own pace and a housing mix that keeps our crews thinking. From older villas near the town centre to newer subdivisions spreading out toward the horticultural blocks, we move here regularly.",
+    paragraphs: [
+      "The established streets closer to the Pukekohe town centre tend to have older homes, sometimes with narrow side access, tight driveways, and mature trees that reduce clearance. It is the kind of street where parking the truck takes a bit of thought before anything gets lifted.",
+      "The newer subdivisions on the edges of town are a different picture. Sections are tighter than they look on paper, and two-storey homes with internal-access garages mean furniture often has to come out through awkward angles. Our crews plan the route through the house before they start.",
+      "Franklin is orchard and market-garden country, and plenty of Pukekohe households have the gear to match: ride-ons, large outdoor furniture, workshop equipment, and the occasional piano. We handle large and heavy items regularly, and cover for your own belongings can be arranged through our team.",
+      "Getting to Pukekohe from our Wairau Valley depot takes around 51 minutes, so Pukekohe sits in our outer service area. The callout reflects that distance, and you see the full price before you confirm anything. We are on the road seven days a week, so weekday and weekend moves are both straightforward to book.",
+    ],
+    highlights: [
+      "Regular moves in Pukekohe's older villa streets and newer subdivisions",
+      "Comfortable with large rural and lifestyle items",
+      "Seven-day availability, including weekends",
+      "Full quote upfront before you book",
+    ],
+    faqs: [
+      {
+        q: "Can you get a truck into older Pukekohe streets with tight access?",
+        a: "Yes, and we check before move day. If a street or driveway limits how close the truck can park, we plan the carry distance in advance rather than working it out on the morning.",
+      },
+      {
+        q: "I have a ride-on mower and some heavy workshop gear to move. Is that a problem?",
+        a: "Not at all. Bulky outdoor and workshop items are a regular part of Franklin moves. Let us know what you have when you enquire and we will make sure the crew is set up for it.",
+      },
+      {
+        q: "How does pricing work for a move from Pukekohe?",
+        a: "Hourly rates are the same across Auckland. Because Pukekohe is in our outer service area, the fixed callout is higher than closer suburbs, and you see the full breakdown before you commit to anything.",
+      },
+      {
+        q: "How quickly can I get a quote?",
+        a: "In business hours, usually around 15 minutes. For larger homes we can arrange a free viewing so the quote is accurate rather than approximate.",
+      },
+    ],
+  },
+  "half-moon-bay": {
+    metaDescription:
+      "Moving in Half Moon Bay? Specialist Movers handles marina-side apartments, hillside homes and everything in between. Local Auckland movers you can trust.",
+    intro:
+      "Half Moon Bay is a pocket of east Auckland built around the water, and the moves here reflect that. Marina apartments, elevated homes with harbour views, and quiet cul-de-sacs that end at the cliff edge.",
+    paragraphs: [
+      "The marina precinct is the defining feature here. Apartments and townhouses close to the water often come with lifts, allocated parking bays, and body corporate rules about when and how moving trucks can access the building. We confirm all of that before move day so there are no surprises at the gate.",
+      "Further up the ridge, homes sit on sections that drop sharply toward the Hauraki Gulf. Long driveways, retaining walls, and narrow access roads are common. Our crew will walk the site before the truck is loaded if anything looks tight, because a good carry plan beats an improvised one every time.",
+      "Half Moon Bay is about 30 minutes from our Wairau Valley depot, which puts it in pricing zone B. The fixed callout is a little higher than inner suburbs because of the distance, and you see the full price before you confirm anything.",
+      "We have done dozens of jobs in Half Moon Bay, a mix of families moving to larger homes on the eastern bays, retirees downsizing to marina-side units, and the occasional boat owner shifting gear to storage. The neighbourhood is familiar to us and that makes the planning straightforward.",
+    ],
+    highlights: [
+      "Marina apartment access sorted in advance",
+      "Experienced with steep ridge-top driveways",
+      "Dozens of Half Moon Bay jobs completed",
+      "Full price upfront, no surprises on the day",
+    ],
+    faqs: [
+      {
+        q: "Our apartment building has a service lift and a loading bay. How do you manage that?",
+        a: "We contact the building manager beforehand to confirm lift dimensions, bay availability and any time restrictions. If a booking is required, we sort that before move day. Marina-precinct buildings are familiar territory for us.",
+      },
+      {
+        q: "The driveway to our place on the ridge is steep and bends halfway down. Will your truck fit?",
+        a: "We check access before we commit to an approach. If the full-size truck cannot reach the door safely, we plan an extended carry from a safe stopping point. Either way, you know the plan before the crew arrives.",
+      },
+      {
+        q: "How does the pricing work for Half Moon Bay given it is on the eastern side of Auckland?",
+        a: "Hourly rates are the same across Auckland. Half Moon Bay sits in a zone where the fixed callout is slightly higher than inner suburbs because of the drive from our Wairau Valley depot. The full price is shown before you book, so you can confirm without any guesswork.",
+      },
+      {
+        q: "Can you move furniture into a waterfront unit that has no lift, only a narrow stairwell?",
+        a: "Yes. Stairwell moves are part of the job. If you send us photos or a quick description of the staircase, we can plan the right crew size and make sure larger pieces are assessed before move day rather than on it.",
+      },
+    ],
+  },
   waiuku: {
     metaDescription:
       "Moving to or from Waiuku? Specialist Movers sends an insured crew to this Franklin coast town. Get a quote back in about 15 minutes.",
