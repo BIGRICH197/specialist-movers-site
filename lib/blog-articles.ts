@@ -2023,6 +2023,68 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "crane-lift-wairau-valley-third-fourth-floor-delivery": {
+    title: "When the Lift Is Not an Option: A Crane Job in Wairau Valley",
+    sections: [
+      {
+        heading: "The Job in Plain Terms",
+        paragraphs: [
+          "In August 2026 we ran a commercial crane lift in Wairau Valley. The load had to reach the third and fourth floors of a building, and a standard stair or lift carry was not going to work. Three of our crew handled it from the workshop load-through to the final placement upstairs.",
+          "We are writing this up because crane jobs come with questions most movers cannot answer from experience. If you are facing something similar, this is what the work actually looks like.",
+        ],
+      },
+      {
+        heading: "Why This Kind of Job Needs Planning Before Anyone Touches the Freight",
+        paragraphs: [
+          "A crane lift is not something you sort out on the morning. You need the crane operator booked, a confirmed delivery window, a clear drop zone on the ground, and receiving access confirmed at each floor. Any one of those falling over delays everything, and crane time is not cheap.",
+          "For this job we loaded the truck at the client's workshop ahead of the lift date, so the freight was staged and ready. The delivery was scheduled for 5 August. Packing slips carried job and reference numbers so everyone on site, including the crane operator and the receiving crew above, was working from the same paperwork. That kind of reference chain matters when a load is going to multiple floors.",
+        ],
+      },
+      {
+        heading: "The Crew and How We Split the Work",
+        paragraphs: [
+          "Three movers ran this job. On a crane lift, the crew divides naturally: someone on the ground working with the crane operator to rig and signal, and at least one person at each receiving floor to guide the load in and move it to its final position once it clears the window or opening.",
+          "With freight going to both the third and fourth floors, keeping communication clean between ground level and upstairs is the part that eats time if you have not done it before. We confirmed the sequence before the crane arrived so there was no guessing about which pieces went where.",
+        ],
+      },
+      {
+        heading: "Protection and Rigging",
+        paragraphs: [
+          "How an item is wrapped before a crane lift depends on what the item is. Blankets, shrink wrap, or other protection get chosen based on the specific piece, not a blanket formula. The goal is that nothing shifts inside the wrapping during the lift and nothing gets marked on the way through the opening.",
+          "Rigging points matter too. The crane operator needs to know the weight distribution before anything leaves the ground. We work through that together rather than handing off a load that is poorly balanced.",
+        ],
+      },
+      {
+        heading: "What Made This Particular Job Worth Writing About",
+        paragraphs: [
+          "Wairau Valley is a commercial and light-industrial area, so access on and off the road is generally workable. But a third and fourth floor commercial delivery still means coordinating vehicle placement, crane position, and building access at the same time. Add freight coming from a separate workshop, and the logistics chain is longer than a typical furniture move.",
+          "The paperwork side is easy to underestimate. When freight moves from a workshop to a crane drop to a multi-floor destination, each handover point needs matching documentation. Getting that right meant no hold-ups at the building once the crane was on site.",
+        ],
+      },
+      {
+        heading: "What to Do If You Have a Similar Job",
+        paragraphs: [
+          "First, work out whether your item genuinely needs a crane or whether a hoist from a balcony or an external platform would do the job. Cranes are the right call when the load is heavy, bulky, or when the building has no practical internal route. We can usually tell you which option suits your situation once we know the weight, dimensions, and access.",
+          "Second, give yourself lead time. Crane operators need to be booked, access to the site needs to be arranged, and your receiving floor needs to be clear and ready. Turning this around in twenty-four hours is possible in some cases but puts pressure on every part of the chain.",
+          "Third, make sure whoever is receiving the load at the top knows the sequence. Surprises on a crane lift, like a corridor that is not clear or a floor that is not ready, cost everyone time.",
+        ],
+      },
+      {
+        heading: "Our Crew's Relevant Experience",
+        paragraphs: [
+          "Crane and hoist work is not something every moving company takes on. We have built up this side of the work alongside our piano lifting, which also involves balcony hoists and careful multi-storey planning. The same crew that handles a grand piano to an upper floor is the crew that runs a commercial crane lift.",
+          "We are SiteWise Gold certified, which is what gets our crew onto managed commercial and construction sites. If your building requires site induction or a health and safety file, we can provide what is needed.",
+        ],
+      },
+      {
+        heading: "Getting a Quote for a Crane or Hoist Job",
+        paragraphs: [
+          "If you have freight that needs to go up and the normal routes are not going to work, the first step is telling us what you have, how heavy it is, what floor it is going to, and what access the building has. We quote these jobs individually because no two are the same.",
+          "You can send through your details using the quote form on our website. In business hours we usually come back to you in around fifteen minutes. If a site visit would help us give you an accurate price, we can arrange that too.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {

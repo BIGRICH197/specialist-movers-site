@@ -443,4 +443,12 @@ export const blogPosts = [
     excerpt:
       "A practical guide for Auckland operations leads. Cover IT sequencing, after-hours crews, and the decisions in the week before move day that protect Monday morning.",
   },
+  {
+    slug: "crane-lift-wairau-valley-third-fourth-floor-delivery",
+    title: "When the Lift Is Not an Option: A Crane Job in Wairau Valley",
+    seoTitle: "Crane Lift Movers Auckland | Specialist Movers",
+    publishedDate: "2026-09-06",
+    excerpt:
+      "A three-person crew, a crane, and a commercial load bound for the third and fourth floors. Here is exactly how we planned and ran it.",
+  },
 ] as const;
