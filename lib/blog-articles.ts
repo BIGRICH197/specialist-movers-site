@@ -2085,6 +2085,127 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "removalists-auckland": {
+    title: "What Auckland Removalists Actually Do (and How to Pick the Right One)",
+    sections: [
+      {
+        heading: "Removalists in Auckland: What the Word Actually Means",
+        paragraphs: [
+          "If you have been searching for removalists in Auckland, you are looking for people who move your furniture and boxes from one place to another. That is the core job. Some companies stop there. Others, like us, also do packing, cleaning and specialty items. Knowing what you actually need before you book saves time and money.",
+          "The word removalist comes from Australia and is used widely in New Zealand too. Moving company, movers, furniture movers, they all point to the same thing. We use all of them. What matters is whether the crew in front of you can handle your specific job, in your suburb, with your staircase or your piano or your third-floor apartment.",
+        ],
+      },
+      {
+        heading: "What the Job Looks Like in Auckland",
+        paragraphs: [
+          "Auckland is not a flat, easy city to move around. Ponsonby, Grey Lynn, Mount Eden, Freemans Bay, and most of the isthmus suburbs have steep driveways, narrow streets, and villas with staircases that were built when furniture was smaller. The North Shore has its own quirks: long runs from Wairau Valley through to Albany or down to Devonport can affect how your day is timed.",
+          "A typical job involves a crew loading your belongings carefully, driving across town, and unloading into the right rooms. Traffic on the motorway between moves matters. A midday crossing of the Harbour Bridge is a different thing from a 7am start. Good removalists factor that in when they quote you.",
+          "Larger or more complex jobs sometimes need a hoist or crane lift, particularly for apartments where a lift is too small for a sofa or a bed frame. We have done hoist jobs from Newmarket to Beach Haven. If your place has that kind of access question, raise it when you enquire. It changes the equipment needed, not the approach.",
+        ],
+      },
+      {
+        heading: "How Pricing Works and What to Watch For",
+        paragraphs: [
+          "Most Auckland removalists charge an hourly rate plus a callout fee. The hourly rate is usually the same across the city. The callout reflects how far the truck travels from the depot to reach you. Our depot is in Wairau Valley, so jobs in North Shore suburbs close by have a shorter callout than jobs further afield.",
+          "What catches people out is not the hourly rate. It is the things they did not mention when booking: the heavy treadmill in the garage, the wardrobe that has to come apart, the building that needs a loading dock booking 48 hours in advance. These add time, and time adds cost. Being thorough when you describe the job means the quote you see is the price you pay.",
+          "We show you the full price before you confirm. No surprises on the day.",
+        ],
+      },
+      {
+        heading: "What People Get Wrong When Booking Removalists",
+        paragraphs: [
+          "The most common mistake is underestimating volume. People book a two-bedroom move and forget the shed, the linen cupboard, and the stack of stuff in the hallway. A rough guide: walk every room, open every door, and add 20 percent to whatever you first think.",
+          "The second mistake is booking access without checking the rules. Auckland apartment buildings and commercial sites often have lift booking windows, loading zone time limits, or require a certificate of currency from the moving company before they let a truck on site. SiteWise Gold certification, which our crews hold with a 90-plus percent score, covers managed and construction sites. For residential apartments, call your building manager the week before.",
+          "The third mistake is leaving it too late. End of month and long weekends book out fast. If your settlement date is a Friday, get in early.",
+        ],
+      },
+      {
+        heading: "How We Quote and What Happens Next",
+        paragraphs: [
+          "You fill in the quote form on our website, or call us, and we usually come back to you within about 15 minutes during business hours. For larger homes we offer a free viewing so the price is based on what we actually see, not an estimate.",
+          "The quote covers the crew, the truck, the callout, and the work described. If you want packing done the day before, or move-out cleaning after, we can add those. We operate seven days a week, so if a weekday does not suit, a Saturday or Sunday move is a real option.",
+          "We have completed over 4,000 moves across Auckland and the Waikato. That covers everything from studio apartments in the CBD to full family homes in Remuera and Howick. We know the city.",
+        ],
+      },
+      {
+        heading: "Insurance and Peace of Mind",
+        paragraphs: [
+          "Our crews are licensed and insured. We carry public liability and carrier's liability. If you want cover arranged for your own belongings, we can help with that through our team. Ask when you book and we will walk you through the options.",
+        ],
+      },
+      {
+        heading: "Ready to Get a Quote?",
+        paragraphs: [
+          "If you are searching for removalists in Auckland and want a straight answer on price and availability, fill in the quote form on our website. Describe the job honestly, including the awkward bits, and we will come back to you quickly with a number you can actually plan around.",
+        ],
+      },
+    ],
+  },
+  "storage-between-houses-auckland-settlement-gap": {
+    title: "When Settlement Dates Don't Line Up: Storage and Two-Stage Moves in Auckland",
+    sections: [
+      {
+        heading: "The Gap Nobody Warns You About",
+        paragraphs: [
+          "You sell your place and buy another. The dates almost match. Almost. In Auckland's property market, a week or two between settlement dates is common, and a month is not unusual. That window leaves you with a houseful of furniture and nowhere obvious to put it.",
+          "Most people find out about this problem late, usually after the sale goes unconditional. The good news is it is a solved problem. You have a few practical options, and once you know them, the gap stops feeling like a crisis.",
+        ],
+      },
+      {
+        heading: "Your Three Realistic Options",
+        paragraphs: [
+          "First, negotiate with the vendor of your new property. Sometimes the people selling to you can give you early access, especially if the property is already vacant. It is worth asking your lawyer to raise it, though it is not always possible.",
+          "Second, arrange short-term storage. Commercial storage facilities are available across Auckland, from large national operators in places like East Tamaki and Albany to smaller local units closer to the city. You pack your gear into a unit, you lock it, and you collect it when your new place is ready.",
+          "Third, some people stay with family or in short-term accommodation and move their furniture in one stage rather than two. This works if someone close to you has room, but it is not always practical with a full household.",
+        ],
+      },
+      {
+        heading: "How Short-Term Storage Facilities Work in Auckland",
+        paragraphs: [
+          "Most self-storage facilities in Auckland rent by the month with no long minimum. You access your unit during opening hours, and some sites offer 24-hour access. Units come in sizes from small lockers up to large rooms that hold several truckloads of furniture.",
+          "When you are comparing facilities, ask about climate control if you have timber furniture or instruments, ask whether the site is covered by CCTV, and check what the insurance situation is for your belongings while they are in the unit. Most facilities require you to arrange your own contents cover. Our team can point you toward cover options when you book.",
+          "The main Auckland corridors for storage are around Penrose, East Tamaki, Albany and Henderson. If you are moving within the central suburbs or the isthmus, Penrose is often the most practical base point for a two-stage job.",
+        ],
+      },
+      {
+        heading: "What a Two-Stage Move Looks Like in Practice",
+        paragraphs: [
+          "A two-stage move means the truck comes to your old place, loads everything, and delivers it to a storage unit rather than a house. Then, when your new place settles, the truck goes back to the storage unit and delivers everything to the new address.",
+          "That second stage is almost always faster than the first, because the furniture is already packed and nothing needs to come out of cupboards. The total time on the two days is usually less than doing two full moves back to back.",
+          "The main thing to plan for is how your boxes are stacked in the unit. If you load the storage unit with heavy furniture at the back and frequently needed boxes near the door, the second load is quicker and easier. Your moving crew can advise on this as they pack the unit.",
+        ],
+      },
+      {
+        heading: "What to Keep Out of Storage",
+        paragraphs: [
+          "Before anything goes into a unit, pull aside what you will actually need during the gap. Bedding, a kettle, work clothes, chargers, medications, and documents should travel with you rather than going into storage. It sounds obvious, but people regularly seal up the one box with the important papers.",
+          "Also think about seasonal timing. Auckland winters are mild but wet, so if your gap falls between June and August, anything that would suffer from humidity is better in a climate-controlled unit than a standard one. Mattresses, in particular, do not benefit from a damp storage environment.",
+        ],
+      },
+      {
+        heading: "Packing Before the First Stage",
+        paragraphs: [
+          "A two-stage move is easier when your boxes are well labelled and consistent. If you have not packed before, or if you are short on time, a day-before packing service is worth considering. A crew comes through your home the day before the truck arrives and works room by room. Everything is packed, labelled and ready to load the next morning.",
+          "That matters more for a two-stage job because your boxes will be handled twice. A box that is half-full or weakly taped is fine in a short move but can cause problems stacked in a storage unit for several weeks.",
+        ],
+      },
+      {
+        heading: "Coordinating the Dates",
+        paragraphs: [
+          "Book your storage unit before you book the truck, so you have a confirmed address and access details to give the moving crew. Most facilities can confirm a unit within a day or two of your enquiry.",
+          "When you contact a moving company, give them both dates upfront. Settlement day is rarely smooth, and conveyancing can run late in the afternoon, so build in a buffer if you can. Early-morning loading is easier to coordinate on settlement day than a midday start when everyone is waiting on lawyers.",
+          "If there is any chance your settlement date shifts, let the moving company know as early as possible. A good team can usually adjust, but last-minute changes on a busy Friday are harder to accommodate than a call earlier in the week.",
+        ],
+      },
+      {
+        heading: "Getting Organised Before You Call",
+        paragraphs: [
+          "Before you get a quote for a two-stage move, it helps to know your approximate volume, whether there are any access issues at the storage facility, and how far apart your old address, the storage site, and your new home are. A moving company will ask all of this, and having rough answers ready means the quote comes back faster.",
+          "Specialist Movers operates across Auckland and the Waikato, and we handle two-stage storage moves regularly. If you want to talk through your dates and get a price, you can request a quote through our website and we will usually come back to you within about 15 minutes during business hours.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {
