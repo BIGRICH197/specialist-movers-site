@@ -451,4 +451,20 @@ export const blogPosts = [
     excerpt:
       "A three-person crew, a crane, and a commercial load bound for the third and fourth floors. Here is exactly how we planned and ran it.",
   },
+  {
+    slug: "removalists-auckland",
+    title: "What Auckland Removalists Actually Do (and How to Pick the Right One)",
+    seoTitle: "Auckland Removalists | Specialist Movers",
+    publishedDate: "2026-09-06",
+    excerpt:
+      "What removalists do in Auckland, how pricing works, what catches people out, and how to get a quote that covers the whole job. Plain advice, no fluff.",
+  },
+  {
+    slug: "storage-between-houses-auckland-settlement-gap",
+    title: "When Settlement Dates Don't Line Up: Storage and Two-Stage Moves in Auckland",
+    seoTitle: "Storage Between Houses Auckland | Specialist Movers",
+    publishedDate: "2026-09-06",
+    excerpt:
+      "Settlement dates rarely match perfectly in Auckland. Here's what to do with your furniture, how short-term storage works, and how a two-stage move is organised.",
+  },
 ] as const;
