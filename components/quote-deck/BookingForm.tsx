@@ -165,7 +165,6 @@ export function BookingForm({
     }
     return out;
   });
-  const [extrasOpen, setExtrasOpen] = useState(false);
   const chosenExtras = cleaningOptionalExtras.filter((x) => (extraQty[x.id] ?? 0) > 0);
 
   // Mirror the picks into the submitted field as readable text for the team.
@@ -391,21 +390,15 @@ export function BookingForm({
           </div>
           {showCleaningSameDay && (
             <div className="rounded-xl border border-brand-purple/15 bg-brand-canvas/50 px-4 py-3">
-              <button
-                type="button"
-                onClick={() => setExtrasOpen((v) => !v)}
-                className="flex w-full items-center justify-between gap-3 text-left text-sm font-semibold text-brand-purple"
-              >
-                <span>{extrasOpen ? "−" : "+"} Cleaning extras (optional)</span>
+              <div className="flex items-center justify-between gap-3 text-sm font-semibold text-brand-purple">
+                <span>Cleaning extras (optional)</span>
                 {chosenExtras.length ? (
                   <span className="text-xs font-normal text-brand-purple/70">
                     {chosenExtras.length} added
                   </span>
                 ) : null}
-              </button>
-              {extrasOpen ? (
-                <>
-                  <p className="mt-1 text-xs text-brand-purple/60">
+              </div>
+              <p className="mt-1 text-xs text-brand-purple/60">
                     All prices + GST. Quantities confirmed before the clean.
                   </p>
                   <ul className="mt-2 space-y-1.5">
@@ -455,9 +448,7 @@ export function BookingForm({
                         </li>
                       );
                     })}
-                  </ul>
-                </>
-              ) : null}
+              </ul>
             </div>
           )}
 

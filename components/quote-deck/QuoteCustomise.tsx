@@ -68,10 +68,9 @@ export function QuoteCustomise({
   const [cleaningOn, setCleaningOn] = useState(cleaningQuoted);
   const [packingOn, setPackingOn] = useState(packingQuoted);
   const [insuranceOn, setInsuranceOn] = useState(false);
-  // Cleaning extras: id -> quantity. Absent = not selected. Collapsed by default
-  // because the list is long and most people want none of it.
+  // Cleaning extras: id -> quantity. Absent = not selected. Shown as soon as
+  // cleaning is ticked, so the options are never a click away.
   const [extras, setExtras] = useState<Record<string, number>>({});
-  const [extrasOpen, setExtrasOpen] = useState(false);
   const [ownerRisk, setOwnerRisk] = useState(false);
   const [accepting, setAccepting] = useState(false);
   const [callState, setCallState] = useState<"idle" | "sending" | "done">("idle");
@@ -241,22 +240,14 @@ export function QuoteCustomise({
 
             {cleaningOn ? (
               <div className="ml-6 mt-2 rounded-xl bg-black/15 px-3 py-2.5">
-                <button
-                  type="button"
-                  onClick={() => setExtrasOpen((v) => !v)}
-                  className="flex w-full items-center justify-between gap-3 text-left text-[11px] font-semibold text-brand-yellow sm:text-xs"
-                >
-                  <span>
-                    {extrasOpen ? "−" : "+"} Add cleaning extras (optional)
-                  </span>
+                <div className="flex items-center justify-between gap-3 text-[11px] font-semibold text-brand-yellow sm:text-xs">
+                  <span>Cleaning extras (optional)</span>
                   {chosenExtras.length ? (
-                    <span className="text-white/70">{chosenExtras.length} added</span>
+                    <span className="font-normal text-white/70">{chosenExtras.length} added</span>
                   ) : null}
-                </button>
+                </div>
 
-                {extrasOpen ? (
-                  <>
-                    <p className="mt-1.5 text-[10px] text-white/50 sm:text-[11px]">
+                <p className="mt-1.5 text-[10px] text-white/50 sm:text-[11px]">
                       All prices + GST. Quantities confirmed before the clean.
                     </p>
                     <ul className="mt-2 space-y-1.5">
@@ -298,9 +289,7 @@ export function QuoteCustomise({
                           </li>
                         );
                       })}
-                    </ul>
-                  </>
-                ) : null}
+                </ul>
               </div>
             ) : null}
           </li>
