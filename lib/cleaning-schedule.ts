@@ -39,7 +39,6 @@ export const cleaningRooms: CleaningRoom[] = [
     items: [
       "Clean and scrub cabinets, cupboards, pantry, drawers and doors inside and outside",
       "Clean oven outside only (inside is extra)",
-      "Range hood extraction outside clean including the internal filter vent",
       "Scrub and clean cook stovetop",
       "Clean outside of dishwasher and other appliances staying in the property",
       "Clean and shine sink and polish taps",
@@ -107,30 +106,43 @@ export const cleaningRooms: CleaningRoom[] = [
   },
 ];
 
-export const cleaningOptionalExtras: string[] = [
-  "Clean inside window panes ($30 per story-level of the house)",
-  "Clean outside window panes ($40, one-story level only)",
-  "Ranch slider inside track clean ($35)",
-  "Clean inside all window tracks ($60)",
-  "Carpet shampoo (price on assessment)",
-  "Inside single-oven clean ($40)",
-  "Inside double-oven clean ($60)",
-  "Inside door, internal and filter dishwasher clean ($40)",
-  "Inside a fridge / freezer ($40)",
-  "Blind dusting / cleaning ($10 per set)",
-  "Ceilings spot clean ($20 per room)",
-  "Intensive garage or storage locker cleaning ($60)",
-  "Outdoor furniture or spa pool cover surface clean ($40)",
+export type CleaningExtra = {
+  id: string;
+  label: string;
+  /** Price excl. GST. */
+  priceExclGst: number;
+  /** When set, the price is per this unit and the customer picks a quantity. */
+  unit?: string;
+};
+
+export const cleaningOptionalExtras: CleaningExtra[] = [
+  { id: "window-panes-inside", label: "Clean inside window panes", priceExclGst: 30, unit: "per story-level" },
+  { id: "ranch-slider-track", label: "Ranch slider inside track clean", priceExclGst: 35 },
+  { id: "window-tracks", label: "Clean inside all window tracks", priceExclGst: 60 },
+  { id: "oven-single", label: "Inside single-oven clean", priceExclGst: 40 },
+  { id: "oven-double", label: "Inside double-oven clean", priceExclGst: 60 },
+  { id: "range-hood", label: "Range hood clean, including the internal filter vent", priceExclGst: 30 },
+  { id: "dishwasher", label: "Inside door, internal and filter dishwasher clean", priceExclGst: 40 },
+  { id: "fridge-freezer", label: "Inside a fridge / freezer", priceExclGst: 40 },
+  { id: "blinds", label: "Blind dusting / cleaning", priceExclGst: 10, unit: "per set" },
+  { id: "ceilings", label: "Ceilings spot clean", priceExclGst: 20, unit: "per room" },
+  { id: "garage-intensive", label: "Intensive garage or storage locker cleaning", priceExclGst: 60 },
 ];
+
+/** Display label with its price, e.g. "Inside a fridge / freezer ($40 + GST)". */
+export function cleaningExtraLabel(x: CleaningExtra): string {
+  const unit = x.unit ? ` ${x.unit}` : "";
+  return `${x.label} ($${x.priceExclGst}${unit} + GST)`;
+}
 
 export const cleaningExclusionsIntro =
   "The following are not included in our bond cleaning service:";
 
 export const cleaningExclusions: string[] = [
-  "Extensive external cleaning such as larger decks or lots of outdoor stairs",
+  "Exterior cleaning: outdoor window panes, outdoor furniture, spa pool covers, larger decks and lots of outdoor stairs are not part of the clean",
   "Baby / child safety latch or lock removal",
   "Removal of stickers or removable hooks",
-  "Carpet shampoo stains: our carpet shampoo does not include stain removal. The cleaner assesses stains during cleaning and quotes extra if significant. We cannot guarantee 100% stain removal; some stains may fade up to around 80%.",
+  "Carpet cleaning and carpet shampoo: we do not offer this service. Carpets are vacuumed as part of the clean, but shampoo and stain removal are a separate service by a carpet specialist.",
   "Outdoor council rubbish bin cleaning",
   "High-reach areas beyond the reach of a step ladder",
   "Full indoor or outdoor wall washing",

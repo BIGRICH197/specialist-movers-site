@@ -11,6 +11,7 @@ import {
   aucklandCallout,
   aucklandDayRates,
   aucklandFromHourly,
+  cleaningExtraRows,
   cleaningRows,
   fixedPriceRows,
   hamiltonCallouts,
@@ -369,6 +370,33 @@ export default function PricingPage() {
               {cleaningRows.map((row) => (
                 <tr key={row.label}>
                   <td className={td}>{row.label}</td>
+                  <td className={td}>
+                    <Money value={row.price} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </TableShell>
+          <h3 className="mt-8 font-heading text-lg text-brand-purple">Cleaning extras (optional)</h3>
+          <p className="mt-1 text-sm text-brand-purple/75">
+            Added to a clean on request. Quantities are confirmed before the clean.
+          </p>
+          <TableShell>
+            <thead>
+              <tr>
+                <th className={th}>Extra</th>
+                <th className={th}>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cleaningExtraRows.map((row) => (
+                <tr key={row.label}>
+                  <td className={td}>
+                    {row.label}
+                    {row.unit ? (
+                      <span className="text-brand-purple/60"> ({row.unit})</span>
+                    ) : null}
+                  </td>
                   <td className={td}>
                     <Money value={row.price} />
                   </td>

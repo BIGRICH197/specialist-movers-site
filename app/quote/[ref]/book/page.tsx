@@ -14,7 +14,7 @@ export default async function BookPage({
   searchParams,
 }: {
   params: { ref: string };
-  searchParams?: { clean?: string; pack?: string; ins?: string };
+  searchParams?: { clean?: string; pack?: string; ins?: string; extras?: string };
 }) {
   const stored = await getQuote(tokenFromRef(params.ref));
 
@@ -67,6 +67,7 @@ export default async function BookPage({
           : addOns.includes("cleaning")
             ? "Yes Cleaning"
             : "",
+    cleaningExtras: searchParams?.extras ?? "",
     packing:
       searchParams?.pack === "1"
         ? "Yes packing"

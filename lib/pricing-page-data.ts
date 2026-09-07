@@ -18,6 +18,7 @@ import {
   cleaningPropertyOptions,
   getCleaningBasePriceExclGst,
 } from "@/lib/cleaning-pricing";
+import { cleaningOptionalExtras } from "@/lib/cleaning-schedule";
 import {
   BEDROOM_CREW,
   CALLOUT_FEES,
@@ -203,6 +204,15 @@ export type CleaningRow = { label: string; price: Rate };
 export const cleaningRows: CleaningRow[] = cleaningPropertyOptions.map((o) => ({
   label: o.label,
   price: rate(getCleaningBasePriceExclGst(o.id) as number),
+}));
+
+/** Optional cleaning extras, published so the price list matches the booking form. */
+export type CleaningExtraRow = { label: string; unit?: string; price: Rate };
+
+export const cleaningExtraRows: CleaningExtraRow[] = cleaningOptionalExtras.map((x) => ({
+  label: x.label,
+  unit: x.unit,
+  price: rate(x.priceExclGst),
 }));
 
 export type PianoRow = { label: string; from: Rate };

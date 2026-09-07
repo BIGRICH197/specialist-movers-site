@@ -10,6 +10,7 @@ import {
 import { isDialable, PHONE_ERROR } from "@/lib/phone";
 import { BOOKED_BY_OPTIONS } from "@/lib/booked-by";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
+import { cleaningOptionalExtras } from "@/lib/cleaning-schedule";
 
 // Branded booking form — mirrors the JotForm "House move booking confirmation"
 // fields, prefilled from the quote. On submit it posts to /api/bookings, which
@@ -26,6 +27,8 @@ export type BookingPrefill = {
   howManyMovers?: string;
   typeOfMove?: string;
   cleaningBooked?: string;
+  /** Extras chosen on the quote, as "id" or "id:qty", comma separated. */
+  cleaningExtras?: string;
   packing?: string;
   /** Carried from the quote page's add-on ticks, not asked again here — the
    *  customer already answered insurance vs owner's risk before they could
@@ -100,6 +103,7 @@ export function BookingForm({
     cleaningBooked: prefill.cleaningBooked ?? "",
     cleaningSameDay: "",
     insurance: prefill.insurance ?? "",
+    cleaningExtras: "",
     packing: prefill.packing ?? "",
     unpacking: "",
     packingNotes: "",
@@ -148,6 +152,35 @@ export function BookingForm({
     setWhatPacking((p) => (p.includes(opt) ? p.filter((x) => x !== opt) : [...p, opt]));
 
   const showCleaningSameDay = f.cleaningBooked === "Yes Cleaning";
+
+  // Cleaning extras, seeded from the quote page ("id" or "id:qty" ids) so a
+  // choice made there is not lost, and editable here for direct bookings.
+  const [extraQty, setExtraQty] = useState<Record<string, number>>(() => {
+    const out: Record<string, number> = {};
+    for (const part of (prefill.cleaningExtras ?? "").split(",")) {
+      const [id, qty] = part.trim().split(":");
+      if (id && cleaningOptionalExtras.some((x) => x.id === id)) {
+        out[id] = Math.max(1, Number(qty) || 1);
+      }
+    }
+    return out;
+  });
+  const [extrasOpen, setExtrasOpen] = useState(false);
+  const chosenExtras = cleaningOptionalExtras.filter((x) => (extraQty[x.id] ?? 0) > 0);
+
+  // Mirror the picks into the submitted field as readable text for the team.
+  useEffect(() => {
+    const text = showCleaningSameDay
+      ? chosenExtras
+          .map((x) => {
+            const q = extraQty[x.id];
+            return q > 1 ? `${x.label} x${q}` : x.label;
+          })
+          .join(", ")
+      : "";
+    set("cleaningExtras", text);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [extraQty, showCleaningSameDay]);
   const showPackingDetail = f.packing === "Yes packing";
 
   // Every question is compulsory. Returns the labels of anything left blank so
@@ -356,6 +389,78 @@ export function BookingForm({
               {CLEANING_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
             </select>
           </div>
+          {showCleaningSameDay && (
+            <div className="rounded-xl border border-brand-purple/15 bg-brand-canvas/50 px-4 py-3">
+              <button
+                type="button"
+                onClick={() => setExtrasOpen((v) => !v)}
+                className="flex w-full items-center justify-between gap-3 text-left text-sm font-semibold text-brand-purple"
+              >
+                <span>{extrasOpen ? "−" : "+"} Cleaning extras (optional)</span>
+                {chosenExtras.length ? (
+                  <span className="text-xs font-normal text-brand-purple/70">
+                    {chosenExtras.length} added
+                  </span>
+                ) : null}
+              </button>
+              {extrasOpen ? (
+                <>
+                  <p className="mt-1 text-xs text-brand-purple/60">
+                    All prices + GST. Quantities confirmed before the clean.
+                  </p>
+                  <ul className="mt-2 space-y-1.5">
+                    {cleaningOptionalExtras.map((x) => {
+                      const qty = extraQty[x.id] ?? 0;
+                      const on = qty > 0;
+                      return (
+                        <li key={x.id} className="flex items-center gap-2 text-sm text-brand-purple">
+                          <label className="flex flex-1 cursor-pointer items-center gap-2">
+                            <input
+                              type="checkbox"
+                              checked={on}
+                              onChange={() =>
+                                setExtraQty((prev) => {
+                                  const next = { ...prev };
+                                  if (next[x.id]) delete next[x.id];
+                                  else next[x.id] = 1;
+                                  return next;
+                                })
+                              }
+                              className="h-4 w-4 accent-brand-purple"
+                            />
+                            <span className={on ? "" : "text-brand-purple/75"}>
+                              {x.label}
+                              {x.unit ? (
+                                <span className="text-brand-purple/50"> ({x.unit})</span>
+                              ) : null}
+                            </span>
+                          </label>
+                          {on && x.unit ? (
+                            <select
+                              value={qty}
+                              onChange={(e) =>
+                                setExtraQty((prev) => ({ ...prev, [x.id]: Number(e.target.value) }))
+                              }
+                              className="h-7 rounded border border-brand-purple/20 bg-white px-1 text-xs"
+                              aria-label={`Quantity, ${x.label}`}
+                            >
+                              {[1, 2, 3, 4].map((n) => (
+                                <option key={n} value={n}>{n}</option>
+                              ))}
+                            </select>
+                          ) : null}
+                          <span className="whitespace-nowrap text-brand-purple/80">
+                            ${x.priceExclGst}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </>
+              ) : null}
+            </div>
+          )}
+
           {showCleaningSameDay && (
             <div>
               <label className={labelCls}>Cleaning same day as moving?</label>

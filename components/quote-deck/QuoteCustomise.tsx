@@ -10,6 +10,10 @@ import {
   type HouseMoveQuote,
 } from "@/lib/quote-deck/house-move-quote";
 import { QuoteTable } from "@/components/quote-deck/house-move/QuoteTable";
+import {
+  cleaningOptionalExtras,
+  type CleaningExtra,
+} from "@/lib/cleaning-schedule";
 
 // Interactive add-ons + accept flow around a hosted quote. The add-ons live in a
 // purple panel ABOVE the quote (tick cleaning/packing/insurance). The quote table
@@ -64,6 +68,10 @@ export function QuoteCustomise({
   const [cleaningOn, setCleaningOn] = useState(cleaningQuoted);
   const [packingOn, setPackingOn] = useState(packingQuoted);
   const [insuranceOn, setInsuranceOn] = useState(false);
+  // Cleaning extras: id -> quantity. Absent = not selected. Collapsed by default
+  // because the list is long and most people want none of it.
+  const [extras, setExtras] = useState<Record<string, number>>({});
+  const [extrasOpen, setExtrasOpen] = useState(false);
   const [ownerRisk, setOwnerRisk] = useState(false);
   const [accepting, setAccepting] = useState(false);
   const [callState, setCallState] = useState<"idle" | "sending" | "done">("idle");
@@ -76,6 +84,26 @@ export function QuoteCustomise({
   // Either way the subtotal, GST and total recalculate from the rows shown, so
   // the breakdown can never disagree with the "Your total" below it.
   const exGst = (incl: number) => Math.round((incl / 1.15) * 100) / 100;
+
+  // Extras only ever count while cleaning itself is on.
+  const chosenExtras: { extra: CleaningExtra; qty: number }[] = cleaningOn
+    ? cleaningOptionalExtras
+        .filter((x) => (extras[x.id] ?? 0) > 0)
+        .map((x) => ({ extra: x, qty: extras[x.id] }))
+    : [];
+
+  function toggleExtra(x: CleaningExtra) {
+    setExtras((prev) => {
+      const next = { ...prev };
+      if (next[x.id]) delete next[x.id];
+      else next[x.id] = 1;
+      return next;
+    });
+  }
+
+  function setExtraQty(x: CleaningExtra, qty: number) {
+    setExtras((prev) => ({ ...prev, [x.id]: qty }));
+  }
 
   const displayQuote: HouseMoveQuote = (() => {
     let lineItems = quote.lineItems.filter((item) => {
@@ -94,6 +122,21 @@ export function QuoteCustomise({
           ...(quoteHasSections(quote) ? { section: "Cleaning" } : {}),
           ...(quote.quoteTable === "xero"
             ? { quantity: 1, unitPriceExclGst: exGst(cleaningPriceInclGst!) }
+            : {}),
+        },
+      ];
+    }
+
+    for (const { extra, qty } of chosenExtras) {
+      const amount = Math.round(extra.priceExclGst * qty * 100) / 100;
+      lineItems = [
+        ...lineItems,
+        {
+          description: qty > 1 ? `${extra.label} x${qty}` : extra.label,
+          amountExclGst: amount,
+          ...(quoteHasSections(quote) ? { section: "Cleaning" } : {}),
+          ...(quote.quoteTable === "xero"
+            ? { quantity: qty, unitPriceExclGst: extra.priceExclGst }
             : {}),
         },
       ];
@@ -122,6 +165,9 @@ export function QuoteCustomise({
             insurance: insuranceOn,
             cleaningPriced: cleaningHasPrice,
           },
+          cleaningExtras: chosenExtras.map(({ extra, qty }) =>
+            qty > 1 ? `${extra.label} x${qty}` : extra.label,
+          ),
         }),
       });
     } catch {
@@ -131,6 +177,13 @@ export function QuoteCustomise({
       clean: cleaningOn ? "1" : "0",
       pack: packingOn ? "1" : "0",
       ins: insuranceOn ? "1" : "0",
+      ...(chosenExtras.length
+        ? {
+            extras: chosenExtras
+              .map(({ extra, qty }) => (qty > 1 ? `${extra.id}:${qty}` : extra.id))
+              .join(","),
+          }
+        : {}),
     }).toString();
     router.push(`/quote/${quoteRef}/book?${qs}`);
   }
@@ -185,6 +238,71 @@ export function QuoteCustomise({
                 </span>
               </span>
             </label>
+
+            {cleaningOn ? (
+              <div className="ml-6 mt-2 rounded-xl bg-black/15 px-3 py-2.5">
+                <button
+                  type="button"
+                  onClick={() => setExtrasOpen((v) => !v)}
+                  className="flex w-full items-center justify-between gap-3 text-left text-[11px] font-semibold text-brand-yellow sm:text-xs"
+                >
+                  <span>
+                    {extrasOpen ? "−" : "+"} Add cleaning extras (optional)
+                  </span>
+                  {chosenExtras.length ? (
+                    <span className="text-white/70">{chosenExtras.length} added</span>
+                  ) : null}
+                </button>
+
+                {extrasOpen ? (
+                  <>
+                    <p className="mt-1.5 text-[10px] text-white/50 sm:text-[11px]">
+                      All prices + GST. Quantities confirmed before the clean.
+                    </p>
+                    <ul className="mt-2 space-y-1.5">
+                      {cleaningOptionalExtras.map((x) => {
+                        const qty = extras[x.id] ?? 0;
+                        const on = qty > 0;
+                        return (
+                          <li key={x.id} className="flex items-center gap-2 text-[11px] sm:text-xs">
+                            <button
+                              type="button"
+                              onClick={() => toggleExtra(x)}
+                              className="flex flex-1 items-center gap-2 text-left"
+                            >
+                              <Tick on={on} />
+                              <span className={on ? "flex-1 text-white" : "flex-1 text-white/75"}>
+                                {x.label}
+                                {x.unit ? (
+                                  <span className="text-white/45"> ({x.unit})</span>
+                                ) : null}
+                              </span>
+                            </button>
+                            {on && x.unit ? (
+                              <select
+                                value={qty}
+                                onChange={(e) => setExtraQty(x, Number(e.target.value))}
+                                className="h-6 rounded border border-white/25 bg-white/10 px-1 text-[11px] text-white"
+                                aria-label={`Quantity, ${x.label}`}
+                              >
+                                {[1, 2, 3, 4].map((n) => (
+                                  <option key={n} value={n} className="text-brand-purple">
+                                    {n}
+                                  </option>
+                                ))}
+                              </select>
+                            ) : null}
+                            <span className={on ? "text-white" : "text-white/75"}>
+                              ${x.priceExclGst}
+                            </span>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </>
+                ) : null}
+              </div>
+            ) : null}
           </li>
 
           <li>

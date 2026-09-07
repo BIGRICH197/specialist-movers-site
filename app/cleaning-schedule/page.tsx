@@ -3,6 +3,7 @@ import {
   cleaningAgreementNote,
   cleaningRooms,
   cleaningOptionalExtras,
+  cleaningExtraLabel,
   cleaningExclusionsIntro,
   cleaningExclusions,
 } from "@/lib/cleaning-schedule";
@@ -78,9 +79,9 @@ export default function CleaningSchedulePage() {
           </p>
           <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
             {cleaningOptionalExtras.map((x) => (
-              <li key={x} className="flex items-start gap-2.5 text-sm text-brand-purple/85">
+              <li key={x.id} className="flex items-start gap-2.5 text-sm text-brand-purple/85">
                 <span className="mt-0.5 select-none text-brand-purple" aria-hidden>+</span>
-                <span>{x}</span>
+                <span>{cleaningExtraLabel(x)}</span>
               </li>
             ))}
           </ul>

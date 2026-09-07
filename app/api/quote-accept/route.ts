@@ -25,10 +25,16 @@ type AddOns = {
 export async function POST(request: Request) {
   let ref = "";
   let addOns: AddOns = {};
+  let cleaningExtras: string[] = [];
   try {
-    const body = (await request.json()) as { ref?: string; addOns?: AddOns };
+    const body = (await request.json()) as {
+      ref?: string;
+      addOns?: AddOns;
+      cleaningExtras?: string[];
+    };
     ref = body.ref ?? "";
     addOns = body.addOns ?? {};
+    cleaningExtras = Array.isArray(body.cleaningExtras) ? body.cleaningExtras : [];
   } catch {
     /* ignore */
   }
@@ -63,11 +69,17 @@ export async function POST(request: Request) {
     ? ":rotating_light: *Insurance requested* — send them cover options"
     : "Insurance: no (owner's risk)";
   const addOnLine = [cleaningLine, packingLine, insuranceLine].join("  |  ");
+  // Extras are chargeable work the crew needs on the job sheet, so give them
+  // their own line rather than burying them in the add-on summary.
+  const extrasLine = cleaningExtras.length
+    ? `
+:heavy_plus_sign: Cleaning extras: ${cleaningExtras.join(", ")}`
+    : "";
 
   await pingQuotes(
     `:white_check_mark: *${stored.quote.clientName}* accepted their quote ` +
       `(${stored.quoteType || "move"}, ${total} incl GST) and is filling out the booking form.\n` +
-      `${addOnLine}\n` +
+      `${addOnLine}${extrasLine}\n` +
       quoteUrl(stored.slug, stored.token),
   );
 
