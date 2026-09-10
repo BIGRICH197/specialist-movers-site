@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import { AddressAutocomplete } from "@/components/AddressAutocomplete";
 import { getAttribution } from "@/lib/attribution";
+import { isDialable, PHONE_ERROR } from "@/lib/phone";
+import { isEmailish, EMAIL_ERROR } from "@/lib/email";
 import {
   bathroomsForBedrooms,
   propertySizeFromRooms,
@@ -106,8 +108,20 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
   }
 
   async function submitQuote() {
-    if (!form.name.trim() || !form.phone.trim()) {
-      set("error", "Please enter your name and phone number.");
+    // Email required as of 2026-09-11 (Richard), and both contact details
+    // validated here rather than only on the server: this was the last form on
+    // the site that could produce a lead nobody can write to, and every
+    // automated follow-up we send goes out by email.
+    if (!form.name.trim() || !form.phone.trim() || !form.email.trim()) {
+      set("error", "Please enter your name, phone number and email.");
+      return;
+    }
+    if (!isDialable(form.phone)) {
+      set("error", PHONE_ERROR);
+      return;
+    }
+    if (!isEmailish(form.email)) {
+      set("error", EMAIL_ERROR);
       return;
     }
     if (!form.propertyAddress.trim()) {
@@ -284,9 +298,10 @@ export function CleaningBookingForm({ className = "" }: { className?: string }) 
           </div>
           <div className="space-y-1.5">
             <label htmlFor={fieldId("clean-email")} className={label}>
-              Email (optional)
+              Email
             </label>
             <input id={fieldId("clean-email")}
+              required
               type="email"
               value={form.email}
               onChange={(e) => set("email", e.target.value)}

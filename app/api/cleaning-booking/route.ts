@@ -38,16 +38,21 @@ const cleaningTypeOptions: Record<string, string> = {
 export async function POST(request: Request) {
   const body = (await request.json()) as CleaningBookingBody;
 
-  if (!body.name?.trim() || !body.phone?.trim() || !body.propertyAddress?.trim()) {
+  // Email required as of 2026-09-11 (Richard). This was the last door on the
+  // site a lead could come through with no email address, and every automated
+  // follow-up goes out by email, so one of those waits for a person to ring it
+  // and nothing says whether the ringing happened.
+  if (!body.name?.trim() || !body.phone?.trim() || !body.email?.trim()
+      || !body.propertyAddress?.trim()) {
     return NextResponse.json(
-      { ok: false, error: "Name, phone, and property address are required" },
+      { ok: false, error: "Name, phone, email, and property address are required" },
       { status: 400 },
     );
   }
   if (!isDialable(body.phone)) {
     return NextResponse.json({ ok: false, error: PHONE_ERROR }, { status: 400 });
   }
-  if (body.email?.trim() && !isEmailish(body.email)) {
+  if (!isEmailish(body.email)) {
     return NextResponse.json({ ok: false, error: EMAIL_ERROR }, { status: 400 });
   }
 
