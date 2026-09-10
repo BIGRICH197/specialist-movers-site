@@ -21,7 +21,7 @@ export const generalServiceFaqs: readonly FaqItem[] = [
   },
   {
     q: "Do you provide packing services?",
-    a: "Yes. Packers come the day before, priced by bedroom count from $1,599 plus GST for a one-bedroom home, with cartons, paper and wrap supplied. Most people have us do the kitchen and the fragile things and handle the rest themselves, which is cheaper and works fine.",
+    a: "Yes. Packers come the day before, priced by bedroom count from $1,700 plus GST for a one-bedroom home, with cartons, paper and wrap supplied. Most people have us do the kitchen and the fragile things and handle the rest themselves, which is cheaper and works fine.",
   },
   {
     q: "How do you protect furniture during the move?",
@@ -191,7 +191,7 @@ export const uprightPianoFaqs: readonly FaqItem[] = [
 export const packingServiceFaqs: readonly FaqItem[] = [
   {
     q: "How much does professional packing cost?",
-    a: "Packing is a fixed price by bedroom count, from $1,599 excl. GST for a 1-bedroom home. The crew packs the day before your move with cartons and wrap supplied.",
+    a: "Packing is a fixed price by bedroom count, from $1,700 excl. GST for a 1-bedroom home. The crew packs the day before your move with cartons and wrap supplied.",
   },
   {
     q: "What is included in your packing service?",

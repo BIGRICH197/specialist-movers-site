@@ -76,7 +76,7 @@ export function GET() {
       "  Three-bedroom house, Friday, 2 crew, ~4 hours: about $660 plus GST.",
       "",
       "Piano: uprights from $290 plus GST locally, grands from $550 plus GST.",
-      "Packing: from $1,599 plus GST for a one-bedroom home, packers come the day before.",
+      "Packing: from $1,700 plus GST for a one-bedroom home, packers come the day before.",
       "Load-only or unload-only: from about $350 plus GST.",
       "Small office (up to ~10 staff): often from about $800 plus GST.",
     ]),

@@ -82,7 +82,7 @@ export const faqs: readonly Faq[] = [
   },
   {
     q: "Do you provide packing services?",
-    a: "Yes. Our packers come in the day before your move, and the price is set by bedroom count, starting at $1,599 plus GST for a one-bedroom home. Cartons, wrap, and tape are supplied. We can pack the whole house or just the kitchen and the fragile things, which is what most people actually want.",
+    a: "Yes. Our packers come in the day before your move, and the price is set by bedroom count, starting at $1,700 plus GST for a one-bedroom home. Cartons, wrap, and tape are supplied. We can pack the whole house or just the kitchen and the fragile things, which is what most people actually want.",
   },
   {
     q: "Do you supply boxes?",

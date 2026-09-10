@@ -7,7 +7,7 @@ export const serviceSeoIntroBySlug: Record<string, string> = {
   "house-moving":
     "Movers across Auckland and the Waikato, from $120 per hour plus GST for a two-person crew and truck on a Tuesday. Furniture, appliances and everything in the house, moved by crews who do around 80 house and office moves a month.",
   "packing-services":
-    "Professional packing across Auckland and the Waikato, fixed from $1,599 excl. GST for a 1-bedroom home. Our SiteWise Gold certified crew packs the day before your move with cartons and wrap supplied.",
+    "Professional packing across Auckland and the Waikato, fixed from $1,700 excl. GST for a 1-bedroom home. Our SiteWise Gold certified crew packs the day before your move with cartons and wrap supplied.",
   "international-moving":
     "International and inter-island moves from Auckland and Hamilton, quoted in writing before we pack or ship. Licensed crews with 60+ years combined experience coordinate North Island, South Island, and overseas relocations.",
   "loading-unloading":

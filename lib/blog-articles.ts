@@ -175,7 +175,7 @@ export const blogArticles: Record<string, BlogArticle> = {
         heading: "What we charge to pack it for you",
         paragraphs: [
           "Three packers, labour and all materials, the day before your move:",
-          "One bedroom $1,599 plus GST. Two bedrooms $1,770. Three bedrooms $1,962. Four bedrooms $2,486.",
+          "One bedroom $1,700 plus GST. Two bedrooms $1,986. Three bedrooms $2,192. Four bedrooms $2,758.",
           "That is the whole house, boxed and labelled by room, ready to load. Nothing left to do the night before except make the bed you are about to take apart.",
         ],
       },
@@ -300,7 +300,7 @@ export const blogArticles: Record<string, BlogArticle> = {
       {
         heading: "Packing and cleaning, if you want the full service",
         paragraphs: [
-          "Professional packing is priced by house size, with three packers, all materials included, done the day before your move: $1,599 plus GST for a one-bedroom, $1,770 for two bedrooms, $1,962 for three, and $2,486 for four. Partial packing, like just the kitchen, is priced by the room and costs a lot less.",
+          "Professional packing is priced by house size, with three packers, all materials included, done the day before your move: $1,700 plus GST for a one-bedroom, $1,986 for two bedrooms, $2,192 for three, and $2,758 for four. Partial packing, like just the kitchen, is priced by the room and costs a lot less.",
           "Move-out cleaning starts at $280 plus GST for a one-bedroom, one-bathroom home and scales with beds and bathrooms, up to $730 for a five-bedroom. If you're leaving a rental, this is usually cheaper than losing part of your bond.",
         ],
       },

@@ -197,10 +197,10 @@ export const GST_MULTIPLIER = 1.15;
 // to pack bills more, never less. Mirrors pricing.py PACKING_PRICE in the
 // automation repo (Joey's quote floor + Margret's billing floor) — change both.
 export const PACKING_PRICES: Record<Bedrooms, number> = {
-  1: 1599,
-  2: 1770,
-  3: 1962,
-  4: 2486,
+  1: 1700,
+  2: 1986,
+  3: 2192,
+  4: 2758,
 };
 
 // ── Cleaning prices by bedroom (excl GST) ──
