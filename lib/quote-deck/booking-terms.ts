@@ -134,9 +134,10 @@ export const bookingTerms: BookingTermsSection[] = [
       "The promise assumes the job we quoted is the job we arrive to. It does not apply to time added by any of the following:",
     ],
     bullets: [
+      "Settlement delays — settlement not confirming or being pushed out, funds not cleared, keys not released, or a handover not happening when it was meant to. Settlement is between you, your lawyer and the other party; we cannot move it, and the time we spend waiting on it is yours.",
       "Information given to us at quote time being wrong or incomplete — more to move than described, items not mentioned, or stairs, access or parking we were not told about.",
       "The job changing after the quote — a different or additional address, a changed date, extra goods, or a service added on the day.",
-      "Us being kept waiting — settlement not confirming, keys not released, a handover not happening, or the home not ready to load.",
+      "The home not being ready to load when we arrive — packing unfinished, rooms not cleared, or the previous occupant still in.",
       "Access not being available when we arrive — a lift or loading dock booked by someone else, a locked building or gate, or a landlord or body-corporate approval still outstanding.",
       "A third party delaying us — another trade still on site, or anyone acting on your behalf.",
       "Conditions outside our reasonable control — weather, traffic, road closures, or an accident en route.",
@@ -150,7 +151,7 @@ export const bookingTerms: BookingTermsSection[] = [
     heading: "Delays",
     paragraphs: [
       "All work is carried out on a best-endeavours basis. Whilst we try our best to make it on time to every booking and delivery, we sometimes have delays outside our control caused by factors such as heavy traffic. To the extent permitted by law, Specialist Movers is not liable for personal or business losses arising from delays, whether directly or indirectly.",
-      "Where a delay outside our reasonable control extends the job — settlement not confirming, keys not released, a lift or access unavailable, or the property not ready — the additional time is charged at the rate on your quote and sits outside the Price cap promise above.",
+      "Where a delay outside our reasonable control extends the job — most commonly a settlement delay, but also keys not released, a lift or access unavailable, or the property not ready — the additional time is charged at the rate on your quote and sits outside the Price cap promise above.",
     ],
   },
   {

@@ -626,14 +626,15 @@ export default function PricingPage() {
               and the price cap promise may not apply.
             </li>
             <li>
-              The price cap covers our crew&rsquo;s working time, not time spent waiting. If settlement
-              has not confirmed, keys are not released, a lift or access is unavailable, or the home is
-              not ready to load, that time is charged at the rate on your quote and does not count
-              towards the two hours. The cap is there so that our own underestimate is our problem
-              rather than yours; it is not cover for a delay neither of us caused. The same applies
-              if what we were told at quote time turns out to be wrong, or the job changes after we
-              quote it. Full wording, including every exclusion, is in the Price cap promise clause of
-              our{" "}
+              The price cap covers our crew&rsquo;s working time, not time spent waiting. The most
+              common reason a move waits is a <strong>settlement delay</strong> &mdash; settlement not
+              confirming, funds not cleared, or keys not released. Settlement sits between you, your
+              lawyer and the other party, so that time is charged at the rate on your quote and does
+              not count towards the two hours. The same applies if a lift or access is unavailable,
+              the home is not ready to load, what we were told at quote time turns out to be wrong,
+              or the job changes after we quote it. The cap is there so that our own underestimate is
+              our problem rather than yours; it is not cover for a delay neither of us caused. Full
+              wording, including every exclusion, is in the Price cap promise clause of our{" "}
               <Link
                 href="/policies"
                 className="font-semibold text-brand-purple underline"
