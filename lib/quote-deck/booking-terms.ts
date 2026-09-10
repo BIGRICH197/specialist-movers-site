@@ -128,9 +128,29 @@ export const bookingTerms: BookingTermsSection[] = [
     ],
   },
   {
+    heading: "Price cap promise",
+    paragraphs: [
+      "Where your quote gives an estimate of hours and the job runs more than 2 hours over that estimate, the extra time is free. The most an hourly move will bill is the quoted hours plus two, at the rate on your quote. The cap covers our crew’s working time only — materials, the call-out fee, the fuel surcharge and any additional service added on the day are charged as they are used.",
+      "The promise assumes the job we quoted is the job we arrive to. It does not apply to time added by any of the following:",
+    ],
+    bullets: [
+      "Information given to us at quote time being wrong or incomplete — more to move than described, items not mentioned, or stairs, access or parking we were not told about.",
+      "The job changing after the quote — a different or additional address, a changed date, extra goods, or a service added on the day.",
+      "Us being kept waiting — settlement not confirming, keys not released, a handover not happening, or the home not ready to load.",
+      "Access not being available when we arrive — a lift or loading dock booked by someone else, a locked building or gate, or a landlord or body-corporate approval still outstanding.",
+      "A third party delaying us — another trade still on site, or anyone acting on your behalf.",
+      "Conditions outside our reasonable control — weather, traffic, road closures, or an accident en route.",
+    ],
+    tail: [
+      "In those cases the hours reflect the actual job and are charged at the rate on your quote. Time we spend waiting is chargeable and does not count towards the two hours. The cap exists so that our own underestimate is our problem rather than yours; it is not cover for a delay neither of us caused.",
+      "The cap applies to the estimate on your current written quote. If the job changes and we re-quote, the new estimate replaces the old one. We may vary or withdraw this promise for new bookings at any time; a booking already confirmed keeps the promise it was booked under.",
+    ],
+  },
+  {
     heading: "Delays",
     paragraphs: [
       "All work is carried out on a best-endeavours basis. Whilst we try our best to make it on time to every booking and delivery, we sometimes have delays outside our control caused by factors such as heavy traffic. To the extent permitted by law, Specialist Movers is not liable for personal or business losses arising from delays, whether directly or indirectly.",
+      "Where a delay outside our reasonable control extends the job — settlement not confirming, keys not released, a lift or access unavailable, or the property not ready — the additional time is charged at the rate on your quote and sits outside the Price cap promise above.",
     ],
   },
   {

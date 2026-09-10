@@ -625,6 +625,23 @@ export default function PricingPage() {
               is materially different from what we were told, the hours will reflect the actual job,
               and the price cap promise may not apply.
             </li>
+            <li>
+              The price cap covers our crew&rsquo;s working time, not time spent waiting. If settlement
+              has not confirmed, keys are not released, a lift or access is unavailable, or the home is
+              not ready to load, that time is charged at the rate on your quote and does not count
+              towards the two hours. The cap is there so that our own underestimate is our problem
+              rather than yours; it is not cover for a delay neither of us caused. The same applies
+              if what we were told at quote time turns out to be wrong, or the job changes after we
+              quote it. Full wording, including every exclusion, is in the Price cap promise clause of
+              our{" "}
+              <Link
+                href="/policies"
+                className="font-semibold text-brand-purple underline"
+              >
+                moving terms
+              </Link>
+              .
+            </li>
           </ul>
         </section>
 
