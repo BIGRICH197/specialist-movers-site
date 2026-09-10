@@ -29,6 +29,7 @@ const staticRoutes = [
   "/blog",
   "/contact",
   "/policies",
+  "/promotions",
   "/locations",
   "/apartment-movers-auckland",
   "/furniture-movers-auckland",

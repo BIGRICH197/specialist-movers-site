@@ -338,6 +338,15 @@ export default function PricingPage() {
             cleaning is different: a fixed price from the start, set by bedrooms and bathrooms, and
             you can book it off the table below.
           </p>
+          <p className="mt-3 rounded-xl border border-brand-purple/15 bg-brand-purple/[0.03] p-4 text-sm leading-relaxed text-brand-purple/85">
+            <strong className="text-brand-purple">Current promotion:</strong> book a full house pack
+            with your move and the exit clean on your old home is free. The quoted packing price is
+            the minimum charge for the pack.{" "}
+            <Link href="/promotions" className="font-semibold text-brand-purple underline">
+              Offer terms and what counts as a full pack
+            </Link>
+            .
+          </p>
           <TableShell>
             <thead>
               <tr>

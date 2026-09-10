@@ -489,6 +489,15 @@ export function BookingForm({
                     </label>
                   ))}
                 </div>
+                {whatPacking.includes("Whole house") && (
+                  <p className="mt-3 rounded-lg border border-brand-purple/15 bg-brand-purple/[0.03] p-3 text-xs leading-relaxed text-brand-purple/75">
+                    Full pack: our packers pack every room and we supply all the boxes and materials.
+                    The packing price on your quote is the minimum charge for the pack.{" "}
+                    <a href="/promotions" target="_blank" rel="noreferrer" className="font-semibold text-brand-purple underline">
+                      Offer terms
+                    </a>
+                  </p>
+                )}
               </div>
               <div className="sm:col-span-2">
                 <label className={labelCls}>Any notes for packing?</label>
