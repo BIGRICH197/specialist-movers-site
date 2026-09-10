@@ -246,5 +246,10 @@ export const PIANO_SURCHARGES: Record<string, number> = {
 };
 
 // ── Piano stairs surcharge (excl GST, per flight) ──
-export const PIANO_STAIRS_PER_FLIGHT = 80;
+// $100 per set of more than 3 steps, either end, universal across retail,
+// trade and venue -- brain/context/pricing.md is the source. This said 80
+// until 2026-09-10 while HAMILTON_PIANO_STAIRS_PER_FLIGHT below already said
+// 100 and pricing.py charged 100, so the Auckland number was simply stale and
+// every Auckland piano quote with stairs went out $20 a flight light.
+export const PIANO_STAIRS_PER_FLIGHT = 100;
 
