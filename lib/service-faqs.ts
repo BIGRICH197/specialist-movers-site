@@ -191,7 +191,7 @@ export const uprightPianoFaqs: readonly FaqItem[] = [
 export const packingServiceFaqs: readonly FaqItem[] = [
   {
     q: "How much does professional packing cost?",
-    a: "Packing is a fixed price by bedroom count, from $1,700 excl. GST for a 1-bedroom home. The crew packs the day before your move with cartons and wrap supplied.",
+    a: "A full house pack is priced by bedroom count, from $1,700 excl. GST for a 1-bedroom home. That is the minimum for a full pack; more to pack bills more, never less. The crew packs the day before your move with cartons and wrap supplied.",
   },
   {
     q: "What is included in your packing service?",
