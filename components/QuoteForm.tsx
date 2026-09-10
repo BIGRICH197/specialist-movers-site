@@ -188,8 +188,17 @@ export function QuoteForm({
   const goStep = (n: number) => setStep(n);
 
   async function submitCallback() {
-    if (!f.name.trim() || !f.phone.trim()) {
-      set("error", "Please enter your name and phone number.");
+    if (!f.name.trim() || !f.email.trim() || !f.phone.trim()) {
+      set("error", "Please enter your name, email and phone number.");
+      return;
+    }
+    // Email is required here as of 2026-09-10 (Richard). A callback used to
+    // take a phone number alone, and five of them were sitting in New with
+    // no way to write to the customer at all: every automated follow-up we
+    // have goes out by email, so a phone-only lead gets nothing until
+    // somebody rings it.
+    if (!isEmailish(f.email)) {
+      set("error", EMAIL_ERROR);
       return;
     }
     if (!isDialable(f.phone)) {
@@ -396,6 +405,18 @@ export function QuoteForm({
               className={field}
             />
             <input
+              id={fieldId("callback-email")}
+              name="email"
+              aria-label="Email address"
+              autoComplete="email"
+              placeholder="Email address"
+              type="email"
+              inputMode="email"
+              value={f.email}
+              onChange={(e) => set("email", e.target.value)}
+              className={field}
+            />
+            <input
               id={fieldId("callback-phone")}
               name="phone"
               aria-label="Phone number"
@@ -519,6 +540,18 @@ export function QuoteForm({
                 placeholder="Your name"
                 value={f.name}
                 onChange={(e) => set("name", e.target.value)}
+                className={field}
+              />
+              <input
+                id={fieldId("rush-callback-email")}
+                name="email"
+                aria-label="Email address"
+                autoComplete="email"
+                placeholder="Email address"
+                type="email"
+                inputMode="email"
+                value={f.email}
+                onChange={(e) => set("email", e.target.value)}
                 className={field}
               />
               <input

@@ -121,13 +121,16 @@ const tools: Anthropic.Tool[] = [
       type: "object" as const,
       properties: {
         name: { type: "string", description: "Customer's full name" },
-        phone: {
-          type: "string",
-          description: "Phone number (optional if you have an email instead)",
-        },
         email: {
           type: "string",
-          description: "Email address (optional if you have a phone number instead)",
+          description:
+            "Email address. Ask for this FIRST, before the phone number: the team's "
+            + "automated follow-up only goes out by email, so a lead with a phone number "
+            + "alone waits for somebody to ring it.",
+        },
+        phone: {
+          type: "string",
+          description: "Phone number. Ask for this after the email, and get both.",
         },
         serviceType: { type: "string", description: "Type of service they're interested in" },
         pickupAddress: { type: "string", description: "Pickup address if known" },
@@ -137,7 +140,10 @@ const tools: Anthropic.Tool[] = [
       // Only the name is structurally required — a lead with just an email is
       // still a lead, and the team can work either contact route. The tool
       // itself rejects a save with neither a dialable phone nor a valid email,
-      // so collect at least one before calling.
+      // so collect at least one before calling. Deliberately NOT tightened to
+      // require the email (Richard, 2026-09-10): ask for it first and ask twice,
+      // but never lose a lead because someone would not type one in. The prompt
+      // carries the order; six phone-only chat leads in a week is what prompted it.
       required: ["name", "serviceType"],
     },
   },
