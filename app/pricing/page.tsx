@@ -113,7 +113,7 @@ const faqs = [
   },
   {
     q: "How much does packing cost?",
-    a: `A typical full pack works out around $${fixedPriceRows[0].packing.incl.toLocaleString("en-NZ")} incl GST for a one-bedroom home and around $${fixedPriceRows[3].packing.incl.toLocaleString("en-NZ")} for four bedrooms or more, but packing is an estimate rather than a fixed price. It depends entirely on how much there is to pack, and yours could be less. We confirm the estimate with a free viewing (or from photos if a viewing does not suit) and bill the hours actually worked on the day. Our price cap promise protects you either way: if the job runs more than 2 hours over the quoted estimate, the extra time is free. Exit cleaning is different: it is a fixed price from the start, $${cleaningRows[0].price.incl} to $${cleaningRows[cleaningRows.length - 1].price.incl} incl GST by bedrooms and bathrooms.`,
+    a: `A full house pack starts at $${fixedPriceRows[0].packing.incl.toLocaleString("en-NZ")} incl GST for a one-bedroom home and $${fixedPriceRows[3].packing.incl.toLocaleString("en-NZ")} for four bedrooms or more. Those figures are the minimum for a full pack of that size: our packers in every room, with all cartons and materials supplied. If there is more to pack than expected, the extra hours and materials bill at the rates on your quote, and our price cap promise protects you: if the job runs more than 2 hours over the quoted estimate, the extra time is free. Part packs, such as just the kitchen, are priced by the hour. Exit cleaning is different: it is a fixed price from the start, $${cleaningRows[0].price.incl} to $${cleaningRows[cleaningRows.length - 1].price.incl} incl GST by bedrooms and bathrooms.`,
   },
   {
     q: "How much does it cost to move a piano?",
@@ -121,7 +121,7 @@ const faqs = [
   },
   {
     q: "Are these prices a fixed quote?",
-    a: "These are our standard rates, and they are what your written quote is built from. Hourly work and packing are billed on the hours actually worked, so the final figure depends on how the day runs. Exit cleaning and piano moves are fixed prices confirmed in writing before we start. Every quote is backed by our price cap promise: if the job runs more than 2 hours over the quoted estimate, the extra time is free.",
+    a: "These are our standard rates, and they are what your written quote is built from. Hourly moving work is billed on the hours actually worked, so that figure depends on how the day runs. A full house pack bills at the quoted packing price as a minimum, and more only if there is more to pack. Exit cleaning and piano moves are fixed prices confirmed in writing before we start. Every quote is backed by our price cap promise: if the job runs more than 2 hours over the quoted estimate, the extra time is free.",
   },
   {
     q: "Do you charge more for stairs or difficult access?",
@@ -136,9 +136,9 @@ const faqs = [
  */
 /**
  * `kind` decides how firm the published number is. "estimate" is for packing:
- * the figure is a typical job, not a floor or a fixed price — the real number
- * can be lower or higher and is confirmed with a free viewing (or photos), so
- * the offer carries a description saying exactly that.
+ * the figure is the MINIMUM for a full house pack of that size (every room, all
+ * materials supplied) — the real number can be higher when there is more to
+ * pack, never lower — so the offer carries a description saying exactly that.
  */
 function buildOffer(name: string, price: number, kind: "hourly" | "fixed" | "estimate") {
   return {
@@ -147,7 +147,7 @@ function buildOffer(name: string, price: number, kind: "hourly" | "fixed" | "est
     ...(kind === "estimate"
       ? {
           description:
-            "Typical estimate, not a fixed price. Depends on how much there is to pack and may be less. Confirmed with a free viewing or from photos. Billed on hours actually worked, with a price cap promise: more than 2 hours over the quoted estimate is free.",
+            "Minimum price for a full house pack of this size: our packers in every room, all cartons and materials supplied. More to pack bills at the quoted rates, with a price cap promise: more than 2 hours over the quoted estimate is free.",
         }
       : {}),
     priceSpecification: {
@@ -189,7 +189,7 @@ const pricingSchema = {
         buildOffer(`Hamilton — 2 movers and a truck, ${row.label}`, row.twoMovers.incl, "hourly"),
       ),
       ...fixedPriceRows.map((row) =>
-        buildOffer(`Full packing, typical estimate — ${row.label}`, row.packing.incl, "estimate"),
+        buildOffer(`Full house pack, minimum — ${row.label}`, row.packing.incl, "estimate"),
       ),
       ...cleaningRows.map((row) =>
         buildOffer(`Exit cleaning — ${row.label}`, row.price.incl, "fixed"),
@@ -249,7 +249,8 @@ export default function PricingPage() {
           </ul>
           <p className="mt-5 text-sm leading-relaxed text-brand-purple/70">
             Every price on this page shows the retail figure first and the ex-GST figure beside it.
-            Hourly work and packing are billed on the hours actually worked; exit cleaning and piano
+            Hourly work is billed on the hours actually worked. A full house pack starts at the price
+            in the packing table and only goes up if there is more to pack. Exit cleaning and piano
             moves are fixed prices confirmed in writing before we start. Every quote is backed by our
             price cap promise: if the job runs more than 2 hours over the quoted estimate, the extra
             time is free.
@@ -330,13 +331,13 @@ export default function PricingPage() {
         <section className="mt-12">
           <SectionHeading id="packing-cleaning">Packing and exit cleaning</SectionHeading>
           <p className="mt-3 text-sm leading-relaxed text-brand-purple/85">
-            Packing is an estimate, not a fixed price: the figures below are typical for each house
-            size, and yours could be less. It all depends on how much there is to pack. We confirm
-            your estimate with a free viewing, or from photos if a viewing does not suit, and on the
-            day we bill the hours actually worked. Either way our price cap promise protects you: if
-            the job runs more than 2 hours over the quoted estimate, the extra time is free. Exit
-            cleaning is different: a fixed price from the start, set by bedrooms and bathrooms, and
-            you can book it off the table below.
+            A full house pack is priced from the table below. That figure is the minimum for a full
+            pack of that size: our packers in every room, with all cartons and materials supplied. If
+            there turns out to be more to pack, the extra hours and materials bill at the rates on
+            your quote, and our price cap promise still protects you: if the job runs more than 2
+            hours over the quoted estimate, the extra time is free. Part packs, such as just the
+            kitchen, are priced by the hour. Exit cleaning is a fixed price from the start, set by
+            bedrooms and bathrooms, and you can book it off the table below.
           </p>
           <p className="mt-3 rounded-xl border border-brand-purple/15 bg-brand-purple/[0.03] p-4 text-sm leading-relaxed text-brand-purple/85">
             <strong className="text-brand-purple">Current promotion:</strong> book a full house pack
@@ -351,7 +352,7 @@ export default function PricingPage() {
             <thead>
               <tr>
                 <th className={th}>House size</th>
-                <th className={th}>Full packing (typical estimate)</th>
+                <th className={th}>Full house pack (minimum)</th>
               </tr>
             </thead>
             <tbody>
@@ -359,7 +360,7 @@ export default function PricingPage() {
                 <tr key={row.label}>
                   <td className={td}>{row.label}</td>
                   <td className={td}>
-                    <span className="text-brand-purple/60">est. </span>
+                    <span className="text-brand-purple/60">from </span>
                     <Money value={row.packing} />
                   </td>
                 </tr>

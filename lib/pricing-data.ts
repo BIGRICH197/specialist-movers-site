@@ -193,6 +193,9 @@ export const OUTER_TRAVEL_MINS = 50;
 export const GST_MULTIPLIER = 1.15;
 
 // ── Packing prices by bedroom (excl GST) ──
+// The MINIMUM a full house pack quotes and bills at (Richard, 2026-09-10): more
+// to pack bills more, never less. Mirrors pricing.py PACKING_PRICE in the
+// automation repo (Joey's quote floor + Margret's billing floor) — change both.
 export const PACKING_PRICES: Record<Bedrooms, number> = {
   1: 1599,
   2: 1770,
