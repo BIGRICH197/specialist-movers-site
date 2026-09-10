@@ -6,7 +6,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Promotions and offer terms",
   description:
-    "Current Specialist Movers offers and the terms that go with them, including what counts as a full house pack on the VIP full-pack offer.",
+    "Current Specialist Movers offers and the terms that go with them, including the VIP full-pack offer with a free exit clean.",
   path: "/promotions",
 });
 
@@ -18,8 +18,9 @@ type TermsSection = {
 };
 
 /**
- * The VIP full-pack offer. The email paragraph and the pricing page link here;
- * this page is the definition the team and Margret (invoicing) work from. The
+ * The VIP full-pack offer. The email paragraph and the pricing page link here.
+ * Richard, 2026-09-10: the one rule that matters is the minimum charge — the
+ * quoted packing price is the floor — so the page says that and no more. The
  * canonical wording lives in brain/context/pricing.md "Discounts" in the
  * automation repo — change both together.
  */
@@ -29,18 +30,6 @@ const fullPackOffer: TermsSection[] = [
     paragraphs: [
       "Book a full house pack together with your move and we upgrade you to our VIP service at no extra charge. Our packers come in the day before, the crew moves you on the day, and our cleaning team does the full exit clean on the home you are leaving after you are out. You hand over the keys.",
       "The exit clean is the standard end-of-tenancy clean for your bedroom and bathroom count, as listed on our pricing page. It is normally $600 or more of work.",
-    ],
-  },
-  {
-    heading: "What counts as a full pack",
-    paragraphs: ["A full pack means all three of these:"],
-    bullets: [
-      "Our packers pack every room in the home.",
-      "We supply all the cartons, packing paper, bubble wrap, tape and protective materials. Customer-supplied boxes and materials are not part of a full pack.",
-      "Nothing is packed before the packers arrive, other than personal papers, valuables, medication and the things you are taking in your own car.",
-    ],
-    tail: [
-      "A kitchen-only pack, a fragile-items-only pack, or a home that has been partly packed before we arrive is a part pack. Part packs are welcome and are priced by the hour, but they do not qualify for the free clean. Our standard bundle discount of $150 off the move applies to them instead.",
     ],
   },
   {
@@ -54,7 +43,7 @@ const fullPackOffer: TermsSection[] = [
     heading: "The fine print",
     bullets: [
       "Available on house, apartment and townhouse moves in Auckland and Hamilton booked while the offer is running.",
-      "The pack, the move and the clean must be booked together on one booking, and the pack must be a full pack as defined above.",
+      "The full house pack, the move and the clean must be booked together on one booking. Part packs, such as just the kitchen, are priced by the hour and do not qualify; our standard $150 bundle discount applies to them instead.",
       "The free clean is the standard exit clean for the home being vacated. Cleaning add-ons from our cleaning schedule, such as carpets or a second oven, are charged at the listed price.",
       "One offer per booking. It cannot be combined with any other discount or promotion.",
       "We can withdraw or change the offer for new bookings at any time. A booking that has already been confirmed keeps the offer it was booked under.",

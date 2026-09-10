@@ -344,7 +344,7 @@ export default function PricingPage() {
             with your move and the exit clean on your old home is free. The quoted packing price is
             the minimum charge for the pack.{" "}
             <Link href="/promotions" className="font-semibold text-brand-purple underline">
-              Offer terms and what counts as a full pack
+              Offer terms
             </Link>
             .
           </p>
