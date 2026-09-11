@@ -180,6 +180,24 @@ export function BookingForm({
     set("cleaningExtras", text);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [extraQty, showCleaningSameDay]);
+
+  // The priced version of the same picks, submitted alongside the readable one.
+  // Amounts are computed here because this is where the catalogue lives; the
+  // job record and the invoice then agree with the total the customer accepted.
+  const cleaningExtrasPayload = showCleaningSameDay && chosenExtras.length
+    ? JSON.stringify(
+        chosenExtras.map((x) => {
+          const qty = extraQty[x.id] ?? 1;
+          return {
+            id: x.id,
+            label: x.label,
+            qty,
+            unitPriceExclGst: x.priceExclGst,
+            amountExclGst: Math.round(x.priceExclGst * qty * 100) / 100,
+          };
+        }),
+      )
+    : "";
   const showPackingDetail = f.packing === "Yes packing";
 
   // Every question is compulsory. Returns the labels of anything left blank so
@@ -234,6 +252,14 @@ export function BookingForm({
     const fields = {
       ...f,
       whatPacking: whatPacking.join(", "),
+      // The same extras as `cleaningExtras`, but PRICED and structured, so the
+      // job record can carry them as money rather than a sentence. The readable
+      // field stays as it is (it is what the cleaner reads on their phone);
+      // this is what ShiftMate turns into cleaning line items and Margret
+      // invoices. Without it the customer's ticks reached the booking as prose
+      // and were billed as nothing. Prices come from lib/cleaning-schedule.ts —
+      // the same list that priced the quote page, so there is one catalogue.
+      cleaningExtrasJson: cleaningExtrasPayload,
       agreeTerms: "yes",
       termsSignature: signature.trim(),
       termsSignedAt: new Date().toISOString(),
