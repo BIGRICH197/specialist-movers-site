@@ -30,6 +30,78 @@ const pianoProtection =
 
 /** SEO patches keyed by /locations/[slug] */
 export const locationSeoPatches: Record<string, LocationSeoPatch> = {
+  henderson: {
+    metaDescription:
+      "Looking for movers in Henderson, West Auckland? Specialist Movers has completed dozens of jobs here. Insured crew, upfront pricing, 7 days a week.",
+    intro:
+      "Henderson is West Auckland's commercial and residential hub, and the moves here are as varied as the suburb itself. Brick-and-tile family homes, newer townhouse developments, and a busy town centre all make for a full range of jobs.",
+    paragraphs: [
+      "Henderson has seen a lot of intensification in recent years. Older quarter-acre sections have given way to multi-unit townhouse developments, particularly around the train station and along Lincoln Road. Tight access, shared driveways, and body corporate rules are things our crews plan around before the truck rolls.",
+      "The older parts of Henderson, closer to the valley floor and along the Waitakere Stream, tend to have larger homes on generous sections. These are often the kind of houses that have been lived in for a long time, with garages full of gear and gardens that have grown with the family. We take our time with those jobs.",
+      "Henderson is also a working suburb, with a mix of retail, trade, and light industrial activity around the town centre. We do after-hours and weekend work for commercial clients who need to move without disrupting trading hours. If you need a commercial move quoted, we can usually get back to you within about 15 minutes during business hours.",
+      "Our Wairau Valley depot is about 25 minutes from Henderson, which puts it comfortably within our standard callout area. There is no distance premium for Henderson, and you see the full price before you book.",
+    ],
+    highlights: [
+      "Dozens of Henderson jobs completed",
+      "Experience with townhouse complexes and tight shared access",
+      "After-hours and weekend availability for commercial moves",
+      "Standard callout area, no distance premium",
+    ],
+    faqs: [
+      {
+        q: "We are in a new townhouse development with a shared driveway. Can you still get the truck in?",
+        a: "Yes, this comes up regularly in Henderson. We check access, width, and any body corporate restrictions before move day so there are no surprises. If the truck cannot get to the door, we plan the carry distance into the job rather than working it out on the spot.",
+      },
+      {
+        q: "How does pricing work for a Henderson move?",
+        a: "Henderson sits in our standard callout area. Hourly rates are the same across Auckland, and the callout is fixed for this zone. You see the full price upfront before you confirm anything.",
+      },
+      {
+        q: "Do you work on weekends in Henderson?",
+        a: "Yes, we operate seven days a week. Weekend jobs in Henderson are straightforward to book, and for commercial work we can arrange after-hours moves if you need the premises clear outside trading hours.",
+      },
+      {
+        q: "Are your crew insured?",
+        a: "Yes, our crew is licensed and insured. If you want cover arranged for your own belongings during the move, we can sort that through our team before move day.",
+      },
+    ],
+  },
+  takanini: {
+    metaDescription:
+      "Looking for movers in Takanini? Specialist Movers runs regular jobs in this part of South Auckland. Get a quote back in about 15 minutes.",
+    intro:
+      "Takanini sits at the point where South Auckland's older state-housing neighbourhoods give way to some of the region's newest subdivisions. It is a suburb in transition, and the moves here reflect that.",
+    paragraphs: [
+      "The newer subdivisions around Takanini, places like Kauri Flats and the estates pushing toward Ardmore, tend to have tight access roads that were designed for the homes, not for moving trucks. Narrow cul-de-sacs and parked cars on both sides are a regular part of the job out here. Our crew plans the approach before move day so there are no surprises on the morning.",
+      "Alongside the new builds, there is a solid belt of older homes on larger sections closer to the Great South Road corridor. These places often come with sheds, garages, and outdoor gear that needs as much thought as the furniture inside. We do dozens of jobs in Takanini each year and that mix of old and new is a constant.",
+      "Takanini is about 34 minutes from our Wairau Valley depot, which puts it in pricing zone B. The fixed callout is a little higher than inner suburbs, but the hourly rate is the same across Auckland. You see the full price before you confirm the booking, so there is nothing to work out on the day.",
+      "The suburb sits right against the Papakura motorway interchange, which sounds convenient but can complicate timing on weekday mornings and late afternoons when the Southern Motorway backs up. We factor that into our scheduling when we book your job, so the crew is not sitting in traffic when they should be at your door.",
+    ],
+    highlights: [
+      "Regular work across Takanini's new subdivisions and older Great South Road homes",
+      "Familiar with tight cul-de-sac access in Kauri Flats and surrounding estates",
+      "Zone B pricing, full price shown upfront before you book",
+      "Crew departs Wairau Valley, about 34 minutes to Takanini",
+    ],
+    faqs: [
+      {
+        q: "We are moving into one of the new subdivisions near Ardmore. Will a full-size truck fit on our street?",
+        a: "Often yes, but we confirm turning room, street width and any site restrictions before move day. If the big truck cannot get close, we work out an alternative approach rather than leaving it to chance on the morning.",
+      },
+      {
+        q: "We have a large shed full of gear as well as the house. Can you handle both?",
+        a: "Yes. Bring it up when you request your quote and we will factor it into the crew size and timing. It is much better to know about the shed before we arrive than to find out halfway through.",
+      },
+      {
+        q: "How does insurance work for our belongings?",
+        a: "Our crews are licensed and insured, and we carry public liability and carrier's liability. Cover for your own goods can be arranged through our team. Just ask when you book.",
+      },
+      {
+        q: "Can you move us on a Saturday or Sunday? We cannot get time off during the week.",
+        a: "Yes, we operate seven days. Weekend slots fill up faster in South Auckland, so the sooner you get a quote in, the better chance you have of locking in your preferred day.",
+      },
+    ],
+  },
   pukekohe: {
     metaDescription:
       "Moving in Pukekohe? Specialist Movers sends insured crews to Franklin's main town regularly. Get a quote back in about 15 minutes.",
