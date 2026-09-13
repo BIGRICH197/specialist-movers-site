@@ -467,4 +467,20 @@ export const blogPosts = [
     excerpt:
       "Settlement dates rarely match perfectly in Auckland. Here's what to do with your furniture, how short-term storage works, and how a two-stage move is organised.",
   },
+  {
+    slug: "moving-office-furniture-auckland-workstations-desks-cabinets",
+    title: "Office Furniture That Fights Back: A Practical Guide for Auckland Office Managers",
+    seoTitle: "Moving Office Furniture in Auckland | Specialist Movers",
+    publishedDate: "2026-09-13",
+    excerpt:
+      "Workstations, sit-stand desks, filing cabinets, boardroom tables. Here's what Auckland office managers need to know before moving day.",
+  },
+  {
+    slug: "commercial-movers-waikato-hamilton-cambridge-te-awamutu",
+    title: "Moving Your Waikato Business: What Changes When the Route Is Regional",
+    seoTitle: "Commercial Movers Waikato & Hamilton | Specialist Movers",
+    publishedDate: "2026-09-13",
+    excerpt:
+      "Cambridge, Te Awamutu, Hamilton, and beyond. Here's what a regional business move looks like and how to plan it without losing a working day.",
+  },
 ] as const;
