@@ -307,7 +307,7 @@ export function QuoteCustomise({
                 <span className="mt-0.5 block text-[10px] text-white/55 sm:text-xs">
                   {packingQuoted ? (
                     <>
-                      Untick if you would rather pack yourself. The quoted packing price is the minimum for a full pack; more to pack bills at these rates.{" "}
+                      Untick if you would rather pack yourself. The quoted packing price is the minimum price for a full pack to be eligible for our VIP upgrade.{" "}
                       <a
                         href="/promotions"
                         target="_blank"
