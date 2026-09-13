@@ -15,7 +15,7 @@ export type BookingTermsSection = {
   tail?: string[];
 };
 
-export const BOOKING_TERMS_VERSION = "2026-08-official-5";
+export const BOOKING_TERMS_VERSION = "2026-09-official-6";
 export const COMMERCIAL_TERMS_VERSION = "2026-08-commercial-1";
 
 export const bookingTerms: BookingTermsSection[] = [
@@ -65,6 +65,7 @@ export const bookingTerms: BookingTermsSection[] = [
     paragraphs: [
       "Where Specialist Movers is requested to provide packing services, including the supply of packing materials and labour, all packing is undertaken strictly on a best-endeavours basis only. Packing services do not constitute a guarantee against damage or loss.",
       "All goods, whether packed by Specialist Movers or by the Client, are transported at the owner's risk in accordance with the Contract and Commercial Law Act 2017, unless separate insurance has been arranged.",
+      "Where a full house pack is quoted, the packing price on the quote is the minimum charge for the pack. If less needs packing on the day, including where items have already been packed or the Client's own materials are used, the quoted packing price still applies. If more needs packing, the additional hours and materials are charged at the rates on the quote, subject to the price cap promise below. Current offers that depend on a full pack, such as a complimentary exit clean, are subject to the terms published at specialistmovers.co.nz/promotions.",
     ],
   },
   {

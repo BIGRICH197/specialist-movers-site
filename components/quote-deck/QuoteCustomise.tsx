@@ -305,9 +305,22 @@ export function QuoteCustomise({
                   </span>
                 </span>
                 <span className="mt-0.5 block text-[10px] text-white/55 sm:text-xs">
-                  {packingQuoted
-                    ? "Untick if you would rather pack yourself."
-                    : "Tick to add it and our team will confirm the price."}
+                  {packingQuoted ? (
+                    <>
+                      Untick if you would rather pack yourself. The quoted packing price is the minimum for a full pack; more to pack bills at these rates.{" "}
+                      <a
+                        href="/promotions"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline hover:text-white"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Offer terms
+                      </a>
+                    </>
+                  ) : (
+                    "Tick to add it and our team will confirm the price."
+                  )}
                 </span>
               </span>
             </label>

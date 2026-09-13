@@ -91,6 +91,19 @@ export default function PoliciesPage() {
         <TermsGroup title="Moving terms and conditions" sections={bookingTerms} />
         <TermsGroup title="Cleaning terms and conditions" sections={cleaningTerms} />
 
+        <section>
+          <h2 className="font-heading text-2xl text-brand-purple">Promotions and offer terms</h2>
+          <p className="mt-3 text-sm leading-relaxed text-brand-purple/85">
+            Current offers, such as the free exit clean with a full house pack, carry their own
+            terms. They sit alongside the moving and cleaning terms above and are published on
+            our{" "}
+            <Link href="/promotions" className="font-semibold text-brand-purple underline">
+              promotions page
+            </Link>
+            .
+          </p>
+        </section>
+
         <p className="rounded-xl border border-brand-purple/15 bg-brand-purple/[0.03] p-4 text-xs text-brand-purple/70">
           Questions about your move or clean?{" "}
           <Link
