@@ -2206,6 +2206,132 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "moving-office-furniture-auckland-workstations-desks-cabinets": {
+    title: "Office Furniture That Fights Back: A Practical Guide for Auckland Office Managers",
+    sections: [
+      {
+        heading: "Why Office Furniture Is a Different Job",
+        paragraphs: [
+          "Residential moves have awkward moments. Office moves have awkward moments on every single item.",
+          "A sit-stand desk looks like a desk until you try to move it. The motorised column adds weight in the worst place, and the control box is almost always on a short cable that someone forgets to disconnect. Workstation clusters bolt together in ways that are not obvious from above, and pulling one panel out of sequence can bend the frame or crack the connector. Filing cabinets feel solid until you try to tilt them, at which point every drawer that was not emptied first becomes a battering ram.",
+          "Boardroom tables are the biggest trap. A large boardroom table in a CBD tower might weigh well over 200 kilograms, and it almost certainly will not fit in the lift in one piece. If whoever booked the job has not confirmed whether the table disassembles, the crew finds out at 8 a.m. on a Monday with a full building to empty.",
+          "None of this is a reason to panic. It is a reason to plan, and to brief your movers before they arrive.",
+        ],
+      },
+      {
+        heading: "Managed Sites, Site Inductions and SiteWise Gold",
+        paragraphs: [
+          "A growing number of Auckland office buildings, and almost every construction-adjacent or government-managed site, require contractors to hold a recognised health and safety accreditation before they can work on-site. The most common standard in New Zealand is SiteWise.",
+          "Specialist Movers holds SiteWise Gold certification with a score above 90 percent. That score is what property and facilities managers look for when they are deciding who gets site access. If your building requires accredited contractors and you book a crew that cannot produce the paperwork, the job stops at the loading dock.",
+          "If you manage a building in the Wynyard Quarter, the CBD, or anywhere operating under a construction or managed-site regime, ask your building manager what accreditation they require before you book anyone. Then confirm the movers can meet it. We can.",
+        ],
+      },
+      {
+        heading: "What to Tell the Movers Before They Arrive",
+        paragraphs: [
+          "The single biggest cause of delays and damage in an office move is information that arrives on the day instead of the week before. Here is what your movers need to know in advance.",
+          "First, the access points. Which entrance can the truck use? Is there a loading dock, and does it need to be booked? What are the lift dimensions, and is there a goods lift separate from the passenger lifts? If the goods lift is shared with another tenant on the same day, you may need to negotiate a time slot with building management.",
+          "Second, the furniture specifics. Tell the crew which items disassemble and which do not. For sit-stand desks, confirm whether the legs need to come off and whether you have the original bolts. For workstation clusters, a simple floor plan showing which panels connect to which saves real time. For filing cabinets, confirm they will be empty before the crew arrives.",
+          "Third, the boardroom table situation. Measure the table and measure the lift before moving day. If it does not fit, say so upfront. A crew that knows in advance can plan a stair carry or, for upper floors with no stair option, discuss alternatives. Finding out on the day adds hours and sometimes makes it impossible.",
+          "Finally, parking and time restrictions. Many Auckland streets around the CBD have loading zone time limits or require a temporary no-parking cone zone, which needs to be arranged with Auckland Transport in advance. Your movers can advise, but they need to know the address and access situation early enough to sort it.",
+        ],
+      },
+      {
+        heading: "Protecting Furniture in Transit",
+        paragraphs: [
+          "Glass tops, veneer surfaces and powder-coated frames all need different handling. Let the crew know what surfaces are vulnerable, and they will choose blankets, shrink wrap or other protection to suit what the item needs.",
+          "Cables are often the last thing people think about and the first thing that causes a problem. Label every cable before it is disconnected, or photograph each workstation setup with your phone. A crew that arrives to reconnect a bank of monitors with an unlabelled tangle of cables will do their best, but it is not their IT infrastructure. If your IT team can be on-site at the destination when the furniture arrives, set that up.",
+          "Drawer pedestals should be emptied and locked, or taped shut if they have no lock. Loaded drawers shift in transit and can warp the frame or damage the runners. A heavy pedestal full of files also puts the weight in the wrong place when the crew needs to tilt it through a doorway.",
+        ],
+      },
+      {
+        heading: "After-Hours and Weekend Moves",
+        paragraphs: [
+          "Most Auckland businesses cannot afford to have their people standing around a half-empty office while furniture goes out the door. Moving after hours or over a weekend means staff walk into a functioning workspace on Monday morning.",
+          "We operate seven days. For commercial relocations this is often the practical choice rather than a premium option. If your lease ends on a Friday, or your new floor is handed over on a Saturday, we can work around those dates rather than asking you to adjust them.",
+        ],
+      },
+      {
+        heading: "A Note on Insurance",
+        paragraphs: [
+          "Our crews are licensed and insured. If you have items of particular value, cover for your goods can be arranged through our team before the move. Talk to us when you book.",
+        ],
+      },
+      {
+        heading: "Getting a Quote",
+        paragraphs: [
+          "We have completed 4,000+ moves across Auckland and the Waikato, including commercial relocations from single offices to full floor clearances. Hourly rates are consistent across Auckland; the fixed callout varies with distance from our Wairau Valley depot, and you see the full price before you confirm anything.",
+          "For larger relocations we offer free viewings so we can see the furniture, the access points and any complications before we quote. For smaller jobs, quotes usually come back within about 15 minutes during business hours.",
+          "If you have a move coming up and you want a straight answer on what it will cost and how long it will take, the easiest thing to do is fill in the quote form on our website. Tell us the address, what is moving and when, and we will come back to you.",
+        ],
+      },
+    ],
+  },
+  "commercial-movers-waikato-hamilton-cambridge-te-awamutu": {
+    title: "Moving Your Waikato Business: What Changes When the Route Is Regional",
+    sections: [
+      {
+        heading: "A Regional Move Is Not Just a Longer Version of a City Move",
+        paragraphs: [
+          "If you're moving a business in Hamilton or a smaller Waikato town, the job looks different from shifting an office two streets over in the CBD. The distances are real, the roads vary, and the towns between Hamilton and your premises often have no freight hub, no loading dock, and no 24-hour anything. Planning for that from the start saves a lot of scrambling on the day.",
+          "We run a Hamilton base that covers Cambridge, Te Awamutu, Morrinsville, Matamata, Huntly, Ngaruawahia, Raglan, and the towns in between. That means the crew leaves from the Waikato, not from Auckland, and jobs in those areas are priced and timed from here.",
+        ],
+      },
+      {
+        heading: "What a Commercial Move Across the Waikato Actually Involves",
+        paragraphs: [
+          "A typical office move in a regional town means loading at one address, travelling a route that may include state highways and rural roads, and unloading at a destination that may have limited parking, no goods lift, and neighbours who are not expecting a truck. None of that is a problem, but it does need to be known in advance.",
+          "Businesses in Cambridge or Te Awamutu often move into buildings that were built for retail or light industrial use, not offices. That means the crew may need to carry furniture through a shopfront, up an external staircase, or across a car park. Telling your movers about the building layout before the day is the single most useful thing you can do.",
+          "For larger offices, we offer free viewings so the crew can see the site before quoting. That is worth doing if you have a reception desk that has to come out through a narrow corridor, or workstations on an upper floor with no lift.",
+        ],
+      },
+      {
+        heading: "How the Hamilton Base Handles Jobs Across the Region",
+        paragraphs: [
+          "Our Hamilton base is not a booking relay. Jobs that originate in the Waikato are quoted, crewed, and run from Hamilton. That keeps drive times sensible and means the crew arrives fresh rather than having already done an hour on the motorway before they reach your door.",
+          "We operate seven days, so weekend moves and after-hours commercial jobs are available across the region. A lot of businesses prefer to move on a Saturday to keep Friday and Monday as full working days. That works just as well in Hamilton as it does in Auckland, and the crew is used to it.",
+        ],
+      },
+      {
+        heading: "What Smaller-Town Businesses Should Plan Differently",
+        paragraphs: [
+          "In Hamilton's CBD there are often loading zones, managed car parks, and building managers you can call the day before. In a smaller town there is usually a main street with angle parking and a footpath that doubles as your loading area. Check with your local council if you need to hold a space. Some towns ask for notice; most do not, but it is worth knowing.",
+          "Internet and phone reconnection is sometimes slower in regional areas than in the city. If your business relies on a fixed line or fibre, book the reconnection at the new address well before move day. Movers can get your furniture in on time; the telco has its own schedule.",
+          "If you are moving between towns, say from Te Awamutu to Hamilton, build in time for the first load to arrive and be partly unpacked before the second run, if a second run is needed. Multi-load moves across regional distances take longer than the same job in a compact suburb.",
+        ],
+      },
+      {
+        heading: "Timing the Move Around Your Business",
+        paragraphs: [
+          "Most commercial clients in the Waikato want to be operational again by Monday morning. Working back from that, Friday evening or Saturday is the usual move window. A packing service the day before the move means your team is not spending Thursday afternoon wrapping monitors and dismantling desks.",
+          "For businesses with a lot of filing, stock, or specialist equipment, talking to us before you book a date is worthwhile. Some loads need more than one trip or a larger crew, and that affects the timeline. Quotes come back in about 15 minutes during business hours, so getting an early read on the scope costs you nothing.",
+        ],
+      },
+      {
+        heading: "Insurance, Liability and Commercial Goods",
+        paragraphs: [
+          "Our crew is licensed and insured, and we carry public liability cover. Under our standard terms, goods travel at owner's risk, which is standard across the industry. If your business has IT equipment, specialist machinery, or high-value stock you want covered in transit, talk to us when you book. Cover for your goods can be arranged through our team.",
+          "We are SiteWise Gold certified with a 90-plus percent score, which is what puts us on managed sites and construction environments. If your new premises is on a commercial development still under construction, that certification matters.",
+        ],
+      },
+      {
+        heading: "A Note on Routes Between Smaller Towns",
+        paragraphs: [
+          "Moving from Matamata to Morrinsville is not a motorway job. The route runs through rural Waikato and the timing depends on the time of day, the season, and what the roads are doing. We account for that in how we schedule regional jobs. It is not a complication, just something a good moving company prices and plans for honestly.",
+          "If the job crosses into Auckland, say a Hamilton business opening a second location on the North Shore, both bases are involved and the job is quoted as a single run. You see the full price before you confirm.",
+        ],
+      },
+      {
+        heading: "Getting Ready to Move: the Practical Short List",
+        paragraphs: [
+          "Confirm access at both ends before the crew arrives. That means knowing whether the building manager needs notice, whether there are steps at the new address, and whether parking for a large truck is possible without blocking traffic.",
+          "Label everything by room or zone at the destination, not by where it came from. It speeds up unloading and means your team can get to work without waiting for someone to direct every item.",
+          "Redirect mail and update your address with suppliers, clients, and any local registrations early. Regional councils and business directories sometimes take longer to update than online platforms.",
+          "When you are ready to get a price, the quote form on our website takes a few minutes and gives you a figure to work with. If the job is large enough that a viewing would be useful, we will say so, and we can usually get someone to your site quickly.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {
