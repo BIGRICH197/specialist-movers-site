@@ -136,6 +136,14 @@ const tools: Anthropic.Tool[] = [
         pickupAddress: { type: "string", description: "Pickup address if known" },
         dropoffAddress: { type: "string", description: "Drop-off address if known" },
         notes: { type: "string", description: "Any relevant notes about the enquiry" },
+        pianoType: {
+          type: "string",
+          enum: ["upright", "grand"],
+          description:
+            "For a piano enquiry, the type of piano. Pass the same value you used "
+            + "for calculate_piano_move. Without it the office cannot quote the "
+            + "lead automatically and has to ring and ask.",
+        },
       },
       // Only the name is structurally required — a lead with just an email is
       // still a lead, and the team can work either contact route. The tool
@@ -215,6 +223,14 @@ async function executeTool(
       notes: `Joey chatbot lead\n${(input.notes as string) || ""}${badDetail ? `\n${badDetail}` : ""}`,
       source: "Chat Bot",
       ownerId: HUBSPOT_OWNERS.danielle,
+      // Only when Joey actually asked -- an absent or unexpected value writes
+      // nothing rather than guessing "upright" and under-quoting a grand.
+      extraProperties:
+        input.pianoType === "grand"
+          ? { service_type_piano: "Grand Piano" }
+          : input.pianoType === "upright"
+            ? { service_type_piano: "Upright Piano" }
+            : undefined,
     });
     return JSON.stringify({ success: true, message: "Lead saved successfully" });
   }

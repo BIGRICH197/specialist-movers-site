@@ -433,6 +433,18 @@ export async function POST(request: Request) {
       pickupAccess: stairsLabel(body.pickupStairFlights),
       dropoffAccess: stairsLabel(body.dropoffStairFlights),
       quoteRange: rangeText,
+      // The piano TYPE, into a field and not just the note prose. Everything
+      // downstream that decides "upright or grand" reads service_type_piano;
+      // until 2026-09-16 we priced off pianoType, printed it in the breakdown
+      // and then dropped it, so new_deals.py could not quote a single website
+      // piano lead and sent them all the "when can we call you" ack instead
+      // (Richard, 2026-09-15). Wording matches what the retired piano form
+      // wrote, which is what new_deals.build_piano_email parses. Set on the
+      // custom-quote path too: Taine still needs to know what he is looking at.
+      extraProperties: {
+        service_type_piano:
+          input.pianoType === "grand" ? "Grand Piano" : "Upright Piano",
+      },
       notes: customQuote
         ? `Website quote: Custom quote needed (${manualReason})\n${body.pianoType} piano, ${body.pickupAddress} to ${body.dropoffAddress}${extraNotes}`
         : `Website quote: $${result.totalIncGst} incl GST\nCustomer shown range: ${rangeText}\n${result.breakdown}${extraNotes}`,
