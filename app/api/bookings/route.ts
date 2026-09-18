@@ -26,6 +26,18 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "not found" }, { status: 404 });
   }
 
+  // A booked quote must not be booked again. saveBooking() upserts on the token,
+  // so a second submission overwrote the original row in place and took the
+  // team's answers with it — while raising nothing in ShiftMate, because the
+  // token was already published. The page hides the form, but that check lives
+  // in the browser and can be bypassed; this is the one that protects the data.
+  if (stored.status === "booked") {
+    return NextResponse.json(
+      { ok: false, error: "already booked" },
+      { status: 409 },
+    );
+  }
+
   const fields = body.fields || {};
   if (!fields.agreeTerms) {
     return NextResponse.json(

@@ -121,7 +121,7 @@ export function BookingForm({
   const [signature, setSignature] = useState("");
   const [termsScrolled, setTermsScrolled] = useState(false);
   const termsRef = useRef<HTMLDivElement>(null);
-  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error" | "booked">("idle");
   const [missing, setMissing] = useState<string[]>([]);
   const [blockedReason, setBlockedReason] = useState("");
 
@@ -323,10 +323,29 @@ export function BookingForm({
         ),
       });
       const data = (await res.json()) as { ok?: boolean };
+      // 409 = this quote is already booked. Say so plainly rather than showing
+      // the generic failure, which would have them try again on a booking that
+      // already exists.
+      if (res.status === 409) {
+        setStatus("booked");
+        return;
+      }
       setStatus(data.ok ? "done" : "error");
     } catch {
       setStatus("error");
     }
+  }
+
+  if (status === "booked") {
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center bg-brand-canvas px-6 text-center text-brand-purple">
+        <h1 className="font-heading text-2xl sm:text-3xl">You&apos;re already booked in</h1>
+        <p className="mt-3 max-w-md text-brand-purple/75">
+          We already have this booking, so nothing has been changed. To move the date or
+          update any details, call us on {phoneDisplay} and we&apos;ll sort it out with you.
+        </p>
+      </main>
+    );
   }
 
   if (status === "done") {
