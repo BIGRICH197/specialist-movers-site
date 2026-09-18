@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getQuote, tokenFromRef } from "@/lib/quote-store";
+import { AlreadyBooked } from "@/components/quote-deck/AlreadyBooked";
 import { quotePreviewCopy } from "@/lib/quote-preview-meta";
 import { siteName, siteUrl } from "@/lib/site-config";
 import { HouseMoveDeck } from "@/components/quote-deck/house-move/HouseMoveDeck";
@@ -82,6 +83,12 @@ export default async function HostedQuotePage({
 
   if (!stored) {
     return <NotFound />;
+  }
+
+  // Already booked: no live deck, no Accept button. Re-accepting sent the team a
+  // fresh Slack ping for a job that had been on the board for weeks.
+  if (stored.status === "booked") {
+    return <AlreadyBooked clientName={stored.quote.clientName} />;
   }
 
   return (

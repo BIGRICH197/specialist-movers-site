@@ -1,6 +1,7 @@
 import { getQuote, tokenFromRef } from "@/lib/quote-store";
 import { formatAddress } from "@/lib/quote-deck/house-move-quote";
 import { BookingForm, type BookingPrefill } from "@/components/quote-deck/BookingForm";
+import { AlreadyBooked } from "@/components/quote-deck/AlreadyBooked";
 
 export const dynamic = "force-dynamic";
 
@@ -27,6 +28,10 @@ export default async function BookPage({
         </p>
       </main>
     );
+  }
+
+  if (stored.status === "booked") {
+    return <AlreadyBooked clientName={stored.quote.clientName} />;
   }
 
   const q = stored.quote;

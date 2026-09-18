@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   bookingTerms,
   cleaningTerms,
@@ -121,14 +121,27 @@ export function BookingForm({
   const [signature, setSignature] = useState("");
   const [termsScrolled, setTermsScrolled] = useState(false);
   const termsRef = useRef<HTMLDivElement>(null);
-  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error" | "booked">("idle");
   const [missing, setMissing] = useState<string[]>([]);
+  const [blockedReason, setBlockedReason] = useState("");
 
   // Cleaning T&Cs are shown in addition to the moving terms when the job
   // includes cleaning (cleaning quote, or "Yes Cleaning" selected on the form).
   const showCleaning =
     quoteType === "cleaning" || f.cleaningBooked === "Yes Cleaning";
   const terms = showCleaning ? [...termsSet, ...cleaningTerms] : termsSet;
+
+  const checkTermsRead = useCallback(() => {
+    const el = termsRef.current;
+    if (!el) return;
+    // Nothing left to scroll to (short terms, tall window, desktop zoom) counts
+    // as read.
+    if (el.scrollHeight <= el.clientHeight + 4) {
+      setTermsScrolled(true);
+      return;
+    }
+    if (el.scrollTop + el.clientHeight >= el.scrollHeight - 24) setTermsScrolled(true);
+  }, []);
 
   // Re-evaluate the scroll gate whenever the term set changes: reset to
   // "not read" so the customer must scroll the new content, unless it is short
@@ -137,13 +150,33 @@ export function BookingForm({
     const el = termsRef.current;
     if (!el) return;
     setTermsScrolled(el.scrollHeight <= el.clientHeight + 4);
-  }, [showCleaning]);
+    // The box can stop being scrollable AFTER mount — the window widens, a webfont
+    // loads late, the phone rotates, the customer zooms. The old one-shot check
+    // latched the gate shut on mount and nothing reopened it, so the customer was
+    // left with a dead grey button and no way through (2026-09-15).
+    const ro = new ResizeObserver(() => checkTermsRead());
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [showCleaning, checkTermsRead]);
 
   function handleTermsScroll() {
+    checkTermsRead();
+  }
+
+  // Scrolls the box to the bottom for them. Identical in effect to dragging the
+  // scrollbar down, which has always satisfied the gate — it just does not
+  // require finding a scrollbar on a phone.
+  function jumpToTermsEnd() {
     const el = termsRef.current;
     if (!el) return;
-    if (el.scrollTop + el.clientHeight >= el.scrollHeight - 16) setTermsScrolled(true);
+    el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
+    setTermsScrolled(true);
   }
+
+  // Clear the "what is blocking you" line as soon as they act on it.
+  useEffect(() => {
+    setBlockedReason("");
+  }, [termsScrolled, agree, signature]);
 
   const canSubmit = termsScrolled && agree && signature.trim().length > 1;
 
@@ -243,11 +276,24 @@ export function BookingForm({
     e.preventDefault();
     if (status === "sending") return;
     const gaps = getMissing();
-    if (gaps.length || !canSubmit) {
+    // Always say what is blocking. A disabled button that simply does nothing
+    // teaches the customer nothing — and because the old gate stopped submit()
+    // running at all, an unscrolled terms box also hid the list of unanswered
+    // questions behind it, so they could not see either problem.
+    const blocks: string[] = [];
+    if (!termsScrolled) blocks.push("read the terms to the end");
+    if (!agree) blocks.push("tick to agree to the terms");
+    if (signature.trim().length < 2) blocks.push("type your full name to sign");
+    if (gaps.length || blocks.length) {
       setMissing(gaps);
+      setBlockedReason(blocks.join(", then "));
+      if (!termsScrolled) {
+        termsRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
       return;
     }
     setMissing([]);
+    setBlockedReason("");
     setStatus("sending");
     const fields = {
       ...f,
@@ -264,7 +310,7 @@ export function BookingForm({
       termsSignature: signature.trim(),
       termsSignedAt: new Date().toISOString(),
       termsVersion: termsVersion,
-      termsScrolled: "yes",
+      termsScrolled: termsScrolled ? "yes" : "no",
     };
     try {
       const res = await fetch(standalone ? "/api/book-in" : "/api/bookings", {
@@ -277,10 +323,29 @@ export function BookingForm({
         ),
       });
       const data = (await res.json()) as { ok?: boolean };
+      // 409 = this quote is already booked. Say so plainly rather than showing
+      // the generic failure, which would have them try again on a booking that
+      // already exists.
+      if (res.status === 409) {
+        setStatus("booked");
+        return;
+      }
       setStatus(data.ok ? "done" : "error");
     } catch {
       setStatus("error");
     }
+  }
+
+  if (status === "booked") {
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center bg-brand-canvas px-6 text-center text-brand-purple">
+        <h1 className="font-heading text-2xl sm:text-3xl">You&apos;re already booked in</h1>
+        <p className="mt-3 max-w-md text-brand-purple/75">
+          We already have this booking, so nothing has been changed. To move the date or
+          update any details, call us on {phoneDisplay} and we&apos;ll sort it out with you.
+        </p>
+      </main>
+    );
   }
 
   if (status === "done") {
@@ -598,10 +663,23 @@ export function BookingForm({
           </div>
 
           {!termsScrolled ? (
-            <p className="mt-2 text-xs font-semibold text-brand-purple/60">
-              Scroll to the bottom of the terms to sign and continue.
+            <div className="mt-2 flex flex-wrap items-center gap-3">
+              <p className="text-sm font-semibold text-brand-purple">
+                Scroll to the bottom of the terms to sign and continue.
+              </p>
+              <button
+                type="button"
+                onClick={jumpToTermsEnd}
+                className="rounded-full border border-brand-purple/40 px-3 py-1 text-xs font-semibold text-brand-purple transition hover:bg-brand-purple/10"
+              >
+                Skip to the end
+              </button>
+            </div>
+          ) : (
+            <p className="mt-2 text-xs font-semibold text-green-700">
+              Terms read — you can sign below.
             </p>
-          ) : null}
+          )}
 
           <div className={termsScrolled ? "mt-4" : "mt-4 pointer-events-none opacity-40"}>
             <label className={labelCls}>Sign — type your full name</label>
@@ -646,10 +724,19 @@ export function BookingForm({
           </p>
         )}
 
+        {blockedReason && missing.length === 0 ? (
+          <p className="mt-4 text-sm font-medium text-red-600">
+            Before confirming, please {blockedReason}.
+          </p>
+        ) : null}
+
         <button
           type="submit"
-          disabled={!canSubmit || status === "sending"}
-          className="mt-6 w-full rounded-full bg-brand-purple px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-brand-purple/90 disabled:cursor-not-allowed disabled:opacity-50"
+          aria-disabled={!canSubmit}
+          disabled={status === "sending"}
+          className={`mt-6 w-full rounded-full px-6 py-3.5 text-base font-bold text-white shadow-lg transition ${
+            canSubmit ? "bg-brand-purple hover:bg-brand-purple/90" : "bg-brand-purple/50"
+          }`}
         >
           {status === "sending" ? "Submitting…" : "Sign & confirm booking"}
         </button>
