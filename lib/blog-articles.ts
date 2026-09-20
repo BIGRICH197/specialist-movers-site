@@ -2332,6 +2332,140 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "what-happens-when-movers-pack-your-house": {
+    title: "Strangers in Your Wardrobe: What Packing Crews Actually Do",
+    sections: [
+      {
+        heading: "The Worry Most People Don't Say Out Loud",
+        paragraphs: [
+          "Most people thinking about a professional pack-out land on the same thought: strangers going through my things. It is a fair thing to sit with. Your bedroom drawers, your medicine cabinet, your kids' stuff. Nobody wants that handled carelessly.",
+          "What usually surprises people is how routine it is from the crew's side. Packers are there to protect your belongings and move quickly. They are not curious about what's in the cupboards. They open a drawer, wrap what's in it, label the box, and move on. The goal is getting everything safely into a box and knowing exactly which box it went into.",
+          "This article walks through what actually happens during a professional pack-out, room by room, so you know what to expect before anyone knocks on your door.",
+        ],
+      },
+      {
+        heading: "What Packers Do and Don't Touch",
+        paragraphs: [
+          "A packing crew will work through your home systematically. Clothes go into wardrobe boxes or are folded into cartons. Books, kitchen gear, ornaments, linen, everyday items, all boxed and labelled by room. Artwork and mirrors get wrapped carefully depending on what the item needs.",
+          "There are a few things packers will leave for you. Hazardous items like paint tins, gas canisters and cleaning chemicals cannot travel on a moving truck. Anything with sentimental value you'd rather handle yourself, set it aside before the crew arrives. The same goes for documents, medications, jewellery and anything you want to carry personally on moving day.",
+          "If you have things you want kept separate, box them yourself beforehand and mark them clearly. The crew will work around whatever you have already packed. Communication before the day starts saves a lot of back and forth.",
+        ],
+      },
+      {
+        heading: "How the Day-Before Pack Works",
+        paragraphs: [
+          "At Specialist Movers, packing happens the day before the truck. This keeps the two jobs clean. The crew packs everything, labels it by room, and stacks it ready to load. On moving day, the truck team works through a house full of boxes instead of a house full of loose belongings.",
+          "It also gives you an evening to check. If something is missing from a box or you have changed your mind about where something goes, you can flag it before the truck is loaded. That buffer matters more than most people expect.",
+          "The crew brings all the materials: cartons, tape, paper, wardrobe boxes, wrapping for fragile items. You do not need to source anything. What you do need to do is be home, or have someone there who can answer questions and point the crew in the right direction if something is unclear.",
+        ],
+      },
+      {
+        heading: "How to Prepare Before the Crew Arrives",
+        paragraphs: [
+          "The most useful thing you can do is a clear-out beforehand. Anything you are donating or throwing away, do that before packing day. Packers will wrap and box whatever is there. If the op shop pile goes in a box by accident, unpacking it at the other end is frustrating.",
+          "Pull out the things you want to travel with you personally. Pack a bag for moving day: chargers, medications, a change of clothes, anything you will need before the boxes are unpacked. Keep it in your car or a corner that is clearly off limits.",
+          "Label rooms in your new place if that helps. Some people tape a number to each room and match those to the box labels. It is optional, but it speeds up delivery at the other end. The crew labels boxes by room name, so as long as your new place has similar rooms it usually works itself out.",
+        ],
+      },
+      {
+        heading: "The Kitchen and the Things People Forget",
+        paragraphs: [
+          "Kitchens take longer than most rooms. There is a lot in there: pots, pans, small appliances, pantry items, glassware, cutlery. Packers wrap breakables individually and pack glassware upright. Pantry items are boxed together, but open packets and anything that could leak should be set aside or used up before packing day.",
+          "The fridge and freezer are not packed. You will need to defrost the freezer the night before and either use up or move perishables yourself. The fridge travels empty and unplugged. This catches a lot of people off guard, so it is worth planning for a couple of days before the move.",
+        ],
+      },
+      {
+        heading: "Insurance Pack-Outs: What That Means",
+        paragraphs: [
+          "After a weather event or a home incident, some Auckland homeowners need their belongings packed out by a moving company as part of an insurance claim. This is a specific type of job and it is different from a standard move.",
+          "An insurance pack-out involves itemising what is removed, often working alongside a loss adjuster or a contents assessor. The documentation matters as much as the physical work. We carry public liability and our crew is licensed and insured. Cover for your own belongings during this kind of job can be arranged through our team.",
+          "If your home has been affected and you are working through a claim, get in touch directly. These jobs move quickly once a loss adjuster is involved and it helps to have a mover who understands how that process works.",
+        ],
+      },
+      {
+        heading: "When It Is Worth Hiring Packers",
+        paragraphs: [
+          "Not every move needs a full pack-out. If you have the time and the energy to pack yourself, you can save money. But there are situations where professional packing pays for itself.",
+          "A large home, a tight settlement date, a move happening during a busy week at work, an elderly parent who cannot manage the physical side, or a property that needs to be cleared quickly after a family event. These are the jobs where a crew arriving with everything they need and finishing the same day makes a real difference.",
+          "Unpacking is a separate conversation. Some people want help at the other end as well, others prefer to unpack at their own pace. Both options work. It is worth thinking about before you book so the quote covers what you actually need.",
+        ],
+      },
+      {
+        heading: "Getting a Quote",
+        paragraphs: [
+          "Pricing for packing is based on the size of the job, the number of crew, and distance from our Wairau Valley depot. You see the full price before you confirm anything.",
+          "If you are not sure whether you need a full pack or just help with a couple of rooms, that is fine to ask about. For larger homes, a free viewing helps us give you an accurate number rather than an estimate. In business hours, quotes usually come back in around 15 minutes.",
+          "You can request a quote through the website. Describe the property, the move date, and roughly what needs packing. We will come back to you with something straightforward and specific to your job.",
+        ],
+      },
+    ],
+  },
+  "downsizing-to-a-retirement-village-auckland": {
+    title: "Smaller Space, Big Decisions: Moving to an Auckland Retirement Village",
+    sections: [
+      {
+        heading: "Why This Move Feels Different",
+        paragraphs: [
+          "Most people who contact us about a retirement village move say the same thing: they have moved before, they know the basics, but this one feels harder to get their head around. That is not just sentiment. It is practical. The floor plans are smaller, the building rules are stricter, and you are making decisions about furniture and belongings you have lived with for decades.",
+          "This guide covers what actually changes when you move into a managed village, and what you can do now to make the day itself go smoothly. It is written for people in Auckland who are either planning their own move or helping a parent through one.",
+        ],
+      },
+      {
+        heading: "What Makes a Village Move Different From a Standard Residential Move",
+        paragraphs: [
+          "A standard Auckland residential move usually means a truck in the driveway, a crew carrying things through the front door, and neighbours who will forgive a bit of noise. A retirement village is a managed site. That changes almost everything about how the move is run.",
+          "Most villages in Auckland, whether in Remuera, Birkenhead, Howick or anywhere else, have designated move-in windows. These are often just a few hours in the morning on a weekday. Miss the window and you may have to reschedule. Your movers need to know this before they quote, not on the day.",
+          "There are usually restrictions on which entrance the truck uses, how long it can park, and whether a service lift is required. Some villages have narrow corridors or low-clearance garages that rule out a standard moving truck. A crew that has not worked in managed sites before can find themselves stuck at the gate, literally.",
+        ],
+      },
+      {
+        heading: "The Furniture Problem: What Fits and What Doesn't",
+        paragraphs: [
+          "This is where people get caught out most often. A three-bedroom home in Titirangi or Pakuranga has rooms sized for large furniture. A village apartment or villa does not. A large leather sofa that anchored your lounge for twenty years may physically not fit through the new door, or may fill the entire room once it does.",
+          "Before you start packing, get the floor plan from the village and measure your key pieces. The dining table. The bed. The wardrobe. Check doorway widths, not just room sizes. Some people find this process upsetting. That is fair. But finding out on moving day is far worse.",
+          "If something does not fit, you have a few choices: sell it before the move, gift it to family, or put it into storage while you decide. We run a packing service the day before the move, and that is often when families do a final sort-through together. It takes some of the weight off moving day itself.",
+        ],
+      },
+      {
+        heading: "Deciding What to Take: A Practical Starting Point",
+        paragraphs: [
+          "Start with function, not feeling. Ask: what do I actually use every week? Then ask: what do I want to see around me every day? Those two questions together will get you most of the way there. Sentimental items that are genuinely important to you deserve a place in the new space. Things you have been meaning to sort through for years probably do not need to come along.",
+          "A useful method is to walk through your current home room by room and put things into three groups: definitely coming, definitely not coming, and not sure yet. Deal with the definites first. The not-sure pile usually gets smaller once you have a sense of what the new space can actually hold.",
+          "Family members can help, but be clear about roles before you start. Having several people each with a strong view about what should stay or go can make the process harder, not easier. One person leads the decision-making, others support.",
+        ],
+      },
+      {
+        heading: "Talking to the Village Before the Movers Arrive",
+        paragraphs: [
+          "Call the village coordinator at least two weeks before your move date. Ask them for the move-in rules in writing. Specifically: what are the permitted hours, which entrance does the truck use, is there a service lift and what are its dimensions, and are there any items the village does not allow in common areas during a move.",
+          "Pass that information directly to your moving company. A crew that works in managed sites regularly will know what questions to ask and will flag anything that needs a workaround before the day. Our crews are SiteWise Gold certified, which is what gets a team onto managed and commercial sites without delays at the gate.",
+          "If you are moving a parent into a village and you will not be there on the day, make sure someone is. The crew will have questions, and village staff are usually helpful but not responsible for your decisions.",
+        ],
+      },
+      {
+        heading: "On the Day: What to Expect",
+        paragraphs: [
+          "A retirement village move is usually smaller in volume than a full household move, but it is rarely simple. The access constraints, the careful handling needed for older or more fragile furniture, and the emotional weight of the day all add time.",
+          "Arrive before the truck if you can. Introduce yourself to the front desk. Make sure the service entrance is unblocked. Have a copy of the village's move-in rules with you. If there is a lift booking, confirm it is still held.",
+          "Our crews carry blankets, shrink wrap or mattress covers depending on what the item needs, and will protect floors and doorframes through narrow corridors. If something will not fit through a door, we will tell you before forcing it. At a village, damage to a common area can mean a charge from the village management, so this matters.",
+        ],
+      },
+      {
+        heading: "A Note on Insurance",
+        paragraphs: [
+          "Our crews are licensed and insured. If you want cover arranged for your own belongings during the move, that can be organised through our team before the job. Ask when you get your quote.",
+        ],
+      },
+      {
+        heading: "Getting a Quote for Your Village Move",
+        paragraphs: [
+          "We have completed over 4,000 moves across Auckland and the Waikato, including a good number into managed retirement villages across the region. We know what the access questions are, and we ask them upfront.",
+          "Quotes come back in about 15 minutes during business hours. For a larger move, or if you are not sure what is coming with you yet, we offer free viewings so we can give you an accurate price rather than a guess. You see the full cost before you commit to anything.",
+          "If you are ready to start planning, the quote form on our website is the quickest way to get the conversation going. There is no obligation, and you will have numbers in front of you quickly so you can make decisions with something concrete to work from.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {
