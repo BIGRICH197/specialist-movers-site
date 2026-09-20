@@ -483,4 +483,20 @@ export const blogPosts = [
     excerpt:
       "Cambridge, Te Awamutu, Hamilton, and beyond. Here's what a regional business move looks like and how to plan it without losing a working day.",
   },
+  {
+    slug: "what-happens-when-movers-pack-your-house",
+    title: "Strangers in Your Wardrobe: What Packing Crews Actually Do",
+    seoTitle: "What Movers Pack and How It Works | Specialist Movers",
+    publishedDate: "2026-09-20",
+    excerpt:
+      "Do movers pack your clothes, books and kitchen? Here's exactly what a professional pack-out covers, what to prepare, and when it's worth hiring help.",
+  },
+  {
+    slug: "downsizing-to-a-retirement-village-auckland",
+    title: "Smaller Space, Big Decisions: Moving to an Auckland Retirement Village",
+    seoTitle: "Retirement Village Movers Auckland | Specialist Movers",
+    publishedDate: "2026-09-20",
+    excerpt:
+      "Moving to a retirement village is different from any move you've done before. Here's a calm, practical guide to getting it right in Auckland.",
+  },
 ] as const;
