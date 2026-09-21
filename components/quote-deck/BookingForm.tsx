@@ -29,6 +29,17 @@ export type BookingPrefill = {
   cleaningBooked?: string;
   /** Extras chosen on the quote, as "id" or "id:qty", comma separated. */
   cleaningExtras?: string;
+  /** What an exit clean on THIS property costs, ex GST, from the bed x bath
+   *  schedule — the same number the quote page showed beside the cleaning tick.
+   *  Sent whatever the customer answered, because it is a fact about the house,
+   *  not a choice: the quote deck priced the clean in the browser and only ever
+   *  appended it to the DISPLAYED quote, so when the stored quote had no
+   *  Cleaning section the price died there. The clean then reached ShiftMate
+   *  unpriced, Margret billed nothing for it (it bills off the move's
+   *  cleaning_amount_excl_gst), and ticked extras had no base to fold into --
+   *  SM-1879 went to the board with a $480 clean and $80 of extras that no
+   *  invoice would ever pick up. Empty when we don't know the bedroom count. */
+  cleaningQuoteExclGst?: number;
   packing?: string;
   /** Carried from the quote page's add-on ticks, not asked again here — the
    *  customer already answered insurance vs owner's risk before they could
@@ -306,6 +317,14 @@ export function BookingForm({
       // and were billed as nothing. Prices come from lib/cleaning-schedule.ts —
       // the same list that priced the quote page, so there is one catalogue.
       cleaningExtrasJson: cleaningExtrasPayload,
+      // The schedule price for this property (see cleaningQuoteExclGst above).
+      // Sent even when they answered "No Cleaning": a whole-house pack earns the
+      // exit clean on the VIP offer, and ShiftMate raises that card off the
+      // packing answer, so it needs a price to raise it WITH. The publishers
+      // prefer a real Cleaning section on the quote over this whenever there is
+      // one -- this is the fallback, never an override.
+      cleaningQuoteExclGst:
+        prefill.cleaningQuoteExclGst != null ? String(prefill.cleaningQuoteExclGst) : "",
       agreeTerms: "yes",
       termsSignature: signature.trim(),
       termsSignedAt: new Date().toISOString(),
