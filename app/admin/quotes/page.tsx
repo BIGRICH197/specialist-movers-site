@@ -59,10 +59,11 @@ function moveDateValue(moveDate?: string): number | null {
   return Number.isNaN(t) ? null : t;
 }
 
-type SortKey = "created" | "move" | "accepted";
+type SortKey = "created" | "move" | "accepted" | "quotes";
 
 const SORTS: { key: SortKey; label: string }[] = [
   { key: "created", label: "Newest" },
+  { key: "quotes", label: "Quotes only" },
   { key: "move", label: "Move date" },
   { key: "accepted", label: "Recently accepted" },
 ];
@@ -77,7 +78,9 @@ export default async function AdminQuotesPage({
   if (!authed) return <LoginForm error={searchParams?.e === "1"} />;
 
   const sort: SortKey =
-    searchParams?.sort === "move" || searchParams?.sort === "accepted"
+    searchParams?.sort === "move" ||
+    searchParams?.sort === "accepted" ||
+    searchParams?.sort === "quotes"
       ? searchParams.sort
       : "created";
 
@@ -86,7 +89,14 @@ export default async function AdminQuotesPage({
 
   // "Recently accepted" is a worklist, not just an order: these are the people
   // who said yes but have not finished the booking form yet.
-  let quotes = sort === "accepted" ? all.filter((q) => q.status === "accepted") : all;
+  // Roughly half of all rows are direct book-ins: a booking with no quote
+  // behind it, so there is nothing to open. "Quotes only" hides them.
+  let quotes =
+    sort === "accepted"
+      ? all.filter((q) => q.status === "accepted")
+      : sort === "quotes"
+        ? all.filter((q) => !q.direct)
+        : all;
 
   if (sort === "move") {
     // Soonest move first; quotes with no move date fall to the bottom rather
@@ -162,7 +172,12 @@ export default async function AdminQuotesPage({
                       <div className="font-semibold">{q.clientName || "—"}</div>
                       {q.email ? <div className="text-xs text-brand-purple/55">{q.email}</div> : null}
                     </td>
-                    <td className="px-4 py-3 capitalize">{q.quoteType || "—"}</td>
+                    <td className="px-4 py-3">
+                      <span className="capitalize">{q.quoteType || "—"}</span>
+                      {q.direct ? (
+                        <div className="text-xs text-brand-purple/55">Booking, no quote</div>
+                      ) : null}
+                    </td>
                     <td className="px-4 py-3">
                       <span className={`rounded-full px-2.5 py-1 text-xs font-semibold capitalize ${STATUS_STYLE[q.status]}`}>
                         {q.status}
@@ -181,14 +196,18 @@ export default async function AdminQuotesPage({
                       })}
                     </td>
                     <td className="px-4 py-3">
-                      <a
-                        href={`${base}/quote/${q.slug}-${q.token}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="font-semibold text-brand-purple underline-offset-2 hover:underline"
-                      >
-                        Open
-                      </a>
+                      {q.direct ? (
+                        <span className="text-xs text-brand-purple/45">—</span>
+                      ) : (
+                        <a
+                          href={`${base}/quote/${q.slug}-${q.token}`}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="font-semibold text-brand-purple underline-offset-2 hover:underline"
+                        >
+                          Open
+                        </a>
+                      )}
                     </td>
                   </tr>
                 ))}

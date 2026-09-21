@@ -62,6 +62,8 @@ export type QuoteListItem = {
   updatedAt?: string;
   /** Move date as written on the quote, e.g. "Friday 25 September 2026". */
   moveDate?: string;
+  /** True for a direct book-in: a booking with no quote document behind it. */
+  direct?: boolean;
 };
 
 // Shape of a row in the Supabase `quotes` table.
@@ -200,8 +202,8 @@ export async function listQuotes(limit = 200): Promise<QuoteListItem[]> {
   if (!supabaseConfigured()) return [];
   // moveDate is pulled straight out of the quote JSON rather than the whole
   // `data` blob, so the list stays cheap at a few hundred rows.
-  const rows = await sb<(QuoteRow & { moveDate: string | null })[]>(
-    `quotes?select=token,slug,quote_type,status,client_name,email,created_at,updated_at,moveDate:data->>moveDate&order=created_at.desc&limit=${limit}`,
+  const rows = await sb<(QuoteRow & { moveDate: string | null; direct: string | null })[]>(
+    `quotes?select=token,slug,quote_type,status,client_name,email,created_at,updated_at,moveDate:data->>moveDate,direct:data->>direct&order=created_at.desc&limit=${limit}`,
   );
   return (rows ?? []).map((r) => ({
     token: r.token,
@@ -213,5 +215,6 @@ export async function listQuotes(limit = 200): Promise<QuoteListItem[]> {
     createdAt: r.created_at,
     updatedAt: (r as { updated_at?: string }).updated_at,
     moveDate: r.moveDate ?? undefined,
+    direct: r.direct === "true",
   }));
 }
