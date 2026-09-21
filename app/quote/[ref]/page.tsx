@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { getQuote, tokenFromRef } from "@/lib/quote-store";
 import { AlreadyBooked } from "@/components/quote-deck/AlreadyBooked";
 import { quotePreviewCopy } from "@/lib/quote-preview-meta";
@@ -85,18 +86,52 @@ export default async function HostedQuotePage({
     return <NotFound />;
   }
 
+  // Signed in to /admin/quotes? Then this is us checking a quote, not a
+  // customer. Admins see the deck even once it is booked, because "what did we
+  // actually quote them" is the whole reason the admin list links here.
+  const expected = process.env.ADMIN_PASSWORD;
+  const isAdmin = !!expected && cookies().get("sm_admin")?.value === expected;
+
+  // Direct book-ins store a stub quote (no line items, no addresses) purely so
+  // the booking shows up in the admin list. There is no deck to render for one.
+  const hasQuote = (stored.quote?.lineItems?.length ?? 0) > 0;
+
+  if (!hasQuote) {
+    return isAdmin ? (
+      <main className="flex min-h-screen flex-col items-center justify-center bg-brand-canvas px-6 text-center text-brand-purple">
+        <h1 className="font-heading text-2xl sm:text-3xl">No quote on this booking</h1>
+        <p className="mt-3 max-w-md text-brand-purple/75">
+          This came in through the booking link rather than a quote, so there are
+          no quoted line items to show. The booking details are in ShiftMate.
+        </p>
+      </main>
+    ) : (
+      <AlreadyBooked clientName={stored.quote?.clientName} />
+    );
+  }
+
   // Already booked: no live deck, no Accept button. Re-accepting sent the team a
   // fresh Slack ping for a job that had been on the board for weeks.
-  if (stored.status === "booked") {
+  if (stored.status === "booked" && !isAdmin) {
     return <AlreadyBooked clientName={stored.quote.clientName} />;
   }
 
+  const booked = stored.status === "booked";
+
   return (
-    <HouseMoveDeck
-      quote={stored.quote}
-      quoteRef={params.ref}
-      bedrooms={stored.prefill?.bedrooms}
-      bathrooms={stored.prefill?.bathrooms}
-    />
+    <>
+      {isAdmin && booked ? (
+        <div className="bg-brand-purple px-4 py-2 text-center text-xs font-semibold text-white">
+          Admin view — this quote is booked. Customers see &quot;You&apos;re already
+          booked in&quot; here, and this view is read only.
+        </div>
+      ) : null}
+      <HouseMoveDeck
+        quote={stored.quote}
+        {...(booked ? {} : { quoteRef: params.ref })}
+        bedrooms={stored.prefill?.bedrooms}
+        bathrooms={stored.prefill?.bathrooms}
+      />
+    </>
   );
 }

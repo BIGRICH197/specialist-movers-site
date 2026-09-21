@@ -50,17 +50,62 @@ function LoginForm({ error }: { error: boolean }) {
   );
 }
 
+/** "Friday 25 September 2026" -> a sortable number. The weekday is dropped
+ *  because Date.parse chokes on it. Anything unparseable sorts last. */
+function moveDateValue(moveDate?: string): number | null {
+  if (!moveDate?.trim()) return null;
+  const cleaned = moveDate.replace(/^[A-Za-z]+,?\s+/, "").trim();
+  const t = Date.parse(cleaned);
+  return Number.isNaN(t) ? null : t;
+}
+
+type SortKey = "created" | "move" | "accepted";
+
+const SORTS: { key: SortKey; label: string }[] = [
+  { key: "created", label: "Newest" },
+  { key: "move", label: "Move date" },
+  { key: "accepted", label: "Recently accepted" },
+];
+
 export default async function AdminQuotesPage({
   searchParams,
 }: {
-  searchParams: { e?: string };
+  searchParams: { e?: string; sort?: string };
 }) {
   const expected = process.env.ADMIN_PASSWORD;
   const authed = !!expected && cookies().get("sm_admin")?.value === expected;
   if (!authed) return <LoginForm error={searchParams?.e === "1"} />;
 
-  const quotes = await listQuotes(300);
+  const sort: SortKey =
+    searchParams?.sort === "move" || searchParams?.sort === "accepted"
+      ? searchParams.sort
+      : "created";
+
+  const all = await listQuotes(300);
   const base = siteBase();
+
+  // "Recently accepted" is a worklist, not just an order: these are the people
+  // who said yes but have not finished the booking form yet.
+  let quotes = sort === "accepted" ? all.filter((q) => q.status === "accepted") : all;
+
+  if (sort === "move") {
+    // Soonest move first; quotes with no move date fall to the bottom rather
+    // than pretending to be urgent.
+    quotes = [...quotes].sort((a, b) => {
+      const av = moveDateValue(a.moveDate);
+      const bv = moveDateValue(b.moveDate);
+      if (av == null && bv == null) return 0;
+      if (av == null) return 1;
+      if (bv == null) return -1;
+      return av - bv;
+    });
+  } else if (sort === "accepted") {
+    quotes = [...quotes].sort(
+      (a, b) =>
+        new Date(b.updatedAt ?? b.createdAt).getTime() -
+        new Date(a.updatedAt ?? a.createdAt).getTime(),
+    );
+  }
 
   return (
     <main className="min-h-screen bg-brand-canvas px-4 py-8 sm:px-6">
@@ -68,6 +113,23 @@ export default async function AdminQuotesPage({
         <div className="flex items-end justify-between">
           <h1 className="font-heading text-2xl text-brand-purple">Quotes</h1>
           <span className="text-sm text-brand-purple/60">{quotes.length} shown</span>
+        </div>
+
+        <div className="mt-4 flex flex-wrap gap-2">
+          {SORTS.map((s) => (
+            <a
+              key={s.key}
+              href={s.key === "created" ? "/admin/quotes" : `/admin/quotes?sort=${s.key}`}
+              className={
+                "rounded-full px-3.5 py-1.5 text-sm font-semibold transition " +
+                (sort === s.key
+                  ? "bg-brand-purple text-white"
+                  : "bg-white text-brand-purple/70 hover:text-brand-purple")
+              }
+            >
+              {s.label}
+            </a>
+          ))}
         </div>
 
         {!supabaseConfigured() ? (
@@ -86,7 +148,10 @@ export default async function AdminQuotesPage({
                   <th className="px-4 py-3 font-semibold">Client</th>
                   <th className="px-4 py-3 font-semibold">Type</th>
                   <th className="px-4 py-3 font-semibold">Status</th>
-                  <th className="px-4 py-3 font-semibold">Created</th>
+                  <th className="px-4 py-3 font-semibold">Move date</th>
+                  <th className="px-4 py-3 font-semibold">
+                    {sort === "accepted" ? "Accepted" : "Created"}
+                  </th>
                   <th className="px-4 py-3 font-semibold">Link</th>
                 </tr>
               </thead>
@@ -104,7 +169,12 @@ export default async function AdminQuotesPage({
                       </span>
                     </td>
                     <td className="px-4 py-3 text-xs text-brand-purple/70">
-                      {new Date(q.createdAt).toLocaleDateString("en-NZ", {
+                      {q.moveDate?.trim() || "—"}
+                    </td>
+                    <td className="px-4 py-3 text-xs text-brand-purple/70">
+                      {new Date(
+                        sort === "accepted" ? (q.updatedAt ?? q.createdAt) : q.createdAt,
+                      ).toLocaleDateString("en-NZ", {
                         day: "numeric",
                         month: "short",
                         year: "numeric",

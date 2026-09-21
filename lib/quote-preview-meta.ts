@@ -6,8 +6,8 @@ import {
 import type { StoredQuote } from "@/lib/quote-store";
 
 function routeLabel(quote: HouseMoveQuote): string {
-  const from = quote.pickup.suburb?.trim();
-  const to = quote.delivery.suburb?.trim();
+  const from = quote.pickup?.suburb?.trim();
+  const to = quote.delivery?.suburb?.trim();
   if (from && to) return `${from} to ${to}`;
   if (from) return `Pickup: ${from}`;
   if (to) return `Drop-off: ${to}`;
@@ -18,7 +18,7 @@ export function quotePreviewCopy(stored: StoredQuote, ref: string) {
   const quote = stored.quote;
   const total = formatNzd(quoteTotalInclGst(quote));
   const route = routeLabel(quote);
-  const client = quote.clientName.trim();
+  const client = quote.clientName?.trim() || "your move";
 
   const title = `Quote for ${client} - ${total} incl. GST`;
   const description = `Your relocation quote from Specialist Movers. ${route}. Total ${total} incl. GST. Open to view the full proposal.`;

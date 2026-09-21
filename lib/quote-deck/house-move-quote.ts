@@ -73,14 +73,16 @@ export function formatNzd(amount: number): string {
 const GST_RATE = 0.15;
 
 export function quoteSubtotalExclGst(quote: HouseMoveQuote): number {
-  return quote.lineItems.reduce((sum, item) => sum + item.amountExclGst, 0);
+  // Direct book-ins store a stub quote with no line items at all, so this has
+  // to survive an undefined list rather than throwing inside generateMetadata.
+  return (quote.lineItems ?? []).reduce((sum, item) => sum + item.amountExclGst, 0);
 }
 
 const SECTION_ORDER = ["Moving", "Packing", "Cleaning"];
 
 /** True when any line item is tagged with a service section. */
 export function quoteHasSections(quote: HouseMoveQuote): boolean {
-  return quote.lineItems.some((i) => Boolean(i.section && i.section.trim()));
+  return (quote.lineItems ?? []).some((i) => Boolean(i.section && i.section.trim()));
 }
 
 /** Group line items by service section, ordered Moving → Packing → Cleaning → others. */
