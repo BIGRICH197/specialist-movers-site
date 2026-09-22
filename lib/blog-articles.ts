@@ -2466,6 +2466,63 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "crane-lift-wairau-valley-third-fourth-floor": {
+    title: "Up Three Floors With No Stairwell Option: A Crane Job in Wairau Valley",
+    sections: [
+      {
+        heading: "The Job in Plain Terms",
+        paragraphs: [
+          "In August 2026 we were booked for a commercial delivery in Wairau Valley. The items had to reach the third and fourth floors of a building, and from the start it was clear that carrying up the stairwell was not the right call. A crane lift was the plan from day one.",
+          "The crew was three movers. The load came out of a workshop, went onto the truck, and then went up by crane. That sequence sounds simple. Getting it right took careful coordination between our team, the crane operator, and the site.",
+        ],
+      },
+      {
+        heading: "Why the Stairs Were Off the Table",
+        paragraphs: [
+          "Not every tall building is a stairwell problem. Sometimes the issue is weight, or dimensions, or the turns on each landing. Sometimes it is all three. When items are large enough that forcing them through an internal route risks damage to the goods or the building, a crane lift is the cleaner answer.",
+          "For a commercial fit-out or a workshop delivery, timing matters too. A crane window is booked for a specific slot. Everything else has to be ready before that slot opens, because the crane does not wait.",
+        ],
+      },
+      {
+        heading: "How We Planned It",
+        paragraphs: [
+          "We loaded the truck at the workshop ahead of the crane booking. That meant the goods were wrapped, positioned, and ready to rig before we arrived on site. Nothing was being figured out in the street while a crane stood idle.",
+          "Coordination with the client included confirming the time window and making sure reference numbers were matched to the correct items. On a commercial job, paperwork and labelling are part of the move, not an afterthought. Packing slips need to match what goes up, because items going to different floors have to be sorted before the lift, not after.",
+        ],
+      },
+      {
+        heading: "On the Day: What the Three-Person Crew Actually Did",
+        paragraphs: [
+          "With three movers, roles are clear. Someone manages the rigging and communication with the crane operator at street level. Someone receives the load at the landing point above. Someone manages the truck and the sequence of lifts.",
+          "The load went to both the third and fourth floors, which means the crane window covered multiple lifts. Each pick had to be rigged correctly and in the right order. Once something goes up, bringing it back down because it was loaded in the wrong sequence costs time and money.",
+          "Blankets and wrap were used where the items needed protection, particularly at contact points during rigging. The building itself also needs consideration: edges, balustrades, and window frames can all be in the path of a swing load.",
+        ],
+      },
+      {
+        heading: "What Wairau Valley Is Like for This Kind of Work",
+        paragraphs: [
+          "Wairau Valley is a commercial and light-industrial area, which means crane lifts are not unusual there. Street access, overhead lines, and neighbouring businesses all factor into how a crane is set up. Our depot is in Wairau Valley, so we know the area well.",
+          "That local knowledge is useful. Knowing where trucks can legally park, how long a road corridor can be held, and who needs to be notified are all part of the pre-job planning, not things to sort out on arrival.",
+        ],
+      },
+      {
+        heading: "What to Do If You Have a Similar Job",
+        paragraphs: [
+          "If you have a large item that needs to reach an upper floor and you are not sure whether stairs or a crane is the right approach, the first step is a viewing or a detailed conversation about the item, the building, and the access.",
+          "Tell us the floor level, the dimensions of the item, and whether there is a balcony or window opening large enough to receive a load. If the building is a managed or construction site, let us know early. We hold SiteWise Gold certification with a 90 per cent plus score, which is what gets a crew onto those sites.",
+          "Insurance is worth thinking about at this stage too. Our crew is licensed and insured, and cover for your goods during a lift can be arranged through our team.",
+        ],
+      },
+      {
+        heading: "What a Customer Should Know Before Booking",
+        paragraphs: [
+          "Crane lifts involve more moving parts than a standard move. The crane itself is a separate booking. Access to the street or yard needs to be confirmed with the building owner or council. The receive point above needs to be clear and ready.",
+          "We handle the coordination on the moving side. But the more lead time you give us, the better we can fit everything together. Last-minute crane jobs are possible, but they put pressure on every part of the plan.",
+          "If you have a commercial delivery, a large furniture item, or anything that will not go up a stairwell, send us the details through the website. We will come back to you with a clear picture of what is involved and what it will take.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {

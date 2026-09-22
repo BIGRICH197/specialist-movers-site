@@ -499,4 +499,12 @@ export const blogPosts = [
     excerpt:
       "Moving to a retirement village is different from any move you've done before. Here's a calm, practical guide to getting it right in Auckland.",
   },
+  {
+    slug: "crane-lift-wairau-valley-third-fourth-floor",
+    title: "Up Three Floors With No Stairwell Option: A Crane Job in Wairau Valley",
+    seoTitle: "Crane Lift Movers Auckland | Specialist Movers",
+    publishedDate: "2026-09-22",
+    excerpt:
+      "A commercial crane lift in Wairau Valley: how our three-person crew planned and executed a third and fourth floor delivery when stairs were never an option.",
+  },
 ] as const;
