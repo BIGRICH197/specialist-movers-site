@@ -459,7 +459,7 @@ export const commercialTerms: BookingTermsSection[] = [
   {
     heading: "14. Payment",
     paragraphs: [
-      "Specialist Movers invoices on completion of the work. Clients with an approved credit account are invoiced on account, payable in full by the 20th of the month following the date of invoice, without deduction or set-off. Clients without a credit account are invoiced on completion and payment is due within seven (7) days of the invoice date, unless other terms are agreed in writing. A credit account can be applied for at specialistmovers.co.nz/credit-application.",
+      "Specialist Movers invoices on completion of the work. Clients with an approved credit account are invoiced on account, payable in full by the 20th of the month following the date of invoice, without deduction or set-off. Clients without a credit account are invoiced on completion and payment is due within fourteen (14) days of the invoice date, unless other terms are agreed in writing. A credit account can be applied for at specialistmovers.co.nz/credit-application.",
       "Overdue balances may incur interest at 2% per month, and all costs of collection are payable by the Client. Specialist Movers may suspend further work on account until an overdue balance is cleared.",
     ],
   },
