@@ -1,5 +1,6 @@
 import { getQuote, tokenFromRef } from "@/lib/quote-store";
 import { formatAddress } from "@/lib/quote-deck/house-move-quote";
+import { getCleaningQuoteInclGst } from "@/lib/cleaning-pricing";
 import { BookingForm, type BookingPrefill } from "@/components/quote-deck/BookingForm";
 import { AlreadyBooked } from "@/components/quote-deck/AlreadyBooked";
 
@@ -52,6 +53,13 @@ export default async function BookPage({
     return n ? `${n} MOVERS` : "";
   }
 
+  // Ex-GST, rounded to the cent. getCleaningQuoteInclGst returns null when we
+  // have no bedroom count, and then the clean stays "price on request" exactly
+  // as it does on the deck — never guessed.
+  const cleaningInclGst = getCleaningQuoteInclGst(pf.bedrooms, pf.bathrooms);
+  const cleaningQuoteExclGst =
+    cleaningInclGst != null ? Math.round((cleaningInclGst / 1.15) * 100) / 100 : null;
+
   const prefill: BookingPrefill = {
     fullName: q.clientName ?? "",
     email: pf.email ?? "",
@@ -73,6 +81,11 @@ export default async function BookPage({
             ? "Yes Cleaning"
             : "",
     cleaningExtras: searchParams?.extras ?? "",
+    // The bed x bath schedule price for this house, ex GST — the identical
+    // number HouseMoveDeck put beside the cleaning tick. It travels with the
+    // booking so a clean the customer ticked off an uncleaned quote arrives in
+    // ShiftMate with a price on it instead of as an unpriced card nobody bills.
+    cleaningQuoteExclGst: cleaningQuoteExclGst ?? undefined,
     packing:
       searchParams?.pack === "1"
         ? "Yes packing"
