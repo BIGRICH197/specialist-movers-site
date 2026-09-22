@@ -2593,6 +2593,68 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "office-move-costs-hamilton-waikato": {
+    title: "What Drives the Price of a Waikato Office Move",
+    sections: [
+      {
+        heading: "Why Office Move Quotes Vary So Much",
+        paragraphs: [
+          "Two businesses on Victoria Street can get very different quotes for what looks like the same job. That is not the mover changing their rates. It is the job itself being different. Crew size, truck size, after-hours access, and the distance between your two sites all feed into the final number. This article walks through each one so you know what you are paying for before you sign anything.",
+        ],
+      },
+      {
+        heading: "Crew Size and How It Affects Your Day",
+        paragraphs: [
+          "Our crews run from two to four movers depending on what the job calls for. A small office with a handful of desks and two filing cabinets can usually go with two. A larger floor with heavy workstations, a server rack, or a boardroom table that seats twelve will need more hands.",
+          "More crew means a higher hourly rate but a shorter day. For most businesses the maths favours a bigger crew because the truck is off your floor faster and your people can get back to work sooner. When you call, we will ask about your furniture and floor plan and give you an honest recommendation.",
+        ],
+      },
+      {
+        heading: "Truck Size and What Goes in It",
+        paragraphs: [
+          "Our trucks run with taillifts. That matters for commercial jobs where the loading dock is not at ground level or where the building management has specific rules about what can come through the front door.",
+          "The size of truck we send depends on your volume. Booking a truck that is too small means a second trip, which adds time. Booking one that is too large is simply wasteful. We size the truck to the job based on what you tell us when you book.",
+        ],
+      },
+      {
+        heading: "After-Hours and Weekend Work",
+        paragraphs: [
+          "Most Waikato businesses cannot afford a full working day of disruption. Moving on a Saturday, or starting at six in the morning so the crew is out before staff arrive, is often worth more than any other saving on the job.",
+          "We work seven days. After-hours and weekend commercial work is something we do regularly. There is a cost difference for out-of-hours access compared with a standard weekday move, and we will be upfront about that in your quote. The key thing is to tell us your access window early so we can plan accordingly.",
+        ],
+      },
+      {
+        heading: "Distance Between Sites Across the Waikato",
+        paragraphs: [
+          "Hamilton to Cambridge is a short run. Hamilton to Matamata or Te Awamutu is longer. Morrinsville, Huntly, Ngaruawahia, and Raglan all sit within the area we cover from our Hamilton base, but each adds drive time between your sites.",
+          "Longer distances mean more time on the clock. If one of your sites is in a rural area or a smaller town, that is not a reason to hesitate, it is just a variable we factor into your quote honestly. We know the Waikato routes and we will not quote you a city price for a regional job.",
+        ],
+      },
+      {
+        heading: "The Fixed Callout and What It Covers",
+        paragraphs: [
+          "There is a fixed callout fee based on distance from our Hamilton base. It is the same regardless of how long the job takes. You see that figure in your quote before you confirm anything. It covers the crew getting to you and the truck being on the road.",
+          "Hourly rates are consistent across our Waikato coverage area. The callout is what changes with distance. That structure means you can compare quotes fairly and there are no surprises when the invoice arrives.",
+        ],
+      },
+      {
+        heading: "What to Have Ready When You Call",
+        paragraphs: [
+          "The faster you can give us information, the faster we can give you an accurate quote. We aim to get back to you in about fifteen minutes during business hours, but the quote is only as good as the details behind it.",
+          "Have these ready: the address of both sites and which floor each is on, whether either building has a loading dock or lift, the rough number of workstations and any heavy or oversized items, your preferred move date or window, and any access restrictions such as building management rules or car park availability for the truck.",
+          "If you have a floorplan, that helps. If not, a rough description works fine. For larger offices we offer a free viewing so we can see the space ourselves before we quote.",
+        ],
+      },
+      {
+        heading: "Why the Quote Upfront Actually Matters",
+        paragraphs: [
+          "A quote you receive before the job starts is a commitment, not an estimate. You should know the full price before anyone lifts a desk. That is how we work. The crew we send is licensed and insured, and the price you agreed is the price on the invoice.",
+          "Commercial moves involve your equipment, your data, and your people's ability to work on Monday morning. Getting the price right the first time is part of the job, not an afterthought.",
+          "If you are planning an office move anywhere in the Waikato, get in touch through the Specialist Movers website. Give us the details above and we will have a quote back to you quickly.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {
