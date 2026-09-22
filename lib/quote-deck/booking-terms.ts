@@ -16,7 +16,7 @@ export type BookingTermsSection = {
 };
 
 export const BOOKING_TERMS_VERSION = "2026-09-official-6";
-export const COMMERCIAL_TERMS_VERSION = "2026-08-commercial-1";
+export const COMMERCIAL_TERMS_VERSION = "2026-09-commercial-2";
 
 export const bookingTerms: BookingTermsSection[] = [
   {
@@ -459,7 +459,8 @@ export const commercialTerms: BookingTermsSection[] = [
   {
     heading: "14. Payment",
     paragraphs: [
-      "A deposit of 50% of the quoted total is payable to confirm and lock in the dates. The balance is due within seven (7) days of completion. Overdue accounts incur a $49 admin fee after 14 days; after 30 days the account may be referred for debt collection, with all recovery costs payable by the Client.",
+      "Specialist Movers invoices on completion of the work. Clients with an approved credit account are invoiced on account, payable in full by the 20th of the month following the date of invoice, without deduction or set-off. Clients without a credit account are invoiced on completion and payment is due within seven (7) days of the invoice date, unless other terms are agreed in writing. A credit account can be applied for at specialistmovers.co.nz/credit-application.",
+      "Overdue balances may incur interest at 2% per month, and all costs of collection are payable by the Client. Specialist Movers may suspend further work on account until an overdue balance is cleared.",
     ],
   },
   {
