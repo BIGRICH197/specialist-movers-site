@@ -46,9 +46,9 @@ const breadcrumbs = [{ label: "Home", href: "/" }, { label: "Pricing" }];
  * and switch at invoice time.
  */
 /**
- * Whole dollars stay whole; anything with cents shows both of them. The
- * out-of-town rates are set incl GST, so their ex-GST side is $156.52 and
- * $191.30, and the default formatter would print that second one as "191.3".
+ * Whole dollars stay whole; anything with cents shows both of them. An
+ * incl-GST figure can carry cents ($150 + GST is $172.50), and the default
+ * formatter would print that as "172.5".
  */
 function money(value: number): string {
   return value.toLocaleString("en-NZ", {
@@ -570,16 +570,16 @@ export default function PricingPage() {
           <SectionHeading id="what-changes">What changes the price</SectionHeading>
           <ul className="mt-4 space-y-3 text-sm leading-relaxed text-brand-purple/85">
             <li>
-              <strong className="text-brand-purple">The day you move.</strong> The largest single lever.
-              Tuesday against Friday is a genuine saving on the same crew and truck.
+              <strong className="text-brand-purple">How much you have.</strong> More to move means more
+              hours, and past a certain volume a third mover is faster and cheaper than two working late.
+            </li>
+            <li>
+              <strong className="text-brand-purple">The day you move.</strong> Friday is $10 an hour
+              more than any other day, so avoiding it is a small saving on the same crew and truck.
             </li>
             <li>
               <strong className="text-brand-purple">Access at both ends.</strong> Stairs, long carries
               and tight parking are not surcharged — they simply take longer, and the hours show it.
-            </li>
-            <li>
-              <strong className="text-brand-purple">How much you have.</strong> More to move means more
-              hours, and past a certain volume a third mover is faster and cheaper than two working late.
             </li>
             <li>
               <strong className="text-brand-purple">Where you are.</strong> Outer Auckland and the

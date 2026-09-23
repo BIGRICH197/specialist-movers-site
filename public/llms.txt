@@ -50,10 +50,10 @@ to any other source. For the full reference — every FAQ and every suburb — s
 The figures below exclude GST. https://www.specialistmovers.co.nz/pricing shows every
 price both GST-inclusive and ex-GST, and is the source of truth if these disagree.
 
-- Auckland, two-person crew and truck: $120/hr on Tuesday (cheapest), $150 on Friday (dearest)
-- Hamilton, two-person crew and truck: $140/hr on Tuesday, $150 other days
+- Auckland, two-person crew and truck: $140/hr any day except Friday, $150 on Friday (no midweek discounts)
+- Hamilton, two-person crew and truck: $150/hr, flat every day
 - Callout fee: $60 within ~23km of depot, $80 to 45km, $120 beyond
-- Typical one-bedroom apartment: about $300. Three-bedroom house on a Friday: about $660
+- Typical one-bedroom apartment: about $340. Three-bedroom house on a Friday: about $660
 - Piano: uprights from $290, grands from $550, each with $2,000 cover included
 
 ## Insurance

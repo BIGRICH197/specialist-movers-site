@@ -66,15 +66,15 @@ export type DayRateRow = {
   label: string;
   twoMovers: Rate;
   threeMovers: Rate;
-  /** True for the row carrying the lowest 2-mover rate — the midweek discount. */
+  /** True only when exactly one named-day row carries the lowest 2-mover rate. */
   cheapest: boolean;
 };
 
 /**
  * Collapse a day-of-week rate table into display rows, merging every day that
  * charges the same pair. Hamilton prices five days identically, so it folds to
- * one row; Auckland only pairs Monday with Wednesday. Rows come out
- * cheapest-first, because the midweek discount is the reason to read the table.
+ * one row; Auckland folds to "any day except Friday" plus Friday. Rows come
+ * out cheapest-first.
  */
 function groupDayRates(
   table: Record<DayOfWeek, Record<CrewSize, number>>,

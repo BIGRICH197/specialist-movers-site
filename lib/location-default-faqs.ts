@@ -1,5 +1,6 @@
 import type { Location, LocationFaq } from "@/lib/location-types";
 import { phoneDisplay } from "@/lib/site-data";
+import { fromPrice } from "@/lib/pricing-copy";
 
 function parentLabel(location: Location): string {
   if (location.kind === "region") return location.name;
@@ -19,7 +20,7 @@ export function getDefaultLocationFaqs(location: Location): LocationFaq[] {
   return [
     {
       q: `How much does it cost to move house in ${place}?`,
-      a: `Most ${location.name} home relocations are quoted after a free viewing so stairs, parking, and volume are clear upfront. Smaller local loads often start from around $300 excl. GST. ${travel} Call ${phoneDisplay} for a same-day quote.`,
+      a: `Most ${location.name} home relocations are quoted after a free viewing so stairs, parking, and volume are clear upfront. Smaller local loads often start from around ${location.group === "waikato" ? fromPrice.hamilton : fromPrice.auckland} excl. GST. ${travel} Call ${phoneDisplay} for a same-day quote.`,
     },
     {
       q: `Do you cover all of ${location.name}?`,

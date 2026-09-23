@@ -8,7 +8,7 @@
 
 /** Homepage + default layout description (~155 chars). */
 export const homeMetaDescription =
-  "Professional movers in Auckland and beyond. House, office, piano, and packing services from $120/hr. Quoted upfront, 7 days a week. Free quote.";
+  "Professional movers in Auckland and beyond. House, office, piano, and packing services from $140/hr. Quoted upfront, 7 days a week. Free quote.";
 
 /** /services/house-moving */
 export const houseMovingMetaDescription =

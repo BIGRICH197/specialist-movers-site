@@ -126,7 +126,7 @@ const landingOverrides: Record<
     h1: getServiceHeroH1("house-moving", "Auckland"),
     lead:
       "Apartments, townhouses and family homes across Auckland, seven days a week. Two movers and a truck for most homes up to three bedrooms, blankets and hardware bagged so beds go back together the way they came apart, and a free in-home viewing on three bedrooms and up so the price is fixed before you book.",
-    subline: "Moves starting from $300 + GST. Free quote. We usually call back within 15 minutes.",
+    subline: "Moves starting from $340 + GST. Free quote. We usually call back within 15 minutes.",
     heroGagPhoto: sitePhotos.homeHero,
     heroGagAlt:
       "Specialist Movers carrying a sofa while the client relaxes and reads a magazine",
@@ -151,7 +151,7 @@ const landingOverrides: Record<
     ],
     whyTitle: "What a house move costs in Auckland",
     whyBody:
-      "The day you pick moves the price more than anything else you control. Two movers and a truck are $120 an hour plus GST on a Tuesday and $150 on a Friday, and three movers run $160 to $190. On top of the hours there is a callout fee from $60 that rises with distance from our North Shore depot. Because we charge for the hours the job actually takes rather than a guessed flat rate, on a bigger home we would rather come and look than be wrong in either direction.",
+      "Two movers and a truck are $140 an hour plus GST any day except Friday, and $150 on a Friday, and three movers run $180, or $190 on a Friday. On top of the hours there is a callout fee from $60 that rises with distance from our North Shore depot. Because we charge for the hours the job actually takes rather than a guessed flat rate, on a bigger home we would rather come and look than be wrong in either direction.",
     showPianoPartners: false,
     showMovingBanner: true,
     showPianoSubServices: false,

@@ -48,7 +48,7 @@ const faqs = [
   },
   {
     q: "How quickly can you get to me?",
-    a: "We run 7 days a week, 9am to 7pm, and can often cover short-notice jobs in the same week. Fridays and month-end are the first to fill, and Tuesday is both the quietest and the cheapest day.",
+    a: "We run 7 days a week, 9am to 7pm, and can often cover short-notice jobs in the same week. Fridays and month-end are the first to fill, so midweek dates are the easiest to get at short notice.",
   },
   {
     q: "Are you actually local, or a franchise?",

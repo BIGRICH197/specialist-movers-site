@@ -310,9 +310,9 @@ export function HamiltonServicePage({ config }: Props) {
       <ServiceWhyChooseSection
         title="Why choose us in Hamilton"
         body={config.whyChooseCopy}
-        // "default" is the Auckland strip, so these pages advertised the $300
-        // Auckland floor. Hamilton is a flat $180 an hour incl GST ($156.52
-        // excl), so its floor is $373 excl GST -- the same mismatch that
+        // "default" is the Auckland strip, so these pages advertised the
+        // Auckland floor. Hamilton is a flat $150 an hour excl GST, so its
+        // floor is $360 excl GST (pricing-copy.ts) -- the same mismatch that
         // pricing-copy.ts records fixing once already
         // on furniture-movers-hamilton, which reaches the strip via a different
         // component and was therefore never wrong here.

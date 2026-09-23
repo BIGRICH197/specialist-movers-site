@@ -20,9 +20,9 @@
  *     for booking?" — "Yes, we start with a free viewing"), and because they
  *     sit inside JSON-LD that non-sequitur is exactly what a model quotes.
  *  2. Every number is real and checked against brain/context/pricing.md
- *     (last_updated 2026-07-07). $120/hr is the TUESDAY 2-man Auckland rate,
- *     the cheapest day of the week, so it never appears without the Friday
- *     rate beside it.
+ *     (last_updated 2026-07-07). Since 2026-08-19 the 2-man Auckland rate is
+ *     $140/hr every day except Friday, which is $150, so the standard rate
+ *     never appears without the Friday rate beside it.
  *
  * Order matters: app/page.tsx renders faqs.slice(0, 4), so the first four are
  * the highest-intent questions.
@@ -34,7 +34,7 @@ export const faqs: readonly Faq[] = [
   // --- The four the homepage shows -----------------------------------------
   {
     q: "How much does it cost to hire movers in Auckland?",
-    a: "Two movers and a truck cost $120 an hour plus GST on a Tuesday and $150 on a Friday, so the day you pick makes a real difference. Three movers are $160 to $190. On top of the hours there is a callout fee from $60, which rises the further you are from our depot. In practice a one-bedroom flat lands around $300 to $400 and a three-bedroom house around $700 to $900.",
+    a: "Two movers and a truck cost $140 an hour plus GST any day except Friday, which is $150. Three movers are $180, or $190 on a Friday. On top of the hours there is a callout fee from $60, which rises the further you are from our depot. In practice a one-bedroom flat lands around $340 to $450 and a three-bedroom house around $600 to $1,000.",
   },
   {
     q: "What is the process for booking a move?",
@@ -52,7 +52,7 @@ export const faqs: readonly Faq[] = [
   // --- Pricing -------------------------------------------------------------
   {
     q: "What is the cheapest day to move house?",
-    a: "Tuesday, and it is worth planning around. Two movers are $120 an hour plus GST on a Tuesday against $150 on a Friday, so on a six-hour job that is $180 saved for moving a day or two earlier. Thursday at $130 is next cheapest. Friday and the weekend are the dearest and they book out first.",
+    a: "Any day except Friday. Two movers are $140 an hour plus GST every other day of the week and $150 on a Friday, so avoiding Friday saves $10 an hour on the same crew and truck. Fridays, weekends and the end of the month book out first, so being flexible on the date helps you get the day you want more than it changes the price.",
   },
   {
     q: "What is the callout fee and why is there one?",
@@ -68,7 +68,7 @@ export const faqs: readonly Faq[] = [
   },
   {
     q: "Do you charge GST on top?",
-    a: "Yes. Every price we publish is plus GST unless we say otherwise, so the $120 Tuesday rate is $138 including GST. Your written quote shows both.",
+    a: "Yes. Every price we publish is plus GST unless we say otherwise, so the $140 rate is $161 including GST. Your written quote shows both.",
   },
   {
     q: "Is it cheaper to move myself?",
@@ -160,7 +160,7 @@ export const faqs: readonly Faq[] = [
   },
   {
     q: "Do you work weekends?",
-    a: "Yes, seven days a week. Saturday and Sunday are $140 per hour for a two-person crew against $120 on a Tuesday, and they book out first, so give us more notice for a weekend date.",
+    a: "Yes, seven days a week. Saturday and Sunday are the same $140 per hour for a two-person crew as any weekday except Friday, but they book out first, so give us more notice for a weekend date.",
   },
   {
     q: "Do you provide a written quote for WINZ?",

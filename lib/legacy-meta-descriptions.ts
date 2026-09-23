@@ -8,7 +8,7 @@
  */
 export const legacyMetaDescriptions = {
   home:
-    "Auckland movers for house, office and piano. From $120/hr, quoted upfront, 7 days a week. Free quote in 15 minutes.",
+    "Auckland movers for house, office and piano. From $140/hr, quoted upfront, 7 days a week. Free quote in 15 minutes.",
   "house-moving":
     "Auckland house moving with full packing. We wrap, load, transport and deliver. Free quote and callback in 15 minutes.",
   "office-moving":
@@ -24,7 +24,7 @@ export const legacyMetaDescriptions = {
   "international-moving":
     "International movers in Auckland. Sea and air freight, customs coordination and door-to-door service. Free quote.",
   "loading-unloading":
-    "Loading and unloading crews in Auckland from $300. Blankets and straps included, hourly rates, 7 days a week.",
+    "Loading and unloading crews in Auckland from $340. Blankets and straps included, hourly rates, 7 days a week.",
   "winz-quotes":
     "Need a moving quote for a Work and Income Moving Costs Grant? Written and itemised, usually back within 15 minutes. Auckland and Waikato.",
   "piano-movers-auckland":

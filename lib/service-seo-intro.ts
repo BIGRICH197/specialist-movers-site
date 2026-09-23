@@ -5,13 +5,13 @@
 
 export const serviceSeoIntroBySlug: Record<string, string> = {
   "house-moving":
-    "Movers across Auckland and the Waikato, from $120 per hour plus GST for a two-person crew and truck on a Tuesday. Furniture, appliances and everything in the house, moved by crews who do around 80 house and office moves a month.",
+    "Movers across Auckland and the Waikato, from $140 per hour plus GST for a two-person crew and truck, any day except Friday. Furniture, appliances and everything in the house, moved by crews who do around 80 house and office moves a month.",
   "packing-services":
     "Professional packing across Auckland and the Waikato, from $1,700 excl. GST for a full 1-bedroom pack. Our SiteWise Gold certified crew packs the day before your move with cartons and wrap supplied.",
   "international-moving":
     "International and inter-island moves from Auckland and Hamilton, quoted in writing before we pack or ship. Licensed crews with 60+ years combined experience coordinate North Island, South Island, and overseas relocations.",
   "loading-unloading":
-    "Load-only and unload-only crews across Auckland from $300 excl. GST for smaller jobs. Licensed movers with blankets and straps, ideal when you are driving but need help with the heavy lifting.",
+    "Load-only and unload-only crews across Auckland from $340 excl. GST for smaller jobs. Licensed movers with blankets and straps, ideal when you are driving but need help with the heavy lifting.",
   "grand-piano":
     "Grand piano moving in Auckland and Hamilton from $550 excl. GST locally. Trusted by Steinway and Auckland music retailers, minimum three trained movers with piano boards, shrink wrap, and padded blankets on every job.",
   "upright-piano":

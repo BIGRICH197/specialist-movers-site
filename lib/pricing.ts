@@ -245,7 +245,7 @@ function calculateHouseMoveAuckland(
     ? new Date(input.preferredDate + "T12:00:00").toLocaleDateString("en-NZ", {
         weekday: "long",
       })
-    : "Tuesday (default)";
+    : "Any day but Friday (default)";
 
   const truck = selectTruck(cubes);
   const numberOfLoads = Math.ceil(cubes / truck.capacity);
@@ -344,7 +344,7 @@ function calculateHouseMoveHamilton(
     ? new Date(input.preferredDate + "T12:00:00").toLocaleDateString("en-NZ", {
         weekday: "long",
       })
-    : "Tuesday (default)";
+    : "Any day but Friday (default)";
 
   const truck = selectTruck(cubes);
   const numberOfLoads = Math.ceil(cubes / truck.capacity);

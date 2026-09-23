@@ -17,9 +17,9 @@ import { sitePhotos } from "@/lib/site-photos";
  * with no page behind it.
  *
  * Every price below is excl. GST and checked against brain/context/pricing.md
- * (last_updated 2026-07-07). $120/hr is the TUESDAY 2-man Auckland rate — the
- * cheapest day, not the standard one — so it is never written without the
- * Friday rate beside it.
+ * (last_updated 2026-07-07). Since 2026-08-19 the 2-man Auckland rate is
+ * $140/hr every day except Friday, which is $150, so the standard rate is
+ * never written without the Friday rate beside it.
  */
 export const furnitureMoversAucklandPage: NicheServicePageConfig = {
   path: "/furniture-movers-auckland",
@@ -59,7 +59,7 @@ export const furnitureMoversAucklandPage: NicheServicePageConfig = {
   ],
   whyTitle: "What furniture removals cost in Auckland",
   whyBody:
-    "Two movers and a truck cost $120 an hour plus GST on a Tuesday and $150 on a Friday, so the day you pick makes a real difference. Three movers are $160 to $190. On top of the hours there is a callout fee from $60, which rises the further you are from our North Shore depot. One awkward item is usually done inside two hours. A three-bedroom house is a day, and lands somewhere around $700 to $900. We charge for the hours the job takes, so on anything bigger than a townhouse we would rather come and look than guess. Whatever we quote, you get in writing, and it does not move afterwards.",
+    "Two movers and a truck cost $140 an hour plus GST any day except Friday, which is $150. Three movers are $180, or $190 on a Friday. On top of the hours there is a callout fee from $60, which rises the further you are from our North Shore depot. One awkward item is usually done inside two hours. A three-bedroom house is a day, and lands somewhere around $600 to $1,000. We charge for the hours the job takes, so on anything bigger than a townhouse we would rather come and look than guess. Whatever we quote, you get in writing, and it does not move afterwards.",
   includedBullets: [
     "Single-item moves, part-loads, and full household relocations",
     "Heavy and awkward pieces: spa pools, safes, pool tables, marble tops",
@@ -80,7 +80,7 @@ export const furnitureMoversAucklandPage: NicheServicePageConfig = {
   faqs: [
     {
       q: "How much do furniture removalists cost in Auckland?",
-      a: "A two-person crew and truck is $120 per hour plus GST on a Tuesday and $150 on a Friday, plus a callout fee from $60 depending on distance from our depot. A single heavy item is usually one to two hours. A three-bedroom house is normally a full day.",
+      a: "A two-person crew and truck is $140 per hour plus GST any day except Friday, and $150 on a Friday, plus a callout fee from $60 depending on distance from our depot. A single heavy item is usually one to two hours. A three-bedroom house is normally a full day.",
     },
     {
       q: "Will you move just one item?",
@@ -197,8 +197,8 @@ export const furnitureMoversAucklandPage: NicheServicePageConfig = {
 
 /**
  * Hamilton mirror. Rates come from the Hamilton matrix, which is a different
- * table: 2-man is $140 on Tuesday and capped at $150 every other day
- * (Richard, 2026-07-07).
+ * table: 2-man is a flat $150 + GST and 3-man $190 + GST, every day
+ * (HAMILTON_TIER_1_RATES, Richard 2026-08-19).
  */
 export const furnitureMoversHamiltonPage: NicheServicePageConfig = {
   path: "/furniture-movers-hamilton",
@@ -237,7 +237,7 @@ export const furnitureMoversHamiltonPage: NicheServicePageConfig = {
   ],
   whyTitle: "What furniture moving costs in Hamilton",
   whyBody:
-    "Two movers and a truck are $180 an hour including GST, with three movers at $220, and the rate is the same whatever day you pick. The callout starts at $60 plus GST and climbs with distance from Hamilton. We charge for the hours the job actually takes, so on anything bigger than a townhouse we would rather come and look than guess. Whatever we quote you get in writing, and it does not move afterwards.",
+    "Two movers and a truck are $150 an hour plus GST, with three movers at $190 plus GST, and the rate is the same whatever day you pick. The callout starts at $60 plus GST and climbs with distance from Hamilton. We charge for the hours the job actually takes, so on anything bigger than a townhouse we would rather come and look than guess. Whatever we quote you get in writing, and it does not move afterwards.",
   includedBullets: [
     "Single-item moves, part-loads, and full household relocations",
     "Heavy and awkward pieces: spa pools, safes, pool tables, marble tops",
@@ -256,7 +256,7 @@ export const furnitureMoversHamiltonPage: NicheServicePageConfig = {
   faqs: [
     {
       q: "How much do furniture movers cost in Hamilton?",
-      a: "A two-person crew and truck is $180 per hour including GST, the same rate every day of the week, plus a callout fee from $60 plus GST depending on distance from our Hamilton base. A three-person crew is $220 an hour including GST. A single heavy item is usually one to two hours; a three-bedroom house is normally a full day.",
+      a: "A two-person crew and truck is $150 per hour plus GST, the same rate every day of the week, plus a callout fee from $60 plus GST depending on distance from our Hamilton base. A three-person crew is $190 an hour plus GST. A single heavy item is usually one to two hours; a three-bedroom house is normally a full day.",
     },
     {
       q: "Will you move just one item in the Waikato?",

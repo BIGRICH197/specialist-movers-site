@@ -61,10 +61,10 @@ export function GET() {
       "with distance from the depot.",
       "",
       "Two-person crew and truck, per hour:",
-      "  Tuesday $120 (cheapest), Thursday $130, Monday and Wednesday $135,",
-      "  Saturday $140, Sunday $140, Friday $150 (dearest).",
-      "Three-person crew: $160 Tuesday rising to $190 Friday.",
-      "Four-person crew: $220 Tuesday rising to $250 Friday.",
+      "  Any day except Friday: $140. Friday: $150.",
+      "Three-person crew: $180 any day except Friday, $190 Friday.",
+      "Four-person crew: $240 any day except Friday, $250 Friday.",
+      "There are no midweek discounts. Every day but Friday is the same rate.",
       "",
       "Callout fee by distance from depot:",
       "  Within ~23km: $60 (2 crew), $80 (3), $100 (4)",
@@ -72,7 +72,7 @@ export function GET() {
       "  45-80km: $120 (2), $140 (3), $160 (4)",
       "",
       "Worked examples:",
-      "  One-bedroom apartment, Tuesday, 2 crew, ~2 hours: about $300 plus GST.",
+      "  One-bedroom apartment, any day but Friday, 2 crew, ~2 hours: about $340 plus GST.",
       "  Three-bedroom house, Friday, 2 crew, ~4 hours: about $660 plus GST.",
       "",
       "Piano: uprights from $290 plus GST locally, grands from $550 plus GST.",
@@ -81,15 +81,16 @@ export function GET() {
       "Small office (up to ~10 staff): often from about $800 plus GST.",
     ]),
 
-    // Unlike the Auckland block above, this rate is set including GST, so both
-    // sides are spelled out. An assistant that quotes $180 + GST here would be
-    // overstating us by 15%.
-    section("Pricing — Hamilton and outer Auckland", [
-      "Two-person crew and truck: $180 per hour INCLUDING GST ($156.52 excluding).",
-      "Three-person crew: $220 per hour INCLUDING GST ($191.30 excluding).",
+    // Hamilton and out-of-town rates are EXCL GST like Auckland (Richard,
+    // 2026-08-19). They were once stored as $156.52 / $191.30 from reading
+    // $180 / $220 as GST-inclusive. See lib/hamilton-pricing-data.ts and
+    // TIER_2_RATES / TIER_3_RATES in lib/pricing-data.ts.
+    section("Pricing — Hamilton and outer Auckland, excluding GST", [
+      "Hamilton and the Waikato: two-person crew and truck $150 per hour,",
+      "three-person crew $190 per hour.",
       "Flat every day of the week, so there is no cheaper midweek rate here.",
-      "The same rate covers outer Auckland (Papakura, Silverdale, Warkworth,",
-      "Pukekohe and similar) and Hamilton and the Waikato.",
+      "Outer Auckland and out-of-town jobs (Papakura, Silverdale, Warkworth,",
+      "Pukekohe and similar): two-person crew $180 per hour, three-person $220.",
       "Callout works the same as Auckland and is quoted excluding GST,",
       "rising with distance from the depot.",
     ]),

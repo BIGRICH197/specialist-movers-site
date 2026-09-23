@@ -146,8 +146,8 @@ export const pianoStatsStrip = {
   ),
 };
 
-/** Hamilton pages. The canonical $300 is the AUCKLAND floor; Hamilton's
- *  cheapest hourly is $140, so its floor is $340. */
+/** Hamilton pages. The canonical $340 is the AUCKLAND floor; Hamilton's
+ *  hourly is a flat $150, so its floor is $360 (see pricing-copy.ts). */
 export const hamiltonStatsStrip = {
   ...statsStrip,
   items: statsStrip.items.map((item) =>
@@ -155,7 +155,7 @@ export const hamiltonStatsStrip = {
   ),
 };
 
-/** Trade pages (kitchen and joinery delivery). The $300 house-move floor is
+/** Trade pages (kitchen and joinery delivery). The $340 house-move floor is
  *  the wrong number to show a cabinetmaker: they buy crew hours for a delivery
  *  run, not a whole-home move, and the consumer figure undercuts the hourly
  *  trade framing sitting a few paragraphs below it. */
@@ -210,7 +210,7 @@ export const trustPillars = [
   {
     title: "Fixed prices, quoted before you book",
     body:
-      "A two-person crew and truck is $120 an hour plus GST on a Tuesday and $150 on a Friday, plus a callout fee set by distance. You see the whole number in writing before you commit, and for homes of three bedrooms or more we come and look first, because volume and access are what actually drive the price.",
+      "A two-person crew and truck is $140 an hour plus GST any day except Friday, and $150 on a Friday, plus a callout fee set by distance. You see the whole number in writing before you commit, and for homes of three bedrooms or more we come and look first, because volume and access are what actually drive the price.",
   },
 ] as const;
 
