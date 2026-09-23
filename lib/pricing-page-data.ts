@@ -233,8 +233,8 @@ export const pianoStairsPerFlight = rate(PIANO_STAIRS_PER_FLIGHT);
  * spotter, and a street shut for the lift. Richard, 2026-08-19.
  */
 export const pianoCraneRows: PianoRow[] = [
-  { label: "Upright piano, crane lift", from: rate(990) },
-  { label: "Grand piano, crane lift", from: rate(1400) },
+  { label: "Upright piano, crane lift (viewing required)", from: rate(990) },
+  { label: "Grand piano, crane lift (viewing required)", from: rate(1400) },
 ];
 
 export type OuterTierRow = {

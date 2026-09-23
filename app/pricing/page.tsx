@@ -447,7 +447,8 @@ export default function PricingPage() {
             Second-floor apartments and balconies with no stair access are a hiab
             lift rather than a carry. That is a fixed job price, not the
             per-flight stairs charge, because it is a different job: crane truck,
-            a spotter, and the street held while the piano is in the air.
+            a spotter, and the street held while the piano is in the air. Every
+            crane lift needs a viewing before we confirm the price.
           </p>
           <TableShell>
             <thead>
