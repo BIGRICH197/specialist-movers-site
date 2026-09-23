@@ -374,7 +374,7 @@ export const blogPosts = [
   {
     slug: "how-much-does-it-cost-to-move-an-office-in-auckland",
     title: "Budgeting an Office Relocation in Auckland: Where the Money Goes",
-    seoTitle: "Office Move Cost Auckland: Real 2026 Prices | Specialist Movers",
+    seoTitle: "Office Relocation Costs Auckland | Specialist Movers",
     publishedDate: "2026-08-10",
     excerpt:
       "Auckland office move costs by desk count, the three ways movers price commercial jobs, and the downtime cost that never appears on the invoice. With our real rates.",
@@ -382,7 +382,7 @@ export const blogPosts = [
   {
     slug: "how-much-do-furniture-movers-cost-in-auckland",
     title: "Furniture Removals in Auckland: What You Are Paying For",
-    seoTitle: "Furniture Moving Cost Auckland: Real 2026 Prices | Specialist Movers",
+    seoTitle: "Furniture Removal Prices Auckland | Specialist Movers",
     publishedDate: "2026-08-10",
     excerpt:
       "What it costs to move a sofa, bed, fridge or a Trade Me pickup in Auckland, how long each item actually takes, and why moving several at once costs far less per item.",
@@ -446,7 +446,7 @@ export const blogPosts = [
   {
     slug: "crane-lift-wairau-valley-third-fourth-floor-delivery",
     title: "A Crane, a Tight Street and a Wairau Valley Delivery",
-    seoTitle: "Crane Lift Movers Auckland | Specialist Movers",
+    seoTitle: "Wairau Valley Crane Lift Move | Specialist Movers",
     publishedDate: "2026-09-06",
     excerpt:
       "A three-person crew, a crane, and a commercial load bound for the third and fourth floors. Here is exactly how we planned and ran it.",
@@ -502,7 +502,7 @@ export const blogPosts = [
   {
     slug: "crane-lift-wairau-valley-third-fourth-floor",
     title: "Craning a Workshop Delivery to the Third and Fourth Floor",
-    seoTitle: "Crane Lift Movers Auckland | Specialist Movers",
+    seoTitle: "Upper Floor Crane Delivery Auckland | Specialist Movers",
     publishedDate: "2026-09-22",
     excerpt:
       "A commercial crane lift in Wairau Valley: how our three-person crew planned and executed a third and fourth floor delivery when stairs were never an option.",
