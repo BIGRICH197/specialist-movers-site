@@ -2523,6 +2523,76 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "two-tenancies-one-move-auckland-office-relocation-sequencing": {
+    title: "Two Tenancies, One Move: Sequencing an Auckland Office Relocation When the Dates Don't Cooperate",
+    sections: [
+      {
+        heading: "The Problem Nobody Warns You About",
+        paragraphs: [
+          "Most Auckland office moves have a gap. The old lease ends on a Friday. The builders at the new site hand over keys on a Tuesday. That three-day window is where downtime happens, lease overlap costs mount, and IT directors stop returning your calls.",
+          "The fix is not to rush the furniture. It is to sequence the work so that IT, the movers, the fit-out crew and both building managers are each doing their part at the right moment, in the right order. This guide walks you through that sequence, step by step, for a two-tenancy Auckland move where the dates do not line up neatly.",
+        ],
+      },
+      {
+        heading: "Start With Both Building Managers, Not With Packing",
+        paragraphs: [
+          "Before you book a truck, get written confirmation of loading dock availability and lift access from both buildings. In Auckland's CBD and Wynyard Quarter, loading docks often require bookings made weeks in advance, and some buildings will only release a service lift to you in two-hour windows. Miss that window and the truck waits on the street, costing you time you do not have.",
+          "Each building manager will typically want to know the truck dimensions, the number of crew, whether you are using a trolley or a pallet jack in common areas, and who is your on-site contact on the day. Get this in writing and forward it to your moving company. The fewer surprises at the door, the faster the work goes.",
+          "If the new fit-out is still active when your move date approaches, confirm with the project manager exactly which areas are handed over and which are still a building site. You need a clear line. Furniture arriving into a space that is still being painted or cabled is furniture that gets damaged or gets in the way of tradespeople, and that slows the fit-out down further.",
+        ],
+      },
+      {
+        heading: "The Order of Operations for IT Disconnection",
+        paragraphs: [
+          "IT is the single most common reason an office move runs late. Servers, patch panels and desk runs take longer to decommission than anyone budgets for, and your IT team or managed service provider will always want more time than the movers can give them.",
+          "Work backwards from the move date. If the movers arrive at 7 am, IT disconnection should be complete by end of business the day before. That means IT starts labelling cables and bagging patch cords at least two days prior, not the afternoon before. For anything larger than a dozen workstations, build in a full business day for disconnection alone.",
+          "At the new end, the sequence flips. Furniture goes in first, then IT reconnects. Do not let IT set up in a half-furnished room if you can avoid it, because desks will need to shift again and cables get snagged. Confirm with IT exactly which rooms need to be fully furnished before they can start, and share that plan with your movers so they prioritise those areas.",
+        ],
+      },
+      {
+        heading: "When the New Space Is Not Ready on Lease-End Day",
+        paragraphs: [
+          "This is the scenario that causes the most cost: your old tenancy ends on a date certain, but the new premises have a fit-out delay, a code-compliance hold-up, or a landlord handover that slips. You have three options, and which one makes sense depends on how long the gap is.",
+          "A short gap, say one to four days, is usually best handled with short-term storage. Your furniture leaves the old site on schedule, goes into storage, and is delivered to the new site as soon as access is confirmed. This keeps you out of a holding-over position on your old lease, which in Auckland commercial leases can be expensive.",
+          "A longer gap changes the maths. If the new site is delayed by more than a week, consider whether staff can work remotely, whether a co-working space like one of the GridAKL locations or a serviced office in the Viaduct could absorb the team short-term, and whether your IT setup allows for a fast temporary deployment. That is a decision for you and your CFO, not the movers. But your movers need to know the plan early, because it affects how furniture is packed and what is accessible in storage.",
+          "Whatever the gap length, negotiate with your old landlord in writing before lease end. A brief holding-over clause is often available if you ask early. If you leave it until the last week, goodwill evaporates quickly.",
+        ],
+      },
+      {
+        heading: "How After-Hours and Weekend Crews Change the Equation",
+        paragraphs: [
+          "If your old building or new building charges peak-rate lift fees during business hours, or if either site restricts heavy work to outside core hours, an evening or weekend move can be significantly cheaper on the building side even before you consider staff disruption.",
+          "Weekend crews also let your people arrive Monday morning to a fully set-up office. That is worth real money in productivity, especially for teams that bill by the hour or run client-facing operations. A Friday-night start means furniture, IT and cabling can all be in place before 9 am Monday.",
+          "Specialist Movers operates seven days a week, including after-hours commercial work. If your building manager says the loading dock is available from 6 pm on a Friday, we can work with that. The key is flagging it early in the booking process so crew and truck are allocated correctly.",
+        ],
+      },
+      {
+        heading: "SiteWise and Managed Sites: What Your Movers Need to Qualify",
+        paragraphs: [
+          "Some Auckland commercial buildings, particularly new developments and construction-adjacent sites, require contractors to hold a SiteWise certification before they can work on site. If your new premises is in a managed building or is still within the construction phase of a fit-out, check with the project manager whether this applies.",
+          "Specialist Movers holds SiteWise Gold certification with a score above 90 percent. That is the threshold most site managers require. If you need to provide your building manager or fit-out contractor with evidence of certification before a truck can enter the site, we can supply that documentation as part of the booking process.",
+          "If you are not sure whether your site requires it, ask. It is a five-minute conversation with the building manager that can prevent a truck being turned away on the morning of the move.",
+        ],
+      },
+      {
+        heading: "A Practical Checklist for the Two-Week Window Before Move Day",
+        paragraphs: [
+          "Two weeks out: confirm loading dock bookings and lift access windows in writing at both sites. Confirm the fit-out handover date and get it in an email from the project manager. Share truck dimensions and crew count with both building managers.",
+          "One week out: IT disconnection plan should be signed off. Staff should know what they are personally responsible for packing, if anything, and what time they need to be off-site on the last day. If you are using storage as a bridge, confirm the storage access hours and whether your movers can retrieve items to order or only in full loads.",
+          "Two days out: IT begins labelling and decommissioning. Confirm the move crew start time and site contact names at both ends. If either building requires a security escort or swipe access for the crew, arrange that now, not on the morning.",
+          "The day before: do a walkthrough of the old site. Anything that is not meant to move should be clearly marked. Anything fragile or high-value that needs specific handling should be pointed out to the crew leader at the start of the job.",
+        ],
+      },
+      {
+        heading: "Getting the Quote Right From the Start",
+        paragraphs: [
+          "An office relocation across two Auckland tenancies involves more variables than a standard move. The quote needs to reflect the correct crew size, the correct truck configuration, any after-hours requirements, the storage bridge if one is needed, and the access conditions at both sites.",
+          "The more information you provide upfront, the more accurate the quote will be. Floor plans help. Knowing whether there is a loading dock or kerbside access only helps. Knowing the lift dimensions at both ends helps. If you have a site that requires SiteWise-certified contractors, say so.",
+          "Specialist Movers quotes come back in around 15 minutes during business hours. For larger or more complex commercial moves, a site visit is worth doing before the quote is finalised. You can start that process through the contact form on our website, and someone will be in touch to talk through the specifics.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {
