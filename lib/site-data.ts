@@ -507,4 +507,12 @@ export const blogPosts = [
     excerpt:
       "A commercial crane lift in Wairau Valley: how our three-person crew planned and executed a third and fourth floor delivery when stairs were never an option.",
   },
+  {
+    slug: "two-tenancies-one-move-auckland-office-relocation-sequencing",
+    title: "Two Tenancies, One Move: Sequencing an Auckland Office Relocation When the Dates Don't Cooperate",
+    seoTitle: "Auckland Office Relocation Sequencing | Specialist Movers",
+    publishedDate: "2026-09-23",
+    excerpt:
+      "Old lease ending before the new fit-out is ready? This guide walks Auckland office managers through the exact order of operations to protect uptime and budget.",
+  },
 ] as const;
