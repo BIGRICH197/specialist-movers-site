@@ -277,7 +277,7 @@ export const blogPosts = [
   },
   {
     slug: "how-much-do-movers-cost-in-auckland",
-    title: "How Much Do Movers Cost in Auckland? Real 2026 Numbers",
+    title: "What Movers Charge in Auckland and What Pushes the Bill Up",
     seoTitle: "Moving Costs Auckland 2026: Real Prices | Specialist Movers",
     publishedDate: "2026-07-20",
     excerpt:
@@ -309,7 +309,7 @@ export const blogPosts = [
   },
   {
     slug: "balcony-fridge-delivery-st-heliers-auckland",
-    title: "How We Got a Full-Size Fridge Up a Balcony in St Heliers",
+    title: "A Full-Size Fridge, a St Heliers Balcony and No Lift",
     seoTitle: "Balcony Fridge Move St Heliers | Specialist Movers",
     publishedDate: "2026-07-24",
     excerpt:
@@ -373,7 +373,7 @@ export const blogPosts = [
   },
   {
     slug: "how-much-does-it-cost-to-move-an-office-in-auckland",
-    title: "How Much Does It Cost to Move an Office in Auckland? Real 2026 Numbers",
+    title: "Budgeting an Office Relocation in Auckland: Where the Money Goes",
     seoTitle: "Office Move Cost Auckland: Real 2026 Prices | Specialist Movers",
     publishedDate: "2026-08-10",
     excerpt:
@@ -381,7 +381,7 @@ export const blogPosts = [
   },
   {
     slug: "how-much-do-furniture-movers-cost-in-auckland",
-    title: "How Much Do Furniture Movers Cost in Auckland? Real 2026 Numbers",
+    title: "Furniture Removals in Auckland: What You Are Paying For",
     seoTitle: "Furniture Moving Cost Auckland: Real 2026 Prices | Specialist Movers",
     publishedDate: "2026-08-10",
     excerpt:
@@ -421,7 +421,7 @@ export const blogPosts = [
   },
   {
     slug: "balcony-hoist-couch-freemans-bay",
-    title: "Down from the Second Floor: A Freemans Bay Balcony Hoist Job",
+    title: "Bringing a Couch Down Two Storeys in Freemans Bay",
     seoTitle: "Balcony Hoist Movers Auckland | Specialist Movers",
     publishedDate: "2026-08-30",
     excerpt:
@@ -445,7 +445,7 @@ export const blogPosts = [
   },
   {
     slug: "crane-lift-wairau-valley-third-fourth-floor-delivery",
-    title: "When the Lift Is Not an Option: A Crane Job in Wairau Valley",
+    title: "A Crane, a Tight Street and a Wairau Valley Delivery",
     seoTitle: "Crane Lift Movers Auckland | Specialist Movers",
     publishedDate: "2026-09-06",
     excerpt:
@@ -501,7 +501,7 @@ export const blogPosts = [
   },
   {
     slug: "crane-lift-wairau-valley-third-fourth-floor",
-    title: "Up Three Floors With No Stairwell Option: A Crane Job in Wairau Valley",
+    title: "Craning a Workshop Delivery to the Third and Fourth Floor",
     seoTitle: "Crane Lift Movers Auckland | Specialist Movers",
     publishedDate: "2026-09-22",
     excerpt:

@@ -253,7 +253,7 @@ export const blogArticles: Record<string, BlogArticle> = {
     ],
   },
   "how-much-do-movers-cost-in-auckland": {
-    title: "How Much Do Movers Cost in Auckland? Real 2026 Numbers",
+    title: "What Movers Charge in Auckland and What Pushes the Bill Up",
     sections: [
       {
         heading: "The short answer",
@@ -532,7 +532,7 @@ export const blogArticles: Record<string, BlogArticle> = {
     ],
   },
   "balcony-fridge-delivery-st-heliers-auckland": {
-    title: "How We Got a Full-Size Fridge Up a Balcony in St Heliers",
+    title: "A Full-Size Fridge, a St Heliers Balcony and No Lift",
     sections: [
       {
         heading: "The job in plain terms",
@@ -1177,7 +1177,7 @@ export const blogArticles: Record<string, BlogArticle> = {
    * carrying the same prices split the signal rather than compounding it.
    */
   "how-much-does-it-cost-to-move-an-office-in-auckland": {
-    title: "How Much Does It Cost to Move an Office in Auckland? Real 2026 Numbers",
+    title: "Budgeting an Office Relocation in Auckland: Where the Money Goes",
     sections: [
       {
         heading: "The short answer",
@@ -1380,7 +1380,7 @@ export const blogArticles: Record<string, BlogArticle> = {
    * in both places together.
    */
   "how-much-do-furniture-movers-cost-in-auckland": {
-    title: "How Much Do Furniture Movers Cost in Auckland? Real 2026 Numbers",
+    title: "Furniture Removals in Auckland: What You Are Paying For",
     sections: [
       {
         heading: "The short answer",
@@ -1843,7 +1843,7 @@ export const blogArticles: Record<string, BlogArticle> = {
     ],
   },
   "balcony-hoist-couch-freemans-bay": {
-    title: "Down from the Second Floor: A Freemans Bay Balcony Hoist Job",
+    title: "Bringing a Couch Down Two Storeys in Freemans Bay",
     sections: [
       {
         heading: "The job in plain terms",
@@ -2024,7 +2024,7 @@ export const blogArticles: Record<string, BlogArticle> = {
     ],
   },
   "crane-lift-wairau-valley-third-fourth-floor-delivery": {
-    title: "When the Lift Is Not an Option: A Crane Job in Wairau Valley",
+    title: "A Crane, a Tight Street and a Wairau Valley Delivery",
     sections: [
       {
         heading: "The Job in Plain Terms",
@@ -2467,7 +2467,7 @@ export const blogArticles: Record<string, BlogArticle> = {
     ],
   },
   "crane-lift-wairau-valley-third-fourth-floor": {
-    title: "Up Three Floors With No Stairwell Option: A Crane Job in Wairau Valley",
+    title: "Craning a Workshop Delivery to the Third and Fourth Floor",
     sections: [
       {
         heading: "The Job in Plain Terms",
