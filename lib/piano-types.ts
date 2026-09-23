@@ -36,6 +36,6 @@ export const pianoExpertiseSection = {
     { value: "5,000+", label: "Pianos moved" },
     { value: "4.9", label: "Google rating" },
     { value: "7 days", label: "Service" },
-    { value: "$300", label: "Moves from (excl. GST)" },
+    { value: "$290", label: "Moves from (excl. GST)" },
   ],
 } as const;

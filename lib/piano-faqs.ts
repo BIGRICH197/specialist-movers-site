@@ -16,7 +16,7 @@ export const pianoFaqs = [
   },
   {
     q: "How much does it cost to transport a piano in New Zealand?",
-    a: "Cost depends on piano type, distance, and access (stairs, turns, tight doorways). Local upright moves start from $300 excl. GST. Grands and longer routes cost more. Tell us pickup and drop-off addresses and we will quote clearly.",
+    a: "Cost depends on piano type, distance, and access (stairs, turns, tight doorways). Local upright moves start from $290 excl. GST. Grands and longer routes cost more. Tell us pickup and drop-off addresses and we will quote clearly.",
   },
   {
     q: "What information should I have ready before I call?",

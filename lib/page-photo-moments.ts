@@ -273,7 +273,7 @@ export const pagePhotoMoments: Record<string, PagePhotoMoment> = {
     caption: "Uprights done properly",
     showCta: true,
     defaultJobType: "Piano Move",
-    body: "Local upright moves from $300 (excl. GST). Stairs and access quoted clearly upfront.",
+    body: "Local upright moves from $290 (excl. GST). Stairs and access quoted clearly upfront.",
   },
   "piano-movers/international-piano": {
     ...premiumServicePhotoLayout,

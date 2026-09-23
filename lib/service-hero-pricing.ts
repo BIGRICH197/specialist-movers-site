@@ -6,7 +6,7 @@ const AUCKLAND_MIN_HOURLY_EX = TIER_1_RATES.tue["2M"];
 const HAMILTON_MIN_HOURLY_EX = HAMILTON_TIER_1_RATES.tue["2M"];
 
 export const pianoHeroSubline =
-  "Piano moves from $300 + GST. Every move quoted upfront, so you know the number before we lift a thing.";
+  "Piano moves from $290 + GST. Every move quoted upfront, so you know the number before we lift a thing.";
 
 export function getMovingHeroRateLine(options?: { hamilton?: boolean }): string {
   const hourlyEx = options?.hamilton

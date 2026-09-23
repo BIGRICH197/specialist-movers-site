@@ -20,7 +20,7 @@ type WhyChooseProps = {
   title: string;
   body: string;
   showStats?: boolean;
-  /** Piano service pages show moves from $300, not $350. */
+  /** Piano service pages show the piano from-price ($290), not the house-move floor. */
   statsVariant?: "default" | "piano" | "hamilton" | "trade";
 };
 

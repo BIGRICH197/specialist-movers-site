@@ -128,7 +128,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
       },
       {
         q: "How much does a piano move cost in Hamilton?",
-        a: "Local Hamilton upright moves start from $300 excl. GST. Grands, stairs, and longer routes cost more. Call or use the form for a clear quote.",
+        a: "Local Hamilton upright moves start from $290 excl. GST. Grands, stairs, and longer routes cost more. Call or use the form for a clear quote.",
       },
       {
         q: "Will my piano need tuning after the move?",
