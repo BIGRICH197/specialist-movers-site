@@ -14,13 +14,32 @@ export const siteContentUpdatedIso = "2026-06-13";
  * baseline, which is still honest and still stable between builds.
  */
 const routeContentDates: Record<string, string> = {
+  "/blog/crane-lift-wairau-valley-third-fourth-floor-delivery": "2026-09-24",
+  "/blog/crane-lift-wairau-valley-third-fourth-floor": "2026-09-24",
+  "/blog/balcony-hoist-couch-freemans-bay": "2026-09-24",
+  "/blog/balcony-fridge-delivery-st-heliers-auckland": "2026-09-24",
+  "/blog/how-much-do-furniture-movers-cost-in-auckland": "2026-09-24",
+  "/blog/how-much-does-it-cost-to-move-an-office-in-auckland": "2026-09-24",
+  "/locations/wellington": "2026-08-19",
+  "/locations/palmerston-north": "2026-08-19",
+  "/locations/bucklands-beach": "2026-08-03",
+  "/locations/papatoetoe": "2026-08-03",
+  "/locations/ellerslie": "2026-08-12",
+  "/locations/whangaparaoa": "2026-08-03",
+  "/locations/helensville": "2026-08-19",
+  "/locations/wellsford": "2026-08-24",
+  "/locations/warkworth": "2026-08-24",
+  "/locations/waiuku": "2026-08-31",
+  "/locations/pukekohe": "2026-09-07",
+  "/locations/manukau": "2026-08-24",
+  "/locations/henderson": "2026-09-14",
   "/kitchen-and-joinery-delivery": "2026-09-01",
   "/pricing": "2026-08-10",
   "/movers-near-me": "2026-08-11",
   "/services/storage": "2026-08-11",
   "/office-movers-auckland": "2026-08-04",
   "/commercial-moving-auckland": "2026-08-04",
-  "/blog/how-much-do-movers-cost-in-auckland": "2026-07-20",
+  "/blog/how-much-do-movers-cost-in-auckland": "2026-09-24",
   "/blog/diy-packing-vs-professional-packing-services": "2026-08-03",
   "/blog/planning-an-office-move-in-auckland": "2026-07-20",
   "/blog/hoist-move-newmarket-how-we-did-it": "2026-07-28",
@@ -33,7 +52,7 @@ const routeContentDates: Record<string, string> = {
   "/locations/huntly": "2026-07-24",
   "/locations/morrinsville": "2026-07-24",
   "/locations/ngaruawahia": "2026-07-24",
-  "/locations/south-auckland": "2026-07-24",
+  "/locations/south-auckland": "2026-07-31",
 };
 
 /**
