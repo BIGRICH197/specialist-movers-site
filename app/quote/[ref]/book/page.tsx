@@ -86,6 +86,9 @@ export default async function BookPage({
     // booking so a clean the customer ticked off an uncleaned quote arrives in
     // ShiftMate with a price on it instead of as an unpriced card nobody bills.
     cleaningQuoteExclGst: cleaningQuoteExclGst ?? undefined,
+    // With both, the form knows the clean's size and doesn't ask again.
+    bedrooms: pf.bedrooms,
+    bathrooms: pf.bathrooms,
     packing:
       searchParams?.pack === "1"
         ? "Yes packing"

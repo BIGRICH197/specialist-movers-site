@@ -40,6 +40,12 @@ export type BookingPrefill = {
    *  SM-1879 went to the board with a $480 clean and $80 of extras that no
    *  invoice would ever pick up. Empty when we don't know the bedroom count. */
   cleaningQuoteExclGst?: number;
+  /** Bedroom and bathroom counts from the quote, when it had them. With both,
+   *  the clean's size is known and the form does not ask; without them (every
+   *  direct /book booking, and older quotes) it asks, because the cleaner
+   *  needs to know the size of the house (Richard, 2026-09-24). */
+  bedrooms?: number;
+  bathrooms?: number;
   packing?: string;
   /** Carried from the quote page's add-on ticks, not asked again here — the
    *  customer already answered insurance vs owner's risk before they could
@@ -113,6 +119,10 @@ export function BookingForm({
     payment: "",
     cleaningBooked: prefill.cleaningBooked ?? "",
     cleaningSameDay: "",
+    // Only asked when the quote didn't already carry the counts. Bedrooms
+    // start from "Size of move" ("3 Bedroom" -> 3) as a guess to confirm.
+    cleaningBedrooms: "",
+    cleaningBathrooms: "",
     insurance: prefill.insurance ?? "",
     cleaningExtras: "",
     packing: prefill.packing ?? "",
@@ -196,6 +206,17 @@ export function BookingForm({
     setWhatPacking((p) => (p.includes(opt) ? p.filter((x) => x !== opt) : [...p, opt]));
 
   const showCleaningSameDay = f.cleaningBooked === "Yes Cleaning";
+  // The clean's size. A quote from Joey carries bedrooms AND bathrooms; a direct
+  // booking carries neither, so the clean reached ShiftMate with no idea whether
+  // it was a unit or a five-bed house. Ask only when we don't already know.
+  const askCleanSize =
+    showCleaningSameDay && !((prefill.bedrooms ?? 0) >= 1 && (prefill.bathrooms ?? 0) >= 1);
+  useEffect(() => {
+    if (!askCleanSize || f.cleaningBedrooms) return;
+    const n = f.sizeOfMove.match(/^(\d)\s*Bedroom/i)?.[1];
+    if (n) set("cleaningBedrooms", n);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [askCleanSize, f.sizeOfMove]);
 
   // Cleaning extras, seeded from the quote page ("id" or "id:qty" ids) so a
   // choice made there is not lost, and editable here for direct bookings.
@@ -274,6 +295,8 @@ export function BookingForm({
       .map(([, label]) => label);
     if (showCleaningSameDay && !f.cleaningSameDay?.trim())
       out.push("Cleaning same day as moving?");
+    if (askCleanSize && !f.cleaningBedrooms) out.push("Bedrooms to clean");
+    if (askCleanSize && !f.cleaningBathrooms) out.push("Bathrooms to clean");
     if (showPackingDetail && whatPacking.length === 0) out.push("What are we packing?");
     // A filled-in Phone box is not the same as a phone number. Full name and
     // Phone sit side by side in this grid, and a surname in the phone field
@@ -560,6 +583,25 @@ export function BookingForm({
                     })}
               </ul>
             </div>
+          )}
+
+          {askCleanSize && (
+            <>
+              <div>
+                <label className={labelCls}>How many bedrooms are we cleaning?</label>
+                <select className={inputCls} required value={f.cleaningBedrooms} onChange={(e) => set("cleaningBedrooms", e.target.value)}>
+                  <option value="">Select…</option>
+                  {["1", "2", "3", "4", "5"].map((o) => <option key={o} value={o}>{o === "5" ? "5+" : o}</option>)}
+                </select>
+              </div>
+              <div>
+                <label className={labelCls}>How many bathrooms?</label>
+                <select className={inputCls} required value={f.cleaningBathrooms} onChange={(e) => set("cleaningBathrooms", e.target.value)}>
+                  <option value="">Select…</option>
+                  {["1", "2", "3", "4"].map((o) => <option key={o} value={o}>{o === "4" ? "4+" : o}</option>)}
+                </select>
+              </div>
+            </>
           )}
 
           {showCleaningSameDay && (
