@@ -84,7 +84,11 @@ export function HeroVisual({
           : {})}
       >
         {/* quality 82 matches SitePhoto, so a photo reused by both the hero and
-            a service card resolves to one /_next/image URL instead of two. */}
+            a service card resolves to one /_next/image URL instead of two.
+            sizes: the desktop hero renders ~750px wide (more on a scaled
+            Windows screen). "560px" here made the browser fetch the 640w
+            file and stretch it, so the hero looked soft next to every other
+            photo on the page. */}
         <div className="absolute inset-0 z-0">
           <Image
             src={photoSrc}
@@ -92,7 +96,7 @@ export function HeroVisual({
             fill
             priority={priority}
             quality={priority ? 82 : 78}
-            sizes="(max-width: 1024px) 100vw, 560px"
+            sizes="(max-width: 1024px) 100vw, 820px"
             className={`object-cover ${
               hasHoverSwap
                 ? "transition-opacity duration-500 ease-out motion-reduce:transition-none group-hover/hero-photo:opacity-0 group-focus-visible/hero-photo:opacity-0"
@@ -108,7 +112,7 @@ export function HeroVisual({
               fill
               quality={78}
               loading="lazy"
-              sizes="(max-width: 1024px) 100vw, 560px"
+              sizes="(max-width: 1024px) 100vw, 820px"
               className="object-cover opacity-0 transition-opacity duration-500 ease-out motion-reduce:transition-none group-hover/hero-photo:opacity-100 group-focus-visible/hero-photo:opacity-100"
               style={{ objectPosition: imageObjectPosition }}
               aria-hidden
