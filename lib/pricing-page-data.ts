@@ -72,8 +72,8 @@ export type DayRateRow = {
 
 /**
  * Collapse a day-of-week rate table into display rows, merging every day that
- * charges the same pair. Hamilton prices five days identically, so it folds to
- * one row; Auckland folds to "any day except Friday" plus Friday. Rows come
+ * charges the same pair. Hamilton and Auckland both price every day the same
+ * (Auckland since 2026-09-24), so each folds to one "Any day" row. Rows come
  * out cheapest-first.
  */
 function groupDayRates(
@@ -114,10 +114,9 @@ function groupDayRates(
     .sort((a, b) => a.two - b.two || a.three - b.three)
     .map((group) => {
       /*
-       * One rate covering every day but one is how Auckland prices since
-       * 2026-08-19. Naming the six days reads as noise — "Monday / Tuesday /
-       * Wednesday / Thursday / Saturday / Sunday" — when the fact the reader
-       * needs is simply that Friday is the exception.
+       * One rate covering every day but one is how Auckland priced from
+       * 2026-08-19 to 2026-09-24. Naming the six days reads as noise, so a
+       * single exception day gets named on its own instead.
        */
       const allButOne = group.days.length === DAY_ORDER.length - 1;
       const exceptDay = allButOne
@@ -132,7 +131,7 @@ function groupDayRates(
             : group.days.map((day) => DAY_LABEL[day]).join(" / "),
         twoMovers: rate(group.two),
         threeMovers: rate(group.three),
-        // A row labelled "except Friday" already says it is the cheaper one.
+        // A row labelled "Any day except X" already says it is the cheaper one.
         cheapest:
           !isFlat && !exceptDay && hasUniqueCheapest && group.two === cheapestEx,
       };

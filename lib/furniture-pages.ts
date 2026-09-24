@@ -17,9 +17,8 @@ import { sitePhotos } from "@/lib/site-photos";
  * with no page behind it.
  *
  * Every price below is excl. GST and checked against brain/context/pricing.md
- * (last_updated 2026-07-07). Since 2026-08-19 the 2-man Auckland rate is
- * $140/hr every day except Friday, which is $150, so the standard rate is
- * never written without the Friday rate beside it.
+ * (last_updated 2026-07-07). Since 2026-09-24 the 2-man Auckland rate is
+ * a flat $150/hr every day, the same as Hamilton, with no day-of-week pricing.
  */
 export const furnitureMoversAucklandPage: NicheServicePageConfig = {
   path: "/furniture-movers-auckland",
@@ -59,7 +58,7 @@ export const furnitureMoversAucklandPage: NicheServicePageConfig = {
   ],
   whyTitle: "What furniture removals cost in Auckland",
   whyBody:
-    "Two movers and a truck cost $140 an hour plus GST any day except Friday, which is $150. Three movers are $180, or $190 on a Friday. On top of the hours there is a callout fee from $60, which rises the further you are from our North Shore depot. One awkward item is usually done inside two hours. A three-bedroom house is a day, and lands somewhere around $600 to $1,000. We charge for the hours the job takes, so on anything bigger than a townhouse we would rather come and look than guess. Whatever we quote, you get in writing, and it does not move afterwards.",
+    "Two movers and a truck cost $150 an hour plus GST, any day of the week. Three movers are $190. On top of the hours there is a callout fee from $60, which rises the further you are from our North Shore depot. One awkward item is usually done inside two hours. A three-bedroom house is a day, and lands somewhere around $650 to $1,000. We charge for the hours the job takes, so on anything bigger than a townhouse we would rather come and look than guess. Whatever we quote, you get in writing, and it does not move afterwards.",
   includedBullets: [
     "Single-item moves, part-loads, and full household relocations",
     "Heavy and awkward pieces: spa pools, safes, pool tables, marble tops",
@@ -80,7 +79,7 @@ export const furnitureMoversAucklandPage: NicheServicePageConfig = {
   faqs: [
     {
       q: "How much do furniture removalists cost in Auckland?",
-      a: "A two-person crew and truck is $140 per hour plus GST any day except Friday, and $150 on a Friday, plus a callout fee from $60 depending on distance from our depot. A single heavy item is usually one to two hours. A three-bedroom house is normally a full day.",
+      a: "A two-person crew and truck is $150 per hour plus GST, any day of the week, plus a callout fee from $60 depending on distance from our depot. A single heavy item is usually one to two hours. A three-bedroom house is normally a full day.",
     },
     {
       q: "Will you move just one item?",

@@ -185,7 +185,7 @@ export default function MoversNearMePage() {
                 ${zone.fee.ex} + GST in Zone {zone.zone}
               </span>
             ))}
-            . Every one of these figures, and the full rate table by day of the week, is on our{" "}
+            . Every one of these figures, and the full rate table, is on our{" "}
             <Link className="font-semibold text-brand-purple underline" href="/pricing">
               pricing page
             </Link>

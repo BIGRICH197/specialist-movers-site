@@ -25,9 +25,10 @@ import { sitePhotos } from "@/lib/site-photos";
  * _kitchen_invoices.py.
  *
  * Rates are the trade card's, matching lib/trade-page.ts: $140/hr for two
- * movers plus a $60 callout, $180 plus $80 for three. Excl GST. After the
- * 2026-08-19 retail flattening these are the same as the public Auckland
- * rates, which is why the page does not claim a trade discount.
+ * movers plus a $60 callout, $180 plus $80 for three. Excl GST. From
+ * 2026-08-19 these matched the public Auckland rates. On 2026-09-24 house
+ * moves went to $150 / $190 but trade stayed put, so trade now sits $10 under
+ * retail. The page still does not advertise that as a trade discount.
  */
 export const joineryDeliveryPage: NicheServicePageConfig = {
   path: "/kitchen-and-joinery-delivery",

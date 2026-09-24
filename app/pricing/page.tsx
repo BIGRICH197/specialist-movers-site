@@ -90,18 +90,14 @@ function TableShell({ children }: { children: React.ReactNode }) {
 const th = "border-b border-brand-purple/15 px-4 py-3 font-heading text-xs uppercase tracking-wider text-brand-purple/70";
 const td = "border-b border-brand-purple/10 px-4 py-3 text-brand-purple/85";
 
-/** Friday, the one day the two-mover rate still steps up. */
-const dearestTwoMoverIncl =
-  aucklandDayRates[aucklandDayRates.length - 1].twoMovers.incl;
-
 const faqs = [
   {
     q: "How much do movers cost in Auckland?",
-    a: `Two movers and a truck cost $${aucklandFromHourly.incl} an hour including GST ($${aucklandFromHourly.ex} + GST) any day except Friday, which is $${dearestTwoMoverIncl} incl GST. There is a one-off callout fee of $${aucklandCallout.twoMovers.incl} incl GST on top. A typical three-bedroom move works out around ${typicalThreeBed.auckland} + GST all in.`,
+    a: `Two movers and a truck cost $${aucklandFromHourly.incl} an hour including GST ($${aucklandFromHourly.ex} + GST), any day of the week. There is a one-off callout fee of $${aucklandCallout.twoMovers.incl} incl GST on top. A typical three-bedroom move works out around ${typicalThreeBed.auckland} + GST all in.`,
   },
   {
     q: "Is it cheaper to move on a particular day in Auckland?",
-    a: `Only Friday differs. Two movers and a truck are $${aucklandFromHourly.incl} an hour incl GST every day of the week except Friday, which is $${dearestTwoMoverIncl}. Bigger crews follow the same shape: a third mover adds $40 an hour and a fourth adds $60, on whichever day you move.`,
+    a: `No. Two movers and a truck are $${aucklandFromHourly.incl} an hour incl GST every day of the week, weekends included. Bigger crews follow the same shape: a third mover adds $40 an hour and a fourth adds $60, on whichever day you move. What does change is availability: Fridays, weekends and the end of the month book out first.`,
   },
   {
     q: "How long does it take to move a three-bedroom house?",
@@ -200,8 +196,6 @@ const pricingSchema = {
 };
 
 export default function PricingPage() {
-  const dearest = aucklandDayRates[aucklandDayRates.length - 1];
-
   return (
     <div className="bg-brand-white">
       {/* BreadcrumbList is emitted by PageHero -> Breadcrumbs, not here. */}
@@ -229,9 +223,8 @@ export default function PricingPage() {
               <Money value={aucklandCallout.twoMovers} />.
             </li>
             <li>
-              <strong className="text-brand-purple">Hamilton and outer Auckland:</strong> two movers
-              and a truck at a flat <Money value={hamiltonFromHourly} /> per hour, every day of the
-              week.
+              <strong className="text-brand-purple">Hamilton:</strong> the same, two movers and a
+              truck at <Money value={hamiltonFromHourly} /> per hour, every day of the week.
             </li>
             <li>
               <strong className="text-brand-purple">Smallest job:</strong> {fromPrice.auckland} + GST in
@@ -242,9 +235,8 @@ export default function PricingPage() {
               {typicalThreeBed.auckland} + GST in Auckland, {typicalThreeBed.hamilton} + GST in Hamilton.
             </li>
             <li>
-              <strong className="text-brand-purple">Two movers, Auckland:</strong>{" "}
-              <Money value={aucklandFromHourly} /> an hour any day except Friday, which is{" "}
-              <Money value={dearest.twoMovers} />.
+              <strong className="text-brand-purple">Every day costs the same:</strong> the hourly
+              rate is the same Monday to Sunday, in Auckland and in Hamilton.
             </li>
           </ul>
           <p className="mt-5 text-sm leading-relaxed text-brand-purple/70">
@@ -260,7 +252,7 @@ export default function PricingPage() {
         <section className="mt-12">
           <SectionHeading id="auckland-hourly">Auckland hourly rates</SectionHeading>
           <p className="mt-3 text-sm leading-relaxed text-brand-purple/85">
-            One rate every day except Friday, whatever size the crew. A third mover adds $40 an hour
+            One rate every day of the week, whatever size the crew. A third mover adds $40 an hour
             and a fourth adds $60, so the price moves with the crew you need rather than the day you
             pick.
           </p>
@@ -573,10 +565,6 @@ export default function PricingPage() {
             <li>
               <strong className="text-brand-purple">How much you have.</strong> More to move means more
               hours, and past a certain volume a third mover is faster and cheaper than two working late.
-            </li>
-            <li>
-              <strong className="text-brand-purple">The day you move.</strong> Friday is $10 an hour
-              more than any other day, so avoiding it is a small saving on the same crew and truck.
             </li>
             <li>
               <strong className="text-brand-purple">Access at both ends.</strong> Stairs, long carries

@@ -18,10 +18,10 @@ export const regions = {
   /** Link previews (Slack, iMessage, WhatsApp) — keep short so titles do not truncate. */
   sharePreviewTitle: "Specialist Movers Auckland & Hamilton",
   layoutDescription:
-    "Professional movers in Auckland and beyond. House, office, piano, and packing services from $140/hr. Quoted upfront, 7 days a week. Free quote.",
+    "Professional movers in Auckland and beyond. House, office, piano, and packing services from $150/hr. Quoted upfront, 7 days a week. Free quote.",
   /** Homepage meta description — same as layoutDescription (Google snippet). */
   homeMetaDescription:
-    "Professional movers in Auckland and beyond. House, office, piano, and packing services from $140/hr. Quoted upfront, 7 days a week. Free quote.",
+    "Professional movers in Auckland and beyond. House, office, piano, and packing services from $150/hr. Quoted upfront, 7 days a week. Free quote.",
   quoteTrustLine: "Auckland and Waikato moving specialists",
   footerLine:
     "Auckland and Hamilton bases, servicing Auckland and the Waikato",

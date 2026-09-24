@@ -41,18 +41,21 @@ export const MOVE_HOURS: Record<Bedrooms, { base: number; perHardEnd: number }> 
 };
 
 // ── Tier 1: day-of-week hourly rates (excl GST) ──
-// 2026-08-19 (Richard): Auckland is $140 every day, Friday $150. The midweek
-// discounts (Tue $120, Thu $130, Mon/Wed $135) are gone. Crew steps are fixed
-// at +$40 for a third mover and +$60 for a fourth, every day — so the whole
-// table is now one rate plus a Friday, which matches the trade card.
+// 2026-08-19 (Richard): Auckland was $140 every day, Friday $150. The midweek
+// discounts (Tue $120, Thu $130, Mon/Wed $135) went then. Crew steps are fixed
+// at +$40 for a third mover and +$60 for a fourth, every day.
+// 2026-09-24 (Richard): Auckland house moves are flat $150 / $190 (and $250
+// for four movers) every day, the same as Hamilton. No Friday premium, no
+// day-of-week difference at all. Kitchen/commercial trade rates are unchanged.
+// The table stays keyed by day because the shape is shared with the calculator.
 export const TIER_1_RATES: Record<DayOfWeek, Record<CrewSize, number>> = {
-  tue: { "2M": 140, "3M": 180 },
-  wed: { "2M": 140, "3M": 180 },
-  thu: { "2M": 140, "3M": 180 },
+  tue: { "2M": 150, "3M": 190 },
+  wed: { "2M": 150, "3M": 190 },
+  thu: { "2M": 150, "3M": 190 },
   fri: { "2M": 150, "3M": 190 },
-  sat: { "2M": 140, "3M": 180 },
-  sun: { "2M": 140, "3M": 180 },
-  mon: { "2M": 140, "3M": 180 },
+  sat: { "2M": 150, "3M": 190 },
+  sun: { "2M": 150, "3M": 190 },
+  mon: { "2M": 150, "3M": 190 },
 };
 
 // ── Callout fees by crew (excl GST) ──

@@ -5,7 +5,7 @@ export type FaqItem = { q: string; a: string };
 export const generalServiceFaqs: readonly FaqItem[] = [
   {
     q: "How much does it cost to hire movers in Auckland?",
-    a: "Two movers and a truck are $140 an hour plus GST any day except Friday, and $150 on a Friday, plus a callout fee from $60 by distance. A one-bedroom flat usually lands around $340 to $450 and a three-bedroom house around $600 to $1,000. On anything three bedrooms or more we come and look first, because volume and access are what actually set the price.",
+    a: "Two movers and a truck are $150 an hour plus GST, any day of the week, plus a callout fee from $60 by distance. A one-bedroom flat usually lands around $360 to $450 and a three-bedroom house around $650 to $1,000. On anything three bedrooms or more we come and look first, because volume and access are what actually set the price.",
   },
   {
     q: "What is the process for booking?",

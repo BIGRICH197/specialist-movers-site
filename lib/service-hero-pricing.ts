@@ -1,7 +1,7 @@
 import { HAMILTON_TIER_1_RATES } from "@/lib/hamilton-pricing-data";
 import { TIER_1_RATES } from "@/lib/pricing-data";
 
-/** Standard 2-mover rate, any day but Friday (excl. GST), read off the pricing tables. */
+/** Standard 2-mover rate, the same every day (excl. GST), read off the pricing tables. */
 const AUCKLAND_MIN_HOURLY_EX = TIER_1_RATES.tue["2M"];
 const HAMILTON_MIN_HOURLY_EX = HAMILTON_TIER_1_RATES.tue["2M"];
 

@@ -26,7 +26,7 @@ const clusterSeo: Record<string, ClusterSeoExtension> = {
     faqs: [
       {
         q: "How much does a local move cost in Auckland?",
-        a: "Most local moves start from around $340 excl. GST. Full home relocations are quoted after a viewing based on volume, crew size, and access.",
+        a: "Most local moves start from around $360 excl. GST. Full home relocations are quoted after a viewing based on volume, crew size, and access.",
       },
       {
         q: "What is included in a local move quote?",
