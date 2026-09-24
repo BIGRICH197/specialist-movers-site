@@ -20,7 +20,6 @@ const routeContentDates: Record<string, string> = {
   "/blog/balcony-fridge-delivery-st-heliers-auckland": "2026-09-24",
   "/blog/how-much-do-furniture-movers-cost-in-auckland": "2026-09-24",
   "/blog/how-much-does-it-cost-to-move-an-office-in-auckland": "2026-09-24",
-  "/locations/wellington": "2026-09-24",
   "/locations/palmerston-north": "2026-08-19",
   "/locations/bucklands-beach": "2026-08-03",
   "/locations/papatoetoe": "2026-08-03",

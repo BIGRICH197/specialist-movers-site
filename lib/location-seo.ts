@@ -2252,42 +2252,6 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
     ],
   },
-  wellington: {
-    metaDescription:
-      "Moving to or from Wellington, Waikato? Specialist Movers has completed dozens of jobs here. Licensed and insured movers, quotes back fast.",
-    intro:
-      "Wellington, the small Waikato township south of Hamilton, sits in open farmland on the way to nowhere in particular. That quietness is part of the appeal, and the moves here reflect a community that knows what it wants.",
-    paragraphs: [
-      "Housing in Wellington is largely older rural-residential stock: weatherboard homes on good-sized sections with plenty of sheds and outbuildings. That means more to move than the floor plan suggests, and it means our crew needs to think beyond the front door.",
-      "Access in this part of the Waikato is generally easier than urban Auckland. Wide unsealed driveways and flat paddock sections make for good truck access, but soft ground after rain is worth thinking about. We check these things before move day, not on arrival.",
-      "We have completed dozens of jobs in Wellington, so our Hamilton crew knows the route and the conditions. The drive from our Hamilton base takes about 41 minutes, and Wellington sits in our outer service area, so the callout reflects that distance. You see the full cost before you confirm anything.",
-      "People moving to or from Wellington are often making a lifestyle change: coming off a larger Waikato town, taking on a rural property, or making the step to a quieter part of the region. We have moved furniture and households of all shapes through this kind of transition plenty of times.",
-    ],
-    highlights: [
-      "Dozens of completed jobs in the Wellington area",
-      "Hamilton crew familiar with the Waikato run",
-      "Open section access with wide driveways on most properties",
-      "Quotes back in about 15 minutes during business hours",
-    ],
-    faqs: [
-      {
-        q: "How far is Wellington from your base, and how does that affect pricing?",
-        a: "Our Hamilton base is about 41 minutes from Wellington. It sits in our outer service area, so the callout fee reflects the distance. Your quote will show the full price before you book, no surprises.",
-      },
-      {
-        q: "Our property has a long driveway and the ground can get soft. Is that a problem?",
-        a: "It is worth mentioning when you enquire. We look at access before move day, not when the truck arrives. If conditions mean we need to adjust how we approach the property, we sort that out in advance.",
-      },
-      {
-        q: "We have a large shed full of gear as well as the house. Can you help with that?",
-        a: "Yes. Outbuildings and sheds are a normal part of moves in this part of the Waikato. Let us know what is in there when you book and we will make sure the crew and the truck are set up for the full job.",
-      },
-      {
-        q: "Are your crew insured for work out in the Waikato?",
-        a: "Yes. Our crew is licensed and insured, and we operate right across the Waikato from our Hamilton base. If you want cover arranged for your own belongings, our team can talk you through that option.",
-      },
-    ],
-  },
   napier: {
     extraParagraphs: [
       `Napier and Hastings Hawke's Bay routes are quoted as dedicated regional moves from Hamilton with travel included upfront. ${pianoProtection}`,
