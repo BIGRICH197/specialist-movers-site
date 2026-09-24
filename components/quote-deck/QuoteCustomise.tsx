@@ -319,7 +319,21 @@ export function QuoteCustomise({
                       </a>
                     </>
                   ) : (
-                    "Tick to add it and our team will confirm the price."
+                    <>
+                      <span className="font-semibold text-brand-yellow">
+                        Book a full house pack with your move and your exit clean is free.
+                      </span>{" "}
+                      Tick to add it and our team will confirm the price.{" "}
+                      <a
+                        href="/promotions"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline hover:text-white"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Offer terms
+                      </a>
+                    </>
                   )}
                 </span>
               </span>
