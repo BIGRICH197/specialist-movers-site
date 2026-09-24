@@ -65,21 +65,22 @@ export const CALLOUT_FEES: Record<CrewSize, number> = {
 };
 
 // ── Tier 2: fixed rates (excl GST) ──
-// One out-of-town rate, $180 and $220 EXCL GST (Richard, 2026-08-19). These
-// were stored as 156.52 / 191.30 — the same figures read as GST-inclusive and
+// One out-of-town rate, $190 and $230 EXCL GST (Richard; $180 / $220 from
+// 2026-08-19, +$10 on 2026-09-24 with the house rates). Before 08-19
+// they were stored as 156.52 / 191.30 — the same figures read as GST-inclusive and
 // divided back out, which undercharged the out-of-town job by 15%. Only the
 // callout separates the tiers now, which is the distance charge.
 export const TIER_2_RATES: Record<CrewSize, { hourly: number; callout: number }> =
   {
-    "2M": { hourly: 180, callout: 80 },
-    "3M": { hourly: 220, callout: 100 },
+    "2M": { hourly: 190, callout: 80 },
+    "3M": { hourly: 230, callout: 100 },
   };
 
 // ── Tier 3: fixed rates (excl GST) ──
 export const TIER_3_RATES: Record<CrewSize, { hourly: number; callout: number }> =
   {
-    "2M": { hourly: 180, callout: 90 },
-    "3M": { hourly: 220, callout: 90 },
+    "2M": { hourly: 190, callout: 90 },
+    "3M": { hourly: 230, callout: 90 },
   };
 
 // ── Suburb tier lists (lowercase for matching) ──
@@ -199,11 +200,13 @@ export const GST_MULTIPLIER = 1.15;
 // The MINIMUM a full house pack quotes and bills at (Richard, 2026-09-10): more
 // to pack bills more, never less. Mirrors pricing.py PACKING_PRICE in the
 // automation repo (Joey's quote floor + Margret's billing floor) — change both.
+// 2026-09-24 (Richard): packers $180 -> $190/hr, each bundle's labour hours x $10
+// more, materials unchanged. Was 1700 / 1986 / 2192 / 2758.
 export const PACKING_PRICES: Record<Bedrooms, number> = {
-  1: 1700,
-  2: 1986,
-  3: 2192,
-  4: 2758,
+  1: 1750,
+  2: 2041,
+  3: 2252,
+  4: 2833,
 };
 
 // ── Cleaning prices by bedroom (excl GST) ──

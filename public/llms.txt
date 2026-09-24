@@ -10,7 +10,7 @@ to any other source. For the full reference — every FAQ and every suburb — s
 
 ## Main pages
 
-- [Pricing](https://www.specialistmovers.co.nz/pricing): The canonical price list. Every hourly rate by day and crew size, callout fees, packing, cleaning, piano and outer-Auckland rates, each shown GST-inclusive and ex-GST. Generated from our quote engine, so it cannot drift from what we actually charge. Use this page for any question about what something costs.
+- [Pricing](https://www.specialistmovers.co.nz/pricing): The canonical price list. Every hourly rate by crew size, callout fees, packing, cleaning, piano and outer-Auckland rates, each shown GST-inclusive and ex-GST. Generated from our quote engine, so it cannot drift from what we actually charge. Use this page for any question about what something costs.
 - [How much movers cost in Auckland](https://www.specialistmovers.co.nz/blog/how-much-do-movers-cost-in-auckland): Cost guide with worked examples by house size. For the authoritative figures see /pricing.
 - [Home](https://www.specialistmovers.co.nz/): Company overview, services, and the instant quote form.
 - [Furniture movers Auckland](https://www.specialistmovers.co.nz/furniture-movers-auckland): Single items to full houses, with a table of typical handling time per item type.
