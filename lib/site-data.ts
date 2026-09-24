@@ -515,4 +515,12 @@ export const blogPosts = [
     excerpt:
       "Old lease ending before the new fit-out is ready? This guide walks Auckland office managers through the exact order of operations to protect uptime and budget.",
   },
+  {
+    slug: "office-move-costs-hamilton-waikato",
+    title: "What Drives the Price of a Waikato Office Move",
+    seoTitle: "Office Move Costs Hamilton & Waikato | Specialist Movers",
+    publishedDate: "2026-09-22",
+    excerpt:
+      "No dollar figures, just plain facts. Here's what actually changes the price of a Hamilton or Waikato office move and what to have ready when you call.",
+  },
 ] as const;
