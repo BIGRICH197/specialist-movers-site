@@ -2310,25 +2310,25 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   "palmerston-north": {
     metaDescription:
-      "Moving in Palmerston North? Specialist Movers runs from our Hamilton base, about 42 minutes away. Insured crew, upfront pricing, no surprises.",
+      "Moving to or from Palmerston North? Specialist Movers runs long-distance moves from our Hamilton base. Insured crew, upfront pricing, no surprises.",
     intro:
       "Palmerston North is a city built around its grid, flat streets, big older homes, and a university population that keeps the rental market moving year-round. We travel down from our Hamilton base to cover moves here.",
     paragraphs: [
       "The housing stock in Palmy is predominantly post-war brick and weatherboard, often on generous sections with long driveways and separate garages. These homes tend to have large rooms, which means heavy furniture and beds that need careful angling through doorways and hallways. We plan for that before the truck arrives.",
       "The university draws a constant flow of students, staff, and research workers in and out of the city. Whether it is a flat in Awapuni or a family home near Hokowhitu Lagoon, we treat every move the same: a fixed quote, a confirmed crew, and clear communication in the days leading up to move day.",
-      "Palmerston North sits in Pricing Zone C, our outer service area. The callout reflects the roughly 42-minute drive from our Hamilton base. You see the full cost upfront when you book, so there are no surprises on the day.",
+      "Palmerston North is around 390 km from our Hamilton base, well outside the zone callout system. Moves this far are quoted individually on the distance and the size of the job. You see the full cost upfront when you book, so there are no surprises on the day.",
       "Our crew carries public liability and carrier's liability, and cover for your own belongings can be arranged through our team. We operate seven days a week, and for larger homes we offer a free viewing so nothing on the quote is guesswork.",
     ],
     highlights: [
       "Flat city grid, older homes with large rooms and long driveways",
       "University-area flats and family homes in Hokowhitu and Awapuni",
-      "Zone C pricing, full cost shown before you book",
+      "Quoted individually, full cost shown before you book",
       "Seven-day operation, free viewing for larger Palmy homes",
     ],
     faqs: [
       {
         q: "How far do you travel to reach Palmerston North?",
-        a: "Our Hamilton base is about 42 minutes from Palmerston North. That distance is factored into the Zone C callout, which you see as a fixed line on your quote before you confirm anything.",
+        a: "Palmerston North is about 390 km from our Hamilton base, so this is a long-distance move rather than a local one. Long-distance moves are quoted individually rather than off the zone callout, and you see the full price before you confirm anything.",
       },
       {
         q: "We have a heavy piano in our home on College Street. Can you move it safely?",
