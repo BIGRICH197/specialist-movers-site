@@ -1220,7 +1220,7 @@ export const blogArticles: Record<string, BlogArticle> = {
         },
         paragraphs: [
           "Commercial jobs are priced the same transparent way as our house moves. An hourly rate for the crew and truck plus a callout fee, with the crew sized to the job.",
-          "A two-person crew with a truck is $140 per hour plus GST, any day of the week. A three-person crew runs $40 an hour more than two. The callout depends on distance from our Wairau Valley depot: $60 for close-in Auckland, $80 for outer suburbs, $120 for the fringe of the region.",
+          "A two-person crew with a truck is $150 per hour plus GST, any day of the week. A three-person crew runs $40 an hour more than two. The callout depends on distance from our Wairau Valley depot: $60 for close-in Auckland, $80 for outer suburbs, $120 for the fringe of the region.",
           "For freight-style work, like stock, storage or a fit-out, we price per cubic metre instead: $90 per cubic metre plus GST with a five cubic metre minimum, or $110 per cubic metre for after-hours work before 6am or after 5pm.",
           "The clock runs from arrival at your pickup address to the last item off the truck at the other end. Worth asking any mover whether theirs starts at the depot instead, because on a cross-town job that gap is an hour of billable time.",
         ],
@@ -1343,7 +1343,7 @@ export const blogArticles: Record<string, BlogArticle> = {
     faqs: [
       {
         q: "What is the average hourly rate for office movers in Auckland?",
-        a: "Across the Auckland market, small commercial jobs are generally quoted between $150 and $250 plus GST per hour for two to three movers and a truck. Ours is $140 plus GST for a two-person crew any day of the week, with a three-person crew $40 an hour more, plus a callout fee based on distance from our Wairau Valley depot.",
+        a: "Across the Auckland market, small commercial jobs are generally quoted between $150 and $250 plus GST per hour for two to three movers and a truck. Ours is $150 plus GST for a two-person crew any day of the week, with a three-person crew $40 an hour more, plus a callout fee based on distance from our Wairau Valley depot.",
       },
       {
         q: "What does it cost to move a small office of five people?",
