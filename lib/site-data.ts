@@ -523,4 +523,12 @@ export const blogPosts = [
     excerpt:
       "No dollar figures, just plain facts. Here's what actually changes the price of a Hamilton or Waikato office move and what to have ready when you call.",
   },
+  {
+    slug: "couch-over-balcony-hobsonville",
+    title: "Couch Over the Balcony: How a Hobsonville Hoist Job Comes Together",
+    seoTitle: "Balcony Couch Hoist in Hobsonville | Specialist Movers",
+    publishedDate: "2026-09-27",
+    excerpt:
+      "A Hobsonville couch couldn't come down the stairs. Here's how we planned the balcony hoist, what gear we used, and what to do if you have a similar problem.",
+  },
 ] as const;
