@@ -198,12 +198,21 @@ export async function markLatestQuoteBookedByEmail(
 }
 
 /** List recent quotes for the portal. Empty array on the KV fallback (KV can't list). */
-export async function listQuotes(limit = 200): Promise<QuoteListItem[]> {
+export async function listQuotes(
+  limit = 200,
+  search?: string,
+): Promise<QuoteListItem[]> {
   if (!supabaseConfigured()) return [];
+  // A search hits the whole table, not just the page of rows the list shows,
+  // so an old quote is still findable by name or email.
+  const term = search?.trim();
+  const filter = term
+    ? `&or=(client_name.ilike.*${encodeURIComponent(term)}*,email.ilike.*${encodeURIComponent(term)}*)`
+    : "";
   // moveDate is pulled straight out of the quote JSON rather than the whole
   // `data` blob, so the list stays cheap at a few hundred rows.
   const rows = await sb<(QuoteRow & { moveDate: string | null; direct: string | null })[]>(
-    `quotes?select=token,slug,quote_type,status,client_name,email,created_at,updated_at,moveDate:data->>moveDate,direct:data->>direct&order=created_at.desc&limit=${limit}`,
+    `quotes?select=token,slug,quote_type,status,client_name,email,created_at,updated_at,moveDate:data->>moveDate,direct:data->>direct${filter}&order=created_at.desc&limit=${limit}`,
   );
   return (rows ?? []).map((r) => ({
     token: r.token,

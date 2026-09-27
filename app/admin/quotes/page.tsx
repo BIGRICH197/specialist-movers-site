@@ -71,7 +71,7 @@ const SORTS: { key: SortKey; label: string }[] = [
 export default async function AdminQuotesPage({
   searchParams,
 }: {
-  searchParams: { e?: string; sort?: string };
+  searchParams: { e?: string; sort?: string; q?: string };
 }) {
   const expected = process.env.ADMIN_PASSWORD;
   const authed = !!expected && cookies().get("sm_admin")?.value === expected;
@@ -84,7 +84,10 @@ export default async function AdminQuotesPage({
       ? searchParams.sort
       : "created";
 
-  const all = await listQuotes(300);
+  const q = searchParams?.q?.trim() ?? "";
+  // A search looks across everything, so raise the cap; the default view stays
+  // at 300 so the page does not balloon.
+  const all = await listQuotes(q ? 1000 : 300, q || undefined);
   const base = siteBase();
 
   // "Recently accepted" is a worklist, not just an order: these are the people
@@ -122,14 +125,22 @@ export default async function AdminQuotesPage({
       <div className="mx-auto max-w-5xl">
         <div className="flex items-end justify-between">
           <h1 className="font-heading text-2xl text-brand-purple">Quotes</h1>
-          <span className="text-sm text-brand-purple/60">{quotes.length} shown</span>
+          <span className="text-sm text-brand-purple/60">
+            {quotes.length} {q ? `matching "${q}"` : "shown"}
+          </span>
         </div>
 
         <div className="mt-4 flex flex-wrap gap-2">
           {SORTS.map((s) => (
             <a
               key={s.key}
-              href={s.key === "created" ? "/admin/quotes" : `/admin/quotes?sort=${s.key}`}
+              href={(() => {
+                const p = new URLSearchParams();
+                if (s.key !== "created") p.set("sort", s.key);
+                if (q) p.set("q", q);
+                const qs = p.toString();
+                return qs ? `/admin/quotes?${qs}` : "/admin/quotes";
+              })()}
               className={
                 "rounded-full px-3.5 py-1.5 text-sm font-semibold transition " +
                 (sort === s.key
@@ -142,6 +153,31 @@ export default async function AdminQuotesPage({
           ))}
         </div>
 
+        <form action="/admin/quotes" method="get" className="mt-3 flex gap-2">
+          {sort !== "created" ? <input type="hidden" name="sort" value={sort} /> : null}
+          <input
+            type="search"
+            name="q"
+            defaultValue={q}
+            placeholder="Search name or email"
+            className="h-10 min-w-0 flex-1 rounded-full border border-brand-purple/20 bg-white px-4 text-sm text-brand-purple outline-none focus:border-brand-purple"
+          />
+          <button
+            type="submit"
+            className="h-10 shrink-0 rounded-full bg-brand-purple px-5 text-sm font-semibold text-white"
+          >
+            Search
+          </button>
+          {q ? (
+            <a
+              href={sort === "created" ? "/admin/quotes" : `/admin/quotes?sort=${sort}`}
+              className="flex h-10 shrink-0 items-center rounded-full px-4 text-sm font-semibold text-brand-purple/70 hover:text-brand-purple"
+            >
+              Clear
+            </a>
+          ) : null}
+        </form>
+
         {!supabaseConfigured() ? (
           <p className="mt-4 rounded-xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-800">
             Supabase is not configured yet, so there is nothing to list. Set
@@ -149,7 +185,9 @@ export default async function AdminQuotesPage({
             to start tracking quotes here.
           </p>
         ) : quotes.length === 0 ? (
-          <p className="mt-4 text-sm text-brand-purple/70">No quotes yet.</p>
+          <p className="mt-4 text-sm text-brand-purple/70">
+            {q ? `Nothing matches "${q}".` : "No quotes yet."}
+          </p>
         ) : (
           <div className="mt-5 overflow-x-auto rounded-2xl bg-white shadow-sm">
             <table className="w-full min-w-[40rem] text-sm">
