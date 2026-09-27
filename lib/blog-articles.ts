@@ -2651,6 +2651,204 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "retirement-village-moving-waikato-guide": {
+    title: "Mum's Moving to a Village: A Practical Waikato Guide for the Family Doing the Organising",
+    sections: [
+      {
+        heading: "You Are Probably the One Making This Happen",
+        paragraphs: [
+          "Most retirement village moves are organised by an adult child, not the person moving. You are coordinating between your parent, the village, the family home sale, and a moving company, often while holding down a job and managing your own family. This guide is written for you.",
+          "The Waikato has a good spread of villages across Hamilton, Cambridge and Te Awamutu, and each one runs slightly differently. What they share is this: they have rules about how moves happen, and if you do not find those rules out early, moving day gets complicated fast.",
+        ],
+      },
+      {
+        heading: "Ask the Village These Questions Before You Book Anything",
+        paragraphs: [
+          "Every village has a move-in coordinator, and a conversation with them early on will save you a lot of grief. The questions that matter most are practical ones.",
+          "Does the village have a designated loading zone? How long can a truck park there? Some villages in Hamilton allow a full morning, others give you two hours. A few have a narrow driveway that rules out a large truck entirely, meaning a smaller vehicle, or two trips, is the only option.",
+          "Is there a goods lift if your parent is moving into an upper-floor unit? What are the lift dimensions? A standard two-seater sofa might fit; a three-seater almost certainly will not. Knowing this before the truck is loaded matters.",
+          "Are there set move-in days or time windows? Some villages only allow moves on weekdays before midday to avoid disrupting other residents. If you are counting on a Saturday, check first.",
+          "Does the unit come with any furniture included, such as a bed base or whiteware? That changes what needs to come off the family home and what can be sold or donated.",
+        ],
+      },
+      {
+        heading: "What Actually Fits in a Retirement Village Unit",
+        paragraphs: [
+          "This is where families get caught out. A two-bedroom unit in a Cambridge or Te Awamutu village is typically much smaller than the family home it replaces. The living area might seat four comfortably. The second bedroom is often just big enough for a single bed and a small wardrobe.",
+          "The most common problem is lounge furniture. A large three-piece suite from a four-bedroom home will dominate a village living room and may not get through the door at all. The same goes for dining tables with extra leaves, big entertainment units, and double-door wardrobes.",
+          "A rough way to think about it: bring one comfortable chair or a two-seater sofa, not both. Bring the smaller of two wardrobes. Bring a dining table that seats four, not six. Keep the bedroom furniture your parent actually uses every night.",
+          "If the village allows it, visit the empty unit with a tape measure before you make any decisions. Measure doorways as well as room dimensions. A sofa that fits the room is useless if it will not turn the corner in the hallway.",
+          "Furniture that does not make the cut still needs to go somewhere. Family members may want pieces. Others can go to auction, trademe, or a charity shop. Give yourself at least a few weeks for this. Rushing it means selling things cheaply or ending up with a storage bill for items nobody actually wants.",
+        ],
+      },
+      {
+        heading: "When the Sale Date and the Move-In Date Do Not Match",
+        paragraphs: [
+          "This is the most stressful part for most families, and it is more common than you might think. The family home settles on one date. The village unit is not ready until another. Sometimes the gap is a week. Sometimes it is six weeks.",
+          "There are two ways to handle it. If your parent can stay somewhere temporarily, the furniture can go into storage after the home settlement and come out again when the village unit is ready. That means two moves rather than one, but it keeps the settlement date clean.",
+          "The other option is a staged move. Some of the furniture goes straight to the village on move-in day. The rest stays in the family home until settlement, then goes to storage or directly to family members. This works if the family home buyer is flexible, but it requires a clear agreement in writing.",
+          "We have handled both approaches for families across the Waikato. The staged move tends to suit people who want their parent settled and comfortable in the new unit quickly. Storage suits families who are not sure yet which furniture will actually fit, and want time to visit the unit and measure up before committing.",
+          "Either way, the key is not to leave this conversation until the week before settlement. Talk to your mover as soon as the village move-in date is confirmed, even if it is provisional. Availability tightens fast, especially around the end of a month when most settlements fall.",
+        ],
+      },
+      {
+        heading: "Protecting What Matters on the Day",
+        paragraphs: [
+          "Retirement village moves often involve furniture that has been in a family for decades. Some of it has real sentimental weight. A good crew handles it accordingly, using blankets, shrink wrap or mattress covers depending on what the item needs.",
+          "Our crews are licensed and insured. If you want cover arranged for your parent's belongings during the move, that can be organised through our team before the job.",
+          "One practical note: if there are items going to different destinations on the same day, label them clearly before the truck arrives. Furniture for the village gets one label. Furniture for a family member's home gets another. Items for storage get a third. It sounds obvious, but in the middle of a busy move it prevents things ending up in the wrong place.",
+        ],
+      },
+      {
+        heading: "Hamilton, Cambridge and Te Awamutu: a Few Local Points",
+        paragraphs: [
+          "Hamilton's retirement villages are spread across different parts of the city, from Flagstaff in the north to Nawton and Melville in the south and west. Access varies quite a bit depending on the suburb. Some are on wide, easy streets. Others are in quieter residential areas where parking a large truck requires a bit of planning.",
+          "Cambridge villages tend to be on the town's quieter edges, and the drive from Hamilton is straightforward. Te Awamutu is a shorter drive again from our Hamilton base, and the towns themselves are easy to work in.",
+          "If the family home being vacated is somewhere else in the Waikato, such as Morrinsville, Matamata or Huntly, we can quote for that run too. The Waikato is our territory, not just the main centres.",
+        ],
+      },
+      {
+        heading: "What to Hand Over to the Mover Early",
+        paragraphs: [
+          "The more information you give a moving company upfront, the smoother the day runs. The things that help most are: the village access rules you have gathered, the lift dimensions if there is one, any parking restrictions, the move-in time window, and a rough list of the larger items coming.",
+          "If there is a piano, say so from the start. We are NZ's piano moving specialists and trusted by Steinway dealers, so it is not an unusual request, but it needs to be factored into the plan.",
+          "For larger moves or when there is uncertainty about what will fit where, we can arrange a free viewing. Someone comes to the family home, walks through what is moving, and helps you work out the most practical way to do it.",
+        ],
+      },
+      {
+        heading: "Getting Started",
+        paragraphs: [
+          "If the move is still a few months away, the most useful thing you can do right now is call the village and get their access rules in writing, visit the unit with a tape measure, and start sorting furniture into three piles: going to the village, going to family, going elsewhere.",
+          "When you are ready to talk through the move itself, our team usually gets back to quote requests within about 15 minutes during business hours. You can reach us through the website, and there is no pressure to commit until you have seen the full price and are happy with the plan.",
+        ],
+      },
+    ],
+  },
+  "sitewise-gold-auckland-office-move": {
+    title: "Your Building Wants a SiteWise-Certified Crew: What That Means and How to Sort It",
+    sections: [
+      {
+        heading: "The Email That Stops an Office Move in Its Tracks",
+        paragraphs: [
+          "You have confirmed the new tenancy, sorted the IT team and told staff the date. Then the building manager sends a short email: all contractors working in the building must hold SiteWise Gold certification.",
+          "If you have never come across SiteWise before, that sentence can feel like a wall. It is not. This article explains what the certification actually is, why Auckland's managed buildings require it, and exactly what to check when you are comparing moving companies.",
+        ],
+      },
+      {
+        heading: "What SiteWise Is and Why It Exists",
+        paragraphs: [
+          "SiteWise is a third-party health and safety prequalification system used across New Zealand. Building owners and principal contractors use it to check that every company working on their site has its safety systems in order before anyone shows up with a truck.",
+          "The scheme runs on a scored audit. Companies submit their health and safety documentation, including policies, hazard registers, training records and incident history, and an independent assessor scores the result. A Gold rating means a score of 90 per cent or above. It is not a badge you buy; you either hit the standard or you do not.",
+          "Managed commercial buildings in the Auckland CBD, Newmarket, Takapuna and surrounding business districts increasingly list SiteWise Gold as a baseline requirement for all contractors, not just builders and electricians. Moving companies that carry furniture through lobbies, into lifts and along common areas are treated as site contractors the same as anyone else.",
+        ],
+      },
+      {
+        heading: "Why the Gold Tier in Particular",
+        paragraphs: [
+          "SiteWise has several tiers. Building managers in Auckland's larger managed properties tend to specify Gold because it is the level that gives them confidence a crew has done more than tick a box. At 90 per cent or above, the audit is detailed enough that a low score on any single area, incomplete induction records, a thin emergency plan, a gap in supervisor training, pulls the overall result below the threshold.",
+          "Some construction sites go further and will not allow any contractor on site without it. If your new premises are in a building that is still partially under construction, or if you are moving into a tenancy that is being fitted out at the same time as your move, expect this requirement to be firm.",
+        ],
+      },
+      {
+        heading: "What to Ask a Moving Company Before You Book",
+        paragraphs: [
+          "Do not take the company's word for it. Ask for the SiteWise certificate and check two things: the company name matches the one you are booking with, and the expiry date is after your move date. Certificates lapse, and a company that held Gold last year may not hold it now.",
+          "Also ask whether the certification covers the crew who will actually do your job. Some larger moving businesses operate with subcontractors. If the certificate is in the name of the head company but the crew on the day comes from a subcontractor, the building manager may not accept it. Confirm in writing that the certified entity is the one providing the crew.",
+          "One more check: ask how the company handles the building's induction process. Most managed sites in Auckland require contractors to complete a site-specific induction before starting work, separate from the SiteWise certification itself. A commercial moving company that works in managed buildings regularly will know this and will have already built it into their process.",
+        ],
+      },
+      {
+        heading: "What the Certification Does Not Cover",
+        paragraphs: [
+          "SiteWise Gold tells you about a company's health and safety systems. It does not tell you whether they can actually move your office furniture without damaging it, whether they have done commercial work in Auckland's taller buildings before, or whether they carry appropriate liability cover.",
+          "Those are separate questions. Ask about public liability and carrier's liability insurance. Ask whether the crew has experience with the specific access conditions at your building, a tight loading dock on Fanshawe Street, a single service lift in a Shortland Street tower, a timed loading zone on Queen Street. A certified crew that has never dealt with Auckland CBD access restrictions can still make your move harder than it needs to be.",
+        ],
+      },
+      {
+        heading: "How to Handle the Building Manager's Side of Things",
+        paragraphs: [
+          "Once you have confirmed your moving company holds valid SiteWise Gold, forward the certificate to the building manager early. Do not wait until the week of the move. Some buildings also require you to submit a method statement, a short document outlining how the work will be carried out, what equipment will be used and who the site supervisor is. Ask your building manager whether they need one.",
+          "Book the loading dock or service lift at the same time you confirm the move date. In busy Auckland commercial buildings, particularly in the CBD and on the North Shore, dock bookings fill up. If your building has specific time windows for contractor access, get those confirmed in writing so your moving company can plan around them.",
+          "Keep a copy of the SiteWise certificate on your phone on move day. Building security sometimes asks for it independently of what the building manager has already received.",
+        ],
+      },
+      {
+        heading: "After-Hours Moves and Managed Sites",
+        paragraphs: [
+          "Many Auckland businesses choose to move outside core hours, evenings or weekends, to avoid disrupting the working day and to meet building access rules that restrict freight movement during peak lift hours. If you are planning an after-hours move, confirm that your moving company operates on that schedule and that the SiteWise certification still applies to the same crew.",
+          "Specialist Movers operates seven days and takes on after-hours commercial work. The SiteWise Gold certification covers those jobs the same as any other.",
+        ],
+      },
+      {
+        heading: "Ready to Get Moving",
+        paragraphs: [
+          "If you have confirmed the certification requirement and want to check that your building's access conditions suit our crew, the easiest next step is a quote. For larger offices we can arrange a viewing beforehand. Quotes for straightforward jobs usually come back within about 15 minutes during business hours.",
+          "You can get a quote through our website. Pass the SiteWise question on to us and we will send the certificate straight to your building manager.",
+        ],
+      },
+    ],
+  },
+  "office-movers-hamilton-waikato-regional-guide": {
+    title: "Shifting Your Waikato Office: A Ground-Level Guide for Hamilton Business Owners",
+    sections: [
+      {
+        heading: "Waikato Office Moves Are a Different Animal",
+        paragraphs: [
+          "Most advice about commercial relocations is written for Auckland. It talks about the CBD, loading docks, congestion charges and strict building-management rules. That advice does not translate well to a Hamilton business shifting from Claudelands to Te Rapa, or a Cambridge accountancy firm moving into a larger Victoria Street premises.",
+          "Regional moves have their own set of practical questions. How far is the crew's depot from your site? Does traffic on the Waikato Expressway add real time to a Cambridge run? What happens when you want to move on a Saturday to avoid disrupting a Monday morning? This guide answers those questions plainly, so you can plan without guesswork.",
+        ],
+      },
+      {
+        heading: "Where the Crew Comes From Matters",
+        paragraphs: [
+          "Specialist Movers operates from two bases: Auckland and Hamilton. The Hamilton base means the crew is not driving down from Auckland before your job starts. For a business in Hamilton, Cambridge, Te Awamutu or Matamata, that changes the maths on travel time and callout costs.",
+          "The fixed callout varies with distance from our Hamilton depot. When you get a quote, that cost is shown upfront before you book anything. No surprises on the day.",
+        ],
+      },
+      {
+        heading: "Pricing Zones and What Drives Them in the Waikato",
+        paragraphs: [
+          "Hourly rates are the same across the Waikato. The figure that changes from job to job is the fixed callout, which reflects the drive from our Hamilton depot to your pickup address. A move entirely within Hamilton central will sit at one level. A pickup in Matamata or a drop-off in Raglan adds distance, and that shows in the callout, not in a hidden line item added at the end.",
+          "What that means in practice: get your quote, read the full price, then decide. If the destination is a Waikato town we serve regularly, Cambridge and Te Awamutu being the most common outside Hamilton itself, the callout will reflect a straightforward route we know well.",
+        ],
+      },
+      {
+        heading: "After-Hours and Weekend Work in the Waikato",
+        paragraphs: [
+          "Hamilton businesses have the same operational pressures as Auckland ones. A fitout handover on a Friday afternoon, a tenant who needs the space back by Monday, a medical practice that cannot close for a full day mid-week. After-hours and weekend commercial work is something we do regularly.",
+          "Being based in Hamilton means the crew is not travelling inter-city to reach your site at 6am on a Saturday. We operate seven days. If your move needs to happen outside standard hours, say so when you enquire and we will tell you whether the schedule works.",
+        ],
+      },
+      {
+        heading: "What Access Looks Like Outside the CBD",
+        paragraphs: [
+          "Hamilton's commercial streets are generally easier to access than Queen Street or Parnell Rise. Most Waikato office buildings have car parks at grade, straight runs from the truck to a roller door, and no strata manager requiring three weeks' written notice to reserve a lift.",
+          "That said, some things still need checking before the day. Whether your building has a loading bay. Whether the lift has a service mode if you are above ground floor. Whether the new tenancy is cleared out and ready when the truck arrives. These are questions we cover when we do a viewing for larger jobs, and they are worth asking your property manager in advance for any commercial move.",
+        ],
+      },
+      {
+        heading: "Free Viewings for Larger Jobs",
+        paragraphs: [
+          "For bigger office relocations, we offer a free viewing before quoting. This is worth taking up. A walk-through of both sites lets us count the furniture, check the access, flag anything awkward like a narrow corridor or a tight corner at the top of a stairwell, and give you a quote that reflects the actual job rather than an estimate that shifts on the day.",
+          "If your Hamilton office has multiple workstations, server equipment, or heavy storage, a viewing saves time for everyone. The crew arrives knowing what they are walking into, and you know what the job will cost.",
+        ],
+      },
+      {
+        heading: "SiteWise Certification for Managed Waikato Sites",
+        paragraphs: [
+          "Some Waikato commercial properties, particularly newer developments, industrial parks and anything connected to a construction or infrastructure project, require contractors on site to carry health and safety credentials. Specialist Movers holds SiteWise Gold certification with a 90-plus percent score.",
+          "If your building manager asks whether your movers are SiteWise certified, the answer is yes. This is the certification that gets crews onto managed and construction sites without the back-and-forth of paperwork on the day. If you are not sure whether your site requires it, ask your facilities contact when you confirm the booking.",
+        ],
+      },
+      {
+        heading: "Getting a Quote for Your Hamilton or Waikato Office Move",
+        paragraphs: [
+          "The best starting point is a quote. In business hours we usually respond in around 15 minutes. Tell us your pickup address, your destination, a rough idea of the volume, and whether you need the move done outside standard hours. If the job is large enough for a viewing, we will say so.",
+          "You can request a quote through the Specialist Movers website. There is no obligation, and the price you see is the full price before you commit to anything.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {

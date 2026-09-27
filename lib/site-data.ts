@@ -523,4 +523,28 @@ export const blogPosts = [
     excerpt:
       "No dollar figures, just plain facts. Here's what actually changes the price of a Hamilton or Waikato office move and what to have ready when you call.",
   },
+  {
+    slug: "retirement-village-moving-waikato-guide",
+    title: "Mum's Moving to a Village: A Practical Waikato Guide for the Family Doing the Organising",
+    seoTitle: "Retirement Village Moving in Waikato | Specialist Movers",
+    publishedDate: "2026-09-27",
+    excerpt:
+      "Planning a parent's move to a Hamilton, Cambridge or Te Awamutu retirement village? This plain guide covers access rules, what fits, and how to handle timing.",
+  },
+  {
+    slug: "sitewise-gold-auckland-office-move",
+    title: "Your Building Wants a SiteWise-Certified Crew: What That Means and How to Sort It",
+    seoTitle: "SiteWise Gold Office Movers Auckland | Specialist Movers",
+    publishedDate: "2026-09-27",
+    excerpt:
+      "Building manager just asked for SiteWise Gold? This plain guide explains what the certification means and what to check before you book office movers in Auckland.",
+  },
+  {
+    slug: "office-movers-hamilton-waikato-regional-guide",
+    title: "Shifting Your Waikato Office: A Ground-Level Guide for Hamilton Business Owners",
+    seoTitle: "Office Movers Hamilton & Waikato | Specialist Movers",
+    publishedDate: "2026-09-27",
+    excerpt:
+      "Planning an office move in Hamilton or across the Waikato? Here's what regional commercial relocations actually involve, from pricing zones to after-hours logistics.",
+  },
 ] as const;
