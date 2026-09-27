@@ -32,37 +32,37 @@ const pianoProtection =
 export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   henderson: {
     metaDescription:
-      "Looking for movers in Henderson, West Auckland? Specialist Movers has completed dozens of jobs here. Insured crew, upfront pricing, 7 days a week.",
+      "Henderson movers with dozens of local jobs done. Specialist Movers covers West Auckland from our Wairau Valley depot, about 25 minutes away.",
     intro:
-      "Henderson is West Auckland's commercial and residential hub, and the moves here are as varied as the suburb itself. Brick-and-tile family homes, newer townhouse developments, and a busy town centre all make for a full range of jobs.",
+      "Henderson has a bit of everything: older bungalows on wide lots, modern townhouse developments, and the kind of mixed-use streets where a furniture delivery can mean navigating a busy carpark before you even reach the front door.",
     paragraphs: [
-      "Henderson has seen a lot of intensification in recent years. Older quarter-acre sections have given way to multi-unit townhouse developments, particularly around the train station and along Lincoln Road. Tight access, shared driveways, and body corporate rules are things our crews plan around before the truck rolls.",
-      "The older parts of Henderson, closer to the valley floor and along the Waitakere Stream, tend to have larger homes on generous sections. These are often the kind of houses that have been lived in for a long time, with garages full of gear and gardens that have grown with the family. We take our time with those jobs.",
-      "Henderson is also a working suburb, with a mix of retail, trade, and light industrial activity around the town centre. We do after-hours and weekend work for commercial clients who need to move without disrupting trading hours. If you need a commercial move quoted, we can usually get back to you within about 15 minutes during business hours.",
-      "Our Wairau Valley depot is about 25 minutes from Henderson, which puts it comfortably within our standard callout area. There is no distance premium for Henderson, and you see the full price before you book.",
+      "The older parts of Henderson, around Railside Avenue and the streets backing onto the Waitakere Stream, tend to have generous homes with long driveways and established gardens. That space is welcome when you are moving bulky furniture, but it can mean a longer carry from the truck to the front door if the driveway curves or the path narrows near the entrance.",
+      "Newer townhouse clusters have been going up steadily across Henderson, particularly around the town centre and along the Great North Road corridor. These builds often share driveways and have tight turning circles, so we confirm truck access and carry distances before move day rather than working it out on arrival.",
+      "Henderson is a genuine West Auckland hub, and a lot of people moving here are coming from other parts of the west: Glen Eden, Massey, Te Atatu. That kind of local move is straightforward from our Wairau Valley depot, about 25 minutes away, and because we are well inside the standard callout area there is no distance premium on the quote.",
+      "We have completed dozens of jobs in Henderson across houses, apartments, and commercial premises. Our crew is licensed and insured, and if you need cover arranged for your own belongings, we can point you in the right direction.",
     ],
     highlights: [
-      "Dozens of Henderson jobs completed",
-      "Experience with townhouse complexes and tight shared access",
-      "After-hours and weekend availability for commercial moves",
-      "Standard callout area, no distance premium",
+      "Older bungalows and wide-lot properties along the Waitakere Stream corridor",
+      "Tight shared driveways in newer townhouse developments confirmed before move day",
+      "About 25 minutes from our Wairau Valley depot, standard callout zone",
+      "Dozens of Henderson jobs completed, across residential and commercial premises",
     ],
     faqs: [
       {
-        q: "We are in a new townhouse development with a shared driveway. Can you still get the truck in?",
-        a: "Yes, this comes up regularly in Henderson. We check access, width, and any body corporate restrictions before move day so there are no surprises. If the truck cannot get to the door, we plan the carry distance into the job rather than working it out on the spot.",
+        q: "We are in one of the newer Henderson townhouse developments. Will the truck fit on the shared driveway?",
+        a: "This is one of the first things we check. Shared driveways in Henderson's newer builds can be narrow, and some have height bars or turning restrictions. We confirm access before move day so we know the plan going in, whether that is a smaller vehicle, a street park, or a staged carry.",
       },
       {
-        q: "How does pricing work for a Henderson move?",
-        a: "Henderson sits in our standard callout area. Hourly rates are the same across Auckland, and the callout is fixed for this zone. You see the full price upfront before you confirm anything.",
+        q: "How long does it take your crew to get to Henderson?",
+        a: "Our depot is in Wairau Valley, about 25 minutes from Henderson in normal traffic. Henderson sits well inside our standard callout area, so you will not see a distance surcharge on your quote.",
       },
       {
-        q: "Do you work on weekends in Henderson?",
-        a: "Yes, we operate seven days a week. Weekend jobs in Henderson are straightforward to book, and for commercial work we can arrange after-hours moves if you need the premises clear outside trading hours.",
+        q: "We have a large older home on a wide section. How do you price a job like that?",
+        a: "We work on an hourly rate with a fixed callout fee. For larger homes we are happy to do a free viewing so there are no surprises on the day. You see the full price before you confirm the booking.",
       },
       {
-        q: "Are your crew insured?",
-        a: "Yes, our crew is licensed and insured. If you want cover arranged for your own belongings during the move, we can sort that through our team before move day.",
+        q: "Can we get a quote quickly? We need to move within the week.",
+        a: "Yes. Send us a message or give us a call during business hours and we usually come back to you in about 15 minutes. We run seven days, so late-week and weekend moves are both options.",
       },
     ],
   },
@@ -212,37 +212,37 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   wellsford: {
     metaDescription:
-      "Moving to or from Wellsford? Specialist Movers sends an insured crew north regularly. Get a quote back in about 15 minutes. Auckland movers you can rely on.",
+      "Moving to or from Wellsford? Specialist Movers are Auckland-based movers who regularly work in Wellsford and the surrounding Rodney countryside.",
     intro:
-      "Wellsford sits at the top of the Auckland region, just before State Highway 1 narrows into Northland proper. It is a working town with a mix of older bungalows, rural-residential sections, and homes that have seen a lifetime of accumulated gear.",
+      "Wellsford is the last proper town before State Highway 1 climbs into Northland, and the moves here reflect that gateway character. Older weatherboard bungalows, rural properties on the fringe, and a steady flow of people making the shift between Auckland and the north.",
     paragraphs: [
-      "The housing stock around Wellsford tends toward older timber homes on generous sections, often with sheds, sleepouts, and carports added over the years. That means more to shift, more awkward shapes, and access that needs thinking through before the truck leaves the depot.",
-      "We send crew north from our Wairau Valley depot, and Wellsford is about 47 minutes up the road. It sits in our outer service area, so the callout reflects that drive, and you see the full price before you confirm anything.",
-      "State Highway 1 through town carries a lot of freight traffic, and timing matters on a move day. We factor that in when we plan the run north so the truck is not sitting behind logging trucks at the wrong time of day.",
-      "We move regularly in Wellsford, so the crew knows the area. If you have a long driveway, a tricky gate, or a sleepout to clear on top of the main house, let us know when you enquire and we will plan accordingly rather than improvise on the day.",
+      "The housing stock in Wellsford skews older. Many homes are single-storey weatherboard with covered verandahs, and while that sounds straightforward, older homes often have narrow hallways and doorways that need measuring before move day. We look at access before we load, not after.",
+      "A good number of Wellsford moves involve properties that sit just off the highway on rural access roads. Longer driveways, sometimes gravel, sometimes gated, and occasionally shared with farm traffic. We confirm driveway width, surface, and turning room before we arrive so there are no surprises on the day.",
+      "People moving to Wellsford are often making a deliberate change: more land, a slower pace, sometimes a lifestyle block. That tends to mean more to shift, sheds included. People leaving are often heading south into Auckland, and they want the move to run to a schedule. We work both directions regularly.",
+      "Our depot is in Wairau Valley, and Wellsford sits in our outer service area, roughly 47 minutes up the motorway. The callout reflects that distance, and you see the full price before you confirm anything. We are on the road into Northland often enough that bookings here run smoothly.",
     ],
     highlights: [
       "Regular work in Wellsford and the surrounding Rodney countryside",
-      "About 47 minutes from our Wairau Valley depot, outer service area",
-      "Experienced with older timber homes, sheds, and rural-residential sections",
-      "Quotes back in about 15 minutes during business hours",
+      "Confident with older weatherboard homes and tight interior access",
+      "Rural driveways and lifestyle-block moves handled with advance planning",
+      "Full price shown upfront, no surprises on arrival",
     ],
     faqs: [
       {
-        q: "Do you move to and from Wellsford regularly, or is it a one-off trip?",
-        a: "We work in Wellsford regularly. It is part of our outer service area and the crew knows the run up State Highway 1 well.",
+        q: "How far are you from Wellsford, and does that affect the price?",
+        a: "Our Wairau Valley depot is about 47 minutes from Wellsford. The area sits in our outer service zone, so the callout is higher than for central Auckland suburbs. You see exactly what that looks like before you book, and the hourly rate is the same across Auckland.",
       },
       {
-        q: "My property has a long driveway and a shed to clear as well as the house. Is that a problem?",
-        a: "Not at all, but tell us upfront. We confirm access, turning room, and the full scope before move day so nothing catches the crew by surprise when they arrive.",
+        q: "Our Wellsford home has a narrow hallway and some original doorframes. Is that a problem?",
+        a: "Older Rodney homes often have tighter doorways than newer builds. We check measurements in advance for anything large, and if a piece needs an angle or a door hinge removed, we sort that on the day rather than forcing the issue.",
       },
       {
-        q: "How does pricing work for a move this far north?",
-        a: "Hourly rates are the same across Auckland. The callout for Wellsford reflects the drive from our Wairau Valley depot, and you see the full price before you book, with no surprises on the day.",
+        q: "We are moving onto a lifestyle block outside Wellsford. The driveway is long and partly gravel. Will the truck manage?",
+        a: "We confirm access before move day: driveway surface, width, any gates or low branches, and where the truck can turn or park. If the large truck cannot get close enough, we plan the carry from the road so the day still runs to time.",
       },
       {
-        q: "Are your crew insured for a job out in Wellsford?",
-        a: "Yes. Our crew are licensed and insured. Cover for your own belongings can be arranged through our team if you need it.",
+        q: "Are your crew insured for a move this far out of Auckland?",
+        a: "Yes. Our licensed and insured crew covers work across our full service area, including Wellsford. We carry public liability and carrier's liability on every job. Cover for your own belongings can be arranged through our team before move day.",
       },
     ],
   },
@@ -284,37 +284,37 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   manukau: {
     metaDescription:
-      "Looking for movers in Manukau? Specialist Movers has completed dozens of jobs across Manukau's mix of townhouses, family homes and apartment blocks. Get a quote today.",
+      "Looking for movers in Manukau? Specialist Movers handles South Auckland relocations from Manukau City Centre to Flat Bush and beyond. Get a quote in 15 minutes.",
     intro:
-      "Manukau is one of South Auckland's busiest moving destinations, and the housing stock is as varied as the people who live here. Newer townhouse developments sit alongside established brick family homes, and the Manukau CBD itself has seen a wave of apartment and mixed-use buildings go up in recent years.",
+      "Manukau is one of South Auckland's biggest and most varied moving destinations. From the high-density apartment blocks near the Manukau City Centre to the sprawling new subdivisions pushing out toward Flat Bush and Randwick Park, no two jobs here look the same.",
     paragraphs: [
-      "A lot of the newer builds around Manukau Central and the surrounds are multi-storey townhouses on compact sections. Shared driveways, tight turning circles, and restricted parking near the front door are common. We sort out access details before move day, not on the morning.",
-      "The older residential streets east and west of the centre tend to have bigger sections and more traditional homes. These moves often mean larger volumes, more furniture to protect, and longer carries from house to truck. Our crews are sized to the job, usually two to four movers depending on what you have.",
-      "Because our depot is in Wairau Valley, Manukau sits in pricing zone B. The fixed callout is a little higher than inner suburbs, and you see the full price before you book. Hourly rates are the same across Auckland.",
-      "We operate seven days, which works well for Manukau given how many families here are coordinating around school zones, rental tenancy dates, and settlement days. If you want someone to look over a larger home before quoting, we offer free viewings.",
+      "The newer townhouse and terrace developments around Manukau and Papatoetoe have changed the way we plan jobs in this part of Auckland. Shared driveways, narrow vehicle crossings, and body corporate rules around lift access and hours all come up regularly. We check these things before move day, not on it.",
+      "Flat Bush and the surrounding growth corridors have added thousands of new homes to the Manukau area in recent years. These properties are often larger, with double garages and big living rooms, and families moving in are frequently shifting from older, smaller homes and need careful planning for the volume difference.",
+      "The Manukau City Centre high-rises and mid-rise apartment buildings bring their own set of access questions. Goods lifts need to be booked, parking permits can apply on the surrounding streets, and some buildings have set move-in windows. We have done dozens of jobs in this part of South Auckland and know to ask the building manager early.",
+      "Our Wairau Valley depot is about 29 minutes from Manukau, which puts the area in our pricing zone B. The fixed callout is a little higher than inner suburbs to reflect that distance, and you see the full price before you confirm anything. Our crew is licensed and insured, and we operate seven days a week.",
     ],
     highlights: [
-      "Dozens of jobs completed across Manukau",
-      "Comfortable with townhouse-access and shared driveways",
-      "Seven-day availability to suit settlement and tenancy dates",
-      "Free viewings for larger Manukau homes",
+      "Experience with Manukau City Centre apartment building access and goods lifts",
+      "Familiar with Flat Bush and Randwick Park new-build layouts",
+      "Dozens of completed jobs across the Manukau area",
+      "Seven-day availability including weekends",
     ],
     faqs: [
       {
-        q: "We are in one of the new townhouse developments near Manukau Central. Parking is tight. How do you manage that?",
-        a: "This comes up a lot in Manukau's newer builds. We confirm parking, driveway width, and turning room before move day so the crew arrives with a plan. If the street is restricted, we work around it.",
+        q: "Our apartment building in Manukau City Centre has a booking system for the goods lift. Can you work around that?",
+        a: "Yes, and it is worth sorting early. Let us know the building name and the lift booking window when you enquire, and we will schedule the job to fit it. Turning up without a confirmed slot wastes everyone's morning.",
       },
       {
-        q: "How far away is your depot, and does that affect the price?",
-        a: "Our depot is in Wairau Valley, roughly 35 minutes from Manukau. That puts Manukau in pricing zone B, so the fixed callout is slightly higher than inner suburbs. The hourly rate is the same as anywhere else in Auckland, and you see the full price before you confirm.",
+        q: "We are moving into a new Flat Bush home from a smaller older house. How do you handle the size difference?",
+        a: "We talk through what you have and what the new place can take before move day. If you need a packing service the day before to get everything sorted and boxed, we can arrange that too. A bit of planning upfront makes the actual move much faster.",
       },
       {
-        q: "Are your crews insured?",
-        a: "Yes, our crews are licensed and insured. If you want cover arranged for your own belongings during the move, we can talk through that option when you book.",
+        q: "Is Manukau in a higher pricing zone because it is further from your depot?",
+        a: "It is in zone B, which means the fixed callout is a little more than inner-suburb jobs. The hourly rate is the same across Auckland. You see the complete price before you book, so there are no surprises on the day.",
       },
       {
-        q: "We have a large four-bedroom home in Manukau. Can you give us an accurate quote without just guessing?",
-        a: "For larger homes we offer a free viewing before we quote. That means the price reflects what is actually there, not a rough estimate over the phone. Quotes in business hours usually come back in about 15 minutes.",
+        q: "Do you move on weekends? We can only move on a Saturday.",
+        a: "We operate seven days a week. Weekend availability does book up, particularly in Manukau and the surrounding South Auckland suburbs, so it is worth getting in touch early. Quotes come back in about 15 minutes during business hours.",
       },
     ],
   },
@@ -572,37 +572,37 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
   },
   papatoetoe: {
     metaDescription:
-      "Local movers in Papatoetoe, South Auckland. Specialist Movers handles family homes, units, and townhouses across the suburb. Get a quote in 15 minutes.",
+      "Papatoetoe movers with regular experience in the area. Specialist Movers handle local relocations across South Auckland. Get a quote in about 15 minutes.",
     intro:
-      "Papatoetoe is one of South Auckland's most established suburbs, big family homes on generous sections, a strong mix of cultures, and plenty of furniture that reflects it. We have completed more than 30 moves here and know what to expect.",
+      "Papatoetoe is one of South Auckland's most established suburbs, and the housing stock here tells that story clearly. Post-war bungalows, brick-and-tile family homes, and a growing number of townhouse infills all sit within minutes of each other.",
     paragraphs: [
-      "The housing stock in Papatoetoe is largely older brick-and-tile and weatherboard homes, often on wide, flat sections. That sounds easy, but long internal hallways, low eaves over side gates, and detached garages packed with decades of gear are common. We walk the property before we start and plan the carry accordingly.",
-      "Papatoetoe also has a lot of newer townhouse and unit development, especially around the Great South Road corridor and near Papatoetoe train station. Shared driveways, limited street parking, and stacked layouts mean access planning matters. We confirm parking and driveway clearance before move day, not on it.",
-      "Our depot is in Wairau Valley on the North Shore, about 27 minutes from Papatoetoe. That puts this suburb in our pricing Zone B, so the fixed callout is slightly higher than for inner suburbs. You see the full price before you confirm, and hourly rates are the same across Auckland.",
-      "South Auckland families often move a lot of furniture, large dining sets, wardrobes, and sometimes a piano. We are NZ's piano moving specialists, trusted by Steinway dealers and Auckland Town Hall, so if you have a piano at your Papatoetoe address, that is covered. Our trucks have taillifts and we run crews of two to four depending on the job.",
+      "A lot of the older homes here were built when driveways were an afterthought. Narrow concrete strips, low carport beams, and mature trees close to the kerb are things our crews plan around before the truck arrives. Good access checks before move day make a real difference on streets like these.",
+      "Papatoetoe has seen steady intensification over the past few years. Single lots have been split, and townhouse clusters have gone up throughout the suburb. These newer builds often have tight shared driveways and minimal outdoor storage space, so the order things come off the truck matters.",
+      "The suburb draws a wide mix of households, from long-term South Auckland families upsizing or downsizing to newer arrivals moving into the area for the first time. We have done dozens of jobs here and the mix of furniture reflects that: large dining sets, bedroom suites, and the occasional upright piano.",
+      "Our depot is in Wairau Valley, about 27 minutes from Papatoetoe. Because of that distance the fixed callout sits in our pricing zone B, which is a little higher than inner suburbs. You see the full price before you confirm anything.",
     ],
     highlights: [
-      "Dozens of Papatoetoe moves completed",
-      "Familiar with older brick-and-tile homes on wide sections",
-      "Access planning for shared townhouse driveways near Great South Road",
-      "Piano moving specialists, full tailift trucks, 7-day availability",
+      "Dozens of completed moves in Papatoetoe",
+      "Experienced with post-war bungalows and newer townhouse sites",
+      "Narrow driveway and access checks before move day",
+      "Quotes back in about 15 minutes during business hours",
     ],
     faqs: [
       {
-        q: "We have a side gate that leads to the back of the property. Can you get furniture through that way?",
-        a: "This comes up a lot in Papatoetoe. Older homes often have a narrow gate between the house and the fence line. We check the width, any low eaves, and the path surface before we commit to that route. If it works, great. If it does not, we plan the carry through the front instead.",
+        q: "Can you move a piano from one of the older Papatoetoe homes?",
+        a: "Yes. Piano moving is something we do regularly across South Auckland, and older homes with front steps or narrow hallways are familiar ground for our crew. If the layout is tight, we talk through the approach with you before the day.",
       },
       {
-        q: "Parking on our street near Papatoetoe station is tight. How do you manage the truck?",
-        a: "We scope the street before move day. If kerbside space is limited, we time the truck to arrive early or look at nearby options. We have done enough jobs around the station area to know where the pinch points are.",
+        q: "The property has a low carport and not much turning room. Is that a problem?",
+        a: "It is a common situation in this part of Auckland and not one that stops the move. We ask about clearances, beam heights, and turning space when you book so we arrive with a plan rather than working it out on the spot.",
       },
       {
-        q: "You are based on the North Shore. Does that mean a longer wait or a higher cost for Papatoetoe?",
-        a: "The drive from our Wairau Valley depot is about 27 minutes. Papatoetoe sits in our Zone B, so the fixed callout is slightly higher than for inner suburbs. Hourly rates are identical wherever you are in Auckland. You see the full price before you book, no surprises on the day.",
+        q: "We are moving into a new townhouse with a shared driveway. How does that work?",
+        a: "We confirm access details with you ahead of time, including whether neighbouring units share the entry or if there are width restrictions. Knowing what we are working with means the unload goes in the right order and nothing is left blocking a shared path.",
       },
       {
-        q: "We have a large extended-family home with a lot of furniture. Can you handle that scale?",
-        a: "Yes. For bigger Papatoetoe homes we send a crew of up to four and can arrange a packing service the day before if you need it. We also offer free on-site viewings for larger moves so we can price accurately and plan the job properly.",
+        q: "Do you work weekends in Papatoetoe?",
+        a: "Yes, we operate seven days. Weekend slots book up faster than weekdays, so if you have a fixed settlement date it is worth getting in touch early.",
       },
     ],
   },
