@@ -2651,6 +2651,67 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "couch-over-balcony-hobsonville": {
+    title: "Couch Over the Balcony: How a Hobsonville Hoist Job Comes Together",
+    sections: [
+      {
+        heading: "The Job in Plain Terms",
+        paragraphs: [
+          "In August 2026 we got a call from a Hobsonville apartment. A large couch needed to come down from a second-floor balcony to the ground. The stairwell wasn't going to work, so the only real option was a controlled hoist over the balcony rail.",
+          "This isn't unusual for apartments in Hobsonville Point. The precinct is relatively new, the buildings are well-designed, and the balconies are accessible from outside. But 'accessible' and 'straightforward' aren't the same thing. A couch is awkward, heavy, and unbalanced when it's suspended in the air.",
+        ],
+      },
+      {
+        heading: "What We Looked at Before the Truck Left",
+        paragraphs: [
+          "The customer sent photos ahead of time, which is exactly the right thing to do. We could see the balcony railing, the drop to the ground, and roughly where a truck could position below.",
+          "From those photos we confirmed that straps would be the right approach for this one. We needed to know the couch dimensions, the rail height, and whether there was clear ground beneath the drop zone. A couch behaves differently from a fridge or a piano when it's in the air. It flexes, and the weight isn't centred the same way, so the crew needs to know what they're dealing with before the job, not once they're standing on the balcony.",
+        ],
+      },
+      {
+        heading: "The Gear We Brought",
+        paragraphs: [
+          "For this job we used heavy-duty lifting straps. The plan was straightforward: one part of the crew on the balcony managing the couch over the rail, and the other crew on the ground guiding it down and keeping it off the building face.",
+          "The couch was wrapped before it went anywhere near the rail. Blankets or shrink wrap go on depending on what the item needs, and for a fabric couch coming down an exterior wall, protection matters. One scuff on render or one tear in the upholstery and the job isn't done well.",
+        ],
+      },
+      {
+        heading: "How the Lowering Went",
+        paragraphs: [
+          "The crew on the balcony secured the straps and lifted the couch over the rail in a controlled move. The crew below kept tension on guide lines to stop it swinging against the wall on the way down.",
+          "The couch landed clean. From strap-on to ground level took a few minutes. The longer part of the job was the prep: checking the ground clearance, positioning the crew correctly, and making sure everyone knew their role before anything left the balcony. That's where balcony jobs are won or lost.",
+        ],
+      },
+      {
+        heading: "What Makes a Balcony Job Different From a Stair Job",
+        paragraphs: [
+          "On stairs you're working on a fixed path. You can see every obstacle, and you can stop and reassess at any point. On a balcony hoist, once the item is over the rail it's committed. The crew has to be confident in the rigging before that moment.",
+          "The other difference is what's below. In Hobsonville Point there are often shared landscaped areas, other residents' property, and parked vehicles nearby. We work out the drop zone before we start and, where needed, we let building management know what we're doing. It's a quick conversation that avoids a bigger one later.",
+        ],
+      },
+      {
+        heading: "What the Building and the Customer Need to Organise",
+        paragraphs: [
+          "If you've got a large item on a balcony that can't come down through the building, there are a few things to sort before the movers arrive. First, check with your body corporate or building manager whether external lifting needs approval. Most are fine with it but they want to know. Second, make sure the ground area below the balcony can be cleared. Cars, bikes, and pot plants all need to move.",
+          "Third, send photos. This is the single most useful thing you can do. A photo of the balcony from outside, one from inside showing the item, and one showing the drop zone tells us almost everything we need to plan the job. We can give you a firm quote and turn up with the right crew size and gear.",
+        ],
+      },
+      {
+        heading: "When the Hoist Needs to Be Bigger",
+        paragraphs: [
+          "A couch on straps is one end of the scale. At the other end are jobs where the item is too heavy or the height too great for a manual strap system, and we bring in a crane or a balcony hoist frame instead. We've done crane lifts across Auckland for items where there was simply no other way in or out of the building.",
+          "The decision about which method suits your job depends on the item's weight, the height of the balcony, what's below, and the access available to a vehicle. That's all part of what we work out when you send through the photos and details.",
+        ],
+      },
+      {
+        heading: "If You've Got a Similar Problem",
+        paragraphs: [
+          "If you've got a couch, a fridge, a piece of furniture, or anything else that can't come through the stairwell, we've likely dealt with something close to it across 4,000+ moves across Auckland and the Waikato.",
+          "The best starting point is to send us the photos and a description through the website. In business hours we usually come back with a response in about 15 minutes. For bigger or more complex lifts we can arrange a visit to look at the job in person before we quote. No obligation, just a proper look so you know what you're getting.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {
