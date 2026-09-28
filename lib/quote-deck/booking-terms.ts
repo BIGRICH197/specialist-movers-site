@@ -15,7 +15,7 @@ export type BookingTermsSection = {
   tail?: string[];
 };
 
-export const BOOKING_TERMS_VERSION = "2026-09-official-8";
+export const BOOKING_TERMS_VERSION = "2026-09-official-9";
 export const COMMERCIAL_TERMS_VERSION = "2026-09-commercial-2";
 
 export const bookingTerms: BookingTermsSection[] = [
@@ -142,7 +142,7 @@ export const bookingTerms: BookingTermsSection[] = [
       "Access not being available when we arrive — a lift or loading dock booked by someone else, a locked building or gate, or a landlord or body-corporate approval still outstanding.",
       "A third party delaying us — another trade still on site, or anyone acting on your behalf.",
       "Conditions outside our reasonable control — weather, traffic, road closures, or an accident en route.",
-      "Instructions given on the day that change how we work — for example not stacking or double-loading goods, wrapping or re-wrapping items that already met our standard, extra trips, or asking us to stand down a crew member. These are variations to the quoted job, and the time they add is charged at the rate on your quote.",
+      "Instructions given on the day that change how we work — for example not stacking or double-loading goods, wrapping or re-wrapping items that already met our standard, extra trips, or asking us to stand down a crew member. These are variations to the quoted job, and the time they add is charged at the rate on your quote. Where practicable we will tell you at the time that an instruction will add chargeable time.",
       "Crew or trucks added on the day at your request, or made necessary by any of the above. Additional crew are charged at our standard per-mover rate, pro-rata, from the time they start; we will tell you before adding them where practicable.",
     ],
     tail: [
@@ -181,10 +181,11 @@ export const bookingTerms: BookingTermsSection[] = [
   {
     heading: "Payment",
     paragraphs: [
-      "Payment is due on completion of your move, on the day, unless we have agreed other terms with you in writing before the move. We may require payment before unloading is completed. Where a booking covers more than one day of work, for example packing, moving and cleaning, the packing and moving charges are payable on completion of the move and before any later scheduled service is carried out.",
+      "Payment is due on completion of your move, on the day, unless we have agreed other terms with you in writing before the move. Our crew may ask for payment to be made before they leave the delivery address. Where a booking covers more than one day of work, for example packing, moving and cleaning, the packing and moving charges are payable on completion of the move and before any later scheduled service is carried out.",
       "Later scheduled services: if any part of your invoice is unpaid by its due date, we may postpone or withhold any further scheduled service on the same booking, including cleaning, unpacking, a second day, storage collection or a return trip, until the balance is paid. Complimentary inclusions, such as a free exit clean, are provided on the condition that the invoice for the move is paid in full and on time. If it is not, the inclusion is withdrawn and may be rebooked at our standard price.",
       "Invoice queries: your invoice is payable in full by the due date, whether or not you have a query about it. If you believe an invoice is wrong, pay it and tell us in writing within 24 hours of receiving it, with the reason. Where we agree an adjustment, we will refund the difference within 5 business days. Paying less than the invoiced amount does not settle the invoice.",
-      "Overdue accounts: if payment is not received within 3 days of the due date, interest of 2% per month is charged on the overdue balance and a $49 overdue admin fee is added to your invoice. If payment is not received within 15 days of the due date, your details will be sent for debt collection, and all costs of recovery, including collection agency fees and Disputes Tribunal filing fees, will be your responsibility to cover.",
+      "Overdue accounts: if payment is not received within 3 days of the due date, interest of 2% per month, calculated daily, is charged on the overdue balance, and a $49 overdue admin fee, which reflects our administration cost, is added to your invoice. If payment is not received within 15 days of the due date, your details will be sent for debt collection, and our reasonable costs of recovery, including collection agency fees, will be your responsibility to cover to the extent permitted by law.",
+      "Nothing in this section limits your rights under the Consumer Guarantees Act 1993 or the Fair Trading Act 1986.",
     ],
   },
   {
