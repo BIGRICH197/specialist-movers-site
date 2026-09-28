@@ -15,7 +15,7 @@ export type BookingTermsSection = {
   tail?: string[];
 };
 
-export const BOOKING_TERMS_VERSION = "2026-09-official-9";
+export const BOOKING_TERMS_VERSION = "2026-09-official-10";
 export const COMMERCIAL_TERMS_VERSION = "2026-09-commercial-2";
 
 export const bookingTerms: BookingTermsSection[] = [
@@ -131,7 +131,7 @@ export const bookingTerms: BookingTermsSection[] = [
   {
     heading: "Price cap promise",
     paragraphs: [
-      "Where your quote gives an estimate of hours and the job runs more than 2 hours over that estimate, the extra time is free. The most an hourly move will bill is the quoted hours plus two, at the rate on your quote. The cap covers our crew’s working time only — materials, the call-out fee, the fuel surcharge and any additional service added on the day are charged as they are used.",
+      "Where your house move quote gives an estimate of moving hours and the move runs more than 2 hours over that estimate, the extra time is free. The most an hourly move will bill is the quoted moving hours plus two, at the rate on your quote. The cap applies to the moving crew’s working time on the move only. It does not apply to packing, unpacking or furniture wrapping labour, which are estimates billed on the time actually taken, with the quoted packing price as the minimum. Materials, the call-out fee, the fuel surcharge and any additional service added on the day are charged as they are used.",
       "The promise assumes the job we quoted is the job we arrive to. It does not apply to time added by any of the following:",
     ],
     bullets: [

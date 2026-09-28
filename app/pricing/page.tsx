@@ -117,7 +117,7 @@ const faqs = [
   },
   {
     q: "Are these prices a fixed quote?",
-    a: "These are our standard rates, and they are what your written quote is built from. Hourly moving work is billed on the hours actually worked, so that figure depends on how the day runs. A full house pack bills at the quoted packing price as a minimum, and more only if there is more to pack. Exit cleaning and piano moves are fixed prices confirmed in writing before we start. Every quote is backed by our price cap promise: if the job runs more than 2 hours over the quoted estimate, the extra time is free.",
+    a: "These are our standard rates, and they are what your written quote is built from. Hourly moving work is billed on the hours actually worked, so that figure depends on how the day runs. A full house pack bills at the quoted packing price as a minimum, and more only if there is more to pack. Exit cleaning and piano moves are fixed prices confirmed in writing before we start. Every house move quote is backed by our price cap promise: if the move runs more than 2 hours over the quoted moving hours, the extra time is free. The cap applies to moving labour only, not packing or materials.",
   },
   {
     q: "Do you charge more for stairs or difficult access?",
@@ -143,7 +143,7 @@ function buildOffer(name: string, price: number, kind: "hourly" | "fixed" | "est
     ...(kind === "estimate"
       ? {
           description:
-            "Minimum price for a full house pack of this size: our packers in every room, all cartons and materials supplied. More to pack bills at the quoted rates, with a price cap promise: more than 2 hours over the quoted estimate is free.",
+            "Minimum price for a full house pack of this size: our packers in every room, all cartons and materials supplied. More to pack bills at the quoted rates.",
         }
       : {}),
     priceSpecification: {
@@ -243,9 +243,10 @@ export default function PricingPage() {
             Every price on this page shows the retail figure first and the ex-GST figure beside it.
             Hourly work is billed on the hours actually worked. A full house pack starts at the price
             in the packing table and only goes up if there is more to pack. Exit cleaning and piano
-            moves are fixed prices confirmed in writing before we start. Every quote is backed by our
-            price cap promise: if the job runs more than 2 hours over the quoted estimate, the extra
-            time is free.
+            moves are fixed prices confirmed in writing before we start. Every house move quote is backed
+            by our price cap promise: if the move runs more than 2 hours over the quoted moving
+            hours, the extra time is free. The cap applies to moving labour only, not packing or
+            materials.
           </p>
         </div>
 

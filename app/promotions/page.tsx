@@ -36,7 +36,7 @@ const fullPackOffer: TermsSection[] = [
     heading: "The quoted packing price is the minimum charge",
     paragraphs: [
       "The packing figure on your quote is the minimum charge for the pack. If there turns out to be less to pack on the day, because some of it was packed already or your own boxes were used, the quoted packing price still applies.",
-      "If there is more to pack than quoted, the extra hours and materials are billed at the rates on your quote, and our price cap promise still protects you: if the job runs more than 2 hours over the quoted estimate, the extra time is free.",
+      "If there is more to pack than quoted, the extra hours and materials are billed at the rates on your quote. The price cap promise applies to the moving labour on your house move, not to packing or materials.",
     ],
   },
   {
