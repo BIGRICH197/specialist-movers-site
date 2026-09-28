@@ -15,7 +15,7 @@ export type BookingTermsSection = {
   tail?: string[];
 };
 
-export const BOOKING_TERMS_VERSION = "2026-09-official-6";
+export const BOOKING_TERMS_VERSION = "2026-09-official-7";
 export const COMMERCIAL_TERMS_VERSION = "2026-09-commercial-2";
 
 export const bookingTerms: BookingTermsSection[] = [
@@ -142,6 +142,8 @@ export const bookingTerms: BookingTermsSection[] = [
       "Access not being available when we arrive — a lift or loading dock booked by someone else, a locked building or gate, or a landlord or body-corporate approval still outstanding.",
       "A third party delaying us — another trade still on site, or anyone acting on your behalf.",
       "Conditions outside our reasonable control — weather, traffic, road closures, or an accident en route.",
+      "Instructions given on the day that change how we work — for example not stacking or double-loading goods, wrapping or re-wrapping items that already met our standard, extra trips, or asking us to stand down a crew member. These are variations to the quoted job, and the time they add is charged at the rate on your quote.",
+      "Crew or trucks added on the day at your request, or made necessary by any of the above. Additional crew are charged at our standard per-mover rate, pro-rata, from the time they start; we will tell you before adding them where practicable.",
     ],
     tail: [
       "In those cases the hours reflect the actual job and are charged at the rate on your quote. Time we spend waiting is chargeable and does not count towards the two hours. The cap exists so that our own underestimate is our problem rather than yours; it is not cover for a delay neither of us caused.",
@@ -179,7 +181,12 @@ export const bookingTerms: BookingTermsSection[] = [
   {
     heading: "Payment",
     paragraphs: [
-      "Payment is due within 24 hours of completion of your move unless agreed otherwise. After 14 days of non-payment a $49 overdue admin fee will be added to your invoice. After 30 days of non-payment your details will be sent for debt collection, and all costs incurred in doing so will be your responsibility to cover.",
+      "Payment is due on completion of your move, on the day, unless we have agreed other terms with you in writing before the move. We may require payment before unloading is completed. Where a booking covers more than one day of work, for example packing, moving and cleaning, the packing and moving charges are payable on completion of the move and before any later scheduled service is carried out.",
+      "Deposit: for bookings that include a full house pack, or where the quoted total is more than $2,500 including GST, a deposit of 25% of the quoted total is payable to confirm the booking. The deposit is applied to your final invoice. If you cancel, the Cancellations section above applies and the balance of the deposit is refunded.",
+      "Later scheduled services: if any part of your invoice is unpaid by its due date, we may postpone or withhold any further scheduled service on the same booking, including cleaning, unpacking, a second day, storage collection or a return trip, until the balance is paid. Complimentary inclusions, such as a free exit clean, are provided on the condition that the invoice for the move is paid in full and on time. If it is not, the inclusion is withdrawn and may be rebooked at our standard price.",
+      "Lien: to the extent permitted by law, Specialist Movers has a lien over goods in its possession, including goods in storage, for all unpaid charges, and may retain those goods until the charges are paid.",
+      "Disputed invoices: if you dispute any part of an invoice, tell us in writing within 48 hours of receiving it, with the reason. The undisputed part remains payable by the due date. Paying less than the invoiced amount does not settle the invoice unless we have agreed the reduced amount in writing.",
+      "Overdue accounts: after 14 days of non-payment a $49 overdue admin fee will be added to your invoice, and interest may be charged at 2% per month on the overdue balance. After 30 days of non-payment your details will be sent for debt collection, and all costs of recovery, including collection agency fees and Disputes Tribunal filing fees, will be your responsibility to cover.",
     ],
   },
   {
@@ -336,6 +343,7 @@ export const cleaningTerms: BookingTermsSection[] = [
       "Payment is due within 24 hours of service completion unless agreed otherwise",
       "Overdue accounts may incur an administration fee",
       "Unpaid accounts may be referred for debt collection, with associated costs payable by the Client",
+      "Where the clean is a complimentary inclusion with a full pack and move, it is conditional on the invoice for the move being paid in full by its due date. A complimentary clean has no cash value and cannot be exchanged for a credit or discount. Any add-ons or extras requested for a complimentary clean are charged at our standard prices and are payable before the clean",
     ],
   },
   {
