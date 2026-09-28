@@ -15,7 +15,7 @@ export type BookingTermsSection = {
   tail?: string[];
 };
 
-export const BOOKING_TERMS_VERSION = "2026-09-official-10";
+export const BOOKING_TERMS_VERSION = "2026-09-official-11";
 export const COMMERCIAL_TERMS_VERSION = "2026-09-commercial-2";
 
 export const bookingTerms: BookingTermsSection[] = [
@@ -65,7 +65,15 @@ export const bookingTerms: BookingTermsSection[] = [
     paragraphs: [
       "Where Specialist Movers is requested to provide packing services, including the supply of packing materials and labour, all packing is undertaken strictly on a best-endeavours basis only. Packing services do not constitute a guarantee against damage or loss.",
       "All goods, whether packed by Specialist Movers or by the Client, are transported at the owner's risk in accordance with the Contract and Commercial Law Act 2017, unless separate insurance has been arranged.",
-      "Where a full house pack is quoted, the packing price on the quote is the minimum charge for the pack. If less needs packing on the day, including where items have already been packed or the Client's own materials are used, the quoted packing price still applies. If more needs packing, the additional hours and materials are charged at the rates on the quote, subject to the price cap promise below. Current offers that depend on a full pack, such as a complimentary exit clean, are subject to the terms published at specialistmovers.co.nz/promotions.",
+      "Where a full house pack is quoted, the packing price on the quote is the minimum charge for the pack. If less needs packing on the day, including where items have already been packed or the Client's own materials are used, the quoted packing price still applies. If more needs packing, the additional hours and materials are charged at the rates on the quote, billed on the time actually taken and the materials used. Packing labour is not covered by the price cap promise below. Current offers that depend on a full pack, such as a complimentary exit clean, are subject to the terms published at specialistmovers.co.nz/promotions.",
+    ],
+  },
+  {
+    heading: "Our packing and wrapping standard",
+    paragraphs: [
+      "We pack and wrap to the Specialist Movers standard: furniture wrapped in moving blankets, with shrink wrap where needed; fragile items wrapped individually in paper or bubble wrap and boxed; cartons labelled to the plan agreed with you on the day. Our crew lead decides how each item is packed, wrapped, loaded and stacked, and that decision is final on questions of safety.",
+      "If you would like something done differently, tell the crew lead before the item is packed or loaded. We will accommodate reasonable requests where it is safe and practical. Where a request means re-doing work that already met our standard, working to a different standard, or using a method that takes longer than ours, for example wrapping items individually that we would normally wrap together, or not stacking goods on the truck, that is a variation to the quoted job. The extra time is charged at the packing or moving rate on your quote, and any extra materials are charged as used. We will tell you at the time where practicable.",
+      "You are welcome to be present while we work. Please raise any concern with the crew lead, who will resolve it or call the office. Our crew are entitled to a safe and respectful workplace. If our crew are subjected to abuse or threats, or if an instruction from you would require them to work unsafely, we may pause or stop the job. Charges for the work done and materials used up to that point remain payable.",
     ],
   },
   {
