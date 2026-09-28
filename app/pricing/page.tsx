@@ -109,7 +109,7 @@ const faqs = [
   },
   {
     q: "How much does packing cost?",
-    a: `A full house pack starts at $${fixedPriceRows[0].packing.incl.toLocaleString("en-NZ")} incl GST for a one-bedroom home and $${fixedPriceRows[3].packing.incl.toLocaleString("en-NZ")} for four bedrooms or more. Those figures are the minimum for a full pack of that size: our packers in every room, with all cartons and materials supplied. If there is more to pack than expected, the extra hours and materials bill at the rates on your quote, and our price cap promise protects you: if the job runs more than 2 hours over the quoted estimate, the extra time is free. Part packs, such as just the kitchen, are priced by the hour. Exit cleaning is different: it is a fixed price from the start, $${cleaningRows[0].price.incl} to $${cleaningRows[cleaningRows.length - 1].price.incl} incl GST by bedrooms and bathrooms.`,
+    a: `A full house pack starts at $${fixedPriceRows[0].packing.incl.toLocaleString("en-NZ")} incl GST for a one-bedroom home and $${fixedPriceRows[3].packing.incl.toLocaleString("en-NZ")} for four bedrooms or more. Those figures are the minimum for a full pack of that size: our packers in every room, with all cartons and materials supplied. If there is more to pack than expected, the extra hours and materials bill at the rates on your quote. Our price cap promise covers the moving day, not packing or materials. Part packs, such as just the kitchen, are priced by the hour. Exit cleaning is different: it is a fixed price from the start, $${cleaningRows[0].price.incl} to $${cleaningRows[cleaningRows.length - 1].price.incl} incl GST by bedrooms and bathrooms.`,
   },
   {
     q: "How much does it cost to move a piano?",
@@ -327,9 +327,8 @@ export default function PricingPage() {
             A full house pack is priced from the table below. That figure is the minimum for a full
             pack of that size: our packers in every room, with all cartons and materials supplied. If
             there turns out to be more to pack, the extra hours and materials bill at the rates on
-            your quote, and our price cap promise still protects you: if the job runs more than 2
-            hours over the quoted estimate, the extra time is free. Part packs, such as just the
-            kitchen, are priced by the hour. Exit cleaning is a fixed price from the start, set by
+            your quote. The price cap promise applies to the moving day, not to packing hours or
+            materials. Part packs, such as just the kitchen, are priced by the hour. Exit cleaning is a fixed price from the start, set by
             bedrooms and bathrooms, and you can book it off the table below.
           </p>
           <p className="mt-3 rounded-xl border border-brand-purple/15 bg-brand-purple/[0.03] p-4 text-sm leading-relaxed text-brand-purple/85">
@@ -616,7 +615,7 @@ export default function PricingPage() {
               and the price cap promise may not apply.
             </li>
             <li>
-              The price cap covers our crew&rsquo;s working time, not time spent waiting. The most
+              The price cap covers the moving crew&rsquo;s working time, not packing, materials or time spent waiting. The most
               common reason a move waits is a <strong>settlement delay</strong> &mdash; settlement not
               confirming, funds not cleared, or keys not released. Settlement sits between you, your
               lawyer and the other party, so that time is charged at the rate on your quote and does
