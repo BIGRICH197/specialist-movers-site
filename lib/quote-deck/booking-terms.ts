@@ -15,7 +15,7 @@ export type BookingTermsSection = {
   tail?: string[];
 };
 
-export const BOOKING_TERMS_VERSION = "2026-09-official-12";
+export const BOOKING_TERMS_VERSION = "2026-09-official-13";
 export const COMMERCIAL_TERMS_VERSION = "2026-09-commercial-2";
 
 export const bookingTerms: BookingTermsSection[] = [
@@ -183,7 +183,8 @@ export const bookingTerms: BookingTermsSection[] = [
   {
     heading: "Notification of Damage",
     paragraphs: [
-      "If you believe that Specialist Movers is responsible for any loss or damage, you must notify us within 24 hours of the incident so that we can assess the circumstances and determine liability. Claims made outside this period may not be considered.",
+      "Your goods are carried at owner's risk, so Specialist Movers is not liable for loss of or damage to them unless we caused it intentionally. If you have arranged transit insurance, any loss or damage to your goods is claimed through your insurer, and we will provide the photos and information your insurer reasonably needs. The claims you can make against us are limited to: damage to your goods that you say we caused intentionally; damage to your property, such as your home, the building, floors or your vehicle, caused by our negligence while performing the service; and a claim under the Consumer Guarantees Act 1993 about the service itself.",
+      "Any such claim must be notified to us in writing within 24 hours of the incident so that we can assess the circumstances while the details are fresh. Claims made outside this period may not be considered.",
       "Photos are required. A claim must include photos showing the item's condition before the move and the damage after it. Please photograph valuable or fragile items before packing day, and any damage before it is moved, cleaned or repaired. Our crew may photograph goods and property at both addresses before and after the move, and we may rely on those photos in assessing a claim. Without before and after photos we may be unable to assess a claim.",
       "Nothing in this clause limits any statutory rights you may have under the Consumer Guarantees Act 1993 or the Contract and Commercial Law Act 2017.",
     ],
