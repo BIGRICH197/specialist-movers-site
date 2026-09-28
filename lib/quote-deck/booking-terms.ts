@@ -15,7 +15,7 @@ export type BookingTermsSection = {
   tail?: string[];
 };
 
-export const BOOKING_TERMS_VERSION = "2026-09-official-13";
+export const BOOKING_TERMS_VERSION = "2026-09-official-14";
 export const COMMERCIAL_TERMS_VERSION = "2026-09-commercial-2";
 
 export const bookingTerms: BookingTermsSection[] = [
@@ -163,6 +163,14 @@ export const bookingTerms: BookingTermsSection[] = [
     paragraphs: [
       "All work is carried out on a best-endeavours basis. Whilst we try our best to make it on time to every booking and delivery, we sometimes have delays outside our control caused by factors such as heavy traffic. To the extent permitted by law, Specialist Movers is not liable for personal or business losses arising from delays, whether directly or indirectly.",
       "Where a delay outside our reasonable control extends the job — most commonly a settlement delay, but also keys not released, a lift or access unavailable, or the property not ready — the additional time is charged at the rate on your quote and sits outside the Price cap promise above.",
+    ],
+  },
+  {
+    heading: "Access, lifts, parking and building rules",
+    paragraphs: [
+      "Arranging access is your responsibility, not ours. Before the day, you must arrange and confirm at both addresses: entry to the building and the property, including keys, codes, gates and anyone who needs to be present; lift bookings and any lift protection or padding the building requires; a loading dock or legal parking for our truck as close to the entrance as possible; and any approval, move-in or move-out rules, time windows, bonds or certificates of insurance required by a body corporate, building manager or landlord. Tell us at quote time about stairs, lift size, time limits, and the distance from where the truck can park to your door.",
+      "If access, a lift or parking is unavailable or restricted when we arrive, the time we spend waiting, the extra carrying distance and any extra trips are charged at the rate on your quote and sit outside the price cap promise. Parking fees or fines incurred because legal parking was not arranged, and any building charges such as lift booking fees, are passed on to you at cost. If we cannot get access at all, the call-out fee and any time on site are charged and the job is rescheduled.",
+      "We are not liable for delays or incomplete work caused by access, lift, parking or building restrictions, or by a body corporate, building manager or landlord refusing or limiting entry.",
     ],
   },
   {
