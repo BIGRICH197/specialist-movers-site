@@ -88,7 +88,7 @@ export default function PoliciesPage() {
           </section>
         ))}
 
-        <TermsGroup title="Moving terms and conditions" sections={bookingTerms} />
+        <TermsGroup title="Moving terms and conditions" sections={bookingTerms.filter((s) => !s.signOnly)} />
         <TermsGroup title="Cleaning terms and conditions" sections={cleaningTerms} />
 
         <section>

@@ -13,9 +13,11 @@ export type BookingTermsSection = {
   bullets?: string[];
   /** Paragraphs shown after the bullet list. */
   tail?: string[];
+  /** Shown only in the scroll-to-sign box on the booking form, not on the public /policies page. */
+  signOnly?: boolean;
 };
 
-export const BOOKING_TERMS_VERSION = "2026-09-official-17";
+export const BOOKING_TERMS_VERSION = "2026-09-official-18";
 export const COMMERCIAL_TERMS_VERSION = "2026-09-commercial-2";
 
 export const bookingTerms: BookingTermsSection[] = [
@@ -36,6 +38,7 @@ export const bookingTerms: BookingTermsSection[] = [
   },
   {
     heading: "What forms your agreement with us",
+    signOnly: true,
     paragraphs: [
       "Your agreement with Specialist Movers is made up of your written quote, your booking form, and these Terms and Conditions. Together they are the whole agreement between us, and they replace anything said or written before you booked, including in emails, phone calls, viewings, or advertising.",
       "Our team will always try to help and to answer your questions, but nothing a staff member or sales consultant says, and nothing in an earlier email, forms part of this agreement or changes it, unless it is set out in your written quote or confirmed in writing by our office as a variation. If someone tells you something that differs from these terms, or that matters to your decision to book, please ask us to confirm it in writing before you book. Only that written confirmation counts.",
