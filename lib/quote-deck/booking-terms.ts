@@ -15,7 +15,7 @@ export type BookingTermsSection = {
   tail?: string[];
 };
 
-export const BOOKING_TERMS_VERSION = "2026-09-official-11";
+export const BOOKING_TERMS_VERSION = "2026-09-official-12";
 export const COMMERCIAL_TERMS_VERSION = "2026-09-commercial-2";
 
 export const bookingTerms: BookingTermsSection[] = [
@@ -65,7 +65,7 @@ export const bookingTerms: BookingTermsSection[] = [
     paragraphs: [
       "Where Specialist Movers is requested to provide packing services, including the supply of packing materials and labour, all packing is undertaken strictly on a best-endeavours basis only. Packing services do not constitute a guarantee against damage or loss.",
       "All goods, whether packed by Specialist Movers or by the Client, are transported at the owner's risk in accordance with the Contract and Commercial Law Act 2017, unless separate insurance has been arranged.",
-      "Where a full house pack is quoted, the packing price on the quote is the minimum charge for the pack. If less needs packing on the day, including where items have already been packed or the Client's own materials are used, the quoted packing price still applies. If more needs packing, the additional hours and materials are charged at the rates on the quote, billed on the time actually taken and the materials used. Packing labour is not covered by the price cap promise below. Current offers that depend on a full pack, such as a complimentary exit clean, are subject to the terms published at specialistmovers.co.nz/promotions.",
+      "Packing is billed on the hours worked and the materials used, at the rates on your quote. The packing figure on your quote is an estimate. If less needs packing on the day, including where items have already been packed or your own materials are used, you pay for what is done. If more needs packing, the additional hours and materials are charged at the quoted rates. Packing labour is not covered by the price cap promise below. Offers that depend on a full house pack, such as a complimentary exit clean, require the full pack as quoted; a reduced pack is not eligible, under the terms published at specialistmovers.co.nz/promotions.",
     ],
   },
   {
@@ -183,15 +183,17 @@ export const bookingTerms: BookingTermsSection[] = [
   {
     heading: "Notification of Damage",
     paragraphs: [
-      "If you believe that Specialist Movers is responsible for any loss or damage, you must notify us within 24 hours of the incident so that we can assess the circumstances and determine liability. Claims made outside this period may not be considered. Nothing in this clause limits any statutory rights you may have under the Consumer Guarantees Act 1993 or the Contract and Commercial Law Act 2017.",
+      "If you believe that Specialist Movers is responsible for any loss or damage, you must notify us within 24 hours of the incident so that we can assess the circumstances and determine liability. Claims made outside this period may not be considered.",
+      "Photos are required. A claim must include photos showing the item's condition before the move and the damage after it. Please photograph valuable or fragile items before packing day, and any damage before it is moved, cleaned or repaired. Our crew may photograph goods and property at both addresses before and after the move, and we may rely on those photos in assessing a claim. Without before and after photos we may be unable to assess a claim.",
+      "Nothing in this clause limits any statutory rights you may have under the Consumer Guarantees Act 1993 or the Contract and Commercial Law Act 2017.",
     ],
   },
   {
     heading: "Payment",
     paragraphs: [
-      "Payment is due on completion of your move, on the day, unless we have agreed other terms with you in writing before the move. Our crew may ask for payment to be made before they leave the delivery address. Where a booking covers more than one day of work, for example packing, moving and cleaning, the packing and moving charges are payable on completion of the move and before any later scheduled service is carried out.",
+      "Our standard procedure is payment on completion of your move, on the day, unless we have agreed other terms with you in writing before the move. We reserve the right to ask for payment before our crew leave the delivery address, or at the end of each completed service where a booking covers more than one day, for example packing, moving and cleaning.",
       "Later scheduled services: if any part of your invoice is unpaid by its due date, we may postpone or withhold any further scheduled service on the same booking, including cleaning, unpacking, a second day, storage collection or a return trip, until the balance is paid. Complimentary inclusions, such as a free exit clean, are provided on the condition that the invoice for the move is paid in full and on time. If it is not, the inclusion is withdrawn and may be rebooked at our standard price.",
-      "Invoice queries: your invoice is payable in full by the due date, whether or not you have a query about it. If you believe an invoice is wrong, pay it and tell us in writing within 24 hours of receiving it, with the reason. Where we agree an adjustment, we will refund the difference within 5 business days. Paying less than the invoiced amount does not settle the invoice.",
+      "Concerns: if you have a concern about your invoice or about the service, raise it with us in writing within 24 hours of completion, with the reason, so we can look into it while the details are fresh. Concerns raised after that may not be considered. We will respond within 2 business days. Raising a concern does not extend the due date for any part of the invoice that is not in question, and where we agree an adjustment we will issue a credit or refund.",
       "Overdue accounts: if payment is not received within 3 days of the due date, interest of 2% per month, calculated daily, is charged on the overdue balance, and a $49 overdue admin fee, which reflects our administration cost, is added to your invoice. If payment is not received within 15 days of the due date, your details will be sent for debt collection, and our reasonable costs of recovery, including collection agency fees, will be your responsibility to cover to the extent permitted by law.",
       "Nothing in this section limits your rights under the Consumer Guarantees Act 1993 or the Fair Trading Act 1986.",
     ],
