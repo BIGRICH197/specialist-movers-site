@@ -15,7 +15,7 @@ export type BookingTermsSection = {
   tail?: string[];
 };
 
-export const BOOKING_TERMS_VERSION = "2026-09-official-14";
+export const BOOKING_TERMS_VERSION = "2026-09-official-15";
 export const COMMERCIAL_TERMS_VERSION = "2026-09-commercial-2";
 
 export const bookingTerms: BookingTermsSection[] = [
@@ -73,7 +73,7 @@ export const bookingTerms: BookingTermsSection[] = [
     paragraphs: [
       "We pack and wrap to the Specialist Movers standard: furniture wrapped in moving blankets, with shrink wrap where needed; fragile items wrapped individually in paper or bubble wrap and boxed; cartons labelled to the plan agreed with you on the day. Our crew lead decides how each item is packed, wrapped, loaded and stacked, and that decision is final on questions of safety.",
       "If you would like something done differently, tell the crew lead before the item is packed or loaded. We will accommodate reasonable requests where it is safe and practical. Where a request means re-doing work that already met our standard, working to a different standard, or using a method that takes longer than ours, for example wrapping items individually that we would normally wrap together, or not stacking goods on the truck, that is a variation to the quoted job. The extra time is charged at the packing or moving rate on your quote, and any extra materials are charged as used. We will tell you at the time where practicable.",
-      "You are welcome to be present while we work. Please raise any concern with the crew lead, who will resolve it or call the office. Our crew are entitled to a safe and respectful workplace. If our crew are subjected to abuse or threats, or if an instruction from you would require them to work unsafely, we may pause or stop the job. Charges for the work done and materials used up to that point remain payable.",
+      "You are very welcome to be there while we work, and we would rather hear a concern on the spot than afterwards. Please raise it with the crew lead, who will sort it or call the office. In return we ask that our crew are treated with the same respect they show you and your home. If a crew member is subjected to abuse or threats, or an instruction would require them to work unsafely, we may pause or stop the job, and the work done and materials used up to that point remain payable.",
     ],
   },
   {
@@ -168,9 +168,9 @@ export const bookingTerms: BookingTermsSection[] = [
   {
     heading: "Access, lifts, parking and building rules",
     paragraphs: [
-      "Arranging access is your responsibility, not ours. Before the day, you must arrange and confirm at both addresses: entry to the building and the property, including keys, codes, gates and anyone who needs to be present; lift bookings and any lift protection or padding the building requires; a loading dock or legal parking for our truck as close to the entrance as possible; and any approval, move-in or move-out rules, time windows, bonds or certificates of insurance required by a body corporate, building manager or landlord. Tell us at quote time about stairs, lift size, time limits, and the distance from where the truck can park to your door.",
-      "If access, a lift or parking is unavailable or restricted when we arrive, the time we spend waiting, the extra carrying distance and any extra trips are charged at the rate on your quote and sit outside the price cap promise. Parking fees or fines incurred because legal parking was not arranged, and any building charges such as lift booking fees, are passed on to you at cost. If we cannot get access at all, the call-out fee and any time on site are charged and the job is rescheduled.",
-      "We are not liable for delays or incomplete work caused by access, lift, parking or building restrictions, or by a body corporate, building manager or landlord refusing or limiting entry.",
+      "A smooth move day starts with the doors being open when we arrive, and that part sits with you, because buildings will only deal with their owners and tenants. Before the day, please arrange and confirm at both addresses: entry to the building and the property, including keys, codes, gates and anyone who needs to be there; lift bookings and any lift protection the building asks for; a loading dock or legal parking for our truck as close to the entrance as you can get; and any approvals, move-in or move-out rules, time windows, bonds or certificates of insurance your body corporate, building manager or landlord requires. If you are not sure what your building needs, ask us and we will tell you what to request. It also helps to let us know at quote time about stairs, lift size, time limits, and how far the truck will be from your door.",
+      "If access, a lift or parking turns out to be unavailable or restricted when we arrive, we will still do everything we can to keep the day moving. The time spent waiting, any extra carrying distance and any extra trips are charged at the rate on your quote and sit outside the price cap promise. Parking fees or fines we incur because legal parking was not arranged, and any building charges such as lift booking fees, are passed on at cost. If we cannot get in at all, the call-out fee and any time on site are charged and we will reschedule with you.",
+      "We cannot be responsible for delays or unfinished work caused by access, lift, parking or building restrictions, or by a body corporate, building manager or landlord refusing or limiting entry, but we will always tell you as soon as we hit a problem.",
     ],
   },
   {
@@ -191,7 +191,7 @@ export const bookingTerms: BookingTermsSection[] = [
   {
     heading: "Notification of Damage",
     paragraphs: [
-      "Your goods are carried at owner's risk, so Specialist Movers is not liable for loss of or damage to them unless we caused it intentionally. If you have arranged transit insurance, any loss or damage to your goods is claimed through your insurer, and we will provide the photos and information your insurer reasonably needs. The claims you can make against us are limited to: damage to your goods that you say we caused intentionally; damage to your property, such as your home, the building, floors or your vehicle, caused by our negligence while performing the service; and a claim under the Consumer Guarantees Act 1993 about the service itself.",
+      "Your goods are carried at owner's risk, so Specialist Movers is not liable for loss of or damage to them unless we caused it intentionally. If you have arranged transit insurance, any loss or damage to your goods is claimed through your insurer, and we will provide the photos and information your insurer reasonably needs. The claims that can be made against us are: damage to your goods that you believe we caused intentionally; damage to your property, such as your home, the building, floors or your vehicle, caused by our negligence while performing the service; and a claim under the Consumer Guarantees Act 1993 about the service itself.",
       "Any such claim must be notified to us in writing within 24 hours of the incident so that we can assess the circumstances while the details are fresh. Claims made outside this period may not be considered.",
       "Photos are required. A claim must include photos showing the item's condition before the move and the damage after it. Please photograph valuable or fragile items before packing day, and any damage before it is moved, cleaned or repaired. Our crew may photograph goods and property at both addresses before and after the move, and we may rely on those photos in assessing a claim. Without before and after photos we may be unable to assess a claim.",
       "Nothing in this clause limits any statutory rights you may have under the Consumer Guarantees Act 1993 or the Contract and Commercial Law Act 2017.",
