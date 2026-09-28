@@ -15,7 +15,7 @@ export type BookingTermsSection = {
   tail?: string[];
 };
 
-export const BOOKING_TERMS_VERSION = "2026-09-official-7";
+export const BOOKING_TERMS_VERSION = "2026-09-official-8";
 export const COMMERCIAL_TERMS_VERSION = "2026-09-commercial-2";
 
 export const bookingTerms: BookingTermsSection[] = [
@@ -182,11 +182,9 @@ export const bookingTerms: BookingTermsSection[] = [
     heading: "Payment",
     paragraphs: [
       "Payment is due on completion of your move, on the day, unless we have agreed other terms with you in writing before the move. We may require payment before unloading is completed. Where a booking covers more than one day of work, for example packing, moving and cleaning, the packing and moving charges are payable on completion of the move and before any later scheduled service is carried out.",
-      "Deposit: for bookings that include a full house pack, or where the quoted total is more than $2,500 including GST, a deposit of 25% of the quoted total is payable to confirm the booking. The deposit is applied to your final invoice. If you cancel, the Cancellations section above applies and the balance of the deposit is refunded.",
       "Later scheduled services: if any part of your invoice is unpaid by its due date, we may postpone or withhold any further scheduled service on the same booking, including cleaning, unpacking, a second day, storage collection or a return trip, until the balance is paid. Complimentary inclusions, such as a free exit clean, are provided on the condition that the invoice for the move is paid in full and on time. If it is not, the inclusion is withdrawn and may be rebooked at our standard price.",
-      "Lien: to the extent permitted by law, Specialist Movers has a lien over goods in its possession, including goods in storage, for all unpaid charges, and may retain those goods until the charges are paid.",
-      "Disputed invoices: if you dispute any part of an invoice, tell us in writing within 48 hours of receiving it, with the reason. The undisputed part remains payable by the due date. Paying less than the invoiced amount does not settle the invoice unless we have agreed the reduced amount in writing.",
-      "Overdue accounts: after 14 days of non-payment a $49 overdue admin fee will be added to your invoice, and interest may be charged at 2% per month on the overdue balance. After 30 days of non-payment your details will be sent for debt collection, and all costs of recovery, including collection agency fees and Disputes Tribunal filing fees, will be your responsibility to cover.",
+      "Invoice queries: your invoice is payable in full by the due date, whether or not you have a query about it. If you believe an invoice is wrong, pay it and tell us in writing within 24 hours of receiving it, with the reason. Where we agree an adjustment, we will refund the difference within 5 business days. Paying less than the invoiced amount does not settle the invoice.",
+      "Overdue accounts: if payment is not received within 3 days of the due date, interest of 2% per month is charged on the overdue balance and a $49 overdue admin fee is added to your invoice. If payment is not received within 15 days of the due date, your details will be sent for debt collection, and all costs of recovery, including collection agency fees and Disputes Tribunal filing fees, will be your responsibility to cover.",
     ],
   },
   {
