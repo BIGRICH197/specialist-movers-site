@@ -15,7 +15,7 @@ export type BookingTermsSection = {
   tail?: string[];
 };
 
-export const BOOKING_TERMS_VERSION = "2026-09-official-16";
+export const BOOKING_TERMS_VERSION = "2026-09-official-17";
 export const COMMERCIAL_TERMS_VERSION = "2026-09-commercial-2";
 
 export const bookingTerms: BookingTermsSection[] = [
@@ -32,6 +32,14 @@ export const bookingTerms: BookingTermsSection[] = [
     heading: "Acceptance of these Terms",
     paragraphs: [
       "By confirming your booking, you acknowledge that you have read and accept these Terms and Conditions, including in particular that your goods are carried at owner's risk under the Contract and Commercial Law Act 2017 unless you have arranged separate insurance cover. We record the date and time your acceptance is given.",
+    ],
+  },
+  {
+    heading: "What forms your agreement with us",
+    paragraphs: [
+      "Your agreement with Specialist Movers is made up of your written quote, your booking form, and these Terms and Conditions. Together they are the whole agreement between us, and they replace anything said or written before you booked, including in emails, phone calls, viewings, or advertising.",
+      "Our team will always try to help and to answer your questions, but nothing a staff member or sales consultant says, and nothing in an earlier email, forms part of this agreement or changes it, unless it is set out in your written quote or confirmed in writing by our office as a variation. If someone tells you something that differs from these terms, or that matters to your decision to book, please ask us to confirm it in writing before you book. Only that written confirmation counts.",
+      "Where your written quote and these terms differ, the quote applies to price, dates and scope, and these terms apply to everything else. Nothing in this clause limits your rights under the Consumer Guarantees Act 1993 or the Fair Trading Act 1986.",
     ],
   },
   {
