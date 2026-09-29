@@ -54,6 +54,10 @@ export type HouseMoveQuote = {
   includedAddOns?: string[];
   /** Force unticked even if a line item would match */
   excludedAddOns?: string[];
+  /** A full pack OFFERED but not included: its lines, priced for this house.
+   *  The page shows the price beside the packing tick, unticked, and adds the
+   *  lines only when the customer ticks it. Never part of the quote total. */
+  offeredPacking?: QuoteLineItem[];
   notes?: string[];
   /** Shown on the office proposal pricing slide */
   pricingNotes?: string[];
@@ -161,6 +165,15 @@ export function quoteAddOnBreakdown(quote: HouseMoveQuote): QuoteAddOnBreakdown 
     packingInclGst: gst(packing),
     packingQuoted: packing > 0,
   };
+}
+
+/** The offered pack's price incl GST, or null when nothing is offered (or the
+ *  quote already includes packing, which then wins). */
+export function packingOfferInclGst(quote: HouseMoveQuote): number | null {
+  const offer = quote.offeredPacking ?? [];
+  if (!offer.length || quoteAddOnBreakdown(quote).packingQuoted) return null;
+  const ex = offer.reduce((s, i) => s + (Number(i.amountExclGst) || 0), 0);
+  return ex > 0 ? Math.round(ex * (1 + GST_RATE) * 100) / 100 : null;
 }
 
 export function formatAddress(addr: MoveAddress): string {

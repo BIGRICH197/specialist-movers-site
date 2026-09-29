@@ -5,6 +5,7 @@ import {
   quoteTotalInclGst,
   quoteAddOnBreakdown,
   formatNzd,
+  packingOfferInclGst,
 } from "@/lib/quote-deck/house-move-quote";
 
 export const runtime = "nodejs";
@@ -58,13 +59,18 @@ export async function POST(request: Request) {
         ? ":rotating_light: *Cleaning requested* — no bed/bath count on this quote, price it for them"
         : "Cleaning: yes (added, fixed price shown)"
     : "Cleaning: no";
+  const offer = packingOfferInclGst(stored.quote);
   const packingLine = addOns.packing
     ? brk.packingQuoted
       ? "Packing: yes (as quoted)"
-      : ":rotating_light: *Packing requested* — not yet quoted, go view/requote"
+      : offer != null
+        ? `:package: *Packing: yes* — took the offered full pack (${formatNzd(offer)} incl GST)`
+        : ":rotating_light: *Packing requested* — not yet quoted, go view/requote"
     : brk.packingQuoted
       ? "Packing: removed by customer"
-      : "Packing: no";
+      : offer != null
+        ? "Packing: no (offered, not taken)"
+        : "Packing: no";
   const insuranceLine = addOns.insurance
     ? ":rotating_light: *Insurance requested* — send them cover options"
     : "Insurance: no (owner's risk)";

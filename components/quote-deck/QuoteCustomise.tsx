@@ -5,8 +5,10 @@ import { useRouter } from "next/navigation";
 import {
   classifyLineItem,
   formatNzd,
+  packingOfferInclGst,
   quoteHasSections,
   quoteTotalInclGst,
+  usesXeroQuoteTable,
   type HouseMoveQuote,
 } from "@/lib/quote-deck/house-move-quote";
 import { QuoteTable } from "@/components/quote-deck/house-move/QuoteTable";
@@ -67,6 +69,10 @@ export function QuoteCustomise({
   const router = useRouter();
   const [cleaningOn, setCleaningOn] = useState(cleaningQuoted);
   const [packingOn, setPackingOn] = useState(packingQuoted);
+  // A pack we priced for this house but did not include: shown with its price,
+  // unticked, and only added to the quote when the customer ticks it.
+  const packingOfferPrice = packingOfferInclGst(quote);
+  const packingOffered = packingOfferPrice != null;
   const [insuranceOn, setInsuranceOn] = useState(false);
   // Cleaning extras: id -> quantity. Absent = not selected. Shown as soon as
   // cleaning is ticked, so the options are never a click away.
@@ -111,6 +117,23 @@ export function QuoteCustomise({
       if (cls === "packing" && !packingOn) return false;
       return true;
     });
+
+    if (packingOn && packingOffered) {
+      const sections = quoteHasSections(quote);
+      const xero = usesXeroQuoteTable(quote);
+      lineItems = [
+        ...lineItems,
+        ...(quote.offeredPacking ?? []).map((item) => {
+          const line = { ...item };
+          if (!sections) delete line.section;
+          if (!xero) {
+            delete line.quantity;
+            delete line.unitPriceExclGst;
+          }
+          return line;
+        }),
+      ];
+    }
 
     if (cleaningOn && !cleaningQuoted && cleaningHasPrice) {
       lineItems = [
@@ -301,7 +324,11 @@ export function QuoteCustomise({
                 <span className="flex items-center justify-between gap-3">
                   <span className={packingOn ? "text-white" : "text-white/75"}>Full packing, packers come in the day before</span>
                   <span className={packingOn ? "text-white" : "text-white/75"}>
-                    {packingQuoted ? `${formatNzd(packingPriceInclGst)} incl GST` : "Price on request"}
+                    {packingQuoted
+                      ? `${formatNzd(packingPriceInclGst)} incl GST`
+                      : packingOffered
+                        ? `${formatNzd(packingOfferPrice!)} incl GST`
+                        : "Price on request"}
                   </span>
                 </span>
                 <span className="mt-0.5 block text-[10px] text-white/55 sm:text-xs">
@@ -323,7 +350,9 @@ export function QuoteCustomise({
                       <span className="font-semibold text-brand-yellow">
                         Book a full house pack with your move and your exit clean is free.
                       </span>{" "}
-                      Tick to add it and our team will confirm the price.{" "}
+                      {packingOffered
+                        ? "Priced for your home. Tick to add it to your quote."
+                        : "Tick to add it and our team will confirm the price."}{" "}
                       <a
                         href="/promotions"
                         target="_blank"
