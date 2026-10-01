@@ -116,7 +116,7 @@ const tools: Anthropic.Tool[] = [
   {
     name: "capture_lead",
     description:
-      "Save a customer's contact details as a lead in our system. Call this as soon as you have their name plus EITHER a phone number or an email address. Never wait for both.",
+      "Save a customer's contact details as a lead in our system. Call this once you have their name, mobile number AND email address. The email is required: the quote and follow-ups go out by email.",
     input_schema: {
       type: "object" as const,
       properties: {
@@ -124,13 +124,18 @@ const tools: Anthropic.Tool[] = [
         email: {
           type: "string",
           description:
-            "Email address. Ask for this FIRST, before the phone number: the team's "
-            + "automated follow-up only goes out by email, so a lead with a phone number "
-            + "alone waits for somebody to ring it.",
+            "Email address. REQUIRED: the team's quote and automated follow-up only "
+            + "go out by email, so a lead with a phone number alone goes nowhere.",
         },
         phone: {
           type: "string",
-          description: "Phone number. Ask for this after the email, and get both.",
+          description: "Mobile number. Ask for it together with the email, and get both.",
+        },
+        emailDeclined: {
+          type: "boolean",
+          description:
+            "Set true ONLY if you asked for an email twice and the customer flatly "
+            + "refused. Never set it just because they have not answered yet.",
         },
         serviceType: { type: "string", description: "Type of service they're interested in" },
         pickupAddress: { type: "string", description: "Pickup address if known" },
@@ -145,14 +150,12 @@ const tools: Anthropic.Tool[] = [
             + "lead automatically and has to ring and ask.",
         },
       },
-      // Only the name is structurally required — a lead with just an email is
-      // still a lead, and the team can work either contact route. The tool
-      // itself rejects a save with neither a dialable phone nor a valid email,
-      // so collect at least one before calling. Deliberately NOT tightened to
-      // require the email (Richard, 2026-09-10): ask for it first and ask twice,
-      // but never lose a lead because someone would not type one in. The prompt
-      // carries the order; six phone-only chat leads in a week is what prompted it.
-      required: ["name", "serviceType"],
+      // Email is required (Richard, 2026-10-02): phone-only chat leads kept
+      // arriving after the 09-10 "ask for it first" prompt change, because the
+      // tool still accepted them. The executor rejects a save without a valid
+      // email unless emailDeclined is set, so Joey must ask; the escape hatch
+      // keeps a flat refusal from losing the lead altogether.
+      required: ["name", "email", "serviceType"],
     },
   },
 ];
@@ -183,6 +186,14 @@ async function executeTool(
     const email = ((input.email as string) || "").trim();
     const phoneOk = phone !== "" && isDialable(phone);
     const emailOk = email !== "" && isEmailish(email);
+    if (!emailOk && input.emailDeclined !== true) {
+      return JSON.stringify({
+        success: false,
+        message: email
+          ? "That email doesn't look right. Double-check it with the customer and call this tool again."
+          : "An email address is required before the lead can be saved: the quote and follow-ups go out by email. Ask the customer for their email, then call this tool again.",
+      });
+    }
     if (!phoneOk && !emailOk) {
       return JSON.stringify({
         success: false,
@@ -210,6 +221,7 @@ async function executeTool(
     const badDetail = [
       phone && !phoneOk ? `Phone as typed (NOT dialable): ${phone}` : "",
       email && !emailOk ? `Email as typed (malformed): ${email}` : "",
+      !emailOk && input.emailDeclined === true ? "Customer declined to give an email in chat (asked twice)." : "",
     ]
       .filter(Boolean)
       .join("\n");

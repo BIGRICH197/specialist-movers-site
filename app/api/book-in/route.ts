@@ -10,6 +10,7 @@ import {
 } from "@/lib/hubspot";
 import { bookedByOwnerId, normalizeBookedBy } from "@/lib/booked-by";
 import { isDialable, PHONE_ERROR } from "@/lib/phone";
+import { isEmailish, EMAIL_ERROR } from "@/lib/email";
 import { createPianoCard } from "@/lib/piano-card";
 import { saveDirectBooking, attachDealToDirectBooking } from "@/lib/direct-booking";
 import { markLatestQuoteBookedByEmail } from "@/lib/quote-store";
@@ -121,6 +122,10 @@ export async function POST(request: Request) {
   // direct POSTs and anything that skips the form JS.
   if (!isDialable(fields.phone)) {
     return NextResponse.json({ ok: false, error: PHONE_ERROR }, { status: 400 });
+  }
+  // Same for the email: the confirmation and follow-ups go there.
+  if (!isEmailish(fields.email)) {
+    return NextResponse.json({ ok: false, error: EMAIL_ERROR }, { status: 400 });
   }
 
   const isPiano = serviceType === "piano";

@@ -251,15 +251,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: PHONE_ERROR }, { status: 400 });
   }
 
-  // Quote modes (house/piano/office) require an email — quotes and follow-ups
-  // travel by email, and phone-only leads were reaching the team unanswerable.
-  // Callback stays phone-only (its whole point is a phone call), but an email
-  // that IS supplied must at least look sendable.
-  if (body.mode === "callback") {
-    if (body.email?.trim() && !isEmailish(body.email)) {
-      return NextResponse.json({ ok: false, error: EMAIL_ERROR }, { status: 400 });
-    }
-  } else if (!isEmailish(body.email)) {
+  // Every mode requires an email, callback included — quotes and follow-ups
+  // travel by email, and phone-only leads were reaching the team unanswerable
+  // (Richard, 2026-10-02: every website form must collect one).
+  if (!isEmailish(body.email)) {
     return NextResponse.json({ ok: false, error: EMAIL_ERROR }, { status: 400 });
   }
 
