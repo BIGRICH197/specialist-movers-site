@@ -3,6 +3,7 @@ import { formatAddress } from "@/lib/quote-deck/house-move-quote";
 import { getCleaningQuoteInclGst } from "@/lib/cleaning-pricing";
 import { BookingForm, type BookingPrefill } from "@/components/quote-deck/BookingForm";
 import { AlreadyBooked } from "@/components/quote-deck/AlreadyBooked";
+import { quoteCategory } from "@/lib/quote-deck/quote-categories";
 
 export const dynamic = "force-dynamic";
 
@@ -32,7 +33,7 @@ export default async function BookPage({
   }
 
   if (stored.status === "booked") {
-    return <AlreadyBooked clientName={stored.quote.clientName} />;
+    return <AlreadyBooked clientName={stored.quote.clientName} noun={quoteCategory(stored.quoteType).noun} />;
   }
 
   const q = stored.quote;
@@ -61,7 +62,8 @@ export default async function BookPage({
     cleaningInclGst != null ? Math.round((cleaningInclGst / 1.15) * 100) / 100 : null;
 
   const prefill: BookingPrefill = {
-    fullName: q.clientName ?? "",
+    fullName: q.contactName ?? q.clientName ?? "",
+    companyName: q.contactName ? q.clientName : undefined,
     email: pf.email ?? "",
     phone: pf.phone ?? "",
     pickupAddress: formatAddress(q.pickup),

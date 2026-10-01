@@ -12,6 +12,7 @@ import {
   type HouseMoveQuote,
 } from "@/lib/quote-deck/house-move-quote";
 import { QuoteTable } from "@/components/quote-deck/house-move/QuoteTable";
+import { quoteCategory, type AddOnId, type QuoteCategory } from "@/lib/quote-deck/quote-categories";
 import {
   cleaningOptionalExtras,
   type CleaningExtra,
@@ -28,6 +29,10 @@ import {
 type Props = {
   quoteRef: string;
   quote: HouseMoveQuote;
+  /** Which add-on rows show and the cover wording (quote-categories). */
+  category?: QuoteCategory;
+  /** Where Accept goes; defaults to the live /quote/[ref]/book. */
+  bookPath?: string;
   cleaningQuoted: boolean;
   cleaningPriceInclGst: number | null;
   packingQuoted: boolean;
@@ -59,6 +64,8 @@ function Tick({ on }: { on: boolean }) {
 export function QuoteCustomise({
   quoteRef,
   quote,
+  category = quoteCategory("house"),
+  bookPath,
   cleaningQuoted,
   cleaningPriceInclGst,
   packingQuoted,
@@ -67,6 +74,10 @@ export function QuoteCustomise({
   afterTable,
 }: Props) {
   const router = useRouter();
+  // A row the category does not offer is never shown, and its lines are never
+  // dropped from the table: "packed in padded covers" on a piano quote is part
+  // of the piano move, not a packing add-on to untick.
+  const has = (id: AddOnId) => category.addOns.includes(id);
   const [cleaningOn, setCleaningOn] = useState(cleaningQuoted);
   const [packingOn, setPackingOn] = useState(packingQuoted);
   // A pack we priced for this house but did not include: shown with its price,
@@ -91,7 +102,7 @@ export function QuoteCustomise({
   const exGst = (incl: number) => Math.round((incl / 1.15) * 100) / 100;
 
   // Extras only ever count while cleaning itself is on.
-  const chosenExtras: { extra: CleaningExtra; qty: number }[] = cleaningOn
+  const chosenExtras: { extra: CleaningExtra; qty: number }[] = has("cleaning") && cleaningOn
     ? cleaningOptionalExtras
         .filter((x) => (extras[x.id] ?? 0) > 0)
         .map((x) => ({ extra: x, qty: extras[x.id] }))
@@ -113,12 +124,12 @@ export function QuoteCustomise({
   const displayQuote: HouseMoveQuote = (() => {
     let lineItems = quote.lineItems.filter((item) => {
       const cls = classifyLineItem(item);
-      if (cls === "cleaning" && !cleaningOn) return false;
-      if (cls === "packing" && !packingOn) return false;
+      if (cls === "cleaning" && has("cleaning") && !cleaningOn) return false;
+      if (cls === "packing" && has("packing") && !packingOn) return false;
       return true;
     });
 
-    if (packingOn && packingOffered) {
+    if (has("packing") && packingOn && packingOffered) {
       const sections = quoteHasSections(quote);
       const xero = usesXeroQuoteTable(quote);
       lineItems = [
@@ -135,7 +146,7 @@ export function QuoteCustomise({
       ];
     }
 
-    if (cleaningOn && !cleaningQuoted && cleaningHasPrice) {
+    if (has("cleaning") && cleaningOn && !cleaningQuoted && cleaningHasPrice) {
       lineItems = [
         ...lineItems,
         {
@@ -182,8 +193,8 @@ export function QuoteCustomise({
         body: JSON.stringify({
           ref: quoteRef,
           addOns: {
-            cleaning: cleaningOn,
-            packing: packingOn,
+            cleaning: has("cleaning") && cleaningOn,
+            packing: has("packing") && packingOn,
             insurance: insuranceOn,
             cleaningPriced: cleaningHasPrice,
           },
@@ -196,8 +207,8 @@ export function QuoteCustomise({
       /* notify is best-effort; still proceed to the form */
     }
     const qs = new URLSearchParams({
-      clean: cleaningOn ? "1" : "0",
-      pack: packingOn ? "1" : "0",
+      clean: has("cleaning") && cleaningOn ? "1" : "0",
+      pack: has("packing") && packingOn ? "1" : "0",
       ins: insuranceOn ? "1" : "0",
       ...(chosenExtras.length
         ? {
@@ -207,7 +218,7 @@ export function QuoteCustomise({
           }
         : {}),
     }).toString();
-    router.push(`/quote/${quoteRef}/book?${qs}`);
+    router.push(`${bookPath ?? `/quote/${quoteRef}/book`}?${qs}`);
   }
 
   async function requestCall() {
@@ -230,11 +241,13 @@ export function QuoteCustomise({
   return (
     <>
       {/* ── Add-ons (purple panel, ABOVE the quote) ── */}
+      {category.addOns.length ? (
       <div className="proposal-purple-panel proposal-addons-panel mb-4 px-4 py-4 sm:px-5 sm:py-5">
         <h3 className="font-heading text-xs font-bold text-brand-yellow sm:text-sm">Add-ons</h3>
-        <p className="mt-1 text-[10px] text-white/60 sm:text-xs">Tick to add to your move</p>
+        <p className="mt-1 text-[10px] text-white/60 sm:text-xs">Tick to add to your {category.noun}</p>
 
         <ul className="proposal-addon-list mt-2.5 space-y-2.5">
+          {has("cleaning") ? (
           <li>
             <label className={rowCls} onClick={() => setCleaningOn((v) => !v)}>
               <Tick on={cleaningOn} />
@@ -316,7 +329,9 @@ export function QuoteCustomise({
               </div>
             ) : null}
           </li>
+          ) : null}
 
+          {has("packing") ? (
           <li>
             <label className={rowCls} onClick={() => setPackingOn((v) => !v)}>
               <Tick on={packingOn} />
@@ -368,20 +383,24 @@ export function QuoteCustomise({
               </span>
             </label>
           </li>
+          ) : null}
 
+          {has("insurance") ? (
           <li>
             <label className={rowCls} onClick={() => setInsuranceOn((v) => !v)}>
               <Tick on={insuranceOn} />
               <span className="flex-1">
-                <span className={insuranceOn ? "text-white" : "text-white/75"}>Request insurance cover</span>
+                <span className={insuranceOn ? "text-white" : "text-white/75"}>{category.insuranceLabel}</span>
                 <span className="mt-0.5 block text-[10px] text-white/55 sm:text-xs">
-                  Our team will send you insurance options. Your move is otherwise carried at owner&apos;s risk.
+                  {category.insuranceHint}
                 </span>
               </span>
             </label>
           </li>
+          ) : null}
         </ul>
       </div>
+      ) : null}
 
       {/* ── The quote: heading + move details, then the live table ── */}
       {children}
@@ -398,10 +417,7 @@ export function QuoteCustomise({
               checked={ownerRisk}
               onChange={(e) => setOwnerRisk(e.target.checked)}
             />
-            <span>
-              I understand my goods are moved at owner&apos;s risk under the Contract and Commercial
-              Law Act 2017, unless I arrange separate insurance cover.
-            </span>
+            <span>{category.ownersRisk}</span>
           </label>
         ) : null}
 
@@ -421,7 +437,9 @@ export function QuoteCustomise({
           </button>
           {!canAccept ? (
             <p className="text-center text-xs font-medium text-brand-purple/60">
-              Tick insurance, or confirm owner&apos;s risk above, to continue.
+              {has("insurance")
+                ? `Tick "${category.insuranceLabel}", or confirm the box above, to continue.`
+                : "Confirm the box above to continue."}
             </p>
           ) : null}
 

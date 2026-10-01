@@ -8,7 +8,7 @@ import {
   DeckRule,
   DeckTitle,
 } from "@/components/quote-deck/deck/DeckTypography";
-import { deckHero } from "@/lib/quote-deck/deck-hero";
+import { quoteCategory, type QuoteCategory } from "@/lib/quote-deck/quote-categories";
 import { QuoteTable } from "@/components/quote-deck/house-move/QuoteTable";
 import { QuoteCustomise } from "@/components/quote-deck/QuoteCustomise";
 import {
@@ -19,27 +19,26 @@ import {
   type HouseMoveQuote,
 } from "@/lib/quote-deck/house-move-quote";
 import { getCleaningQuoteInclGst } from "@/lib/cleaning-pricing";
-import { sitePhotos } from "@/lib/quote-deck/site-photos";
 
 function formatPickupDelivery(addr: HouseMoveQuote["pickup"]): string {
   return addr.access ? `${formatAddress(addr)} (${addr.access})` : formatAddress(addr);
 }
 
 /** Move details for quote column — no name (that stays left). */
-function QuoteMoveDetails({ quote }: { quote: HouseMoveQuote }) {
+function QuoteMoveDetails({ quote, category }: { quote: HouseMoveQuote; category: QuoteCategory }) {
   const rows: { label: string; value: string }[] = [];
 
-  if (quote.moveDate) rows.push({ label: "Move date", value: quote.moveDate });
+  if (quote.moveDate) rows.push({ label: category.dateLabel, value: quote.moveDate });
   if (quote.dates?.pack) rows.push({ label: "Pack date", value: quote.dates.pack });
   if (quote.dates?.uplift) rows.push({ label: "Uplift date", value: quote.dates.uplift });
   if (quote.dates?.delivery) rows.push({ label: "Delivery date", value: quote.dates.delivery });
 
   if (quote.pickup.suburb) {
-    rows.push({ label: "Pickup", value: formatPickupDelivery(quote.pickup) });
+    rows.push({ label: category.pickupLabel, value: formatPickupDelivery(quote.pickup) });
   }
 
   if (quote.delivery.suburb) {
-    rows.push({ label: "Drop off", value: formatPickupDelivery(quote.delivery) });
+    rows.push({ label: category.dropoffLabel, value: formatPickupDelivery(quote.delivery) });
   }
 
   if (rows.length === 0) return null;
@@ -63,9 +62,15 @@ type Props = {
    *  price by bedrooms AND bathrooms, so both feed the interactive add-on. */
   bedrooms?: number;
   bathrooms?: number;
+  /** The stored quoteType: picks the wording, photo, inclusions and add-ons
+   *  (lib/quote-deck/quote-categories). Missing = a house move. */
+  quoteType?: string;
+  /** Where Accept goes, when not the live /quote/[ref]/book (the previews). */
+  bookPath?: string;
 };
 
-export function HouseMoveDeck({ quote, quoteRef, bedrooms, bathrooms }: Props) {
+export function HouseMoveDeck({ quote, quoteRef, bedrooms, bathrooms, quoteType, bookPath }: Props) {
+  const category = quoteCategory(quoteType);
   const showNotes = hasNotes(quote);
   const addOns = quoteAddOnBreakdown(quote);
   const cleaningPriceInclGst = addOns.cleaningQuoted
@@ -84,7 +89,7 @@ export function HouseMoveDeck({ quote, quoteRef, bedrooms, bathrooms }: Props) {
 
             <div className="proposal-cover-details">
               <p className="proposal-eyebrow-pill inline-flex rounded-full border px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-brand-purple">
-                Home relocation proposal
+                {category.pill}
               </p>
               {quote.clientName ? (
                 <h1 className="mt-3 font-heading text-3xl leading-tight text-brand-purple sm:text-4xl">
@@ -100,14 +105,14 @@ export function HouseMoveDeck({ quote, quoteRef, bedrooms, bathrooms }: Props) {
             </div>
 
             <div className="proposal-cover-left">
-              <ProposalWhatsIncludedCompact className="proposal-cover-included" />
+              <ProposalWhatsIncludedCompact className="proposal-cover-included" content={category.included} />
             </div>
 
             <HeroVisual
-              photoSrc={sitePhotos.homeHero}
-              photoAlt="You relax. We move."
-              overlayCaption={deckHero.photoTagline}
-              imageObjectPosition="center 38%"
+              photoSrc={category.hero.src}
+              photoAlt={category.hero.alt}
+              overlayCaption={category.hero.caption}
+              imageObjectPosition={category.hero.position}
               priority
               className="proposal-cover-photo w-full"
             />
@@ -120,9 +125,9 @@ export function HouseMoveDeck({ quote, quoteRef, bedrooms, bathrooms }: Props) {
                   const heading = (
                     <>
                       <h2 className="text-sm font-normal">
-                        {usesXeroQuoteTable(quote) ? "Price estimate" : "Cost of your move"}
+                        {usesXeroQuoteTable(quote) ? "Price estimate" : category.totalHeading}
                       </h2>
-                      <QuoteMoveDetails quote={quote} />
+                      <QuoteMoveDetails quote={quote} category={category} />
                     </>
                   );
                   const validity = quote.validFor ? (
@@ -132,6 +137,8 @@ export function HouseMoveDeck({ quote, quoteRef, bedrooms, bathrooms }: Props) {
                     <QuoteCustomise
                       quoteRef={quoteRef}
                       quote={quote}
+                      category={category}
+                      bookPath={bookPath}
                       cleaningQuoted={addOns.cleaningQuoted}
                       cleaningPriceInclGst={cleaningPriceInclGst}
                       packingQuoted={addOns.packingQuoted}
@@ -159,7 +166,7 @@ export function HouseMoveDeck({ quote, quoteRef, bedrooms, bathrooms }: Props) {
       {/* Notes */}
       {showNotes ? (
         <DeckSlide id="notes" tone="light" scrollable innerClassName="!py-10 sm:!py-14">
-          <DeckEyebrow>Your move</DeckEyebrow>
+          <DeckEyebrow>Your {category.noun}</DeckEyebrow>
           <DeckTitle className="mt-4 !text-2xl sm:!text-3xl">Notes</DeckTitle>
           <DeckRule />
           <ul className="mt-6 space-y-3">

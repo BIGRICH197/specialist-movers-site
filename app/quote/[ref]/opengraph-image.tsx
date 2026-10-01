@@ -16,8 +16,9 @@ function quoteOgImage(opts: {
   client: string;
   total: string;
   route: string;
+  badge: string;
 }) {
-  const { logo, client, total, route } = opts;
+  const { logo, client, total, route, badge } = opts;
 
   return new ImageResponse(
     (
@@ -50,7 +51,7 @@ function quoteOgImage(opts: {
               textTransform: "uppercase",
             }}
           >
-            Your moving quote
+            {badge}
           </div>
           <div
             style={{
@@ -114,7 +115,7 @@ export default async function Image({ params }: { params: { ref: string } }) {
     return fallbackOgImage(logo);
   }
 
-  const { client, total, route } = quotePreviewCopy(stored, params.ref);
+  const { client, total, route, badge } = quotePreviewCopy(stored, params.ref);
 
-  return quoteOgImage({ logo, client, total, route });
+  return quoteOgImage({ logo, client, total, route, badge });
 }

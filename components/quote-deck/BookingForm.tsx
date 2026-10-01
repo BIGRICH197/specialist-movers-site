@@ -4,9 +4,16 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import {
   bookingTerms,
   cleaningTerms,
+  commercialTerms,
   BOOKING_TERMS_VERSION,
+  COMMERCIAL_TERMS_VERSION,
   type BookingTermsSection,
 } from "@/lib/quote-deck/booking-terms";
+import {
+  quoteCategory,
+  type BaseBookingField,
+  type ExtraBookingField,
+} from "@/lib/quote-deck/quote-categories";
 import { isDialable, PHONE_ERROR } from "@/lib/phone";
 import { BOOKED_BY_OPTIONS } from "@/lib/booked-by";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
@@ -18,6 +25,9 @@ import { cleaningOptionalExtras } from "@/lib/cleaning-schedule";
 
 export type BookingPrefill = {
   fullName?: string;
+  /** The business on a trade quote (office, commercial, kitchen): the quote's
+   *  client name, when the person booking is named separately. */
+  companyName?: string;
   email?: string;
   phone?: string;
   pickupAddress?: string;
@@ -81,9 +91,10 @@ export function BookingForm({
   standalone = false,
   bookServiceType = "house",
   heading = "Complete your booking",
-  termsSet = bookingTerms,
-  termsVersion = BOOKING_TERMS_VERSION,
-  hiddenFields = [],
+  termsSet: termsSetProp,
+  termsVersion: termsVersionProp,
+  hiddenFields: hiddenFieldsProp = [],
+  dryRun = false,
 }: {
   quoteRef?: string;
   prefill: BookingPrefill;
@@ -104,7 +115,24 @@ export function BookingForm({
   /** Field keys to hide + drop from validation (e.g. office move omits
    *  sizeOfMove, typeOfMove, payment). */
   hiddenFields?: string[];
+  /** The /quote/preview pages: check the answers, show the confirmation,
+   *  send nothing. */
+  dryRun?: boolean;
 }) {
+  // The quote's category decides which questions are asked, how they read,
+  // the extra ones it needs (piano type, claim number...) and the terms
+  // (lib/quote-deck/quote-categories). A house quote asks exactly what it
+  // always did. Explicit props (the direct /book/office page) still win.
+  const category = quoteCategory(quoteType);
+  const hiddenFields: string[] = [...hiddenFieldsProp, ...category.booking.hidden];
+  const commercialSet = category.booking.terms === "commercial";
+  const termsSet = termsSetProp ?? (commercialSet ? commercialTerms : bookingTerms);
+  const termsVersion =
+    termsVersionProp ?? (commercialSet ? COMMERCIAL_TERMS_VERSION : BOOKING_TERMS_VERSION);
+  const extras = category.booking.extras;
+  const L = (k: BaseBookingField, def: string) => category.booking.labels[k]?.label ?? def;
+  const H = (k: BaseBookingField, def?: string) => category.booking.labels[k]?.hint ?? def;
+  const shown = (k: string) => !hiddenFields.includes(k);
   const [f, setF] = useState<Record<string, string>>({
     fullName: prefill.fullName ?? "",
     email: prefill.email ?? "",
@@ -132,6 +160,10 @@ export function BookingForm({
     furnitureDismantle: "",
     accessRestrictions: "",
     settlementDay: "",
+    ...Object.fromEntries(extras.map((x) => [x.key, ""])),
+    ...(extras.some((x) => x.key === "companyName") && prefill.companyName
+      ? { companyName: prefill.companyName }
+      : {}),
   });
   // Locked only when the QUOTE supplied a crew size. A quote that carried none
   // (cleaning, or an older record) still has to be answerable, and `standalone`
@@ -274,9 +306,15 @@ export function BookingForm({
       ["phone", "Phone"],
       ["email", "Email"],
       ["bookedBy", "Who have you been dealing with?"],
-      ["pickupAddress", "Pick-up address"],
-      ["dropoffAddress", "Drop-off address"],
-      ["moveDate", "Move date"],
+      ...extras
+        .filter((x) => x.required && x.group === "contact")
+        .map((x): [string, string] => [x.key, x.label]),
+      ["pickupAddress", L("pickupAddress", "Pick-up address")],
+      ["dropoffAddress", L("dropoffAddress", "Drop-off address")],
+      ["moveDate", L("moveDate", "Move date")],
+      ...extras
+        .filter((x) => x.required && x.group !== "contact")
+        .map((x): [string, string] => [x.key, x.label]),
       ["sizeOfMove", "Size of move"],
       ["howManyMovers", "Number of movers"],
       ["typeOfMove", "Type of move"],
@@ -284,9 +322,9 @@ export function BookingForm({
       ["cleaningBooked", "Have you booked cleaning?"],
       ["packing", "Are we packing for you?"],
       ["unpacking", "Are we unpacking for you?"],
-      ["fragileItems", "Oversized or fragile items?"],
-      ["furnitureDismantle", "Any furniture to be dismantled?"],
-      ["accessRestrictions", "Any access restrictions?"],
+      ["fragileItems", L("fragileItems", "Oversized or fragile items?")],
+      ["furnitureDismantle", L("furnitureDismantle", "Any furniture to be dismantled?")],
+      ["accessRestrictions", L("accessRestrictions", "Any access restrictions?")],
       ["settlementDay", "Are you moving on settlement day?"],
     ];
     const out = required
@@ -328,6 +366,10 @@ export function BookingForm({
     }
     setMissing([]);
     setBlockedReason("");
+    if (dryRun) {
+      setStatus("done");
+      return;
+    }
     setStatus("sending");
     const fields = {
       ...f,
@@ -396,7 +438,7 @@ export function BookingForm({
         <h1 className="font-heading text-2xl sm:text-3xl">Booking confirmed</h1>
         <p className="mt-3 max-w-md text-brand-purple/75">
           Thanks {f.fullName?.split(" ")[0] || ""} — your booking is in. Our team will be in
-          touch to confirm the details. We look forward to your move.
+          touch to confirm the details. We look forward to your {category.noun}.
         </p>
       </main>
     );
@@ -407,7 +449,7 @@ export function BookingForm({
       <form onSubmit={submit} className="mx-auto max-w-2xl rounded-2xl bg-white p-6 shadow-sm sm:p-8">
         <h1 className="font-heading text-2xl text-brand-purple sm:text-3xl">{heading}</h1>
         <p className="mt-2 text-sm text-brand-purple/70">
-          A few details to lock in your move.
+          {category.booking.intro}
           {!standalone && " We’ve filled in what we can from your quote."}
         </p>
 
@@ -433,18 +475,26 @@ export function BookingForm({
             </select>
           </div>
           )}
+          {extras.filter((x) => x.group === "contact").map((x) => (
+            <ExtraField key={x.key} field={x} value={f[x.key] ?? ""} onChange={(v) => set(x.key, v)} />
+          ))}
           <div className="sm:col-span-2">
-            <label className={labelCls}>Pick-up address</label>
+            <label className={labelCls}>{L("pickupAddress", "Pick-up address")}</label>
+            {H("pickupAddress") ? <p className="mt-0.5 text-xs text-brand-purple/60">{H("pickupAddress")}</p> : null}
             <input className={inputCls} required value={f.pickupAddress} onChange={(e) => set("pickupAddress", e.target.value)} />
           </div>
           <div className="sm:col-span-2">
-            <label className={labelCls}>Drop-off address</label>
+            <label className={labelCls}>{L("dropoffAddress", "Drop-off address")}</label>
+            {H("dropoffAddress") ? <p className="mt-0.5 text-xs text-brand-purple/60">{H("dropoffAddress")}</p> : null}
             <input className={inputCls} required value={f.dropoffAddress} onChange={(e) => set("dropoffAddress", e.target.value)} />
           </div>
           <div>
-            <label className={labelCls}>Move date</label>
+            <label className={labelCls}>{L("moveDate", "Move date")}</label>
             <input className={inputCls} type={standalone ? "date" : undefined} required value={f.moveDate} onChange={(e) => set("moveDate", e.target.value)} />
           </div>
+          {extras.filter((x) => x.group !== "contact").map((x) => (
+            <ExtraField key={x.key} field={x} value={f[x.key] ?? ""} onChange={(v) => set(x.key, v)} />
+          ))}
           {!hiddenFields.includes("sizeOfMove") && (
           <div>
             <label className={labelCls}>Size of move</label>
@@ -466,6 +516,7 @@ export function BookingForm({
               quote, or an older one), so nobody is stuck with a blank they can't
               fill. The value is submitted from React state, so `disabled` costs
               nothing here. */}
+          {shown("howManyMovers") && (
           <div>
             <label className={labelCls}>Number of movers</label>
             {moversLocked ? (
@@ -490,6 +541,7 @@ export function BookingForm({
               </select>
             )}
           </div>
+          )}
           {!hiddenFields.includes("typeOfMove") && (
           <div>
             <label className={labelCls}>Type of move</label>
@@ -509,6 +561,7 @@ export function BookingForm({
           </div>
           )}
 
+          {shown("cleaningBooked") && (
           <div>
             <label className={labelCls}>
               Have you booked cleaning?{" "}
@@ -521,6 +574,7 @@ export function BookingForm({
               {CLEANING_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
             </select>
           </div>
+          )}
           {showCleaningSameDay && (
             <div className="rounded-xl border border-brand-purple/15 bg-brand-canvas/50 px-4 py-3">
               <div className="flex items-center justify-between gap-3 text-sm font-semibold text-brand-purple">
@@ -614,6 +668,7 @@ export function BookingForm({
             </div>
           )}
 
+          {shown("packing") && (
           <div>
             <label className={labelCls}>Are we packing for you?</label>
             <select className={inputCls} required value={f.packing} onChange={(e) => set("packing", e.target.value)}>
@@ -621,6 +676,8 @@ export function BookingForm({
               {PACKING_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
             </select>
           </div>
+          )}
+          {shown("unpacking") && (
           <div>
             <label className={labelCls}>Are we unpacking for you?</label>
             <select className={inputCls} required value={f.unpacking} onChange={(e) => set("unpacking", e.target.value)}>
@@ -628,6 +685,7 @@ export function BookingForm({
               {UNPACKING_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
             </select>
           </div>
+          )}
 
           {showPackingDetail && (
             <>
@@ -658,26 +716,33 @@ export function BookingForm({
             </>
           )}
 
+          {shown("fragileItems") && (
           <div className="sm:col-span-2">
-            <label className={labelCls}>Oversized or fragile items?</label>
+            <label className={labelCls}>{L("fragileItems", "Oversized or fragile items?")}</label>
             <p className="mt-0.5 text-xs text-brand-purple/60">
-              Tells us what to bring — e.g. double-door fridge, pool table, fish tank, treadmill, large china cabinet.
+              {H("fragileItems", "Tells us what to bring — e.g. double-door fridge, pool table, fish tank, treadmill, large china cabinet.")}
             </p>
             <textarea className={inputCls} rows={2} required value={f.fragileItems} onChange={(e) => set("fragileItems", e.target.value)} />
           </div>
+          )}
+          {shown("furnitureDismantle") && (
           <div className="sm:col-span-2">
-            <label className={labelCls}>Any furniture to be dismantled?</label>
-            <p className="mt-0.5 text-xs text-brand-purple/60">So we bring the right tools.</p>
+            <label className={labelCls}>{L("furnitureDismantle", "Any furniture to be dismantled?")}</label>
+            <p className="mt-0.5 text-xs text-brand-purple/60">{H("furnitureDismantle", "So we bring the right tools.")}</p>
             <textarea className={inputCls} rows={2} required value={f.furnitureDismantle} onChange={(e) => set("furnitureDismantle", e.target.value)} />
           </div>
+          )}
+          {shown("accessRestrictions") && (
           <div className="sm:col-span-2">
-            <label className={labelCls}>Any access restrictions?</label>
+            <label className={labelCls}>{L("accessRestrictions", "Any access restrictions?")}</label>
             <p className="mt-0.5 text-xs text-brand-purple/60">
-              e.g. apartment building, no on-site parking, stairs, no lift, narrow driveway, long walk to the door.
+              {H("accessRestrictions", "e.g. apartment building, no on-site parking, stairs, no lift, narrow driveway, long walk to the door.")}
             </p>
             <textarea className={inputCls} rows={2} required value={f.accessRestrictions} onChange={(e) => set("accessRestrictions", e.target.value)} />
           </div>
+          )}
 
+          {shown("settlementDay") && (
           <div className="sm:col-span-2">
             <span className={labelCls}>Are you moving on settlement day?</span>
             <div className="mt-2 flex gap-6 text-sm text-brand-purple">
@@ -689,6 +754,7 @@ export function BookingForm({
               ))}
             </div>
           </div>
+          )}
         </div>
 
         <div className="mt-7">
@@ -803,5 +869,39 @@ export function BookingForm({
         </button>
       </form>
     </main>
+  );
+}
+
+/** A question only this quote's category asks (piano type, claim number...). */
+function ExtraField({
+  field,
+  value,
+  onChange,
+}: {
+  field: ExtraBookingField;
+  value: string;
+  onChange: (v: string) => void;
+}) {
+  const wide = field.wide || field.kind === "textarea";
+  return (
+    <div className={wide ? "sm:col-span-2" : undefined}>
+      <label className={labelCls}>
+        {field.label}
+        {!field.required ? <span className="font-normal text-brand-purple/50"> (optional)</span> : null}
+      </label>
+      {field.hint ? <p className="mt-0.5 text-xs text-brand-purple/60">{field.hint}</p> : null}
+      {field.kind === "select" ? (
+        <select className={inputCls} required={field.required} value={value} onChange={(e) => onChange(e.target.value)}>
+          <option value="">Select…</option>
+          {(field.options ?? []).map((o) => (
+            <option key={o} value={o}>{o}</option>
+          ))}
+        </select>
+      ) : field.kind === "textarea" ? (
+        <textarea className={inputCls} rows={2} required={field.required} value={value} onChange={(e) => onChange(e.target.value)} />
+      ) : (
+        <input className={inputCls} required={field.required} value={value} onChange={(e) => onChange(e.target.value)} />
+      )}
+    </div>
   );
 }

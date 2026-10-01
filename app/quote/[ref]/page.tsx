@@ -5,6 +5,7 @@ import { quotePreviewCopy } from "@/lib/quote-preview-meta";
 import { siteName, siteUrl } from "@/lib/site-config";
 import { HouseMoveDeck } from "@/components/quote-deck/house-move/HouseMoveDeck";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
+import { quoteCategory } from "@/lib/quote-deck/quote-categories";
 
 // Public hosted quote page. Reads the stored quote from KV server-side (the
 // browser never touches the store, so quotes can't be enumerated) and renders
@@ -93,6 +94,8 @@ export default async function HostedQuotePage({
     return <AlreadyBooked clientName={stored.quote?.clientName} />;
   }
 
+  const category = quoteCategory(stored.quoteType);
+
   // Once booked, everyone sees the same thing: the quote they agreed to, with a
   // banner across the top and nothing to click. Read only is what stops a
   // re-accept overwriting the original booking row (same token, same row), and
@@ -106,7 +109,7 @@ export default async function HostedQuotePage({
       {booked ? (
         <div className="bg-brand-purple px-4 py-3 text-center text-sm text-white">
           <span className="font-semibold">This quote has been accepted.</span>{" "}
-          Your move is booked in, so nothing here can be changed. Need to change
+          Your {category.noun} is booked in, so nothing here can be changed. Need to change
           the date or any details? Call{" "}
           <a className="font-semibold underline" href={`tel:${phoneNumber}`}>
             {phoneDisplay}
@@ -116,6 +119,7 @@ export default async function HostedQuotePage({
       ) : null}
       <HouseMoveDeck
         quote={stored.quote}
+        quoteType={stored.quoteType}
         {...(booked ? {} : { quoteRef: params.ref })}
         bedrooms={stored.prefill?.bedrooms}
         bathrooms={stored.prefill?.bathrooms}

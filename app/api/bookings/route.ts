@@ -4,6 +4,7 @@ import { saveBooking } from "@/lib/booking-store";
 import { pingBookings, quoteUrl } from "@/lib/quote-notify";
 import { setDealOwner } from "@/lib/hubspot";
 import { bookedByOwnerId } from "@/lib/booked-by";
+import { quoteCategory, requiredBookingKeys } from "@/lib/quote-deck/quote-categories";
 
 export const runtime = "nodejs";
 
@@ -48,26 +49,12 @@ export async function POST(request: Request) {
 
   // Every booking question is compulsory — a blank submission (e.g. a customer
   // who accepts the quote but skips the questions) must be rejected server-side,
-  // not just in the browser where validation can be bypassed.
-  const requiredKeys = [
-    "fullName",
-    "phone",
-    "email",
-    "pickupAddress",
-    "dropoffAddress",
-    "moveDate",
-    "sizeOfMove",
-    "howManyMovers",
-    "typeOfMove",
-    "payment",
-    "cleaningBooked",
-    "packing",
-    "unpacking",
-    "fragileItems",
-    "furnitureDismantle",
-    "accessRestrictions",
-    "settlementDay",
-  ];
+  // not just in the browser where validation can be bypassed. WHICH questions
+  // depends on the quote's category: a piano is never asked about settlement
+  // day, an office is asked for its company and site contact. A house quote
+  // checks exactly the list it always did (lib/quote-deck/quote-categories).
+  const category = quoteCategory(stored.quoteType);
+  const requiredKeys = requiredBookingKeys(category);
   const missing = requiredKeys.filter((k) => !fields[k]?.trim());
   if (fields.cleaningBooked === "Yes Cleaning" && !fields.cleaningSameDay?.trim())
     missing.push("cleaningSameDay");
@@ -93,6 +80,10 @@ export async function POST(request: Request) {
   // Slack ping — also the signal n8n picks up for Closed Won + Trello.
   const summary = [
     `:tada: *Booking completed* — ${fields.fullName || stored.quote.clientName}`,
+    category.key !== "house" ? `Type: ${category.pill.replace(/ proposal$/i, "")}` : "",
+    fields.companyName ? `Company: ${fields.companyName}` : "",
+    fields.insurerName ? `Insurer: ${fields.insurerName}${fields.claimNumber ? ` (claim ${fields.claimNumber})` : ""}` : "",
+    fields.pianoType ? `Piano: ${fields.pianoType}` : "",
     fields.email ? `Email: ${fields.email}` : "",
     fields.phone ? `Phone: ${fields.phone}` : "",
     fields.moveDate ? `Move date: ${fields.moveDate}` : "",

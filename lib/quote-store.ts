@@ -7,7 +7,10 @@ import { kvGetJson, kvSetJson } from "@/lib/kv";
 import { sb, supabaseConfigured } from "@/lib/supabase";
 import type { HouseMoveQuote } from "@/lib/quote-deck/house-move-quote";
 
-export type QuoteServiceType = "house" | "packing" | "cleaning";
+/** house / packing / cleaning, or any category in
+ *  lib/quote-deck/quote-categories (piano, office, commercial, kitchen...).
+ *  Stored as sent; the page falls back to a house move for anything unknown. */
+export type QuoteServiceType = string;
 
 /** Lifecycle of a quote, tracked for the portal. */
 export type QuoteStatus = "sent" | "accepted" | "callback" | "booked";
