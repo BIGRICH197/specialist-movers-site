@@ -186,8 +186,8 @@ export async function POST(request: Request) {
   const email = fields.email?.trim();
   // "Who have you been dealing with?" -> deal owner. An explicit answer is
   // ground truth for whose sale this is, so it overrides the branch-routed
-  // owner on an existing deal. Matthew (no HubSpot seat) resolves to
-  // undefined and leaves ownership alone.
+  // owner on an existing deal. "No one yet" resolves to undefined and
+  // leaves ownership alone.
   const bookedByOwner = bookedByOwnerId(fields.bookedBy);
   if (email) {
     try {

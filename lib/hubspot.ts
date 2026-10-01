@@ -6,14 +6,14 @@ export const STAGE_CLOSED_WON = "1526377155"; // "Closed Won" stage in pipeline 
 const OWNER_TAINE = "78086404";
 const OWNER_DANIELLE = "159727645";
 const OWNER_RICHARD = "78086361";
+const OWNER_MATTHEW = "168528041";
 
 // Exported so callers (e.g. the chat bot) can force a specific owner.
-// Matthew has no HubSpot seat, so no owner id exists for him yet — a
-// "dealing with Matthew" booking keeps the branch-routed owner.
 export const HUBSPOT_OWNERS = {
   taine: OWNER_TAINE,
   danielle: OWNER_DANIELLE,
   richard: OWNER_RICHARD,
+  matthew: OWNER_MATTHEW,
 };
 
 // Owner cover (Richard 2026-09-03): Taine is away, so the Auckland desk's new

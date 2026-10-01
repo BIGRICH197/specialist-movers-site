@@ -5,9 +5,8 @@
 // into ShiftMate as crm_jobs.booked_by.
 //
 // Client-safe on purpose: no env access, ids duplicated from lib/hubspot.ts's
-// HUBSPOT_OWNERS so this can be imported by the form component. Matthew has no
-// HubSpot seat yet — his bookings keep the branch-routed deal owner but still
-// record booked_by on the job.
+// HUBSPOT_OWNERS so this can be imported by the form component. Matthew has had
+// a HubSpot seat since 2026-09-22, so his bookings are owned by him too.
 
 export const BOOKED_BY_NONE = "none";
 
@@ -23,7 +22,7 @@ const OWNER_IDS: Record<string, string> = {
   richard: "78086361",
   taine: "78086404",
   danielle: "159727645",
-  // matthew: no HubSpot seat yet
+  matthew: "168528041",
 };
 
 /** Normalise a form answer to a team-member key, or undefined ("none"/junk). */
