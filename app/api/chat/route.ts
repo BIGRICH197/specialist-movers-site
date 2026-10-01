@@ -116,7 +116,7 @@ const tools: Anthropic.Tool[] = [
   {
     name: "capture_lead",
     description:
-      "Save a customer's contact details as a lead in our system. Call this once you have their name, mobile number AND email address. The email is required: the quote and follow-ups go out by email.",
+      "Save a customer's contact details as a lead in our system. Call this as soon as you have their name and email address. The email is mandatory (the quote and follow-ups go out by email); the phone is optional, include it if given.",
     input_schema: {
       type: "object" as const,
       properties: {
@@ -129,7 +129,7 @@ const tools: Anthropic.Tool[] = [
         },
         phone: {
           type: "string",
-          description: "Mobile number. Ask for it together with the email, and get both.",
+          description: "Mobile number. Optional: include it if they gave one, but never delay the save for it.",
         },
         emailDeclined: {
           type: "boolean",
