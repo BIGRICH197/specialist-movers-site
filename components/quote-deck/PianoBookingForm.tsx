@@ -124,7 +124,7 @@ export function PianoBookingForm() {
     <main className="min-h-screen bg-brand-canvas px-4 py-10 sm:px-6">
       <form onSubmit={submit} className="mx-auto max-w-2xl rounded-2xl bg-white p-6 shadow-sm sm:p-8">
         <h1 className="font-heading text-2xl text-brand-purple sm:text-3xl">
-          Book your piano or large item move
+          Book your piano or hard to shift item
         </h1>
         <p className="mt-2 text-sm text-brand-purple/70">
           A few details to lock in your move.

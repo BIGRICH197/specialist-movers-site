@@ -167,36 +167,45 @@ const house: QuoteCategory = {
 
 const piano: QuoteCategory = {
   key: "piano",
-  noun: "piano move",
-  pill: "Piano moving proposal",
-  totalHeading: "Cost of your piano move",
+  noun: "move",
+  pill: "Piano & hard to shift proposal",
+  totalHeading: "Cost of your move",
   dateLabel: "Move date",
   pickupLabel: "Pickup",
   dropoffLabel: "Drop off",
   hero: {
     src: sitePhotos.pianoMove,
-    alt: "Our piano crew loading a wrapped piano onto the piano truck",
+    alt: "Our crew loading a wrapped piano onto the truck",
     caption: "You relax. We move.",
     position: "center 45%",
   },
   included: {
-    eyebrow: "Specialist Piano Movers",
-    title: "What's included in your piano move",
+    eyebrow: "The Specialist Movers standard",
+    title: "What's included in your move",
     categories: [
       {
-        id: "handling",
+        id: "items",
+        title: "What we move",
+        bullets: [
+          "Upright, grand and digital pianos",
+          "Spa pools, vending machines and safes",
+          "Pool tables, marble tops, artwork and other heavy or awkward pieces",
+        ],
+      },
+      {
+        id: "gear",
         title: "The right gear",
         bullets: [
           "Piano skids, skid boards, dollies and straps",
-          "Padded covers and shrink wrap for the trip",
-          "Upright, baby grand, grand and digital pianos",
+          "Padded covers, blankets and shrink wrap for the trip",
+          "Specialist equipment and safe moving techniques",
         ],
       },
       {
         id: "cover",
         title: "Cover and care",
         bullets: [
-          `Cover of up to ${pianoCoverIncluded} for your piano while we move it, on our piano terms`,
+          `Cover of up to ${pianoCoverIncluded} for pianos while we move them, on our piano terms`,
           "More cover can be arranged through our team on request",
           "Grand legs, pedals and lid removed and refitted",
         ],
@@ -206,7 +215,7 @@ const piano: QuoteCategory = {
         title: "Placed where you want it",
         bullets: [
           "Stairs, tight corners and access planned before the day",
-          "Carried in and positioned in the room you choose",
+          "Carried in and positioned where you want it",
         ],
       },
       safety,
@@ -214,10 +223,10 @@ const piano: QuoteCategory = {
   },
   addOns: ["insurance"],
   insuranceLabel: "Request extra cover",
-  insuranceHint: `Your piano has cover of up to ${pianoCoverIncluded} as standard. Tick and our team will send options for more.`,
-  ownersRisk: `I understand my piano has cover of up to ${pianoCoverIncluded} on Specialist Movers' piano terms, and anything beyond that is at owner's risk under the Contract and Commercial Law Act 2017 unless I arrange extra cover.`,
+  insuranceHint: `Pianos have cover of up to ${pianoCoverIncluded} as standard. Tick and our team will send options for more cover.`,
+  ownersRisk: `I understand pianos have cover of up to ${pianoCoverIncluded} on Specialist Movers' piano terms. Anything above that, and any other item, is moved at owner's risk under the Contract and Commercial Law Act 2017 unless I arrange extra cover.`,
   booking: {
-    intro: "A few details to lock in your piano move.",
+    intro: "A few details to lock in your move.",
     hidden: [...HOUSE_ONLY, "howManyMovers", "fragileItems", "furnitureDismantle"],
     labels: {
       accessRestrictions: {
@@ -228,9 +237,11 @@ const piano: QuoteCategory = {
     extras: [
       {
         key: "pianoType",
-        label: "Type of piano",
+        label: "Type of piano or item",
         kind: "select",
-        options: ["Upright piano", "Baby grand piano", "Grand piano", "Digital piano", "Other"],
+        // The same list as /book/piano: the choice leads the job title in
+        // ShiftMate verbatim ("Spa Pool - ..."), so the two forms match.
+        options: ["Upright Piano", "Grand Piano", "Spa Pool", "Vending Machine", "Art Work", "Other"],
         required: true,
       },
       {

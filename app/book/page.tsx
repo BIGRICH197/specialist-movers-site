@@ -29,9 +29,9 @@ export default function BookPage() {
             href="/book/piano"
             className="block rounded-2xl bg-white p-5 shadow-sm transition hover:shadow-md"
           >
-            <span className="font-heading text-lg text-brand-purple">Piano or large item</span>
+            <span className="font-heading text-lg text-brand-purple">Piano &amp; hard to shift items</span>
             <span className="mt-1 block text-sm text-brand-purple/70">
-              Pianos, spa pools, and other specialist items.
+              Pianos, spa pools, vending machines, and other heavy or awkward items.
             </span>
           </Link>
 
