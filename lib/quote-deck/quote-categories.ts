@@ -206,6 +206,7 @@ const piano: QuoteCategory = {
         title: "Cover and care",
         bullets: [
           `Cover of up to ${pianoCoverIncluded} for pianos while we move them, on our piano terms`,
+          "All other items are moved at owner's risk",
           "More cover can be arranged through our team on request",
           "Grand legs, pedals and lid removed and refitted",
         ],
