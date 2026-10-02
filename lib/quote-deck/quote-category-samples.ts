@@ -39,33 +39,6 @@ export const SAMPLE_QUOTES: Record<QuoteCategoryKey, Sample> = {
     },
     prefill: { bedrooms: 3, bathrooms: 2, movers: "3", typeOfMove: "Home Move" },
   },
-  packing: {
-    quote: {
-      ...base,
-      clientName: "Sarah Thompson",
-      moveDate: "Thursday 15 October 2026",
-      pickup: { suburb: "12 Example Street, Remuera" },
-      delivery: { suburb: "" },
-      lineItems: [
-        fixed("Packing call out fee", 80, "Packing"),
-        hourly("3 Packers", 7, 190, "Packing"),
-        { description: "Large boxes x30", quantity: 30, unitPriceExclGst: 9.5, amountExclGst: 285, section: "Packing" },
-        { description: "Small/medium boxes x35", quantity: 35, unitPriceExclGst: 6.5, amountExclGst: 227.5, section: "Packing" },
-      ],
-    },
-    prefill: { bedrooms: 3, bathrooms: 2, movers: "3" },
-  },
-  cleaning: {
-    quote: {
-      ...base,
-      clientName: "Sarah Thompson",
-      moveDate: "Saturday 17 October 2026",
-      pickup: { suburb: "12 Example Street, Remuera" },
-      delivery: { suburb: "" },
-      lineItems: [fixed("End of tenancy clean - 3 bedroom, 2 bathroom", 480, "Cleaning")],
-    },
-    prefill: { bedrooms: 3, bathrooms: 2 },
-  },
   piano: {
     quote: {
       ...base,
@@ -99,55 +72,5 @@ export const SAMPLE_QUOTES: Record<QuoteCategoryKey, Sample> = {
       lineItems: [fixed("Call out fee", 80), hourly("3 Movers + Truck", 4, 190)],
     },
     prefill: { movers: "3" },
-  },
-  kitchen: {
-    quote: {
-      ...base,
-      clientName: "Sample Kitchens Ltd",
-      contactName: "Mike Chen",
-      moveDate: "Tuesday 13 October 2026",
-      pickup: { suburb: "Workshop, 5 Example Road, East Tamaki" },
-      delivery: { suburb: "Site, 22 Sample Avenue, Mission Bay" },
-      lineItems: [fixed("Call out fee", 60), hourly("2 Movers + Truck", 2.5, 140)],
-    },
-    prefill: { movers: "2" },
-  },
-  insurance: {
-    quote: {
-      ...base,
-      clientName: "Sample Claims Ltd - 12 Example Street",
-      pickup: { suburb: "12 Example Street, Remuera" },
-      delivery: { suburb: "Specialist Movers storage, Wairau Valley" },
-      lineItems: [
-        fixed("Part 1 - pack-out: call out fee", 100),
-        hourly("Part 1 - pack-out: 3 Movers + Truck", 7, 190),
-      ],
-    },
-    prefill: { movers: "3", bedrooms: 3 },
-  },
-  storage: {
-    quote: {
-      ...base,
-      clientName: "Sarah Thompson",
-      moveDate: "Friday 16 October 2026",
-      pickup: { suburb: "12 Example Street, Remuera" },
-      delivery: { suburb: "TBC" },
-      lineItems: [
-        fixed("Collection: call out fee", 60),
-        hourly("Collection: 2 Movers + Truck", 3, 150),
-        { description: "Storage, per week x4", quantity: 4, unitPriceExclGst: 65, amountExclGst: 260 },
-      ],
-    },
-    prefill: { movers: "2" },
-  },
-  furniture: {
-    quote: {
-      ...base,
-      clientName: "Sarah Thompson",
-      pickup: { suburb: "Sample Furniture Store, Mt Wellington" },
-      delivery: { suburb: "4 Sample Road, Ponsonby" },
-      lineItems: [fixed("Call out fee", 60), hourly("2 Movers + Truck", 1.5, 150)],
-    },
-    prefill: { movers: "2" },
   },
 };

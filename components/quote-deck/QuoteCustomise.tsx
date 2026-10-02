@@ -437,9 +437,13 @@ export function QuoteCustomise({
           </button>
           {!canAccept ? (
             <p className="text-center text-xs font-medium text-brand-purple/60">
-              {has("insurance")
-                ? `Tick "${category.insuranceLabel}", or confirm the box above, to continue.`
-                : "Confirm the box above to continue."}
+              {category.key === "house" ? (
+                <>Tick insurance, or confirm owner&apos;s risk above, to continue.</>
+              ) : has("insurance") ? (
+                `Tick "${category.insuranceLabel}", or confirm the box above, to continue.`
+              ) : (
+                "Confirm the box above to continue."
+              )}
             </p>
           ) : null}
 

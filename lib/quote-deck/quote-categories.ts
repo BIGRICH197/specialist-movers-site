@@ -5,28 +5,18 @@
 // asks. The deck, the add-ons panel, the booking form and POST /api/bookings
 // all read from this, so a category is added or changed in one place.
 //
-// Keys follow ShiftMate's job types (crm_move_types), which is also how the
-// work-client types sort: piano stores and venues -> piano, kitchens ->
-// kitchen, commercial / depot -> commercial, insurers -> insurance, storage ->
-// storage. house / packing / cleaning are the three that existed before
-// (Richard, 2026-10-01): their add-ons and booking questions are unchanged.
+// Four kinds (Richard, 2026-10-02). HOUSE is the quote as it has always been:
+// moving, packing and cleaning on one quote, with the house details, add-ons
+// and booking form, and the packing / cleaning quote types render it too.
+// PIANO, OFFICE and COMMERCIAL are the new ones, and anything odd (kitchens,
+// storage, furniture or materials deliveries, staging, depots) is COMMERCIAL.
 
 import { pianoCoverIncluded } from "@/lib/company-facts";
 import type { MoveInclusionCategory } from "@/lib/quote-deck/house-move-inclusions";
 import { moveInclusionCategories } from "@/lib/quote-deck/house-move-inclusions";
 import { sitePhotos } from "@/lib/quote-deck/site-photos";
 
-export type QuoteCategoryKey =
-  | "house"
-  | "packing"
-  | "cleaning"
-  | "piano"
-  | "office"
-  | "commercial"
-  | "kitchen"
-  | "insurance"
-  | "storage"
-  | "furniture";
+export type QuoteCategoryKey = "house" | "piano" | "office" | "commercial";
 
 export type AddOnId = "cleaning" | "packing" | "insurance";
 
@@ -172,89 +162,6 @@ const house: QuoteCategory = {
     labels: {},
     extras: [],
     terms: "residential",
-  },
-};
-
-const packing: QuoteCategory = {
-  ...house,
-  key: "packing",
-  noun: "packing",
-  pill: "Packing proposal",
-  totalHeading: "Cost of your packing",
-  dateLabel: "Packing date",
-  hero: {
-    src: sitePhotos.packing,
-    alt: "Packers wrapping glassware in bubble wrap",
-    caption: "You relax. We move.",
-    position: "center 40%",
-  },
-  included: {
-    eyebrow: "The Specialist Movers standard",
-    title: "What's included in your pack",
-    categories: [
-      {
-        id: "materials",
-        title: "Packing materials",
-        bullets: [
-          "Quality boxes, tape, bubble wrap and packing paper",
-          "Port-a-robe wardrobe boxes so clothes go on the hanger",
-          "Mattress and couch protectors",
-          "Moving blankets for furniture",
-        ],
-      },
-      {
-        id: "packed",
-        title: "Packed properly",
-        bullets: [
-          "Fragile items, glassware and screens wrapped piece by piece",
-          "Packers come in the day before your move",
-          "Unpacking at the other end on request",
-          "Furniture disassembly and reassembly support",
-        ],
-      },
-      safety,
-    ],
-  },
-};
-
-const cleaning: QuoteCategory = {
-  ...house,
-  key: "cleaning",
-  noun: "clean",
-  pill: "Cleaning proposal",
-  totalHeading: "Cost of your clean",
-  dateLabel: "Cleaning date",
-  pickupLabel: "Address",
-  dropoffLabel: "Second address",
-  hero: {
-    src: `/photos/source/batch-p126-p127/P1260162.jpg`,
-    alt: "Our team at work in a kitchen",
-    caption: "You relax. We move.",
-    position: "center 35%",
-  },
-  included: {
-    eyebrow: "Specialist Cleaners",
-    title: "What's included in your clean",
-    categories: [
-      {
-        id: "clean",
-        title: "The clean",
-        bullets: [
-          "Fixed price by bedrooms and bathrooms",
-          "Room-by-room schedule, so you know what gets done",
-          "Property spotless and ready for inspection",
-        ],
-      },
-      {
-        id: "timing",
-        title: "Timed with your move",
-        bullets: [
-          "Scheduling aligned with your move-out date",
-          "Smooth and hassle-free handover",
-          "Re-clean policy under our cleaning terms",
-        ],
-      },
-    ],
   },
 };
 
@@ -461,6 +368,19 @@ const commercial: QuoteCategory = {
   booking: {
     ...office.booking,
     intro: "A few details to lock in your job.",
+    // Commercial also takes the odd private job (storage, a delivery), so the
+    // company is asked but not required.
+    extras: [
+      { ...companyFields[0], required: false },
+      companyFields[1],
+      {
+        key: "deliveryWindow",
+        label: "Any time it needs to be there by?",
+        hint: "e.g. installers on site from 8am.",
+        kind: "text",
+        required: false,
+      },
+    ],
     labels: {
       fragileItems: {
         label: "What are we moving?",
@@ -474,306 +394,33 @@ const commercial: QuoteCategory = {
   },
 };
 
-const kitchen: QuoteCategory = {
-  key: "kitchen",
-  noun: "delivery",
-  pill: "Cabinetry delivery proposal",
-  totalHeading: "Cost of your delivery",
-  dateLabel: "Delivery date",
-  pickupLabel: "Workshop",
-  dropoffLabel: "Site",
-  hero: {
-    src: "/photos/source/batch-p125/P1250050.jpg",
-    alt: "The Specialist Movers team with a truck",
-    caption: "You relax. We move.",
-    position: "center 45%",
-  },
-  included: {
-    eyebrow: "The Specialist Movers standard",
-    title: "What's included in your delivery",
-    categories: [
-      {
-        id: "delivery",
-        title: "Workshop to site",
-        bullets: [
-          "Kitchens, vanities, wardrobes and commercial joinery",
-          "Carried to the room, not left at the door or on the drive",
-        ],
-      },
-      {
-        id: "protection",
-        title: "Protection",
-        bullets: [
-          "Benchtops and stone tops carried on edge and strapped upright",
-          "Blanket wrap and strapping on finished surfaces, not charged as an extra",
-        ],
-      },
-      {
-        id: "trucks",
-        title: "Crew and trucks",
-        bullets: [
-          "Six trucks from 15 to 40 cubic metres, taillift on every one",
-          "Regular weekly or fortnightly runs with the same crew",
-        ],
-      },
-      siteSafety,
-    ],
-  },
-  addOns: ["insurance"],
-  insuranceLabel: INSURANCE_LABEL,
-  insuranceHint: INSURANCE_HINT,
-  ownersRisk: OWNERS_RISK,
-  booking: {
-    intro: "A few details to lock in your delivery.",
-    hidden: [...HOUSE_ONLY, "payment", "furnitureDismantle"],
-    labels: {
-      pickupAddress: { label: "Pick-up (workshop) address" },
-      dropoffAddress: { label: "Delivery (site) address" },
-      moveDate: { label: "Delivery date" },
-      fragileItems: {
-        label: "What are we delivering?",
-        hint: "Kitchen, vanities, wardrobes, benchtops. Note any stone tops and their size.",
-      },
-      accessRestrictions: {
-        label: "Site access",
-        hint: "Site induction, parking, stairs, and which room it goes to.",
-      },
-    },
-    extras: [
-      ...companyFields,
-      {
-        key: "deliveryWindow",
-        label: "When do the installers need it?",
-        hint: "e.g. on site by 8am.",
-        kind: "text",
-        required: false,
-      },
-    ],
-    terms: "commercial",
-  },
-};
-
-const insurance: QuoteCategory = {
-  key: "insurance",
-  noun: "job",
-  pill: "Insurance relocation proposal",
-  totalHeading: "Cost of the job",
-  dateLabel: "Date",
-  pickupLabel: "Pickup",
-  dropoffLabel: "Drop off",
-  hero: {
-    src: "/photos/source/batch-p126-p127/P1260446.jpg",
-    alt: "Our packers wrapping contents in a dining room",
-    caption: "You relax. We move.",
-    position: "center 40%",
-  },
-  included: {
-    eyebrow: "The Specialist Movers standard",
-    title: "What's included in this job",
-    categories: [
-      {
-        id: "packout",
-        title: "Pack-out and protection",
-        bullets: [
-          "Contents wrapped and packed by trained crews, not casual labour",
-          "Furniture and fragile items protected for transit",
-        ],
-      },
-      {
-        id: "visits",
-        title: "Every visit accounted for",
-        bullets: [
-          "Pack-out, storage and return with the same team",
-          "Each visit booked and invoiced as its own part of the claim",
-          "Photos taken on site at every visit",
-        ],
-      },
-      safety,
-    ],
-  },
-  addOns: [],
-  insuranceLabel: INSURANCE_LABEL,
-  insuranceHint: INSURANCE_HINT,
-  ownersRisk: OWNERS_RISK,
-  booking: {
-    intro: "A few details to lock in this job.",
-    hidden: ["typeOfMove", "payment", "cleaningBooked", "packing", "unpacking", "settlementDay"],
-    labels: {},
-    extras: [
-      { key: "insurerName", label: "Insurer or claims company", kind: "text", required: true, group: "contact" },
-      { key: "claimNumber", label: "Claim number", kind: "text", required: true, group: "contact" },
-      {
-        key: "policyholderContact",
-        label: "Policyholder name and phone",
-        hint: "If it isn't you, so our crew can arrange access.",
-        kind: "text",
-        required: false,
-        wide: true,
-        group: "contact",
-      },
-    ],
-    terms: "residential",
-  },
-};
-
-const storage: QuoteCategory = {
-  key: "storage",
-  noun: "storage",
-  pill: "Storage proposal",
-  totalHeading: "Cost of your storage",
-  dateLabel: "Collection date",
-  pickupLabel: "Collect from",
-  dropoffLabel: "Deliver to",
-  hero: {
-    src: sitePhotos.houseMove,
-    alt: "Our crew wrapping furniture",
-    caption: "You relax. We move.",
-    position: "center 40%",
-  },
-  included: {
-    eyebrow: "The Specialist Movers standard",
-    title: "What's included in your storage",
-    categories: [
-      {
-        id: "collection",
-        title: "Collection",
-        bullets: [
-          "Careful pickup, wrapping and inventory on the way in",
-          "Can combine with packing and your move on one plan",
-        ],
-      },
-      {
-        id: "stored",
-        title: "While it's stored",
-        bullets: [
-          "Weeks or months, no long minimum stay",
-          "Furniture and boxed goods held safely",
-          "Clear access and retrieval arrangements",
-        ],
-      },
-      {
-        id: "return",
-        title: "Back out again",
-        bullets: ["Delivered to your new address when you are ready"],
-      },
-      safety,
-    ],
-  },
-  addOns: ["insurance"],
-  insuranceLabel: INSURANCE_LABEL,
-  insuranceHint: INSURANCE_HINT,
-  ownersRisk: OWNERS_RISK,
-  booking: {
-    intro: "A few details to lock in your storage.",
-    hidden: ["typeOfMove", "cleaningBooked", "packing", "unpacking", "settlementDay"],
-    labels: {
-      pickupAddress: { label: "Collection address" },
-      dropoffAddress: {
-        label: "Delivery address when it comes out",
-        hint: "Write TBC if you don't know yet.",
-      },
-      moveDate: { label: "Collection date" },
-    },
-    extras: [
-      {
-        key: "storageLength",
-        label: "How long do you need storage?",
-        kind: "select",
-        options: ["A few weeks", "1 to 3 months", "3 to 6 months", "6 months or more", "Not sure yet"],
-        required: true,
-      },
-    ],
-    terms: "residential",
-  },
-};
-
-const furniture: QuoteCategory = {
-  key: "furniture",
-  noun: "delivery",
-  pill: "Furniture delivery proposal",
-  totalHeading: "Cost of your delivery",
-  dateLabel: "Delivery date",
-  pickupLabel: "Pickup",
-  dropoffLabel: "Delivery",
-  hero: {
-    src: "/photos/source/batch-p126-p127/P1260743.jpg",
-    alt: "Our crew carrying a couch",
-    caption: "You relax. We move.",
-    position: "center 45%",
-  },
-  included: {
-    eyebrow: "The Specialist Movers standard",
-    title: "What's included in your delivery",
-    categories: [
-      {
-        id: "handling",
-        title: "Handling",
-        bullets: [
-          "Single items, part-loads and full furniture deliveries",
-          "Heavy and awkward pieces: spa pools, safes, pool tables, marble tops",
-        ],
-      },
-      {
-        id: "protection",
-        title: "Protection",
-        bullets: [
-          "Blankets, shrink wrap or mattress covers included, not charged as an extra",
-          "Beds, tables and modular furniture taken apart and rebuilt",
-        ],
-      },
-      {
-        id: "delivery",
-        title: "Delivered properly",
-        bullets: ["Carried to the room, not left at the door or on the drive"],
-      },
-      safety,
-    ],
-  },
-  addOns: ["insurance"],
-  insuranceLabel: INSURANCE_LABEL,
-  insuranceHint: INSURANCE_HINT,
-  ownersRisk: OWNERS_RISK,
-  booking: {
-    intro: "A few details to lock in your delivery.",
-    hidden: HOUSE_ONLY,
-    labels: {
-      moveDate: { label: "Delivery date" },
-      fragileItems: {
-        label: "What are we moving?",
-        hint: "Each item, and anything heavy, oversized or fragile.",
-      },
-    },
-    extras: [],
-    terms: "residential",
-  },
-};
-
 export const QUOTE_CATEGORIES: Record<QuoteCategoryKey, QuoteCategory> = {
   house,
-  packing,
-  cleaning,
   piano,
   office,
   commercial,
-  kitchen,
-  insurance,
-  storage,
-  furniture,
 };
 
 /** Other names a category arrives under: ShiftMate job types and the
- *  work-client types (clients.json), so Joey can pass either. */
+ *  work-client types (clients.json), so Joey can pass either. packing and
+ *  cleaning are house: the same one quote they have always been. */
 const ALIASES: Record<string, QuoteCategoryKey> = {
+  packing: "house",
+  cleaning: "house",
+  insurance: "house",
   venue_piano: "piano",
   "piano-store": "piano",
   venue: "piano",
   "commercial-office": "office",
-  depot: "commercial",
-  staging: "commercial",
+  kitchen: "commercial",
+  cabinetry: "commercial",
+  joinery: "commercial",
+  storage: "commercial",
+  furniture: "commercial",
+  furniture_delivery: "commercial",
   materials_delivery: "commercial",
-  cabinetry: "kitchen",
-  joinery: "kitchen",
-  furniture_delivery: "furniture",
+  staging: "commercial",
+  depot: "commercial",
 };
 
 /** The category for a stored quoteType. Anything unknown (or missing) is a
