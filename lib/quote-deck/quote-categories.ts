@@ -185,7 +185,7 @@ const packing: QuoteCategory = {
   hero: {
     src: sitePhotos.packing,
     alt: "Packers wrapping glassware in bubble wrap",
-    caption: "Every box, packed properly.",
+    caption: "You relax. We move.",
     position: "center 40%",
   },
   included: {
@@ -229,7 +229,7 @@ const cleaning: QuoteCategory = {
   hero: {
     src: `/photos/source/batch-p126-p127/P1260162.jpg`,
     alt: "Our team at work in a kitchen",
-    caption: "Spotless for handover.",
+    caption: "You relax. We move.",
     position: "center 35%",
   },
   included: {
@@ -269,7 +269,7 @@ const piano: QuoteCategory = {
   hero: {
     src: sitePhotos.pianoMove,
     alt: "Our piano crew loading a wrapped piano onto the piano truck",
-    caption: "Your piano, in safe hands.",
+    caption: "You relax. We move.",
     position: "center 45%",
   },
   included: {
@@ -350,7 +350,7 @@ const office: QuoteCategory = {
   hero: {
     src: sitePhotos.officeMove,
     alt: "Our crew carrying boxes through an office",
-    caption: "Moved without the downtime.",
+    caption: "You relax. We move.",
     position: "center 40%",
   },
   included: {
@@ -423,7 +423,7 @@ const commercial: QuoteCategory = {
   hero: {
     src: sitePhotos.commercialTeam,
     alt: "The Specialist Movers team and trucks at the depot",
-    caption: "Built for trade work.",
+    caption: "You relax. We move.",
     position: "center 45%",
   },
   included: {
@@ -485,7 +485,7 @@ const kitchen: QuoteCategory = {
   hero: {
     src: "/photos/source/batch-p125/P1250050.jpg",
     alt: "The Specialist Movers team with a truck",
-    caption: "Workshop to site, carried in.",
+    caption: "You relax. We move.",
     position: "center 45%",
   },
   included: {
@@ -564,7 +564,7 @@ const insurance: QuoteCategory = {
   hero: {
     src: "/photos/source/batch-p126-p127/P1260446.jpg",
     alt: "Our packers wrapping contents in a dining room",
-    caption: "Packed, stored and returned with care.",
+    caption: "You relax. We move.",
     position: "center 40%",
   },
   included: {
@@ -627,7 +627,7 @@ const storage: QuoteCategory = {
   hero: {
     src: sitePhotos.houseMove,
     alt: "Our crew wrapping furniture",
-    caption: "Stored safely until you're ready.",
+    caption: "You relax. We move.",
     position: "center 40%",
   },
   included: {
@@ -698,7 +698,7 @@ const furniture: QuoteCategory = {
   hero: {
     src: "/photos/source/batch-p126-p127/P1260743.jpg",
     alt: "Our crew carrying a couch",
-    caption: "Carried in, set down where you want it.",
+    caption: "You relax. We move.",
     position: "center 45%",
   },
   included: {
