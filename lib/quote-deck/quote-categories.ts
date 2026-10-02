@@ -278,7 +278,6 @@ const office: QuoteCategory = {
         title: "Planned around your business",
         bullets: [
           "After-hours and weekend moves to reduce downtime",
-          "Lift access, loading zones and building rules planned in advance",
         ],
       },
       {
@@ -286,7 +285,6 @@ const office: QuoteCategory = {
         title: "Crew and trucks",
         bullets: [
           "Crew labour and trucks for your quote",
-          "Six trucks from 15 to 40 cubic metres, taillift on every one",
         ],
       },
       siteSafety,
@@ -359,7 +357,6 @@ const commercial: QuoteCategory = {
         title: "Crew and trucks",
         bullets: [
           "Trained crews with the right gear and clear timelines",
-          "Six trucks from 15 to 40 cubic metres, taillift on every one",
         ],
       },
       siteSafety,
