@@ -41,7 +41,17 @@ export default function BookPage() {
           >
             <span className="font-heading text-lg text-brand-purple">Office move</span>
             <span className="mt-1 block text-sm text-brand-purple/70">
-              Offices, commercial and business relocations.
+              Office and business relocations.
+            </span>
+          </Link>
+
+          <Link
+            href="/book/commercial"
+            className="block rounded-2xl bg-white p-5 shadow-sm transition hover:shadow-md"
+          >
+            <span className="font-heading text-lg text-brand-purple">Commercial</span>
+            <span className="mt-1 block text-sm text-brand-purple/70">
+              Cabinetry and fit outs, deliveries, storage, and other commercial work.
             </span>
           </Link>
         </div>

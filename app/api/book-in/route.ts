@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { quoteCategory, requiredBookingKeys } from "@/lib/quote-deck/quote-categories";
 import { pingBookings } from "@/lib/quote-notify";
 import {
   createHubSpotDeal,
@@ -71,18 +72,16 @@ function pianoWebhookUrl(): string | undefined {
   }
 }
 
-// Office moves reuse the house fields but drop bedrooms/type/payment.
-const OFFICE_OMIT = ["sizeOfMove", "typeOfMove", "payment"];
-
 function missingFields(serviceType: string, fields: Record<string, string>): string[] {
   if (serviceType === "piano") {
     return PIANO_REQUIRED.filter((k) => !fields[k]?.trim());
   }
-  const required =
-    serviceType === "office"
-      ? HOUSE_REQUIRED.filter((k) => !OFFICE_OMIT.includes(k))
-      : HOUSE_REQUIRED;
-  const out = required.filter((k) => !fields[k]?.trim());
+  // Office and commercial ask their own questions (quote-categories), the
+  // same ones their quote-link booking forms ask.
+  if (serviceType === "office" || serviceType === "commercial") {
+    return requiredBookingKeys(quoteCategory(serviceType)).filter((k) => !fields[k]?.trim());
+  }
+  const out = HOUSE_REQUIRED.filter((k) => !fields[k]?.trim());
   if (fields.cleaningBooked === "Yes Cleaning" && !fields.cleaningSameDay?.trim())
     out.push("cleaningSameDay");
   if (fields.packing === "Yes packing" && !fields.whatPacking?.trim())
@@ -218,7 +217,9 @@ export async function POST(request: Request) {
             ? "Piano Move"
             : serviceType === "office"
               ? "Office Move"
-              : "House Move",
+              : serviceType === "commercial"
+                ? "Commercial Move"
+                : "House Move",
           pickupAddress: fields.pickupAddress || "",
           dropoffAddress: fields.dropoffAddress || "",
           notes: "Booked in via /book (no quote link).",
