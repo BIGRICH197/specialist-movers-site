@@ -492,7 +492,7 @@ export function BookingForm({
             <label className={labelCls}>{L("moveDate", "Move date")}</label>
             <input className={inputCls} type={standalone ? "date" : undefined} required value={f.moveDate} onChange={(e) => set("moveDate", e.target.value)} />
           </div>
-          {extras.filter((x) => x.group !== "contact").map((x) => (
+          {extras.filter((x) => !x.group || x.group === "job").map((x) => (
             <ExtraField key={x.key} field={x} value={f[x.key] ?? ""} onChange={(v) => set(x.key, v)} />
           ))}
           {!hiddenFields.includes("sizeOfMove") && (
@@ -741,6 +741,10 @@ export function BookingForm({
             <textarea className={inputCls} rows={2} required value={f.accessRestrictions} onChange={(e) => set("accessRestrictions", e.target.value)} />
           </div>
           )}
+
+          {extras.filter((x) => x.group === "end").map((x) => (
+            <ExtraField key={x.key} field={x} value={f[x.key] ?? ""} onChange={(v) => set(x.key, v)} />
+          ))}
 
           {shown("settlementDay") && (
           <div className="sm:col-span-2">

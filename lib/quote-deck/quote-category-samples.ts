@@ -65,8 +65,7 @@ export const SAMPLE_QUOTES: Record<QuoteCategoryKey, Sample> = {
   commercial: {
     quote: {
       ...base,
-      clientName: "Sample Retail Ltd",
-      contactName: "Tom Baker",
+      clientName: "Tom Baker",
       pickup: { suburb: "Unit 4, 10 Example Place, Wairau Valley" },
       delivery: { suburb: "Shop 12, Sample Mall, Albany" },
       lineItems: [fixed("Call out fee", 80), hourly("3 Movers + Truck", 4, 190)],

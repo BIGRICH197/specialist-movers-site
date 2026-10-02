@@ -3,7 +3,7 @@ import { BookingForm } from "@/components/quote-deck/BookingForm";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Book a commercial job \u2014 Specialist Movers",
+  title: "Book a commercial / general job \u2014 Specialist Movers",
   robots: { index: false, follow: false },
 };
 
@@ -17,7 +17,7 @@ export default function BookCommercialPage() {
       standalone
       quoteType="commercial"
       bookServiceType="commercial"
-      heading="Book a commercial job"
+      heading="Book a commercial / general job"
       prefill={{}}
     />
   );

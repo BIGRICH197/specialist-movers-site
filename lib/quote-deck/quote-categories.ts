@@ -49,8 +49,8 @@ export type ExtraBookingField = {
   /** Full width in the two-column grid. */
   wide?: boolean;
   /** "contact" sits with the name / phone / email; "job" (the default) sits
-   *  with the date and addresses. */
-  group?: "contact" | "job";
+   *  with the date and addresses; "end" is the last question on the form. */
+  group?: "contact" | "job" | "end";
 };
 
 export type TermsSetId = "residential" | "commercial";
@@ -332,7 +332,7 @@ const commercial: QuoteCategory = {
   ...office,
   key: "commercial",
   noun: "job",
-  pill: "Commercial moving proposal",
+  pill: "Commercial / general proposal",
   totalHeading: "Cost of your job",
   dateLabel: "Date",
   pickupLabel: "Pickup",
@@ -349,11 +349,11 @@ const commercial: QuoteCategory = {
     categories: [
       {
         id: "work",
-        title: "What we move",
+        title: "Whatever needs moving",
         bullets: [
-          "Cabinetry and fit outs",
-          "Office relocations, staging and tenant moves",
-          "Printers, vending machines and specialist equipment",
+          "Pallets, stock and equipment",
+          "Fridges, appliances and single items",
+          "Cabinetry, kitchens and fit outs",
         ],
       },
       {
@@ -367,39 +367,34 @@ const commercial: QuoteCategory = {
       {
         id: "trucks",
         title: "Crew and trucks",
-        bullets: [
-          "Trained crews with the right gear and clear timelines",
-        ],
+        bullets: ["Trained crews with the right gear and clear timelines"],
       },
       siteSafety,
     ],
   },
+  // It could be anything (six pallets, a fridge, a kitchen), so the form asks
+  // only where from, where to, when, and what it is. Anything else is a note.
   booking: {
     ...office.booking,
     intro: "A few details to lock in your job.",
-    // Commercial also takes the odd private job (storage, a delivery), so the
-    // company is asked but not required.
-    extras: [
-      { ...companyFields[0], required: false },
-      companyFields[1],
-      {
-        key: "deliveryWindow",
-        label: "Any time it needs to be there by?",
-        hint: "e.g. installers on site from 8am.",
-        kind: "text",
-        required: false,
-      },
-    ],
+    hidden: [...HOUSE_ONLY, "payment", "furnitureDismantle", "accessRestrictions"],
     labels: {
       fragileItems: {
         label: "What are we moving?",
-        hint: "Items, sizes, and anything heavy or fragile.",
-      },
-      accessRestrictions: {
-        label: "Site access",
-        hint: "Loading dock, lifts, parking, site induction, opening hours.",
+        hint: "e.g. 6 pallets, a double-door fridge, a kitchen. Sizes and weights help.",
       },
     },
+    extras: [
+      {
+        // Lands in the job's access notes like the house form's access answer.
+        key: "accessRestrictions",
+        label: "Anything else we should know?",
+        hint: "Access, stairs, a loading dock, a time it has to be there by.",
+        kind: "textarea",
+        required: false,
+        group: "end",
+      },
+    ],
   },
 };
 

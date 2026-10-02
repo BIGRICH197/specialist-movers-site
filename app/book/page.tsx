@@ -49,9 +49,9 @@ export default function BookPage() {
             href="/book/commercial"
             className="block rounded-2xl bg-white p-5 shadow-sm transition hover:shadow-md"
           >
-            <span className="font-heading text-lg text-brand-purple">Commercial</span>
+            <span className="font-heading text-lg text-brand-purple">Commercial / general</span>
             <span className="mt-1 block text-sm text-brand-purple/70">
-              Cabinetry and fit outs, deliveries, storage, and other commercial work.
+              Pallets, appliances, cabinetry, deliveries: anything that isn&apos;t a house, piano or office move.
             </span>
           </Link>
         </div>
