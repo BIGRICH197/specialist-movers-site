@@ -410,6 +410,8 @@ export const businessCustomersTerms: BookingTermsSection = {
 };
 
 export const commercialTerms: BookingTermsSection[] = [
-  ...bookingTerms.filter((sec) => !/pianos only/i.test(sec.heading)),
+  // No price cap on office or commercial work (Richard, 2026-10-03): the
+  // promise is for house moves only.
+  ...bookingTerms.filter((sec) => !/pianos only|price cap/i.test(sec.heading)),
   businessCustomersTerms,
 ];
