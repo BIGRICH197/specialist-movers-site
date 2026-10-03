@@ -11,7 +11,14 @@
 // PIANO, OFFICE and COMMERCIAL are the new ones, and anything odd (kitchens,
 // storage, furniture or materials deliveries, staging, depots) is COMMERCIAL.
 
-import { pianoCoverIncluded } from "@/lib/company-facts";
+import {
+  PIANO_COVER_NO,
+  PIANO_COVER_YES,
+  isPianoItem,
+  pianoCoverAmount,
+  pianoCoverPrice,
+  pianoCoverPriceExGst,
+} from "@/lib/company-facts";
 import type { MoveInclusionCategory } from "@/lib/quote-deck/house-move-inclusions";
 import { moveInclusionCategories } from "@/lib/quote-deck/house-move-inclusions";
 import { sitePhotos } from "@/lib/quote-deck/site-photos";
@@ -48,6 +55,9 @@ export type ExtraBookingField = {
   required: boolean;
   /** Full width in the two-column grid. */
   wide?: boolean;
+  /** Ask this only when another answer matches, e.g. piano cover only when
+   *  the item is a piano. Hidden = not asked, not required, sent blank. */
+  onlyIf?: { key: string; test: (value: string) => boolean };
   /** "contact" sits with the name / phone / email; "job" (the default) sits
    *  with the date and addresses; "end" is the last question on the form. */
   group?: "contact" | "job" | "end";
@@ -73,6 +83,9 @@ export type QuoteCategory = {
   addOns: readonly AddOnId[];
   /** The insurance add-on row. */
   insuranceLabel: string;
+  /** When set, the insurance row is a priced product (piano cover): ticking
+   *  it adds a line at this price, ex GST, to the quote. */
+  coverPriceExGst?: number;
   insuranceHint: string;
   /** The box ticked instead of asking for cover. */
   ownersRisk: string;
@@ -205,9 +218,9 @@ const piano: QuoteCategory = {
         id: "cover",
         title: "Cover and care",
         bullets: [
-          `Cover of up to ${pianoCoverIncluded} for pianos while we move them, on our piano terms`,
-          "All other items are moved at owner's risk",
-          "More cover can be arranged through our team on request",
+          `Everything moves at owner's risk unless you add piano cover`,
+          `Add ${pianoCoverAmount} piano cover for ${pianoCoverPrice} when you accept`,
+          "Higher cover can be arranged through our team on request",
           "Grand legs, pedals and lid removed and refitted",
         ],
       },
@@ -223,9 +236,10 @@ const piano: QuoteCategory = {
     ],
   },
   addOns: ["insurance"],
-  insuranceLabel: "Request extra cover",
-  insuranceHint: `Pianos have cover of up to ${pianoCoverIncluded} as standard. Tick and our team will send options for more cover.`,
-  ownersRisk: `I understand pianos have cover of up to ${pianoCoverIncluded} on Specialist Movers' piano terms. Anything above that, and any other item, is moved at owner's risk under the Contract and Commercial Law Act 2017 unless I arrange extra cover.`,
+  insuranceLabel: `Add ${pianoCoverAmount} piano cover`,
+  coverPriceExGst: pianoCoverPriceExGst,
+  insuranceHint: `We accept responsibility for loss of or damage to your piano up to ${pianoCoverAmount}. Without it, your piano moves at owner's risk.`,
+  ownersRisk: `I understand my piano and any other items are moved at owner's risk under the Contract and Commercial Law Act 2017, because I have not added the ${pianoCoverAmount} piano cover.`,
   booking: {
     intro: "A few details to lock in your move.",
     hidden: [...HOUSE_ONLY, "howManyMovers", "fragileItems", "furnitureDismantle"],
@@ -244,6 +258,17 @@ const piano: QuoteCategory = {
         // ShiftMate verbatim ("Spa Pool - ..."), so the two forms match.
         options: ["Upright Piano", "Grand Piano", "Spa Pool", "Vending Machine", "Art Work", "Other"],
         required: true,
+      },
+      {
+        // Carried from the quote's tick; the customer can still change it here.
+        key: "pianoCover",
+        label: "Piano cover",
+        hint: `Pianos move at owner's risk unless you add ${pianoCoverAmount} cover for ${pianoCoverPrice}.`,
+        kind: "select",
+        options: [PIANO_COVER_NO, PIANO_COVER_YES],
+        required: true,
+        wide: true,
+        onlyIf: { key: "pianoType", test: isPianoItem },
       },
       {
         key: "dropoffContact",
@@ -456,12 +481,17 @@ const BASE_REQUIRED: readonly BaseBookingField[] = [
   "settlementDay",
 ];
 
-export function requiredBookingKeys(cat: QuoteCategory): string[] {
+/** Is this extra question being asked, given the answers so far? */
+export function extraApplies(x: ExtraBookingField, fields: Record<string, string>): boolean {
+  return !x.onlyIf || x.onlyIf.test(fields[x.onlyIf.key] ?? "");
+}
+
+export function requiredBookingKeys(cat: QuoteCategory, fields: Record<string, string> = {}): string[] {
   return [
     "fullName",
     "phone",
     "email",
     ...BASE_REQUIRED.filter((k) => !cat.booking.hidden.includes(k)),
-    ...cat.booking.extras.filter((x) => x.required).map((x) => x.key),
+    ...cat.booking.extras.filter((x) => x.required && extraApplies(x, fields)).map((x) => x.key),
   ];
 }

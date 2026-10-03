@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { quoteCategory, requiredBookingKeys } from "@/lib/quote-deck/quote-categories";
+import { isPianoItem } from "@/lib/company-facts";
 import { pingBookings } from "@/lib/quote-notify";
 import {
   createHubSpotDeal,
@@ -55,6 +56,7 @@ const PIANO_REQUIRED = [
   "pickupAddress",
   "dropoffAddress",
   "stairs",
+  "pianoCover",
 ];
 
 // The piano booking webhook lives next to the house one on the same n8n tenant.
@@ -74,12 +76,14 @@ function pianoWebhookUrl(): string | undefined {
 
 function missingFields(serviceType: string, fields: Record<string, string>): string[] {
   if (serviceType === "piano") {
-    return PIANO_REQUIRED.filter((k) => !fields[k]?.trim());
+    // The cover question is only asked for a piano, not a spa pool.
+    return PIANO_REQUIRED.filter((k) => k !== "pianoCover" || isPianoItem(fields.pianoType))
+      .filter((k) => !fields[k]?.trim());
   }
   // Office and commercial ask their own questions (quote-categories), the
   // same ones their quote-link booking forms ask.
   if (serviceType === "office" || serviceType === "commercial") {
-    return requiredBookingKeys(quoteCategory(serviceType)).filter((k) => !fields[k]?.trim());
+    return requiredBookingKeys(quoteCategory(serviceType), fields).filter((k) => !fields[k]?.trim());
   }
   const out = HOUSE_REQUIRED.filter((k) => !fields[k]?.trim());
   if (fields.cleaningBooked === "Yes Cleaning" && !fields.cleaningSameDay?.trim())

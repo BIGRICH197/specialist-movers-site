@@ -49,7 +49,7 @@ export function PianoHubPage() {
       />
       <ServiceJsonLd
         name="Piano Moving"
-        description="Specialist piano moving across Auckland, Hamilton and the Waikato. Uprights, baby grands and concert grands, with $2,000 cover as standard."
+        description="Specialist piano moving across Auckland, Hamilton and the Waikato. Uprights, baby grands and concert grands, with $2,000 piano cover available for $20 + GST."
         path="/piano-movers"
         serviceType="Piano moving"
         includeRating={false}

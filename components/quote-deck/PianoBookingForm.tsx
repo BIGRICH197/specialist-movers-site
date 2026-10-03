@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { bookingTerms, BOOKING_TERMS_VERSION } from "@/lib/quote-deck/booking-terms";
 import { isDialable, PHONE_ERROR } from "@/lib/phone";
 import { BOOKED_BY_OPTIONS } from "@/lib/booked-by";
+import { PIANO_COVER_NO, PIANO_COVER_YES, isPianoItem, pianoCoverAmount, pianoCoverPrice } from "@/lib/company-facts";
 
 // Direct piano / large-item book-in form (no quote link needed) — replaces the
 // piano JotForm. Submits to /api/book-in, which creates the Trello job card and
@@ -34,6 +35,7 @@ export function PianoBookingForm() {
     pickupAddress: "",
     dropoffAddress: "",
     stairs: "",
+    pianoCover: "",
     anythingElse: "",
   });
   const [agree, setAgree] = useState(false);
@@ -69,6 +71,7 @@ export function PianoBookingForm() {
       ["pickupAddress", "Pick-up address"],
       ["dropoffAddress", "Drop-off address"],
       ["stairs", "Are there stairs?"],
+      ...(isPianoItem(f.pianoType) ? [["pianoCover", "Piano cover: owner's risk or add cover"] as [string, string]] : []),
     ];
     const out = required.filter(([k]) => !f[k]?.trim()).map(([, label]) => label);
     // A filled-in Phone box is not the same as a phone number — see
@@ -89,6 +92,8 @@ export function PianoBookingForm() {
     setStatus("sending");
     const fields = {
       ...f,
+      // Only a piano is offered cover; anything else goes blank.
+      pianoCover: isPianoItem(f.pianoType) ? f.pianoCover : "",
       agreeTerms: "yes",
       termsSignature: signature.trim(),
       termsSignedAt: new Date().toISOString(),
@@ -185,6 +190,27 @@ export function PianoBookingForm() {
               ))}
             </div>
           </div>
+
+          {/* Pianos move at owner's risk unless the customer buys cover
+              (Richard, 2026-10-03). A required choice, so nobody books
+              without seeing which one they picked; only asked for a piano. */}
+          {isPianoItem(f.pianoType) && (
+          <div className="sm:col-span-2">
+            <span className={labelCls}>Piano cover</span>
+            <p className="mt-0.5 text-xs text-brand-purple/60">
+              Pianos move at owner&apos;s risk unless you add {pianoCoverAmount} cover for {pianoCoverPrice}.
+              With it, we accept responsibility for loss of or damage to your piano up to {pianoCoverAmount}.
+            </p>
+            <div className="mt-2 space-y-2 text-sm text-brand-purple">
+              {[PIANO_COVER_NO, PIANO_COVER_YES].map((o) => (
+                <label key={o} className="flex items-center gap-2">
+                  <input type="radio" name="pianoCover" value={o} required checked={f.pianoCover === o} onChange={() => set("pianoCover", o)} />
+                  {o}
+                </label>
+              ))}
+            </div>
+          </div>
+          )}
 
           <div className="sm:col-span-2">
             <label className={labelCls}>Anything else we should know?</label>

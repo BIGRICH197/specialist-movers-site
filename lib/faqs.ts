@@ -108,7 +108,7 @@ export const faqs: readonly Faq[] = [
   },
   {
     q: "What happens if something gets damaged?",
-    a: "Tell us straight away and we will work it out with you. We hold $2,000,000 of public liability cover and full carrier's liability for damage we cause to your property. Cover for your own belongings during the move can be arranged through our team, just ask when you book. Pianos carry $2,000 of cover as standard.",
+    a: "Tell us straight away and we will work it out with you. We hold $2,000,000 of public liability cover and full carrier's liability for damage we cause to your property. Cover for your own belongings during the move can be arranged through our team, just ask when you book. Pianos travel at owner's risk unless you add our $2,000 piano cover for $20 + GST when you book.",
   },
   {
     q: "Are you insured?",
@@ -126,7 +126,7 @@ export const faqs: readonly Faq[] = [
   // --- Specialist items ----------------------------------------------------
   {
     q: "Can you move a piano?",
-    a: "Yes, and it is what we are best known for. Upright piano moves start from $290 plus GST locally and grands from $550 plus GST, with a minimum of three trained movers, piano boards, shrink wrap and padded blankets on every job. Auckland's Steinway dealers use us, and every piano carries $2,000 of cover as standard.",
+    a: "Yes, and it is what we are best known for. Upright piano moves start from $290 plus GST locally and grands from $550 plus GST, with a minimum of three trained movers, piano boards, shrink wrap and padded blankets on every job. Auckland's Steinway dealers use us, and you can add $2,000 of piano cover for $20 + GST when you book.",
   },
   {
     q: "Do you move spa pools, safes and pool tables?",

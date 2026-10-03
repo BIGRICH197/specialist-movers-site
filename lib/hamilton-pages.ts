@@ -108,7 +108,7 @@ const hamiltonPages: Record<HamiltonBaseSlug, Omit<HamiltonPageConfig, "baseSlug
       },
       {
         title: "Specialists with cover",
-        body: "Pianos carry $2,000 cover as standard, with more available on request. Hundreds of 5-star reviews across the North Island.",
+        body: "Add $2,000 piano cover for $20 + GST when you book, with more available on request. Hundreds of 5-star reviews across the North Island.",
       },
     ],
     includedBullets: [

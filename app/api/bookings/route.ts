@@ -54,7 +54,7 @@ export async function POST(request: Request) {
   // day, an office is asked for its company and site contact. A house quote
   // checks exactly the list it always did (lib/quote-deck/quote-categories).
   const category = quoteCategory(stored.quoteType);
-  const requiredKeys = requiredBookingKeys(category);
+  const requiredKeys = requiredBookingKeys(category, fields);
   const missing = requiredKeys.filter((k) => !fields[k]?.trim());
   if (fields.cleaningBooked === "Yes Cleaning" && !fields.cleaningSameDay?.trim())
     missing.push("cleaningSameDay");
@@ -84,6 +84,7 @@ export async function POST(request: Request) {
     fields.companyName ? `Company: ${fields.companyName}` : "",
     fields.insurerName ? `Insurer: ${fields.insurerName}${fields.claimNumber ? ` (claim ${fields.claimNumber})` : ""}` : "",
     fields.pianoType ? `Piano: ${fields.pianoType}` : "",
+    fields.pianoCover ? `Cover: ${fields.pianoCover}` : "",
     fields.email ? `Email: ${fields.email}` : "",
     fields.phone ? `Phone: ${fields.phone}` : "",
     fields.moveDate ? `Move date: ${fields.moveDate}` : "",

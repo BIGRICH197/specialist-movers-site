@@ -106,7 +106,7 @@ const landingOverrides: Record<
       },
       {
         title: "Insured crew, cover on request",
-        text: "Pianos carry $2,000 cover as standard. More is available, just ask.",
+        text: "Add $2,000 piano cover for $20 + GST when you book. More is available, just ask.",
       },
     ],
     whyTitle: "Why choose us for your piano",

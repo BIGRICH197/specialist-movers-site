@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { pianoCoverIncluded, publicLiabilityCover } from "@/lib/company-facts";
+import { pianoCoverAmount, pianoCoverPrice, publicLiabilityCover } from "@/lib/company-facts";
 import { SectionReveal } from "@/components/SectionReveal";
 
 /**
@@ -47,9 +47,9 @@ export function InsuranceExplainer({ piano = false }: { piano?: boolean }) {
           <p>
             {piano ? (
               <>
-                Every piano we move carries {pianoCoverIncluded} of cover as standard, and
-                more can be arranged through our team, which matters on a
-                grand.
+                Pianos travel at owner&apos;s risk unless you add our {pianoCoverAmount} piano
+                cover when you book, for {pianoCoverPrice}. Higher cover can be arranged
+                through our team, which matters on a grand.
               </>
             ) : (
               <>

@@ -17,7 +17,7 @@ export type BookingTermsSection = {
   signOnly?: boolean;
 };
 
-export const BOOKING_TERMS_VERSION = "2026-09-official-18";
+export const BOOKING_TERMS_VERSION = "2026-10-official-19"; // piano cover is an option
 export const COMMERCIAL_TERMS_VERSION = "2026-10-commercial-3"; // residential terms + Business customers
 
 export const bookingTerms: BookingTermsSection[] = [
@@ -228,10 +228,11 @@ export const bookingTerms: BookingTermsSection[] = [
     ],
   },
   {
-    heading: "Specialist Movers Insurance Terms and Conditions - Pianos Only",
+    heading: "Piano cover (optional)",
     paragraphs: [
-      "Specialist Movers provides insurance-backed cover of up to $2,000 for pianos we move, subject to conditions which we will provide to you in writing on request before your move.",
-      "If we are delivering your piano from a piano retailer, you can disregard the above, as your piano is covered by the retailer you have purchased from.",
+      "Pianos are moved at owner's risk, like all goods, unless you add our piano cover when you book.",
+      "Piano cover costs $20 + GST per piano. With it, Specialist Movers accepts liability for loss of or damage to your piano while we carry it, up to $2,000, on the limited carrier's risk basis under the Contract and Commercial Law Act 2017. It covers the piano only, not other items moved with it. Higher cover can be arranged through our team on request before your move.",
+      "If we are delivering your piano from a piano retailer, the retailer's own cover applies and piano cover is not offered.",
     ],
   },
 ];
@@ -412,6 +413,6 @@ export const businessCustomersTerms: BookingTermsSection = {
 export const commercialTerms: BookingTermsSection[] = [
   // No price cap on office or commercial work (Richard, 2026-10-03): the
   // promise is for house moves only.
-  ...bookingTerms.filter((sec) => !/pianos only|price cap/i.test(sec.heading)),
+  ...bookingTerms.filter((sec) => !/piano cover|price cap/i.test(sec.heading)),
   businessCustomersTerms,
 ];

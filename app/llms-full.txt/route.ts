@@ -105,8 +105,8 @@ export function GET() {
       "Cover for your own belongings during the move can be arranged through",
       "our team. Ask when you book and we will sort it.",
       "",
-      "Every piano we move carries $2,000 of cover as standard, with more",
-      "available on request.",
+      "Pianos travel at owner's risk unless you add our $2,000 piano cover",
+      "when you book, for $20 + GST. Higher cover is available on request.",
     ]),
 
     section("Services", services.map((s) => `- ${s.title}: ${s.description}`)),

@@ -4,6 +4,7 @@ import { getCleaningQuoteInclGst } from "@/lib/cleaning-pricing";
 import { BookingForm, type BookingPrefill } from "@/components/quote-deck/BookingForm";
 import { AlreadyBooked } from "@/components/quote-deck/AlreadyBooked";
 import { quoteCategory } from "@/lib/quote-deck/quote-categories";
+import { PIANO_COVER_NO, PIANO_COVER_YES } from "@/lib/company-facts";
 
 export const dynamic = "force-dynamic";
 
@@ -37,6 +38,9 @@ export default async function BookPage({
   }
 
   const q = stored.quote;
+  // On a piano quote the "insurance" tick IS the piano cover (a $20 product,
+  // not a request for broker options), so it answers the cover question.
+  const pianoQuote = quoteCategory(stored.quoteType).key === "piano";
   const addOns = q.includedAddOns ?? [];
   const pf = stored.prefill ?? {};
 
@@ -104,8 +108,12 @@ export default async function BookPage({
     // cover never made it into the booking record or the team's ping. Carry it
     // like the other two. It is not re-asked on the form — accepting the quote
     // already required choosing cover or owner's risk.
-    insurance:
-      searchParams?.ins === "1"
+    extras: pianoQuote
+      ? { pianoCover: searchParams?.ins === "1" ? PIANO_COVER_YES : searchParams?.ins === "0" ? PIANO_COVER_NO : "" }
+      : undefined,
+    insurance: pianoQuote
+      ? ""
+      : searchParams?.ins === "1"
         ? "Yes insurance"
         : searchParams?.ins === "0"
           ? "No (owner's risk)"

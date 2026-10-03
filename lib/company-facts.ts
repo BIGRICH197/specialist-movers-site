@@ -94,7 +94,23 @@ export const nap = {
  * Update this if the policy changes at renewal, and nowhere else.
  */
 export const publicLiabilityCover = "$2,000,000";
-export const pianoCoverIncluded = "$2,000";
+/** Pianos travel at owner's risk unless the customer adds piano cover when
+ *  they book (Richard, 2026-10-03; until then $2,000 was included on every
+ *  piano). $2,000 is the CCLA 2017 limited carrier's risk amount, offered to
+ *  retail customers for a fee. A piano store's deliveries are covered by the
+ *  store, so trade jobs are never offered it. */
+export const pianoCoverAmount = "$2,000";
+export const pianoCoverPrice = "$20 + GST";
+export const pianoCoverPriceExGst = 20;
+/** The two answers to "piano cover?" on the quote and both piano booking
+ *  forms. n8n reads the first word: "Add" = bought. Keep them in step. */
+export const PIANO_COVER_YES = "Add $2,000 piano cover ($20 + GST)";
+export const PIANO_COVER_NO = "Move at owner's risk";
+/** Is this item a piano (so the cover question applies)? Matches the item
+ *  picked on a booking form ("Upright Piano", "Grand Piano") or a quote line
+ *  ("Upright piano move - ..."). Spa pools, vending machines, art and the rest
+ *  move at owner's risk with no cover offered. */
+export const isPianoItem = (text?: string | null) => /piano/i.test(String(text ?? ""));
 
 export const nzbnUrl = `https://www.nzbn.govt.nz/mynzbn/nzbndetails/${nap.nzbn}/`;
 export const linkedInUrl =

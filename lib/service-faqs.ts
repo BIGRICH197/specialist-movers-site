@@ -149,7 +149,7 @@ export const grandPianoFaqs: readonly FaqItem[] = [
   },
   {
     q: "Is specialist insurance available for grand pianos?",
-    a: "Every piano we move carries $2,000 of insurance-backed cover as standard. For a concert grand that is not enough, so we can arrange higher cover through our broker. Ask when you quote and we will include the details in your written price. Household goods on a general move travel at owner's risk unless you arrange transit cover with us.",
+    a: "Pianos travel at owner's risk unless you add our $2,000 piano cover when you book, for $20 + GST. For a concert grand that is not enough, so we can arrange higher cover through our broker. Ask when you quote and we will include the details in your written price. Household goods on a general move travel at owner's risk unless you arrange transit cover with us.",
   },
 ];
 

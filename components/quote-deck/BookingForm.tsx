@@ -10,6 +10,7 @@ import {
   type BookingTermsSection,
 } from "@/lib/quote-deck/booking-terms";
 import {
+  extraApplies,
   quoteCategory,
   type BaseBookingField,
   type ExtraBookingField,
@@ -25,6 +26,9 @@ import { cleaningOptionalExtras } from "@/lib/cleaning-schedule";
 
 export type BookingPrefill = {
   fullName?: string;
+  /** Answers to a category's own questions, carried from the quote page
+   *  (piano cover). Only keys the category asks are used. */
+  extras?: Record<string, string>;
   /** The business on a trade quote (office, commercial, kitchen): the quote's
    *  client name, when the person booking is named separately. */
   companyName?: string;
@@ -161,6 +165,9 @@ export function BookingForm({
     accessRestrictions: "",
     settlementDay: "",
     ...Object.fromEntries(extras.map((x) => [x.key, ""])),
+    ...Object.fromEntries(
+      extras.filter((x) => prefill.extras?.[x.key]).map((x) => [x.key, prefill.extras![x.key]]),
+    ),
     ...(extras.some((x) => x.key === "companyName") && prefill.companyName
       ? { companyName: prefill.companyName }
       : {}),
@@ -307,13 +314,13 @@ export function BookingForm({
       ["email", "Email"],
       ["bookedBy", "Who have you been dealing with?"],
       ...extras
-        .filter((x) => x.required && x.group === "contact")
+        .filter((x) => x.required && x.group === "contact" && extraApplies(x, f))
         .map((x): [string, string] => [x.key, x.label]),
       ["pickupAddress", L("pickupAddress", "Pick-up address")],
       ["dropoffAddress", L("dropoffAddress", "Drop-off address")],
       ["moveDate", L("moveDate", "Move date")],
       ...extras
-        .filter((x) => x.required && x.group !== "contact")
+        .filter((x) => x.required && x.group !== "contact" && extraApplies(x, f))
         .map((x): [string, string] => [x.key, x.label]),
       ["sizeOfMove", "Size of move"],
       ["howManyMovers", "Number of movers"],
@@ -373,6 +380,9 @@ export function BookingForm({
     setStatus("sending");
     const fields = {
       ...f,
+      // A question that is not being asked is sent blank, so a cover chosen
+      // before switching the item to a spa pool can never be billed.
+      ...Object.fromEntries(extras.filter((x) => !extraApplies(x, f)).map((x) => [x.key, ""])),
       whatPacking: whatPacking.join(", "),
       // The same extras as `cleaningExtras`, but PRICED and structured, so the
       // job record can carry them as money rather than a sentence. The readable
@@ -492,7 +502,7 @@ export function BookingForm({
             <label className={labelCls}>{L("moveDate", "Move date")}</label>
             <input className={inputCls} type={standalone ? "date" : undefined} required value={f.moveDate} onChange={(e) => set("moveDate", e.target.value)} />
           </div>
-          {extras.filter((x) => !x.group || x.group === "job").map((x) => (
+          {extras.filter((x) => (!x.group || x.group === "job") && extraApplies(x, f)).map((x) => (
             <ExtraField key={x.key} field={x} value={f[x.key] ?? ""} onChange={(v) => set(x.key, v)} />
           ))}
           {!hiddenFields.includes("sizeOfMove") && (

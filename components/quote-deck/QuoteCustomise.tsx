@@ -13,6 +13,7 @@ import {
 } from "@/lib/quote-deck/house-move-quote";
 import { QuoteTable } from "@/components/quote-deck/house-move/QuoteTable";
 import { quoteCategory, type AddOnId, type QuoteCategory } from "@/lib/quote-deck/quote-categories";
+import { isPianoItem } from "@/lib/company-facts";
 import {
   cleaningOptionalExtras,
   type CleaningExtra,
@@ -77,7 +78,12 @@ export function QuoteCustomise({
   // A row the category does not offer is never shown, and its lines are never
   // dropped from the table: "packed in padded covers" on a piano quote is part
   // of the piano move, not a packing add-on to untick.
-  const has = (id: AddOnId) => category.addOns.includes(id);
+  // Piano cover is only offered when the quote moves a piano; a spa pool or
+  // vending machine quote shows the plain owner's-risk box instead.
+  const coverApplies =
+    !category.coverPriceExGst || quote.lineItems.some((l) => isPianoItem(l.description));
+  const has = (id: AddOnId) => category.addOns.includes(id) && (id !== "insurance" || coverApplies);
+  const ownersRisk = coverApplies ? category.ownersRisk : quoteCategory("commercial").ownersRisk;
   const [cleaningOn, setCleaningOn] = useState(cleaningQuoted);
   const [packingOn, setPackingOn] = useState(packingQuoted);
   // A pack we priced for this house but did not include: shown with its price,
@@ -156,6 +162,18 @@ export function QuoteCustomise({
           ...(quote.quoteTable === "xero"
             ? { quantity: 1, unitPriceExclGst: exGst(cleaningPriceInclGst!) }
             : {}),
+        },
+      ];
+    }
+
+    // Piano cover is a priced add-on: ticked, it is a real line on the quote.
+    if (has("insurance") && insuranceOn && category.coverPriceExGst) {
+      lineItems = [
+        ...lineItems,
+        {
+          description: `${category.insuranceLabel.replace(/^Add /, "")}`,
+          amountExclGst: category.coverPriceExGst,
+          ...(quote.quoteTable === "xero" ? { quantity: 1, unitPriceExclGst: category.coverPriceExGst } : {}),
         },
       ];
     }
@@ -241,7 +259,7 @@ export function QuoteCustomise({
   return (
     <>
       {/* ── Add-ons (purple panel, ABOVE the quote) ── */}
-      {category.addOns.length ? (
+      {category.addOns.some((id) => has(id)) ? (
       <div className="proposal-purple-panel proposal-addons-panel mb-4 px-4 py-4 sm:px-5 sm:py-5">
         <h3 className="font-heading text-xs font-bold text-brand-yellow sm:text-sm">Add-ons</h3>
         <p className="mt-1 text-[10px] text-white/60 sm:text-xs">Tick to add to your {category.noun}</p>
@@ -390,7 +408,14 @@ export function QuoteCustomise({
             <label className={rowCls} onClick={() => setInsuranceOn((v) => !v)}>
               <Tick on={insuranceOn} />
               <span className="flex-1">
-                <span className={insuranceOn ? "text-white" : "text-white/75"}>{category.insuranceLabel}</span>
+                <span className="flex items-center justify-between gap-3">
+                  <span className={insuranceOn ? "text-white" : "text-white/75"}>{category.insuranceLabel}</span>
+                  {category.coverPriceExGst ? (
+                    <span className={insuranceOn ? "text-white" : "text-white/75"}>
+                      ${category.coverPriceExGst} + GST
+                    </span>
+                  ) : null}
+                </span>
                 <span className="mt-0.5 block text-[10px] text-white/55 sm:text-xs">
                   {category.insuranceHint}
                 </span>
@@ -417,7 +442,7 @@ export function QuoteCustomise({
               checked={ownerRisk}
               onChange={(e) => setOwnerRisk(e.target.checked)}
             />
-            <span>{category.ownersRisk}</span>
+            <span>{ownersRisk}</span>
           </label>
         ) : null}
 

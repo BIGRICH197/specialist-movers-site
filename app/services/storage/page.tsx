@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     q: "Are my goods insured while in storage?",
-    a: "We carry $2,000,000 of public liability cover and our crews are licensed and insured. Household goods are held at owner's risk under the Contract and Commercial Law Act 2017, which is standard across the industry, and transit cover can be arranged through our broker on request. Pianos carry $2,000 of cover as standard.",
+    a: "We carry $2,000,000 of public liability cover and our crews are licensed and insured. Household goods are held at owner's risk under the Contract and Commercial Law Act 2017, which is standard across the industry, and transit cover can be arranged through our broker on request. Pianos travel at owner's risk unless you add our $2,000 piano cover for $20 + GST when you book.",
   },
   {
     q: "Where do you store things?",

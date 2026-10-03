@@ -3,6 +3,7 @@ import { BookingForm } from "@/components/quote-deck/BookingForm";
 import { formatAddress } from "@/lib/quote-deck/house-move-quote";
 import { QUOTE_CATEGORIES, type QuoteCategoryKey } from "@/lib/quote-deck/quote-categories";
 import { SAMPLE_QUOTES } from "@/lib/quote-deck/quote-category-samples";
+import { PIANO_COVER_NO, PIANO_COVER_YES } from "@/lib/company-facts";
 
 // One category's booking form, prefilled from its sample quote the way
 // /quote/[ref]/book prefills from a real one. Submitting checks the answers
@@ -44,6 +45,10 @@ export default function BookingPreview({
         cleaningBooked: searchParams?.clean === "1" ? "Yes Cleaning" : searchParams?.clean === "0" ? "No Cleaning" : "",
         packing: searchParams?.pack === "1" ? "Yes packing" : searchParams?.pack === "0" ? "No not packing" : "",
         insurance: searchParams?.ins === "1" ? "Yes insurance" : searchParams?.ins === "0" ? "No (owner's risk)" : "",
+        extras:
+          key === "piano"
+            ? { pianoCover: searchParams?.ins === "1" ? PIANO_COVER_YES : searchParams?.ins === "0" ? PIANO_COVER_NO : "" }
+            : undefined,
         bedrooms: prefill.bedrooms,
         bathrooms: prefill.bathrooms,
       }}
