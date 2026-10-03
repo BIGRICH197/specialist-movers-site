@@ -18,7 +18,7 @@ export type BookingTermsSection = {
 };
 
 export const BOOKING_TERMS_VERSION = "2026-09-official-18";
-export const COMMERCIAL_TERMS_VERSION = "2026-09-commercial-2";
+export const COMMERCIAL_TERMS_VERSION = "2026-10-commercial-3"; // residential terms + Business customers
 
 export const bookingTerms: BookingTermsSection[] = [
   {
@@ -390,120 +390,26 @@ export const cleaningTerms: BookingTermsSection[] = [
   },
 ];
 
-// Commercial / office relocation terms. Shown IN PLACE OF the residential moving
-// terms for the office book-in flow, and intended to attach to commercial quotes.
-// These lean on s43(2) CGA (business use) so the CGA is contracted out where
-// lawful — the key difference from the residential terms.
+// Office and commercial / general terms (Richard, 2026-10-03): the residential
+// terms, which are the ones we have worked on, plus a short section for
+// customers booking for a business. They replaced a thinner, separate
+// commercial set that called every price fixed and switched the Consumer
+// Guarantees Act off for everyone, including a private customer moving a
+// fridge. The piano-only cover clause is left out (pianos book on the
+// residential terms). The three things worth keeping from the old set (the
+// s43 CGA business exclusion, account terms, the liability limit) now apply
+// only where the customer is in fact a business.
+export const businessCustomersTerms: BookingTermsSection = {
+  heading: "Business customers",
+  paragraphs: [
+    "This section applies only where you are booking our services for the purposes of a business. If you are booking as a private individual, it does not apply to you and the rest of these terms apply in full.",
+    "Consumer Guarantees Act: as you are acquiring these services for the purposes of a business, the parties agree, in accordance with section 43 of the Consumer Guarantees Act 1993, that the Consumer Guarantees Act 1993 does not apply to this booking. Nothing in these terms contracts out of any right that cannot lawfully be excluded.",
+    "Account customers: where you hold an approved credit account with us, we invoice on account and payment is due in full by the 20th of the month following the date of the invoice, without deduction or set-off. Without an approved account, payment is as set out under Payment above.",
+    "Limitation of liability: to the maximum extent permitted by law, our total liability arising out of or in connection with this booking is limited to the value of the services provided, and we are not liable for any indirect or consequential loss, including loss of profit, revenue or business interruption.",
+  ],
+};
+
 export const commercialTerms: BookingTermsSection[] = [
-  {
-    heading: "Commercial relocation terms",
-    paragraphs: [
-      "These terms apply to commercial and business relocations carried out by Specialist Movers (KB Logistics Limited) and form part of the quote to which they are attached. They differ from, and prevail over, our residential moving terms for this engagement.",
-    ],
-  },
-  {
-    heading: "1. Application & business use",
-    paragraphs: [
-      "The Client is acquiring these services for the purposes of a business. To the extent permitted by law, and in accordance with section 43 of the Consumer Guarantees Act 1993, the parties agree that the Consumer Guarantees Act 1993 does not apply to this engagement. Nothing in these terms is intended to contract out of any rights that cannot lawfully be excluded.",
-    ],
-  },
-  {
-    heading: "2. Fixed price & scope",
-    paragraphs: [
-      "The price quoted is a fixed price for the labour, truck callouts, access conditions and timeline set out in the quote, based on information supplied by the Client. Materials are charged at the unit rates listed for quantities actually used.",
-    ],
-  },
-  {
-    heading: "3. Variations & additional work",
-    paragraphs: [
-      "Where actual conditions differ materially from those described, including greater volume, additional items or services, access, parking or lift availability not as described, or work outside the listed scope, Specialist Movers may adjust the price. Additional labour beyond the quoted scope is charged at the crew hourly rate set out in your quote, pro-rata. Variations will be agreed in writing where practicable before the additional work is undertaken.",
-    ],
-  },
-  {
-    heading: "4. Delays outside our control",
-    paragraphs: [
-      "All work is carried out on a best-endeavours basis. Specialist Movers is not liable for any loss (direct or indirect, including business interruption) arising from delays caused by factors outside our reasonable control, including but not limited to:",
-    ],
-    bullets: [
-      "Traffic, weather, or road conditions",
-      "Building, landlord or body-corporate access restrictions and approvals",
-      "Lift availability, booking limits, or breakdown",
-      "Security, induction or sign-in procedures",
-      "Parking restrictions or unavailability",
-      "Acts or omissions of third-party contractors, or the Client's site not being ready",
-    ],
-    tail: [
-      "Where such factors extend the job, additional time may be charged in accordance with clause 3.",
-    ],
-  },
-  {
-    heading: "5. Client responsibilities",
-    paragraphs: [
-      "The Client is responsible for arranging and confirming site access, parking, lift bookings, building permits and any certificates of insurance required by the building; for backing up all data before the move; and for disconnecting and reconnecting IT, AV and network equipment unless this is expressly contracted to Specialist Movers. Items that cannot be safely lifted or carried by two movers (recommended maximum 80 kg) must be disclosed before the move so additional resources can be arranged, which may incur an additional charge.",
-    ],
-  },
-  {
-    heading: "6. Goods at owner's risk, insurance & public liability",
-    paragraphs: [
-      "All goods are transported at the owner's risk in accordance with the Contract and Commercial Law Act 2017. The price does not include any insurance or transit cover for the goods. Specialist Movers will pay no compensation if goods are lost or damaged unless we intentionally lose or damage them.",
-      "Accordingly, the Client is required to arrange adequate goods-in-transit or contents insurance for the move, or to request a quote through our insurance broker, before the move proceeds. By proceeding without such cover, the Client acknowledges and accepts that the move is carried out entirely at the owner's risk.",
-      "Specialist Movers holds $2,000,000 public liability insurance. This covers liability for third-party bodily injury or property damage caused by our operations; it does not insure the Client's goods while in transit, which remain at the owner's risk as set out above.",
-    ],
-  },
-  {
-    heading: "7. Electronics, IT & whiteware",
-    paragraphs: [
-      "While reasonable care is taken, Specialist Movers cannot be held responsible for electronic or IT equipment that ceases to work following a move. We recommend the Client back up all data and arrange the handling of servers and other critical or high-value electronics. We are not plumbing or electrical specialists; where requested to connect or disconnect appliances we do so without responsibility for subsequent leaks, faults or failures.",
-    ],
-  },
-  {
-    heading: "8. Furniture, pods & reassembly",
-    paragraphs: [
-      "Workstations and modular furniture are dismantled and reassembled on a best-endeavours basis. Silent pods are dismantled and reassembled by the silent pod company; Specialist Movers move them only.",
-      "Specialist Movers is not liable for failure of fixings or fittings, for pre-existing wear or weakness, or for items not designed to be repeatedly dismantled and reassembled.",
-    ],
-  },
-  {
-    heading: "9. Fragile, pre-packed & client-packed items",
-    paragraphs: [
-      "Packing is undertaken on a best-endeavours basis and does not guarantee against damage or loss. Specialist Movers accepts no liability for breakage, cracking, chipping or internal damage to fragile or delicate items, nor for the contents of sealed cartons or concealed damage not visible at delivery. Items with pre-existing damage, and any items packed by the Client, are transported entirely at the Client's risk.",
-    ],
-  },
-  {
-    heading: "10. Excluded items",
-    paragraphs: [
-      "Cash, important documents, high-value, irreplaceable or sentimental items, and perishable, flammable, hazardous or dangerous goods must not be transported by Specialist Movers and remain the sole responsibility of the Client. If carried at the Client's request, this is done entirely at the Client's risk.",
-    ],
-  },
-  {
-    heading: "11. Health & safety",
-    paragraphs: [
-      "Specialist Movers is SiteWise Gold certified and works to strict health and safety practice. Specialist Movers reserves the right to refuse to handle any item that is unsafe to transport or insufficiently packaged, or to require additional resources for heavy items.",
-    ],
-  },
-  {
-    heading: "12. Notification of damage",
-    paragraphs: [
-      "Any claim that Specialist Movers is responsible for damage must be notified to us in writing within 24 hours of the incident so the circumstances can be assessed. Claims made after this period will not be considered.",
-    ],
-  },
-  {
-    heading: "13. Cancellation",
-    paragraphs: [
-      "Cancellation within five (5) business days of the scheduled start date incurs a fee of 20% of the quoted total. Cancellation within 24 hours of the scheduled start incurs a fee of 50% of the quoted total, reflecting committed crew, trucks and materials.",
-    ],
-  },
-  {
-    heading: "14. Payment",
-    paragraphs: [
-      "Specialist Movers invoices on completion of the work. Clients with an approved credit account are invoiced on account, payable in full by the 20th of the month following the date of invoice, without deduction or set-off. Clients without a credit account are invoiced on completion and payment is due within three (3) days of the invoice date, unless other terms are agreed in writing. A credit account can be applied for at specialistmovers.co.nz/credit-application.",
-      "Overdue balances may incur interest at 2% per month, and all costs of collection are payable by the Client. Specialist Movers may suspend further work on account until an overdue balance is cleared.",
-    ],
-  },
-  {
-    heading: "15. Limitation of liability",
-    paragraphs: [
-      "To the maximum extent permitted by law, Specialist Movers' total liability arising out of or in connection with this engagement is limited to the value of the services provided, and Specialist Movers is not liable for any indirect or consequential loss, including loss of profit, revenue or business interruption.",
-    ],
-  },
+  ...bookingTerms.filter((sec) => !/pianos only/i.test(sec.heading)),
+  businessCustomersTerms,
 ];
