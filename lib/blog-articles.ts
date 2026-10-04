@@ -2712,6 +2712,138 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "sitewise-gold-commercial-moves-auckland-hamilton": {
+    title: "When the Loading Dock Says No: SiteWise Certification and Your Commercial Move",
+    sections: [
+      {
+        heading: "The Problem Most Business Owners Hit Too Late",
+        paragraphs: [
+          "You have booked a mover, confirmed the truck size, and told the team to be ready at seven. Then, two days before, the building manager sends an email: your contractor needs a current SiteWise Gold certificate or they cannot enter the loading dock.",
+          "It happens more often than you would expect, and it tends to happen on commercial moves into newer precincts, construction-adjacent buildings, and managed business parks across Auckland and the Waikato. The mover you booked may be perfectly capable, but if they cannot get past the freight entrance, capability does not matter.",
+          "This guide explains what SiteWise Gold actually means, which types of sites require it, and how to confirm your mover's status before anyone loads a truck.",
+        ],
+      },
+      {
+        heading: "What SiteWise Gold Certification Actually Means",
+        paragraphs: [
+          "SiteWise is a New Zealand health and safety prequalification system used by property managers, construction companies, and facility operators to vet contractors before they come on site. It assesses a company's health and safety management systems against a defined standard.",
+          "Gold is the higher tier. To hold Gold, a company needs to score 90 per cent or above in the assessment. That score tells the site manager the contractor has documented systems, clear hazard management processes, and the paperwork to back it up. A company can sit in the system at a lower score, but Gold is what many managed sites, particularly those with active construction nearby or stricter facility rules, specify as a minimum.",
+          "The certification is independently verified and publicly searchable, which is why building managers lean on it. It takes guesswork out of vetting a contractor they have never worked with before.",
+        ],
+      },
+      {
+        heading: "Which Sites in Auckland and the Waikato Actually Enforce This",
+        paragraphs: [
+          "Not every Auckland office move triggers a SiteWise check. A small tenancy in a standalone Newmarket building with street-level access is unlikely to ask for it. The situations where it comes up reliably are more specific.",
+          "Construction-adjacent buildings are the most common trigger. If your new premises share a site, a loading zone, or a basement carpark with active building work, the principal contractor running that work controls who enters. Their health and safety plan typically specifies contractor prequalification, and SiteWise Gold is the standard they reference.",
+          "Managed business parks with shared freight infrastructure are another. Precincts in Albany, Highbrook, East Tamaki, and parts of the Hamilton industrial corridor often have a facilities team that maintains a contractor register. Moving in or out of a tenancy in one of these parks can mean your mover needs to be on that register, and Gold certification is usually the entry requirement.",
+          "Government-leased floors and certain iwi or council-managed buildings increasingly carry the same requirements. If you are relocating to or from premises where the landlord has specific contractor approval processes, check early.",
+        ],
+      },
+      {
+        heading: "How to Check Your Mover's Status Before Move Day",
+        paragraphs: [
+          "SiteWise certificates are current or they are not. A company can let their assessment lapse, so a certificate from two years ago means nothing. Here is how to confirm your mover is actually current.",
+          "First, ask the mover directly for their SiteWise reference number and the expiry date of their current assessment. Any certified company can give you this in about thirty seconds. If they hesitate or offer a PDF from an old assessment, that is worth probing further.",
+          "Second, verify it yourself. The SiteWise website has a public contractor search. Put in the company name or reference number and you can see their current tier and whether the assessment is active. This takes less than two minutes and removes any ambiguity.",
+          "Third, send the certificate number to your building manager before move day, not on it. Some managed sites need to log contractors into their system in advance. If they have a cutoff for approvals, finding out on move morning is too late to fix anything.",
+        ],
+      },
+      {
+        heading: "What Happens When a Building Refuses an Uncertified Crew",
+        paragraphs: [
+          "A building manager refusing entry to an uncertified mover is not being difficult. They are following a contractual obligation, and they will not bend it regardless of how reasonable the situation seems on the day.",
+          "In practice, it means the truck sits at the loading dock entrance while someone tries to find a workaround. There usually is not one. You either reschedule with a certified mover or you lose the booking window, which in a tenancy changeover can mean costs landing on you rather than the mover.",
+          "The secondary problem is that some buildings have strict move-in windows, often weekday mornings or pre-agreed Saturday slots, and rebooking means waiting for the next available window. In a busy precinct like Wynyard Quarter or the Viaduct precinct, those windows can be weeks apart.",
+          "Getting this wrong is genuinely disruptive. Getting it right requires one conversation before you confirm a booking.",
+        ],
+      },
+      {
+        heading: "Shared Business Parks and Freight Restrictions: a Separate Issue",
+        paragraphs: [
+          "SiteWise certification covers health and safety prequalification. It does not automatically cover every freight or access rule a shared business park imposes. These are two different things and both need checking.",
+          "Many larger precincts specify truck size limits, loading dock booking windows, and rules about moving equipment in shared corridors or lifts. Some require the facilities team to be notified a set number of days before a move. Some prohibit moves during core business hours to avoid disrupting other tenants.",
+          "Your building manager or leasing contact is the right person to walk through this list. Ask specifically about truck size, dock availability, lift restrictions, and whether there is a contractor approval process separate from SiteWise. Then pass that list to your mover and confirm they can work within it. A mover who has done commercial relocations across Auckland's managed precincts will recognise these constraints and know the right questions to ask back.",
+        ],
+      },
+      {
+        heading: "Hamilton and the Waikato: the Same Rules, Different Precincts",
+        paragraphs: [
+          "Business owners relocating within Hamilton or between the Waikato and Auckland sometimes assume managed-site rules are an Auckland thing. They are not. Hamilton's Te Rapa industrial corridor, parts of the Ruakura Superhub precinct, and several larger managed campuses in the wider Waikato apply contractor prequalification in the same way.",
+          "The scale is different but the principle is identical: if a site's facility team controls loading access, they control who gets through. Moves serving Cambridge, Te Awamutu, or Morrinsville businesses relocating into managed Hamilton premises face exactly the same checkpoint.",
+          "The useful difference is that Hamilton managed sites often have more flexible booking windows than inner-city Auckland. The freight dock is less contested. But that flexibility does not remove the certification requirement, it just makes the logistics easier once the access question is settled.",
+        ],
+      },
+      {
+        heading: "Confirming Your Mover Can Actually Do the Job",
+        paragraphs: [
+          "When you are comparing commercial movers for a managed-site job, SiteWise Gold status is a binary question with a verifiable answer. Ask it first, check it yourself, and confirm it with the building manager. That sequence takes about fifteen minutes and closes the biggest single risk on a commercial move.",
+          "Specialist Movers holds SiteWise Gold certification with a score above 90 per cent, which is what gets our crews through the loading docks of managed sites, construction-adjacent buildings, and prequalified business parks across Auckland and the Waikato. We operate seven days a week, including after-hours and weekend commercial moves, and we run from two bases, Auckland and Hamilton, covering more than 4,000 moves across Auckland and the Waikato.",
+          "If you have a commercial relocation coming up and you want to confirm site access requirements before booking, get in touch through the website. We usually have a quote back within fifteen minutes during business hours, and we can talk through any managed-site or freight-restriction questions at the same time.",
+        ],
+      },
+    ],
+  },
+  "it-equipment-office-move-auckland": {
+    title: "Your IT on Moving Day: Who Does What, and in What Order",
+    sections: [
+      {
+        heading: "The Question Every Office Manager Asks Too Late",
+        paragraphs: [
+          "Most Auckland office moves go smoothly until someone asks, on the afternoon before the trucks arrive, who is handling the computers. The furniture crew is booked. The new office is ready. But nobody has confirmed whether IT is coming in to disconnect workstations, who is labelling the cables, or when the server room gets touched.",
+          "This article answers those questions plainly. It covers what your movers will and will not do, what your IT team needs to handle, and how to sequence the two so you are not paying people to stand around waiting for the other group to finish.",
+        ],
+      },
+      {
+        heading: "What Movers Handle and What They Do Not",
+        paragraphs: [
+          "A furniture crew will move IT equipment once it is ready to move. Monitors, desktop towers, UPS units, server rack components, even large network switches. If it is boxed, crated or disconnected and ready to be carried, the crew can move it.",
+          "What movers will not do is touch live systems, disconnect cables, or make decisions about how a rack is broken down. That is not a limitation specific to us. It is the right boundary. A mover who pulls the wrong cable from a server panel can cost a business far more than the moving job is worth. Your IT contractor or internal IT team owns that work, full stop.",
+          "Screens and monitors travel best in their original boxes if you have kept them. If not, talk to us when you book. We can discuss packing options that suit what you have.",
+        ],
+      },
+      {
+        heading: "The IT Team's Job Before the Truck Arrives",
+        paragraphs: [
+          "IT needs to be on site before the movers start, not after. The sequence that works is: IT disconnects and labels everything, movers load and transport, IT reconnects at the other end. If those stages overlap, you get confusion and delays.",
+          "For workstations, each machine should be shut down, cables detached and coiled, and the whole unit ready to be picked up as a discrete item. A label on the machine and a matching label on the cable bundle saves hours at the destination.",
+          "For server rooms, your IT contractor should have a full decommission plan before moving day. Which racks come down first, what order equipment is removed in, how long it takes to bring everything back online at the new address. That plan should exist independently of the move plan, and the two should be cross-referenced so the furniture crew knows when the server room is clear and ready.",
+        ],
+      },
+      {
+        heading: "Server Rooms: Plan the Downtime Window Deliberately",
+        paragraphs: [
+          "Most Auckland businesses moving offices accept some server downtime. The question is whether that downtime is planned or accidental. Planned is manageable. Accidental, when a server is moved before the destination rack is in place, or when the new building's power configuration has not been checked, is expensive.",
+          "Talk to your IT contractor about the minimum downtime window and work backwards from when you need to be operational. If you need to be running by Monday morning, work out what time Sunday the servers need to be back online, then what time they need to arrive at the new address, then what time the movers need to have the server room cleared at the old one.",
+          "If your business runs a cloud-first setup with minimal on-site infrastructure, this is simpler. But even then, someone needs to move the physical hardware, and that someone still needs to have disconnected it properly first.",
+        ],
+      },
+      {
+        heading: "The Sequence That Avoids the Gap",
+        paragraphs: [
+          "Here is a working order that Auckland office managers have found reliable. IT attends the day before the move, or early on move day, to disconnect and label all equipment. The furniture crew loads general office furniture first while IT finishes. IT equipment goes on the truck last so it comes off first at the destination, where IT is already waiting to begin reconnecting.",
+          "At the new premises, the IT team should be there before the first box arrives if possible. Network points, power configuration and desk layout need to be confirmed before workstations land on desks. If those details are unresolved when the truck pulls up, the crew ends up waiting and you are paying for that time.",
+          "One practical tip: confirm with building management at both addresses that the server room or comms cupboard is accessible before your IT team and movers arrive. Auckland CBD buildings and North Shore commercial parks both have after-hours access procedures that can catch people off guard.",
+        ],
+      },
+      {
+        heading: "After-Hours and Weekend Moves",
+        paragraphs: [
+          "We work seven days. For a lot of Auckland businesses, the right answer is a Friday evening or Saturday start so that IT has the weekend to reconnect and test everything before staff are back on Monday. That window also avoids lift and loading dock conflicts in busy commercial buildings.",
+          "If your new building has managed-site requirements, ask your moving company whether they hold the right certification. Our crews carry SiteWise Gold certification with a 90-plus percent score, which is what gets a team onto managed sites and commercial construction buildings without delay. It is worth confirming before you book anyone.",
+        ],
+      },
+      {
+        heading: "A Few Things Worth Confirming Before Moving Day",
+        paragraphs: [
+          "Check that your IT contractor and your moving company have each other's contact details and a shared understanding of the sequence. It sounds obvious, but the gap between those two groups is where most office move delays live.",
+          "Confirm the power layout at the new premises. Knowing where the dedicated circuits are and whether the rack space is ready saves time on reconnection.",
+          "If you have specialist equipment, a broadcast rig, high-value workstations, or anything that needs particular handling, mention it when you get your quote. The more we know ahead of time, the better we can plan the crew and truck size.",
+          "If you are moving a larger Auckland office and want us to walk through the job first, we offer free viewings. It gives us a clear picture and means there are no surprises on the day. You can get a quote through the Specialist Movers website and we usually come back to you within about 15 minutes during business hours.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {

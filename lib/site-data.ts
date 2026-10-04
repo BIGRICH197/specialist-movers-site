@@ -531,4 +531,20 @@ export const blogPosts = [
     excerpt:
       "A Hobsonville couch couldn't come down the stairs. Here's how we planned the balcony hoist, what gear we used, and what to do if you have a similar problem.",
   },
+  {
+    slug: "sitewise-gold-commercial-moves-auckland-hamilton",
+    title: "When the Loading Dock Says No: SiteWise Certification and Your Commercial Move",
+    seoTitle: "SiteWise Gold & Office Moves Auckland | Specialist Movers",
+    publishedDate: "2026-10-04",
+    excerpt:
+      "Managed sites and shared business parks can turn a commercial move sideways fast. Here is what SiteWise Gold certification means and how to check before move day.",
+  },
+  {
+    slug: "it-equipment-office-move-auckland",
+    title: "Your IT on Moving Day: Who Does What, and in What Order",
+    seoTitle: "IT Equipment in an Office Move Auckland | Specialist Movers",
+    publishedDate: "2026-10-04",
+    excerpt:
+      "Monitors, servers, workstations: who disconnects them, who moves them, and how to sequence your IT team so you're back online by Monday morning.",
+  },
 ] as const;
