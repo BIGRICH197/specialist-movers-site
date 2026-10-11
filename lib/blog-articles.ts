@@ -2844,6 +2844,133 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "partial-floor-office-move-auckland": {
+    title: "Half the Floor, Half the Headache: Running a Partial Office Move in a Live Auckland Building",
+    sections: [
+      {
+        heading: "The Problem Nobody Warns You About",
+        paragraphs: [
+          "Most office move guides assume you hand back the whole building at once. But plenty of Auckland tenancies don't work that way. You might be vacating level three while levels two and four stay occupied by other businesses. Your lease on the east wing ends six weeks before the west wing. Or your head office is relocating in stages while a small ops team stays put to keep things running.",
+          "That situation, a partial or staggered move inside a live building, is genuinely harder to manage than a full exit. The neighbours didn't sign up for noise, blocked lifts and a stream of removalists through the lobby. The building manager has obligations to everyone, not just you. And you still have to hand back your portion on time, in good condition, with nothing left behind.",
+          "This guide is written for the Auckland office manager sitting in the middle of that problem. It won't tell you moving is simple. It will tell you what actually works.",
+        ],
+      },
+      {
+        heading: "Start With the Building Manager, Not the Moving Company",
+        paragraphs: [
+          "Before you book anything, have a proper conversation with your building manager. In a multi-tenancy building on Shortland Street, Fanshawe Street or anywhere else in the Auckland CBD, the building manager controls the freight lift booking schedule, the loading dock, and the hours during which works are allowed on site. Those constraints shape everything else.",
+          "Ask three specific questions. First, which lift is available to your crew, and how long can you book it for? Shared freight lifts in busy towers often run on 30-minute or one-hour slots. If your floor has 40 workstations, one lift slot is nowhere near enough. Second, are there noise restrictions? Some buildings protect surrounding tenants during core business hours, meaning no trolleys, no tape guns, no moving at all between 8am and 6pm. Third, does the moving company need to be on an approved contractor list or hold a safety certification before they can enter the site?",
+          "That last question matters more than people expect. Managed commercial sites in Auckland increasingly require SiteWise Gold certification before a contractor can work on the premises. A moving company without it simply won't get through the door, regardless of how good they are. Specialist Movers holds SiteWise Gold with a score above 90%, which is what gets crews onto those sites without delay.",
+        ],
+      },
+      {
+        heading: "Why After-Hours Work Is Often the Only Safe Option",
+        paragraphs: [
+          "Once you know the building's rules, most office managers come to the same conclusion: the only window that doesn't hurt someone is outside business hours. Moving during the day blocks lifts that other tenants need, creates noise on floors where people are trying to work, and often breaches the building's own tenancy agreements.",
+          "After-hours and weekend work solves most of that. The freight lift is yours. The loading dock is quiet. Nobody on level two is in a meeting when the trolleys go past. The catch is that it has to be planned properly, and the crew and the building manager both need to know the plan in detail before anyone shows up with a truck.",
+          "Specialist Movers operates seven days a week and takes on after-hours commercial jobs regularly. If your building requires a Saturday night start or a Sunday morning finish to protect the working week, that's a realistic ask. What isn't realistic is calling on a Thursday to arrange a Saturday evening move with no prior discussion about access, lift bookings or truck parking. Give yourself at least two to three weeks of planning time for any after-hours commercial job.",
+        ],
+      },
+      {
+        heading: "How to Sequence the Move Itself",
+        paragraphs: [
+          "With a partial move, the sequencing question is: what leaves first, and what stays functional until the end? The answer usually comes from your IT team and your operations lead, not from the moving company. But here's a framework that works for most Auckland offices.",
+          "In the week before the move, identify everything that can leave early without breaking anyone's day. Archive boxes, spare furniture, old AV equipment and items from storage rooms are usually safe to go first. These can sometimes move during a quiet business-hours window if the building allows it, freeing up space and reducing the volume for the main move.",
+          "The main move, workstations, monitors, phones, printers and anything the team uses daily, should happen in one continuous block. Splitting it across two nights often sounds efficient but creates a messy middle day where half the team has no desk. One clean move, even if it means a larger crew and a longer night, is usually less disruptive than two partial ones. Plan the final clean and a walk-through with your building manager on the last day so you can hand back your portion of the floor on time.",
+        ],
+      },
+      {
+        heading: "Protecting the Parts of the Building You Are Not Moving",
+        paragraphs: [
+          "The tenants staying put are your biggest risk. If your move damages a shared corridor, scratches the lift doors or blocks a fire exit, you own that problem. A good moving company will pad lift interiors and protect corridor walls and floors before a single item moves. Ask specifically what protection is used and for which surfaces, and make sure that conversation happens before the crew arrives, not on the night.",
+          "Parking and truck access is another common friction point. Buildings on Albert Street, Victoria Street or the Viaduct precinct often have strict rules about when a truck can sit at the loading dock. Some require a traffic management plan if the vehicle will affect the footpath or lane. Check this with the building manager and, if needed, with Auckland Transport. Sorting it in advance takes less than an hour. Sorting it at 10pm on moving night is a different experience entirely.",
+        ],
+      },
+      {
+        heading: "The Staggered Handback Problem",
+        paragraphs: [
+          "If your lease exit is staged, meaning you hand back one portion of the floor at one date and another portion later, you need a clear dividing line between what's been vacated and what's still yours. That sounds obvious but it's easy to blur. The building manager needs to know exactly which areas are back in their hands and when, and so does your own team.",
+          "Photograph the spaces you hand back on the day you hand them back. Do a joint walk-through with the building manager and get written confirmation. This protects you if a damage claim appears later that relates to a section you vacated weeks earlier. It also keeps your staggered schedule from becoming a dispute about who left what and when.",
+          "If some of your furniture or equipment needs to sit somewhere between the first handback and the second move, short-term storage is worth considering. Moving everything twice is rarely efficient, but leaving items in a half-vacated office you're still paying rent on isn't great either. Talk through the options with your moving company early so storage is built into the plan, not bolted on at the last minute.",
+        ],
+      },
+      {
+        heading: "What to Ask a Moving Company Before You Confirm",
+        paragraphs: [
+          "For a partial or live-building move, these are the questions that separate a capable commercial mover from one that will cause you problems. Do they hold SiteWise Gold certification? Can they work after hours and on weekends? Have they done live-building moves before, where other tenants stayed occupied during or immediately after the move? Do they carry public liability insurance and are the crew members themselves insured?",
+          "You should also ask how they handle building protection and what they do if the freight lift becomes unavailable mid-job. The answer to that last question tells you a lot. A crew that has a plan B is a crew that has done this before.",
+          "Specialist Movers has completed 4,000+ moves across Auckland and the Waikato. The crew are licensed and insured, and cover for your own goods can be arranged through our team. If you want to talk through the specifics of your partial move before committing, a free viewing can be arranged for larger jobs, and quotes usually come back within about 15 minutes during business hours. You can get started through the quote form on our website.",
+        ],
+      },
+    ],
+  },
+  "hamilton-office-move-october-november-q4-guide": {
+    title: "Q4 Office Moves in Hamilton and the Waikato: Booking Before the Calendar Closes",
+    sections: [
+      {
+        heading: "Why October and November Catch Business Owners Off Guard",
+        paragraphs: [
+          "A lot of Waikato commercial leases run on a December or January end date. That sounds like plenty of lead time, but the practical window for moving is October and November. By December your staff are winding down, your landlord wants the space back, and the building manager at your new address is fielding five other handover requests at once.",
+          "Add to that the summer road programme. Te Rapa Road and sections of the Waikato Expressway typically carry construction activity through this period, and a morning that looks clear on Google Maps can add a meaningful chunk to a truck's travel time. That is not an excuse, it is a sequencing problem, and it is one you can plan around.",
+        ],
+      },
+      {
+        heading: "How School Holidays Affect Your Move Window",
+        paragraphs: [
+          "The Waikato school holidays run through most of October. For a business move, that is actually a mixed blessing. Traffic on Hamilton's arterial routes is lighter during school hours, which helps with truck access to areas like Te Rapa and Chartwell. But your own staff may be taking leave, which tightens the window when you have people available to supervise handover at both ends.",
+          "The practical answer is to move the furniture and equipment during the school holiday fortnight, then have staff return to a space that is already set up. That requires your IT infrastructure to be reconnected before the first working day back, which means IT needs to be on site the afternoon of the move, not the morning after. Work backwards from that date and you will find the window is tighter than it first appears.",
+        ],
+      },
+      {
+        heading: "Building Access at Te Rapa, Frankton and Chartwell Business Parks",
+        paragraphs: [
+          "Shared business parks in these areas typically have building managers who control lift bookings, loading dock access and freight lift keys. In Q4, those managers are handling end-of-year lease transitions across multiple tenancies simultaneously. A dock booking that would take a day to arrange in June can take a week in October.",
+          "Contact your building manager and your new landlord's building manager on the same day you confirm your move date. Get the access windows in writing: which lifts are freight-rated, what the maximum truck length is for the loading area, whether the car park needs to be coned off and who arranges that. Some business parks in the Te Rapa corridor require a traffic management plan for large trucks. If that applies to your site, your movers need to know before the truck is loaded, not when it arrives.",
+          "If your new premises is inside a managed or construction-adjacent site, ask whether the moving company holds SiteWise certification. Some site managers will not allow unaccredited contractors on site during business hours. Our crews carry SiteWise Gold with a 90-plus percent score, which satisfies most managed-site requirements in the Waikato.",
+        ],
+      },
+      {
+        heading: "Why Weekend and After-Hours Slots Go First in Q4",
+        paragraphs: [
+          "Most Hamilton businesses want to move over a weekend so staff arrive Monday morning in a new space without having lost a working day. That logic is sound, but every other business owner in Hamilton has the same idea. Weekend slots in October and November fill several weeks out, not several days out.",
+          "After-hours weekday moves are the alternative. A truck arriving at your current premises at five in the afternoon can often complete a mid-sized office move and have furniture placed at the new address before midnight, with no disruption to either building's daytime operations. This is a normal part of how commercial movers operate in Q4, not a premium workaround.",
+          "We operate seven days a week and take commercial bookings outside standard hours. If you are reading this in September, the calendar is not full yet. If you are reading it in late October, call us and we will tell you honestly what is available.",
+        ],
+      },
+      {
+        heading: "Sequencing the Move: A Practical Order of Operations",
+        paragraphs: [
+          "Start with the non-negotiables. Your new premises' building manager controls your access window. Your IT provider controls your reconnection date. Your current landlord controls when you hand back keys. Lock those three dates before you book a truck.",
+          "Once those are fixed, work backwards. If keys go back on 30 November, your space needs to be empty and cleaned by 29 November. If IT reconnection takes a half-day, the furniture needs to be in place the evening before. If the building allows freight lift access only between 6am and 8am or after 5pm, the truck needs to arrive within that window.",
+          "For offices with a lot of workstations, it is worth separating the move into two stages: equipment and files on day one, workstations and seating on day two. That gives your IT team a clear run at the server room without movers crossing cables, and it means if something runs long on day one you have not lost your only access window at the new address.",
+          "A day-before packing service is worth considering if your team is still using workstations right up to the last day. Our crew can come in the afternoon before the truck arrives, box files, wrap monitors and stage everything near the door so the truck day is fast and predictable.",
+        ],
+      },
+      {
+        heading: "What to Ask Your Movers Before You Sign Anything",
+        paragraphs: [
+          "Ask whether they operate after hours and on weekends for commercial jobs, not just in theory but as a regular part of their Q4 schedule. Ask whether they are SiteWise accredited. Ask how pricing works for a job that spans two days or two sites, and make sure you understand the callout structure before you commit.",
+          "Ask about insurance. A licensed and insured crew is the baseline. Cover for your own equipment and contents during transit can be arranged through our team, and it is worth sorting before move day rather than after.",
+          "Ask what happens if the building access window runs short. On a commercial job, delays at a loading dock or a freight lift queue can eat into a booking. Know in advance how that is handled.",
+        ],
+      },
+      {
+        heading: "Hamilton to the Wider Waikato: If Your New Address Is Not Central Hamilton",
+        paragraphs: [
+          "We run commercial moves across the Waikato from our Hamilton base, including Cambridge, Te Awamutu, Huntly, Ngaruawahia and Matamata. If your business is relocating from Hamilton to one of these towns, or between them, the same Q4 pressure applies. Rural business parks and industrial estates outside central Hamilton often have no building manager to navigate, which simplifies access, but route planning matters more when the expressway is under summer maintenance.",
+          "For moves between Waikato towns, tell your movers the full route when you get a quote, not just the two addresses. A job from Te Rapa to Cambridge via the expressway during peak construction hours looks different from the same job at six in the morning.",
+        ],
+      },
+      {
+        heading: "Getting Your Quote Before the October Rush",
+        paragraphs: [
+          "The businesses that move smoothly in October and November are the ones who confirmed their slot in August or September. That is not pressure, it is just how the Q4 calendar works in Hamilton.",
+          "If you have a rough move date and a rough idea of what needs to move, that is enough to get a quote. You do not need a finalised floor plan or a furniture inventory. We ask a few questions, turn a quote around quickly during business hours, and hold your slot while the details firm up. If you want us to see the space before quoting, free viewings are available for larger moves.",
+          "Use the quote form on our website and note that the job is commercial and Q4. That gets it to the right person straight away.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {

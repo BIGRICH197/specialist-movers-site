@@ -547,4 +547,20 @@ export const blogPosts = [
     excerpt:
       "Monitors, servers, workstations: who disconnects them, who moves them, and how to sequence your IT team so you're back online by Monday morning.",
   },
+  {
+    slug: "partial-floor-office-move-auckland",
+    title: "Half the Floor, Half the Headache: Running a Partial Office Move in a Live Auckland Building",
+    seoTitle: "Partial Office Move Auckland | Specialist Movers",
+    publishedDate: "2026-10-11",
+    excerpt:
+      "Relocating one floor while the rest stays live? This guide covers sequencing, access windows and why after-hours work is often the only real option.",
+  },
+  {
+    slug: "hamilton-office-move-october-november-q4-guide",
+    title: "Q4 Office Moves in Hamilton and the Waikato: Booking Before the Calendar Closes",
+    seoTitle: "Office Movers Hamilton: Q4 Timing Guide | Specialist Movers",
+    publishedDate: "2026-10-11",
+    excerpt:
+      "October and November are the busiest months for commercial moves in Hamilton. Here's how to sequence yours before weekend slots fill and road works add time.",
+  },
 ] as const;
