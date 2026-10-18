@@ -14,6 +14,8 @@ export const siteContentUpdatedIso = "2026-06-13";
  * baseline, which is still honest and still stable between builds.
  */
 const routeContentDates: Record<string, string> = {
+  "/blog/above-ground-floor-office-moves-auckland": "2026-10-18",
+  "/blog/downsizing-waikato-retirement-village-move-guide": "2026-10-18",
   "/blog/hamilton-office-move-october-november-q4-guide": "2026-10-11",
   "/blog/partial-floor-office-move-auckland": "2026-10-11",
   "/blog/it-equipment-office-move-auckland": "2026-10-04",
