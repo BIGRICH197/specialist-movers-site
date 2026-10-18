@@ -563,4 +563,20 @@ export const blogPosts = [
     excerpt:
       "October and November are the busiest months for commercial moves in Hamilton. Here's how to sequence yours before weekend slots fill and road works add time.",
   },
+  {
+    slug: "downsizing-waikato-retirement-village-move-guide",
+    title: "When the Family Home No Longer Fits the Life: Downsizing in the Waikato",
+    seoTitle: "Downsizing Movers Hamilton & Waikato | Specialist Movers",
+    publishedDate: "2026-10-18",
+    excerpt:
+      "A plain guide for Hamilton, Cambridge and Waikato families planning a move into a retirement village or smaller home. What fits, what to keep and how to time it.",
+  },
+  {
+    slug: "above-ground-floor-office-moves-auckland",
+    title: "Floor Three, No Freight Lift: What Auckland Office Moves Above Street Level Actually Require",
+    seoTitle: "Office Movers Auckland: Above Ground Floor Moves | Specialist Movers",
+    publishedDate: "2026-10-18",
+    excerpt:
+      "Moving your Auckland office to an upper floor? This guide covers crew size, freight lift access, loading dock rules, hoists, and what to tell movers before you book.",
+  },
 ] as const;

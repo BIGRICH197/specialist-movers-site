@@ -2971,6 +2971,140 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "downsizing-waikato-retirement-village-move-guide": {
+    title: "When the Family Home No Longer Fits the Life: Downsizing in the Waikato",
+    sections: [
+      {
+        heading: "Who This Article Is For",
+        paragraphs: [
+          "You are probably not the one moving. You are the son or daughter, the one who drove down from Hamilton on a Saturday to measure up the lounge and help decide what comes and what goes. Mum or Dad is in a Cambridge retirement village by March, and you have your own work, your own kids, and a settlement date that could shift.",
+          "This guide covers the practical decisions that happen before the truck arrives. Floor plans, timing, packing help, and what questions to ask so nothing falls through. It is written for the Waikato, because Cambridge, Te Awamutu, Raglan and Morrinsville all have their own quirks, and a guide written for Auckland does not always translate.",
+        ],
+      },
+      {
+        heading: "Start With the Floor Plan, Not the Feelings",
+        paragraphs: [
+          "The first argument in almost every downsizing job is not about what to keep. It is about where it will go. Before anyone decides whether the dining table is coming, you need the actual measurements of the new place. Most retirement villages will send a floor plan PDF on request. Print it, or open it on a tablet, and bring a tape measure to the family home.",
+          "Work room by room. The bedroom suite that has been in the family for thirty years might fit a standard retirement village room perfectly, or it might not. There is no point loading it on a truck and finding out at the other end. Mark out the new room dimensions on the floor of the current bedroom with masking tape if that helps. It sounds fussy, but it saves a genuinely hard conversation on moving day.",
+          "Furniture that does not make the cut has three destinations: family members who want it, a charity or second-hand dealer, and the skip. Give yourself at least four weeks to work through this before the move date. Charities in Hamilton and the Waikato often need a week or two lead time to arrange collection for larger items, especially in the smaller towns.",
+        ],
+      },
+      {
+        heading: "Timing the Move Around Settlement",
+        paragraphs: [
+          "Retirement village contracts and property settlements rarely line up perfectly. The family home might settle on a Thursday. The village unit might not be available until the following Monday. That gap is where things get complicated.",
+          "The cleanest solution is a two-stage move: furniture goes into storage after the settlement, then into the village once access is confirmed. It adds a step, but it removes the pressure of matching two dates that are not in your control. Talk to your solicitor early about how firm both dates are, because in smaller Waikato towns, settlements can shift if the chain above you shifts.",
+          "If the dates do align cleanly, a single-stage move works well. The crew loads from the family home in the morning, and delivers to the village the same day. But build in buffer time. Village coordinators will often tell you when the loading bay is free, and some have rules about lift bookings or truck access that are worth confirming a week before. A quick call to the village office costs nothing.",
+        ],
+      },
+      {
+        heading: "What the Day Before Actually Removes From Your Plate",
+        paragraphs: [
+          "A packing service the day before the move means a crew comes in and packs the loose contents of the house into boxes while your parent still has full use of the home. Clothes, kitchenware, books, bathroom items, framed photos, the contents of the linen cupboard. Everything is wrapped, boxed and labelled before you arrive on moving day.",
+          "For the adult child coordinating remotely, this matters for one reason: you are not driving down the night before to pack boxes until midnight. And for your parent, it means they are not spending their last week in the family home surrounded by half-filled boxes. The crew arrives, works through the rooms, and leaves the place tidy. The furniture is still in place. The kettle is still on the bench.",
+          "It is worth booking the pack-out at the same time as the move, so both are confirmed on the same job. That way nothing gets missed, and the crew who packs knows what the move crew will be handling the next morning.",
+        ],
+      },
+      {
+        heading: "A Few Things That Catch Waikato Families Out",
+        paragraphs: [
+          "Raglan access. The road in from Hamilton is not long, but if the new place has a narrow driveway or street parking only, it is worth flagging when you get your quote. The same applies to some of the older streets in Te Awamutu and the river-side properties around Ngaruawahia.",
+          "Village rules on moving times. Some retirement villages in the Waikato only allow trucks on site during certain hours, or only on certain days. This is not unusual, but it catches people out when they have booked a morning start and the village expects an afternoon window. Confirm this directly with the village manager, not the sales team.",
+          "The last items to go. At every downsizing job there are things that stay until the end: the recliner chair, the TV, the small table by the back door. Make a short list of what goes on the truck last, so those items come off first at the other end and your parent can sit down and watch something while the rest of the furniture is placed.",
+        ],
+      },
+      {
+        heading: "What to Keep, What to Pass On and How to Decide",
+        paragraphs: [
+          "There is no formula for this. But there are a few questions that help when the conversation stalls. Will this item fit the new space? Will it be used daily? Would a family member get more use from it than it sitting in a corner?",
+          "Sentimental items are not the same as useful ones, and most people going into a retirement village know that. The difficulty is usually the middle-ground furniture, the things that are not beloved and not useless, just large. A display cabinet, a second armchair, a chest of drawers with a drawer that sticks. These are the pieces to photograph and offer to family before deciding.",
+          "If family members want pieces, coordinate delivery before moving day rather than on it. Loading a truck with things going to three different addresses adds time and cost. If everything going to family is collected or delivered in the weeks before, moving day is a clean run from the family home to the village.",
+        ],
+      },
+      {
+        heading: "Getting a Quote for a Waikato Downsizing Move",
+        paragraphs: [
+          "Specialist Movers run from two bases, Auckland and Hamilton, and the Hamilton team covers the wider Waikato including Cambridge, Te Awamutu, Raglan, Morrinsville, Matamata, Huntly and Ngaruawahia. We have completed 4,000+ moves across Auckland and the Waikato, and a good share of those have been retirement and downsizing jobs.",
+          "Pricing is straightforward. The hourly rate is the same across the region. The callout component varies with distance from our depot, and you see the full figure before you book, with nothing added on the day.",
+          "For larger homes or any move where you are not sure what is coming, a free viewing helps. Someone comes to the property, walks through with you, and gives you an accurate quote rather than a rough estimate. Quotes in business hours usually come back in around 15 minutes. If you are coordinating from out of town, you can get the whole thing organised by phone or through the website without needing to be on-site.",
+        ],
+      },
+    ],
+  },
+  "above-ground-floor-office-moves-auckland": {
+    title: "Floor Three, No Freight Lift: What Auckland Office Moves Above Street Level Actually Require",
+    sections: [
+      {
+        heading: "Why the Floor Number Changes Everything",
+        paragraphs: [
+          "Most office moves in Auckland start with a truck, a crew, and a loading dock. When your new tenancy is on the second floor or higher, those three things get more complicated fast.",
+          "A ground-floor move is largely about volume and distance. An upper-floor move is about access, and access has layers. The freight lift might not exist, might be too small for your desks, or might be booked by the building's own contractors on the day you need it. The loading dock might have rules that your moving company has to meet before anyone rolls a trolley across the threshold. The stairwell might be the only route, and stairwells slow everything down.",
+          "None of this is a reason to panic. It is, though, a reason to think the access question through before you ring a moving company, because a quote given without that information is not really a quote at all.",
+        ],
+      },
+      {
+        heading: "Freight Lifts: What to Check Before You Assume",
+        paragraphs: [
+          "Not every Auckland commercial building has a freight lift separate from the passenger lift. Older CBD tenancies on Shortland Street, Queen Street, or Wyndham Street often have a single lift shared between staff and goods, with strict rules about when it can be used for moving.",
+          "Before you plan anything, find out: Is there a dedicated freight lift? What are its internal dimensions, particularly height and door width? What is the rated load? Is there a booking process managed by the body corporate or building manager, and is your preferred moving date available?",
+          "A standard commercial desk or six-drawer filing cabinet will fit in most freight lifts. A boardroom table often will not. Know which items in your inventory are oversized before your movers arrive, because those pieces need a different plan from the start.",
+          "If there is no freight lift, your moving company will size the crew to carry everything via stairs. A stairwell job takes longer than a lift job, which affects the time on site. Factor that in when you are scheduling the day.",
+        ],
+      },
+      {
+        heading: "Body Corporate Loading Dock Rules and SiteWise Certification",
+        paragraphs: [
+          "Many mid-rise and high-rise Auckland buildings, particularly in the CBD and Newmarket, are managed under a body corporate or a commercial property manager. These bodies set the rules for loading dock access, and those rules vary significantly between buildings.",
+          "Common requirements include: specific time windows for loading and unloading (often early morning on weekdays, sometimes banned on weekends), truck size limits that restrict which vehicles can enter the dock, advance booking fees paid to the building, and health and safety certification for any contractor working on site.",
+          "That last point matters. Specialist Movers holds SiteWise Gold certification with a score above 90 percent. That score is what gets our crews onto managed commercial sites and active construction buildings without argument. If you are moving into a building that requires contractor certification, ask your moving company directly whether they hold it, and ask for the score, not just the name of the accreditation.",
+          "Get your building manager's requirements in writing before you book movers. Hand that document to your moving company. A crew that turns up without the right paperwork at a managed building in Parnell or Viaduct Harbour can be turned away at the dock, and the cost of that wasted day sits with someone.",
+        ],
+      },
+      {
+        heading: "When Stairs Are the Only Route",
+        paragraphs: [
+          "Some buildings simply do not have a workable lift for furniture, and the stairs are what you have. This is more common than people expect in character buildings around Ponsonby Road, K Road, and parts of Newmarket where the architecture predates freight lifts.",
+          "A stairwell job requires a larger crew than a lift job of the same volume, because more people are needed to handle items safely on steps and landings. It also takes longer. Your moving company needs to know the stair configuration, specifically whether the stairwell is straight or has tight turns, how many flights there are, and what the ceiling clearance is on each landing.",
+          "Some items simply cannot go up a stairwell safely regardless of crew size. Long boardroom tables, large server racks, and certain items of heavy furniture may need a different solution. That is where hoists and crane lifts come in.",
+        ],
+      },
+      {
+        heading: "Hoists and Crane Lifts: Practical Tools, Not Last Resorts",
+        paragraphs: [
+          "A balcony hoist or a crane lift sounds dramatic. In practice, it is often the fastest and safest way to move large or heavy items into an upper-floor tenancy that has no suitable lift and a tight stairwell.",
+          "A hoist works well when the building has balcony or window access at the right level, and when the street or car park below gives the crew enough room to operate safely. A crane is used when the load is heavier, the height is greater, or the configuration of the site requires it. Both are planned in advance, not improvised on the day.",
+          "If you are moving into a third-floor or higher tenancy and you have oversized furniture, speak to your moving company about hoisting during the quoting stage. Getting that conversation out of the way early means the right equipment is booked, any council or building permissions needed for street use are sorted ahead of time, and nothing arrives on moving day that the crew cannot actually get upstairs.",
+          "Specialist Movers carries out balcony hoist and crane lift work across Auckland. It is a standard part of what we do for commercial moves, not an unusual callout.",
+        ],
+      },
+      {
+        heading: "Crew Size and Time: How Buildings Drive Both",
+        paragraphs: [
+          "Our commercial crews run between two and four movers depending on the job. For an above-ground-floor move, the building's access profile is one of the main factors that determines which crew size is right.",
+          "A building with a reliable freight lift, clear dock access, and no time restrictions can be moved efficiently with a smaller crew. A building with stairs only, a narrow dock window, or a single lift shared with building tenants needs more people to hit the same outcome in the same time.",
+          "Crew size affects your total time on site, which in turn affects what you pay. This is not something your moving company can assess from a floor plan alone. They need the access information.",
+        ],
+      },
+      {
+        heading: "What to Tell Your Moving Company Before the Quote",
+        paragraphs: [
+          "A quote for an upper-floor commercial move is only useful if it is based on real access information. Here is the list of things to pull together before you pick up the phone.",
+          "For the destination building: the floor number; whether there is a freight lift and its internal dimensions; the loading dock time windows and any truck size limits; whether the building requires contractor health and safety certification; who manages dock bookings and whether your date is available; and whether balcony or window access exists at your floor.",
+          "For your inventory: a rough count of workstations, chairs, filing cabinets, and any oversized items such as boardroom tables, large screens, or heavy storage units. You do not need a spreadsheet, but your mover does need to know if you have a four-metre table that will not go in a lift.",
+          "For your timeline: whether you need the move completed outside business hours to avoid disrupting other tenants, and whether IT equipment is being handled separately by your own team or needs to be part of the move plan.",
+          "With that information in hand, Specialist Movers can turn around a quote in around 15 minutes during business hours, and the price you see is the full price before you commit to anything. If the job looks like it would benefit from a site visit, we can arrange that too. You can start with the quote form on our website.",
+        ],
+      },
+      {
+        heading: "A Checklist for the Building Manager Conversation",
+        paragraphs: [
+          "Most of the surprises on a commercial moving day come from the gap between what a tenant assumes and what the body corporate actually requires. This conversation is worth having at least three weeks before your move date.",
+          "Ask your building manager: What are the loading dock access hours on my moving date? Is there a truck length or height limit at the dock? Do I need to book the dock in advance, and is there a fee? What contractor certification does the building require, and who do I send it to? Is there a dedicated freight lift, and does it need to be booked separately? Are there any current construction or maintenance works in the building that might affect access on that day?",
+          "Write the answers down. Share them with your moving company. That single step removes most of the variables that turn a straightforward upper-floor move into a slow one.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {
