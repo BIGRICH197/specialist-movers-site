@@ -161,6 +161,8 @@ export function PhotoUploadForm() {
       }
     }
     await Promise.all(Array.from({ length: Math.min(PARALLEL, files.length) }, worker));
+    const s = sessionRef.current;
+    if (s) void api({ action: "sync", id: s.id, secret: s.secret }).catch(() => {});
     setFailed(bad);
     setBusy(false);
   }

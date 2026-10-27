@@ -6,10 +6,10 @@ import {
   MAX_PHOTOS,
   PHOTO_EXTS,
   createSubmission,
-  finishSubmission,
   folderOf,
   listPhotos,
   openSubmission,
+  recordPhotos,
   signUpload,
 } from "@/lib/photo-submissions";
 
@@ -18,6 +18,7 @@ export const runtime = "nodejs";
 // /photos, the customer photo upload (replaces the Lexos link). Three steps:
 //   start  {name, email, bedrooms}        -> {id, secret}
 //   sign   {id, secret, seq, ext}         -> {url}  (browser PUTs the photo there)
+//   sync   {id, secret}                   -> {count}  (progress save after a batch)
 //   finish {id, secret}                   -> {count} and a Slack ping
 // See lib/photo-submissions.ts.
 
@@ -76,9 +77,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: true, url: await signUpload(path) });
     }
 
+    if (body.action === "sync") {
+      return NextResponse.json({ ok: true, count: await recordPhotos(sub.id, false) });
+    }
+
     if (body.action === "finish") {
       const first = sub.status === "uploading";
-      const count = await finishSubmission(sub.id);
+      const count = await recordPhotos(sub.id, true);
       if (!count) return bad("No photos arrived yet. Add some and try again.");
       if (first) await ping(sub.name, sub.email, sub.bedrooms, count);
       return NextResponse.json({ ok: true, count });

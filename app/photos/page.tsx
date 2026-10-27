@@ -1,7 +1,7 @@
 import { PhotoUploadForm } from "@/components/PhotoUploadForm";
 
 export const metadata = {
-  title: "Send us your photos — Specialist Movers",
+  title: "Send us your photos",
   robots: { index: false, follow: false },
 };
 

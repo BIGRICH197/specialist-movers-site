@@ -91,13 +91,16 @@ export async function signUpload(path: string): Promise<string> {
   return `${url}/storage/v1${j.url}`;
 }
 
-/** Record what arrived and hand the row to the team. Returns the photo count. */
-export async function finishSubmission(id: string): Promise<number> {
+/** Record what arrived. With `final` the row is handed to the team ("new");
+ *  without, it is a progress save after each batch, so photos from a customer
+ *  who never presses Send still show up in ShiftMate. Returns the count. */
+export async function recordPhotos(id: string, final: boolean): Promise<number> {
   const files = await listPhotos(id);
   const photos = files.map((f, i) => ({ path: `${folderOf(id)}/${f.name}`, name: f.name, seq: i + 1 }));
+  if (final && !photos.length) return 0;
   await sb(`crm_photo_submissions?id=eq.${id}`, {
     method: "PATCH",
-    body: { photos, status: "new", submitted_at: new Date().toISOString() },
+    body: final ? { photos, status: "new", submitted_at: new Date().toISOString() } : { photos },
   });
   return photos.length;
 }
