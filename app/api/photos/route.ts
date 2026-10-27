@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { isEmailish, EMAIL_ERROR } from "@/lib/email";
 import { postSlackMessage } from "@/lib/slack";
+import { sb } from "@/lib/supabase";
 import { quotesChannel } from "@/lib/quote-notify";
 import {
   MAX_PHOTOS,
@@ -19,7 +20,7 @@ export const runtime = "nodejs";
 //   start  {name, email, bedrooms}        -> {id, secret}
 //   sign   {id, secret, seq, ext}         -> {url}  (browser PUTs the photo there)
 //   sync   {id, secret}                   -> {count}  (progress save after a batch)
-//   finish {id, secret}                   -> {count} and a Slack ping
+//   finish {id, secret}                   -> {count}, a Slack ping and an email to the lead owner
 // See lib/photo-submissions.ts.
 
 function bad(error: string, status = 400) {
@@ -85,7 +86,15 @@ export async function POST(request: Request) {
       const first = sub.status === "uploading";
       const count = await recordPhotos(sub.id, true);
       if (!count) return bad("No photos arrived yet. Add some and try again.");
-      if (first) await ping(sub.name, sub.email, sub.bedrooms, count);
+      if (first) {
+        await ping(sub.name, sub.email, sub.bedrooms, count);
+        // The mini-PC's joey_request_worker emails the lead owner (or Taine and
+        // Danielle when there isn't one): photo_upload_notify.py.
+        await sb("joey_requests", {
+          method: "POST",
+          body: { type: "photos_submitted", payload: { submission_id: sub.id } },
+        }).catch((e) => console.warn("photos: could not queue the owner email:", e));
+      }
       return NextResponse.json({ ok: true, count });
     }
 
