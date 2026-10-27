@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils";
 
 /** The two scheduled runs. Edit here and the hero + /regular-runs both follow. */
 export const regularRuns = [
-  { route: "Auckland ⇄ Hamilton", cadence: "Every day" },
-  { route: "Auckland ⇄ Tauranga & Bay of Plenty", cadence: "Every week" },
+  { route: "Auckland to Hamilton", cadence: "Every day" },
+  { route: "Auckland to Tauranga & Bay of Plenty", cadence: "Every week" },
 ] as const;
 
 export const REGULAR_RUNS_PATH = "/regular-runs";

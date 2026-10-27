@@ -3,8 +3,8 @@ import type { ServiceArea } from "@/lib/service-areas";
 import { sitePhotos } from "@/lib/site-photos";
 
 /**
- * /regular-runs: the scheduled Auckland ⇄ Hamilton (daily) and
- * Auckland ⇄ Tauranga & Bay of Plenty (weekly) runs. Linked from the homepage
+ * /regular-runs: the scheduled Auckland to Hamilton (daily) and
+ * Auckland to Tauranga & Bay of Plenty (weekly) runs. Linked from the homepage
  * hero strip (components/RegularRunsChips.tsx, which holds the run list).
  *
  * Route keywords ("movers auckland to tauranga") have near-zero search volume
@@ -25,7 +25,7 @@ export const regularRunsPage: NicheServicePageConfig = {
   metaTitle: "Auckland to Hamilton & Tauranga Movers | Regular Runs | Specialist Movers",
   metaDescription:
     "Auckland to Hamilton every day, Auckland to Tauranga and the Bay of Plenty every week. Part loads, single items, pianos and full moves on a truck that is already going. Free quote.",
-  eyebrow: "Auckland ⇄ Hamilton daily · Auckland ⇄ Tauranga weekly",
+  eyebrow: "Hamilton every day · Tauranga every week",
   h1: "Regular runs",
   lead:
     "We drive Auckland to Hamilton every day and Auckland to Tauranga and the Bay of Plenty every week. If you have a couch, a piano or a whole house going either way, there is probably a truck heading there already.",
@@ -57,8 +57,8 @@ export const regularRunsPage: NicheServicePageConfig = {
   whyBody:
     "A part load or single item on a scheduled run costs less than a truck of your own, because you are sharing the trip. A full house move is priced like any other move, by the hours and crew it needs. Either way you get a fixed price in writing before you book, and it does not move afterwards.",
   includedBullets: [
-    "Auckland ⇄ Hamilton and the Waikato, every day",
-    "Auckland ⇄ Tauranga, Mount Maunganui and the Bay of Plenty, every week",
+    "Auckland to Hamilton and the Waikato, every day",
+    "Auckland to Tauranga, Mount Maunganui and the Bay of Plenty, every week",
     "Single items and part loads riding a scheduled run",
     "Full house moves in either direction, on the day that suits you",
     "Pianos and heavy items, moved by our piano crew",
