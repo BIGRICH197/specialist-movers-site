@@ -1,4 +1,4 @@
-import type { ElementType } from "react";
+import type { ElementType, ReactNode } from "react";
 
 import { HeroTitleFit } from "@/components/hero/HeroTitleFit";
 
@@ -15,6 +15,8 @@ type Props = {
   nowrap?: boolean;
   /** Element for the visible title. Use "div"/"h2" when the <h1> is elsewhere. */
   headingAs?: "h1" | "h2" | "div";
+  /** Extra row under the eyebrow pill (homepage regular-runs strip). */
+  belowEyebrow?: ReactNode;
 };
 
 /** Yellow title above the hero photo (desktop). Eyebrow pill is mobile-only on service pages. */
@@ -24,6 +26,7 @@ export function HeroTitleStack({
   className,
   nowrap = true,
   headingAs = "h1",
+  belowEyebrow,
 }: Props) {
   const HeadingTag = headingAs as ElementType;
   const multiline = isMultilineServiceMobileHeroTitle(heading);
@@ -62,6 +65,7 @@ export function HeroTitleStack({
           {eyebrowLabel}
         </p>
       ) : null}
+      {belowEyebrow}
     </div>
   );
 }

@@ -273,7 +273,7 @@ export const furnitureMoversHamiltonPage: NicheServicePageConfig = {
     },
     {
       q: "Can you move furniture between Hamilton and Auckland?",
-      a: "Yes. That corridor is a weekly route for us and we have depots at both ends, so it is quoted as a normal job rather than a long-distance special.",
+      a: "Yes. We run Auckland to Hamilton every day and have depots at both ends, so it is quoted as a normal job rather than a long-distance special. See our regular runs for single items and part loads.",
     },
     {
       q: "How much notice do you need in the Waikato?",

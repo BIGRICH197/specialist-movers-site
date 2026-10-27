@@ -12,6 +12,7 @@ type Props = {
   className?: string;
   /** Element for the visible title. Use "div"/"h2" when the <h1> is elsewhere. */
   headingAs?: "h1" | "h2" | "div";
+  belowEyebrow?: ReactNode;
 };
 
 /** Photo with title stack above it in the left column (desktop). */
@@ -23,6 +24,7 @@ export function HeroPhotoFrame({
   headingNowrap = true,
   className,
   headingAs = "h1",
+  belowEyebrow,
 }: Props) {
   const visibleHeadingAs = seoHeading ? "div" : headingAs;
 
@@ -33,6 +35,7 @@ export function HeroPhotoFrame({
         eyebrowLabel={eyebrowLabel}
         nowrap={headingNowrap}
         headingAs={visibleHeadingAs}
+        belowEyebrow={belowEyebrow}
       />
       {seoHeading ? <h1 className="sr-only">{seoHeading}</h1> : null}
       {photo}

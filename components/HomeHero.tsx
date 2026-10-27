@@ -8,6 +8,7 @@ import { HeroPhotoFrame } from "@/components/hero/HeroPhotoFrame";
 import { HeroTitleFit } from "@/components/hero/HeroTitleFit";
 import { HeroVisual } from "@/components/HeroVisual";
 import { QuoteForm } from "@/components/QuoteForm";
+import { RegularRunsChips } from "@/components/RegularRunsChips";
 import { regions } from "@/lib/regions";
 import { motionDuration, motionStagger, motionTransition } from "@/lib/motion";
 import type { JobType } from "@/lib/site-data";
@@ -173,6 +174,9 @@ export function HomeHero({
                 in the DOM. Kept for screen readers on mobile. */}
             <span className="sr-only">{MOBILE_HOME_SEO_H1}</span>
             <motion.div variants={reduced ? undefined : item} transition={t} className="lg:hidden">
+              <RegularRunsChips />
+            </motion.div>
+            <motion.div variants={reduced ? undefined : item} transition={t} className="lg:hidden">
               {heroVisual}
             </motion.div>
             <motion.div variants={reduced ? undefined : item} transition={t} className="lg:hidden">
@@ -189,6 +193,7 @@ export function HomeHero({
                 photo={desktopHeroVisual}
                 // Visible H1. The homepage's only h1 was the mobile sr-only one.
                 headingAs="h1"
+                belowEyebrow={<RegularRunsChips />}
               />
             </motion.div>
             {hero.h1Sub ? (
