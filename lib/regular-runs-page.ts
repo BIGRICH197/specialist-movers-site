@@ -5,7 +5,7 @@ import { sitePhotos } from "@/lib/site-photos";
 /**
  * /regular-runs: the scheduled Auckland to Hamilton (daily) and
  * Auckland to Tauranga & Bay of Plenty (weekly) runs. Linked from the homepage
- * hero strip (components/RegularRunsChips.tsx, which holds the run list).
+ * hero strip (components/RegularRunsLine.tsx).
  *
  * Route keywords ("movers auckland to tauranga") have near-zero search volume
  * (Keyword Planner, 2026-10-28), so this page sells the scheduled truck, not

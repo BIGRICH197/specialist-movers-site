@@ -15,8 +15,8 @@ type Props = {
   nowrap?: boolean;
   /** Element for the visible title. Use "div"/"h2" when the <h1> is elsewhere. */
   headingAs?: "h1" | "h2" | "div";
-  /** Extra row under the eyebrow pill (homepage regular-runs strip). */
-  belowEyebrow?: ReactNode;
+  /** Line above the title (homepage regular-runs line). */
+  aboveHeading?: ReactNode;
 };
 
 /** Yellow title above the hero photo (desktop). Eyebrow pill is mobile-only on service pages. */
@@ -26,7 +26,7 @@ export function HeroTitleStack({
   className,
   nowrap = true,
   headingAs = "h1",
-  belowEyebrow,
+  aboveHeading,
 }: Props) {
   const HeadingTag = headingAs as ElementType;
   const multiline = isMultilineServiceMobileHeroTitle(heading);
@@ -41,6 +41,7 @@ export function HeroTitleStack({
         className,
       )}
     >
+      {aboveHeading}
       {multiline ? (
         <div className="flex w-full min-w-0 flex-col gap-0.5">
           {lines.map((line) => (
@@ -65,7 +66,6 @@ export function HeroTitleStack({
           {eyebrowLabel}
         </p>
       ) : null}
-      {belowEyebrow}
     </div>
   );
 }
