@@ -92,7 +92,7 @@ const cspReportOnly = [
   "style-src 'self' 'unsafe-inline' https://cdn.trustindex.io",
   "img-src 'self' data: blob: https://lh3.googleusercontent.com https://cdn.trustindex.io https://www.googletagmanager.com https://www.google-analytics.com https://maps.gstatic.com https://maps.googleapis.com https://www.google.com https://www.google.co.nz",
   "font-src 'self' data:",
-  "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://cdn.trustindex.io https://maps.googleapis.com https://va.vercel-scripts.com",
+  "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://cdn.trustindex.io https://maps.googleapis.com https://va.vercel-scripts.com https://*.supabase.co",
   "frame-src 'self' https://www.googletagmanager.com https://td.doubleclick.net https://www.google.com",
 ].join("; ");
 
