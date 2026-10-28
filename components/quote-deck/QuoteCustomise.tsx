@@ -485,6 +485,16 @@ export function QuoteCustomise({
             </button>
           )}
         </div>
+
+        {/* Joey's links carry no fuel line; the quote builder's do, and there
+            the note would contradict the table (Richard, 2026-10-28). */}
+        {!quote.lineItems.some((i) => /fuel/i.test(i.description)) ? (
+          <p className="mt-4 border-t border-brand-purple/10 pt-3 text-xs leading-relaxed text-brand-purple/70">
+            Please note: we currently have a fuel surcharge due to the global fuel crisis, which is
+            not included in this quote. It fluctuates, but you can confirm the current amount in the
+            email signature on any email we&apos;ve sent you.
+          </p>
+        ) : null}
       </div>
     </>
   );
