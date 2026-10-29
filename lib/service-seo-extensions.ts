@@ -223,7 +223,7 @@ export const serviceSeoExtensions: Partial<Record<string, ServiceSeoExtension>> 
       },
       {
         q: "Do you do WINZ quotes for South Auckland?",
-        a: "Yes, across all of Auckland including Manukau, Papakura and Otara, and across the Waikato from our Hamilton base. Our hourly rate is the same everywhere in Auckland. Only the callout fee changes with distance from our Wairau Valley depot, and it is on the quote so your case manager can see it.",
+        a: "Yes, across all of Auckland including Manukau, Papakura and Otara, and across the Waikato from our Hamilton base. Our hourly rate is the same across Auckland and the callout is a flat fee wherever you are, both on the quote so your case manager can see them.",
       },
       {
         q: "What happens if my application is delayed or declined?",

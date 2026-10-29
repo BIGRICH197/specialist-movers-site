@@ -10,20 +10,20 @@ import type { CrewSize, DayOfWeek } from "./pricing-data";
  * 2026-08-19 (Richard): these were $156.52 and $191.30, from reading $180 and
  * $220 as GST-inclusive and dividing the GST back out. Two errors in one: the
  * quoted figures are excl GST, and a Hamilton move is not the out-of-town
- * rate. Hamilton is $150 + GST for two movers; $190 + GST is what an
- * out-of-town job costs, which is the tier 2 / tier 3 table in pricing-data.
+ * rate. Hamilton is $160 + GST for two movers (from 2026-10-30); $200 + GST is
+ * what an out-of-town job costs, which is the tier 2 / tier 3 table in pricing-data.
  */
 export const HAMILTON_TIER_1_RATES: Record<
   DayOfWeek,
   Record<CrewSize, number>
 > = {
-  tue: { "2M": 150, "3M": 190 },
-  thu: { "2M": 150, "3M": 190 },
-  mon: { "2M": 150, "3M": 190 },
-  wed: { "2M": 150, "3M": 190 },
-  sun: { "2M": 150, "3M": 190 },
-  fri: { "2M": 150, "3M": 190 },
-  sat: { "2M": 150, "3M": 190 },
+  tue: { "2M": 160, "3M": 200 },
+  thu: { "2M": 160, "3M": 200 },
+  mon: { "2M": 160, "3M": 200 },
+  wed: { "2M": 160, "3M": 200 },
+  sun: { "2M": 160, "3M": 200 },
+  fri: { "2M": 160, "3M": 200 },
+  sat: { "2M": 160, "3M": 200 },
 };
 
 export type HamiltonZone = "A" | "B" | "C";
@@ -33,9 +33,10 @@ export const HAMILTON_CALLOUT_FEES: Record<
   HamiltonZone,
   Record<CrewSize, number>
 > = {
-  A: { "2M": 60, "3M": 80 },
+  // 2026-10-30 (Richard): flat in every zone, the same as Auckland.
+  A: { "2M": 80, "3M": 100 },
   B: { "2M": 80, "3M": 100 },
-  C: { "2M": 120, "3M": 140 },
+  C: { "2M": 80, "3M": 100 },
 };
 
 /** Piano zone surcharge (retail) , venues use fixed locations. */

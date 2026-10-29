@@ -206,11 +206,11 @@ const suburbs: Location[] = [
     searchTerms: ["wairau", "wairau road", "wairau park"],
     metaTitle: "Movers Wairau Valley",
     metaDescription:
-      "Our Auckland depot is in Wairau Valley, so it is the shortest callout in the city. Commercial moves, storage, piano transport and North Shore homes.",
+      "Our Auckland depot is in Wairau Valley, the easiest address in the city for us to reach. Commercial moves, storage, piano transport and North Shore homes.",
     intro:
-      "Wairau Valley is where our trucks live. Our Auckland depot is here, which makes it the shortest callout fee in the city and the easiest address in Auckland for us to get to.",
+      "Wairau Valley is where our trucks live. Our Auckland depot is here, which makes it the easiest address in Auckland for us to get to.",
     paragraphs: [
-      "Being based here changes one number on your quote and not the others. Our hourly rate is the same everywhere in Auckland. Only the callout fee moves with distance from the depot, and at $60 plus GST for close-in Auckland, Wairau Valley sits at the bottom of that scale rather than the top.",
+      "Being based here does not change the price on your quote. Our hourly rate is the same across Auckland, and the callout is a flat $80 plus GST for two movers wherever you are, so Wairau Valley pays what everyone else pays.",
       "It also means a viewing is easy to arrange. For a job five minutes from the yard we can usually come and look the same week rather than fitting you into a run across town.",
       "Worth being straight about what is here, though. Wairau Valley is mostly light industrial and bulk retail rather than housing, so most of our local work is commercial: trade suppliers, showrooms, offices in the business park, and warehouse or stock moves priced per cubic metre rather than by the hour.",
       "Storage sits here too. If your settlement dates do not line up, the goods do not travel any further than the depot they were already heading past, which is usually the cheapest version of a storage-in-transit job we can offer.",
@@ -218,7 +218,7 @@ const suburbs: Location[] = [
       "Piano work runs out of the same yard under our Specialist Piano Movers team. Uprights, grands, and the awkward ones with a flight of stairs at one end, which on the Shore is most of them.",
     ],
     highlights: [
-      "Our Auckland depot is here, so this is the shortest callout in the city",
+      "Our Auckland depot is here, so we are never far away",
       "Commercial and warehouse moves, priced per cubic metre where that suits",
       "Storage at the depot for settlement gaps",
       "Piano specialists in the same yard, upright and grand",
@@ -226,11 +226,11 @@ const suburbs: Location[] = [
     faqs: [
       {
         q: "Are you actually based in Wairau Valley?",
-        a: "Yes. The Auckland depot is here, and every callout fee we quote across the region is calculated from it. When another mover says they cover the North Shore, it is worth asking where their trucks actually start the day, because that distance ends up on your invoice one way or another.",
+        a: "Yes. The Auckland depot is here, and every truck we run in Auckland starts the day from it. When another mover says they cover the North Shore, it is worth asking where their trucks actually start the day, because that distance ends up on your invoice one way or another.",
       },
       {
         q: "Is it cheaper to hire movers based in Wairau Valley?",
-        a: "For the callout, yes. Close-in Auckland is $60 plus GST, the outer suburbs are $80 and the fringe of the region is $120, all measured from here. The hourly rate does not change with your address, so being close to the depot saves you the callout difference rather than the whole job. We would rather say that plainly than imply a discount that is not there.",
+        a: "No. The callout is a flat $80 plus GST for two movers wherever you are in Auckland, and the hourly rate does not change with your address either, so being close to the depot does not make the job cheaper. We would rather say that plainly than imply a discount that is not there.",
       },
       {
         q: "Do you move businesses in the Wairau Valley business park?",

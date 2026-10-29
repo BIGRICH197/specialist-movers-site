@@ -50,10 +50,10 @@ to any other source. For the full reference — every FAQ and every suburb — s
 The figures below exclude GST. https://www.specialistmovers.co.nz/pricing shows every
 price both GST-inclusive and ex-GST, and is the source of truth if these disagree.
 
-- Auckland, two-person crew and truck: $150/hr, three movers $190/hr, four movers $250/hr, flat every day (no day-of-week pricing)
-- Hamilton, two-person crew and truck: $150/hr, flat every day
-- Callout fee: $60 within ~23km of depot, $80 to 45km, $120 beyond
-- Typical one-bedroom apartment: about $360. Three-bedroom house: about $660
+- Auckland, two-person crew and truck: $160/hr, three movers $200/hr, four movers $260/hr, flat every day (no day-of-week pricing)
+- Hamilton, two-person crew and truck: $160/hr, flat every day
+- Callout fee: flat $80 for two movers, $100 for three, $120 for four, in every zone
+- Typical one-bedroom apartment: about $400. Three-bedroom house: about $720
 - Piano: uprights from $290, grands from $550, each with $2,000 cover included
 
 ## Insurance

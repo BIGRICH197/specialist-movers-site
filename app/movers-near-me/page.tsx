@@ -7,7 +7,7 @@ import { SectionReveal } from "@/components/SectionReveal";
 import {
   aucklandCallout,
   aucklandFromHourly,
-  hamiltonCallouts,
+  hamiltonCallout,
   hamiltonFromHourly,
   outerTiers,
 } from "@/lib/pricing-page-data";
@@ -21,7 +21,7 @@ export const metadata: Metadata = buildPageMetadata({
     absolute: "Movers Near Me | Auckland & Waikato | Specialist Movers",
   },
   description:
-    "Looking for movers near you? We run from depots in Wairau Valley, Auckland and Hamilton, 7 days a week. How close we are sets your callout fee, and every zone is published here.",
+    "Looking for movers near you? We run from depots in Wairau Valley, Auckland and Hamilton, 7 days a week. The callout is a flat fee wherever you are, and every rate is published here.",
   path: PATH,
 });
 
@@ -30,13 +30,13 @@ const breadcrumbs = [{ label: "Home", href: "/" }, { label: "Movers near me" }];
 /**
  * "Movers near me" is a proximity question, not a service question. The honest
  * answer is where our trucks actually start from and what the distance costs,
- * so this page leads with the depots and the callout zones rather than
+ * so this page leads with the depots and the rate zones rather than
  * repeating the service copy that already lives on the service pages.
  */
 const faqs = [
   {
     q: "Where are you based?",
-    a: "Two depots. Auckland is 8/186 Target Road, Wairau Valley on the North Shore, and we run a second base in Hamilton. Crews and trucks start from whichever depot is closer to you, which is what keeps the callout fee down.",
+    a: "Two depots. Auckland is 8/186 Target Road, Wairau Valley on the North Shore, and we run a second base in Hamilton. Crews and trucks start from whichever depot is closer to you.",
   },
   {
     q: "Do you cover my area?",
@@ -44,7 +44,7 @@ const faqs = [
   },
   {
     q: "How does distance affect what I pay?",
-    a: `Distance shows up as a one-off callout fee rather than a higher hourly rate. Close to the depot it is $${aucklandCallout.twoMovers.ex} + GST for two movers. Further out, both the callout and the hourly rate step up into a zone, and all of those figures are published on our pricing page.`,
+    a: `Mostly it does not. The callout is a flat $${aucklandCallout.twoMovers.ex} + GST for two movers wherever you are, and the hourly rate is the same across Auckland and Hamilton. Only the outer Auckland areas carry a higher hourly rate, and all of those figures are published on our pricing page.`,
   },
   {
     q: "How quickly can you get to me?",
@@ -56,7 +56,7 @@ const faqs = [
   },
   {
     q: "Do you charge more if I am far from your depot?",
-    a: "Yes, and we publish exactly how much rather than adding it at invoice time. The callout fee rises with distance and the outer zones carry a higher hourly rate, because the truck and crew are tied up travelling. Everything is quoted in writing before you book.",
+    a: "Only in the outer areas, and we publish exactly how much rather than adding it at invoice time. The callout is the same flat fee everywhere, but the outer zones carry a higher hourly rate, because the truck and crew are tied up travelling. Everything is quoted in writing before you book.",
   },
 ];
 
@@ -100,7 +100,7 @@ export default function MoversNearMePage() {
       <PageHero
         eyebrow="Auckland and Waikato, 7 days"
         title="Movers near me"
-        description="Two depots, our own trucks, and a callout fee that depends on how far you are from them. Here is exactly where we start from and what the distance costs."
+        description="Two depots, our own trucks, and a flat callout fee wherever you are. Here is exactly where we start from and what the distance costs."
         breadcrumbs={breadcrumbs}
       />
 
@@ -128,24 +128,24 @@ export default function MoversNearMePage() {
             <li>
               <strong className="text-brand-purple">From:</strong> ${aucklandFromHourly.ex} + GST per
               hour in Auckland and a flat ${hamiltonFromHourly.incl} including GST in Hamilton, for
-              two movers and a truck, plus a callout fee by distance.
+              two movers and a truck, plus a flat callout fee.
             </li>
           </ul>
         </div>
 
         <section className="mt-12">
           <h2 className="font-heading text-2xl text-brand-purple sm:text-3xl">
-            &ldquo;Near me&rdquo; is really a question about the callout fee
+            &ldquo;Near me&rdquo; is really a question about travel costs
           </h2>
           <p className="mt-4 text-base leading-relaxed text-brand-purple/85">
             Every mover in Auckland will tell you they cover Auckland. What actually differs is where
             the truck starts the day, because that is what you end up paying for. We charge it as a
-            single callout fee rather than burying it in the hourly rate, so you can see it.
+            single flat callout fee rather than burying it in the hourly rate, so you can see it.
           </p>
           <p className="mt-4 text-base leading-relaxed text-brand-purple/85">
-            If you are close to the Wairau Valley depot, the callout is ${aucklandCallout.twoMovers.ex}{" "}
-            + GST for two movers and a truck. As you get further out, both the callout and the hourly
-            rate step into a zone:
+            Wherever you are, the callout is ${aucklandCallout.twoMovers.ex}{" "}
+            + GST for two movers and a truck. In the outer Auckland areas the hourly rate steps up
+            into a zone:
           </p>
 
           <div className="mt-5 overflow-x-auto rounded-2xl border border-brand-purple/15 bg-white shadow-sm">
@@ -178,14 +178,9 @@ export default function MoversNearMePage() {
           </div>
 
           <p className="mt-5 text-base leading-relaxed text-brand-purple/85">
-            Hamilton runs on its own zones from the Hamilton base, with callouts of{" "}
-            {hamiltonCallouts.map((zone, i) => (
-              <span key={zone.zone}>
-                {i > 0 ? ", " : ""}
-                ${zone.fee.ex} + GST in Zone {zone.zone}
-              </span>
-            ))}
-            . Every one of these figures, and the full rate table, is on our{" "}
+            Hamilton works from the Hamilton base, with a flat callout of $
+            {hamiltonCallout.twoMovers.ex} + GST for two movers wherever you are in the Waikato
+            zones. Every one of these figures, and the full rate table, is on our{" "}
             <Link className="font-semibold text-brand-purple underline" href="/pricing">
               pricing page
             </Link>
@@ -240,8 +235,8 @@ export default function MoversNearMePage() {
         <div className="mt-12 rounded-2xl border border-brand-purple/15 bg-brand-canvas p-6 sm:p-8">
           <h2 className="font-heading text-xl text-brand-purple">Get a price for your address</h2>
           <p className="mt-3 text-sm leading-relaxed text-brand-purple/85">
-            Tell us where you are moving from and to and we will confirm the zone, the callout, and
-            the rate for your day. Usually inside 15 minutes.
+            Tell us where you are moving from and to and we will confirm the zone and the rate for
+            your move. Usually inside 15 minutes.
           </p>
           <Link
             className="mt-5 inline-flex rounded-full bg-brand-purple px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-purple/90"

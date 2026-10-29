@@ -20,8 +20,9 @@
  *     for booking?" — "Yes, we start with a free viewing"), and because they
  *     sit inside JSON-LD that non-sequitur is exactly what a model quotes.
  *  2. Every number is real and checked against brain/context/pricing.md
- *     (last_updated 2026-07-07). Since 2026-09-24 the 2-man Auckland rate is
- *     a flat $150/hr every day, the same as Hamilton. There is no day-of-week
+ *     (last_updated 2026-07-07). Since 2026-10-30 the 2-man Auckland rate is
+ *     a flat $160/hr every day, the same as Hamilton, and the callout is a
+ *     flat $80/$100/$120 in every zone (Richard: +$10/hr, callouts flat). There is no day-of-week
  *     pricing, so no answer should suggest one day is cheaper.
  *
  * Order matters: app/page.tsx renders faqs.slice(0, 4), so the first four are
@@ -34,7 +35,7 @@ export const faqs: readonly Faq[] = [
   // --- The four the homepage shows -----------------------------------------
   {
     q: "How much does it cost to hire movers in Auckland?",
-    a: "Two movers and a truck cost $150 an hour plus GST, any day of the week. Three movers are $190. On top of the hours there is a callout fee from $60, which rises the further you are from our depot. In practice a one-bedroom flat lands around $360 to $450 and a three-bedroom house around $650 to $1,000.",
+    a: "Two movers and a truck cost $160 an hour plus GST, any day of the week. Three movers are $200. On top of the hours there is a flat callout fee of $80 for two movers ($100 for three), wherever you are in our area. In practice a one-bedroom flat lands around $400 to $560 and a three-bedroom house around $700 to $1,050.",
   },
   {
     q: "What is the process for booking a move?",
@@ -52,11 +53,11 @@ export const faqs: readonly Faq[] = [
   // --- Pricing -------------------------------------------------------------
   {
     q: "What is the cheapest day to move house?",
-    a: "The rate is the same every day. Two movers are $150 an hour plus GST whether you move on a Tuesday or a Sunday. What changes is availability: Fridays, weekends and the end of the month book out first, so being flexible on the date helps you get the day you want.",
+    a: "The rate is the same every day. Two movers are $160 an hour plus GST whether you move on a Tuesday or a Sunday. What changes is availability: Fridays, weekends and the end of the month book out first, so being flexible on the date helps you get the day you want.",
   },
   {
     q: "What is the callout fee and why is there one?",
-    a: "It covers getting the truck and crew to you and back again, and it goes up with distance from our depot: $60 close in, $80 further out, $120 on the fringe of the region. A bigger crew costs a bit more. It is in your written quote from the start, not added at the end.",
+    a: "It covers getting the truck and crew to you and back again. It is a flat $80 plus GST for two movers and $100 for three, wherever you are in our area. It is in your written quote from the start, not added at the end.",
   },
   {
     q: "Are there any hidden costs?",
@@ -68,7 +69,7 @@ export const faqs: readonly Faq[] = [
   },
   {
     q: "Do you charge GST on top?",
-    a: "Yes. Every price we publish is plus GST unless we say otherwise, so the $150 rate is $173 including GST. Your written quote shows both.",
+    a: "Yes. Every price we publish is plus GST unless we say otherwise, so the $160 rate is $184 including GST. Your written quote shows both.",
   },
   {
     q: "Is it cheaper to move myself?",
@@ -82,7 +83,7 @@ export const faqs: readonly Faq[] = [
   },
   {
     q: "Do you provide packing services?",
-    a: "Yes. Our packers come in the day before your move, and the price is set by bedroom count, starting at $1,750 plus GST for a one-bedroom home. Cartons, wrap, and tape are supplied. We can pack the whole house or just the kitchen and the fragile things, which is what most people actually want.",
+    a: "Yes. Our packers come in the day before your move, and the price is set by bedroom count, starting at $1,800 plus GST for a one-bedroom home. Cartons, wrap, and tape are supplied. We can pack the whole house or just the kitchen and the fragile things, which is what most people actually want.",
   },
   {
     q: "Do you supply boxes?",
@@ -144,7 +145,7 @@ export const faqs: readonly Faq[] = [
   // --- Coverage and logistics ---------------------------------------------
   {
     q: "What areas do you cover?",
-    a: "All of Auckland from our North Shore depot, and Hamilton and the Waikato from our Hamilton base. North Shore, central, east, west and south Auckland are standard callout zones. Hibiscus Coast, Warkworth and Pukekohe are outer zones with a higher callout. Regional North Island routes are quoted individually.",
+    a: "All of Auckland from our North Shore depot, and Hamilton and the Waikato from our Hamilton base. The callout is the same flat fee everywhere. Hibiscus Coast, Warkworth and Pukekohe are outer zones with a higher hourly rate. Regional North Island routes are quoted individually.",
   },
   {
     q: "Do you move between Auckland and Hamilton?",
@@ -160,7 +161,7 @@ export const faqs: readonly Faq[] = [
   },
   {
     q: "Do you work weekends?",
-    a: "Yes, seven days a week. Saturday and Sunday are the same $150 per hour for a two-person crew as any weekday, but they book out first, so give us more notice for a weekend date.",
+    a: "Yes, seven days a week. Saturday and Sunday are the same $160 per hour for a two-person crew as any weekday, but they book out first, so give us more notice for a weekend date.",
   },
   {
     q: "Do you provide a written quote for WINZ?",

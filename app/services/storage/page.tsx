@@ -162,7 +162,7 @@ export default function StorageHubPage() {
           </h2>
           <p className="mt-4 text-base leading-relaxed text-brand-purple/85">
             Storage is quoted by volume and duration. That is different from the moving side, which
-            is charged hourly with a callout fee by distance, and which we publish in full on our{" "}
+            is charged hourly plus a flat callout fee, and which we publish in full on our{" "}
             <a className="font-semibold text-brand-purple underline" href="/pricing">
               pricing page
             </a>

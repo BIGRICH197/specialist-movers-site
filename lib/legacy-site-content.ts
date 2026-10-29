@@ -147,7 +147,7 @@ export const pianoStatsStrip = {
 };
 
 /** Hamilton pages. The canonical moveFromPrice is the AUCKLAND floor; since
- *  2026-09-24 Hamilton's floor is the same $360, but it still reads its own
+ *  2026-09-24 Hamilton's floor has matched it ($400 from 2026-10-30), but it still reads its own
  *  (see pricing-copy.ts) so the two cannot drift apart silently. */
 export const hamiltonStatsStrip = {
   ...statsStrip,
@@ -156,7 +156,7 @@ export const hamiltonStatsStrip = {
   ),
 };
 
-/** Trade pages (kitchen and joinery delivery). The $360 house-move floor is
+/** Trade pages (kitchen and joinery delivery). The $400 house-move floor is
  *  the wrong number to show a cabinetmaker: they buy crew hours for a delivery
  *  run, not a whole-home move, and the consumer figure undercuts the hourly
  *  trade framing sitting a few paragraphs below it. */
@@ -164,7 +164,7 @@ export const tradeStatsStrip = {
   ...statsStrip,
   items: statsStrip.items.map((item) =>
     item.label === MOVES_FROM_LABEL
-      ? { label: "Two movers, per hour (excl. GST)", value: "$140" }
+      ? { label: "Two movers, per hour (excl. GST)", value: "$160" }
       : item,
   ),
 };
@@ -211,7 +211,7 @@ export const trustPillars = [
   {
     title: "Fixed prices, quoted before you book",
     body:
-      "A two-person crew and truck is $150 an hour plus GST, any day of the week, plus a callout fee set by distance. You see the whole number in writing before you commit, and for homes of three bedrooms or more we come and look first, because volume and access are what actually drive the price.",
+      "A two-person crew and truck is $160 an hour plus GST, any day of the week, plus a flat $80 callout fee. You see the whole number in writing before you commit, and for homes of three bedrooms or more we come and look first, because volume and access are what actually drive the price.",
   },
 ] as const;
 

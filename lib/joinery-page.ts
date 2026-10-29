@@ -27,8 +27,11 @@ import { sitePhotos } from "@/lib/site-photos";
  * Rates are the trade card's, matching lib/trade-page.ts: $140/hr for two
  * movers plus a $60 callout, $180 plus $80 for three. Excl GST. From
  * 2026-08-19 these matched the public Auckland rates. On 2026-09-24 house
- * moves went to $150 / $190 but trade stayed put, so trade now sits $10 under
- * retail. The page still does not advertise that as a trade discount.
+ * moves went to $150 / $190 but trade stayed put, so trade sat $10 under
+ * retail. 2026-10-30 (Richard): retail went to $160 / $200 with a flat $80 /
+ * $100 callout. Same day Richard had this page show the house rates too:
+ * $160 / $200 / $260 with $80 / $100 / $120 callouts. Website only: existing
+ * kitchen accounts still bill pricing.py KITCHEN_RATES ($140 / $180 / $240).
  */
 export const joineryDeliveryPage: NicheServicePageConfig = {
   path: "/kitchen-and-joinery-delivery",
@@ -66,7 +69,7 @@ export const joineryDeliveryPage: NicheServicePageConfig = {
   ],
   whyTitle: "What It Costs",
   whyBody:
-    "Two movers and a truck are $140 an hour plus GST with a $60 callout. Three movers are $180 plus $80, and four are $240 plus $100 for a full defit or a big install day. Most single kitchen runs sit inside a couple of hours. For regular work or a larger one-off we will fix a price instead, so there is no clock ticking, and anything outside Auckland we come and look at first and then fix a price on that. If you have a weekly run rather than one delivery, tell us and we will schedule it, which means the same crew each week and no re-explaining how your workshop loading bay works.",
+    "Two movers and a truck are $160 an hour plus GST with an $80 callout. Three movers are $200 plus $100, and four are $260 plus $120 for a full defit or a big install day. Most single kitchen runs sit inside a couple of hours. For regular work or a larger one-off we will fix a price instead, so there is no clock ticking, and anything outside Auckland we come and look at first and then fix a price on that. If you have a weekly run rather than one delivery, tell us and we will schedule it, which means the same crew each week and no re-explaining how your workshop loading bay works.",
   includedBullets: [
     "Workshop to site delivery for kitchens, vanities, wardrobes and commercial joinery",
     "Benchtops, splashbacks and stone tops carried on edge and strapped upright",
@@ -110,7 +113,7 @@ export const joineryDeliveryPage: NicheServicePageConfig = {
     },
     {
       q: "What does it cost?",
-      a: "Two movers and a truck are $140 an hour plus GST with a $60 callout, three movers $180 with an $80 callout, and four movers $240 with a $100 callout. Most single kitchen deliveries are inside a couple of hours. Regular runs and bigger jobs can be fixed-price instead. You get the number in writing before we load.",
+      a: "Two movers and a truck are $160 an hour plus GST with an $80 callout, three movers $200 with a $100 callout, and four movers $260 with a $120 callout. Most single kitchen deliveries are inside a couple of hours. Regular runs and bigger jobs can be fixed-price instead. You get the number in writing before we load.",
     },
   ],
   breadcrumbs: [

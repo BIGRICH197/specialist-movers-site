@@ -47,40 +47,44 @@ export const MOVE_HOURS: Record<Bedrooms, { base: number; perHardEnd: number }> 
 // 2026-09-24 (Richard): Auckland house moves are flat $150 / $190 (and $250
 // for four movers) every day, the same as Hamilton. No Friday premium, no
 // day-of-week difference at all. Kitchen/commercial trade rates are unchanged.
+// 2026-10-30 (Richard): +$10 again, $160 / $200 / $260 every day, both branches.
 // The table stays keyed by day because the shape is shared with the calculator.
 export const TIER_1_RATES: Record<DayOfWeek, Record<CrewSize, number>> = {
-  tue: { "2M": 150, "3M": 190 },
-  wed: { "2M": 150, "3M": 190 },
-  thu: { "2M": 150, "3M": 190 },
-  fri: { "2M": 150, "3M": 190 },
-  sat: { "2M": 150, "3M": 190 },
-  sun: { "2M": 150, "3M": 190 },
-  mon: { "2M": 150, "3M": 190 },
+  tue: { "2M": 160, "3M": 200 },
+  wed: { "2M": 160, "3M": 200 },
+  thu: { "2M": 160, "3M": 200 },
+  fri: { "2M": 160, "3M": 200 },
+  sat: { "2M": 160, "3M": 200 },
+  sun: { "2M": 160, "3M": 200 },
+  mon: { "2M": 160, "3M": 200 },
 };
 
 // ── Callout fees by crew (excl GST) ──
+// 2026-10-30 (Richard): flat $80 / $100 (and $120 for four) in every zone and
+// both branches. Was $60 / $80 for Zone A, rising with distance.
 export const CALLOUT_FEES: Record<CrewSize, number> = {
-  "2M": 60,
-  "3M": 80,
+  "2M": 80,
+  "3M": 100,
 };
 
 // ── Tier 2: fixed rates (excl GST) ──
-// One out-of-town rate, $190 and $230 EXCL GST (Richard; $180 / $220 from
-// 2026-08-19, +$10 on 2026-09-24 with the house rates). Before 08-19
+// One out-of-town rate, $200 and $240 EXCL GST (Richard; $180 / $220 from
+// 2026-08-19, +$10 on 2026-09-24 with the house rates, $200 / $240 from
+// 2026-10-30 when both tiers' callouts went to the flat $80 / $100). Before 08-19
 // they were stored as 156.52 / 191.30 — the same figures read as GST-inclusive and
 // divided back out, which undercharged the out-of-town job by 15%. Only the
 // callout separates the tiers now, which is the distance charge.
 export const TIER_2_RATES: Record<CrewSize, { hourly: number; callout: number }> =
   {
-    "2M": { hourly: 190, callout: 80 },
-    "3M": { hourly: 230, callout: 100 },
+    "2M": { hourly: 200, callout: 80 },
+    "3M": { hourly: 240, callout: 100 },
   };
 
 // ── Tier 3: fixed rates (excl GST) ──
 export const TIER_3_RATES: Record<CrewSize, { hourly: number; callout: number }> =
   {
-    "2M": { hourly: 190, callout: 90 },
-    "3M": { hourly: 230, callout: 90 },
+    "2M": { hourly: 200, callout: 80 },
+    "3M": { hourly: 240, callout: 100 },
   };
 
 // ── Suburb tier lists (lowercase for matching) ──
@@ -202,11 +206,13 @@ export const GST_MULTIPLIER = 1.15;
 // automation repo (Joey's quote floor + Margret's billing floor) — change both.
 // 2026-09-24 (Richard): packers $180 -> $190/hr, each bundle's labour hours x $10
 // more, materials unchanged. Was 1700 / 1986 / 2192 / 2758.
+// 2026-10-30 (Richard): packers $190 -> $200/hr, same derivation. Was
+// 1750 / 2041 / 2252 / 2833.
 export const PACKING_PRICES: Record<Bedrooms, number> = {
-  1: 1750,
-  2: 2041,
-  3: 2252,
-  4: 2833,
+  1: 1800,
+  2: 2096,
+  3: 2312,
+  4: 2908,
 };
 
 // ── Cleaning prices by bedroom (excl GST) ──
@@ -258,4 +264,12 @@ export const PIANO_SURCHARGES: Record<string, number> = {
 // 100 and pricing.py charged 100, so the Auckland number was simply stale and
 // every Auckland piano quote with stairs went out $20 a flight light.
 export const PIANO_STAIRS_PER_FLIGHT = 100;
+
+// ── Piano disposal (excl GST, Auckland only) ──
+// Pickup and tip run, mirrors pricing.py PIANO_DUMP_RATES. Stairs charge on top.
+// 2026-10-30 (Richard): published on /pricing; upright $350 -> $400.
+export const PIANO_DUMP: Record<PianoType, number> = {
+  upright: 400,
+  grand: 550,
+};
 

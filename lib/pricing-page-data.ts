@@ -12,7 +12,6 @@
 import {
   HAMILTON_CALLOUT_FEES,
   HAMILTON_TIER_1_RATES,
-  type HamiltonZone,
 } from "@/lib/hamilton-pricing-data";
 import {
   cleaningPropertyOptions,
@@ -27,6 +26,7 @@ import {
   MOVE_HOURS,
   PACKING_PRICES,
   PIANO_BASE,
+  PIANO_DUMP,
   PIANO_STAIRS_PER_FLIGHT,
   TIER_1_RATES,
   TIER_2_RATES,
@@ -146,9 +146,12 @@ export const aucklandCallout = {
   threeMovers: rate(CALLOUT_FEES["3M"]),
 };
 
-export const hamiltonCallouts: { zone: HamiltonZone; fee: Rate }[] = (
-  ["A", "B", "C"] as HamiltonZone[]
-).map((zone) => ({ zone, fee: rate(HAMILTON_CALLOUT_FEES[zone]["2M"]) }));
+/** Hamilton's callout is flat across its zones since 2026-10-30, so Zone A
+ *  stands for all of them, the same shape as Auckland. */
+export const hamiltonCallout = {
+  twoMovers: rate(HAMILTON_CALLOUT_FEES.A["2M"]),
+  threeMovers: rate(HAMILTON_CALLOUT_FEES.A["3M"]),
+};
 
 const BEDROOM_ORDER: Bedrooms[] = [1, 2, 3, 4];
 
@@ -235,6 +238,15 @@ export const pianoCraneRows: PianoRow[] = [
   { label: "Upright piano, crane lift (viewing required)", from: rate(990) },
   { label: "Grand piano, crane lift (viewing required)", from: rate(1400) },
 ];
+
+/** Piano disposal: we collect the piano and take it to the tip. Auckland only;
+ *  the per-flight stairs charge applies on top (pricing.py PIANO_DUMP_RATES). */
+export const pianoDumpRows: PianoRow[] = (["upright", "grand"] as PianoType[]).map(
+  (type) => ({
+    label: type === "upright" ? "Upright piano disposal" : "Grand piano disposal",
+    from: rate(PIANO_DUMP[type]),
+  }),
+);
 
 export type OuterTierRow = {
   label: string;

@@ -222,7 +222,7 @@ export const retirementHomeMoversPage: NicheServicePageConfig = {
     },
     {
       q: "What areas of Auckland do you cover?",
-      a: "Every village and rest home in the Auckland region, run out of our North Shore depot. The callout fee rises with distance, so a Takapuna move and a Pukekohe one are not priced the same. If the move is out to the Waikato, our Hamilton branch covers that end from its own depot.",
+      a: "Every village and rest home in the Auckland region, run out of our North Shore depot. The callout is the same flat fee across Auckland, though outer areas like Pukekohe carry a higher hourly rate than Takapuna. If the move is out to the Waikato, our Hamilton branch covers that end from its own depot.",
     },
     {
       q: "What happens to the furniture that will not fit the new unit?",
@@ -313,7 +313,7 @@ export const retirementHomeMoversHamiltonPage: NicheServicePageConfig = {
   faqs: [
     {
       q: "Which Waikato towns do you cover for village and rest-home moves?",
-      a: "Hamilton is our base. Cambridge, Te Awamutu, Huntly, Morrinsville, Ngaruawahia, and Raglan are standard callout areas, and Matamata, Otorohanga, Te Kuiti, and Putaruru sit on the wider zone. The callout fee changes with distance and we tell you which zone you are in when we quote.",
+      a: "Hamilton is our base. Cambridge, Te Awamutu, Huntly, Morrinsville, Ngaruawahia, and Raglan are standard callout areas, and Matamata, Otorohanga, Te Kuiti, and Putaruru sit on the wider zone. The callout is the same flat fee in every zone, and we confirm the full price when we quote.",
     },
     {
       q: "Can you move someone from Auckland into a Waikato village?",

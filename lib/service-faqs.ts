@@ -5,7 +5,7 @@ export type FaqItem = { q: string; a: string };
 export const generalServiceFaqs: readonly FaqItem[] = [
   {
     q: "How much does it cost to hire movers in Auckland?",
-    a: "Two movers and a truck are $150 an hour plus GST, any day of the week, plus a callout fee from $60 by distance. A one-bedroom flat usually lands around $360 to $450 and a three-bedroom house around $650 to $1,000. On anything three bedrooms or more we come and look first, because volume and access are what actually set the price.",
+    a: "Two movers and a truck are $160 an hour plus GST, any day of the week, plus a flat $80 callout fee. A one-bedroom flat usually lands around $400 to $560 and a three-bedroom house around $700 to $1,050. On anything three bedrooms or more we come and look first, because volume and access are what actually set the price.",
   },
   {
     q: "What is the process for booking?",
@@ -21,7 +21,7 @@ export const generalServiceFaqs: readonly FaqItem[] = [
   },
   {
     q: "Do you provide packing services?",
-    a: "Yes. Packers come the day before, priced by bedroom count from $1,750 plus GST for a one-bedroom home, with cartons, paper and wrap supplied. Most people have us do the kitchen and the fragile things and handle the rest themselves, which is cheaper and works fine.",
+    a: "Yes. Packers come the day before, priced by bedroom count from $1,800 plus GST for a one-bedroom home, with cartons, paper and wrap supplied. Most people have us do the kitchen and the fragile things and handle the rest themselves, which is cheaper and works fine.",
   },
   {
     q: "How do you protect furniture during the move?",
@@ -75,7 +75,7 @@ export const officeServiceFaqs: readonly FaqItem[] = [
 export const commercialServiceFaqs: readonly FaqItem[] = [
   {
     q: "How much does commercial moving cost in Auckland?",
-    a: "Commercial jobs are quoted individually based on item type, access, and crew time. Printer runs and single heavy deliveries often start from around $340 excl. GST; fit-outs and multi-drop work are scoped on site.",
+    a: "Commercial jobs are quoted individually based on item type, access, and crew time. Printer runs and single heavy deliveries often start from around $400 excl. GST; fit-outs and multi-drop work are scoped on site.",
   },
   {
     q: "What commercial work do you handle?",
@@ -191,7 +191,7 @@ export const uprightPianoFaqs: readonly FaqItem[] = [
 export const packingServiceFaqs: readonly FaqItem[] = [
   {
     q: "How much does professional packing cost?",
-    a: "A full house pack is priced by bedroom count, from $1,750 excl. GST for a 1-bedroom home. That is the minimum for a full pack; more to pack bills more, never less. The crew packs the day before your move with cartons and wrap supplied.",
+    a: "A full house pack is priced by bedroom count, from $1,800 excl. GST for a 1-bedroom home. That is the minimum for a full pack; more to pack bills more, never less. The crew packs the day before your move with cartons and wrap supplied.",
   },
   {
     q: "What is included in your packing service?",

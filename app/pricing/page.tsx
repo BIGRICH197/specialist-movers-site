@@ -14,12 +14,13 @@ import {
   cleaningExtraRows,
   cleaningRows,
   fixedPriceRows,
-  hamiltonCallouts,
+  hamiltonCallout,
   hamiltonDayRates,
   hamiltonFromHourly,
   jobDurations,
   outerTiers,
   pianoCraneRows,
+  pianoDumpRows,
   pianoRows,
   pianoStairsPerFlight,
   type Rate,
@@ -47,7 +48,7 @@ const breadcrumbs = [{ label: "Home", href: "/" }, { label: "Pricing" }];
  */
 /**
  * Whole dollars stay whole; anything with cents shows both of them. An
- * incl-GST figure can carry cents ($150 + GST is $172.50), and the default
+ * incl-GST figure can carry cents (the old $150 + GST rate was $172.50), and the default
  * formatter would print that as "172.5".
  */
 function money(value: number): string {
@@ -460,6 +461,31 @@ export default function PricingPage() {
               ))}
             </tbody>
           </TableShell>
+          <h3 className="mt-8 font-heading text-lg text-brand-purple">
+            Piano disposal
+          </h3>
+          <p className="mt-3 text-sm leading-relaxed text-brand-purple/85">
+            Piano at the end of its life? We collect it and take it to the tip, Auckland only.
+            Stairs add <Money value={pianoStairsPerFlight} /> per flight, the same as a move.
+          </p>
+          <TableShell>
+            <thead>
+              <tr>
+                <th className={th}>Disposal</th>
+                <th className={th}>From</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pianoDumpRows.map((row) => (
+                <tr key={row.label}>
+                  <td className={td}>{row.label}</td>
+                  <td className={td}>
+                    <Money value={row.from} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </TableShell>
           <p className="mt-4 text-sm leading-relaxed text-brand-purple/70">
             More detail on how we handle them is on our{" "}
             <Link href="/piano-movers" className="font-semibold text-brand-purple underline">
@@ -472,9 +498,8 @@ export default function PricingPage() {
         <section className="mt-12">
           <SectionHeading id="hamilton">Hamilton and Waikato rates</SectionHeading>
           <p className="mt-3 text-sm leading-relaxed text-brand-purple/85">
-            One flat hourly rate, every day of the week. What changes in Hamilton is the callout,
-            which follows the zone you are in. A job that leaves the Waikato is priced as out of
-            town, on the tiers below.
+            One flat hourly rate and one flat callout, every day of the week. A job that leaves
+            the Waikato is priced as out of town, on the tiers below.
           </p>
           <TableShell>
             <thead>
@@ -506,13 +531,8 @@ export default function PricingPage() {
             </tbody>
           </TableShell>
           <p className="mt-4 text-sm leading-relaxed text-brand-purple/85">
-            Callout for a two-mover crew depends on the zone:{" "}
-            {hamiltonCallouts.map((entry, index) => (
-              <span key={entry.zone}>
-                {index > 0 ? " · " : ""}Zone {entry.zone} <Money value={entry.fee} />
-              </span>
-            ))}
-            .
+            One callout fee applies per job: <Money value={hamiltonCallout.twoMovers} /> for a
+            two-mover crew and <Money value={hamiltonCallout.threeMovers} /> for three.
           </p>
         </section>
 
@@ -571,8 +591,8 @@ export default function PricingPage() {
               and tight parking are not surcharged — they simply take longer, and the hours show it.
             </li>
             <li>
-              <strong className="text-brand-purple">Where you are.</strong> Outer Auckland and the
-              Waikato zones carry their own rates, listed above.
+              <strong className="text-brand-purple">Where you are.</strong> Outer Auckland carries
+              its own rates, listed above. Everywhere else the callout is the same flat fee.
             </li>
             <li>
               <strong className="text-brand-purple">How ready you are.</strong> Boxes packed, sealed and

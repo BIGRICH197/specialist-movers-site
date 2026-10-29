@@ -74,13 +74,13 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     paragraphs: [
       "The newer subdivisions around Takanini, places like Kauri Flats and the estates pushing toward Ardmore, tend to have tight access roads that were designed for the homes, not for moving trucks. Narrow cul-de-sacs and parked cars on both sides are a regular part of the job out here. Our crew plans the approach before move day so there are no surprises on the morning.",
       "Alongside the new builds, there is a solid belt of older homes on larger sections closer to the Great South Road corridor. These places often come with sheds, garages, and outdoor gear that needs as much thought as the furniture inside. We do dozens of jobs in Takanini each year and that mix of old and new is a constant.",
-      "Takanini is about 34 minutes from our Wairau Valley depot, which puts it in pricing zone B. The fixed callout is a little higher than inner suburbs, but the hourly rate is the same across Auckland. You see the full price before you confirm the booking, so there is nothing to work out on the day.",
+      "Takanini is about 34 minutes from our Wairau Valley depot. The callout is the same flat fee as anywhere in Auckland, and so is the hourly rate. You see the full price before you confirm the booking, so there is nothing to work out on the day.",
       "The suburb sits right against the Papakura motorway interchange, which sounds convenient but can complicate timing on weekday mornings and late afternoons when the Southern Motorway backs up. We factor that into our scheduling when we book your job, so the crew is not sitting in traffic when they should be at your door.",
     ],
     highlights: [
       "Regular work across Takanini's new subdivisions and older Great South Road homes",
       "Familiar with tight cul-de-sac access in Kauri Flats and surrounding estates",
-      "Zone B pricing, full price shown upfront before you book",
+      "Same flat callout as central Auckland, full price shown upfront before you book",
       "Crew departs Wairau Valley, about 34 minutes to Takanini",
     ],
     faqs: [
@@ -111,7 +111,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "The hill that Pukekohe sits on is the first thing you notice when you arrive. Many homes here are on sloped sections, and driveways that look straightforward on Google Maps can be steep, narrow, or both. We plan for that before move day, not when the truck arrives.",
       "The older streets closer to the town centre have their share of villas and bungalows with narrow side access and no off-street parking for a truck. On those jobs, timing matters. We work with you to pick a window that avoids the main shopping traffic on Massey Avenue and the surrounding blocks.",
       "On the outskirts, Pukekohe shades into lifestyle blocks and rural sections with long unsealed driveways and farm gates. We have completed dozens of jobs across this part of Franklin, so we know what questions to ask about access, turning room, and what needs to come down off the property before the truck backs in.",
-      "Getting from our Wairau Valley depot to Pukekohe takes about 53 minutes, which puts Pukekohe in our outer service area. The callout reflects that distance and you see the full price upfront before you book. Nothing changes on the day.",
+      "Getting from our Wairau Valley depot to Pukekohe takes about 53 minutes, which puts Pukekohe in our outer service area. The callout is the same flat fee as the rest of Auckland, the outer-area hourly rate is higher, and you see the full price upfront before you book. Nothing changes on the day.",
     ],
     highlights: [
       "Sloped sections and steep driveways planned in advance",
@@ -126,7 +126,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "How does pricing work for a Pukekohe move?",
-        a: "Hourly rates are the same across Auckland. The fixed callout varies with distance from our Wairau Valley depot, and Pukekohe is in our outer service area, so the callout reflects that drive. You see the full breakdown before you confirm, with nothing added on the day.",
+        a: "The callout is the same flat fee across Auckland. Pukekohe is in our outer service area, so the hourly rate is higher than in the city to cover the drive. You see the full breakdown before you confirm, with nothing added on the day.",
       },
       {
         q: "We are moving from a lifestyle block just outside town. Is that a problem?",
@@ -146,7 +146,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     paragraphs: [
       "The marina precinct is the defining feature here. Apartments and townhouses close to the water often come with lifts, allocated parking bays, and body corporate rules about when and how moving trucks can access the building. We confirm all of that before move day so there are no surprises at the gate.",
       "Further up the ridge, homes sit on sections that drop sharply toward the Hauraki Gulf. Long driveways, retaining walls, and narrow access roads are common. Our crew will walk the site before the truck is loaded if anything looks tight, because a good carry plan beats an improvised one every time.",
-      "Half Moon Bay is about 30 minutes from our Wairau Valley depot, which puts it in pricing zone B. The fixed callout is a little higher than inner suburbs because of the distance, and you see the full price before you confirm anything.",
+      "Half Moon Bay is about 30 minutes from our Wairau Valley depot. The callout is the same flat fee as anywhere in Auckland, and you see the full price before you confirm anything.",
       "We have done dozens of jobs in Half Moon Bay, a mix of families moving to larger homes on the eastern bays, retirees downsizing to marina-side units, and the occasional boat owner shifting gear to storage. The neighbourhood is familiar to us and that makes the planning straightforward.",
     ],
     highlights: [
@@ -166,7 +166,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "How does the pricing work for Half Moon Bay given it is on the eastern side of Auckland?",
-        a: "Hourly rates are the same across Auckland. Half Moon Bay sits in a zone where the fixed callout is slightly higher than inner suburbs because of the drive from our Wairau Valley depot. The full price is shown before you book, so you can confirm without any guesswork.",
+        a: "Hourly rates are the same across Auckland. The callout is a flat fee too, the same in Half Moon Bay as on the North Shore. The full price is shown before you book, so you can confirm without any guesswork.",
       },
       {
         q: "Can you move furniture into a waterfront unit that has no lift, only a narrow stairwell?",
@@ -183,7 +183,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "The older parts of town, around the main street and down toward the harbour, have character homes with narrow access and established gardens that eat into driveways. Getting a truck close enough matters, and we plan that before move day, not on it.",
       "Further out, lifestyle blocks and rural sections bring their own requirements. Long gravel driveways, steep paddock tracks, and sheds with decades of accumulated gear all call for a different approach than a suburban street in Manukau or Papakura.",
       "Waiuku draws a particular kind of mover: families coming from Auckland who want space, and longtime Franklin locals downsizing into town. Both groups tend to have more to move than the average city job, and we crew up to match.",
-      "The drive from our Wairau Valley depot is about 65 minutes, which puts Waiuku in our outer service area. The callout reflects that distance, and you see the full price before you confirm anything.",
+      "The drive from our Wairau Valley depot is about 65 minutes, which puts Waiuku in our outer service area. The callout is the same flat fee as the rest of Auckland, the outer-area hourly rate is higher, and you see the full price before you confirm anything.",
     ],
     highlights: [
       "Regular work across Waiuku's township and rural sections",
@@ -198,7 +198,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "How does pricing work for a move from Waiuku to Auckland?",
-        a: "We charge an hourly rate for the crew and truck, which is the same across Auckland. Waiuku sits in our outer service area, so the callout is higher than a closer suburb. You see the full price upfront before you book, with nothing added on the day.",
+        a: "We charge an hourly rate for the crew and truck plus a flat callout. Waiuku sits in our outer service area, so the hourly rate is higher than for a closer suburb, while the callout is the same. You see the full price upfront before you book, with nothing added on the day.",
       },
       {
         q: "We have a large shed on the property. Can you help move the contents as well as the house?",
@@ -219,7 +219,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "The housing stock in Wellsford skews older. Many homes are single-storey weatherboard with covered verandahs, and while that sounds straightforward, older homes often have narrow hallways and doorways that need measuring before move day. We look at access before we load, not after.",
       "A good number of Wellsford moves involve properties that sit just off the highway on rural access roads. Longer driveways, sometimes gravel, sometimes gated, and occasionally shared with farm traffic. We confirm driveway width, surface, and turning room before we arrive so there are no surprises on the day.",
       "People moving to Wellsford are often making a deliberate change: more land, a slower pace, sometimes a lifestyle block. That tends to mean more to shift, sheds included. People leaving are often heading south into Auckland, and they want the move to run to a schedule. We work both directions regularly.",
-      "Our depot is in Wairau Valley, and Wellsford sits in our outer service area, roughly 47 minutes up the motorway. The callout reflects that distance, and you see the full price before you confirm anything. We are on the road into Northland often enough that bookings here run smoothly.",
+      "Our depot is in Wairau Valley, and Wellsford sits in our outer service area, roughly 47 minutes up the motorway. The callout is the same flat fee as the rest of Auckland, the outer-area hourly rate is higher, and you see the full price before you confirm anything. We are on the road into Northland often enough that bookings here run smoothly.",
     ],
     highlights: [
       "Regular work in Wellsford and the surrounding Rodney countryside",
@@ -230,7 +230,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     faqs: [
       {
         q: "How far are you from Wellsford, and does that affect the price?",
-        a: "Our Wairau Valley depot is about 47 minutes from Wellsford. The area sits in our outer service zone, so the callout is higher than for central Auckland suburbs. You see exactly what that looks like before you book, and the hourly rate is the same across Auckland.",
+        a: "Our Wairau Valley depot is about 47 minutes from Wellsford. The area sits in our outer service zone, so the hourly rate is higher than for central Auckland suburbs, while the callout is the same flat fee. You see exactly what that looks like before you book.",
       },
       {
         q: "Our Wellsford home has a narrow hallway and some original doorframes. Is that a problem?",
@@ -255,7 +255,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "The older township streets around Warkworth's centre are narrow in places, with mature trees and tight kerb access that can catch an unprepared crew off guard. We check turning circles and access points before move day, so we are not problem-solving in the street while the clock runs.",
       "A good number of moves around Warkworth involve lifestyle properties on the fringes of town. That often means a long driveway, a gate, an outbuilding full of gear, and a house that sits well back from the road. We plan the carry distance before we start, not after the truck is parked.",
       "Warkworth is also a popular destination for Aucklanders heading north to semi-retire or slow down, which means we often move substantial household contents, sometimes including a piano or large furniture pieces that have been in a family for a long time. Our crew is licensed and insured, and cover for your own belongings can be arranged through our team.",
-      "Our depot is in Wairau Valley, roughly 36 minutes from Warkworth under normal traffic. We operate seven days a week, and quotes come back in about 15 minutes during business hours. Warkworth falls into our outer service area, so the callout reflects the drive, and you see the full price before you confirm anything.",
+      "Our depot is in Wairau Valley, roughly 36 minutes from Warkworth under normal traffic. We operate seven days a week, and quotes come back in about 15 minutes during business hours. Warkworth falls into our outer service area, so the hourly rate reflects the drive while the callout stays the same flat fee, and you see the full price before you confirm anything.",
     ],
     highlights: [
       "Narrow township streets and mature-tree access handled",
@@ -270,7 +270,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "How does pricing work for a move to or from Warkworth?",
-        a: "Hourly rates are the same across Auckland. The callout fee varies with distance from our Wairau Valley depot, and Warkworth is in our outer service area, so the callout reflects that drive. You see the full price upfront before you confirm the booking.",
+        a: "The callout is the same flat fee across Auckland. Warkworth is in our outer service area, so the hourly rate is higher than in the city to cover the drive. You see the full price upfront before you confirm the booking.",
       },
       {
         q: "Do you move pianos to Warkworth?",
@@ -291,7 +291,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "The newer townhouse and terrace developments around Manukau and Papatoetoe have changed the way we plan jobs in this part of Auckland. Shared driveways, narrow vehicle crossings, and body corporate rules around lift access and hours all come up regularly. We check these things before move day, not on it.",
       "Flat Bush and the surrounding growth corridors have added thousands of new homes to the Manukau area in recent years. These properties are often larger, with double garages and big living rooms, and families moving in are frequently shifting from older, smaller homes and need careful planning for the volume difference.",
       "The Manukau City Centre high-rises and mid-rise apartment buildings bring their own set of access questions. Goods lifts need to be booked, parking permits can apply on the surrounding streets, and some buildings have set move-in windows. We have done dozens of jobs in this part of South Auckland and know to ask the building manager early.",
-      "Our Wairau Valley depot is about 29 minutes from Manukau, which puts the area in our pricing zone B. The fixed callout is a little higher than inner suburbs to reflect that distance, and you see the full price before you confirm anything. Our crew is licensed and insured, and we operate seven days a week.",
+      "Our Wairau Valley depot is about 29 minutes from Manukau. The callout is the same flat fee as anywhere in Auckland, and you see the full price before you confirm anything. Our crew is licensed and insured, and we operate seven days a week.",
     ],
     highlights: [
       "Experience with Manukau City Centre apartment building access and goods lifts",
@@ -310,7 +310,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "Is Manukau in a higher pricing zone because it is further from your depot?",
-        a: "It is in zone B, which means the fixed callout is a little more than inner-suburb jobs. The hourly rate is the same across Auckland. You see the complete price before you book, so there are no surprises on the day.",
+        a: "No. The callout is the same flat fee as an inner-suburb job, and the hourly rate is the same across Auckland. You see the complete price before you book, so there are no surprises on the day.",
       },
       {
         q: "Do you move on weekends? We can only move on a Saturday.",
@@ -338,7 +338,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     faqs: [
       {
         q: "How far is Papakura from your depot, and does that affect my price?",
-        a: "We are based in Wairau Valley, about 43 minutes from Papakura. That puts Papakura in our Zone B pricing, so the fixed callout is a little higher than inner suburbs. Your full price is shown before you confirm the booking, with nothing added on the day.",
+        a: "We are based in Wairau Valley, about 43 minutes from Papakura. Papakura is in our outer area, so the hourly rate is a step up from the city rate, while the callout is the same flat fee as anywhere in Auckland. Your full price is shown before you confirm the booking, with nothing added on the day.",
       },
       {
         q: "We have a sleepout and a double garage to clear as well as the main house. Can you handle the whole lot?",
@@ -382,7 +382,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "How does pricing work for a Pakuranga job?",
-        a: "Our hourly rates are the same across Auckland. The fixed callout reflects travel from our Wairau Valley depot, so Pakuranga sits in a slightly higher callout zone than inner suburbs. You see the full price before you confirm, and there are no surprises added on the day.",
+        a: "Our hourly rates are the same across Auckland, and so is the callout, a flat fee wherever you are. You see the full price before you confirm, and there are no surprises added on the day.",
       },
       {
         q: "Do you move on weekends? We need a Saturday.",
@@ -398,13 +398,13 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     paragraphs: [
       "The housing stock in Helensville is genuinely mixed. You have timber villas and bungalows on the township streets close to the train station, then larger blocks and newer builds once you head out toward Parakai or south along the river. Each type brings its own access and handling questions, and our crews have done regular work out here.",
       "Access is worth thinking about before move day. Many of the lifestyle properties around Helensville sit at the end of long driveways, sometimes gravel, sometimes with a gate or a low-clearance dip. We confirm turning room, overhead clearance, and surface conditions before we arrive, not on the morning itself.",
-      "Helensville is about 38 minutes from our Wairau Valley depot. It sits in pricing zone B, so the fixed callout is slightly higher than inner suburbs, but the hourly rate is the same as anywhere in Auckland. You see the full price before you confirm, no surprises on the day.",
+      "Helensville is about 38 minutes from our Wairau Valley depot. It sits in our outer area, so the hourly rate is a step up from the city rate, while the callout is the same flat fee as anywhere in Auckland. You see the full price before you confirm, no surprises on the day.",
       "We run seven days a week, which matters out here. A lot of people moving to or from Helensville are making a significant lifestyle change, and they want to pick the day that suits them rather than work around a narrow weekday slot. Packing the day before is available if you want to make move day itself straightforward.",
     ],
     highlights: [
       "Regular runs to Helensville, Parakai, and the surrounding Kaipara Coast",
       "Comfortable with lifestyle block access, long driveways, and rural properties",
-      "38 minutes from our Wairau Valley depot, zone B pricing shown upfront",
+      "38 minutes from our Wairau Valley depot, outer-area pricing shown upfront",
       "Seven-day availability to suit settlement dates and lifestyle move timelines",
     ],
     faqs: [
@@ -414,7 +414,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "I am moving from central Auckland out to Helensville. How does pricing work?",
-        a: "Hourly rates are the same across Auckland. The fixed callout is slightly higher for Helensville than for inner suburbs because of the drive from our Wairau Valley depot. You get the full price upfront before you book, so you know exactly what you are paying.",
+        a: "The callout is the same flat fee across Auckland. The hourly rate for Helensville is higher than for inner suburbs because of the drive from our Wairau Valley depot. You get the full price upfront before you book, so you know exactly what you are paying.",
       },
       {
         q: "Do you move pianos to Helensville?",
@@ -471,7 +471,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "The streets close to the Great South Road corridor are tight. Older bungalows sit close to the boundary, driveways are short, and parked cars narrow things down further on move day. We check access before we arrive so the crew is not working out a plan on the footpath.",
       "Otahuhu has a strong Pacific and South Asian community, and households here often move a lot of furniture built for large families. Big dining suites, large display cabinets, multi-piece bedroom sets. We plan load order and carry routes before anything comes off a shelf.",
       "The suburb also has a fair amount of older rental stock and a growing number of smaller units added to existing sections. Cross-lease titles and shared right-of-way access can limit where a truck stops. We confirm these details at the quoting stage, not on the morning of the move.",
-      "We are based in Wairau Valley and reach Otahuhu in about 26 minutes. It sits in pricing zone B, so the fixed callout is a little higher than inner suburbs, and you see the full price before you confirm the booking. We work here regularly, seven days a week.",
+      "We are based in Wairau Valley and reach Otahuhu in about 26 minutes. The callout is the same flat fee as anywhere in Auckland, and you see the full price before you confirm the booking. We work here regularly, seven days a week.",
     ],
     highlights: [
       "Familiar with narrow lots and short driveways near Great South Road",
@@ -490,7 +490,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "How does pricing work for Otahuhu?",
-        a: "Our hourly rates are the same across Auckland. Otahuhu sits in pricing zone B, so the fixed callout is slightly higher than inner suburbs because of the drive from our Wairau Valley depot. You see the full price before you book, with nothing added on the day.",
+        a: "Our hourly rates are the same across Auckland. The callout is a flat fee too, the same in Otahuhu as anywhere else in Auckland. You see the full price before you book, with nothing added on the day.",
       },
       {
         q: "Can you move us on a weekend? We cannot take time off work.",
@@ -579,7 +579,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "A lot of the older homes here were built when driveways were an afterthought. Narrow concrete strips, low carport beams, and mature trees close to the kerb are things our crews plan around before the truck arrives. Good access checks before move day make a real difference on streets like these.",
       "Papatoetoe has seen steady intensification over the past few years. Single lots have been split, and townhouse clusters have gone up throughout the suburb. These newer builds often have tight shared driveways and minimal outdoor storage space, so the order things come off the truck matters.",
       "The suburb draws a wide mix of households, from long-term South Auckland families upsizing or downsizing to newer arrivals moving into the area for the first time. We have done dozens of jobs here and the mix of furniture reflects that: large dining sets, bedroom suites, and the occasional upright piano.",
-      "Our depot is in Wairau Valley, about 27 minutes from Papatoetoe. Because of that distance the fixed callout sits in our pricing zone B, which is a little higher than inner suburbs. You see the full price before you confirm anything.",
+      "Our depot is in Wairau Valley, about 27 minutes from Papatoetoe. The callout is the same flat fee as anywhere in Auckland. You see the full price before you confirm anything.",
     ],
     highlights: [
       "Dozens of completed moves in Papatoetoe",
@@ -615,7 +615,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "The eastern end of the Bucklands Beach peninsula is mostly large homes on sloping sections with views across the Manukau and Waitemata. Those sites look great from the water but they come with steep driveways, retaining walls, and garages that sit well below or above street level. We walk the site before move day so nothing surprises the crew.",
       "Eastern Beach Road and the streets running off it include a mix of older brick-and-tile family homes and more recent builds. Parking a large truck near the waterfront strips can be tight, especially on weekends when the reserve and beach draw visitors. We book time and space early and co-ordinate with neighbours if a vehicle needs to shift.",
       "We have completed regular work in this area, so we know the access quirks around Ara Tai Road, the cul-de-sacs near Bucklands Beach Primary, and the longer carries that come with hillside homes. That local knowledge saves time on the day and keeps your quote accurate.",
-      "From our Wairau Valley depot the drive is about 34 minutes, which puts Bucklands Beach in our pricing zone B. The fixed callout is slightly higher than closer suburbs because of travel time. You see the full price before you confirm, and hourly rates are the same as anywhere else in Auckland.",
+      "From our Wairau Valley depot the drive is about 34 minutes. The callout is the same flat fee as closer suburbs. You see the full price before you confirm, and hourly rates are the same as anywhere else in Auckland.",
     ],
     highlights: [
       "Steep-section and hillside-driveway experience on the peninsula",
@@ -634,7 +634,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "How much more does the callout cost from your depot compared to the North Shore?",
-        a: "Bucklands Beach sits in our pricing zone B because the depot run from Wairau Valley is about 34 minutes. The fixed callout is slightly higher than inner suburbs, but the hourly rate is exactly the same across all of Auckland. You get the full price upfront before you book, so there are no surprises.",
+        a: "Nothing more. The depot run from Wairau Valley is about 34 minutes, but the callout is the same flat fee across all of Auckland, and so is the hourly rate. You get the full price upfront before you book, so there are no surprises.",
       },
       {
         q: "We have a grand piano in the lounge that overlooks the water. It is on the upper floor with a narrow staircase. Can you move it?",
@@ -651,7 +651,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "The older housing stock around Manurewa town centre tends to be generous in size but tricky in layout. Long internal hallways, split-level entries, and hefty furniture that was built to last all take planning. Our crews of two to four show up knowing what to expect, not guessing on the day.",
       "Newer townhouse developments closer to Wiri and the Southern Motorway corridor are a different challenge. Shared driveways, tight turning circles, and allocated parking that other residents still use on move day. We check access details before we arrive so the truck goes in the right place the first time.",
       "Manurewa has a lot of established families with a lot of stuff accumulated over many years. Big dining suites, upright pianos, ride-on mowers, garage full of gear. We are NZ's piano moving specialists, trusted by Steinway dealers and Auckland Town Hall, so a family upright in a South Auckland living room is well within our range.",
-      "Our depot is in Wairau Valley on the North Shore. The run to Manurewa takes around 33 minutes, which puts this suburb in our pricing zone B. The fixed callout is slightly higher than inner suburbs to account for travel, and you see the full price upfront before you confirm the booking. No surprises on the day.",
+      "Our depot is in Wairau Valley on the North Shore. The run to Manurewa takes around 33 minutes. The callout is the same flat fee as anywhere in Auckland, and you see the full price upfront before you confirm the booking. No surprises on the day.",
     ],
     highlights: [
       "Dozens of Manurewa moves completed, across old brick-and-tile and new townhouses",
@@ -670,7 +670,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "How does pricing work for Manurewa given you are based on the North Shore?",
-        a: "Hourly rates are the same across Auckland. Because Manurewa is around 33 minutes from our Wairau Valley depot, the fixed callout is slightly higher than closer suburbs to cover travel. You see the full price before you confirm, so there is nothing added later.",
+        a: "Hourly rates are the same across Auckland. The callout is a flat fee too, the same in Manurewa as in closer suburbs. You see the full price before you confirm, so there is nothing added later.",
       },
       {
         q: "Can you move our upright piano as part of a house move in Manurewa?",
@@ -687,7 +687,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "The Peninsula Road is the only way on and off the Whangaparaoa Peninsula, and our crew plans around that before move day. Traffic through Silverdale and along the Gulf Harbour turnoff can add real time during school runs and summer weekends, so we factor departure windows into the schedule rather than guessing on the day.",
       "The housing stock out here is varied in a very specific way. Older brick homes on generous sections near Stanmore Bay sit alongside the tighter townhouse clusters that have gone up closer to Gulf Harbour. Elevated sections with sea views are common, and those views often come with steep driveways or long paths that need a bit of thought for larger pieces of furniture.",
       "Gulf Harbour itself has a marina village feel, with apartments and townhouses that were built for a coastal lifestyle rather than easy furniture access. Narrow entry corridors and upper-level units mean we assess access early, and we carry blankets, shrink wrap or mattress covers depending on what each item needs to get there safely.",
-      "We have completed dozens of jobs on the Whangaparaoa Peninsula, and our crew knows the area well. Our depot is in Wairau Valley, about 32 minutes away, and the callout for this zone is slightly higher than inner suburbs to reflect that distance. You see the full price before you book, with nothing added on the day.",
+      "We have completed dozens of jobs on the Whangaparaoa Peninsula, and our crew knows the area well. Our depot is in Wairau Valley, about 32 minutes away, and the hourly rate for this outer area is a step up from inner suburbs to reflect that distance, while the callout is the same flat fee. You see the full price before you book, with nothing added on the day.",
     ],
     highlights: [
       "Peninsula Road and Gulf Harbour access planned in advance",
@@ -706,7 +706,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "What does the callout cost for Whangaparaoa?",
-        a: "Whangaparaoa sits in our pricing zone B, so the fixed callout is a little higher than closer-in suburbs to account for the drive from our Wairau Valley depot. The hourly rate is the same as anywhere else in Auckland. You see the complete price upfront when you book, with no extras added later.",
+        a: "The callout is the same flat fee as anywhere in Auckland. Whangaparaoa sits in our outer area, so the hourly rate is a little higher than closer-in suburbs to account for the drive from our Wairau Valley depot. You see the complete price upfront when you book, with no extras added later.",
       },
       {
         q: "We have a large piano in a home near Stanmore Bay. Can you move it?",
@@ -720,13 +720,13 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     intro:
       "Beachlands sits at the end of a long run out from the city, and the moves here reflect that. Big sections, relaxed coastal streets, and households that have often been in place for years.",
     paragraphs: [
-      "Getting a truck to Beachlands takes close to 50 minutes from our Wairau Valley depot. That travel time is factored into the callout for this zone, and you see the full price before you confirm anything. No surprises on the day.",
+      "Getting a truck to Beachlands takes close to 50 minutes from our Wairau Valley depot. That travel time is factored into the hourly rate for this outer zone, while the callout is the same flat fee, and you see the full price before you confirm anything. No surprises on the day.",
       "The housing stock out here leans toward generous freehold sections, often with long driveways, established gardens, and garages full of gear that has accumulated over many years. We send crews of two to four and trucks with taillifts, so heavy furniture and large loads get moved properly without improvising on the spot.",
       "Beachlands is the kind of place where people stay a long time, then make one big move when the family has grown or the kids have left home. That often means a full house of furniture, boxes, and the occasional piano. We are NZ's piano moving specialists, trusted by Steinway dealers and Auckland Town Hall, so if there is a piano on the move list, we have handled far more difficult ones.",
       "We have completed regular work in Beachlands and the surrounding Maraetai and Pine Harbour area. Seven-day operation means we can often fit around ferry timetables, settlement dates, and the practical reality that weekdays are not always possible when you live this far out.",
     ],
     highlights: [
-      "About 50 minutes from our Wairau Valley depot, callout priced accordingly",
+      "About 50 minutes from our Wairau Valley depot, outer-area rate shown upfront",
       "Experience with large freehold sections and long established driveways",
       "Piano moves to and from the Beachlands and Maraetai area handled regularly",
       "Dozens of completed moves across the Beachlands and Pine Harbour corridor",
@@ -734,7 +734,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     faqs: [
       {
         q: "How does pricing work for a move to or from Beachlands?",
-        a: "Beachlands sits in our outer service zone. The callout fee reflects the roughly 50-minute run from our Wairau Valley depot. Hourly rates are the same as anywhere in Auckland. You get a full price upfront before you book, so there is nothing to work out on move day.",
+        a: "Beachlands sits in our outer service zone. The hourly rate reflects the roughly 50-minute run from our Wairau Valley depot, and the callout is the same flat fee as anywhere in Auckland. You get a full price upfront before you book, so there is nothing to work out on move day.",
       },
       {
         q: "Our driveway is long and has a tight turn near the garage. Will your truck manage it?",
@@ -758,7 +758,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     paragraphs: [
       "A lot of Mairangi Bay homes were built in the 1970s and 1980s, and they come with a particular set of challenges. Split-level layouts, internal stairs, and long carries from a garage at road level to a living area halfway up the section are common. We plan the carry route before move day, not on it.",
       "The suburb has seen a steady run of downsizes in recent years. Families who bought here decades ago are now moving to smaller places, often taking a few pieces of real furniture with them, including the occasional piano. We are NZ's piano moving specialists, trusted by Steinway dealers and Auckland Town Hall, so a family upright in a Mairangi Bay living room is well within our scope.",
-      "Our Wairau Valley depot is about 8 minutes from Mairangi Bay, so crews arrive on time and we are not charging you for a long drive. The callout sits in our standard pricing zone, which means no distance premium on top of your hourly rate. You see the full price before you book.",
+      "Our Wairau Valley depot is about 8 minutes from Mairangi Bay, so crews arrive on time. The callout is the same flat fee as anywhere in Auckland, with no distance premium on top of your hourly rate. You see the full price before you book.",
       "Parking along the main residential streets here can be tighter than it looks, especially on the blocks closest to the beach and the reserve. We check parking options and truck access when we do the quote, and for larger homes we offer a free in-person viewing so nothing catches us on the day.",
     ],
     highlights: [
@@ -794,7 +794,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     paragraphs: [
       "South Auckland has some of Auckland's most diverse housing stock. You have older state-era homes with long driveways and detached garages, new multi-storey townhouses with shared accessways, and everything in between. We look at access, truck clearance, and parking before move day so nothing slows us down on the day itself.",
       "The region is growing fast. New subdivisions around Flat Bush, Takanini, and Paerata are adding thousands of homes, many with narrow shared lanes, coded gates, and limited street parking. We check those details ahead of time and bring the right size truck for the site.",
-      "Our depot is in Wairau Valley on the North Shore. The drive to South Auckland takes about 29 minutes, so this sits in our pricing zone B. The fixed callout is slightly higher than inner suburbs, but the hourly rate is the same across all of Auckland. You see the full price before you confirm.",
+      "Our depot is in Wairau Valley on the North Shore. The drive to South Auckland takes about 29 minutes. The callout is the same flat fee as inner suburbs, and the hourly rate is the same across all of Auckland. You see the full price before you confirm.",
       "We have completed 4,000+ moves across Auckland and the Waikato, including plenty of larger households with big appliances, heavy furniture, and full garages. Our trucks have taillifts and we run crews of two to four depending on the job. For bigger homes we offer a free viewing so we can quote accurately and plan the day properly.",
     ],
     highlights: [
@@ -814,7 +814,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "How much more does the callout cost from your North Shore depot to South Auckland?",
-        a: "The drive from our Wairau Valley depot is about 29 minutes, so South Auckland sits in our zone B. The fixed callout is slightly higher than closer suburbs to account for the travel, but the hourly rate is identical across Auckland. You get the full breakdown upfront before you book.",
+        a: "Nothing more. The drive from our Wairau Valley depot is about 29 minutes, but the callout is the same flat fee as closer suburbs, and the hourly rate is identical across Auckland. You get the full breakdown upfront before you book.",
       },
       {
         q: "We need someone to pack the house the day before. Do you do that in South Auckland?",
@@ -831,7 +831,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "The Waitakere foothills change how you plan a move. Titirangi and the surrounding bush suburbs have roads that narrow quickly, tight bends, and driveways that drop away from the street. We check access before move day so there are no surprises when the truck arrives.",
       "Much of the housing stock in Henderson, Glen Eden, and New Lynn is 1960s to 1980s brick and tile. Solid construction, but often with sunken lounges, low doorways, or garages that were not built with a fridge-freezer in mind. Our crew of two to four know how to work those spaces without marking walls or doorframes.",
       "Te Atatu Peninsula and Te Atatu South have seen a lot of new development alongside older homes. Some streets mix original three-bedroom houses with recent townhouse blocks on shared driveways. We confirm parking and access for both, and we bring the right truck for the job.",
-      "The run from our Wairau Valley depot to West Auckland is about 32 minutes, which puts this area in our pricing zone B. The fixed callout is a little more than inner suburbs, but you see the full price before you confirm anything. Quotes come back in around 15 minutes during business hours.",
+      "The run from our Wairau Valley depot to West Auckland is about 32 minutes. The callout is the same flat fee as inner suburbs, and you see the full price before you confirm anything. Quotes come back in around 15 minutes during business hours.",
     ],
     highlights: [
       "Titirangi and bush-road access checked before move day",
@@ -850,7 +850,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "How does pricing work for West Auckland compared to other parts of Auckland?",
-        a: "Hourly rates are the same across all of Auckland. The fixed callout is slightly higher in West Auckland than in inner suburbs because of the travel time from our Wairau Valley depot, around 32 minutes each way. You see both figures in full before you book, so you know the total cost upfront.",
+        a: "Hourly rates are the same across all of Auckland. The callout is a flat fee too, the same in West Auckland as in inner suburbs, even though the run from our Wairau Valley depot is around 32 minutes each way. You see both figures in full before you book, so you know the total cost upfront.",
       },
       {
         q: "We are moving into a new townhouse in Te Atatu South with a shared driveway. What do we need to tell you?",
@@ -866,7 +866,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Glenfield is home turf, our depot sits next door in Wairau Valley, so we reach local jobs fast and know the streets, malls, and cul-de-sacs well.",
     paragraphs: [
       "Glenfield is mostly 1970s and 80s brick-and-tile homes, newer townhouse infill, and cross-leases off shared driveways. We check driveway width and parking at your free viewing so the truck lands close to the door.",
-      "Being minutes from base keeps Glenfield callouts low and lets us slot in shorter-notice moves. We handle home relocations, packing, piano transport, and office relocations across the suburb.",
+      "Being minutes from base lets us slot in shorter-notice moves in Glenfield. We handle home relocations, packing, piano transport, and office relocations across the suburb.",
     ],
     highlights: [
       "Depot next door in Wairau Valley",
@@ -1007,7 +1007,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     paragraphs: [
       "A lot of Albany homes are two or three storeys with double garages, big living areas, and a full set of furniture to match. Volume is the main challenge here, not terrain. We size the crew and truck to the job so nothing gets left behind or rushed.",
       "Pinehill, Oteha, and the newer townhouse developments around Albany Highway bring a different set of access questions. Shared driveways, narrow lanes, body-corporate parking rules, and lift bookings in taller blocks all need sorting before move day, not on it. We ask those questions at the quote stage.",
-      "Albany sits about 14 minutes from our Wairau Valley depot. That proximity keeps callout costs low and means we can turn around quickly if a job runs long or needs a second trip. You see the full price before you confirm, with no surprises on the day.",
+      "Albany sits about 14 minutes from our Wairau Valley depot. That proximity means we can turn around quickly if a job runs long or needs a second trip. You see the full price before you confirm, with no surprises on the day.",
       "A good number of Albany households have a piano, a gym setup, or both. We are the movers trusted by Steinway dealers and Auckland Town Hall for piano work, so whatever is sitting in your living room, we have moved something like it before.",
     ],
     highlights: [
@@ -1027,7 +1027,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "Does moving from Albany cost more because it is further north?",
-        a: "No distance premium applies to Albany. Hourly rates are the same across Auckland. The fixed callout reflects distance from our Wairau Valley depot, and Albany is only about 14 minutes away, so that figure is modest. You see the full price before you book.",
+        a: "No distance premium applies to Albany. Hourly rates are the same across Auckland. The callout is the same flat fee as anywhere in Auckland, and Albany is only about 14 minutes from our Wairau Valley depot. You see the full price before you book.",
       },
       {
         q: "We have a grand piano in the lounge. Is that something you can move?",
@@ -1308,7 +1308,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     paragraphs: [
       "The Waitakere foothills do not give much away. A lot of Titirangi homes sit at the end of long driveways, behind dense vegetation, or on slopes that look gentle on a map and steep in person. We visit larger homes before move day so nothing surprises us when the truck arrives.",
       "The housing stock here leans heavily on older character builds, timber baches that grew into family homes, split-levels set into the hillside, and the occasional architect-designed place with unusual room layouts. Furniture that fits through a standard door in Remuera sometimes needs a different plan in a Titirangi cottage.",
-      "We run from our Wairau Valley depot, about 32 minutes to Titirangi. That puts it in our pricing zone B, so the fixed callout is a little higher than closer suburbs. You see the full price before you confirm anything, and the hourly rate stays the same wherever we work in Auckland.",
+      "We run from our Wairau Valley depot, about 32 minutes to Titirangi. The callout is the same flat fee as closer suburbs. You see the full price before you confirm anything, and the hourly rate stays the same wherever we work in Auckland.",
       "We have completed more than 30 jobs out this way, including some that involved pianos. Titirangi has more musicians per street than most Auckland suburbs, and we are the movers trusted by Steinway dealers and Auckland Town Hall for instrument work. A grand in a split-level home on a bush section is a day's work we plan carefully, not something we figure out on arrival.",
     ],
     highlights: [
@@ -1332,7 +1332,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "Is Titirangi more expensive to move to or from than central Auckland suburbs?",
-        a: "The hourly rate is the same across all of Auckland. Titirangi sits in our zone B, which means the fixed callout fee is slightly higher than inner suburbs because of the drive from our depot. You see the full breakdown before you book, so there is nothing hidden.",
+        a: "The hourly rate is the same across all of Auckland. The callout is a flat fee too, the same in Titirangi as in inner suburbs. You see the full breakdown before you book, so there is nothing hidden.",
       },
     ],
   },
@@ -1519,7 +1519,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "How do you price a Mount Eden job and will I see the cost before committing?",
-        a: "Hourly rates are the same across Auckland. The callout fee varies with distance from our depot and Mount Eden sits in our standard zone, so there is no distance premium. You see the full price before you confirm the booking, and quotes come back in around 15 minutes during business hours.",
+        a: "Hourly rates are the same across Auckland. The callout is the same flat fee across Auckland, so there is no distance premium. You see the full price before you confirm the booking, and quotes come back in around 15 minutes during business hours.",
       },
     ],
   },
@@ -1678,7 +1678,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     faqs: [
       {
         q: "Do you charge extra travel for Stanmore Bay?",
-        a: "Hourly rates are the same across Auckland. Stanmore Bay's fixed callout is slightly higher than inner North Shore because of the distance, and you see the full price upfront before you book.",
+        a: "A little, through the hourly rate rather than the callout. Stanmore Bay's hourly rate is slightly higher than inner North Shore because of the distance, the callout is the same flat fee across Auckland, and you see the full price upfront before you book.",
       },
       {
         q: "My house is on a slope with steps to the door. Is that a problem?",
@@ -1975,7 +1975,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       "Morrinsville homes tend to sit on generous sections with long concrete driveways and detached garages. That sounds easy until you are moving a chest freezer, a ride-on mower, or a full workshop out of a back shed. We account for all of that during the quote, not on the day.",
       "The town has a lot of older New Zealand bungalows, solid timber, high ceilings, and wide hallways that suit moving furniture well. The challenge is usually the outbuildings and the sheer volume of gear that accumulates on a rural-residential section over the years. We bring a crew of two to four and a truck with a taillift to handle the heavy lifts safely.",
       "Morrinsville is also a popular spot for families relocating between Hamilton and the Hauraki Plains. That often means moving in two directions at once, clearing a family home here while setting up in town, or the reverse. We can pack the day before if you want to make move day itself as straightforward as possible.",
-      "Because we are based in Hamilton, the fixed callout for Morrinsville sits in our pricing zone B, slightly higher than inner suburbs to reflect the drive out. You see the full cost before you confirm anything. Hourly rates are the same wherever we work.",
+      "The callout for Morrinsville is the same flat fee as the rest of our Waikato area, even with the drive out from our Hamilton base. You see the full cost before you confirm anything. Hourly rates are the same wherever we work.",
     ],
     highlights: [
       "Suits large sections and detached garages common in Morrinsville",
@@ -1994,7 +1994,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "Is the callout fee much higher because you are coming from Hamilton?",
-        a: "It is a little higher than our inner-Hamilton suburbs because of the 31-minute drive, but the hourly rate is the same. You get the full price upfront before you book, so there are no surprises.",
+        a: "No. It is the same flat fee as our inner-Hamilton suburbs, even with the 31-minute drive, and the hourly rate is the same. You get the full price upfront before you book, so there are no surprises.",
       },
       {
         q: "Do you move farm or lifestyle equipment, not just household furniture?",
@@ -2022,7 +2022,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     faqs: [
       {
         q: "How does pricing work for a Te Awamutu move?",
-        a: "Our hourly rate is the same across the region. Because Te Awamutu is about 29 minutes from our Hamilton base, it sits in a slightly higher callout zone than inner-city jobs. You see the full price before you confirm anything, no surprises on the day.",
+        a: "Our hourly rate is the same across the region. The callout is a flat fee too, the same for Te Awamutu, about 29 minutes from our Hamilton base, as for inner-city jobs. You see the full price before you confirm anything, no surprises on the day.",
       },
       {
         q: "We are moving from Te Awamutu to Hamilton. Can you handle both ends in one job?",
@@ -2054,7 +2054,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "Are travel costs included in the quote?",
-        a: "Yes. travel from Hamilton is included in your written price for in-area Matamata jobs. Zone callout, if applicable, is confirmed before you book.",
+        a: "Yes. travel from Hamilton is included in your written price for in-area Matamata jobs. The callout is the same flat fee as the rest of the Waikato and is confirmed before you book.",
       },
     ],
   },
@@ -2066,7 +2066,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
     paragraphs: [
       "A lot of Huntly homes were built for coal miners and their families, and that era shows. Solid brick and weatherboard houses with narrow hallways, low ceilings in some rooms, and front doors that furniture does not want to go through. We measure up before move day and plan which pieces come out which way.",
       "The State Highway 1 corridor runs straight through Huntly, which sounds convenient until you realise truck access on some streets off the main road can be tight. We check parking and turning room beforehand so there are no surprises when we arrive with a full truck.",
-      "Huntly is about 28 minutes from our Hamilton base. That distance puts it in our pricing Zone B, so the fixed callout is a little higher than closer suburbs. You see the full cost before you confirm anything, and our hourly rate stays the same wherever in the region we are working.",
+      "Huntly is about 28 minutes from our Hamilton base. The callout is the same flat fee as closer suburbs. You see the full cost before you confirm anything, and our hourly rate stays the same wherever in the region we are working.",
       "People moving in Huntly are often doing a full house clearance, a family home handover, or a downsize. We run crews of two to four depending on the job, and we can handle packing the day before if you want the move itself to go faster. Quotes come back in about 15 minutes during business hours.",
     ],
     highlights: [
@@ -2082,7 +2082,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "How does pricing work for a Huntly move?",
-        a: "Huntly sits in our Zone B, so the fixed callout is a little higher than suburbs closer to our Hamilton base, reflecting the 28-minute drive each way. The hourly rate is the same as anywhere else we work. You get the full price upfront before you book, no hidden extras.",
+        a: "The callout for Huntly is the same flat fee as suburbs closer to our Hamilton base, even with the 28-minute drive each way. The hourly rate is the same as anywhere else we work. You get the full price upfront before you book, no hidden extras.",
       },
       {
         q: "Do you do moves on weekends? I need to hand the keys back on a Saturday.",
@@ -2122,7 +2122,7 @@ export const locationSeoPatches: Record<string, LocationSeoPatch> = {
       },
       {
         q: "How does pricing work for a move from Ngaruawahia to Hamilton or further afield?",
-        a: "Hourly rates are the same across our operating area. The fixed callout varies with distance from our depot, and because Ngaruawahia is about 20 minutes out, there is no distance premium worth worrying about. You see the full figure before you confirm anything.",
+        a: "Hourly rates are the same across our operating area. The callout is a flat fee too, so Ngaruawahia, about 20 minutes out, carries no distance premium. You see the full figure before you confirm anything.",
       },
       {
         q: "Can you help pack up the house the day before the move?",

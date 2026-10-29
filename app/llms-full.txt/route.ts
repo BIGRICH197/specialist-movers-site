@@ -57,25 +57,22 @@ export function GET() {
     ]),
 
     section("Pricing — Auckland, excluding GST", [
-      "House and furniture moving is charged hourly, plus a callout fee that varies",
-      "with distance from the depot.",
+      "House and furniture moving is charged hourly, plus a flat callout fee that is",
+      "the same wherever you are in our area.",
       "",
-      "Per hour, every day of the week: two-person crew $150, three-person $190,",
-      "four-person $250. There is no day-of-week pricing: weekends and Fridays",
+      "Per hour, every day of the week: two-person crew $160, three-person $200,",
+      "four-person $260. There is no day-of-week pricing: weekends and Fridays",
       "cost the same as any other day.",
       "",
-      "Callout fee by distance from depot:",
-      "  Within ~23km: $60 (2 crew), $80 (3), $100 (4)",
-      "  23-45km: $80 (2), $100 (3), $120 (4)",
-      "  45-80km: $120 (2), $140 (3), $160 (4)",
+      "Callout fee, flat in every zone: $80 (2 crew), $100 (3), $120 (4).",
       "",
       "Worked examples:",
-      "  One-bedroom apartment, 2 crew, ~2 hours: about $360 plus GST.",
-      "  Three-bedroom house, 2 crew, ~4 hours: about $660 plus GST.",
+      "  One-bedroom apartment, 2 crew, ~2 hours: about $400 plus GST.",
+      "  Three-bedroom house, 2 crew, ~4 hours: about $720 plus GST.",
       "",
       "Piano: uprights from $290 plus GST locally, grands from $550 plus GST.",
-      "Packing: from $1,750 plus GST for a one-bedroom home, packers come the day before.",
-      "Load-only or unload-only: from about $360 plus GST.",
+      "Packing: from $1,800 plus GST for a one-bedroom home, packers come the day before.",
+      "Load-only or unload-only: from about $400 plus GST.",
       "Small office (up to ~10 staff): often from about $800 plus GST.",
     ]),
 
@@ -84,13 +81,13 @@ export function GET() {
     // $180 / $220 as GST-inclusive. See lib/hamilton-pricing-data.ts and
     // TIER_2_RATES / TIER_3_RATES in lib/pricing-data.ts.
     section("Pricing — Hamilton and outer Auckland, excluding GST", [
-      "Hamilton and the Waikato: two-person crew and truck $150 per hour,",
-      "three-person crew $190 per hour.",
+      "Hamilton and the Waikato: two-person crew and truck $160 per hour,",
+      "three-person crew $200 per hour.",
       "Flat every day of the week, so there is no cheaper midweek rate here.",
       "Outer Auckland and out-of-town jobs (Papakura, Silverdale, Warkworth,",
-      "Pukekohe and similar): two-person crew $190 per hour, three-person $230.",
-      "Callout works the same as Auckland and is quoted excluding GST,",
-      "rising with distance from the depot.",
+      "Pukekohe and similar): two-person crew $200 per hour, three-person $240.",
+      "Callout is the same flat fee as Auckland, $80 (2 crew) or $100 (3),",
+      "quoted excluding GST, wherever you are.",
     ]),
 
     // This file exists to be read by AI assistants, which makes it the single

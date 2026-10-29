@@ -175,14 +175,14 @@ export const blogArticles: Record<string, BlogArticle> = {
         heading: "What we charge to pack it for you",
         paragraphs: [
           "Three packers, labour and all materials, the day before your move:",
-          "One bedroom $1,750 plus GST. Two bedrooms $2,041. Three bedrooms $2,252. Four bedrooms $2,833.",
+          "One bedroom $1,800 plus GST. Two bedrooms $2,096. Three bedrooms $2,312. Four bedrooms $2,908.",
           "That is the whole house, boxed and labelled by room, ready to load. Nothing left to do the night before except make the bed you are about to take apart.",
         ],
       },
       {
         heading: "Or just the parts you do not want to do",
         paragraphs: [
-          "Partial packing is priced by room rather than by house, so if you only want the kitchen done, you only pay for the kitchen. If you want something more specific than that, our packers are $190 an hour for a team of three plus an $80 callout, and you point them at whatever you like.",
+          "Partial packing is priced by room rather than by house, so if you only want the kitchen done, you only pay for the kitchen. If you want something more specific than that, our packers are $200 an hour for a team of three plus an $80 callout, and you point them at whatever you like.",
           "The kitchen is the room to hand over if you only hand over one. It is the most breakable, the most fiddly, and the one that eats a whole evening.",
         ],
       },
@@ -258,7 +258,7 @@ export const blogArticles: Record<string, BlogArticle> = {
       {
         heading: "The short answer",
         paragraphs: [
-          "Most Auckland house moves with a professional crew land somewhere between $360 and $1,300 plus GST, depending on how much you own and how awkward the access is. Across the 4,000+ moves across Auckland and the Waikato we've done, our average house move invoice comes in a little under $1,200 plus GST.",
+          "Most Auckland house moves with a professional crew land somewhere between $400 and $1,400 plus GST, depending on how much you own and how awkward the access is. Across the 4,000+ moves across Auckland and the Waikato we've done, our average house move invoice comes in a little under $1,200 plus GST.",
           "That's a wide range, so here's exactly how the pricing works, with real numbers. These are our actual 2026 rates, not a lead-generation guess.",
         ],
       },
@@ -273,18 +273,18 @@ export const blogArticles: Record<string, BlogArticle> = {
       {
         heading: "Our 2026 rates",
         paragraphs: [
-          "A two-person crew with a truck is $150 per hour plus GST, any day of the week. A three-person crew is $190, $40 an hour more than two.",
-          "The callout fee depends on how far you are from our Wairau Valley depot. Close-in Auckland (roughly within 23 kilometres) is $60 for a two-person crew. The outer suburbs, like the Hibiscus Coast or Pukekohe, are $80, and the fringe of the region is $120. The hourly rate itself is the same across all of Auckland; only the callout changes with distance.",
+          "A two-person crew with a truck is $160 per hour plus GST, any day of the week. A three-person crew is $200, $40 an hour more than two.",
+          "The callout fee is flat: $80 for a two-person crew and $100 for three, wherever you are in Auckland. Distance does not change it. A few outer suburbs, like the Hibiscus Coast or Pukekohe, carry a higher hourly rate instead.",
           "Everything is plus GST, and we tell you the hourly rate and the callout before you book, so the structure you're quoted is the structure you're invoiced on.",
         ],
       },
       {
         heading: "Worked examples by house size",
         paragraphs: [
-          "A one-bedroom apartment with easy access at both ends typically takes a two-person crew about two hours. That's 2 x $150 + $60 callout = $360 plus GST.",
-          "A two-bedroom home usually runs about three hours. That's 3 x $150 + $60 = $510 plus GST.",
-          "A three-bedroom home is around four hours with straightforward access. That's 4 x $150 + $60 = $660 plus GST.",
-          "A four-bedroom home is a three-person job and usually six hours or more. That's 6 x $190 + $80 = $1,220 plus GST, and bigger or harder versions of that move go up from there.",
+          "A one-bedroom apartment with easy access at both ends typically takes a two-person crew about two hours. That's 2 x $160 + $80 callout = $400 plus GST.",
+          "A two-bedroom home usually runs about three hours. That's 3 x $160 + $80 = $560 plus GST.",
+          "A three-bedroom home is around four hours with straightforward access. That's 4 x $160 + $80 = $720 plus GST.",
+          "A four-bedroom home is a three-person job and usually six hours or more. That's 6 x $200 + $100 = $1,300 plus GST, and bigger or harder versions of that move go up from there.",
           "Those hour estimates assume the truck can park close and there are no big flights of stairs. Difficult access at either end adds roughly half an hour to an hour per end, which is the single most common reason a move costs more than people expect.",
         ],
       },
@@ -299,7 +299,7 @@ export const blogArticles: Record<string, BlogArticle> = {
       {
         heading: "Packing and cleaning, if you want the full service",
         paragraphs: [
-          "Professional packing is priced by house size, with three packers, all materials included, done the day before your move: $1,750 plus GST for a one-bedroom, $2,041 for two bedrooms, $2,252 for three, and $2,833 for four. Partial packing, like just the kitchen, is priced by the room and costs a lot less.",
+          "Professional packing is priced by house size, with three packers, all materials included, done the day before your move: $1,800 plus GST for a one-bedroom, $2,096 for two bedrooms, $2,312 for three, and $2,908 for four. Partial packing, like just the kitchen, is priced by the room and costs a lot less.",
           "Move-out cleaning starts at $280 plus GST for a one-bedroom, one-bathroom home and scales with beds and bathrooms, up to $730 for a five-bedroom. If you're leaving a rental, this is usually cheaper than losing part of your bond.",
         ],
       },
@@ -454,7 +454,7 @@ export const blogArticles: Record<string, BlogArticle> = {
       {
         heading: "Ready to get a quote?",
         paragraphs: [
-          "If you are planning a move in Auckland and want to know what it will cost, you can get a quote through the Specialist Movers website. During business hours, quotes usually come back in about 15 minutes. Hourly rates are the same across Auckland. The fixed callout varies with distance from our depot, and you see the full price upfront before you book.",
+          "If you are planning a move in Auckland and want to know what it will cost, you can get a quote through the Specialist Movers website. During business hours, quotes usually come back in about 15 minutes. Hourly rates are the same across most of Auckland. The callout is a flat fee wherever you are, and you see the full price upfront before you book.",
           "We operate seven days a week and have completed over 4,000 moves across Auckland and the Waikato. If your home is on the larger side, we are happy to do a free viewing first so you get an accurate quote rather than a guess. Fill in the form on our site and we will be in touch.",
         ],
       },
@@ -676,7 +676,7 @@ export const blogArticles: Record<string, BlogArticle> = {
           "Most Auckland movers charge by the hour. That is normal and fair, but you need to understand exactly what the clock covers.",
           "Ask: does the hourly rate start when the truck leaves the depot, or when it arrives at my door? Some companies charge travel time both ways. Others only charge from arrival. That gap can be an hour of billable time on a move from, say, Albany down to Onehunga.",
           "Also ask about the minimum charge. Many companies have a two or three hour minimum. If your move is small, a fixed-price quote might work out cheaper. Ask whether they offer that option.",
-          "At Specialist Movers, hourly rates are the same across Auckland. The fixed callout fee varies with distance from our depot, and you see the full price upfront before you book. No surprises on the invoice.",
+          "At Specialist Movers, hourly rates are the same across most of Auckland. The callout is a flat fee wherever you are, and you see the full price upfront before you book. No surprises on the invoice.",
         ],
       },
       {
@@ -1028,7 +1028,7 @@ export const blogArticles: Record<string, BlogArticle> = {
         paragraphs: [
           "Almost nobody explains this part, so here it is in plain terms.",
           "Most Auckland movers charge an hourly rate for the crew and truck, plus a one-off callout fee that covers getting the truck to you and back to base. Our clock runs from arrival at your pickup address to the last item off the truck at the other end.",
-          "One thing moves the hourly rate, and that is crew size. A two-person crew with a truck is $150 per hour plus GST, any day of the week. A three-person crew runs $40 an hour more than two.",
+          "One thing moves the hourly rate, and that is crew size. A two-person crew with a truck is $160 per hour plus GST, any day of the week. A three-person crew runs $40 an hour more than two.",
           "The question worth asking any mover: does the clock start when the truck leaves the depot, or when it arrives at your door? On an Albany to Onehunga job that gap can be an hour of billable time. Ours starts at your door.",
           "Some companies quote pianos as a fixed price instead. Neither approach is wrong. What matters is that you know which one you are being given, and what happens to the number if the job runs long.",
         ],
@@ -1050,8 +1050,8 @@ export const blogArticles: Record<string, BlogArticle> = {
       {
         heading: "Distance, and what the callout actually covers",
         paragraphs: [
-          "Our hourly rate is the same across Auckland. Only the callout changes with distance, calculated from the Wairau Valley depot.",
-          "Close-in Auckland, roughly within 23 kilometres, is $60 for a two-person crew. Outer suburbs like the Hibiscus Coast or Pukekohe are $80. The fringe of the region is $120. Everything is plus GST.",
+          "Our callout is a flat fee wherever you are in Auckland. Distance does not change it.",
+          "It is $80 for a two-person crew and $100 for three. Outer suburbs like the Hibiscus Coast or Pukekohe carry a higher hourly rate instead. Everything is plus GST.",
           "Going out of the region is a different quote. Auckland to Hamilton, or anything further down the line, gets priced as a transport job rather than an hourly one, because most of the cost is road time rather than handling.",
         ],
       },
@@ -1220,7 +1220,7 @@ export const blogArticles: Record<string, BlogArticle> = {
         },
         paragraphs: [
           "Commercial jobs are priced the same transparent way as our house moves. An hourly rate for the crew and truck plus a callout fee, with the crew sized to the job.",
-          "A two-person crew with a truck is $150 per hour plus GST, any day of the week. A three-person crew runs $40 an hour more than two. The callout depends on distance from our Wairau Valley depot: $60 for close-in Auckland, $80 for outer suburbs, $120 for the fringe of the region.",
+          "A two-person crew with a truck is $160 per hour plus GST, any day of the week. A three-person crew runs $40 an hour more than two. The callout is a flat $80 for two movers and $100 for three, wherever you are in Auckland.",
           "For freight-style work, like stock, storage or a fit-out, we price per cubic metre instead: $90 per cubic metre plus GST with a five cubic metre minimum, or $110 per cubic metre for after-hours work before 6am or after 5pm.",
           "The clock runs from arrival at your pickup address to the last item off the truck at the other end. Worth asking any mover whether theirs starts at the depot instead, because on a cross-town job that gap is an hour of billable time.",
         ],
@@ -1343,7 +1343,7 @@ export const blogArticles: Record<string, BlogArticle> = {
     faqs: [
       {
         q: "What is the average hourly rate for office movers in Auckland?",
-        a: "Across the Auckland market, small commercial jobs are generally quoted between $150 and $250 plus GST per hour for two to three movers and a truck. Ours is $150 plus GST for a two-person crew any day of the week, with a three-person crew $40 an hour more, plus a callout fee based on distance from our Wairau Valley depot.",
+        a: "Across the Auckland market, small commercial jobs are generally quoted between $150 and $250 plus GST per hour for two to three movers and a truck. Ours is $160 plus GST for a two-person crew any day of the week, with a three-person crew $40 an hour more, plus a flat $80 callout fee.",
       },
       {
         q: "What does it cost to move a small office of five people?",
@@ -1413,7 +1413,7 @@ export const blogArticles: Record<string, BlogArticle> = {
         },
         paragraphs: [
           "A three-seater sofa takes two movers about twenty to forty minutes to wrap, carry and place. People do the arithmetic on that at an hourly rate and expect to pay forty dollars.",
-          "The number is higher because the truck still has to get to you and back, and two people still have to be booked for a slot that could have held a bigger job. Our callout fee is $60 for close-in Auckland, $80 for the outer suburbs and $120 for the fringe of the region, calculated from our Wairau Valley depot, and that applies whether the truck carries one item or forty.",
+          "The number is higher because the truck still has to get to you and back, and two people still have to be booked for a slot that could have held a bigger job. Our callout fee is a flat $80 for two movers wherever you are in Auckland, and that applies whether the truck carries one item or forty.",
           "So the floor on any furniture job is the callout plus the minimum crew time, not the literal minutes your sofa spends in the air. Every mover works this way. The ones advertising $69 are either very close to you, doing it single-handed, or both.",
         ],
       },
@@ -1425,7 +1425,7 @@ export const blogArticles: Record<string, BlogArticle> = {
         },
         paragraphs: [
           "These are our own timings for two movers with normal access at both ends. Multiply by the hourly rate and add the callout and you have the shape of your quote before you ever speak to us.",
-          "Our two-person crew is $150 per hour plus GST, any day of the week.",
+          "Our two-person crew is $160 per hour plus GST, any day of the week.",
         ],
         table: {
           caption: "Two movers, normal access. Stairs, long carries and tight doorways all add time.",
@@ -1450,7 +1450,7 @@ export const blogArticles: Record<string, BlogArticle> = {
         paragraphs: [
           "This is the part nobody writes down, and it is the single most useful thing on this page.",
           "The callout is fixed. Once the truck is at your door and two people are standing in your lounge, each extra item costs only the time it takes. So the cost per item falls sharply the more you move at once.",
-          "Work it through. One sofa on its own is a callout plus the minimum booking. Add a bed and a fridge to the same visit and you have added roughly an hour of crew time, which is $150 plus GST, spread across three items instead of one.",
+          "Work it through. One sofa on its own is a callout plus the minimum booking. Add a bed and a fridge to the same visit and you have added roughly an hour of crew time, which is $160 plus GST, spread across three items instead of one.",
           "The practical version: if you are moving a sofa this month and a bed next month, move both now. And if you are buying two things off Trade Me from opposite sides of Auckland, ask whether they can go on one run rather than two.",
           "The same logic is why a part load of six or eight pieces is far better value per item than three separate single-item jobs, even though the invoice is bigger.",
         ],
@@ -1659,7 +1659,7 @@ export const blogArticles: Record<string, BlogArticle> = {
       {
         heading: "How Pricing Works for a Moving Truck in Hamilton",
         paragraphs: [
-          "We do not hide the numbers. Hourly rates are the same across Hamilton and Auckland. The fixed callout varies with distance from our depot, and you see the full price before you book, not after.",
+          "We do not hide the numbers. Hourly rates are the same across Hamilton and most of Auckland. The callout is a flat fee wherever you are, and you see the full price before you book, not after.",
           "The things that move the price up or down are: how long the job takes, how many crew members are needed, and whether there are access complications at either end. A straightforward same-city move in Hamilton is usually quoted and done the same week.",
           "We do not charge extra for weekends. We operate seven days.",
         ],
@@ -2102,7 +2102,7 @@ export const blogArticles: Record<string, BlogArticle> = {
       {
         heading: "How Pricing Works and What to Watch For",
         paragraphs: [
-          "Most Auckland removalists charge an hourly rate plus a callout fee. The hourly rate is usually the same across the city. The callout reflects how far the truck travels from the depot to reach you. Our depot is in Wairau Valley, so jobs in North Shore suburbs close by have a shorter callout than jobs further afield.",
+          "Most Auckland removalists charge an hourly rate plus a callout fee. The hourly rate is usually the same across the city. The callout reflects how far the truck travels from the depot to reach you. Ours is a flat fee wherever you are in Auckland, so a job close to our Wairau Valley depot and one further afield carry the same callout.",
           "What catches people out is not the hourly rate. It is the things they did not mention when booking: the heavy treadmill in the garage, the wardrobe that has to come apart, the building that needs a loading dock booking 48 hours in advance. These add time, and time adds cost. Being thorough when you describe the job means the quote you see is the price you pay.",
           "We show you the full price before you confirm. No surprises on the day.",
         ],
@@ -2256,7 +2256,7 @@ export const blogArticles: Record<string, BlogArticle> = {
       {
         heading: "Getting a Quote",
         paragraphs: [
-          "We have completed 4,000+ moves across Auckland and the Waikato, including commercial relocations from single offices to full floor clearances. Hourly rates are consistent across Auckland; the fixed callout varies with distance from our Wairau Valley depot, and you see the full price before you confirm anything.",
+          "We have completed 4,000+ moves across Auckland and the Waikato, including commercial relocations from single offices to full floor clearances. Hourly rates are consistent across most of Auckland; the callout is a flat fee wherever you are, and you see the full price before you confirm anything.",
           "For larger relocations we offer free viewings so we can see the furniture, the access points and any complications before we quote. For smaller jobs, quotes usually come back within about 15 minutes during business hours.",
           "If you have a move coming up and you want a straight answer on what it will cost and how long it will take, the easiest thing to do is fill in the quote form on our website. Tell us the address, what is moving and when, and we will come back to you.",
         ],
@@ -2629,8 +2629,8 @@ export const blogArticles: Record<string, BlogArticle> = {
       {
         heading: "The Fixed Callout and What It Covers",
         paragraphs: [
-          "There is a fixed callout fee based on distance from our Hamilton base. It is the same regardless of how long the job takes. You see that figure in your quote before you confirm anything. It covers the crew getting to you and the truck being on the road.",
-          "Hourly rates are consistent across our Waikato coverage area. The callout is what changes with distance. That structure means you can compare quotes fairly and there are no surprises when the invoice arrives.",
+          "There is a flat callout fee, the same wherever you are in our Waikato area. It is the same regardless of how long the job takes. You see that figure in your quote before you confirm anything. It covers the crew getting to you and the truck being on the road.",
+          "Hourly rates are consistent across our Waikato coverage area, and so is the callout. That structure means you can compare quotes fairly and there are no surprises when the invoice arrives.",
         ],
       },
       {

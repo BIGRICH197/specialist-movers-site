@@ -32,9 +32,11 @@ export const movesCompletedPhrase = "4,000+ moves across Auckland and the Waikat
 
 /**
  * Cheapest realistic job, excl GST. A two-person crew at the standard rate of
- * $150/hr (every day, since 2026-09-24) for two hours plus the $60
- * Zone A callout is $360, the same as Hamilton. It was $340 at $140/hr and $300
- * off the old $120 Tuesday rate. That is the floor
+ * $160/hr (every day, since 2026-10-30) for two hours plus the flat $80
+ * callout is $400, the same as Hamilton. It was $360 at $150/hr with a $60
+ * Zone A callout, $340 at $140/hr and $300 off the old $120 Tuesday rate.
+ * 2026-10-30 (Richard): +$10/hr, callouts flat $80/$100/$120 every zone.
+ * That is the floor
  * and it is arithmetic, not marketing. The old "from $350" had no derivation
  * anyone could point at.
  *
@@ -42,7 +44,7 @@ export const movesCompletedPhrase = "4,000+ moves across Auckland and the Waikat
  * different service with a different rate card — that was the source of
  * Richard's "one was for pianos and one for moving".
  */
-export const moveFromPrice = "$360";
+export const moveFromPrice = "$400";
 export const pianoFromPrice = "$290";
 export const grandPianoFromPrice = "$550";
 
