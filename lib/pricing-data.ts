@@ -73,7 +73,7 @@ export const CALLOUT_FEES: Record<CrewSize, number> = {
 // 2026-10-30 when both tiers' callouts went to the flat $80 / $100). Before 08-19
 // they were stored as 156.52 / 191.30 — the same figures read as GST-inclusive and
 // divided back out, which undercharged the out-of-town job by 15%. Only the
-// callout separates the tiers now, which is the distance charge.
+// hourly rate is the distance charge now; the callout is the flat $80 / $100.
 export const TIER_2_RATES: Record<CrewSize, { hourly: number; callout: number }> =
   {
     "2M": { hourly: 200, callout: 80 },

@@ -1,7 +1,7 @@
 import type { CrewSize, DayOfWeek } from "./pricing-data";
 
 /**
- * Hamilton house hourly rates (excl GST) , same across zones; callout varies by zone.
+ * Hamilton house hourly rates (excl GST) , same across zones; callout flat across zones since 2026-10-30.
  *
  * Flat across every day. Out-of-town travel costs us the same whatever day it
  * is, so there is no midweek discount to give. The table stays keyed by day

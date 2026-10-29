@@ -3025,7 +3025,7 @@ export const blogArticles: Record<string, BlogArticle> = {
         heading: "Getting a Quote for a Waikato Downsizing Move",
         paragraphs: [
           "Specialist Movers run from two bases, Auckland and Hamilton, and the Hamilton team covers the wider Waikato including Cambridge, Te Awamutu, Raglan, Morrinsville, Matamata, Huntly and Ngaruawahia. We have completed 4,000+ moves across Auckland and the Waikato, and a good share of those have been retirement and downsizing jobs.",
-          "Pricing is straightforward. The hourly rate is the same across the region. The callout component varies with distance from our depot, and you see the full figure before you book, with nothing added on the day.",
+          "Pricing is straightforward. The hourly rate is the same across the region. The callout is a flat fee wherever you are, and you see the full figure before you book, with nothing added on the day.",
           "For larger homes or any move where you are not sure what is coming, a free viewing helps. Someone comes to the property, walks through with you, and gives you an accurate quote rather than a rough estimate. Quotes in business hours usually come back in around 15 minutes. If you are coordinating from out of town, you can get the whole thing organised by phone or through the website without needing to be on-site.",
         ],
       },
