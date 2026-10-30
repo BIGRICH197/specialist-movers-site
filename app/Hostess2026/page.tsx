@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 import { buildPageMetadata } from "@/lib/seo";
+import { ZoneLegend, ZoneMap, zoneColors } from "./ZoneMap";
 
 /**
  * Hostess Kitchens' own delivery rate card (Richard, 2026-10-30). Unlisted:
@@ -129,7 +130,14 @@ export default function Hostess2026Page() {
               <tbody>
                 {zones.map((z) => (
                   <tr key={z.zone}>
-                    <td className={`${td} font-heading text-lg text-brand-purple`}>{z.zone}</td>
+                    <td className={td}>
+                      <span
+                        className="inline-flex h-8 w-8 items-center justify-center rounded-full font-heading text-white"
+                        style={{ background: zoneColors[z.zone] }}
+                      >
+                        {z.zone}
+                      </span>
+                    </td>
                     <td className={`${td} max-w-sm`}>{z.areas}</td>
                     {z.prices.map((p, i) => (
                       <td key={i} className={`${td} whitespace-nowrap text-right font-semibold text-brand-purple`}>
@@ -146,7 +154,10 @@ export default function Hostess2026Page() {
           <div className="mt-5 space-y-4 md:hidden">
             {zones.map((z) => (
               <div key={z.zone} className="rounded-2xl border border-brand-purple/15 bg-white p-4">
-                <p className="font-heading text-lg text-brand-purple">Zone {z.zone}</p>
+                <p className="inline-flex items-center gap-2 font-heading text-lg text-brand-purple">
+                  <span className="h-3.5 w-3.5 rounded-full" style={{ background: zoneColors[z.zone] }} aria-hidden />
+                  Zone {z.zone}
+                </p>
                 <p className="mt-1 text-sm text-brand-purple/75">{z.areas}</p>
                 <dl className="mt-3 grid grid-cols-3 gap-2 text-center">
                   {bands.map((b, i) => (
@@ -178,6 +189,14 @@ export default function Hostess2026Page() {
               takes the zone of the nearest listed town. We&rsquo;ll confirm it when you book.
             </p>
           </div>
+        </section>
+
+        <section className="mt-12" aria-labelledby="map">
+          <SectionHeading>
+            <span id="map">Zone map</span>
+          </SectionHeading>
+          <ZoneLegend />
+          <ZoneMap />
         </section>
 
         <section className="mt-12" aria-labelledby="addons">
