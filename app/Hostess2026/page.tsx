@@ -61,8 +61,8 @@ const zones: Zone[] = [
 
 const bands = [
   { label: "Small", detail: "Up to 10 cabinets" },
-  { label: "Standard", detail: "11 to 20 cabinets" },
-  { label: "Full truck", detail: "21 to 30 cabinets" },
+  { label: "Standard", detail: "11 to 19 cabinets" },
+  { label: "Full truck", detail: "20 to 30 cabinets" },
 ] as const;
 
 const access = [
@@ -172,7 +172,7 @@ export default function Hostess2026Page() {
               </div>
             ))}
             <p className="text-xs text-brand-purple/60">
-              Small is up to 10 cabinets, Standard 11 to 20, Full truck 21 to 30.
+              Small is up to 10 cabinets, Standard 11 to 19, Full truck 20 to 30.
             </p>
           </div>
 
