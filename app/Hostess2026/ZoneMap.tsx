@@ -44,7 +44,7 @@ const waikato: Place[] = [
 
 /** Whole card: Zones 1 and 2 drawn without labels (they're in the close-up). */
 const northIsland: Place[] = [
-  ...waikato.map(({ label: _label, ...p }) => p),
+  ...waikato.map((p) => ({ ...p, label: undefined })),
   { name: "Auckland", zone: 3, lat: -36.848, lon: 174.763, label: { dx: 10, dy: 4, anchor: "start" } },
   { name: "Thames", zone: 3, lat: -37.138, lon: 175.54, label: { dx: -10, dy: 4, anchor: "end" } },
   { name: "Waihi", zone: 3, lat: -37.391, lon: 175.84 },
