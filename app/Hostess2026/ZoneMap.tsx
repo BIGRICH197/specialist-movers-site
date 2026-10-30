@@ -16,7 +16,7 @@ type Place = {
   lat: number;
   lon: number;
   /** Label placement; omit to draw the dot without a label. */
-  label?: { dx: number; dy: number; anchor: "start" | "end"; text?: string };
+  label?: { dx: number; dy: number; anchor: "start" | "middle" | "end"; text?: string };
 };
 
 const BASE = { lat: -37.745, lon: 175.235 };
@@ -28,10 +28,10 @@ const waikato: Place[] = [
   { name: "Taupiri", zone: 1, lat: -37.617, lon: 175.19, label: { dx: 10, dy: 4, anchor: "start" } },
   { name: "Ngāruawāhia", zone: 1, lat: -37.667, lon: 175.15, label: { dx: -10, dy: 4, anchor: "end" } },
   { name: "Gordonton", zone: 1, lat: -37.667, lon: 175.3, label: { dx: 10, dy: 4, anchor: "start" } },
-  { name: "Whatawhata", zone: 1, lat: -37.8, lon: 175.15, label: { dx: -10, dy: 4, anchor: "end" } },
+  { name: "Whatawhata", zone: 1, lat: -37.8, lon: 175.15, label: { dx: 0, dy: 24, anchor: "middle" } },
   { name: "Tamahere", zone: 1, lat: -37.833, lon: 175.35, label: { dx: 10, dy: 5, anchor: "start" } },
   { name: "Newstead", zone: 1, lat: -37.783, lon: 175.383, label: { dx: 10, dy: -4, anchor: "start" } },
-  { name: "Rukuhia", zone: 1, lat: -37.85, lon: 175.3, label: { dx: -10, dy: 8, anchor: "end" } },
+  { name: "Rukuhia", zone: 1, lat: -37.85, lon: 175.3, label: { dx: 0, dy: 24, anchor: "middle" } },
   { name: "Raglan", zone: 2, lat: -37.8, lon: 174.873, label: { dx: 10, dy: 4, anchor: "start" } },
   { name: "Huntly", zone: 2, lat: -37.558, lon: 175.16, label: { dx: 10, dy: 4, anchor: "start" } },
   { name: "Te Kauwhata", zone: 2, lat: -37.4, lon: 175.15, label: { dx: 10, dy: 4, anchor: "start" } },
@@ -82,6 +82,7 @@ function MapSvg({
   title,
   dot,
   font,
+  baseLabel = true,
   children,
 }: {
   coast: Coast;
@@ -89,6 +90,7 @@ function MapSvg({
   title: string;
   dot: number;
   font: number;
+  baseLabel?: boolean;
   children?: React.ReactNode;
 }) {
   const base = project(coast, BASE.lat, BASE.lon);
@@ -99,8 +101,8 @@ function MapSvg({
       aria-label={title}
       className="block h-auto w-full"
     >
-      <rect width={coast.width} height={coast.height} fill="#eaf3f8" />
-      <path d={coast.d} fill="#fbf9fd" stroke="#c9b9d6" strokeWidth={1} />
+      <rect width={coast.width} height={coast.height} fill="#d6e8f3" />
+      <path d={coast.d} fill="#ffffff" stroke="#a993bd" strokeWidth={1.2} />
       {children}
       {places.map((p) => {
         const { x, y } = project(coast, p.lat, p.lon);
@@ -136,6 +138,7 @@ function MapSvg({
       })}
       <g>
         <rect x={base.x - 7} y={base.y - 7} width={14} height={14} rx={2} fill="#2b1233" stroke="#fff" strokeWidth={1.5} />
+        {baseLabel && (
         <text
           x={base.x - 12}
           y={base.y - 12}
@@ -149,6 +152,7 @@ function MapSvg({
         >
           Hostess workshop
         </text>
+        )}
       </g>
     </svg>
   );
@@ -174,6 +178,7 @@ export function ZoneMap() {
           title="Map of the North Island showing delivery zones 1 to 5 from the Hostess workshop in Te Rapa Park"
           dot={7}
           font={13}
+          baseLabel={false}
         >
           <rect
             x={waikatoBox.x}
@@ -187,7 +192,7 @@ export function ZoneMap() {
           />
         </MapSvg>
         <figcaption className="border-t border-brand-purple/10 px-4 py-2 text-xs text-brand-purple/70">
-          All zones. The dashed box is the Waikato close-up.
+          All zones. The dark square is the Hostess workshop; the dashed box is the Waikato close-up.
         </figcaption>
       </figure>
       <figure className="overflow-hidden rounded-2xl border border-brand-purple/15 bg-white lg:self-start">
