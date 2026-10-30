@@ -99,7 +99,7 @@ export default function Hostess2026Page() {
           Kitchen delivery rates 2026
         </h1>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-brand-purple/75 sm:text-base">
-          One price per delivery from your Te Rapa Park workshop, set by where it's going and how
+          One price per delivery from your Te Rapa Park workshop, set by where it&rsquo;s going and how
           many cabinets are on the truck. Two movers, blankets and straps are included. All prices
           are excl. GST.
         </p>
@@ -174,8 +174,8 @@ export default function Hostess2026Page() {
               <strong className="text-brand-purple">Over 30 cabinets:</strong> quoted per job.
             </p>
             <p>
-              <strong className="text-brand-purple">Not on the list?</strong> A town that isn't listed
-              takes the zone of the nearest listed town. We'll confirm it when you book.
+              <strong className="text-brand-purple">Not on the list?</strong> A town that isn&rsquo;t listed
+              takes the zone of the nearest listed town. We&rsquo;ll confirm it when you book.
             </p>
           </div>
         </section>
@@ -215,8 +215,8 @@ export default function Hostess2026Page() {
             <span id="time">Time on site</span>
           </SectionHeading>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-brand-purple/75 sm:text-base">
-            Each price includes time on site for loading and unloading. Past that, it's $40 per 15
-            minutes, and we'll always ring you before it starts.
+            Each price includes time on site for loading and unloading. Past that, it&rsquo;s $40 per 15
+            minutes, and we&rsquo;ll always ring you before it starts.
           </p>
           <ul className="mt-4 grid gap-3 sm:grid-cols-3">
             {bands.map((b) => (
@@ -234,7 +234,7 @@ export default function Hostess2026Page() {
           <h2 id="book" className="font-heading text-2xl">When you book, send us</h2>
           <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-relaxed text-white/90 sm:text-base">
             <li>The full drop-off address and a site contact</li>
-            <li>The cabinet count (or the number of kitchens, if it's easier)</li>
+            <li>The cabinet count (or the number of kitchens, if it&rsquo;s easier)</li>
             <li>Anything about access: stairs, long carries, steep or gravel driveways</li>
             <li>Your job or purchase order number, so it lands on the invoice</li>
           </ul>
