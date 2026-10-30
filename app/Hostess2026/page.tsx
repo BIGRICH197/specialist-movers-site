@@ -59,9 +59,9 @@ const zones: Zone[] = [
 ];
 
 const bands = [
-  { label: "Small", detail: "Up to 10 cabinets", onSite: "1.5 hours" },
-  { label: "Standard", detail: "11 to 20 cabinets", onSite: "2.25 hours" },
-  { label: "Full truck", detail: "21 to 30 cabinets", onSite: "3.5 hours" },
+  { label: "Small", detail: "Up to 10 cabinets" },
+  { label: "Standard", detail: "11 to 20 cabinets" },
+  { label: "Full truck", detail: "21 to 30 cabinets" },
 ] as const;
 
 const access = [
@@ -208,26 +208,6 @@ export default function Hostess2026Page() {
             For bad or really bad access, consider booking a third mover. It keeps the day safe and
             on time.
           </p>
-        </section>
-
-        <section className="mt-12" aria-labelledby="time">
-          <SectionHeading>
-            <span id="time">Time on site</span>
-          </SectionHeading>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-brand-purple/75 sm:text-base">
-            Each price includes time on site for loading and unloading. Past that, it&rsquo;s $40 per 15
-            minutes, and we&rsquo;ll always ring you before it starts.
-          </p>
-          <ul className="mt-4 grid gap-3 sm:grid-cols-3">
-            {bands.map((b) => (
-              <li key={b.label} className="rounded-2xl border border-brand-purple/15 bg-white px-4 py-3">
-                <span className="block text-xs font-semibold uppercase tracking-wide text-brand-purple/60">
-                  {b.label}
-                </span>
-                <span className="font-semibold text-brand-purple">{b.onSite} included</span>
-              </li>
-            ))}
-          </ul>
         </section>
 
         <section className="mt-12 rounded-2xl bg-brand-purple px-5 py-6 text-white sm:px-8" aria-labelledby="book">
