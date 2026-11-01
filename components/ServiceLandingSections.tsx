@@ -163,7 +163,7 @@ export function ServiceFaqSection({ heading, faqs, reviewSlot, piano = false }: 
 type BottomCtaProps = {
   title?: string;
   body?: ReactNode;
-  defaultJobType: JobType;
+  defaultJobType?: JobType;
   useCleaningForm?: boolean;
   useHardToShiftForm?: boolean;
   quoteForm?: ReactNode;

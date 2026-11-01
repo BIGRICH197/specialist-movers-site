@@ -30,7 +30,8 @@ export type NicheServicePageConfig = {
   h1: string;
   lead: string;
   subline: string;
-  defaultJobType: JobType;
+  /** Omit to open the quote form on the service chooser (all options + call back). */
+  defaultJobType?: JobType;
   heroPhoto: string;
   heroPhotoAlt: string;
   /** About section image , must differ from heroPhoto on the same page */

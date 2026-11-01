@@ -30,7 +30,8 @@ export const regularRunsPage: NicheServicePageConfig = {
   lead:
     "We run Auckland to Hamilton every day and Auckland to Tauranga and the Bay of Plenty every week. One treasured piece, a piano or a whole house, moved by our own crew with the same care we give a move across town.",
   subline: "Free quote. We usually call back within 15 minutes. 7 days a week.",
-  defaultJobType: "Home Move",
+  // No defaultJobType: the form opens on the chooser (house, piano, commercial,
+  // call back). Single items and part loads use the call-back (Richard, 2026-11-02).
   heroPhoto: sitePhotos.truckLoad,
   heroPhotoAlt: "Wrapped furniture loaded and strapped inside a Specialist Movers truck",
   aboutSidePhoto: sitePhotos.houseMove,
@@ -83,7 +84,7 @@ export const regularRunsPage: NicheServicePageConfig = {
     },
     {
       q: "Can you take just one item?",
-      a: "Yes, and it gets the same care as a full house. Send photos with your quote request if the item is big or awkward so we bring the right gear.",
+      a: "Yes, and it gets the same care as a full house. Leave your number in the quote form and we will call you back to talk it through, or call us on (021) 228 2728.",
     },
     {
       q: "Do you just drop it at the door?",
