@@ -16,7 +16,7 @@ export function RegularRunsLine({ className }: { className?: string }) {
       href={REGULAR_RUNS_PATH}
       aria-label="Truck space: Auckland to Hamilton daily, Auckland to Tauranga weekly"
       className={cn(
-        "inline-flex w-fit max-w-full items-center gap-1.5 whitespace-nowrap text-[11px] font-light tracking-normal sm:gap-2 sm:tracking-wide text-brand-yellow transition-colors duration-200 hover:text-white sm:text-sm",
+        "inline-flex w-fit max-w-full items-center gap-1.5 whitespace-nowrap text-[clamp(9px,2.6vw,12px)] font-light tracking-normal sm:gap-2 sm:tracking-wide text-brand-yellow transition-colors duration-200 hover:text-white sm:text-sm",
         className,
       )}
     >
@@ -26,7 +26,7 @@ export function RegularRunsLine({ className }: { className?: string }) {
           {i > 0 ? <span aria-hidden>·</span> : null}
           <span className="inline-flex items-center gap-0.5 sm:gap-1">
             Auckland
-            <ArrowLeftRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" strokeWidth={1.25} aria-hidden />
+            <ArrowLeftRight className="h-[1.1em] w-[1.1em] shrink-0" strokeWidth={1.25} aria-hidden />
             {run.to} {run.cadence}
           </span>
         </span>
