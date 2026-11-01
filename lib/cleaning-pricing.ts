@@ -98,6 +98,18 @@ export function getCleaningQuoteInclGst(
   bedrooms?: number,
   bathrooms?: number
 ): number | null {
+  const ex = getCleaningQuoteExclGst(bedrooms, bathrooms);
+  if (ex == null) return null;
+  return Math.round(ex * GST_MULTIPLIER * 100) / 100;
+}
+
+/** The same resolution as getCleaningQuoteInclGst, ex GST. The instant quote
+ *  form's bedroom-only CLEANING_PRICES reads this, so the form, the pricing
+ *  page and the quote deck all price a clean off this one grid. */
+export function getCleaningQuoteExclGst(
+  bedrooms?: number,
+  bathrooms?: number
+): number | null {
   if (!bedrooms || bedrooms < 1) return null;
   const bed = Math.min(Math.max(Math.round(bedrooms), 1), 5);
   const baths = bathroomsForBedrooms(bed);
@@ -112,9 +124,7 @@ export function getCleaningQuoteInclGst(
   );
   const id = propertySizeFromRooms(bed, bath);
   if (!id) return null;
-  const ex = getCleaningBasePriceExclGst(id);
-  if (ex == null) return null;
-  return Math.round(ex * GST_MULTIPLIER * 100) / 100;
+  return getCleaningBasePriceExclGst(id);
 }
 
 export type CleaningQuoteResult = {

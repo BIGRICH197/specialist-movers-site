@@ -1,5 +1,7 @@
 // ── Pricing constants ported from new_deals.py + sm_quote_bot.py + pricing.md ──
 
+import { getCleaningQuoteExclGst } from "@/lib/cleaning-pricing";
+
 export type DayOfWeek = "mon" | "tue" | "wed" | "thu" | "fri" | "sat" | "sun";
 export type CrewSize = "2M" | "3M";
 export type Tier = 1 | 2 | 3;
@@ -216,11 +218,20 @@ export const PACKING_PRICES: Record<Bedrooms, number> = {
 };
 
 // ── Cleaning prices by bedroom (excl GST) ──
+// Read from the bed x bath grid in cleaning-pricing.ts (default bathrooms, the
+// Option 2 price the pricing page lists). This was a hand-typed copy until
+// 2026-11-02, and its 4+ bedroom clean had drifted to $600 against $590 on
+// the grid, the quote deck and the booking page.
+const cleaningFor = (bedrooms: Bedrooms): number => {
+  const ex = getCleaningQuoteExclGst(bedrooms);
+  if (ex == null) throw new Error(`No cleaning price for ${bedrooms} bedrooms`);
+  return ex;
+};
 export const CLEANING_PRICES: Record<Bedrooms, number> = {
-  1: 280,
-  2: 350,
-  3: 450,
-  4: 600,
+  1: cleaningFor(1),
+  2: cleaningFor(2),
+  3: cleaningFor(3),
+  4: cleaningFor(4),
 };
 
 /** Cleaning price incl. GST for a bedroom count, so a quote add-on toggle can
