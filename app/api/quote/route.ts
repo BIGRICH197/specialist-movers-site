@@ -9,7 +9,7 @@ import {
 } from "@/lib/pricing";
 import { isGooglePlacesConfigured } from "@/lib/google-places-config";
 import type { ParsedPlaceAddress } from "@/lib/parse-place-address";
-import { quotePriceRange } from "@/lib/quote-display";
+import { quoteEstimateRange } from "@/lib/quote-display";
 import { createHubSpotDeal } from "@/lib/hubspot";
 import type { Attribution } from "@/lib/attribution";
 import {
@@ -111,9 +111,11 @@ function requiresCustomQuote(
   });
 }
 
-function withDisplayPricing<T extends { totalIncGst: number }>(pricing: T) {
-  const range = quotePriceRange(pricing.totalIncGst);
-  return { ...pricing, ...range };
+function withDisplayPricing<T extends { totalIncGst: number }>(
+  pricing: T,
+  variableIncGst: number,
+) {
+  return { ...pricing, ...quoteEstimateRange(pricing.totalIncGst, variableIncGst) };
 }
 
 export async function POST(request: Request) {
@@ -329,7 +331,12 @@ export async function POST(request: Request) {
         : "Addresses not verified via Places"
       : null;
 
-    const range = customQuote ? null : quotePriceRange(result.totalIncGst);
+    // Only the hourly moving line carries the band; packing and cleaning
+    // are quoted prices.
+    const variableIncGst = result.moveCostExGst * 1.15;
+    const range = customQuote
+      ? null
+      : quoteEstimateRange(result.totalIncGst, variableIncGst);
     const rangeText = range
       ? `$${range.lowIncGst} to $${range.highIncGst} incl GST`
       : undefined;
@@ -366,14 +373,18 @@ export async function POST(request: Request) {
       return NextResponse.json({
         ok: true,
         mode: "house",
-        pricing: { outOfAuckland: true, branch: result.branch },
+        pricing: {
+          outOfAuckland: true,
+          branch: result.branch,
+          customReason: result.outOfAuckland ? "outside_area" : "unverified",
+        },
       });
     }
 
     return NextResponse.json({
       ok: true,
       mode: "house",
-      pricing: withDisplayPricing(result),
+      pricing: withDisplayPricing(result, variableIncGst),
     });
   }
 
@@ -407,10 +418,10 @@ export async function POST(request: Request) {
         : "Addresses not verified via Places"
       : null;
 
-    const range = customQuote ? null : quotePriceRange(result.totalIncGst);
-    const rangeText = range
-      ? `$${range.lowIncGst} to $${range.highIncGst} incl GST`
-      : undefined;
+    // Piano is a fixed price, so the customer sees one figure, not a range.
+    const rangeText = customQuote
+      ? undefined
+      : `$${result.totalIncGst} incl GST (fixed)`;
 
     await createHubSpotDeal({
       name: body.name,
@@ -449,14 +460,18 @@ export async function POST(request: Request) {
       return NextResponse.json({
         ok: true,
         mode: "piano",
-        pricing: { outOfAuckland: true, branch: result.branch },
+        pricing: {
+          outOfAuckland: true,
+          branch: result.branch,
+          customReason: result.outOfAuckland ? "outside_area" : "unverified",
+        },
       });
     }
 
     return NextResponse.json({
       ok: true,
       mode: "piano",
-      pricing: withDisplayPricing(result),
+      pricing: withDisplayPricing(result, 0),
     });
   }
 

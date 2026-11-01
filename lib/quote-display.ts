@@ -30,6 +30,21 @@ export function quotePriceRange(
   return { lowIncGst, highIncGst };
 }
 
+/** The band applied to the hourly moving line only. Packing (a minimum),
+ *  cleaning and piano are quoted prices, so widening them by the band showed a
+ *  low end we would never bill and a "fixed price" piano as a range. Pass the
+ *  incl-GST moving line as variableIncGst; 0 gives a single fixed figure. */
+export function quoteEstimateRange(
+  totalIncGst: number,
+  variableIncGst: number,
+): { lowIncGst: number; highIncGst: number } {
+  const fixedIncGst = totalIncGst - variableIncGst;
+  return {
+    lowIncGst: Math.round(variableIncGst * (1 - ESTIMATE_DOWN) + fixedIncGst),
+    highIncGst: Math.round(variableIncGst * (1 + ESTIMATE_UP) + fixedIncGst),
+  };
+}
+
 export function formatNzd(amount: number): string {
   return NZD.format(amount);
 }

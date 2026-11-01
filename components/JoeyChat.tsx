@@ -98,6 +98,23 @@ export function JoeyChat() {
     sessionStorage.setItem(ONLINE_PILL_KEY, "1");
   }
 
+  // The pill sat on top of the quote form's right-hand controls (the
+  // "Stairs / difficult" toggle, the date picker). Once someone starts on the
+  // form they have found us, so put the pill away for this page view.
+  useEffect(() => {
+    function onFormInteraction(e: Event) {
+      if ((e.target as Element | null)?.closest?.("[data-quote-card]")) {
+        setOnlinePillVisible(false);
+      }
+    }
+    document.addEventListener("focusin", onFormInteraction);
+    document.addEventListener("pointerdown", onFormInteraction);
+    return () => {
+      document.removeEventListener("focusin", onFormInteraction);
+      document.removeEventListener("pointerdown", onFormInteraction);
+    };
+  }, []);
+
   useEffect(() => {
     if (!isOpen) return;
     const prev = document.body.style.overflow;

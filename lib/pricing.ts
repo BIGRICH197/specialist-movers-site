@@ -209,6 +209,10 @@ export interface HouseMoveResult {
   packingCostIncGst: number | null;
   cleaningCostExGst: number | null;
   cleaningCostIncGst: number | null;
+  /** True when the VIP full-pack offer makes the exit clean free. */
+  cleaningFreeWithPack: boolean;
+  /** What the clean would have cost (ex GST), shown as "worth $X". */
+  cleaningValueExGst: number | null;
   totalExGst: number;
   totalIncGst: number;
   breakdown: string;
@@ -221,18 +225,55 @@ export function calculateHouseMove(input: HouseMoveInput): HouseMoveResult {
   });
   const outOfAuckland = branch === "manual";
 
-  if (branch === "hamilton") {
-    return calculateHouseMoveHamilton(input, outOfAuckland);
-  }
+  const result =
+    branch === "hamilton"
+      ? calculateHouseMoveHamilton(input, outOfAuckland)
+      : calculateHouseMoveAuckland(input, branch, outOfAuckland);
+  return applyFreeCleanOffer(result);
+}
 
-  return calculateHouseMoveAuckland(input, branch, outOfAuckland);
+/** VIP full-pack offer (live since 2026-08-21, brain/context/pricing.md "Free
+ *  exit clean with a full pack"): book the house pack with the move and the
+ *  exit clean is free. Until 2026-11-02 the form still charged for the clean
+ *  when both boxes were ticked, while every email told the same customer it
+ *  was on us. The form's packing option is the whole-house pack (3 packers,
+ *  day before), so ticking it qualifies. */
+function applyFreeCleanOffer(
+  r: Omit<HouseMoveResult, "cleaningFreeWithPack" | "cleaningValueExGst">,
+): HouseMoveResult {
+  const cleaningValueExGst = r.cleaningCostExGst;
+  if (r.packingCostExGst === null || r.cleaningCostExGst === null) {
+    return { ...r, cleaningFreeWithPack: false, cleaningValueExGst };
+  }
+  const totalExGst = round2(r.totalExGst - r.cleaningCostExGst);
+  const totalIncGst = round2(r.totalIncGst - (r.cleaningCostIncGst ?? 0));
+  const breakdown = r.breakdown
+    .split("\n")
+    .map((line) =>
+      line.startsWith("Cleaning:")
+        ? `Cleaning: FREE with full pack (VIP offer, worth $${cleaningValueExGst} + GST)`
+        : line.startsWith("Total:")
+          ? `Total: $${totalExGst} + GST = $${totalIncGst} incl. GST`
+          : line,
+    )
+    .join("\n");
+  return {
+    ...r,
+    cleaningCostExGst: 0,
+    cleaningCostIncGst: 0,
+    cleaningFreeWithPack: true,
+    cleaningValueExGst,
+    totalExGst,
+    totalIncGst,
+    breakdown,
+  };
 }
 
 function calculateHouseMoveAuckland(
   input: HouseMoveInput,
   branch: QuoteBranch,
   outOfAuckland: boolean,
-): HouseMoveResult {
+): Omit<HouseMoveResult, "cleaningFreeWithPack" | "cleaningValueExGst"> {
   const cubes = BEDROOM_CUBES[input.bedrooms];
   const crew = BEDROOM_CREW[input.bedrooms];
   const crewCount = crew === "2M" ? 2 : 3;
@@ -329,7 +370,7 @@ function calculateHouseMoveAuckland(
 function calculateHouseMoveHamilton(
   input: HouseMoveInput,
   outOfAuckland: boolean,
-): HouseMoveResult {
+): Omit<HouseMoveResult, "cleaningFreeWithPack" | "cleaningValueExGst"> {
   const cubes = BEDROOM_CUBES[input.bedrooms];
   const crew = BEDROOM_CREW[input.bedrooms];
   const crewCount = crew === "2M" ? 2 : 3;

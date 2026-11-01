@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import {
   ArrowRight,
   ArrowLeft,
@@ -18,7 +18,7 @@ import {
 import { RouteBranchHint } from "@/components/RouteBranchHint";
 import {
   formatNzd,
-  quotePriceRange,
+  quoteEstimateRange,
   shortAddress,
 } from "@/lib/quote-display";
 import { getAttribution } from "@/lib/attribution";
@@ -186,6 +186,26 @@ export function QuoteForm({
   }
 
   const goStep = (n: number) => setStep(n);
+
+  // Every step renders inside the same card, so a long step (contact details,
+  // the result) used to leave the page scrolled to wherever the button was:
+  // on a phone you landed under the name/phone/email fields facing a disabled
+  // button, and on desktop the price sat above the screen after submitting.
+  // Bring the card's top back into view whenever the step changes.
+  const cardRef = useRef<HTMLDivElement>(null);
+  const firstRender = useRef(true);
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+    const card = cardRef.current;
+    if (!card) return;
+    // Clear of the sticky header; leave it alone when the top is already showing.
+    if (card.getBoundingClientRect().top < 80) {
+      card.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [step, f.mode]);
 
   async function submitCallback() {
     if (!f.name.trim() || !f.email.trim() || !f.phone.trim()) {
@@ -381,7 +401,7 @@ export function QuoteForm({
   // Callback-only (e.g. brand-moment "Request a call back")
   if (f.mode === "callback") {
     return (
-      <Wrapper className={className} compact={compact}>
+      <Wrapper cardRef={cardRef} className={className} compact={compact}>
         <Header
           tag="Call back"
           title="Request a call back"
@@ -452,7 +472,7 @@ export function QuoteForm({
   // Step 0 , Choose (only shown when no defaultJobType provided)
   if (step === 0) {
     return (
-      <Wrapper className={className} compact={compact}>
+      <Wrapper cardRef={cardRef} className={className} compact={compact}>
         <Header
           tag="Instant quote"
           title="Get your price now"
@@ -597,7 +617,7 @@ export function QuoteForm({
       f.name.trim() && f.phone.trim() && f.email.trim() && f.message.trim(),
     );
     return (
-      <Wrapper className={className} compact={compact}>
+      <Wrapper cardRef={cardRef} className={className} compact={compact}>
         <Header
           tag="General enquiry"
           title="Tell us about your job"
@@ -710,7 +730,7 @@ export function QuoteForm({
   if (step === 1) {
     const canProceed = Boolean(f.pickupAddress.trim() && f.dropoffAddress.trim());
     return (
-      <Wrapper className={className} compact={compact}>
+      <Wrapper cardRef={cardRef} className={className} compact={compact}>
         <Header
           tag={modeLabel(f.mode)}
           title="Your move details"
@@ -1121,7 +1141,7 @@ export function QuoteForm({
     const showInstantPrice =
       !isOffice && f.mode !== "commercial" && routeResolution.canInstantQuote;
     return (
-      <Wrapper className={className} compact={compact}>
+      <Wrapper cardRef={cardRef} className={className} compact={compact}>
         <Header
           tag="Almost done"
           title="Your details"
@@ -1201,6 +1221,19 @@ export function QuoteForm({
               <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple">
                 Add-ons
               </p>
+              <p className="rounded-lg border border-brand-yellow/70 bg-brand-yellow/25 px-3 py-2 text-xs leading-relaxed text-brand-purple">
+                <strong>VIP offer:</strong> book professional packing with your
+                move and we&apos;ll upgrade you to VIP at no extra charge, with
+                the full exit clean on us. That clean alone is $600+ of work.{" "}
+                <a
+                  href="/promotions"
+                  target="_blank"
+                  rel="noopener"
+                  className="font-semibold underline decoration-brand-purple/40 underline-offset-2"
+                >
+                  Offer terms
+                </a>
+              </p>
               <label className="flex cursor-pointer items-center gap-3">
                 <input
                   type="checkbox"
@@ -1224,7 +1257,9 @@ export function QuoteForm({
                 />
                 <span className="text-sm text-brand-purple">
                   Exit cleaning{" "}
-                  <span className="text-brand-purple/50">(fixed price)</span>
+                  <span className="text-brand-purple/50">
+                    {f.wantsPacking ? "(free with packing)" : "(fixed price)"}
+                  </span>
                 </span>
               </label>
               <label className="flex cursor-pointer items-center gap-3">
@@ -1284,7 +1319,7 @@ export function QuoteForm({
 
     if (quoteRequested) {
       return (
-        <Wrapper className={className} compact={compact}>
+        <Wrapper cardRef={cardRef} className={className} compact={compact}>
           <Header tag="Quote requested" title="We&apos;ll call you soon" />
           <div className="rounded-xl border-2 border-brand-yellow/60 bg-brand-yellow/20 p-5">
             <p className="text-sm leading-relaxed text-brand-purple">
@@ -1315,14 +1350,15 @@ export function QuoteForm({
 
     if (isOutOfAuckland) {
       return (
-        <Wrapper className={className} compact={compact}>
+        <Wrapper cardRef={cardRef} className={className} compact={compact}>
           <Header tag="Custom quote" title="We'll be in touch" />
           <div className="rounded-xl border-2 border-brand-yellow/60 bg-brand-yellow/20 p-5">
             <p className="text-sm leading-relaxed text-brand-purple">
-              We couldn&apos;t confirm an instant price for your route (outside
-              our service area, or the address wasn&apos;t verified). We&apos;ll
-              call you within <strong>15 minutes</strong> with a custom quote
-              tailored to your move.
+              {pricing?.customReason === "outside_area"
+                ? "Your route is outside the area we price online, so we'll work it out for you. "
+                : "We need to double-check your addresses before we can price it, so we'll work it out for you. "}
+              We&apos;ll call you within <strong>15 minutes</strong> with a
+              quote tailored to your move.
             </p>
           </div>
           <p className="mt-4 text-sm text-brand-purple/60">
@@ -1346,31 +1382,37 @@ export function QuoteForm({
     const moveCostExGst = pricing?.moveCostExGst as number | undefined;
     const packingCostExGst = pricing?.packingCostExGst as number | null | undefined;
     const cleaningCostExGst = pricing?.cleaningCostExGst as number | null | undefined;
+    const cleaningValueExGst = pricing?.cleaningValueExGst as number | null | undefined;
     const totalExGst = pricing?.totalExGst as number | undefined;
     const crewCount = pricing?.crewCount as number | undefined;
     const totalHours = pricing?.totalHours as number | undefined;
     const hourlyRate = pricing?.hourlyRate as number | undefined;
     const calloutFee = pricing?.calloutFee as number | undefined;
+    const fallbackRange = quoteEstimateRange(
+      totalIncGst,
+      moveCostExGst != null ? moveCostExGst * 1.15 : 0,
+    );
     const lowIncGst =
-      (pricing?.lowIncGst as number | undefined) ??
-      quotePriceRange(totalIncGst).lowIncGst;
+      (pricing?.lowIncGst as number | undefined) ?? fallbackRange.lowIncGst;
     const highIncGst =
-      (pricing?.highIncGst as number | undefined) ??
-      quotePriceRange(totalIncGst).highIncGst;
+      (pricing?.highIncGst as number | undefined) ?? fallbackRange.highIncGst;
     const quoteMode = (pricing?.quoteMode as string) ?? "house";
+    const isFixed = quoteMode === "piano";
+    const gstAmount =
+      totalExGst != null ? totalIncGst - totalExGst : undefined;
     const recap = buildQuoteRecap(f.name, quoteMode, f);
 
     return (
-      <Wrapper className={className} compact={compact}>
+      <Wrapper cardRef={cardRef} className={className} compact={compact}>
         <Header
-          tag="Your estimate"
+          tag={isFixed ? "Your price" : "Your estimate"}
           title="Thanks for your details"
           subtitle={recap}
         />
 
         <div className="mt-2 space-y-3 rounded-xl border border-brand-purple/10 bg-brand-purple/[0.03] px-4 py-4 sm:px-5">
           <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple/55">
-            Your estimate breakdown
+            {isFixed ? "Price breakdown" : "Your estimate breakdown"}
           </p>
 
           {moveCostExGst != null ? (
@@ -1399,7 +1441,24 @@ export function QuoteForm({
             </div>
           ) : null}
 
-          {cleaningCostExGst != null ? (
+          {/* The VIP offer comes with any house pack, whether or not the
+              cleaning box was ticked, so a pack always shows the free clean. */}
+          {packingCostExGst != null ? (
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-brand-purple">Exit clean</p>
+                <p className="text-xs text-brand-purple/60">
+                  VIP offer with your full pack
+                  {cleaningValueExGst
+                    ? `, worth ${formatNzd(cleaningValueExGst)} + GST`
+                    : ""}
+                </p>
+              </div>
+              <p className="whitespace-nowrap text-sm font-semibold text-emerald-700">
+                Free
+              </p>
+            </div>
+          ) : cleaningCostExGst != null ? (
             <div className="flex items-start justify-between gap-3">
               <p className="text-sm font-semibold text-brand-purple">Cleaning</p>
               <p className="whitespace-nowrap text-sm font-semibold text-brand-purple">
@@ -1417,16 +1476,43 @@ export function QuoteForm({
               </p>
             </div>
           ) : null}
+
+          {gstAmount != null ? (
+            <div className="flex items-center justify-between gap-3">
+              <p className="text-sm text-brand-purple/70">GST (15%)</p>
+              <p className="whitespace-nowrap text-sm text-brand-purple/70">
+                {formatNzd(gstAmount)}
+              </p>
+            </div>
+          ) : null}
+
+          {totalExGst != null ? (
+            <div className="flex items-center justify-between gap-3">
+              <p className="text-sm font-semibold text-brand-purple">
+                {isFixed ? "Total" : "Estimate"}
+              </p>
+              <p className="whitespace-nowrap text-sm font-semibold text-brand-purple">
+                {formatNzd(totalIncGst)}{" "}
+                <span className="font-normal text-brand-purple/55">incl. GST</span>
+              </p>
+            </div>
+          ) : null}
         </div>
 
         <div className="mt-4 rounded-xl border border-brand-purple/20 bg-brand-yellow/10 px-4 py-4 sm:px-5">
           <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple/55">
-            Estimated total
+            {isFixed ? "Your fixed price" : "Estimated total"}
           </p>
           <p className="mt-2 text-xl font-semibold leading-snug text-brand-purple sm:text-2xl">
-            {formatNzd(lowIncGst)} – {formatNzd(highIncGst)}
+            {isFixed
+              ? formatNzd(totalIncGst)
+              : `${formatNzd(lowIncGst)} – ${formatNzd(highIncGst)}`}
           </p>
-          <p className="mt-1 text-xs text-brand-purple/60">incl. GST (estimate)</p>
+          <p className="mt-1 text-xs text-brand-purple/60">
+            {isFixed
+              ? "incl. GST"
+              : "incl. GST. Moves are charged by the hour, so the final price depends on how long it takes on the day."}
+          </p>
         </div>
 
         <div className="mt-4 space-y-2 rounded-xl border border-brand-purple/10 bg-white px-4 py-4 text-sm leading-relaxed text-brand-purple/80">
@@ -1485,8 +1571,8 @@ function buildQuoteRecap(
   const to = shortAddress(f.dropoffAddress);
 
   if (quoteMode === "piano") {
-    const kind = f.pianoType === "grand" ? "grand piano" : "upright piano";
-    return `Hi ${first}, your estimated price range for moving a ${kind} from ${from} to ${to}.`;
+    const kind = f.pianoType === "grand" ? "a grand piano" : "an upright piano";
+    return `Hi ${first}, here's your price for moving ${kind} from ${from} to ${to}.`;
   }
 
   const bedLabel = f.bedrooms === 4 ? "4+" : String(f.bedrooms);
@@ -1505,14 +1591,18 @@ function Wrapper({
   children,
   className,
   compact,
+  cardRef,
 }: {
   children: React.ReactNode;
   className: string;
   compact: boolean;
+  cardRef: React.RefObject<HTMLDivElement>;
 }) {
   return (
     <div
-      className={`relative overflow-hidden rounded-[1.25rem] border-2 border-brand-purple/10 border-t-brand-yellow bg-white shadow-[0_20px_60px_-12px_rgba(151,57,176,0.2),0_0_0_1px_rgba(243,208,42,0.25)] ${className}`}
+      ref={cardRef}
+      data-quote-card
+      className={`relative scroll-mt-24 overflow-hidden rounded-[1.25rem] border-2 border-brand-purple/10 border-t-brand-yellow bg-white shadow-[0_20px_60px_-12px_rgba(151,57,176,0.2),0_0_0_1px_rgba(243,208,42,0.25)] ${className}`}
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-1 rounded-t-[1.2rem] bg-gradient-to-r from-brand-yellow via-brand-yellow to-brand-purple/30" />
       <div className={`relative p-4 sm:p-7 ${compact ? "sm:p-6" : ""}`}>
