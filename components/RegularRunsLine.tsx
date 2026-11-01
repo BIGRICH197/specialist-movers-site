@@ -1,22 +1,35 @@
 import Link from "next/link";
+import { ArrowLeftRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export const REGULAR_RUNS_PATH = "/regular-runs";
 
-/** One line of small yellow text above the homepage title, linking to /regular-runs. */
+const runs = [
+  { to: "Hamilton", cadence: "Daily" },
+  { to: "Tauranga", cadence: "Weekly" },
+] as const;
+
+/** One thin line of yellow text above the homepage title, linking to /regular-runs. */
 export function RegularRunsLine({ className }: { className?: string }) {
   return (
     <Link
       href={REGULAR_RUNS_PATH}
+      aria-label="Regular runs: Auckland to Hamilton daily, Auckland to Tauranga weekly"
       className={cn(
-        "block w-full min-w-0 truncate text-xs font-semibold tracking-wide text-brand-yellow underline-offset-4 transition-colors duration-200 hover:text-white hover:underline sm:text-sm",
+        "inline-flex w-fit max-w-full items-center gap-2 whitespace-nowrap text-xs font-light tracking-wide text-brand-yellow transition-colors duration-200 hover:text-white sm:text-sm",
         className,
       )}
     >
-      <span className="sm:hidden">Hamilton every day · Tauranga every week ›</span>
-      <span className="hidden sm:inline">
-        Auckland to Hamilton every day · Auckland to Tauranga &amp; Bay of Plenty every week ›
-      </span>
+      {runs.map((run, i) => (
+        <span key={run.to} className="inline-flex items-center gap-2">
+          {i > 0 ? <span aria-hidden>·</span> : null}
+          <span className="inline-flex items-center gap-1">
+            Auckland
+            <ArrowLeftRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" strokeWidth={1.25} aria-hidden />
+            {run.to} {run.cadence}
+          </span>
+        </span>
+      ))}
     </Link>
   );
 }
