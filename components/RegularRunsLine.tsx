@@ -14,16 +14,17 @@ export function RegularRunsLine({ className }: { className?: string }) {
   return (
     <Link
       href={REGULAR_RUNS_PATH}
-      aria-label="Regular runs: Auckland to Hamilton daily, Auckland to Tauranga weekly"
+      aria-label="Truck space: Auckland to Hamilton daily, Auckland to Tauranga weekly"
       className={cn(
-        "inline-flex w-fit max-w-full items-center gap-2 whitespace-nowrap text-xs font-light tracking-wide text-brand-yellow transition-colors duration-200 hover:text-white sm:text-sm",
+        "inline-flex w-fit max-w-full items-center gap-1.5 whitespace-nowrap text-[11px] font-light tracking-normal sm:gap-2 sm:tracking-wide text-brand-yellow transition-colors duration-200 hover:text-white sm:text-sm",
         className,
       )}
     >
+      <span className="font-normal">Truck space:</span>
       {runs.map((run, i) => (
-        <span key={run.to} className="inline-flex items-center gap-2">
+        <span key={run.to} className="inline-flex items-center gap-1.5 sm:gap-2">
           {i > 0 ? <span aria-hidden>·</span> : null}
-          <span className="inline-flex items-center gap-1">
+          <span className="inline-flex items-center gap-0.5 sm:gap-1">
             Auckland
             <ArrowLeftRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" strokeWidth={1.25} aria-hidden />
             {run.to} {run.cadence}
