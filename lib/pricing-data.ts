@@ -245,9 +245,26 @@ export function getCleaningPriceInclGst(bedrooms?: number): number | null {
 }
 
 // ── Piano base prices (excl GST) ──
+// `grand` is the smallest grand (up to 6ft), so it doubles as the "from"
+// price the pricing page lists. The bigger sizes live in GRAND_PIANO_BASE.
 export const PIANO_BASE: Record<PianoType, number> = {
   upright: 290,
   grand: 550,
+};
+
+// ── Grand piano base prices by size (excl GST, retail) ──
+// 2026-11-02 (Richard): the form asked only upright or grand, so every grand
+// priced at $550, including 7ft and concert grands that are $650 and $950 of
+// work. Mirrors pricing.py PIANO_BASE retail grand_small / grand_mid /
+// grand_concert in the automation repo; change both. Hamilton grands use the
+// same table, only the zone surcharge differs. "unsure" prices as the small
+// grand and the result card says we will confirm the size.
+export type GrandSize = "small" | "mid" | "concert" | "unsure";
+export const GRAND_PIANO_BASE: Record<GrandSize, number> = {
+  small: PIANO_BASE.grand,
+  mid: 650,
+  concert: 950,
+  unsure: PIANO_BASE.grand,
 };
 
 // ── Piano location surcharges (excl GST) ──

@@ -16,7 +16,12 @@ import {
   attributionNoteLines,
   classifyTrafficSource,
 } from "@/lib/traffic-source";
-import type { AccessDifficulty, Bedrooms, PianoType } from "@/lib/pricing-data";
+import type {
+  AccessDifficulty,
+  Bedrooms,
+  GrandSize,
+  PianoType,
+} from "@/lib/pricing-data";
 import { isDialable, PHONE_ERROR } from "@/lib/phone";
 import { isEmailish, EMAIL_ERROR } from "@/lib/email";
 
@@ -50,6 +55,7 @@ type QuoteBody = {
   officeSize?: string;
   // Piano
   pianoType?: PianoType;
+  grandSize?: GrandSize;
   pickupStairFlights?: number;
   dropoffStairFlights?: number;
   // Contact
@@ -93,6 +99,28 @@ function stairsLabel(flights: number | undefined): string {
   const n = flights ?? 0;
   if (n === 0) return "No stairs (ground level)";
   return n === 1 ? "1 flight of stairs" : `${n} flights of stairs`;
+}
+
+function parseGrandSize(value: unknown): GrandSize {
+  return value === "mid" || value === "concert" || value === "unsure"
+    ? value
+    : "small";
+}
+
+/**
+ * service_type_piano wording. new_deals.build_piano_email reads the tier off
+ * this string: "concert" or 7.7ft+ is concert, a feet figure from 6.0 to 7.6 or
+ * a "mid grand" keyword is mid, any other "grand" is small. So the small grand
+ * spells "six feet" in words: "up to 6ft" parses as 6.0ft and lands in mid,
+ * $100 over what the customer was just shown (Richard, 2026-11-02). Unsure
+ * stays plain "Grand Piano", which prices small there as well as here.
+ */
+function pianoTypeLabel(pianoType: PianoType, grandSize: GrandSize): string {
+  if (pianoType !== "grand") return "Upright Piano";
+  if (grandSize === "mid") return "Grand Piano (6ft-7.6ft)";
+  if (grandSize === "concert") return "Concert Grand Piano (7.7ft+)";
+  if (grandSize === "small") return "Grand Piano (up to six feet)";
+  return "Grand Piano";
 }
 
 function requiresCustomQuote(
@@ -391,6 +419,7 @@ export async function POST(request: Request) {
   if (body.mode === "piano") {
     const input: PianoMoveInput = {
       pianoType: body.pianoType ?? "upright",
+      grandSize: parseGrandSize(body.grandSize),
       pickupAddress: body.pickupAddress,
       dropoffAddress: body.dropoffAddress,
       pickupStairFlights: body.pickupStairFlights ?? 0,
@@ -447,12 +476,15 @@ export async function POST(request: Request) {
       // (Richard, 2026-09-15). Wording matches what the retired piano form
       // wrote, which is what new_deals.build_piano_email parses. Set on the
       // custom-quote path too: Taine still needs to know what he is looking at.
+      // Since 2026-11-02 it carries the grand's size too (pianoTypeLabel).
       extraProperties: {
-        service_type_piano:
-          input.pianoType === "grand" ? "Grand Piano" : "Upright Piano",
+        service_type_piano: pianoTypeLabel(
+          input.pianoType,
+          input.grandSize ?? "small",
+        ),
       },
       notes: customQuote
-        ? `Website quote: Custom quote needed (${manualReason})\n${body.pianoType} piano, ${body.pickupAddress} to ${body.dropoffAddress}${extraNotes}`
+        ? `Website quote: Custom quote needed (${manualReason})\n${pianoTypeLabel(input.pianoType, input.grandSize ?? "small")}, ${body.pickupAddress} to ${body.dropoffAddress}${extraNotes}`
         : `Website quote: $${result.totalIncGst} incl GST\nCustomer shown range: ${rangeText}\n${result.breakdown}${extraNotes}`,
     });
 

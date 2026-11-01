@@ -3,6 +3,7 @@ import {
   type Bedrooms,
   type CrewSize,
   type DayOfWeek,
+  type GrandSize,
   type PianoType,
   type Tier,
   type TruckSpec,
@@ -11,6 +12,7 @@ import {
   BEDROOM_CREW,
   CALLOUT_FEES,
   CLEANING_PRICES,
+  GRAND_PIANO_BASE,
   GST_MULTIPLIER,
   MOVE_HOURS,
   PACKING_PRICES,
@@ -479,6 +481,8 @@ function calculateHouseMoveHamilton(
 
 export interface PianoMoveInput {
   pianoType: PianoType;
+  /** Grand only. Missing (older callers, the chat tool) prices as "small". */
+  grandSize?: GrandSize;
   pickupAddress: string;
   dropoffAddress: string;
   pickupStairFlights: number;
@@ -491,6 +495,8 @@ export interface PianoMoveResult {
   branch: QuoteBranch;
   outOfAuckland: boolean;
   pianoType: PianoType;
+  /** Set for a grand only, so the result card can say "priced as small". */
+  grandSize: GrandSize | null;
   baseCostExGst: number;
   locationSurchargeExGst: number;
   stairsSurchargeExGst: number;
@@ -517,7 +523,12 @@ export function calculatePianoMove(input: PianoMoveInput): PianoMoveResult {
   });
   const outOfAuckland = branch === "manual";
 
-  const baseCost = PIANO_BASE[input.pianoType];
+  const grandSize: GrandSize | null =
+    input.pianoType === "grand" ? (input.grandSize ?? "small") : null;
+  const baseCost =
+    grandSize != null
+      ? (GRAND_PIANO_BASE[grandSize] ?? PIANO_BASE.grand)
+      : PIANO_BASE[input.pianoType];
   const totalFlights = input.pickupStairFlights + input.dropoffStairFlights;
 
   let locationSurcharge = 0;
@@ -541,7 +552,16 @@ export function calculatePianoMove(input: PianoMoveInput): PianoMoveResult {
   const totalIncGst = round2(totalExGst * GST_MULTIPLIER);
 
   const lines: string[] = [];
-  const typeLabel = input.pianoType === "grand" ? "Grand piano" : "Upright piano";
+  const typeLabel =
+    grandSize === "mid"
+      ? "Grand piano (6ft to 7.6ft)"
+      : grandSize === "concert"
+        ? "Concert grand piano (over 7.6ft)"
+        : grandSize === "unsure"
+          ? "Grand piano (size to confirm, priced up to 6ft)"
+          : grandSize === "small"
+            ? "Grand piano (up to 6ft)"
+            : "Upright piano";
   lines.push(`${typeLabel}: $${baseCost} + GST`);
   if (locationSurcharge > 0) {
     const label =
@@ -559,6 +579,7 @@ export function calculatePianoMove(input: PianoMoveInput): PianoMoveResult {
     branch,
     outOfAuckland,
     pianoType: input.pianoType,
+    grandSize,
     baseCostExGst: baseCost,
     locationSurchargeExGst: locationSurcharge,
     stairsSurchargeExGst: stairsSurcharge,

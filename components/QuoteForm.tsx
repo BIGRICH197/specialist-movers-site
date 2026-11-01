@@ -22,6 +22,11 @@ import {
   shortAddress,
 } from "@/lib/quote-display";
 import { getAttribution } from "@/lib/attribution";
+import {
+  CLEANING_PRICES,
+  type Bedrooms,
+  type GrandSize,
+} from "@/lib/pricing-data";
 import { isDialable, PHONE_ERROR } from "@/lib/phone";
 import { isEmailish, EMAIL_ERROR } from "@/lib/email";
 import { resolveQuoteRoute } from "@/lib/quote-route";
@@ -57,6 +62,7 @@ interface FormState {
   officeSize: string;
   // Piano
   pianoType: PianoKind;
+  grandSize: GrandSize;
   pickupStairs: number;
   dropoffStairs: number;
   // Contact
@@ -84,6 +90,9 @@ const initial: FormState = {
   wantsInsurance: false,
   officeSize: "medium",
   pianoType: "upright",
+  // "Not sure" can't be priced, so start on the smallest grand and let them
+  // change it (Richard, 2026-11-02).
+  grandSize: "small",
   pickupStairs: 0,
   dropoffStairs: 0,
   name: "",
@@ -106,6 +115,20 @@ const dateField =
   "quote-date-field h-12 w-full min-w-0 max-w-full box-border rounded-xl border-2 border-brand-purple/15 bg-white px-4 text-base text-brand-purple outline-none transition focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow/45 sm:text-sm";
 
 const label = "text-xs font-semibold text-brand-purple";
+
+/** The exit clean the VIP offer gives away, ex GST, off the same cleaning grid
+ *  the quote prices from. The form's bedrooms run 1..4 with 4 meaning 4+. */
+function vipCleanValueExGst(bedrooms: number): number {
+  const b = Math.min(Math.max(Math.round(bedrooms), 1), 4) as Bedrooms;
+  return CLEANING_PRICES[b];
+}
+
+const GRAND_SIZE_OPTIONS: { value: GrandSize; label: string }[] = [
+  { value: "small", label: "Up to 6ft" },
+  { value: "mid", label: "6ft to 7.6ft" },
+  { value: "concert", label: "Over 7.6ft (concert)" },
+  { value: "unsure", label: "Not sure" },
+];
 
 function defaultModeFromJob(jt?: JobType, jts?: JobType[]): Mode {
   const types = jts?.length ? jts : jt ? [jt] : [];
@@ -367,6 +390,7 @@ export function QuoteForm({
         payload.preferredDate = f.preferredDate;
       } else {
         payload.pianoType = f.pianoType;
+        if (f.pianoType === "grand") payload.grandSize = f.grandSize;
         payload.pickupStairFlights = f.pickupStairs;
         payload.dropoffStairFlights = f.dropoffStairs;
       }
@@ -486,7 +510,9 @@ export function QuoteForm({
               set("mode", "house");
               goStep(1);
             }}
-            className="flex w-full items-center gap-3 rounded-xl border-2 border-brand-purple/15 bg-white p-4 text-left transition hover:border-brand-yellow hover:bg-brand-yellow/10"
+            // Yellow-tinted so the VIP pill reads as part of this option and
+            // not a site-wide banner (Richard, 2026-11-02).
+            className="flex w-full items-center gap-3 rounded-xl border-2 border-brand-yellow bg-brand-yellow/10 p-4 text-left transition hover:border-brand-yellow hover:bg-brand-yellow/20"
           >
             <Home className="h-6 w-6 shrink-0 text-brand-purple" />
             <div>
@@ -496,6 +522,11 @@ export function QuoteForm({
               <p className="text-xs text-brand-purple/60">
                 Get an instant estimate for your relocation
               </p>
+              {/* The VIP offer was only visible on the contact step, after
+                  they had already chosen no packing (Richard, 2026-11-02). */}
+              <span className="mt-1.5 inline-block rounded-full bg-brand-yellow px-2 py-0.5 text-xs font-bold text-brand-purple">
+                VIP offer: add packing and the exit clean is free
+              </span>
             </div>
             <ArrowRight className="ml-auto h-5 w-5 shrink-0 text-brand-purple/40" />
           </button>
@@ -1038,6 +1069,29 @@ export function QuoteForm({
                 </div>
               </div>
 
+              {/* Grands are priced by length ($550 / $650 / $950), and until
+                  2026-11-02 every grand quoted at $550 (Richard). */}
+              {f.pianoType === "grand" && (
+                <div className="space-y-1.5">
+                  <label htmlFor={fieldId("piano-grand-size")} className={label}>
+                    Grand piano size
+                  </label>
+                  <select
+                    id={fieldId("piano-grand-size")}
+                    name="grandSize"
+                    value={f.grandSize}
+                    onChange={(e) => set("grandSize", e.target.value as GrandSize)}
+                    className={selectField}
+                  >
+                    {GRAND_SIZE_OPTIONS.map((o) => (
+                      <option key={o.value} value={o.value}>
+                        {o.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
               <div className="space-y-1.5">
                 <label htmlFor={fieldId("piano-pickup")} className={label}>
                   Pickup address
@@ -1221,10 +1275,18 @@ export function QuoteForm({
               <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple">
                 Add-ons
               </p>
+              {/* The clean's value follows the bedrooms they picked, off the
+                  cleaning grid. It said "$600+" for every home, which oversold
+                  a 1-bedroom clean by more than double (Richard, 2026-11-02). */}
               <p className="rounded-lg border border-brand-yellow/70 bg-brand-yellow/25 px-3 py-2 text-xs leading-relaxed text-brand-purple">
                 <strong>VIP offer:</strong> book professional packing with your
                 move and we&apos;ll upgrade you to VIP at no extra charge, with
-                the full exit clean on us. That clean alone is $600+ of work.{" "}
+                the full exit clean on us. For{" "}
+                {f.bedrooms >= 4
+                  ? "a home your size"
+                  : `a ${f.bedrooms}-bedroom home`}{" "}
+                that clean alone is{" "}
+                {formatNzd(vipCleanValueExGst(f.bedrooms))} + GST of work.{" "}
                 <a
                   href="/promotions"
                   target="_blank"
@@ -1397,6 +1459,7 @@ export function QuoteForm({
     const highIncGst =
       (pricing?.highIncGst as number | undefined) ?? fallbackRange.highIncGst;
     const quoteMode = (pricing?.quoteMode as string) ?? "house";
+    const grandSize = pricing?.grandSize as GrandSize | null | undefined;
     const isFixed = quoteMode === "piano";
     const gstAmount =
       totalExGst != null ? totalIncGst - totalExGst : undefined;
@@ -1513,7 +1576,41 @@ export function QuoteForm({
               ? "incl. GST"
               : "incl. GST. Moves are charged by the hour, so the final price depends on how long it takes on the day."}
           </p>
+          {/* "Not sure" prices as the smallest grand; say so, so the bigger
+              price after the call isn't a surprise (Richard, 2026-11-02). */}
+          {quoteMode === "piano" && grandSize === "unsure" ? (
+            <p className="mt-2 text-xs text-brand-purple/70">
+              Priced as a grand up to 6ft. We&apos;ll confirm the size with you
+              before we lock it in.
+            </p>
+          ) : null}
         </div>
+
+        {/* A house quote without packing gets one more look at the VIP offer,
+            priced off the clean for their bedrooms. Base table value, not the
+            Hamilton zone callout, to keep the line simple (Richard, 2026-11-02). */}
+        {quoteMode === "house" && packingCostExGst == null ? (
+          <div className="mt-4 space-y-1.5 rounded-xl border border-brand-yellow/70 bg-brand-yellow/25 px-4 py-4 text-sm leading-relaxed text-brand-purple sm:px-5">
+            <p className="font-bold">Add packing and your exit clean is free.</p>
+            <p>
+              Book our packers with your move and we&apos;ll upgrade you to VIP
+              at no extra charge, including the full exit clean, worth{" "}
+              {formatNzd(vipCleanValueExGst(f.bedrooms))} + GST for{" "}
+              {f.bedrooms >= 4
+                ? "a home your size"
+                : `a ${f.bedrooms}-bedroom home`}
+              . Just mention it when we call.
+            </p>
+            <a
+              href="/promotions"
+              target="_blank"
+              rel="noopener"
+              className="inline-block text-xs font-semibold underline decoration-brand-purple/40 underline-offset-2"
+            >
+              Offer terms
+            </a>
+          </div>
+        ) : null}
 
         <div className="mt-4 space-y-2 rounded-xl border border-brand-purple/10 bg-white px-4 py-4 text-sm leading-relaxed text-brand-purple/80">
           <p className="font-semibold text-brand-purple">What happens next</p>
