@@ -579,4 +579,20 @@ export const blogPosts = [
     excerpt:
       "Moving your Auckland office to an upper floor? This guide covers crew size, freight lift access, loading dock rules, hoists, and what to tell movers before you book.",
   },
+  {
+    slug: "removalist-auckland-what-the-job-actually-involves",
+    title: "Calling a Removalist in Auckland: What the Job Involves and How to Get It Right",
+    seoTitle: "Removalist Auckland | Specialist Movers",
+    publishedDate: "2026-11-01",
+    excerpt:
+      "Searching for a removalist in Auckland? Here is what the job actually involves, how pricing works, how we quote, and what people get wrong before moving day.",
+  },
+  {
+    slug: "hamilton-waikato-office-moves-november-january",
+    title: "November Booked Out, January Half-Staffed: Moving Your Waikato Office Through the Worst Window of the Year",
+    seoTitle: "Office Movers Hamilton | Waikato Business Moves | Specialist Movers",
+    publishedDate: "2026-11-01",
+    excerpt:
+      "A practical sequencing guide for Hamilton and Waikato ops managers planning an office move between November and January, when every contractor is already spoken for.",
+  },
 ] as const;
