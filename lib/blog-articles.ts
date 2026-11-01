@@ -3105,6 +3105,126 @@ export const blogArticles: Record<string, BlogArticle> = {
       },
     ],
   },
+  "removalist-auckland-what-the-job-actually-involves": {
+    title: "Calling a Removalist in Auckland: What the Job Involves and How to Get It Right",
+    sections: [
+      {
+        heading: "What You Are Actually Searching For",
+        paragraphs: [
+          "Most people type 'removalist Auckland' into Google when they have a moving date locked in and they need someone reliable, fast. The word 'removalist' comes from Australia but it is widely used here too, and it means exactly the same thing as a moving company or furniture movers. If that is what you are looking for, you are in the right place.",
+          "Specialist Movers is based in Wairau Valley and operates seven days a week across Auckland. We have completed 4,000+ moves across Auckland and the Waikato. This article covers what the job actually involves, how we think about pricing, and what catches people out.",
+        ],
+      },
+      {
+        heading: "What a Removalist Actually Does on the Day",
+        paragraphs: [
+          "A removalist crew turns up with a truck, loads your furniture and boxes, drives to your new place, and carries everything in. That is the core of it. But the details matter more than people expect.",
+          "Auckland is not a flat city. A crew moving someone from a Mt Eden villa to a Hobsonville townhouse is dealing with two completely different layouts, different street widths, and possibly a tight driveway at one end. A move from a Parnell apartment might involve a goods lift, a strict booking window with building management, and a loading dock that only fits smaller trucks. None of that is unusual here, and a decent removalist plans for it before the truck leaves.",
+          "Our crews range from two to four movers depending on the job. Trucks have taillifts. For items that need extra protection, we use blankets, shrink wrap or mattress covers depending on what the item needs.",
+        ],
+      },
+      {
+        heading: "How Pricing Works for an Auckland Removalist",
+        paragraphs: [
+          "There are no dollar figures in this article, because every job is different. What we can tell you is how the numbers are built.",
+          "Hourly rates are the same across Auckland. What varies is the fixed callout fee, which reflects distance from our Wairau Valley depot. You see the full price upfront before you book. There are no surprise charges added after the truck pulls away.",
+          "The things that push a job up in time and cost are the ones people underestimate: the number of flights of stairs, whether there is a lift, how far the truck has to park from the door, and how ready the place is when the crew arrives. A Remuera home with a long driveway and a sunken lounge takes longer than a flat Grey Lynn bungalow of the same size. A Newmarket apartment with a loading dock that is booked out until noon adds wait time. Being honest about these things upfront means the quote reflects reality.",
+        ],
+      },
+      {
+        heading: "How We Quote",
+        paragraphs: [
+          "Send us a message or call, and we usually get a quote back to you within about 15 minutes during business hours. For larger homes, we offer a free viewing so we can walk the property and give you a number we are confident in.",
+          "We ask about access at both ends, how many storeys, any items that need special handling, and your moving date. The more detail you give us, the more accurate the quote. If something changes between quoting and moving day, let us know and we will adjust.",
+        ],
+      },
+      {
+        heading: "What People Get Wrong When Hiring a Removalist in Auckland",
+        paragraphs: [
+          "Booking too late is the most common one. Friday and Saturday moves are the first to fill up, especially at the end of the month when tenancies roll over. If your date is firm, lock in early.",
+          "Underestimating volume is the other big one. People think about furniture and forget the accumulated weight of a decade of kitchen gear, linen, books and the stuff from the garage. A rough count of boxes before you quote helps everyone.",
+          "Not checking building rules is a real problem in Auckland apartments. Many buildings require a lift booking, a lift pad, and a bond paid to the body corporate before a removalist can operate. That process takes time. If you are moving from a city fringe apartment in Grafton or Newmarket or the CBD, check with your building manager at least a week out.",
+          "Assuming all removalists carry the same coverage is also worth clearing up. Our crews are licensed and insured. If you want cover for your own belongings during the move, that can be arranged through our team.",
+        ],
+      },
+      {
+        heading: "Auckland-Specific Things Worth Knowing",
+        paragraphs: [
+          "Traffic in Auckland is real and it affects moving days. A crew travelling from the North Shore to Manukau on a Friday afternoon is going to hit the Southern Motorway at its worst. Good removalists build a buffer into the schedule rather than promising a precise arrival at the second address.",
+          "The North Shore, West Auckland, and South Auckland each have their own access quirks. Narrow streets in Ponsonby and Grey Lynn mean a smaller truck sometimes makes more sense than a large one even if the load would fit. Industrial areas in East Tamaki have long driveways and clear loading access. Knowing these things comes from doing the work here, not just knowing the map.",
+          "We also handle commercial moves around Auckland, including after-hours and weekend work for businesses that cannot afford downtime. Our SiteWise Gold certification means crews can access managed sites and construction locations where that is required.",
+        ],
+      },
+      {
+        heading: "So What Should You Do Next",
+        paragraphs: [
+          "If you searched 'removalist Auckland' and you have a date in mind, the next step is simple. Get a quote. Tell us your two addresses, your moving date, a rough count of rooms and any access notes you already know about. We will come back to you quickly and give you a clear price.",
+          "If you are not sure yet, a free viewing for a larger home is an option, and there is no obligation. You can reach us through the quote form on this website.",
+        ],
+      },
+    ],
+  },
+  "hamilton-waikato-office-moves-november-january": {
+    title: "November Booked Out, January Half-Staffed: Moving Your Waikato Office Through the Worst Window of the Year",
+    sections: [
+      {
+        heading: "Why This Window Catches People Out Every Year",
+        paragraphs: [
+          "The November-to-January stretch looks like a logical time to move. Leases often expire at year end. Staff are mentally checked out by mid-December anyway. The new space could be ready for a fresh-start January. That reasoning is sound. The problem is that every other business in Hamilton and the Waikato reaches the same conclusion at the same time.",
+          "Freight lifts in Hamilton CBD towers get booked by building managers weeks in advance and often run on reduced hours through the Christmas and New Year period. IT contractors who need to disconnect and reconnect server racks go on leave. Cleaning companies that handle move-out inspections are fully committed from late November. The operations lead who starts calling around in early December is not shopping for the best deal. They are hoping someone has a gap.",
+          "This guide is written for that person, a week or two behind where they should be, trying to work out what can still be saved and what needs to change.",
+        ],
+      },
+      {
+        heading: "Mapping the Calendar Before You Confirm Anything",
+        paragraphs: [
+          "Write out the full period from your current lease expiry back to today. Mark every public holiday: Labour Day in late October, Christmas Day, Boxing Day, New Year's Day, and the second of January, which most NZ businesses treat as a fourth public holiday in practice. Then mark the school holiday block, which typically runs from mid-December to late January. During that window your staff availability shrinks, your clients are harder to reach for sign-offs, and any contractor who has kids will be working reduced hours or not at all.",
+          "Now overlay your tenant handover obligations. Most commercial leases in Hamilton require the space to be returned in its original condition, which means cleaning, minor repairs and a formal inspection before the landlord releases your bond. That inspection needs to be booked. If your move-out falls on the 20th of December and your cleaning crew cannot get there until the 6th of January, you are holding a space you are paying rent on while it sits empty.",
+          "The single most useful thing you can do right now is call your building manager at both the old and new premises and ask two questions: what dates is the freight lift available, and what are the loading dock hours over the holiday period. Those two answers will shape the rest of your plan more than anything else.",
+        ],
+      },
+      {
+        heading: "How the Hamilton CBD and the Growth Corridor Change the Equation",
+        paragraphs: [
+          "Hamilton CBD office buildings vary widely in how much access they give movers. Some have dedicated loading bays on Anglesea or Hood Street with reasonable freight lift capacity. Others have a service entrance that fits one truck at a time and a lift that takes fifteen minutes per trip. If you do not know which kind of building you are moving into, ask the building manager for the lift dimensions and load capacity before you book anything.",
+          "The Cambridge and Te Awamutu corridor is a different story. A lot of the commercial space out that way is single-storey, which makes the actual move faster. But the distances add time to the day, and if you are moving between two sites on the corridor, say from a Cambridge office to a new fit-out in Te Awamutu, you need to account for that travel in your crew booking. What looks like a compact job on paper can run long if the route is not factored in properly.",
+          "Businesses in Morrinsville, Matamata and the smaller Waikato towns face a version of the same issue. Local contractors may not be available at all over the summer period, which makes using a moving company with a proper Hamilton base more practical than calling someone down from Auckland for the day.",
+        ],
+      },
+      {
+        heading: "Sequencing the Move When You Cannot Control All the Dates",
+        paragraphs: [
+          "Most office moves that go wrong do so because people try to do everything in one day. The freight lift is booked for eight hours, the IT contractor is coming at nine, the cleaning crew is booked for four, and the first thing that slips creates a chain reaction. A two-stage or even three-stage approach is more resilient, especially in this window.",
+          "Stage one is non-essential furniture and archive boxes. These can often move before your lease formally ends, if your new landlord allows early access. Desks, chairs, filing systems and storage that are not needed for day-to-day work can go across in an earlier booking, freeing up your move day for the things that actually need to be live: workstations, screens, phones and anything IT is responsible for.",
+          "Stage two is the IT cutover. This is the part that dictates everything else. Your IT contractor or internal team needs to disconnect at the old site, and the network at the new site needs to be tested before staff arrive. In practice, that usually means the IT work happens the day before or over a weekend, with the moving crew doing a final sweep the following morning. Build that gap into your plan deliberately rather than hoping it works out.",
+          "Stage three is the move-out clean and inspection at the old premises. Book this before you confirm your move date, not after. A good commercial cleaning company in Hamilton during November and December will have limited availability. If you cannot get a date that fits your lease end, you may need to negotiate a short extension with your landlord, which is far easier to do before you have handed back the keys than after.",
+        ],
+      },
+      {
+        heading: "What to Ask Your Moving Company Before You Commit",
+        paragraphs: [
+          "Not every moving company that quotes on office work in Hamilton has experience with commercial buildings, freight lifts and the coordination that a business relocation requires. Ask specifically whether they have done work in the building you are moving into or out of. Ask whether they carry SiteWise Gold certification, which is what gets a crew onto managed commercial and construction sites without holding up your access approval.",
+          "Ask about crew size and what that means for your particular job. A two-person crew is fine for a small office with direct ground-floor access. A larger floor with a slow freight lift may need more hands to stay on schedule. Ask what happens if the lift goes down mid-move or the loading dock is blocked. A company that has done enough commercial work will have a straight answer.",
+          "Ask about weekend and after-hours availability. A Saturday move avoids conflict with other tenants in the building and keeps your staff out of it entirely. Many building managers in Hamilton CBD are more flexible on lift access on weekends than they are mid-week. It is worth asking.",
+        ],
+      },
+      {
+        heading: "The Decisions You Have to Make This Week",
+        paragraphs: [
+          "If your move is within the next eight weeks, the window for a comfortable booking is closing. Here is what needs to happen in roughly this order.",
+          "First, confirm your freight lift availability at both ends. Second, book your IT contractor and get their cutover date in writing. Third, book your move-out clean. Fourth, call your moving company and get a date that works around those three fixed points. If you leave the moving company until last, you are fitting the move into whatever gap remains, which may not be a good one.",
+          "If your lease end is fixed and none of the dates are lining up cleanly, talk to your moving company about a staged approach. A good commercial mover will help you map out what can go early and what has to wait for the cutover. That conversation is more useful than a generic quote.",
+        ],
+      },
+      {
+        heading: "Getting a Quote That Reflects the Actual Job",
+        paragraphs: [
+          "A quote based on a floor plan and a rough description of your furniture is not worth much. The things that change the price on a commercial move are building access, lift availability, distance between sites, crew size needed and whether staging is required. A moving company that quotes without asking about those things is guessing.",
+          "Specialist Movers operates out of Hamilton and covers the full Waikato, including Cambridge, Te Awamutu, Morrinsville, Matamata, Huntly, Ngaruawahia and Raglan. Quotes come back in around fifteen minutes during business hours. If your move is coming up in the November-to-January window, the most useful thing you can do today is describe the job properly and get a real number. You can do that through the quote form on our website.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getBlogArticle(slug: string) {
