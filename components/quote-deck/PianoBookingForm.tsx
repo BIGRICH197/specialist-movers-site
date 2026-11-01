@@ -41,20 +41,34 @@ export function PianoBookingForm() {
   const [agree, setAgree] = useState(false);
   const [signature, setSignature] = useState("");
   const [termsScrolled, setTermsScrolled] = useState(false);
+  // How far down the terms box the customer has scrolled, 0-100. Shown as a
+  // bar so they can see the box scrolls and how much is left — Barry
+  // McDiarmid (2026-11-01) couldn't tell the box scrolled on its own, saw the
+  // sign section stay grey and emailed his booking in instead.
+  const [termsProgress, setTermsProgress] = useState(0);
   const termsRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [missing, setMissing] = useState<string[]>([]);
+  const [blockedReason, setBlockedReason] = useState("");
 
   useEffect(() => {
     const el = termsRef.current;
     if (!el) return;
-    setTermsScrolled(el.scrollHeight <= el.clientHeight + 4);
+    const fits = el.scrollHeight <= el.clientHeight + 4;
+    setTermsScrolled(fits);
+    if (fits) setTermsProgress(100);
   }, []);
 
   function handleTermsScroll() {
     const el = termsRef.current;
     if (!el) return;
-    if (el.scrollTop + el.clientHeight >= el.scrollHeight - 16) setTermsScrolled(true);
+    const max = el.scrollHeight - el.clientHeight;
+    if (max > 0) setTermsProgress((p) => Math.max(p, Math.min(100, Math.round((el.scrollTop / max) * 100))));
+    if (el.scrollTop + el.clientHeight >= el.scrollHeight - 16) {
+      setTermsScrolled(true);
+      setTermsProgress(100);
+      setBlockedReason("");
+    }
   }
 
   const set = (k: string, v: string) => setF((p) => ({ ...p, [k]: v }));
@@ -84,11 +98,20 @@ export function PianoBookingForm() {
     e.preventDefault();
     if (status === "sending") return;
     const gaps = getMissing();
-    if (gaps.length || !canSign) {
+    // An unsigned form used to do nothing at all on this button: no message,
+    // no scroll. Say which step is left and take them to the terms box.
+    const blocks: string[] = [];
+    if (!termsScrolled) blocks.push("scroll the terms box to the end");
+    if (!agree) blocks.push("tick to agree to the terms");
+    if (signature.trim().length < 2) blocks.push("type your full name to sign");
+    if (gaps.length || blocks.length) {
       setMissing(gaps);
+      setBlockedReason(blocks.join(", then "));
+      if (!termsScrolled) termsRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
     setMissing([]);
+    setBlockedReason("");
     setStatus("sending");
     const fields = {
       ...f,
@@ -223,14 +246,14 @@ export function PianoBookingForm() {
 
         <div className="mt-7">
           <span className={labelCls}>Terms and conditions</span>
-          <p className="mt-1 text-xs text-brand-purple/60">
-            Please read these in full. Scroll to the end to sign and accept.
-          </p>
-          <div
-            ref={termsRef}
-            onScroll={handleTermsScroll}
-            className="mt-2 h-56 overflow-y-auto rounded-lg border border-brand-purple/20 bg-brand-canvas/40 p-4 text-sm leading-relaxed text-brand-purple/85"
-          >
+          <div className="relative mt-2">
+            <div
+              ref={termsRef}
+              onScroll={handleTermsScroll}
+              className={`scrollbar-brand h-72 overflow-y-scroll rounded-lg border-2 bg-brand-canvas/40 p-4 pb-12 text-sm leading-relaxed text-brand-purple/85 ${
+                termsScrolled ? "border-green-600/50" : "border-brand-purple/50"
+              }`}
+            >
             {bookingTerms.map((s) => (
               <div key={s.heading} className="mb-4 last:mb-0">
                 <h3 className="font-semibold text-brand-purple">{s.heading}</h3>
@@ -245,13 +268,29 @@ export function PianoBookingForm() {
                 {s.tail ? s.tail.map((p) => <p key={p.slice(0, 30)} className="mt-1.5">{p}</p>) : null}
               </div>
             ))}
+            </div>
+            {!termsScrolled ? (
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 flex h-16 items-end justify-center rounded-b-lg bg-gradient-to-t from-white via-white/90 to-transparent pb-2">
+                <span className="animate-bounce rounded-full bg-brand-purple px-3 py-1 text-xs font-bold text-white shadow">
+                  Keep scrolling &darr;
+                </span>
+              </div>
+            ) : null}
           </div>
 
-          {!termsScrolled ? (
-            <p className="mt-2 text-xs font-semibold text-brand-purple/60">
-              Scroll to the bottom of the terms to sign and continue.
+          <div className="mt-2">
+            <div className="h-2 w-full overflow-hidden rounded-full bg-brand-purple/10">
+              <div
+                className={`h-full rounded-full transition-all ${termsScrolled ? "bg-green-600" : "bg-brand-purple"}`}
+                style={{ width: `${termsProgress}%` }}
+              />
+            </div>
+            <p className={`mt-1.5 text-sm font-semibold ${termsScrolled ? "text-green-700" : "text-brand-purple"}`}>
+              {termsScrolled
+                ? "Terms read. You can sign below."
+                : `${termsProgress}% read. Keep scrolling the box to the end to sign.`}
             </p>
-          ) : null}
+          </div>
 
           <div className={termsScrolled ? "mt-4" : "mt-4 pointer-events-none opacity-40"}>
             <label className={labelCls}>Sign — type your full name</label>
@@ -285,10 +324,19 @@ export function PianoBookingForm() {
           </p>
         )}
 
+        {blockedReason ? (
+          <p className="mt-4 text-sm font-medium text-red-600">
+            Before confirming, please {blockedReason}.
+          </p>
+        ) : null}
+
         <button
           type="submit"
+          aria-disabled={!canSign}
           disabled={status === "sending"}
-          className="mt-6 w-full rounded-full bg-brand-purple px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:bg-brand-purple/90 disabled:cursor-not-allowed disabled:opacity-50"
+          className={`mt-6 w-full rounded-full px-6 py-3.5 text-base font-bold text-white shadow-lg transition disabled:cursor-not-allowed disabled:opacity-50 ${
+            canSign ? "bg-brand-purple hover:bg-brand-purple/90" : "bg-brand-purple/50"
+          }`}
         >
           {status === "sending" ? "Submitting…" : "Sign & confirm booking"}
         </button>
