@@ -18,7 +18,7 @@ export default async function BookPage({
   searchParams,
 }: {
   params: { ref: string };
-  searchParams?: { clean?: string; pack?: string; ins?: string; extras?: string };
+  searchParams?: { clean?: string; pack?: string; ins?: string; extras?: string; mp?: string };
 }) {
   const stored = await getQuote(tokenFromRef(params.ref));
 
@@ -118,6 +118,7 @@ export default async function BookPage({
         : searchParams?.ins === "0"
           ? "No (owner's risk)"
           : "",
+    mattressProtectors: /^\d+$/.test(searchParams?.mp ?? "") ? searchParams!.mp : undefined,
   };
 
   return <BookingForm quoteRef={params.ref} prefill={prefill} quoteType={stored.quoteType} />;

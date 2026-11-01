@@ -66,6 +66,10 @@ export type BookingPrefill = {
    *  accept. It rides along in the submitted fields so the team notification
    *  can say what they chose. Empty on a direct book-in, which never asks. */
   insurance?: string;
+  /** How many mattress protectors the crew bring, from the house quote page:
+   *  "0" when the customer has their own. Becomes the job card's "Bring N";
+   *  empty leaves ShiftMate's one-per-bedroom default (Richard, 2026-11-02). */
+  mattressProtectors?: string;
 };
 
 const SIZE_OPTIONS = ["Single Item", "1 Bedroom", "2 Bedroom", "3 Bedroom", "4 Bedroom+", "Office Move"];
@@ -156,6 +160,7 @@ export function BookingForm({
     cleaningBedrooms: "",
     cleaningBathrooms: "",
     insurance: prefill.insurance ?? "",
+    mattressProtectors: prefill.mattressProtectors ?? "",
     cleaningExtras: "",
     packing: prefill.packing ?? "",
     unpacking: "",

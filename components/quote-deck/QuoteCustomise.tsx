@@ -95,6 +95,8 @@ export function QuoteCustomise({
   // cleaning is ticked, so the options are never a click away.
   const [extras, setExtras] = useState<Record<string, number>>({});
   const [ownerRisk, setOwnerRisk] = useState(false);
+  const [mattress, setMattress] = useState<"own" | "bring" | null>(null);
+  const [mattressCount, setMattressCount] = useState(1);
   const [accepting, setAccepting] = useState(false);
   const [callState, setCallState] = useState<"idle" | "sending" | "done">("idle");
 
@@ -199,7 +201,13 @@ export function QuoteCustomise({
   // One source of truth: the total is the rows the customer can actually see.
   const liveTotal = quoteTotalInclGst(displayQuote);
 
-  const canAccept = insuranceOn || ownerRisk;
+  // Every mattress travels in a protector ($20 + GST each, pricing.md), so a
+  // house move can't be accepted until the customer says whose they are. A
+  // quote that already prices them has nothing to ask.
+  const askMattress =
+    category.key === "house" && !quote.lineItems.some((i) => /mattress/i.test(i.description));
+  const mattressOk = !askMattress || mattress != null;
+  const canAccept = (insuranceOn || ownerRisk) && mattressOk;
 
   async function accept() {
     if (accepting || !canAccept) return;
@@ -216,6 +224,9 @@ export function QuoteCustomise({
             insurance: insuranceOn,
             cleaningPriced: cleaningHasPrice,
           },
+          ...(askMattress
+            ? { mattressProtectors: mattress, mattressProtectorCount: mattress === "bring" ? mattressCount : 0 }
+            : {}),
           cleaningExtras: chosenExtras.map(({ extra, qty }) =>
             qty > 1 ? `${extra.label} x${qty}` : extra.label,
           ),
@@ -228,6 +239,7 @@ export function QuoteCustomise({
       clean: has("cleaning") && cleaningOn ? "1" : "0",
       pack: has("packing") && packingOn ? "1" : "0",
       ins: insuranceOn ? "1" : "0",
+      ...(askMattress && mattress ? { mp: mattress === "bring" ? String(mattressCount) : "0" } : {}),
       ...(chosenExtras.length
         ? {
             extras: chosenExtras
@@ -255,6 +267,7 @@ export function QuoteCustomise({
   }
 
   const rowCls = "flex cursor-pointer items-start gap-2.5 text-xs leading-relaxed sm:text-sm";
+  const showFuelNote = !quote.lineItems.some((i) => /fuel/i.test(i.description));
 
   return (
     <>
@@ -446,6 +459,53 @@ export function QuoteCustomise({
           </label>
         ) : null}
 
+        {askMattress ? (
+          <div className="mt-3 rounded-xl border border-brand-yellow/40 bg-brand-yellow/10 px-4 py-3 text-sm first:mt-0">
+            <p>
+              All mattresses need to be in a mattress protector. Please confirm if you have some
+              already or you would like us to bring them.
+            </p>
+            <div className="mt-2 space-y-1.5">
+              <label className="flex cursor-pointer items-start gap-3">
+                <input
+                  type="checkbox"
+                  className="mt-1"
+                  checked={mattress === "own"}
+                  onChange={(e) => setMattress(e.target.checked ? "own" : null)}
+                />
+                <span>I have my own mattress protectors</span>
+              </label>
+              <label className="flex cursor-pointer items-start gap-3">
+                <input
+                  type="checkbox"
+                  className="mt-1"
+                  checked={mattress === "bring"}
+                  onChange={(e) => setMattress(e.target.checked ? "bring" : null)}
+                />
+                <span>Please bring them, $20 + GST per mattress</span>
+              </label>
+              {mattress === "bring" ? (
+                <label className="ml-7 flex items-center gap-2">
+                  <span>How many?</span>
+                  <select
+                    value={mattressCount}
+                    onChange={(e) => setMattressCount(Number(e.target.value))}
+                    className="h-7 rounded border border-brand-purple/25 bg-white px-1.5"
+                    aria-label="How many mattress protectors"
+                  >
+                    {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+                      <option key={n} value={n}>
+                        {n}
+                      </option>
+                    ))}
+                  </select>
+                  <span className="text-brand-purple/60">= ${mattressCount * 20} + GST</span>
+                </label>
+              ) : null}
+            </div>
+          </div>
+        ) : null}
+
         <div className="mt-3 flex items-center justify-between border-t border-brand-purple/10 pt-3 first:mt-0 first:border-0 first:pt-0">
           <span className="text-sm text-brand-purple/70">Your total</span>
           <span className="font-heading text-xl">{formatNzd(liveTotal)} incl GST</span>
@@ -463,7 +523,11 @@ export function QuoteCustomise({
           {!canAccept ? (
             <p className="text-center text-xs font-medium text-brand-purple/60">
               {category.key === "house" ? (
-                <>Tick insurance, or confirm owner&apos;s risk above, to continue.</>
+                !(insuranceOn || ownerRisk) ? (
+                  <>Tick insurance, or confirm owner&apos;s risk above, to continue.</>
+                ) : (
+                  <>Confirm your mattress protectors above to continue.</>
+                )
               ) : has("insurance") ? (
                 `Tick "${category.insuranceLabel}", or confirm the box above, to continue.`
               ) : (
@@ -488,7 +552,7 @@ export function QuoteCustomise({
 
         {/* Joey's links carry no fuel line; the quote builder's do, and there
             the note would contradict the table (Richard, 2026-10-28). */}
-        {!quote.lineItems.some((i) => /fuel/i.test(i.description)) ? (
+        {showFuelNote ? (
           <p className="mt-4 border-t border-brand-purple/10 pt-3 text-xs leading-relaxed text-brand-purple/70">
             Please note: we currently have a fuel surcharge due to the global fuel crisis, which is
             not included in this quote. It fluctuates, but you can confirm the current amount in the

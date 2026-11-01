@@ -19,7 +19,7 @@ export default function BookingPreview({
   searchParams,
 }: {
   params: { category: string };
-  searchParams?: { clean?: string; pack?: string; ins?: string };
+  searchParams?: { clean?: string; pack?: string; ins?: string; mp?: string };
 }) {
   if (process.env.VERCEL_ENV === "production") notFound();
   if (!(params.category in QUOTE_CATEGORIES)) notFound();
@@ -51,6 +51,7 @@ export default function BookingPreview({
             : undefined,
         bedrooms: prefill.bedrooms,
         bathrooms: prefill.bathrooms,
+        mattressProtectors: /^\d+$/.test(searchParams?.mp ?? "") ? searchParams!.mp : undefined,
       }}
     />
   );
