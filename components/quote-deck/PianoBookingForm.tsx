@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { bookingTerms, BOOKING_TERMS_VERSION } from "@/lib/quote-deck/booking-terms";
 import { isDialable, PHONE_ERROR } from "@/lib/phone";
+import { isEmailish, EMAIL_ERROR } from "@/lib/email";
 import { BOOKED_BY_OPTIONS } from "@/lib/booked-by";
 import { PIANO_COVER_NO, PIANO_COVER_YES, isPianoItem, pianoCoverAmount, pianoCoverPrice } from "@/lib/company-facts";
 
@@ -18,6 +19,21 @@ const TYPE_OPTIONS = [
   "Art Work",
   "Other",
 ];
+
+// Field key -> the question as the customer sees it, so a gap the server finds
+// can be named the same way as one the form finds.
+const FIELD_LABELS: Record<string, string> = {
+  fullName: "Full name",
+  phone: "Phone",
+  email: "Email",
+  bookedBy: "Who have you been dealing with?",
+  moveDate: "Move date",
+  pianoType: "Type of piano or item",
+  pickupAddress: "Pick-up address",
+  dropoffAddress: "Drop-off address",
+  stairs: "Are there stairs?",
+  pianoCover: "Piano cover: owner's risk or add cover",
+};
 
 const labelCls = "block text-sm font-semibold text-brand-purple";
 const inputCls =
@@ -49,6 +65,7 @@ export function PianoBookingForm() {
   const termsRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [missing, setMissing] = useState<string[]>([]);
+  const [errorMsg, setErrorMsg] = useState("");
   const [blockedReason, setBlockedReason] = useState("");
 
   useEffect(() => {
@@ -75,22 +92,15 @@ export function PianoBookingForm() {
   const canSign = termsScrolled && agree && signature.trim().length > 1;
 
   function getMissing(): string[] {
-    const required: Array<[string, string]> = [
-      ["fullName", "Full name"],
-      ["phone", "Phone"],
-      ["email", "Email"],
-      ["bookedBy", "Who have you been dealing with?"],
-      ["moveDate", "Move date"],
-      ["pianoType", "Type of piano or item"],
-      ["pickupAddress", "Pick-up address"],
-      ["dropoffAddress", "Drop-off address"],
-      ["stairs", "Are there stairs?"],
-      ...(isPianoItem(f.pianoType) ? [["pianoCover", "Piano cover: owner's risk or add cover"] as [string, string]] : []),
-    ];
-    const out = required.filter(([k]) => !f[k]?.trim()).map(([, label]) => label);
+    const required = Object.keys(FIELD_LABELS).filter(
+      (k) => k !== "pianoCover" || isPianoItem(f.pianoType),
+    );
+    const out = required.filter((k) => !f[k]?.trim()).map((k) => FIELD_LABELS[k]);
     // A filled-in Phone box is not the same as a phone number — see
     // lib/phone.ts for the surname-in-the-phone-field failures this catches.
     if (f.phone?.trim() && !isDialable(f.phone)) out.push(PHONE_ERROR);
+    // The server rejects a malformed email; say so here instead.
+    if (f.email?.trim() && !isEmailish(f.email)) out.push(EMAIL_ERROR);
     return out;
   }
 
@@ -112,6 +122,7 @@ export function PianoBookingForm() {
     }
     setMissing([]);
     setBlockedReason("");
+    setErrorMsg("");
     setStatus("sending");
     const fields = {
       ...f,
@@ -129,9 +140,30 @@ export function PianoBookingForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ serviceType: "piano", fields }),
       });
-      const data = (await res.json()) as { ok?: boolean };
-      setStatus(data.ok ? "done" : "error");
+      // A timeout or gateway error comes back as an HTML page, not JSON.
+      const data = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        error?: string;
+        missing?: string[];
+      };
+      if (data.ok) {
+        setStatus("done");
+        return;
+      }
+      if (data.missing?.length) {
+        setMissing(data.missing.map((k) => FIELD_LABELS[k] || k));
+        setStatus("idle");
+        return;
+      }
+      setErrorMsg(
+        data.error ||
+          `We couldn't confirm your booking went through (error ${res.status}). Please call us on (021) 228 2728 before trying again, so it isn't booked twice.`,
+      );
+      setStatus("error");
     } catch {
+      setErrorMsg(
+        "We couldn't reach our booking system. Please check your connection and try again, or call us on (021) 228 2728.",
+      );
       setStatus("error");
     }
   }
@@ -319,8 +351,8 @@ export function PianoBookingForm() {
         )}
 
         {status === "error" && (
-          <p className="mt-4 text-sm font-medium text-red-600">
-            Something went wrong submitting your booking. Please try again or call us on (021) 228 2728.
+          <p className="mt-4 rounded-lg border border-red-300 bg-red-50 p-3 text-sm font-medium text-red-700">
+            {errorMsg}
           </p>
         )}
 

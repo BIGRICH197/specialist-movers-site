@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { waitUntil } from "@vercel/functions";
 import { quoteCategory, requiredBookingKeys } from "@/lib/quote-deck/quote-categories";
 import { isPianoItem } from "@/lib/company-facts";
 import { pingBookings } from "@/lib/quote-notify";
@@ -18,6 +19,9 @@ import { saveDirectBooking, attachDealToDirectBooking } from "@/lib/direct-booki
 import { markLatestQuoteBookedByEmail } from "@/lib/quote-store";
 
 export const runtime = "nodejs";
+// Room for the background follow-up below (Slack, HubSpot, then n8n, which
+// answers only once its whole workflow has run: ~10-16s on its own).
+export const maxDuration = 60;
 
 // Direct "book a job in" endpoint — for clients who did NOT get a hosted quote
 // link (replaces the old JotForms). Unlike /api/bookings it does not need a
@@ -131,8 +135,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: EMAIL_ERROR }, { status: 400 });
   }
 
-  const isPiano = serviceType === "piano";
-
   // SAVE FIRST. Slack, HubSpot and Trello below are all best-effort — each is
   // wrapped so a failure can't break the booking — which means none of them can
   // be the record. Persist to Supabase before any of them, and if that fails,
@@ -153,6 +155,26 @@ export async function POST(request: Request) {
       { status: 503 },
     );
   }
+
+  // The booking is saved, so it is booked: answer the customer now. Everything
+  // below is best-effort and slow. Awaiting it held the response ~16s (n8n
+  // alone is 10-16s), long enough for the request to time out on a phone and
+  // show "Something went wrong" for a booking that had gone through: Shahar
+  // Robinzon, 2026-11-03, re-entered by the office 12 minutes later.
+  waitUntil(
+    followUp(serviceType, fields, token).catch((err) =>
+      console.error("book-in follow-up failed:", err),
+    ),
+  );
+  return NextResponse.json({ ok: true });
+}
+
+async function followUp(
+  serviceType: string,
+  fields: Record<string, string>,
+  token: string,
+): Promise<void> {
+  const isPiano = serviceType === "piano";
 
   // Tell the team a job has been booked in.
   const summary = [
@@ -283,6 +305,4 @@ export async function POST(request: Request) {
       console.error("piano card create failed:", err);
     }
   }
-
-  return NextResponse.json({ ok: true });
 }
