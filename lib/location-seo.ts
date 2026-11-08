@@ -30,6 +30,114 @@ const pianoProtection =
 
 /** SEO patches keyed by /locations/[slug] */
 export const locationSeoPatches: Record<string, LocationSeoPatch> = {
+  drury: {
+    metaDescription:
+      "Moving in Drury? Specialist Movers covers this part of south Auckland regularly. Licensed and insured crew, upfront pricing, quotes in about 15 minutes.",
+    intro:
+      "Drury sits right on the edge of one of Auckland's fastest-growing corridors, and the moves here reflect that tension between what the area was and what it is becoming. Established rural properties sit alongside brand-new subdivisions, and no two jobs here are quite the same.",
+    paragraphs: [
+      "Drury has a lot of large-format residential sections, the kind with long concrete driveways, side gates, and garages that double as storage. Getting a truck close enough to the house is often the first problem to solve, and we sort that out before move day, not on it.",
+      "The newer subdivisions around Drury South and the surrounding growth areas are still being built out, which means some streets are sealed only in part and site access can change between when you book and when we arrive. We check in ahead of time and adjust the plan if the ground has shifted.",
+      "A lot of people moving to Drury are coming from further up the motorway corridor, downsizing from bigger suburbs or buying their first proper section. That often means moving a full household worth of furniture out of a smaller place into a home with more rooms, more outbuildings, and more stairs to think about.",
+      "From our Wairau Valley depot, Drury is about 38 minutes south, which puts it in our outer service area. The callout reflects that distance, and you see the full price before you book, so there are no surprises on the day.",
+    ],
+    highlights: [
+      "Regular work across Drury and the surrounding growth corridor",
+      "Pre-move access check for long driveways and gated properties",
+      "Crews of 2 to 4, sized to what the job needs",
+      "7-day availability, quotes back in about 15 minutes",
+    ],
+    faqs: [
+      {
+        q: "Our section has a long gravel driveway and a farm gate. Can the truck get in?",
+        a: "Often yes, but we confirm clearance, width, and turning room before move day. If the truck cannot get close enough, we plan the carry distance in advance rather than working it out on the morning.",
+      },
+      {
+        q: "We are moving into a new Drury South subdivision where some roads are still being completed. Is that a problem?",
+        a: "Not usually. We check access ahead of time, and if the street conditions have changed since you booked, we adjust the approach. It is worth flagging at the quote stage so we can plan accordingly.",
+      },
+      {
+        q: "How does pricing work for a Drury move given the distance from your depot?",
+        a: "Hourly rates are the same across Auckland. The fixed callout varies with distance from our Wairau Valley depot, and Drury sits in our outer service area, so that is reflected in the callout. You see the full price upfront before you confirm.",
+      },
+      {
+        q: "Do you do packing as well as the move itself?",
+        a: "Yes. We can send a crew the day before to pack everything up, so the furniture and boxes are ready to load on move day. Just mention it when you get your quote.",
+      },
+    ],
+  },
+  paeroa: {
+    metaDescription:
+      "Moving to or from Paeroa? Specialist Movers runs from our Hamilton base to cover the Hauraki township and surrounding area. Get a quote in minutes.",
+    intro:
+      "Paeroa sits at the foot of the Coromandel Ranges where the Ohinemuri River meets the Waihou, and the town has a character all of its own. Older villas on flat township sections, rural properties on the outskirts, and a steady flow of families moving between the Hauraki Plains and the Waikato.",
+    paragraphs: [
+      "The older housing stock in Paeroa means the moves here often involve large, heavy furniture built to last. High stud ceilings and narrow doorways in pre-war villas can make extraction tricky, and our crew sizes of two to four movers are matched to the job before they leave the Hamilton base.",
+      "The drive from our Hamilton base is about 62 minutes, so Paeroa falls into our outer service area. That distance is reflected in the callout, and you see the full price before you confirm anything. No surprises on move day.",
+      "Properties on the rural edges of Paeroa, toward Mackaytown or out along the Waihou flats, often come with long access lanes and gates. We confirm turning room, overhead clearance, and surface conditions ahead of time so the crew arrives with a clear plan rather than having to work it out on the spot.",
+      "Paeroa is also a town people move through on their way to and from the Coromandel, Thames, or deeper into the Waikato. If you are relocating rather than making a short hop, our packing service the day before can take a lot of the pressure off, and we operate seven days a week to fit around settlement dates.",
+    ],
+    highlights: [
+      "Crew sizes matched to older township villas",
+      "Rural access and long driveways confirmed before move day",
+      "7-day operation to suit Hauraki settlement dates",
+      "Full price shown upfront before you book",
+    ],
+    faqs: [
+      {
+        q: "How far do you travel to Paeroa from your nearest base?",
+        a: "Our Hamilton base is about 62 minutes from Paeroa. Because of that distance, Paeroa sits in our outer service area and the callout reflects the drive. You see the exact figure in your quote before you agree to anything.",
+      },
+      {
+        q: "My villa has very narrow hallways and high ceilings. Can you still get our furniture out?",
+        a: "Yes. Older Paeroa villas are built to a pattern we know well: high studs, tight internal doorways, and sometimes a step or two at the front entrance. We assess the access points when we quote, and we bring the right crew size to handle it properly.",
+      },
+      {
+        q: "We are moving from a lifestyle block outside Paeroa with a gravel lane. Will the truck manage it?",
+        a: "We ask about driveway surfaces, width, and gate clearances when we take the booking. If the main truck cannot get close enough, we plan the carry in advance rather than improvising on the day.",
+      },
+      {
+        q: "Are your crews insured when they work in Paeroa?",
+        a: "Yes, our crews are licensed and insured. Cover for your own belongings can be arranged through our team when you book.",
+      },
+    ],
+  },
+  maraetai: {
+    metaDescription:
+      "Moving to or from Maraetai? Specialist Movers are Auckland movers who know the coastal roads, elevated sections and beach community well. Get a quote today.",
+    intro:
+      "Maraetai is a coastal settlement at the end of the road, and the moves here have a character all their own. Beach houses on steep sections, panoramic views from the ridge, and a quiet community that attracts people making a deliberate lifestyle choice.",
+    paragraphs: [
+      "Getting a truck to Maraetai takes planning. The drive from our Wairau Valley depot is about 50 minutes, mostly on the motorway before the route narrows through Beachlands and down toward the waterfront. That last stretch rewards patience, not speed, so we factor it into the schedule from the start.",
+      "The housing stock here tends to run toward older baches that have been extended over the years, alongside newer builds designed to make the most of sea views. Both come with their own challenges: low rooflines and tight internal stairs in the older places, large glazed panels and heavy outdoor furniture in the newer ones.",
+      "Elevated sections are common in Maraetai, and some properties sit on ground that drops away steeply from the road. Where a truck cannot get close, the carry distance matters. We walk the access before move day on jobs where it is worth checking, and we size the crew accordingly.",
+      "We work in Maraetai regularly, so the coastal access roads and the quirks of the area are familiar ground. Pricing here sits in our outer service zone, which means the callout reflects the distance from our depot. You see the full price before you confirm the booking, with no surprises on the day.",
+    ],
+    highlights: [
+      "Familiar with Maraetai's coastal access roads and steep sections",
+      "Crew sized for the carry distance when trucks park at the road",
+      "Trucks with taillifts suited to larger beach house furniture",
+      "Full price shown upfront, outer-zone callout included",
+    ],
+    faqs: [
+      {
+        q: "Our place is up a steep driveway off the main road. Can you still get the truck close?",
+        a: "Often yes, but we confirm turning room, width and surface before move day on trickier properties. If the truck needs to stay at the road, we plan the carry distance into the job rather than work it out on the spot.",
+      },
+      {
+        q: "We have a large deck with outdoor furniture and a spa pool. Can you move those too?",
+        a: "Outdoor furniture and heavy items are part of the job on a lot of Maraetai properties. Let us know what you have when you book so we can send the right crew size and talk through how the access works.",
+      },
+      {
+        q: "How does pricing work for somewhere as far out as Maraetai?",
+        a: "Maraetai sits in our outer service zone. The hourly rate is the same as anywhere else in Auckland, and the callout reflects the distance from our Wairau Valley depot. The full price is in front of you before you confirm, so you know exactly what you are paying.",
+      },
+      {
+        q: "Do you bring packing materials, or do we need to sort that ourselves?",
+        a: "We can take care of packing the day before your move if that suits you. It is worth asking about when you get your quote, especially for a coastal home where there is often more to wrap than people expect.",
+      },
+    ],
+  },
   henderson: {
     metaDescription:
       "Henderson movers with dozens of local jobs done. Specialist Movers covers West Auckland from our Wairau Valley depot, about 25 minutes away.",
