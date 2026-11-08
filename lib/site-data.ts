@@ -595,4 +595,20 @@ export const blogPosts = [
     excerpt:
       "A practical sequencing guide for Hamilton and Waikato ops managers planning an office move between November and January, when every contractor is already spoken for.",
   },
+  {
+    slug: "downsizing-auckland-office-mid-lease",
+    title: "Less Space, Live Business: Relocating to a Smaller Auckland Office Without the Chaos",
+    seoTitle: "Auckland Office Downsizing Move | Specialist Movers",
+    publishedDate: "2026-11-08",
+    excerpt:
+      "Relocating to a smaller Auckland tenancy mid-lease? This plain guide covers what fits, what goes, and how to move without shutting your business down.",
+  },
+  {
+    slug: "signing-the-lease-is-the-easy-part-waikato-office-relocation-guide",
+    title: "Signing the Lease Is the Easy Part: A Waikato Business Owner's Guide to What Comes Next",
+    seoTitle: "Office Movers Hamilton: Planning Your Commercial Move | Specialist Movers",
+    publishedDate: "2026-11-08",
+    excerpt:
+      "Signed a new lease in Hamilton or the wider Waikato? Here's the full picture of what a commercial move actually involves, from first planning call to Monday morning.",
+  },
 ] as const;
