@@ -1,5 +1,12 @@
 import { insetCoast, mainCoast } from "./coastline";
+import towns from "./towns.json";
 
+/**
+ * Zone shading (public/hostess2026/zones-*.png) is rendered offline from
+ * towns.json: every bit of land takes the zone of its nearest town, which is
+ * the card's own "nearest listed town" rule. Change a town's zone or add one
+ * and the PNGs must be regenerated with it, or the shading and dots disagree.
+ */
 export const zoneColors: Record<number, string> = {
   1: "#9739b0",
   2: "#e09a12",
@@ -10,155 +17,164 @@ export const zoneColors: Record<number, string> = {
 
 type Coast = typeof mainCoast | typeof insetCoast;
 
-type Place = {
-  name: string;
-  zone: number;
-  lat: number;
-  lon: number;
-  /** Label placement; omit to draw the dot without a label. */
-  label?: { dx: number; dy: number; anchor: "start" | "middle" | "end"; text?: string };
-};
+type Town = { name: string; zone: number; lat: number; lon: number; card?: boolean };
+
+type Placed = { x: number; y: number; anchor: "start" | "middle" | "end"; text: string };
 
 const BASE = { lat: -37.745, lon: 175.235 };
-
-/** Close-up: Zones 1 and 2 around the workshop. */
-const waikato: Place[] = [
-  { name: "Hamilton", zone: 1, lat: -37.787, lon: 175.279, label: { dx: 10, dy: 16, anchor: "start" } },
-  { name: "Cambridge", zone: 1, lat: -37.885, lon: 175.47, label: { dx: 10, dy: 5, anchor: "start" } },
-  { name: "Taupiri", zone: 1, lat: -37.617, lon: 175.19, label: { dx: 10, dy: 4, anchor: "start" } },
-  { name: "Ngāruawāhia", zone: 1, lat: -37.667, lon: 175.15, label: { dx: -10, dy: 4, anchor: "end" } },
-  { name: "Gordonton", zone: 1, lat: -37.667, lon: 175.3, label: { dx: 10, dy: 4, anchor: "start" } },
-  { name: "Whatawhata", zone: 1, lat: -37.8, lon: 175.15, label: { dx: 0, dy: 24, anchor: "middle" } },
-  { name: "Tamahere", zone: 1, lat: -37.833, lon: 175.35, label: { dx: 10, dy: 5, anchor: "start" } },
-  { name: "Newstead", zone: 1, lat: -37.783, lon: 175.383, label: { dx: 10, dy: -4, anchor: "start" } },
-  { name: "Rukuhia", zone: 1, lat: -37.85, lon: 175.3, label: { dx: 0, dy: 24, anchor: "middle" } },
-  { name: "Raglan", zone: 2, lat: -37.8, lon: 174.873, label: { dx: 10, dy: 4, anchor: "start" } },
-  { name: "Huntly", zone: 2, lat: -37.558, lon: 175.16, label: { dx: 10, dy: 4, anchor: "start" } },
-  { name: "Te Kauwhata", zone: 2, lat: -37.4, lon: 175.15, label: { dx: 10, dy: 4, anchor: "start" } },
-  { name: "Rangiriri", zone: 2, lat: -37.433, lon: 175.133, label: { dx: -10, dy: 4, anchor: "end" } },
-  { name: "Morrinsville", zone: 2, lat: -37.657, lon: 175.528, label: { dx: 10, dy: 4, anchor: "start" } },
-  { name: "Matamata", zone: 2, lat: -37.81, lon: 175.773, label: { dx: -10, dy: 4, anchor: "end" } },
-  { name: "Te Awamutu", zone: 2, lat: -38.008, lon: 175.325, label: { dx: 10, dy: 4, anchor: "start" } },
-  { name: "Putāruru", zone: 2, lat: -38.05, lon: 175.783, label: { dx: -10, dy: 4, anchor: "end" } },
-];
-
-/** Whole card: Zones 1 and 2 drawn without labels (they're in the close-up). */
-const northIsland: Place[] = [
-  ...waikato.map((p) => ({ ...p, label: undefined })),
-  { name: "Auckland", zone: 3, lat: -36.848, lon: 174.763, label: { dx: 10, dy: 4, anchor: "start" } },
-  { name: "Thames", zone: 3, lat: -37.138, lon: 175.54, label: { dx: -10, dy: 4, anchor: "end" } },
-  { name: "Waihi", zone: 3, lat: -37.391, lon: 175.84 },
-  { name: "Waihi Beach", zone: 3, lat: -37.405, lon: 175.938, label: { dx: 10, dy: 4, anchor: "start", text: "Waihi & Waihi Beach" } },
-  { name: "Katikati", zone: 3, lat: -37.553, lon: 175.917, label: { dx: 10, dy: 6, anchor: "start" } },
-  { name: "Mt Maunganui", zone: 3, lat: -37.637, lon: 176.183 },
-  { name: "Tauranga", zone: 3, lat: -37.687, lon: 176.165, label: { dx: 10, dy: 8, anchor: "start", text: "Tauranga & Mt Maunganui" } },
-  { name: "Rotorua", zone: 3, lat: -38.137, lon: 176.25, label: { dx: 10, dy: 4, anchor: "start" } },
-  { name: "Tokoroa", zone: 3, lat: -38.217, lon: 175.867, label: { dx: -10, dy: 8, anchor: "end" } },
-  { name: "Coromandel", zone: 4, lat: -36.76, lon: 175.497, label: { dx: -10, dy: 6, anchor: "end" } },
-  { name: "Whitianga", zone: 4, lat: -36.833, lon: 175.7 },
-  { name: "Hahei", zone: 4, lat: -36.87, lon: 175.8, label: { dx: 10, dy: 2, anchor: "start", text: "Whitianga & Hahei" } },
-  { name: "Tairua", zone: 4, lat: -37.0, lon: 175.85 },
-  { name: "Pauanui", zone: 4, lat: -37.022, lon: 175.867, label: { dx: 10, dy: 6, anchor: "start", text: "Tairua & Pauanui" } },
-  { name: "Taupō", zone: 4, lat: -38.686, lon: 176.07, label: { dx: 10, dy: 4, anchor: "start" } },
-  { name: "Whakatāne", zone: 4, lat: -37.953, lon: 176.99, label: { dx: 10, dy: 4, anchor: "start" } },
-  { name: "Port Jackson", zone: 5, lat: -36.483, lon: 175.35, label: { dx: -10, dy: 4, anchor: "end", text: "Deep Coromandel" } },
-  { name: "Port Charles", zone: 5, lat: -36.517, lon: 175.467 },
-  { name: "Colville", zone: 5, lat: -36.633, lon: 175.467 },
-  { name: "Kennedy Bay", zone: 5, lat: -36.667, lon: 175.55 },
-  { name: "New Plymouth", zone: 5, lat: -39.057, lon: 174.075, label: { dx: 10, dy: 4, anchor: "start" } },
-  { name: "Whanganui", zone: 5, lat: -39.93, lon: 175.05, label: { dx: -10, dy: 4, anchor: "end" } },
-  { name: "Napier", zone: 5, lat: -39.493, lon: 176.912, label: { dx: 10, dy: 4, anchor: "start" } },
-  { name: "Feilding", zone: 5, lat: -40.226, lon: 175.565, label: { dx: 10, dy: 2, anchor: "start" } },
-  { name: "Palmerston North", zone: 5, lat: -40.356, lon: 175.611, label: { dx: 10, dy: 8, anchor: "start" } },
-];
 
 function project(coast: Coast, lat: number, lon: number) {
   return { x: (lon - coast.lon0) * coast.cos * coast.k, y: (coast.lat0 - lat) * coast.k };
 }
 
+type Box = { x0: number; y0: number; x1: number; y1: number };
+const overlaps = (a: Box, b: Box) => a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a.y1;
+
+/**
+ * Greedy label placement: card towns first, then the rest, each trying eight
+ * spots around its dot and skipping the label if every spot collides. The dot
+ * always draws, so a skipped label still shows its zone by colour.
+ */
+function placeLabels(
+  coast: Coast,
+  list: Town[],
+  font: number,
+  dot: number,
+  reserved: Box[],
+): Map<string, Placed> {
+  const charW = font * 0.56;
+  const taken: Box[] = [...reserved];
+  for (const t of list) {
+    const { x, y } = project(coast, t.lat, t.lon);
+    taken.push({ x0: x - dot, y0: y - dot, x1: x + dot, y1: y + dot });
+  }
+  const ordered = [...list].sort((a, b) => Number(Boolean(b.card)) - Number(Boolean(a.card)));
+  const out = new Map<string, Placed>();
+  const gap = dot + 3;
+  for (const t of ordered) {
+    const { x, y } = project(coast, t.lat, t.lon);
+    const w = t.name.length * charW;
+    const h = font;
+    const spots: Array<[number, number, Placed["anchor"]]> = [
+      [x + gap, y + h * 0.35, "start"],
+      [x - gap, y + h * 0.35, "end"],
+      [x, y - gap - 2, "middle"],
+      [x, y + gap + h * 0.8, "middle"],
+      [x + gap - 2, y - gap + 2, "start"],
+      [x + gap - 2, y + gap + h * 0.6, "start"],
+      [x - gap + 2, y - gap + 2, "end"],
+      [x - gap + 2, y + gap + h * 0.6, "end"],
+    ];
+    for (const [lx, ly, anchor] of spots) {
+      const x0 = anchor === "start" ? lx : anchor === "end" ? lx - w : lx - w / 2;
+      const box = { x0: x0 - 1, y0: ly - h * 0.85, x1: x0 + w + 1, y1: ly + h * 0.25 };
+      if (box.x0 < 2 || box.x1 > coast.width - 2 || box.y0 < 2 || box.y1 > coast.height - 2) continue;
+      if (taken.some((b) => overlaps(b, box))) continue;
+      taken.push(box);
+      out.set(t.name, { x: lx, y: ly, anchor, text: t.name });
+      break;
+    }
+  }
+  return out;
+}
+
+function inside(coast: Coast, t: Town) {
+  const { x, y } = project(coast, t.lat, t.lon);
+  return x > 4 && y > 4 && x < coast.width - 4 && y < coast.height - 4;
+}
+
 function MapSvg({
   coast,
-  places,
+  shading,
+  list,
   title,
   dot,
   font,
-  baseLabel = true,
+  numbers,
+  baseLabel,
   children,
 }: {
   coast: Coast;
-  places: Place[];
+  shading: string;
+  list: Town[];
   title: string;
   dot: number;
   font: number;
-  baseLabel?: boolean;
+  numbers: boolean;
+  baseLabel: boolean;
   children?: React.ReactNode;
 }) {
   const base = project(coast, BASE.lat, BASE.lon);
+  const baseText = { x: base.x - 12, y: base.y - 12, w: 16 * font * 0.6 };
+  const reserved: Box[] = [{ x0: base.x - 8, y0: base.y - 8, x1: base.x + 8, y1: base.y + 8 }];
+  if (baseLabel) {
+    reserved.push({ x0: baseText.x - baseText.w, y0: baseText.y - font, x1: baseText.x, y1: baseText.y + 3 });
+  }
+  const labels = placeLabels(coast, list, font, dot, reserved);
   return (
-    <svg
-      viewBox={`0 0 ${coast.width} ${coast.height}`}
-      role="img"
-      aria-label={title}
-      className="block h-auto w-full"
-    >
+    <svg viewBox={`0 0 ${coast.width} ${coast.height}`} role="img" aria-label={title} className="block h-auto w-full">
       <rect width={coast.width} height={coast.height} fill="#d6e8f3" />
-      <path d={coast.d} fill="#ffffff" stroke="#a993bd" strokeWidth={1.2} />
+      <path d={coast.d} fill="#ffffff" />
+      <image href={shading} x={0} y={0} width={coast.width} height={coast.height} preserveAspectRatio="none" />
+      <path d={coast.d} fill="none" stroke="#a993bd" strokeWidth={1.2} />
       {children}
-      {places.map((p) => {
-        const { x, y } = project(coast, p.lat, p.lon);
+      {list.map((t) => {
+        const { x, y } = project(coast, t.lat, t.lon);
+        const r = t.card ? dot : dot * 0.75;
         return (
-          <g key={p.name}>
-            <circle cx={x} cy={y} r={dot} fill={zoneColors[p.zone]} stroke="#fff" strokeWidth={1.5} />
-            <text
-              x={x}
-              y={y + dot * 0.38}
-              textAnchor="middle"
-              fontSize={dot * 1.1}
-              fontWeight={700}
-              fill="#fff"
-            >
-              {p.zone}
-            </text>
-            {p.label && (
-              <text
-                x={x + p.label.dx}
-                y={y + p.label.dy}
-                textAnchor={p.label.anchor}
-                fontSize={font}
-                fill="#4b2457"
-                stroke="#fbf9fd"
-                strokeWidth={3}
-                paintOrder="stroke"
-              >
-                {p.label.text ?? p.name}
+          <g key={t.name}>
+            <circle cx={x} cy={y} r={r} fill={zoneColors[t.zone]} stroke="#fff" strokeWidth={1.5} />
+            {numbers && (
+              <text x={x} y={y + r * 0.38} textAnchor="middle" fontSize={r * 1.1} fontWeight={700} fill="#fff">
+                {t.zone}
               </text>
             )}
           </g>
         );
       })}
-      <g>
-        <rect x={base.x - 7} y={base.y - 7} width={14} height={14} rx={2} fill="#2b1233" stroke="#fff" strokeWidth={1.5} />
-        {baseLabel && (
+      {list.map((t) => {
+        const l = labels.get(t.name);
+        if (!l) return null;
+        return (
+          <text
+            key={`l-${t.name}`}
+            x={l.x}
+            y={l.y}
+            textAnchor={l.anchor}
+            fontSize={font}
+            fontWeight={t.card ? 600 : 400}
+            fill="#3b1a46"
+            stroke="#ffffff"
+            strokeWidth={3}
+            strokeOpacity={0.85}
+            paintOrder="stroke"
+          >
+            {l.text}
+          </text>
+        );
+      })}
+      <rect x={base.x - 7} y={base.y - 7} width={14} height={14} rx={2} fill="#2b1233" stroke="#fff" strokeWidth={1.5} />
+      {baseLabel && (
         <text
-          x={base.x - 12}
-          y={base.y - 12}
+          x={baseText.x}
+          y={baseText.y}
           textAnchor="end"
           fontSize={font}
           fontWeight={700}
           fill="#2b1233"
-          stroke="#fbf9fd"
+          stroke="#ffffff"
           strokeWidth={3}
           paintOrder="stroke"
         >
           Hostess workshop
         </text>
-        )}
-      </g>
+      )}
     </svg>
   );
 }
 
 export function ZoneMap() {
+  const all = towns as Town[];
   const waikatoBox = (() => {
     const a = project(mainCoast, insetCoast.lat0, insetCoast.lon0);
     const b = project(
@@ -168,16 +184,23 @@ export function ZoneMap() {
     );
     return { x: a.x, y: a.y, w: b.x - a.x, h: b.y - a.y };
   })();
+  const inBox = (t: Town) => {
+    const { x, y } = project(mainCoast, t.lat, t.lon);
+    return x > waikatoBox.x && x < waikatoBox.x + waikatoBox.w && y > waikatoBox.y && y < waikatoBox.y + waikatoBox.h;
+  };
 
   return (
     <div className="mt-5 grid gap-4 lg:grid-cols-2">
       <figure className="overflow-hidden rounded-2xl border border-brand-purple/15 bg-white">
         <MapSvg
           coast={mainCoast}
-          places={northIsland}
-          title="Map of the North Island showing delivery zones 1 to 5 from the Hostess workshop in Te Rapa Park"
-          dot={7}
-          font={13}
+          shading="/hostess2026/zones-main.png"
+          // The close-up covers everything inside the dashed box; label it there, not here.
+          list={all.filter((t) => inside(mainCoast, t) && !inBox(t))}
+          title="Map of the North Island shaded by delivery zone, 1 to 5, from the Hostess workshop in Te Rapa Park"
+          dot={6}
+          font={12}
+          numbers={false}
           baseLabel={false}
         >
           <rect
@@ -186,7 +209,7 @@ export function ZoneMap() {
             width={waikatoBox.w}
             height={waikatoBox.h}
             fill="none"
-            stroke="#9739b0"
+            stroke="#3b1a46"
             strokeWidth={1.5}
             strokeDasharray="5 4"
           />
@@ -198,13 +221,16 @@ export function ZoneMap() {
       <figure className="overflow-hidden rounded-2xl border border-brand-purple/15 bg-white lg:self-start">
         <MapSvg
           coast={insetCoast}
-          places={waikato}
-          title="Close-up map of Zones 1 and 2 around Hamilton"
-          dot={9}
-          font={14}
+          shading="/hostess2026/zones-inset.png"
+          list={all.filter((t) => inside(insetCoast, t))}
+          title="Close-up map of the Waikato shaded by delivery zone"
+          dot={8}
+          font={12}
+          numbers
+          baseLabel
         />
         <figcaption className="border-t border-brand-purple/10 px-4 py-2 text-xs text-brand-purple/70">
-          Waikato close-up: Zones 1 and 2.
+          Waikato close-up. Bigger dots are the towns named on the card.
         </figcaption>
       </figure>
     </div>

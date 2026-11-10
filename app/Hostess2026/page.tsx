@@ -33,7 +33,7 @@ const zones: Zone[] = [
   {
     zone: 2,
     areas:
-      "Raglan, Huntly, Matamata, Morrinsville, Te Awamutu, Putāruru, Te Kauwhata, Rangiriri",
+      "Raglan, Huntly, Matamata, Morrinsville, Te Awamutu, Putāruru, Te Kauwhata, Rangiriri, Ngatea",
     prices: [580, 700, 940],
     thirdMover: 160,
   },
@@ -185,8 +185,8 @@ export default function Hostess2026Page() {
               <strong className="text-brand-purple">Over 30 cabinets:</strong> quoted per job.
             </p>
             <p>
-              <strong className="text-brand-purple">Not on the list?</strong> A town that isn&rsquo;t listed
-              takes the zone of the nearest listed town. We&rsquo;ll confirm it when you book.
+              <strong className="text-brand-purple">Not on the list?</strong> Check the zone map below: a
+              town takes the zone of the shaded area it sits in. We&rsquo;ll confirm it when you book.
             </p>
           </div>
         </section>
