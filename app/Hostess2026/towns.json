@@ -1,5 +1,5 @@
 [
-  {"name": "Hamilton", "zone": 1, "lat": -37.787, "lon": 175.279, "card": true},
+  {"name": "Hamilton", "zone": 1, "lat": -37.787, "lon": 175.279, "card": true, "city": true},
   {"name": "Cambridge", "zone": 1, "lat": -37.885, "lon": 175.47, "card": true},
   {"name": "Taupiri", "zone": 1, "lat": -37.617, "lon": 175.19, "card": true},
   {"name": "Ngāruawāhia", "zone": 1, "lat": -37.667, "lon": 175.15, "card": true},
@@ -8,12 +8,9 @@
   {"name": "Tamahere", "zone": 1, "lat": -37.833, "lon": 175.35, "card": true},
   {"name": "Newstead", "zone": 1, "lat": -37.783, "lon": 175.383, "card": true},
   {"name": "Rukuhia", "zone": 1, "lat": -37.85, "lon": 175.3, "card": true},
-  {"name": "Horotiu", "zone": 1, "lat": -37.7, "lon": 175.19},
   {"name": "Te Kowhai", "zone": 1, "lat": -37.74, "lon": 175.15},
-  {"name": "Matangi", "zone": 1, "lat": -37.805, "lon": 175.4},
   {"name": "Ōhaupō", "zone": 1, "lat": -37.917, "lon": 175.3},
   {"name": "Tauwhare", "zone": 1, "lat": -37.77, "lon": 175.45},
-  {"name": "Puketaha", "zone": 1, "lat": -37.717, "lon": 175.29},
 
   {"name": "Raglan", "zone": 2, "lat": -37.8, "lon": 174.873, "card": true},
   {"name": "Huntly", "zone": 2, "lat": -37.558, "lon": 175.16, "card": true},

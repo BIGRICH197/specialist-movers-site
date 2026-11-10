@@ -17,7 +17,8 @@ export const zoneColors: Record<number, string> = {
 
 type Coast = typeof mainCoast | typeof insetCoast;
 
-type Town = { name: string; zone: number; lat: number; lon: number; card?: boolean };
+/** `city`: drawn as a name centred on the city with no dot (Hamilton), like a road map. */
+type Town = { name: string; zone: number; lat: number; lon: number; card?: boolean; city?: boolean };
 
 type Placed = { x: number; y: number; anchor: "start" | "middle" | "end"; text: string };
 
@@ -31,9 +32,10 @@ type Box = { x0: number; y0: number; x1: number; y1: number };
 const overlaps = (a: Box, b: Box) => a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a.y1;
 
 /**
- * Greedy label placement: card towns first, then the rest, each trying eight
- * spots around its dot and skipping the label if every spot collides. The dot
- * always draws, so a skipped label still shows its zone by colour.
+ * Greedy label placement: cities are centred on their own point first, then
+ * card towns, then the rest, each trying spots around its dot and skipping
+ * the label if every spot collides. The dot always draws, so a skipped label
+ * still shows its zone by colour.
  */
 function placeLabels(
   coast: Coast,
@@ -44,12 +46,19 @@ function placeLabels(
 ): Map<string, Placed> {
   const charW = font * 0.56;
   const taken: Box[] = [...reserved];
+  const out = new Map<string, Placed>();
+  for (const t of list.filter((c) => c.city)) {
+    const { x, y } = project(coast, t.lat, t.lon);
+    const w = t.name.length * charW * 1.15;
+    taken.push({ x0: x - w / 2, y0: y - font, x1: x + w / 2, y1: y + font * 0.4 });
+    out.set(t.name, { x, y: y + font * 0.35, anchor: "middle", text: t.name });
+  }
   for (const t of list) {
+    if (t.city) continue;
     const { x, y } = project(coast, t.lat, t.lon);
     taken.push({ x0: x - dot, y0: y - dot, x1: x + dot, y1: y + dot });
   }
-  const ordered = [...list].sort((a, b) => Number(Boolean(b.card)) - Number(Boolean(a.card)));
-  const out = new Map<string, Placed>();
+  const ordered = list.filter((t) => !t.city).sort((a, b) => Number(Boolean(b.card)) - Number(Boolean(a.card)));
   const gap = dot + 3;
   for (const t of ordered) {
     const { x, y } = project(coast, t.lat, t.lon);
@@ -64,6 +73,13 @@ function placeLabels(
       [x + gap - 2, y + gap + h * 0.6, "start"],
       [x - gap + 2, y - gap + 2, "end"],
       [x - gap + 2, y + gap + h * 0.6, "end"],
+      // Second ring for crowded spots, still close enough to read as this dot's.
+      [x, y - gap - h, "middle"],
+      [x, y + gap + h * 1.8, "middle"],
+      [x + gap, y + h * 1.4, "start"],
+      [x - gap, y + h * 1.4, "end"],
+      [x + gap, y - h * 0.7, "start"],
+      [x - gap, y - h * 0.7, "end"],
     ];
     for (const [lx, ly, anchor] of spots) {
       const x0 = anchor === "start" ? lx : anchor === "end" ? lx - w : lx - w / 2;
@@ -119,6 +135,7 @@ function MapSvg({
       <path d={coast.d} fill="none" stroke="#a993bd" strokeWidth={1.2} />
       {children}
       {list.map((t) => {
+        if (t.city) return null;
         const { x, y } = project(coast, t.lat, t.lon);
         const r = t.card ? dot : dot * 0.75;
         return (
@@ -141,8 +158,8 @@ function MapSvg({
             x={l.x}
             y={l.y}
             textAnchor={l.anchor}
-            fontSize={font}
-            fontWeight={t.card ? 600 : 400}
+            fontSize={t.city ? font * 1.15 : font}
+            fontWeight={t.city ? 800 : t.card ? 600 : 400}
             fill="#3b1a46"
             stroke="#ffffff"
             strokeWidth={3}
