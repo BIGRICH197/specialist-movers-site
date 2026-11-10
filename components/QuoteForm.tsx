@@ -525,7 +525,7 @@ export function QuoteForm({
               {/* The VIP offer was only visible on the contact step, after
                   they had already chosen no packing (Richard, 2026-11-02). */}
               <span className="mt-1.5 inline-block rounded-full bg-brand-yellow px-2 py-0.5 text-xs font-bold text-brand-purple">
-                VIP offer: add packing and the exit clean is free
+                VIP offer: full house pack, exit clean included
               </span>
             </div>
             <ArrowRight className="ml-auto h-5 w-5 shrink-0 text-brand-purple/40" />
@@ -1591,9 +1591,9 @@ export function QuoteForm({
             Hamilton zone callout, to keep the line simple (Richard, 2026-11-02). */}
         {quoteMode === "house" && packingCostExGst == null ? (
           <div className="mt-4 space-y-1.5 rounded-xl border border-brand-yellow/70 bg-brand-yellow/25 px-4 py-4 text-sm leading-relaxed text-brand-purple sm:px-5">
-            <p className="font-bold">Add packing and your exit clean is free.</p>
+            <p className="font-bold">Upgrade to VIP with a full house pack.</p>
             <p>
-              Book our packers with your move and we&apos;ll upgrade you to VIP
+              Book a full house pack with your move and we&apos;ll upgrade you to VIP
               at no extra charge, including the full exit clean, worth{" "}
               {formatNzd(vipCleanValueExGst(f.bedrooms))} + GST for{" "}
               {f.bedrooms >= 4
