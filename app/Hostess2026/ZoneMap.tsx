@@ -5,7 +5,7 @@ import towns from "./towns.json";
  * Zone shading (public/hostess2026/zones-*.png) is rendered offline from
  * towns.json: every bit of land takes the zone of its nearest town, which is
  * the card's own "nearest listed town" rule. Change a town's zone or add one
- * and the PNGs must be regenerated with it, or the shading and dots disagree.
+ * and rerun scripts/hostess-zone-map.py, or the shading and dots disagree.
  */
 export const zoneColors: Record<number, string> = {
   1: "#9739b0",
