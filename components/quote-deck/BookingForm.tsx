@@ -19,6 +19,7 @@ import { isDialable, PHONE_ERROR } from "@/lib/phone";
 import { BOOKED_BY_OPTIONS } from "@/lib/booked-by";
 import { phoneDisplay, phoneNumber } from "@/lib/site-data";
 import { cleaningOptionalExtras } from "@/lib/cleaning-schedule";
+import { getAttribution } from "@/lib/attribution";
 
 // Branded booking form — mirrors the JotForm "House move booking confirmation"
 // fields, prefilled from the quote. On submit it posts to /api/bookings, which
@@ -417,7 +418,7 @@ export function BookingForm({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(
           standalone
-            ? { serviceType: bookServiceType, fields }
+            ? { serviceType: bookServiceType, fields, attribution: getAttribution() }
             : { ref: quoteRef, fields },
         ),
       });

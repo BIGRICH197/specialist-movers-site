@@ -8,6 +8,8 @@ import {
 } from "@/lib/pricing";
 import { createHubSpotDeal, HUBSPOT_OWNERS } from "@/lib/hubspot";
 import { isDialable } from "@/lib/phone";
+import type { Attribution } from "@/lib/attribution";
+import { attributionNoteLines, classifyTrafficSource } from "@/lib/traffic-source";
 import { isEmailish } from "@/lib/email";
 import { postSlackMessage, slackChannel, slackConfigured } from "@/lib/slack";
 import {
@@ -164,6 +166,7 @@ async function executeTool(
   name: string,
   input: Record<string, unknown>,
   conv?: Conversation,
+  attribution?: Attribution,
 ): Promise<string> {
   if (name === "calculate_house_move") {
     const raw = { ...input } as Record<string, unknown>;
@@ -234,6 +237,11 @@ async function executeTool(
       dropoffAddress: (input.dropoffAddress as string) || "",
       notes: `Joey chatbot lead\n${(input.notes as string) || ""}${badDetail ? `\n${badDetail}` : ""}`,
       source: "Chat Bot",
+      // First-touch attribution from the widget, so chat leads say whether
+      // they came from Google Ads, SEO or direct like the quote form does.
+      trafficSource: classifyTrafficSource(attribution),
+      landingPage: attribution?.landingPage,
+      attributionNote: attributionNoteLines(attribution).join("\n") || undefined,
       ownerId: HUBSPOT_OWNERS.danielle,
       // Only when Joey actually asked -- an absent or unexpected value writes
       // nothing rather than guessing "upright" and under-quoting a grand.
@@ -302,6 +310,7 @@ async function runJoey(
   messages: Array<{ role: "user" | "assistant"; content: string }>,
   apiKey: string,
   conv?: Conversation,
+  attribution?: Attribution,
 ): Promise<string> {
   const client = new Anthropic({ apiKey });
   let currentMessages: Anthropic.MessageParam[] = messages.map((m) => ({
@@ -354,6 +363,7 @@ async function runJoey(
               toolBlock.name,
               toolBlock.input as Record<string, unknown>,
               conv,
+              attribution,
             ),
           })),
         ),
@@ -373,9 +383,10 @@ export async function POST(request: Request) {
     });
   }
 
-  const { messages, conversationId } = (await request.json()) as {
+  const { messages, conversationId, attribution } = (await request.json()) as {
     messages: Array<{ role: "user" | "assistant"; content: string }>;
     conversationId?: string;
+    attribution?: Attribution;
   };
 
   const lastUser = [...messages].reverse().find((m) => m.role === "user");
@@ -400,7 +411,7 @@ export async function POST(request: Request) {
       });
     }
 
-    const reply = await runJoey(messages, apiKey, conv);
+    const reply = await runJoey(messages, apiKey, conv, attribution);
     appendMessage(conv, "joey", reply);
     await mirrorToSlack(conv, "joey", reply);
     await saveConversation(conv);
@@ -411,7 +422,7 @@ export async function POST(request: Request) {
   }
 
   // --- Fallback path: plain stateless bot (store/Slack not configured) ---
-  const reply = await runJoey(messages, apiKey);
+  const reply = await runJoey(messages, apiKey, undefined, attribution);
   return new Response(JSON.stringify({ role: "assistant", content: reply }), {
     headers: { "Content-Type": "application/json" },
   });

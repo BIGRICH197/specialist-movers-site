@@ -17,6 +17,8 @@ import { isEmailish, EMAIL_ERROR } from "@/lib/email";
 import { createPianoCard } from "@/lib/piano-card";
 import { saveDirectBooking, attachDealToDirectBooking } from "@/lib/direct-booking";
 import { markLatestQuoteBookedByEmail } from "@/lib/quote-store";
+import type { Attribution } from "@/lib/attribution";
+import { attributionNoteLines, classifyTrafficSource } from "@/lib/traffic-source";
 
 export const runtime = "nodejs";
 // Room for the background follow-up below (Slack, HubSpot, then n8n, which
@@ -29,7 +31,12 @@ export const maxDuration = 60;
 // webhook, which builds the Trello job card and moves the matching HubSpot deal
 // (found by email) to Closed Won. Most people booking in are already a deal.
 
-type BookInBody = { serviceType?: string; fields?: Record<string, string> };
+type BookInBody = {
+  serviceType?: string;
+  fields?: Record<string, string>;
+  /** First-touch attribution captured on the landing page. */
+  attribution?: Attribution;
+};
 
 const HOUSE_REQUIRED = [
   "fullName",
@@ -162,7 +169,7 @@ export async function POST(request: Request) {
   // show "Something went wrong" for a booking that had gone through: Shahar
   // Robinzon, 2026-11-03, re-entered by the office 12 minutes later.
   waitUntil(
-    followUp(serviceType, fields, token).catch((err) =>
+    followUp(serviceType, fields, token, body.attribution).catch((err) =>
       console.error("book-in follow-up failed:", err),
     ),
   );
@@ -173,6 +180,7 @@ async function followUp(
   serviceType: string,
   fields: Record<string, string>,
   token: string,
+  attribution?: Attribution,
 ): Promise<void> {
   const isPiano = serviceType === "piano";
 
@@ -250,6 +258,11 @@ async function followUp(
           dropoffAddress: fields.dropoffAddress || "",
           notes: "Booked in via /book (no quote link).",
           source: "Booking Form",
+          // Same first-touch attribution the quote form sends, so a booking
+          // made without a quote still says Google Ads / SEO / direct.
+          trafficSource: classifyTrafficSource(attribution),
+          landingPage: attribution?.landingPage,
+          attributionNote: attributionNoteLines(attribution).join("\n") || undefined,
           dealStage: STAGE_CLOSED_WON,
           ownerId: bookedByOwner,
         });

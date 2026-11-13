@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { X, Send, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { getAttribution } from "@/lib/attribution";
 
 interface Message {
   role: "user" | "assistant";
@@ -212,6 +213,7 @@ export function JoeyChat() {
         body: JSON.stringify({
           messages: updatedMessages,
           conversationId: conversationIdRef.current,
+          attribution: getAttribution(),
         }),
       });
       const data = (await res.json()) as {

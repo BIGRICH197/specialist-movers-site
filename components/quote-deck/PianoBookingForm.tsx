@@ -5,6 +5,7 @@ import { bookingTerms, BOOKING_TERMS_VERSION } from "@/lib/quote-deck/booking-te
 import { isDialable, PHONE_ERROR } from "@/lib/phone";
 import { isEmailish, EMAIL_ERROR } from "@/lib/email";
 import { BOOKED_BY_OPTIONS } from "@/lib/booked-by";
+import { getAttribution } from "@/lib/attribution";
 import { PIANO_COVER_NO, PIANO_COVER_YES, isPianoItem, pianoCoverAmount, pianoCoverPrice } from "@/lib/company-facts";
 
 // Direct piano / large-item book-in form (no quote link needed) — replaces the
@@ -138,7 +139,7 @@ export function PianoBookingForm() {
       const res = await fetch("/api/book-in", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ serviceType: "piano", fields }),
+        body: JSON.stringify({ serviceType: "piano", fields, attribution: getAttribution() }),
       });
       // A timeout or gateway error comes back as an HTML page, not JSON.
       const data = (await res.json().catch(() => ({}))) as {
